@@ -5,6 +5,8 @@ namespace CSF.Screenplay
 {
   public interface IAbility
   {
+    void RegisterActions();
+
     bool CanProvideAction<TAction>();
 
     bool CanProvideAction(Type actionType);

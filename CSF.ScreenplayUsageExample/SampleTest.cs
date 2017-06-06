@@ -2,7 +2,7 @@
 using CSF.Screenplay;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.ScreenplayUsageExample
+namespace CSF.Screenplay.Example
 {
   public class SampleTest
   {

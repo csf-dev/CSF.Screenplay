@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay;
 
-namespace CSF.ScreenplayUsageExample
+namespace CSF.Screenplay.Example
 {
   public class DoAThingTask : ITask
   {

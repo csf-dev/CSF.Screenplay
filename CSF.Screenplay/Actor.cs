@@ -69,6 +69,7 @@ namespace CSF.Screenplay
       if(ability == null)
         throw new ArgumentNullException(nameof(ability));
 
+      ability.RegisterActions();
       abilities.Add(ability);
     }
 

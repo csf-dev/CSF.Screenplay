@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay", "CSF.Screenplay\CSF.Screenplay.csproj", "{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.ScreenplayUsageExample", "CSF.ScreenplayUsageExample\CSF.ScreenplayUsageExample.csproj", "{7FDEE168-847E-4B1F-960D-D79D3EEB1D21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Example", "CSF.ScreenplayUsageExample\CSF.Screenplay.Example.csproj", "{7FDEE168-847E-4B1F-960D-D79D3EEB1D21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
