@@ -1,4 +1,4 @@
-public interface IQuestions<TAnswer>
+public interface IQuestion<TAnswer>
 {
   TAnswer GetAnswer();
 }
