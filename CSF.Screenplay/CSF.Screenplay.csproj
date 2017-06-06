@@ -39,10 +39,15 @@
     <Compile Include="ICanReceiveAbilities.cs" />
     <Compile Include="IQuestion.cs" />
     <Compile Include="ITask.cs" />
-    <Compile Include="UsageExample.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CSF.Screenplay.csproj" />
+    <Compile Include="IQuestion`1.cs" />
+    <Compile Include="IAnswerMatcher`1.cs" />
+    <Compile Include="IAbility.cs" />
+    <Compile Include="StepComposer.cs" />
+    <Compile Include="Ability.cs" />
+    <Compile Include="ActionProvider.cs" />
+    <Compile Include="ExpectationComposer.cs" />
+    <Compile Include="IExpectationComposer.cs" />
+    <Compile Include="Question.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,6 +32,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleTest.cs" />
+    <Compile Include="DoAThingTask.cs" />
+    <Compile Include="DoADifferentThingTask.cs" />
+    <Compile Include="SeeSomethingHappenExpectation.cs" />
+    <Compile Include="LightsQuestion.cs" />
+    <Compile Include="StringEqualityAnswerMatcher.cs" />
+    <Compile Include="ExpectationComposerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

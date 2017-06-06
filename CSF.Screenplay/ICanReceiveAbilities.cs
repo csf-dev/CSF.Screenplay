@@ -4,20 +4,10 @@ namespace CSF.Screenplay
 {
   public interface ICanReceiveAbilities
   {
-    ICanReceiveAbilities IsAbleTo<TAbility>(TAbility ability);
+    void IsAbleTo<TAbility>() where TAbility : IAbility;
 
-    ICanReceiveAbilities IsAbleTo<TAbility>(Lazy<TAbility> ability);
+    void IsAbleTo(IAbility ability);
 
-    ICanReceiveAbilities IsAbleTo<TAbility>(Func<TAbility> ability);
-
-    ICanReceiveAbilities IsAbleTo<TAbility>();
-
-    ICanReceiveAbilities IsAbleTo(Type abilityType, IAbility ability);
-
-    ICanReceiveAbilities IsAbleTo(Type abilityType, Lazy<IAbility> ability);
-
-    ICanReceiveAbilities IsAbleTo(Type abilityType, Func<IAbility> ability);
-
-    ICanReceiveAbilities IsAbleTo(Type abilityType);
+    void IsAbleTo(Type abilityType);
   }
 }

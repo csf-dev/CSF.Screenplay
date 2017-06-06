@@ -4,9 +4,4 @@ namespace CSF.Screenplay
   {
     object GetAnswer(ICanPerformActions actor);
   }
-
-  public interface IQuestion<TAnswer> : IQuestion
-  {
-    TAnswer GetAnswer(ICanPerformActions actor);
-  }
 }

@@ -7,6 +7,6 @@ namespace CSF.Screenplay
   {
     IEnumerable<Type> GetAllActionTypes();
 
-    TAction GetAction<TAction>();
+    TAction GetAction<TAction>() where TAction : class;
   }
 }

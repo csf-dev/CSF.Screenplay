@@ -7,14 +7,29 @@ namespace CSF.Screenplay
     
     public virtual void Verify(ICanPerformActions actor)
     {
-      var answer = question.GetAnswer(actor);
-      var isMatch = matcher.Match(answer);
+      var answer = GetAnswer(actor);
+      var success = IsMatch(answer);
       // Perform assertion that isMatch is true
     }
-    
-    public Expectation(IAnswerMatcher<TAnswer> matcher, IQuestion<TAnswer> question)
+
+    protected virtual TAnswer GetAnswer(ICanPerformActions actor)
     {
-      // Usual ctor stuff omitted
+      return question.GetAnswer(actor);
+    }
+
+    protected virtual bool IsMatch(TAnswer answer)
+    {
+      return matcher.IsMatch(answer);
+    }
+
+    public Expectation(IQuestion<TAnswer> question, IAnswerMatcher<TAnswer> matcher)
+    {
+      if(matcher == null)
+        throw new System.ArgumentNullException(nameof(matcher));
+      if(question == null)
+        throw new System.ArgumentNullException(nameof(question));
+      this.matcher = matcher;
+      this.question = question;
     }
   }
 }
