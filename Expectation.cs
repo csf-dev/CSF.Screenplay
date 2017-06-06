@@ -5,7 +5,7 @@ public class Expectation<TAnswer> : IExpectation
   
   public virtual void Verify(ICanPerformActions actor)
   {
-    var answer = question.GetAnswer();
+    var answer = question.GetAnswer(actor);
     var isMatch = matcher.Match(answer);
     // Perform assertion that isMatch is true
   }

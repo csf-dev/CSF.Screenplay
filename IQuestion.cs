@@ -1,9 +1,9 @@
 public interface IQuestion
 {
-  object GetAnswer();
+  object GetAnswer(ICanPerformActions actor);
 }
 
 public interface IQuestion<TAnswer> : IQuestion
 {
-  TAnswer GetAnswer();
+  TAnswer GetAnswer(ICanPerformActions actor);
 }
