@@ -1,18 +1,18 @@
 public interface IHasAbilities
 {
-  IActor IsAbleTo<TAbility>(TAblity ability);
+  IHasAbilities IsAbleTo<TAbility>(TAblity ability);
 
-  IActor IsAbleTo<TAbility>(Lazy<TAblity> ability);
+  IHasAbilities IsAbleTo<TAbility>(Lazy<TAblity> ability);
 
-  IActor IsAbleTo<TAbility>(Func<TAblity> ability);
+  IHasAbilities IsAbleTo<TAbility>(Func<TAblity> ability);
 
-  IActor IsAbleTo<TAbility>();
+  IHasAbilities IsAbleTo<TAbility>();
 
-  IActor IsAbleTo(Type abilityType, IAbility ability);
+  IHasAbilities IsAbleTo(Type abilityType, IAbility ability);
 
-  IActor IsAbleTo(Type abilityType, Lazy<IAbility> ability);
+  IHasAbilities IsAbleTo(Type abilityType, Lazy<IAbility> ability);
 
-  IActor IsAbleTo(Type abilityType, Func<IAbility> ability);
+  IHasAbilities IsAbleTo(Type abilityType, Func<IAbility> ability);
 
-  IActor IsAbleTo(Type abilityType);
+  IHasAbilities IsAbleTo(Type abilityType);
 }
