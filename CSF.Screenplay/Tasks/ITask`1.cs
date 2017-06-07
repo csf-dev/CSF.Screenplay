@@ -4,8 +4,8 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Tasks
 {
-  public interface ITask<TResult>
+  public interface ITask<TResult> : ITaskWithResult
   {
-    TResult Execute(IPerformer actor);
+    new TResult Execute(IPerformer actor);
   }
 }

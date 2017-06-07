@@ -63,6 +63,8 @@
     <Compile Include="Actions\ActionExecuterWithResult.cs" />
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\Action`1.cs" />
+    <Compile Include="AnswerMatcherComposer.cs" />
+    <Compile Include="Tasks\ITaskWithResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

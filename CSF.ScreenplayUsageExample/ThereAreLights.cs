@@ -6,9 +6,9 @@ using CSF.Screenplay.Questions;
 
 namespace CSF.Screenplay.Example
 {
-  public class LightsQuestion : Question<string>
+  public class ThereAreLights : Question<string>
   {
-    public override string GetAnswer(IPerformer actor)
+    protected override string GetAnswer(IPerformer actor)
     {
       return "Bright";
     }

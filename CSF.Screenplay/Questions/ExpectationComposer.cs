@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Questions
   {
     readonly IQuestion<TAnswer> question;
 
-    Expectation<TAnswer> IExpectationComposer<TAnswer>.Compose(IAnswerMatcher<TAnswer> matcher)
+    Expectation<TAnswer> IExpectationComposer<TAnswer>.Which(IAnswerMatcher<TAnswer> matcher)
     {
       if(matcher == null)
         throw new ArgumentNullException(nameof(matcher));

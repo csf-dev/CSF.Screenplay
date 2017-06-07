@@ -5,7 +5,7 @@ using static CSF.Screenplay.ActionComposer;
 
 namespace CSF.Screenplay.Example
 {
-  public class DoAThingTask : ITask
+  public class DoAThing : ITask
   {
     public void Execute(IPerformer actor)
     {

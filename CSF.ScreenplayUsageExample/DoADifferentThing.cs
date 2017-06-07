@@ -6,7 +6,7 @@ using CSF.Screenplay.Tasks;
 
 namespace CSF.Screenplay.Example
 {
-  public class DoADifferentThingTask : ITask
+  public class DoADifferentThing : ITask
   {
     public void Execute(IPerformer actor)
     {
