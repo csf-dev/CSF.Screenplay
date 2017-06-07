@@ -1,6 +1,7 @@
 using System;
+using CSF.Screenplay.Abilities;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Actors
 {
   public interface ICanReceiveAbilities
   {

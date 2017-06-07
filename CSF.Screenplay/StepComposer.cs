@@ -1,4 +1,6 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Questions;
 
 namespace CSF.Screenplay
 {
@@ -6,24 +8,16 @@ namespace CSF.Screenplay
   {
     public static IGivenActor Given(Actor actor)
     {
-      return Compose(actor);
+      return actor;
     }
 
     public static IWhenActor When(Actor actor)
     {
-      return Compose(actor);
+      return actor;
     }
 
     public static IThenActor Then(Actor actor)
     {
-      return Compose(actor);
-    }
-
-    static IActor Compose(Actor actor)
-    {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
       return actor;
     }
 

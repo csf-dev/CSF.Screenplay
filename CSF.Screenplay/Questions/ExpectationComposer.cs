@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Questions
 {
   public class ExpectationComposer<TAnswer> : IExpectationComposer<TAnswer>
   {

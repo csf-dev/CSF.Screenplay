@@ -1,18 +1,21 @@
-namespace CSF.Screenplay
+using CSF.Screenplay.Abilities;
+using CSF.Screenplay.Actors;
+
+namespace CSF.Screenplay.Questions
 {
   public class Expectation<TAnswer> : IExpectation
   {
     readonly IAnswerMatcher<TAnswer> matcher;
     readonly IQuestion<TAnswer> question;
     
-    public virtual void Verify(ICanPerformActions actor)
+    public virtual void Verify(IPerformer actor)
     {
       var answer = GetAnswer(actor);
       var success = IsMatch(answer);
       // Perform assertion that isMatch is true
     }
 
-    protected virtual TAnswer GetAnswer(ICanPerformActions actor)
+    protected virtual TAnswer GetAnswer(IPerformer actor)
     {
       return question.GetAnswer(actor);
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay;
+
 using static CSF.Screenplay.StepComposer;
 
 namespace CSF.Screenplay.Example

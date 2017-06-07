@@ -31,23 +31,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Actor.cs" />
-    <Compile Include="Expectation.cs" />
-    <Compile Include="IActor.cs" />
-    <Compile Include="ICanPerformActions.cs" />
-    <Compile Include="IExpectation.cs" />
-    <Compile Include="ICanReceiveAbilities.cs" />
-    <Compile Include="IQuestion.cs" />
-    <Compile Include="ITask.cs" />
-    <Compile Include="IQuestion`1.cs" />
-    <Compile Include="IAnswerMatcher`1.cs" />
-    <Compile Include="IAbility.cs" />
     <Compile Include="StepComposer.cs" />
-    <Compile Include="Ability.cs" />
-    <Compile Include="ActionProvider.cs" />
-    <Compile Include="ExpectationComposer.cs" />
-    <Compile Include="IExpectationComposer.cs" />
-    <Compile Include="Question.cs" />
+    <Compile Include="Abilities\IAbility.cs" />
+    <Compile Include="Abilities\Ability.cs" />
+    <Compile Include="Actors\ICanReceiveAbilities.cs" />
+    <Compile Include="Questions\Expectation.cs" />
+    <Compile Include="Questions\ExpectationComposer.cs" />
+    <Compile Include="Questions\IAnswerMatcher`1.cs" />
+    <Compile Include="Questions\IExpectation.cs" />
+    <Compile Include="Questions\IQuestion.cs" />
+    <Compile Include="Questions\IQuestion`1.cs" />
+    <Compile Include="Questions\Question.cs" />
+    <Compile Include="Questions\IExpectationComposer.cs" />
+    <Compile Include="Actions\IAction`1.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Actor.cs" />
+    <Compile Include="Tasks\ITask`1.cs" />
+    <Compile Include="Actors\IGivenActor.cs" />
+    <Compile Include="Actors\IWhenActor.cs" />
+    <Compile Include="Actors\IThenActor.cs" />
+    <Compile Include="Actors\IPerformer.cs" />
+    <Compile Include="Actions\IAction.cs" />
+    <Compile Include="Actors\Performer.cs" />
+    <Compile Include="Actions\IActionExecutor`1.cs" />
+    <Compile Include="Actions\IActionExecutor`2.cs" />
+    <Compile Include="Actors\ICanPerformActions.cs" />
+    <Compile Include="Actions\ActionExecutorBase.cs" />
+    <Compile Include="ActionComposer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actors\" />
+    <Folder Include="Abilities\" />
+    <Folder Include="Actions\" />
+    <Folder Include="Tasks\" />
+    <Folder Include="Questions\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

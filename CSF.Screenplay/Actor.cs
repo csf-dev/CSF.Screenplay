@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Abilities;
+using CSF.Screenplay.Questions;
+using CSF.Screenplay.Tasks;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-  public class Actor : IActor, IGivenActor, IWhenActor, IThenActor, ICanReceiveAbilities
+  public class Actor : IGivenActor, IWhenActor, IThenActor, ICanReceiveAbilities
   {
     #region fields
 
@@ -28,6 +32,21 @@ namespace CSF.Screenplay
       Perform(task);
     }
 
+    TResult IGivenActor.WasAbleTo<TResult>(ITask<TResult> task)
+    {
+      return Perform(task);
+    }
+
+    TResult IWhenActor.AttemptsTo<TResult>(ITask<TResult> task)
+    {
+      return Perform(task);
+    }
+
+    TResult IThenActor.Should<TResult>(ITask<TResult> task)
+    {
+      return Perform(task);
+    }
+
     void IThenActor.Should(IExpectation expectation)
     {
       Verify(expectation);
@@ -35,13 +54,19 @@ namespace CSF.Screenplay
 
     protected virtual void Perform(ITask task)
     {
-      var provider = GetActionProvider();
+      var provider = GetPerformer();
       task.Execute(provider);
+    }
+
+    protected virtual TResult Perform<TResult>(ITask<TResult> task)
+    {
+      var provider = GetPerformer();
+      return task.Execute(provider);
     }
 
     protected virtual void Verify(IExpectation expectation)
     {
-      var provider = GetActionProvider();
+      var provider = GetPerformer();
       expectation.Verify(provider);
     }
 
@@ -73,9 +98,9 @@ namespace CSF.Screenplay
       abilities.Add(ability);
     }
 
-    protected virtual ICanPerformActions GetActionProvider()
+    protected virtual IPerformer GetPerformer()
     {
-      return new ActionProvider(abilities);
+      return new Performer(abilities);
     }
 
     #endregion

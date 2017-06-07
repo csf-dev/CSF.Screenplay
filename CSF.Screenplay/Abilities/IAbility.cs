@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Abilities
 {
   public interface IAbility
   {

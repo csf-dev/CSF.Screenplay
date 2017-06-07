@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay;
+using CSF.Screenplay.Questions;
 
 namespace CSF.Screenplay.Example
 {
