@@ -53,11 +53,16 @@
     <Compile Include="Actors\IPerformer.cs" />
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="Actors\Performer.cs" />
-    <Compile Include="Actions\IActionExecutor`1.cs" />
-    <Compile Include="Actions\IActionExecutor`2.cs" />
+    <Compile Include="Actions\IActionExecutor.cs" />
+    <Compile Include="Actions\IActionExecutorWithResult.cs" />
     <Compile Include="Actors\ICanPerformActions.cs" />
     <Compile Include="Actions\ActionExecutorBase.cs" />
     <Compile Include="ActionComposer.cs" />
+    <Compile Include="Actions\IActionWithResult.cs" />
+    <Compile Include="Actions\ActionExecuter.cs" />
+    <Compile Include="Actions\ActionExecuterWithResult.cs" />
+    <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\Action`1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

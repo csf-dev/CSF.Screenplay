@@ -1,8 +1,8 @@
 ﻿using System;
 namespace CSF.Screenplay.Actions
 {
-  public interface IAction<TResult>
+  public interface IAction<TResult> : IActionWithResult
   {
-    TResult Execute();
+    new TResult Execute();
   }
 }

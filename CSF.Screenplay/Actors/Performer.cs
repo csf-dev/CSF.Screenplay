@@ -24,12 +24,12 @@ namespace CSF.Screenplay.Actors
       executor.Execute(this);
     }
 
-    public TResult AttemptsTo<TAction,TResult>(IActionExecutor<TAction,TResult> executor)
+    public TResult AttemptsTo<TAction,TResult>(IActionExecutorWithResult<TAction> executor)
       where TAction : IAction<TResult>
     {
       if(executor == null)
         throw new ArgumentNullException(nameof(executor));
-      return executor.Execute(this);
+      return (TResult) executor.Execute(this);
     }
 
     #endregion

@@ -5,10 +5,14 @@ namespace CSF.Screenplay
 {
   public static class ActionComposer
   {
-    public static IActionExecutor<TAction> Perform<TAction>() where TAction : class,IAction
+    public static ActionExecuter<TAction> Perform<TAction>() where TAction : class,IAction
     {
-      // TODO: Write this implementation
-      throw new NotImplementedException();
+      return new ActionExecuter<TAction>();
+    }
+
+    public static ActionExecuterWithResult<TAction> PerformAndGetResult<TAction>() where TAction : class,IActionWithResult
+    {
+      return new ActionExecuterWithResult<TAction>();
     }
   }
 }

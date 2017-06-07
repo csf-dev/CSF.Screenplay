@@ -5,8 +5,10 @@ namespace CSF.Screenplay.Actors
 {
   public interface IPerformer
   {
-    void AttemptsTo<TAction>(IActionExecutor<TAction> executor) where TAction : IAction;
+    void AttemptsTo<TAction>(IActionExecutor<TAction> executor)
+      where TAction : IAction;
 
-    TResult AttemptsTo<TAction,TResult>(IActionExecutor<TAction,TResult> executor) where TAction : IAction<TResult>;
+    TResult AttemptsTo<TAction,TResult>(IActionExecutorWithResult<TAction> executor)
+      where TAction : IAction<TResult>;
   }
 }

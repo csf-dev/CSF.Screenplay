@@ -38,6 +38,7 @@
     <Compile Include="LightsQuestion.cs" />
     <Compile Include="StringEqualityAnswerMatcher.cs" />
     <Compile Include="ExpectationComposerExtensions.cs" />
+    <Compile Include="AThing.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
