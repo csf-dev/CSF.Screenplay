@@ -5,7 +5,10 @@ namespace CSF.Screenplay.Abilities
 {
   public abstract class Ability : IAbility
   {
-    public abstract void RegisterActions();
+    /// <summary>
+    /// Initialise the ability type, preparing it to supply actions.
+    /// </summary>
+    public abstract void Init();
 
     public virtual bool CanProvideAction<TAction>()
     {
