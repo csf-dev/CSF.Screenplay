@@ -10,6 +10,8 @@ namespace CSF.Screenplay.Actors
 
     TResult Should<TResult>(ITask<TResult> task);
 
-    void Should(IExpectation expectation);
+    object ShouldSee(IQuestion question);
+
+    TResult ShouldSee<TResult>(IQuestion<TResult> question);
   }
 }

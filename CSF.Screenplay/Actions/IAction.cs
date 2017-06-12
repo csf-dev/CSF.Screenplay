@@ -1,8 +1,8 @@
 ﻿using System;
 namespace CSF.Screenplay.Actions
 {
-  public interface IAction
+  public interface IAction<TParams>
   {
-    void Execute();
+    void Execute(TParams parameters);
   }
 }

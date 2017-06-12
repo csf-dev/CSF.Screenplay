@@ -35,14 +35,9 @@
     <Compile Include="Abilities\IAbility.cs" />
     <Compile Include="Abilities\Ability.cs" />
     <Compile Include="Actors\ICanReceiveAbilities.cs" />
-    <Compile Include="Questions\Expectation.cs" />
-    <Compile Include="Questions\ExpectationComposer.cs" />
-    <Compile Include="Questions\IAnswerMatcher`1.cs" />
-    <Compile Include="Questions\IExpectation.cs" />
     <Compile Include="Questions\IQuestion.cs" />
     <Compile Include="Questions\IQuestion`1.cs" />
     <Compile Include="Questions\Question.cs" />
-    <Compile Include="Questions\IExpectationComposer.cs" />
     <Compile Include="Actions\IAction`1.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Actor.cs" />
@@ -53,17 +48,9 @@
     <Compile Include="Actors\IPerformer.cs" />
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="Actors\Performer.cs" />
-    <Compile Include="Actions\IActionExecutor.cs" />
-    <Compile Include="Actions\IActionExecutorWithResult.cs" />
-    <Compile Include="Actors\ICanPerformActions.cs" />
-    <Compile Include="Actions\ActionExecutorBase.cs" />
-    <Compile Include="ActionComposer.cs" />
     <Compile Include="Actions\IActionWithResult.cs" />
-    <Compile Include="Actions\ActionExecuter.cs" />
-    <Compile Include="Actions\ActionExecuterWithResult.cs" />
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\Action`1.cs" />
-    <Compile Include="AnswerMatcherComposer.cs" />
     <Compile Include="Tasks\ITaskWithResult.cs" />
   </ItemGroup>
   <ItemGroup>

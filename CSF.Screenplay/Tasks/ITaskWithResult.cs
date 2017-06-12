@@ -5,6 +5,6 @@ namespace CSF.Screenplay.Tasks
 {
   public interface ITaskWithResult
   {
-    object Execute(IPerformer actor);
+    object PerformAs(IPerformer actor);
   }
 }

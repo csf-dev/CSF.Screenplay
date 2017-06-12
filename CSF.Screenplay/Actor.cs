@@ -47,27 +47,58 @@ namespace CSF.Screenplay
       return Perform(task);
     }
 
-    void IThenActor.Should(IExpectation expectation)
+    object IGivenActor.Saw(IQuestion question)
     {
-      Verify(expectation);
+      return GetAnswer(question);
+    }
+
+    TResult IGivenActor.Saw<TResult>(IQuestion<TResult> question)
+    {
+      return GetAnswer(question);
+    }
+
+    object IWhenActor.Sees(IQuestion question)
+    {
+      return GetAnswer(question);
+    }
+
+    TResult IWhenActor.Sees<TResult>(IQuestion<TResult> question)
+    {
+      return GetAnswer(question);
+    }
+
+    object IThenActor.ShouldSee(IQuestion question)
+    {
+      return GetAnswer(question);
+    }
+
+    TResult IThenActor.ShouldSee<TResult>(IQuestion<TResult> question)
+    {
+      return GetAnswer(question);
     }
 
     protected virtual void Perform(ITask task)
     {
       var provider = GetPerformer();
-      task.Execute(provider);
+      task.PerformAs(provider);
     }
 
     protected virtual TResult Perform<TResult>(ITask<TResult> task)
     {
       var provider = GetPerformer();
-      return task.Execute(provider);
+      return task.PerformAs(provider);
     }
 
-    protected virtual void Verify(IExpectation expectation)
+    protected virtual object GetAnswer(IQuestion question)
     {
       var provider = GetPerformer();
-      expectation.Verify(provider);
+      return question.GetAnswer(provider);
+    }
+
+    protected virtual TResult GetAnswer<TResult>(IQuestion<TResult> question)
+    {
+      var provider = GetPerformer();
+      return question.GetAnswer(provider);
     }
 
     #endregion

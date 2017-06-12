@@ -1,6 +1,5 @@
 ﻿using System;
 using static CSF.Screenplay.StepComposer;
-using static CSF.Screenplay.AnswerMatcherComposer;
 
 namespace CSF.Screenplay.Example
 {
@@ -8,11 +7,17 @@ namespace CSF.Screenplay.Example
   {
     readonly Actor joe;
 
-    public void JoeShouldSeeSomethingHappenWhenHeDoesADifferentThing()
+    public void JoeShouldSeeLightsWhenHeDoesADifferentThing()
     {
-      Given(joe).WasAbleTo(PerformTask<DoAThing>());
-      When(joe).AttemptsTo(PerformTask<DoADifferentThing>());
-      Then(joe).Should(SeeThat<ThereAreLights,string>().Which(Are("Bright")));
+      var doAThing = new DoAThing();
+      var doADifferentThing = new DoADifferentThing();
+      var thatThereAreLights = new ThereAreLights();
+
+      Given(joe).WasAbleTo(doAThing);
+      When(joe).AttemptsTo(doADifferentThing);
+
+      var result = Then(joe).ShouldSee(thatThereAreLights);
+      // Perform assertion on result
     }
   }
 }

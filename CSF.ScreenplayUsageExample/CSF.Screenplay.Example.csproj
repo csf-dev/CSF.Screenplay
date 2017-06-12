@@ -34,9 +34,7 @@
     <Compile Include="SampleTest.cs" />
     <Compile Include="DoAThing.cs" />
     <Compile Include="DoADifferentThing.cs" />
-    <Compile Include="SeeSomethingHappenExpectation.cs" />
     <Compile Include="ThereAreLights.cs" />
-    <Compile Include="StringEqualityAnswerMatcher.cs" />
     <Compile Include="AThing.cs" />
   </ItemGroup>
   <ItemGroup>

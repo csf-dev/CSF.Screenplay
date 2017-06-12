@@ -20,12 +20,12 @@ namespace CSF.Screenplay.Questions
       return GetAnswer(actor);
     }
 
-    TAnswer ITask<TAnswer>.Execute(IPerformer actor)
+    TAnswer ITask<TAnswer>.PerformAs(IPerformer actor)
     {
       return GetAnswer(actor);
     }
 
-    object ITaskWithResult.Execute(IPerformer actor)
+    object ITaskWithResult.PerformAs(IPerformer actor)
     {
       return GetAnswer(actor);
     }

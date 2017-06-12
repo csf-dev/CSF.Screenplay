@@ -1,13 +1,13 @@
 ﻿using System;
 namespace CSF.Screenplay.Actions
 {
-  public abstract class Action : IAction
+  public abstract class Action<TParams> : IAction<TParams>
   {
-    protected abstract void Execute();
+    protected abstract void Execute(TParams parameters);
 
-    void IAction.Execute()
+    void IAction<TParams>.Execute(TParams parameters)
     {
-      Execute();
+      Execute(parameters);
     }
   }
 }

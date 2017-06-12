@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Example
 {
   public class DoADifferentThing : ITask
   {
-    public void Execute(IPerformer actor)
+    public void PerformAs(IPerformer actor)
     {
       throw new NotImplementedException();
     }

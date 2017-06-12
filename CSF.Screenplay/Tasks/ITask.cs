@@ -5,6 +5,6 @@ namespace CSF.Screenplay.Tasks
 {
   public interface ITask
   {
-    void Execute(IPerformer actor);
+    void PerformAs(IPerformer actor);
   }
 }

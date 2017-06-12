@@ -6,7 +6,7 @@ using CSF.Screenplay.Actions;
 
 namespace CSF.Screenplay.Actors
 {
-  public class Performer : IPerformer, ICanPerformActions
+  public class Performer : IPerformer
   {
     #region fields
 
@@ -16,32 +16,40 @@ namespace CSF.Screenplay.Actors
 
     #region public API
 
-    public virtual void AttemptsTo<TAction>(IActionExecutor<TAction> executor)
-      where TAction : IAction
+    public void Perform<TParams>(IAction<TParams> action, TParams parameters)
     {
-      if(executor == null)
-        throw new ArgumentNullException(nameof(executor));
-      executor.Execute(this);
+      if(ReferenceEquals(action, null))
+        throw new ArgumentNullException(nameof(action));
+
+      action.Execute(parameters);
     }
 
-    public TResult AttemptsTo<TAction,TResult>(IActionExecutorWithResult<TAction> executor)
-      where TAction : IAction<TResult>
+    public object Perform<TParams>(IActionWithResult<TParams> action, TParams parameters)
     {
-      if(executor == null)
-        throw new ArgumentNullException(nameof(executor));
-      return (TResult) executor.Execute(this);
+      if(ReferenceEquals(action, null))
+        throw new ArgumentNullException(nameof(action));
+
+      return action.Execute(parameters);
+    }
+
+    public TResult Perform<TParams,TResult>(IAction<TParams,TResult> action, TParams parameters)
+    {
+      if(ReferenceEquals(action, null))
+        throw new ArgumentNullException(nameof(action));
+
+      return action.Execute(parameters);
     }
 
     #endregion
 
     #region ICanPerformActions implementation
 
-    TAction ICanPerformActions.GetAction<TAction>()
+    TAction IPerformer.GetAction<TAction>()
     {
       return GetAction<TAction>();
     }
 
-    bool ICanPerformActions.SupportsActionType<TAction>()
+    bool IPerformer.SupportsActionType<TAction>()
     {
       return SupportsActionType<TAction>();
     }
