@@ -38,7 +38,7 @@
     <Compile Include="Questions\IQuestion.cs" />
     <Compile Include="Questions\IQuestion`1.cs" />
     <Compile Include="Questions\Question.cs" />
-    <Compile Include="Actions\IAction`1.cs" />
+    <Compile Include="Actions\IAction`2.cs" />
     <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Actor.cs" />
     <Compile Include="Tasks\ITask`1.cs" />
@@ -46,11 +46,11 @@
     <Compile Include="Actors\IWhenActor.cs" />
     <Compile Include="Actors\IThenActor.cs" />
     <Compile Include="Actors\IPerformer.cs" />
-    <Compile Include="Actions\IAction.cs" />
+    <Compile Include="Actions\IAction`1.cs" />
     <Compile Include="Actors\Performer.cs" />
     <Compile Include="Actions\IActionWithResult.cs" />
-    <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\Action`1.cs" />
+    <Compile Include="Actions\Action`2.cs" />
     <Compile Include="Tasks\ITaskWithResult.cs" />
   </ItemGroup>
   <ItemGroup>

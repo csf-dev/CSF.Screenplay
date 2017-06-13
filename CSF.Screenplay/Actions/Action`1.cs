@@ -1,18 +1,15 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
+
 namespace CSF.Screenplay.Actions
 {
-  public abstract class Action<TParams,TResult> : IAction<TParams,TResult>
+  public abstract class Action<TParams> : IAction<TParams>
   {
-    protected abstract TResult Execute(TParams parameters);
+    protected abstract void Execute(IPerformer performer, TParams parameters);
 
-    TResult IAction<TParams,TResult>.Execute(TParams parameters)
+    void IAction<TParams>.Execute(IPerformer performer, TParams parameters)
     {
-      return Execute(parameters);
-    }
-
-    object IActionWithResult<TParams>.Execute(TParams parameters)
-    {
-      return Execute(parameters);
+      Execute(performer, parameters);
     }
   }
 }

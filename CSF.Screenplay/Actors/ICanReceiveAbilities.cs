@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Actors
 {
   public interface ICanReceiveAbilities
   {
-    void IsAbleTo<TAbility>() where TAbility : IAbility;
+    void IsAbleTo<TAbility>() where TAbility : IAbility,new();
 
     void IsAbleTo(IAbility ability);
 

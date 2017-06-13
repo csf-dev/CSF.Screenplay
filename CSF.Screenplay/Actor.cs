@@ -12,6 +12,13 @@ namespace CSF.Screenplay
     #region fields
 
     readonly ISet<IAbility> abilities;
+    readonly string name;
+
+    #endregion
+
+    #region properties
+
+    public string Name => name;
 
     #endregion
 
@@ -105,7 +112,7 @@ namespace CSF.Screenplay
 
     #region ICanReceiveAbilities implementation
 
-    public virtual void IsAbleTo<TAbility>() where TAbility : IAbility
+    public virtual void IsAbleTo<TAbility>() where TAbility : IAbility,new()
     {
       var ability = Activator.CreateInstance<TAbility>();
       IsAbleTo(ability);
@@ -131,15 +138,19 @@ namespace CSF.Screenplay
 
     protected virtual IPerformer GetPerformer()
     {
-      return new Performer(abilities);
+      return new Performer(abilities, Name);
     }
 
     #endregion
 
     #region constructor
 
-    public Actor()
+    public Actor(string name)
     {
+      if(name == null)
+        throw new ArgumentNullException(nameof(name));
+
+      this.name = name;
       abilities = new HashSet<IAbility>();
     }
 

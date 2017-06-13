@@ -5,6 +5,8 @@ namespace CSF.Screenplay.Actors
 {
   public interface IPerformer
   {
+    string Name { get; }
+
     bool SupportsActionType<TAction>();
 
     TAction GetAction<TAction>() where TAction : class;
