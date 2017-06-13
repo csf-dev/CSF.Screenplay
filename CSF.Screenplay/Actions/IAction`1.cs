@@ -1,8 +1,10 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
+
 namespace CSF.Screenplay.Actions
 {
-  public interface IAction<TParams,TResult> : IActionWithResult<TParams>
+  public interface IAction<TParams>
   {
-    new TResult Execute(TParams parameters);
+    void Execute(IPerformer performer, TParams parameters);
   }
 }

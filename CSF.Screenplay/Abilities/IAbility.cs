@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace CSF.Screenplay.Abilities
 {
-  public interface IAbility
+  public interface IAbility : IDisposable
   {
-    /// <summary>
-    /// Initialise the ability type, preparing it to supply actions.
-    /// </summary>
-    void Init();
-
     bool CanProvideAction<TAction>();
 
     bool CanProvideAction(Type actionType);

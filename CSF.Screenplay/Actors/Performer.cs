@@ -11,17 +11,20 @@ namespace CSF.Screenplay.Actors
     #region fields
 
     readonly IEnumerable<IAbility> abilities;
+    readonly string name;
 
     #endregion
 
     #region public API
+
+    public string Name => name;
 
     public void Perform<TParams>(IAction<TParams> action, TParams parameters)
     {
       if(ReferenceEquals(action, null))
         throw new ArgumentNullException(nameof(action));
 
-      action.Execute(parameters);
+      action.Execute(this, parameters);
     }
 
     public object Perform<TParams>(IActionWithResult<TParams> action, TParams parameters)
@@ -29,7 +32,7 @@ namespace CSF.Screenplay.Actors
       if(ReferenceEquals(action, null))
         throw new ArgumentNullException(nameof(action));
 
-      return action.Execute(parameters);
+      return action.Execute(this, parameters);
     }
 
     public TResult Perform<TParams,TResult>(IAction<TParams,TResult> action, TParams parameters)
@@ -37,7 +40,7 @@ namespace CSF.Screenplay.Actors
       if(ReferenceEquals(action, null))
         throw new ArgumentNullException(nameof(action));
 
-      return action.Execute(parameters);
+      return action.Execute(this, parameters);
     }
 
     #endregion
@@ -85,11 +88,14 @@ namespace CSF.Screenplay.Actors
 
     #region constructor
 
-    internal Performer(IEnumerable<IAbility> abilities)
+    internal Performer(IEnumerable<IAbility> abilities, string name)
     {
+      if(name == null)
+        throw new ArgumentNullException(nameof(name));
       if(abilities == null)
         throw new ArgumentNullException(nameof(abilities));
 
+      this.name = name;
       this.abilities = abilities;
     }
 

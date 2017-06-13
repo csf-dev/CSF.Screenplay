@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Actions;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Example
 {
@@ -7,7 +8,7 @@ namespace CSF.Screenplay.Example
   {
     public string Value { get; set; }
 
-    protected override void Execute(string parameters)
+    protected override void Execute(IPerformer performer, string parameters)
     {
       throw new NotImplementedException();
     }
