@@ -52,6 +52,7 @@
     <Compile Include="Actions\Action`1.cs" />
     <Compile Include="Actions\Action`2.cs" />
     <Compile Include="Tasks\ITaskWithResult.cs" />
+    <Compile Include="Actors\Cast.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
