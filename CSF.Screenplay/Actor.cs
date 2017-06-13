@@ -7,7 +7,7 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-  public class Actor : IGivenActor, IWhenActor, IThenActor, ICanReceiveAbilities
+  public class Actor : IGivenActor, IWhenActor, IThenActor, ICanReceiveAbilities, IDisposable
   {
     #region fields
 
@@ -132,13 +132,41 @@ namespace CSF.Screenplay
       if(ability == null)
         throw new ArgumentNullException(nameof(ability));
 
-      ability.Init();
       abilities.Add(ability);
     }
 
     protected virtual IPerformer GetPerformer()
     {
       return new Performer(abilities, Name);
+    }
+
+    #endregion
+
+    #region IDisposable implementation
+
+    bool disposed;
+
+    protected bool Disposed => disposed;
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if(!disposed)
+      {
+        if(disposing)
+        {
+          foreach(var ability in abilities)
+          {
+            ability.Dispose();
+          }
+        }
+
+        disposed = true;
+      }
+    }
+
+    void IDisposable.Dispose()
+    {
+      Dispose(true);
     }
 
     #endregion
