@@ -96,7 +96,7 @@ namespace CSF.Screenplay.Actors
     /// <typeparam name="TAction">The desired action type.</typeparam>
     protected virtual bool SupportsActionType<TAction>()
     {
-      return GetAbility<TAction>() != null;
+      return abilities.Any(x => x.CanProvideAction<TAction>());
     }
 
     /// <summary>
@@ -113,18 +113,6 @@ namespace CSF.Screenplay.Actors
       return ability.GetAction<TAction>();
     }
 
-    /// <summary>
-    /// Gets a collection of all of the <c>System.Type</c> of actions supported by the current actor's abilities.
-    /// </summary>
-    /// <returns>The all action types.</returns>
-    protected virtual IEnumerable<Type> GetAllActionTypes()
-    {
-      return abilities
-        .SelectMany(x => x.GetActionTypes())
-        .Distinct()
-        .ToArray();
-    }
-
     #endregion
 
     #region constructor
@@ -134,7 +122,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="abilities">Abilities.</param>
     /// <param name="name">Name.</param>
-    internal Performer(IEnumerable<IAbility> abilities, string name)
+    public Performer(IEnumerable<IAbility> abilities, string name)
     {
       if(name == null)
         throw new ArgumentNullException(nameof(name));

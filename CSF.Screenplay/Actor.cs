@@ -8,7 +8,7 @@ using CSF.Screenplay.Actors;
 namespace CSF.Screenplay
 {
   /// <summary>
-  /// The main type which represents an actor in a test scenario.
+  /// The main implementation which represents an <see cref="IActor"/> in a test scenario.
   /// </summary>
   /// <remarks>
   /// <para>
@@ -21,7 +21,7 @@ namespace CSF.Screenplay
   /// Given(joe).WasAbleTo(takeOutTheTrash);
   /// </code>
   /// </remarks>
-  public class Actor : IGivenActor, IWhenActor, IThenActor, ICanReceiveAbilities, IDisposable
+  public class Actor : IActor
   {
     #region fields
 
@@ -36,7 +36,7 @@ namespace CSF.Screenplay
     /// Gets the name of the current actor.
     /// </summary>
     /// <value>The name.</value>
-    public string Name => name;
+    public virtual string Name => name;
 
     #endregion
 
@@ -247,6 +247,11 @@ namespace CSF.Screenplay
     #endregion
 
     #region constructor
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Actor"/> class.
+    /// </summary>
+    protected Actor() {}
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Actor"/> class.

@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Actors
   {
     #region fields
 
-    readonly IDictionary<string,Actor> actors;
+    readonly IDictionary<string,IActor> actors;
 
     #endregion
 
@@ -31,16 +31,16 @@ namespace CSF.Screenplay.Actors
     /// Gets a collection of all of the actors contained within the current instance.
     /// </summary>
     /// <returns>A collection of actors.</returns>
-    public IEnumerable<Actor> GetAll() => actors.Values.ToArray();
+    public IEnumerable<IActor> GetAll() => actors.Values.ToArray();
 
     /// <summary>
     /// Gets a single actor by their name.
     /// </summary>
     /// <returns>The named actor, or a <c>null</c> reference if no such actor is contained in the current instance.</returns>
     /// <param name="name">The actor name.</param>
-    public Actor GetActor(string name)
+    public IActor GetActor(string name)
     {
-      Actor output;
+      IActor output;
       if(actors.TryGetValue(name, out output))
       {
         return output;
@@ -53,11 +53,31 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public Actor NewActor(string name)
+    public IActor NewActor(string name)
     {
-      var output = new Actor(name);
-      actors.Add(name, output);
-      return output;
+      var actor = new Actor(name);
+      Add(actor);
+      return actor;
+    }
+
+    /// <summary>
+    /// Adds the given actor to the current cast instance.
+    /// </summary>
+    /// <param name="actor">An actor.</param>
+    public void Add(IActor actor)
+    {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
+      var name = actor.Name;
+      if(name == null)
+        throw new ArgumentException("Actors must have a name", nameof(actor));
+
+
+      if(actors.ContainsKey(name))
+        throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
+      
+      actors.Add(name, actor);
     }
 
     #endregion
@@ -100,7 +120,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     public Cast()
     {
-      actors = new Dictionary<string,Actor>();
+      actors = new Dictionary<string,IActor>();
     }
 
     #endregion

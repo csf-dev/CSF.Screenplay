@@ -55,6 +55,8 @@
     <Compile Include="Actions\Action`2.cs" />
     <Compile Include="Tasks\ITaskWithResult.cs" />
     <Compile Include="Actors\Cast.cs" />
+    <Compile Include="Actors\DuplicateActorException.cs" />
+    <Compile Include="Actors\IActor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
