@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns><c>true</c>, if action type is supported, <c>false</c> otherwise.</returns>
     /// <typeparam name="TAction">The desired action type.</typeparam>
-    bool SupportsActionType<TAction>();
+    bool SupportsAction<TAction>();
 
     /// <summary>
     /// Creates and returns an instance of the indicated action type, using the actors abilities.

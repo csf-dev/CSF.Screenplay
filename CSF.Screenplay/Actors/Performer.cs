@@ -65,7 +65,7 @@ namespace CSF.Screenplay.Actors
       return GetAction<TAction>();
     }
 
-    bool IPerformer.SupportsActionType<TAction>()
+    bool IPerformer.SupportsAction<TAction>()
     {
       return SupportsActionType<TAction>();
     }

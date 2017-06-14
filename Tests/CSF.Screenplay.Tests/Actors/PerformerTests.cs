@@ -43,28 +43,28 @@ namespace CSF.Screenplay.Tests.Actors
     }
 
     [Test]
-    public void SupportsActionType_returns_true_when_an_ability_supports_the_type()
+    public void SupportsAction_returns_true_when_an_ability_supports_the_type()
     {
       // Arrange
       var ability = Mock.Of<IAbility>(x => x.CanProvideAction<VoidAction>() == true);
       var performer = CreatePerformer(ability);
 
       // Act
-      var result = performer.SupportsActionType<VoidAction>();
+      var result = performer.SupportsAction<VoidAction>();
 
       // Assert
       Assert.IsTrue(result);
     }
 
     [Test]
-    public void SupportsActionType_returns_false_when_no_ability_supports_the_type()
+    public void SupportsAction_returns_false_when_no_ability_supports_the_type()
     {
       // Arrange
       var ability = Mock.Of<IAbility>(x => x.CanProvideAction<VoidAction>() == false);
       var performer = CreatePerformer(ability);
 
       // Act
-      var result = performer.SupportsActionType<VoidAction>();
+      var result = performer.SupportsAction<VoidAction>();
 
       // Assert
       Assert.IsFalse(result);
