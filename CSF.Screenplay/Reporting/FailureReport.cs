@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Reporting
   /// <summary>
   /// Represents a report that the performing of an item has failed, possibly due to an exception.
   /// </summary>
-  public class FailureReport : PerformableReportBase
+  public class FailureReport : PerformableReportBase, IPerformanceEnd
   {
     /// <summary>
     /// Gets the exception which is responsible for this failure, if applicable.

@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Reporting
   /// <summary>
   /// Represents a report that an actor is beginning to perform an action, task or ask a question.
   /// </summary>
-  public class BeginReport : PerformableReportBase
+  public class BeginReport : PerformableReportBase, IPerformanceStart
   {
     /// <summary>
     /// Initializes a new instance of the <see cref="BeginReport"/> class.

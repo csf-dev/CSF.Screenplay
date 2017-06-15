@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Reporting
   /// <summary>
   /// Represents a report that an actor has successfully performed an action, task or asked a question.
   /// </summary>
-  public class SuccessReport : PerformableReportBase
+  public class SuccessReport : PerformableReportBase, IPerformanceEnd
   {
     /// <summary>
     /// Initializes a new instance of the <see cref="SuccessReport"/> class.

@@ -70,6 +70,8 @@
     <Compile Include="Performables\Question.cs" />
     <Compile Include="Actors\ICast.cs" />
     <Compile Include="Reporting\AbilityReport.cs" />
+    <Compile Include="Reporting\IPerformanceStart.cs" />
+    <Compile Include="Reporting\IPerformanceEnd.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
