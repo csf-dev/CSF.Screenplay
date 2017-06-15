@@ -9,7 +9,8 @@ using CSF.Screenplay.Reporting;
 namespace CSF.Screenplay
 {
   /// <summary>
-  /// The main implementation which represents an <see cref="IActor"/> in a test scenario.
+  /// The main implementation of <see cref="IActor"/>. which represents an actor/participant/persona within a test
+  /// scenario.
   /// </summary>
   /// <remarks>
   /// <para>
@@ -191,7 +192,7 @@ namespace CSF.Screenplay
 
     #endregion
 
-    #region IPerformer and IActor implementations
+    #region explicit IPerformer and IActor implementations
 
     void IGivenActor.WasAbleTo(IPerformable performable)
     {

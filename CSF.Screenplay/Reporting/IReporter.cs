@@ -6,8 +6,9 @@ using CSF.Screenplay.Performables;
 namespace CSF.Screenplay.Reporting
 {
   /// <summary>
-  /// Represents a service which receives reporting information relating to what the actor(s) in the scenario are
-  /// doing.
+  /// A service which is informed when actors gain abilities or perform any performable items.  The reporter
+  /// is then responsible for publishing that information in some manner, such as to a
+  /// <c>System.Diagnostics.TraceSource</c>.
   /// </summary>
   public interface IReporter
   {
