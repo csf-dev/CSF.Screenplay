@@ -22,6 +22,15 @@ namespace CSF.Screenplay.Reporting
     public INamed Actor { get; private set; }
 
     /// <summary>
+    /// Returns a <c>System.String</c> that represents the current <see cref="AbilityReport"/>.
+    /// </summary>
+    /// <returns>A <c>System.String</c> that represents the current <see cref="AbilityReport"/>.</returns>
+    public override string ToString()
+    {
+      return $"ABILITY: {Ability.GetReport(Actor)}";
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="AbilityReport"/> class.
     /// </summary>
     /// <param name="actor">The actor.</param>

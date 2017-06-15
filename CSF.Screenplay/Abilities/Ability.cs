@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Abilities
 {
@@ -18,6 +19,16 @@ namespace CSF.Screenplay.Abilities
   /// </remarks>
   public abstract class Ability : IAbility, IDisposable
   {
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
+    public virtual string GetReport(INamed actor)
+    {
+      return $"{actor.Name} is able to {GetType().Name}";
+    }
+
     #region IDisposable Support
 
     bool disposed;
