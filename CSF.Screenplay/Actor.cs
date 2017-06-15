@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using System.Linq;
 using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay
@@ -27,7 +25,7 @@ namespace CSF.Screenplay
   {
     #region fields
 
-    readonly ISet<IAbility> abilities;
+    readonly IAbilityStore abilityStore;
     readonly string name;
     readonly IReporter reporter;
 
@@ -57,8 +55,8 @@ namespace CSF.Screenplay
     /// <typeparam name="TAbility">The desired ability type.</typeparam>
     public virtual void IsAbleTo<TAbility>() where TAbility : IAbility,new()
     {
-      var ability = Activator.CreateInstance<TAbility>();
-      IsAbleTo(ability);
+      var ability = abilityStore.Add(typeof(TAbility));
+      reporter.GainAbility(this, ability);
     }
 
     /// <summary>
@@ -73,11 +71,8 @@ namespace CSF.Screenplay
     /// <param name="abilityType">The desired ability type.</param>
     public virtual void IsAbleTo(Type abilityType)
     {
-      if(!typeof(IAbility).IsAssignableFrom(abilityType))
-        throw new ArgumentException($"Ability type must implement `{typeof(IAbility).Name}'.", nameof(abilityType));
-
-      var ability = (IAbility) Activator.CreateInstance(abilityType);
-      IsAbleTo(ability);
+      var ability = abilityStore.Add(abilityType);
+      reporter.GainAbility(this, ability);
     }
 
     /// <summary>
@@ -86,11 +81,8 @@ namespace CSF.Screenplay
     /// <param name="ability">The ability.</param>
     public virtual void IsAbleTo(IAbility ability)
     {
-      if(ability == null)
-        throw new ArgumentNullException(nameof(ability));
-
+      abilityStore.Add(ability);
       reporter.GainAbility(this, ability);
-      abilities.Add(ability);
     }
 
     /// <summary>
@@ -151,7 +143,7 @@ namespace CSF.Screenplay
     /// <typeparam name="TAbility">The desired ability type.</typeparam>
     protected virtual bool HasAbility<TAbility>() where TAbility : IAbility
     {
-      return abilities.Any(x => AbilityImplementsType(x, typeof(TAbility)));
+      return abilityStore.HasAbility<TAbility>();
     }
 
     /// <summary>
@@ -161,28 +153,12 @@ namespace CSF.Screenplay
     /// <typeparam name="TAbility">The desired ability type.</typeparam>
     protected virtual TAbility GetAbility<TAbility>() where TAbility : IAbility
     {
-      var ability = abilities.FirstOrDefault(x => AbilityImplementsType(x, typeof(TAbility)));
-      if(ability == null)
+      var ability = abilityStore.GetAbility<TAbility>();
+
+      if(ReferenceEquals(ability, null))
         throw new MissingAbilityException($"{Name} does not have the ability {typeof(TAbility).Name}.");
 
-      return (TAbility) ability;
-    }
-
-    bool AbilityImplementsType(IAbility ability, Type desiredType)
-    {
-      var abilityType = GetAbilityType(ability);
-      if(abilityType == null)
-        return false;
-
-      return desiredType.IsAssignableFrom(abilityType);
-    }
-
-    Type GetAbilityType(IAbility ability)
-    {
-      if(ReferenceEquals(ability, null))
-        return null;
-
-      return ability.GetType();
+      return ability;
     }
 
     IReporter GetDefaultReporter()
@@ -281,10 +257,7 @@ namespace CSF.Screenplay
       {
         if(disposing)
         {
-          foreach(var ability in abilities)
-          {
-            ability.Dispose();
-          }
+          abilityStore.Dispose();
         }
 
         disposed = true;
@@ -319,7 +292,7 @@ namespace CSF.Screenplay
       this.reporter = reporter?? GetDefaultReporter();
       this.name = name;
 
-      abilities = new HashSet<IAbility>();
+      abilityStore = new AbilityStore();
     }
 
     #endregion

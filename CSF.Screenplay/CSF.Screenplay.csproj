@@ -72,6 +72,8 @@
     <Compile Include="Reporting\AbilityReport.cs" />
     <Compile Include="Reporting\IPerformanceStart.cs" />
     <Compile Include="Reporting\IPerformanceEnd.cs" />
+    <Compile Include="Abilities\IAbilityStore.cs" />
+    <Compile Include="Abilities\AbilityStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

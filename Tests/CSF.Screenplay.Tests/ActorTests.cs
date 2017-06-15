@@ -4,6 +4,7 @@ using System.Linq;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Reporting;
 using Moq;
 using NUnit.Framework;
 
@@ -38,6 +39,129 @@ namespace CSF.Screenplay.Tests
 
       // Assert
       Mock.Get(action).Verify(x => x.PerformAs(performer), Times.Once());
+    }
+
+    [Test]
+    public void Perform_void_action_reports_beginning()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<VoidPerformable>();
+
+      // Act
+      performer.Perform(action);
+
+      // Assert
+      Mock.Get(reporter).Verify(x => x.Begin(performer, action), Times.Once());
+    }
+
+    [Test]
+    public void Perform_void_action_reports_success_when_action_is_ok()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<VoidPerformable>();
+
+      // Act
+      performer.Perform(action);
+
+      // Assert
+      Mock.Get(reporter).Verify(x => x.Success(performer, action), Times.Once());
+    }
+
+    [Test]
+    public void Perform_void_action_reports_failure_when_action_raises_exception()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<VoidPerformable>();
+      Mock.Get(action)
+          .Setup(x => x.PerformAs(performer))
+          .Throws<InvalidOperationException>();
+
+      // Act
+      try
+      {
+        performer.Perform(action);
+      }
+      catch(InvalidOperationException) { }
+
+
+      // Assert
+      Mock.Get(reporter)
+          .Verify(x => x.Failure(performer, action, It.IsAny<InvalidOperationException>()), Times.Once());
+    }
+
+    [Test]
+    public void Perform_non_void_action_reports_beginning()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<NonVoidPerformable>();
+
+      // Act
+      performer.Perform(action);
+
+      // Assert
+      Mock.Get(reporter).Verify(x => x.Begin(performer, action), Times.Once());
+    }
+
+    [Test]
+    public void Perform_non_void_action_reports_success_when_action_is_ok()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<NonVoidPerformable>();
+
+      // Act
+      performer.Perform(action);
+
+      // Assert
+      Mock.Get(reporter).Verify(x => x.Success(performer, action), Times.Once());
+    }
+
+    [Test]
+    public void Perform_non_void_action_reports_result_when_action_is_ok()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<NonVoidPerformable>(x => x.PerformAs(performer) == "foo");
+
+      // Act
+      performer.Perform(action);
+
+      // Assert
+      Mock.Get(reporter).Verify(x => x.Result(performer, action, "foo"), Times.Once());
+    }
+
+    [Test]
+    public void Perform_non_void_action_reports_failure_when_action_raises_exception()
+    {
+      // Arrange
+      var reporter = Mock.Of<IReporter>();
+      var performer = CreatePerformer(reporter: reporter);
+      var action = Mock.Of<NonVoidPerformable>();
+      Mock.Get(action)
+          .Setup(x => x.PerformAs(performer))
+          .Throws<InvalidOperationException>();
+
+      // Act
+      try
+      {
+        performer.Perform(action);
+      }
+      catch(InvalidOperationException) { }
+
+
+      // Assert
+      Mock.Get(reporter)
+          .Verify(x => x.Failure(performer, action, It.IsAny<InvalidOperationException>()), Times.Once());
     }
 
     [Test]
@@ -98,12 +222,13 @@ namespace CSF.Screenplay.Tests
     }
 
     IPerformer CreatePerformer(IEnumerable<IAbility> abilities = null,
-                               string name = null)
+                               string name = null,
+                               IReporter reporter = null)
     {
       abilities = abilities?? Enumerable.Empty<IAbility>();
       name = name?? "joe";
 
-      var performer = new Actor(name);
+      var performer = new Actor(name, reporter);
       foreach(var ability in abilities)
       {
         performer.IsAbleTo(ability);
