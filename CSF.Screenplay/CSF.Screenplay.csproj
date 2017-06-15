@@ -76,7 +76,6 @@
   <ItemGroup>
     <Folder Include="Actors\" />
     <Folder Include="Abilities\" />
-    <Folder Include="Questions\" />
     <Folder Include="Reporting\" />
     <Folder Include="Performables\" />
   </ItemGroup>
