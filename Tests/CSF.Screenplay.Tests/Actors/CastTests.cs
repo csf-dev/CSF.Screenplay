@@ -9,55 +9,55 @@ namespace CSF.Screenplay.Tests.Actors
   public class CastTests
   {
     [Test]
-    public void NewActor_returns_new_actor()
+    public void Add_using_name_returns_new_actor()
     {
       // Arrange
       var cast = CreateCast();
 
       // Act
-      var joe = cast.NewActor("joe");
+      var joe = cast.Add("joe");
 
       // Assert
       Assert.NotNull(joe);
     }
 
     [Test]
-    public void NewActor_sets_actors_name()
+    public void Add_using_name_sets_actors_name()
     {
       // Arrange
       var cast = CreateCast();
       var name = "joe";
 
       // Act
-      var joe = cast.NewActor(name);
+      var joe = cast.Add(name);
 
       // Assert
       Assert.AreEqual(name, joe.Name);
     }
 
     [Test]
-    public void NewActor_raises_exception_if_used_twice_with_same_name()
+    public void Add_using_name_raises_exception_if_used_twice_with_same_name()
     {
       // Arrange
       var cast = CreateCast();
       var name = "joe";
 
       // Act
-      cast.NewActor(name);
+      cast.Add(name);
 
       // Act and assert
-      Assert.Throws<DuplicateActorException>(() => cast.NewActor(name));
+      Assert.Throws<DuplicateActorException>(() => cast.Add(name));
     }
 
     [Test]
-    public void NewActor_does_not_raise_exception_if_used_twice_with_different_names()
+    public void Add_using_name_does_not_raise_exception_if_used_twice_with_different_names()
     {
       // Arrange
       var cast = CreateCast();
 
       // Act
-      cast.NewActor("joe");
-      cast.NewActor("davina");
+      cast.Add("joe");
+      cast.Add("davina");
 
       // Act and assert
       Assert.Pass();
@@ -82,7 +82,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = CreateCast();
       var name = "joe";
-      var joe = cast.NewActor(name);
+      var joe = cast.Add(name);
 
       // Act
       var joeClone = cast.GetActor(name);
@@ -96,8 +96,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = CreateCast();
-      var joe = cast.NewActor("joe");
-      var davina = cast.NewActor("davina");
+      var joe = cast.Add("joe");
+      var davina = cast.Add("davina");
 
       // Act
       var all = cast.GetAll();

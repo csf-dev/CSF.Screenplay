@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
-    <Compile Include="Actors\PerformerTests.cs" />
+    <Compile Include="ActorTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

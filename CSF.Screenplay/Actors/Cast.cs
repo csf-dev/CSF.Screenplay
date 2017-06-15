@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Actors
   /// This is where the <see cref="Cast"/> object becomes useful.
   /// </para>
   /// </remarks>
-  public class Cast : IDisposable
+  public class Cast : ICast
   {
     #region fields
 
@@ -31,14 +31,14 @@ namespace CSF.Screenplay.Actors
     /// Gets a collection of all of the actors contained within the current instance.
     /// </summary>
     /// <returns>A collection of actors.</returns>
-    public IEnumerable<IActor> GetAll() => actors.Values.ToArray();
+    public virtual IEnumerable<IActor> GetAll() => actors.Values.ToArray();
 
     /// <summary>
     /// Gets a single actor by their name.
     /// </summary>
     /// <returns>The named actor, or a <c>null</c> reference if no such actor is contained in the current instance.</returns>
     /// <param name="name">The actor name.</param>
-    public IActor GetActor(string name)
+    public virtual IActor GetActor(string name)
     {
       IActor output;
       if(actors.TryGetValue(name, out output))
@@ -53,9 +53,9 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public IActor NewActor(string name)
+    public virtual IActor Add(string name)
     {
-      var actor = new Actor(name);
+      var actor = CreateActor(name);
       Add(actor);
       return actor;
     }
@@ -64,7 +64,7 @@ namespace CSF.Screenplay.Actors
     /// Adds the given actor to the current cast instance.
     /// </summary>
     /// <param name="actor">An actor.</param>
-    public void Add(IActor actor)
+    public virtual void Add(IActor actor)
     {
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));
@@ -78,6 +78,16 @@ namespace CSF.Screenplay.Actors
         throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
       
       actors.Add(name, actor);
+    }
+
+    /// <summary>
+    /// Creates and returns a new object which implements <see cref="IActor"/>.
+    /// </summary>
+    /// <returns>The actor.</returns>
+    /// <param name="name">The actor's name.</param>
+    protected virtual IActor CreateActor(string name)
+    {
+      return new Actor(name);
     }
 
     #endregion

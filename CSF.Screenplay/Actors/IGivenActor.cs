@@ -1,6 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.Questions;
-using CSF.Screenplay.Tasks;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Actors
 {
@@ -10,25 +9,18 @@ namespace CSF.Screenplay.Actors
   public interface IGivenActor
   {
     /// <summary>
-    /// Performs the given task.
+    /// Performs the given action or task.
     /// </summary>
-    /// <param name="task">A task.</param>
-    void WasAbleTo(ITask task);
+    /// <param name="performable">A performable item.</param>
+    void WasAbleTo(IPerformable performable);
 
     /// <summary>
-    /// Performs the given task and gets a result.
+    /// Performs the given action, task or question and gets a result.
     /// </summary>
     /// <returns>The result of performing the task.</returns>
-    /// <param name="task">A task.</param>
+    /// <param name="performable">A task.</param>
     /// <typeparam name="TResult">The result type, returned from the task.</typeparam>
-    TResult WasAbleTo<TResult>(ITask<TResult> task);
-
-    /// <summary>
-    /// Asks the given question and gets the answer.
-    /// </summary>
-    /// <returns>The answer returned from the question.</returns>
-    /// <param name="question">A question.</param>
-    object Saw(IQuestion question);
+    TResult WasAbleTo<TResult>(IPerformable<TResult> performable);
 
     /// <summary>
     /// Asks the given question and gets the answer.

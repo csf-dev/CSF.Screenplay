@@ -1,8 +1,6 @@
 ﻿using System;
-using CSF.Screenplay;
-using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Questions;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Example
 {

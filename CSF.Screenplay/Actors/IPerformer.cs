@@ -1,59 +1,40 @@
 ﻿using System;
-using CSF.Screenplay.Actions;
+using CSF.Screenplay.Abilities;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Actors
 {
   /// <summary>
   /// Represents an actor's ability to perform actions.
   /// </summary>
-  public interface IPerformer
+  public interface IPerformer : INamed
   {
     /// <summary>
-    /// Gets the name of the actor.
+    /// Determines whether or not the given performer has an ability or not.
     /// </summary>
-    /// <value>The name.</value>
-    string Name { get; }
+    /// <returns><c>true</c>, if the performer has the ability, <c>false</c> otherwise.</returns>
+    /// <typeparam name="TAbility">The desired ability type.</typeparam>
+    bool HasAbility<TAbility>() where TAbility : IAbility;
 
     /// <summary>
-    /// Gets a value which determines whether or not the current instance can perform actions of the indicated
-    /// action type.
+    /// Gets an ability of the noted type.
     /// </summary>
-    /// <returns><c>true</c>, if action type is supported, <c>false</c> otherwise.</returns>
-    /// <typeparam name="TAction">The desired action type.</typeparam>
-    bool SupportsAction<TAction>();
+    /// <returns>The ability.</returns>
+    /// <typeparam name="TAbility">The desired ability type.</typeparam>
+    TAbility GetAbility<TAbility>() where TAbility : IAbility;
 
     /// <summary>
-    /// Creates and returns an instance of the indicated action type, using the actors abilities.
+    /// Performs an action or task.
     /// </summary>
-    /// <returns>The action instance.</returns>
-    /// <typeparam name="TAction">The desired action type.</typeparam>
-    TAction GetAction<TAction>() where TAction : class;
+    /// <param name="performable">The performable item to execute.</param>
+    void Perform(IPerformable performable);
 
     /// <summary>
-    /// Performs an action, using the given parameters.
+    /// Performs an action, task or asks a question which returns a result value.
     /// </summary>
-    /// <param name="action">The action instance to execute.</param>
-    /// <param name="parameters">The parameters for the action.</param>
-    /// <typeparam name="TParams">The action parameters type.</typeparam>
-    void Perform<TParams>(IAction<TParams> action, TParams parameters);
-
-    /// <summary>
-    /// Performs an action, using the given parameters, getting a result value.
-    /// </summary>
-    /// <returns>The result of performing the action</returns>
-    /// <param name="action">The action instance to execute.</param>
-    /// <param name="parameters">The parameters for the action.</param>
-    /// <typeparam name="TParams">The action parameters type.</typeparam>
-    object Perform<TParams>(IActionWithResult<TParams> action, TParams parameters);
-
-    /// <summary>
-    /// Performs an action, using the given parameters, getting a result value.
-    /// </summary>
-    /// <returns>The result of performing the action</returns>
-    /// <param name="action">The action instance to execute.</param>
-    /// <param name="parameters">The parameters for the action.</param>
-    /// <typeparam name="TParams">The action parameters type.</typeparam>
-    /// <typeparam name="TResult">The action result type.</typeparam>
-    TResult Perform<TParams,TResult>(IAction<TParams,TResult> action, TParams parameters);
+    /// <returns>The result of performing the item</returns>
+    /// <param name="performable">The performable item to execute.</param>
+    /// <typeparam name="TResult">The result type.</typeparam>
+    TResult Perform<TResult>(IPerformable<TResult> performable);
   }
 }

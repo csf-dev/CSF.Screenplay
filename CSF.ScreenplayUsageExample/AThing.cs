@@ -1,16 +1,21 @@
 ﻿using System;
-using CSF.Screenplay.Actions;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Example
 {
-  public class AThing : Actions.Action<string>
+  public class AThing : Performable<string>
   {
-    public string Value { get; set; }
+    readonly string value;
 
-    protected override void Execute(IPerformer performer, string parameters)
+    public override string PerformAs(IPerformer actor)
     {
       throw new NotImplementedException();
+    }
+
+    public AThing(string value = null)
+    {
+      this.value = value;
     }
   }
 }

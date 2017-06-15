@@ -1,8 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Tasks;
 
-namespace CSF.Screenplay.Questions
+namespace CSF.Screenplay.Performables
 {
   /// <summary>
   /// Base type for implementations of <see cref="T:IQuestion{TAnswer}"/>.  Note that this type may also be used as an
@@ -25,8 +24,18 @@ namespace CSF.Screenplay.Questions
   /// The only real difference is conceptual.
   /// </para>
   /// </remarks>
-  public abstract class Question<TAnswer> : IQuestion<TAnswer>, ITask<TAnswer>, ITaskWithResult
+  public abstract class Question<TAnswer> : IQuestion<TAnswer>
   {
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
+    public virtual string GetReport(INamed actor)
+    {
+      return $"{actor.Name} asks {GetType().Name}.";
+    }
+
     /// <summary>
     /// Gets the answer to the current question.
     /// </summary>
@@ -34,24 +43,19 @@ namespace CSF.Screenplay.Questions
     /// <param name="actor">The actor for whom we are asking this question.</param>
     protected abstract TAnswer GetAnswer(IPerformer actor);
 
-    TAnswer IQuestion<TAnswer>.GetAnswer(IPerformer actor)
+    TAnswer IPerformable<TAnswer>.PerformAs(IPerformer actor)
     {
       return GetAnswer(actor);
     }
 
-    object IQuestion.GetAnswer(IPerformer actor)
+    object IPerformableWithResult.PerformAs(IPerformer actor)
     {
       return GetAnswer(actor);
     }
 
-    TAnswer ITask<TAnswer>.PerformAs(IPerformer actor)
+    void IPerformable.PerformAs(IPerformer actor)
     {
-      return GetAnswer(actor);
-    }
-
-    object ITaskWithResult.PerformAs(IPerformer actor)
-    {
-      return GetAnswer(actor);
+      GetAnswer(actor);
     }
   }
 }

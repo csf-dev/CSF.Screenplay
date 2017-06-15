@@ -18,47 +18,6 @@ namespace CSF.Screenplay.Abilities
   /// </remarks>
   public abstract class Ability : IAbility, IDisposable
   {
-    /// <summary>
-    /// Indicates whether or not the current ability instance is able to create actions of the indicated type.
-    /// </summary>
-    /// <returns><c>true</c>, if the indicates action type may be created by this ability, <c>false</c> otherwise.</returns>
-    /// <typeparam name="TAction">The desired action type.</typeparam>
-    public virtual bool CanProvideAction<TAction>()
-    {
-      return CanProvideAction(typeof(TAction));
-    }
-
-    /// <summary>
-    /// Gets and returns an action instance of the desired type.
-    /// </summary>
-    /// <returns>An action instance.</returns>
-    /// <typeparam name="TAction">The desired action type.</typeparam>
-    public virtual TAction GetAction<TAction>()
-    {
-      return (TAction) GetAction(typeof(TAction));
-    }
-
-    /// <summary>
-    /// Indicates whether or not the current ability instance is able to create actions of the indicated type.
-    /// </summary>
-    /// <returns><c>true</c>, if the indicates action type may be created by this ability, <c>false</c> otherwise.</returns>
-    /// <param name="actionType">The desired action type.</param>
-    public abstract bool CanProvideAction(Type actionType);
-
-    /// <summary>
-    /// Gets and returns an action instance of the desired type.
-    /// </summary>
-    /// <returns>An action instance.</returns>
-    /// <param name="actionType">The desired action type.</param>
-    public abstract object GetAction(Type actionType);
-
-    /// <summary>
-    /// Gets a collection indicating all of the <c>System.Type</c> of actions which may be created by the current
-    /// ability instance.
-    /// </summary>
-    /// <returns>The action types.</returns>
-    public abstract IEnumerable<Type> GetActionTypes();
-
     #region IDisposable Support
 
     bool disposed;

@@ -1,14 +1,12 @@
 ﻿using System;
-using CSF.Screenplay;
-using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Tasks;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Example
 {
-  public class DoADifferentThing : ITask
+  public class DoADifferentThing : Performable
   {
-    public void PerformAs(IPerformer actor)
+    public override void PerformAs(IPerformer actor)
     {
       throw new NotImplementedException();
     }

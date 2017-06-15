@@ -1,15 +1,14 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Tasks;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Example
 {
-  public class DoAThing : ITask
+  public class DoAThing : Performable
   {
-    public void PerformAs(IPerformer actor)
+    public override void PerformAs(IPerformer actor)
     {
-      var doAThing = actor.GetAction<AThing>();
-      actor.Perform(doAThing, "The parameter");
+      actor.Perform(new AThing(value: "The parameter"));
     }
   }
 }

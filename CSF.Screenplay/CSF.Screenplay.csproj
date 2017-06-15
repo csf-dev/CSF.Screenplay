@@ -14,7 +14,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\CSF.Screenplay.xml</DocumentationFile>
@@ -23,6 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\CSF.Screenplay.xml</DocumentationFile>
@@ -37,33 +38,45 @@
     <Compile Include="Abilities\IAbility.cs" />
     <Compile Include="Abilities\Ability.cs" />
     <Compile Include="Actors\ICanReceiveAbilities.cs" />
-    <Compile Include="Questions\IQuestion.cs" />
-    <Compile Include="Questions\IQuestion`1.cs" />
-    <Compile Include="Questions\Question.cs" />
-    <Compile Include="Actions\IAction`2.cs" />
-    <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Actor.cs" />
-    <Compile Include="Tasks\ITask`1.cs" />
     <Compile Include="Actors\IGivenActor.cs" />
     <Compile Include="Actors\IWhenActor.cs" />
     <Compile Include="Actors\IThenActor.cs" />
     <Compile Include="Actors\IPerformer.cs" />
-    <Compile Include="Actions\IAction`1.cs" />
-    <Compile Include="Actors\Performer.cs" />
-    <Compile Include="Actions\IActionWithResult.cs" />
-    <Compile Include="Actions\Action`1.cs" />
-    <Compile Include="Actions\Action`2.cs" />
-    <Compile Include="Tasks\ITaskWithResult.cs" />
     <Compile Include="Actors\Cast.cs" />
     <Compile Include="Actors\DuplicateActorException.cs" />
     <Compile Include="Actors\IActor.cs" />
+    <Compile Include="Reporting\IReporter.cs" />
+    <Compile Include="Reporting\Trace.cs" />
+    <Compile Include="Reporting\IReportable.cs" />
+    <Compile Include="Actors\INamed.cs" />
+    <Compile Include="Performables\IPerformable.cs" />
+    <Compile Include="Performables\IPerformableWithResult.cs" />
+    <Compile Include="Performables\IPerformable`1.cs" />
+    <Compile Include="Performables\Performable.cs" />
+    <Compile Include="Performables\Performable`1.cs" />
+    <Compile Include="Reporting\TraceReporter.cs" />
+    <Compile Include="Reporting\PerformableReportBase.cs" />
+    <Compile Include="Reporting\BeginReport.cs" />
+    <Compile Include="Reporting\SuccessReport.cs" />
+    <Compile Include="Reporting\FailureReport.cs" />
+    <Compile Include="Reporting\ResultReport.cs" />
+    <Compile Include="Actors\MissingAbilityException.cs" />
+    <Compile Include="Performables\IAction.cs" />
+    <Compile Include="Performables\IAction`1.cs" />
+    <Compile Include="Performables\ITask.cs" />
+    <Compile Include="Performables\ITask`1.cs" />
+    <Compile Include="Performables\IQuestion`1.cs" />
+    <Compile Include="Performables\Question.cs" />
+    <Compile Include="Actors\ICast.cs" />
+    <Compile Include="Reporting\AbilityReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
     <Folder Include="Abilities\" />
-    <Folder Include="Actions\" />
-    <Folder Include="Tasks\" />
     <Folder Include="Questions\" />
+    <Folder Include="Reporting\" />
+    <Folder Include="Performables\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
