@@ -2,7 +2,7 @@
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Actors;
 
-namespace CSF.Screenplay.Example
+namespace CSF.Screenplay.SampleTests
 {
   public class AThing : Performable<string>
   {
@@ -10,7 +10,8 @@ namespace CSF.Screenplay.Example
 
     public override string PerformAs(IPerformer actor)
     {
-      throw new NotImplementedException();
+      var ability = actor.GetAbility<SampleAbility>();
+      return String.Concat(value, ability.GetSpecialNumber().ToString());
     }
 
     public AThing(string value = null)

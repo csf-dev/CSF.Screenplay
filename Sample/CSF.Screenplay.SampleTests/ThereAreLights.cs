@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Example
+namespace CSF.Screenplay.SampleTests
 {
   public class ThereAreLights : Question<string>
   {
