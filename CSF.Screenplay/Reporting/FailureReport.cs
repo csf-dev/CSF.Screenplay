@@ -16,6 +16,15 @@ namespace CSF.Screenplay.Reporting
     public Exception Exception { get; private set; }
 
     /// <summary>
+    /// Returns a <c>System.String</c> that represents the current <see cref="FailureReport"/>.
+    /// </summary>
+    /// <returns>A <c>System.String</c> that represents the current <see cref="FailureReport"/>.</returns>
+    public override string ToString()
+    {
+      return $"FAILURE: {Performable.GetReport(Actor)}";
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="FailureReport"/> class.
     /// </summary>
     /// <param name="actor">The actor.</param>
