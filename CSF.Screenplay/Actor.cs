@@ -27,7 +27,6 @@ namespace CSF.Screenplay
 
     readonly IAbilityStore abilityStore;
     readonly string name;
-    readonly IReporter reporter;
 
     #endregion
 
@@ -56,7 +55,7 @@ namespace CSF.Screenplay
     public virtual void IsAbleTo<TAbility>() where TAbility : IAbility,new()
     {
       var ability = abilityStore.Add(typeof(TAbility));
-      reporter.GainAbility(this, ability);
+      InvokeGainedAbility(ability);
     }
 
     /// <summary>
@@ -72,7 +71,7 @@ namespace CSF.Screenplay
     public virtual void IsAbleTo(Type abilityType)
     {
       var ability = abilityStore.Add(abilityType);
-      reporter.GainAbility(this, ability);
+      InvokeGainedAbility(ability);
     }
 
     /// <summary>
@@ -82,7 +81,7 @@ namespace CSF.Screenplay
     public virtual void IsAbleTo(IAbility ability)
     {
       abilityStore.Add(ability);
-      reporter.GainAbility(this, ability);
+      InvokeGainedAbility(ability);
     }
 
     /// <summary>
@@ -96,13 +95,13 @@ namespace CSF.Screenplay
 
       try
       {
-        reporter.Begin(this, performable);
+        InvokeBeginPerformance(performable);
         performable.PerformAs(this);
-        reporter.Success(this, performable);
+        InvokeEndPerformance(performable);
       }
       catch(Exception ex)
       {
-        reporter.Failure(this, performable, ex);
+        InvokePerformanceFailed(performable, ex);
         throw;
       }
     }
@@ -122,14 +121,14 @@ namespace CSF.Screenplay
 
       try
       {
-        reporter.Begin(this, performable);
+        InvokeBeginPerformance(performable);
         result = performable.PerformAs(this);
-        reporter.Result(this, performable, result);
-        reporter.Success(this, performable);
+        InvokePerformanceResult(performable, result);
+        InvokeEndPerformance(performable);
       }
       catch(Exception ex)
       {
-        reporter.Failure(this, performable, ex);
+        InvokePerformanceFailed(performable, ex);
         throw;
       }
 
@@ -164,6 +163,87 @@ namespace CSF.Screenplay
     IReporter GetDefaultReporter()
     {
       return new TraceReporter();
+    }
+
+    #endregion
+
+    #region events and invokers
+
+    /// <summary>
+    /// Occurs when the actor begins a performance.
+    /// </summary>
+    public event EventHandler<BeginPerformanceEventArgs> BeginPerformance;
+
+    /// <summary>
+    /// Occurs when an actor ends a performance.
+    /// </summary>
+    public event EventHandler<EndSuccessfulPerformanceEventArgs> EndPerformance;
+
+    /// <summary>
+    /// Occurs when an actor receives a result from a performance.
+    /// </summary>
+    public event EventHandler<PerformanceResultEventArgs> PerformanceResult;
+
+    /// <summary>
+    /// Occurs when a performance fails with an exception.
+    /// </summary>
+    public event EventHandler<PerformanceFailureEventArgs> PerformanceFailed;
+
+    /// <summary>
+    /// Occurs when an actor gains a new ability.
+    /// </summary>
+    public event EventHandler<GainAbilityEventArgs> GainedAbility;
+
+    /// <summary>
+    /// Invokes the begin performance event.
+    /// </summary>
+    /// <param name="performable">Performable.</param>
+    protected virtual void InvokeBeginPerformance(IPerformable performable)
+    {
+      var args = new BeginPerformanceEventArgs(this, performable);
+      BeginPerformance?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the end performance event.
+    /// </summary>
+    /// <param name="performable">Performable.</param>
+    protected virtual void InvokeEndPerformance(IPerformable performable)
+    {
+      var args = new EndSuccessfulPerformanceEventArgs(this, performable);
+      EndPerformance?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the performance result event.
+    /// </summary>
+    /// <param name="performable">Performable.</param>
+    /// <param name="result">Result.</param>
+    protected virtual void InvokePerformanceResult(IPerformable performable, object result)
+    {
+      var args = new PerformanceResultEventArgs(this, performable, result);
+      PerformanceResult?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the performance failed event.
+    /// </summary>
+    /// <param name="performable">Performable.</param>
+    /// <param name="exception">Exception.</param>
+    protected virtual void InvokePerformanceFailed(IPerformable performable, Exception exception)
+    {
+      var args = new PerformanceFailureEventArgs(this, performable, exception);
+      PerformanceFailed?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the gained ability event.
+    /// </summary>
+    /// <param name="ability">Ability.</param>
+    protected virtual void InvokeGainedAbility(IAbility ability)
+    {
+      var args = new GainAbilityEventArgs(this, ability);
+      GainedAbility?.Invoke(this, args);
     }
 
     #endregion
@@ -277,21 +357,12 @@ namespace CSF.Screenplay
     /// Initializes a new instance of the <see cref="Actor"/> class.
     /// </summary>
     /// <param name="name">The actor's name.</param>
-    public Actor(string name) : this(name, null) {}
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Actor"/> class.
-    /// </summary>
-    /// <param name="name">The actor's name.</param>
-    /// <param name="reporter">A reporter instance to use.</param>
-    public Actor(string name, IReporter reporter = null)
+    public Actor(string name)
     {
       if(name == null)
         throw new ArgumentNullException(nameof(name));
 
-      this.reporter = reporter?? GetDefaultReporter();
       this.name = name;
-
       abilityStore = new AbilityStore();
     }
 

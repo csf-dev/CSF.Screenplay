@@ -39,7 +39,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="result">The result produced.</param>
-    void Result(INamed actor, IPerformableWithResult performable, object result);
+    void Result(INamed actor, IPerformable performable, object result);
 
     /// <summary>
     /// Reports that a performable item has failed and possible terminated early.

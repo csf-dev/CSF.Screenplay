@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Tests
     public void Perform_executes_void_action()
     {
       // Arrange
-      var performer = CreatePerformer();
+      var performer = CreateActor();
       var action = Mock.Of<VoidPerformable>();
 
       // Act
@@ -31,7 +31,7 @@ namespace CSF.Screenplay.Tests
     public void Perform_executes_non_void_action()
     {
       // Arrange
-      var performer = CreatePerformer();
+      var performer = CreateActor();
       var action = Mock.Of<NonVoidPerformable>();
 
       // Act
@@ -45,38 +45,41 @@ namespace CSF.Screenplay.Tests
     public void Perform_void_action_reports_beginning()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.BeginPerformance += (sender, e) => triggered = true;
       var action = Mock.Of<VoidPerformable>();
 
       // Act
       performer.Perform(action);
 
       // Assert
-      Mock.Get(reporter).Verify(x => x.Begin(performer, action), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
     public void Perform_void_action_reports_success_when_action_is_ok()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.EndPerformance += (sender, e) => triggered = true;
       var action = Mock.Of<VoidPerformable>();
 
       // Act
       performer.Perform(action);
 
       // Assert
-      Mock.Get(reporter).Verify(x => x.Success(performer, action), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
     public void Perform_void_action_reports_failure_when_action_raises_exception()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.PerformanceFailed += (sender, e) => triggered = true;
       var action = Mock.Of<VoidPerformable>();
       Mock.Get(action)
           .Setup(x => x.PerformAs(performer))
@@ -91,61 +94,69 @@ namespace CSF.Screenplay.Tests
 
 
       // Assert
-      Mock.Get(reporter)
-          .Verify(x => x.Failure(performer, action, It.IsAny<InvalidOperationException>()), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
     public void Perform_non_void_action_reports_beginning()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.BeginPerformance += (sender, e) => triggered = true;
       var action = Mock.Of<NonVoidPerformable>();
 
       // Act
       performer.Perform(action);
 
       // Assert
-      Mock.Get(reporter).Verify(x => x.Begin(performer, action), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
     public void Perform_non_void_action_reports_success_when_action_is_ok()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.EndPerformance += (sender, e) => triggered = true;
       var action = Mock.Of<NonVoidPerformable>();
 
       // Act
       performer.Perform(action);
 
       // Assert
-      Mock.Get(reporter).Verify(x => x.Success(performer, action), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
     public void Perform_non_void_action_reports_result_when_action_is_ok()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      object result = null;
+      var performer = CreateActor();
+      performer.PerformanceResult += (sender, e) => {
+        triggered = true;
+        result = e.Result;
+      };
       var action = Mock.Of<NonVoidPerformable>(x => x.PerformAs(performer) == "foo");
 
       // Act
       performer.Perform(action);
 
       // Assert
-      Mock.Get(reporter).Verify(x => x.Result(performer, action, "foo"), Times.Once());
+      Assert.IsTrue(triggered);
+      Assert.AreEqual("foo", result);
     }
 
     [Test]
     public void Perform_non_void_action_reports_failure_when_action_raises_exception()
     {
       // Arrange
-      var reporter = Mock.Of<IReporter>();
-      var performer = CreatePerformer(reporter: reporter);
+      var triggered = false;
+      var performer = CreateActor();
+      performer.PerformanceFailed += (sender, e) => triggered = true;
       var action = Mock.Of<NonVoidPerformable>();
       Mock.Get(action)
           .Setup(x => x.PerformAs(performer))
@@ -160,8 +171,7 @@ namespace CSF.Screenplay.Tests
 
 
       // Assert
-      Mock.Get(reporter)
-          .Verify(x => x.Failure(performer, action, It.IsAny<InvalidOperationException>()), Times.Once());
+      Assert.IsTrue(triggered);
     }
 
     [Test]
@@ -169,7 +179,7 @@ namespace CSF.Screenplay.Tests
     {
       // Arrange
       var ability = Mock.Of<SampleAbility>();
-      var performer = CreatePerformer(ability);
+      var performer = CreateActor(ability);
 
       // Act
       var result = performer.HasAbility<SampleAbility>();
@@ -179,10 +189,25 @@ namespace CSF.Screenplay.Tests
     }
 
     [Test]
+    public void GainedAbility_reports_gaining_an_ability()
+    {
+      // Arrange
+      var triggered = false;
+      var performer = CreateActor();
+      performer.GainedAbility += (sender, e) => triggered = true;
+
+      // Act
+      performer.IsAbleTo(Mock.Of<SampleAbility>());
+
+      // Assert
+      Assert.IsTrue(triggered);
+    }
+
+    [Test]
     public void SupportsAction_returns_false_when_the_ability_is_not_possessed()
     {
       // Arrange
-      var performer = CreatePerformer();
+      var performer = CreateActor();
 
       // Act
       var result = performer.HasAbility<SampleAbility>();
@@ -196,7 +221,7 @@ namespace CSF.Screenplay.Tests
     {
       // Arrange
       var ability = Mock.Of<SampleAbility>();
-      var performer = CreatePerformer(ability);
+      var performer = CreateActor(ability);
 
       // Act
       var result = performer.GetAbility<SampleAbility>();
@@ -209,26 +234,23 @@ namespace CSF.Screenplay.Tests
     public void GetAbility_throws_exception_when_the_ability_is_not_possessed()
     {
       // Arrange
-      var performer = CreatePerformer();
+      var performer = CreateActor();
 
       // Act & assert
       Assert.Throws<MissingAbilityException>(() => performer.GetAbility<SampleAbility>());
     }
 
-    IPerformer CreatePerformer(IAbility ability,
-                               string name = null)
+    IActor CreateActor(IAbility ability, string name = null)
     {
-      return CreatePerformer(new [] { ability }, name);
+      return CreateActor(new [] { ability }, name);
     }
 
-    IPerformer CreatePerformer(IEnumerable<IAbility> abilities = null,
-                               string name = null,
-                               IReporter reporter = null)
+    IActor CreateActor(IEnumerable<IAbility> abilities = null, string name = null)
     {
       abilities = abilities?? Enumerable.Empty<IAbility>();
       name = name?? "joe";
 
-      var performer = new Actor(name, reporter);
+      var performer = new Actor(name);
       foreach(var ability in abilities)
       {
         performer.IsAbleTo(ability);

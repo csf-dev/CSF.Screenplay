@@ -74,6 +74,14 @@
     <Compile Include="Reporting\IPerformanceEnd.cs" />
     <Compile Include="Abilities\IAbilityStore.cs" />
     <Compile Include="Abilities\AbilityStore.cs" />
+    <Compile Include="Actors\BeginPerformanceEventArgs.cs" />
+    <Compile Include="Actors\EndSuccessfulPerformanceEventArgs.cs" />
+    <Compile Include="Actors\PerformanceFailureEventArgs.cs" />
+    <Compile Include="Actors\PerformanceResultEventArgs.cs" />
+    <Compile Include="Actors\GainAbilityEventArgs.cs" />
+    <Compile Include="Actors\PerformanceEventArgsBase.cs" />
+    <Compile Include="ReportingActor.cs" />
+    <Compile Include="Actors\ReportingCast.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

@@ -72,7 +72,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="result">The result produced.</param>
-    public void Result(INamed actor, IPerformableWithResult performable, object result)
+    public void Result(INamed actor, IPerformable performable, object result)
     {
       var report = new ResultReport(actor, performable, result);
       Trace.Source.TraceData(Trace.ResultType, Trace.ResultId, report);
