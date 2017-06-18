@@ -6,7 +6,7 @@
     <ProjectGuid>{7FDEE168-847E-4B1F-960D-D79D3EEB1D21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>CSF.Screenplay.SampleTests</RootNamespace>
-    <AssemblyName>CSF.ScreenplayUsageExample</AssemblyName>
+    <AssemblyName>CSF.ScreenPlay.SampleTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

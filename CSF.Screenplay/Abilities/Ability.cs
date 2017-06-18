@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay.Abilities
 {
@@ -24,9 +25,17 @@ namespace CSF.Screenplay.Abilities
     /// </summary>
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
-    public virtual string GetReport(INamed actor)
+    protected virtual string GetReport(INamed actor)
     {
       return $"{actor.Name} is able to {GetType().Name}";
+    }
+
+    string IReportable.GetReport(INamed actor)
+    {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+      
+      return GetReport(actor);
     }
 
     #region IDisposable Support

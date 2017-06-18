@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay.Performables
 {
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.Performables
     /// </summary>
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
-    public virtual string GetReport(INamed actor)
+    protected virtual string GetReport(INamed actor)
     {
       return $"{actor.Name} asks {GetType().Name}.";
     }
@@ -45,17 +46,34 @@ namespace CSF.Screenplay.Performables
 
     TAnswer IPerformable<TAnswer>.PerformAs(IPerformer actor)
     {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
       return GetAnswer(actor);
     }
 
     object IPerformableWithResult.PerformAs(IPerformer actor)
     {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
       return GetAnswer(actor);
     }
 
     void IPerformable.PerformAs(IPerformer actor)
     {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
       GetAnswer(actor);
+    }
+
+    string IReportable.GetReport(INamed actor)
+    {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
+      return GetReport(actor);
     }
   }
 }
