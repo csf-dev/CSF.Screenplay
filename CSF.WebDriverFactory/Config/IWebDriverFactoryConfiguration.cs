@@ -20,4 +20,5 @@ namespace CSF.WebDriverFactory.Config
     /// </summary>
     /// <returns>The factory properties.</returns>
     IDictionary<string,string> GetFactoryProperties();
+  }
 }
