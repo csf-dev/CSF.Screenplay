@@ -10,7 +10,7 @@ namespace CSF.Screenplay.Web.Abilities
 
     public IWebDriver WebDriver => webDriver;
 
-    public override string GetReport(Actors.INamed actor)
+    protected override string GetReport(Actors.INamed actor)
     {
       return $"{actor.Name} is able to browse the web.";
     }
