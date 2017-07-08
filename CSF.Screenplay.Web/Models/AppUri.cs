@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CSF.Screenplay.Web.Models
 {
-  public class ApplicationUri
+  public class AppUri : IUriProvider
   {
     public static readonly string DefaultSiteName = "Default";
 
@@ -11,16 +11,16 @@ namespace CSF.Screenplay.Web.Models
     public Uri Uri => uri;
     public string SiteName => siteName;
 
-    public ApplicationUri(string uri, string siteName = null)
+    public AppUri(string uri, string siteName = null)
     {
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));
 
-      this.uri = new Uri(uri);
+      this.uri = new Uri(uri, UriKind.Relative);
       this.siteName = siteName?? DefaultSiteName;
     }
 
-    public ApplicationUri(Uri uri, string siteName = null)
+    public AppUri(Uri uri, string siteName = null)
     {
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));

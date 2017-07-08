@@ -3,8 +3,8 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Abilities
 {
-  public interface IUrlTransformer
+  public interface IUriTransformer
   {
-    Uri Transform(ApplicationUri uri);
+    Uri Transform(IUriProvider uri);
   }
 }

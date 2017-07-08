@@ -3,14 +3,17 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Abilities
 {
-  public class RootUrlAppendingTransformer : IUrlTransformer
+  public class RootUrlAppendingTransformer : IUriTransformer
   {
     readonly Uri rootUri;
 
-    public Uri Transform(ApplicationUri uri)
+    public Uri Transform(IUriProvider uri)
     {
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));
+
+      if(uri is AbsoluteUri)
+        return uri.Uri;
 
       return new Uri(rootUri, uri.Uri);
     }

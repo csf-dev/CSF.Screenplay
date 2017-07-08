@@ -7,11 +7,12 @@ namespace CSF.Screenplay.Web.Abilities
   public class BrowseTheWeb : Ability
   {
     readonly IWebDriver webDriver;
-    readonly IUrlTransformer urlTransformer;
+    readonly IUriTransformer uriTransformer;
+    readonly bool requireExplicitDisposal;
 
     public IWebDriver WebDriver => webDriver;
 
-    public IUrlTransformer UrlTransformer => urlTransformer;
+    public IUriTransformer UriTransformer => uriTransformer;
 
     protected override string GetReport(Actors.INamed actor)
     {
@@ -20,19 +21,24 @@ namespace CSF.Screenplay.Web.Abilities
 
     protected override void Dispose(bool disposing)
     {
-      webDriver.Dispose();
+      if(!requireExplicitDisposal || disposing)
+      {
+        webDriver.Dispose();
+      }
+
       base.Dispose(disposing);
     }
 
-    public BrowseTheWeb(IWebDriver webDriver, IUrlTransformer transformer)
+    public BrowseTheWeb(IWebDriver webDriver,
+                        IUriTransformer transformer = null,
+                        bool requireExplicitDisposal = false)
     {
-      if(transformer == null)
-        throw new ArgumentNullException(nameof(transformer));
       if(webDriver == null)
         throw new ArgumentNullException(nameof(webDriver));
 
       this.webDriver = webDriver;
-      this.urlTransformer = transformer;
+      this.uriTransformer = transformer?? new NoOpUrlTransformer();
+      this.requireExplicitDisposal = requireExplicitDisposal;
     }
   }
 }

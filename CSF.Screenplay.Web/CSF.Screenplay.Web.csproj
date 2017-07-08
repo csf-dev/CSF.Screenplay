@@ -38,10 +38,23 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Actions\Open.cs" />
     <Compile Include="Abilities\BrowseTheWeb.cs" />
-    <Compile Include="Abilities\IUrlTransformer.cs" />
+    <Compile Include="Abilities\IUriTransformer.cs" />
     <Compile Include="Abilities\NoOpUrlTransformer.cs" />
     <Compile Include="Abilities\RootUrlAppendingTransformer.cs" />
-    <Compile Include="Models\ApplicationUri.cs" />
+    <Compile Include="Models\AppUri.cs" />
+    <Compile Include="Models\IUriProvider.cs" />
+    <Compile Include="Models\AbsoluteUri.cs" />
+    <Compile Include="Models\ITarget.cs" />
+    <Compile Include="Models\CssSelectorTarget.cs" />
+    <Compile Include="Models\StringBasedTarget.cs" />
+    <Compile Include="Models\IdTarget.cs" />
+    <Compile Include="Models\ClassNameTarget.cs" />
+    <Compile Include="Models\XPathTarget.cs" />
+    <Compile Include="Queries\GetValue.cs" />
+    <Compile Include="Queries\GetConvertedValue.cs" />
+    <Compile Include="Actions\TargettedAction.cs" />
+    <Compile Include="Actions\TargettedAction`1.cs" />
+    <Compile Include="Queries\GetWindowTitle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -56,6 +69,7 @@
     <Folder Include="Actions\" />
     <Folder Include="Models\" />
     <Folder Include="Abilities\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

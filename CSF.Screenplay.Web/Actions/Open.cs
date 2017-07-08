@@ -9,13 +9,13 @@ namespace CSF.Screenplay.Web.Actions
   public class Open : Performable
   {
     readonly Page page;
-    readonly ApplicationUri uri;
+    readonly IUriProvider uriProvider;
 
     protected override string GetReport(INamed actor)
     {
-      if(uri != null)
+      if(uriProvider != null)
       {
-        return $"{actor.Name} opens their browser at {uri.Uri.OriginalString}";
+        return $"{actor.Name} opens their browser at {uriProvider.Uri.OriginalString}";
       }
 
       return $"{actor.Name} opens their browser on {page.GetName()}.";
@@ -28,15 +28,15 @@ namespace CSF.Screenplay.Web.Actions
       Navigate(targetUri, ability);
     }
 
-    ApplicationUri GetAppUri()
+    IUriProvider GetUriProvider()
     {
-      return uri?? page.GetUri();
+      return uriProvider?? page.GetUri();
     }
 
     Uri GetUri(BrowseTheWeb ability)
     {
-      var appUri = GetAppUri();
-      var transformer = ability.UrlTransformer;
+      var uri = GetUriProvider();
+      var transformer = ability.UriTransformer;
       return transformer.Transform(uri);
     }
 
@@ -59,7 +59,7 @@ namespace CSF.Screenplay.Web.Actions
       if(url == null)
         throw new ArgumentNullException(nameof(url));
 
-      this.uri = new ApplicationUri(url);
+      this.uriProvider = new AbsoluteUri(url);
     }
 
     public Open(Uri uri)
@@ -67,15 +67,15 @@ namespace CSF.Screenplay.Web.Actions
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));
 
-      this.uri = new ApplicationUri(uri);
+      this.uriProvider = new AbsoluteUri(uri);
     }
 
-    public Open(ApplicationUri uri)
+    public Open(IUriProvider uri)
     {
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));
 
-      this.uri = uri;
+      this.uriProvider = uri;
     }
   }
 }
