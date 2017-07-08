@@ -6,6 +6,6 @@ namespace CSF.Screenplay.Web.Models
   {
     public abstract string GetName();
 
-    public abstract string GetUrl();
+    public abstract ApplicationUri GetUri();
   }
 }
