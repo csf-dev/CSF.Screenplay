@@ -6,7 +6,7 @@ namespace CSF.Screenplay.SampleTests
 {
   public class DoADifferentThing : Performable
   {
-    public override void PerformAs(IPerformer actor)
+    protected override void PerformAs(IPerformer actor)
     {
       throw new NotImplementedException();
     }

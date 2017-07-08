@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Tests
     {
       // Arrange
       var performer = CreateActor();
-      var action = Mock.Of<VoidPerformable>();
+      var action = Mock.Of<IPerformable>();
 
       // Act
       performer.Perform(action);
@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Tests
     {
       // Arrange
       var performer = CreateActor();
-      var action = Mock.Of<NonVoidPerformable>();
+      var action = Mock.Of<IPerformable<string>>();
 
       // Act
       performer.Perform(action);
@@ -48,7 +48,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.BeginPerformance += (sender, e) => triggered = true;
-      var action = Mock.Of<VoidPerformable>();
+      var action = Mock.Of<IPerformable>();
 
       // Act
       performer.Perform(action);
@@ -64,7 +64,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.EndPerformance += (sender, e) => triggered = true;
-      var action = Mock.Of<VoidPerformable>();
+      var action = Mock.Of<IPerformable>();
 
       // Act
       performer.Perform(action);
@@ -80,7 +80,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.PerformanceFailed += (sender, e) => triggered = true;
-      var action = Mock.Of<VoidPerformable>();
+      var action = Mock.Of<IPerformable>();
       Mock.Get(action)
           .Setup(x => x.PerformAs(performer))
           .Throws<InvalidOperationException>();
@@ -104,7 +104,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.BeginPerformance += (sender, e) => triggered = true;
-      var action = Mock.Of<NonVoidPerformable>();
+      var action = Mock.Of<IPerformable<string>>();
 
       // Act
       performer.Perform(action);
@@ -120,7 +120,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.EndPerformance += (sender, e) => triggered = true;
-      var action = Mock.Of<NonVoidPerformable>();
+      var action = Mock.Of<IPerformable<string>>();
 
       // Act
       performer.Perform(action);
@@ -140,7 +140,7 @@ namespace CSF.Screenplay.Tests
         triggered = true;
         result = e.Result;
       };
-      var action = Mock.Of<NonVoidPerformable>(x => x.PerformAs(performer) == "foo");
+      var action = Mock.Of<IPerformable<string>>(x => x.PerformAs(performer) == "foo");
 
       // Act
       performer.Perform(action);
@@ -157,7 +157,7 @@ namespace CSF.Screenplay.Tests
       var triggered = false;
       var performer = CreateActor();
       performer.PerformanceFailed += (sender, e) => triggered = true;
-      var action = Mock.Of<NonVoidPerformable>();
+      var action = Mock.Of<IPerformable<string>>();
       Mock.Get(action)
           .Setup(x => x.PerformAs(performer))
           .Throws<InvalidOperationException>();
@@ -256,22 +256,6 @@ namespace CSF.Screenplay.Tests
         performer.IsAbleTo(ability);
       }
       return performer;
-    }
-
-    public class VoidPerformable : Performable
-    {
-      public override void PerformAs(IPerformer actor)
-      {
-        throw new NotSupportedException();
-      }
-    }
-
-    public class NonVoidPerformable : Performable<string>
-    {
-      public override string PerformAs(IPerformer actor)
-      {
-        throw new NotSupportedException();
-      }
     }
 
     public class SampleAbility : Ability {}

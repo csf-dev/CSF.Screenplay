@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Web", "CSF.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.WebDriverFactory", "CSF.WebDriverFactory\CSF.WebDriverFactory.csproj", "{C99466AD-CA21-4C12-9E05-6730CDC3C031}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.WebDriverFactory.Tests", "Tests\CSF.Screenplay.Tests\CSF.WebDriverFactory.Tests\CSF.WebDriverFactory.Tests.csproj", "{9A92340A-F3AA-445B-955D-DCF68B3580AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,9 +43,14 @@ Global
 		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6273A66-8B2A-47C0-A982-F94E6BEA79F8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 		{7FDEE168-847E-4B1F-960D-D79D3EEB1D21} = {8EAE8BC8-B6BE-4579-B446-9A967020A5F5}
+		{9A92340A-F3AA-445B-955D-DCF68B3580AC} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 	EndGlobalSection
 EndGlobal

@@ -8,7 +8,7 @@ namespace CSF.Screenplay.SampleTests
   {
     readonly string value;
 
-    public override string PerformAs(IPerformer actor)
+    protected override string PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<SampleAbility>();
       return String.Concat(value, ability.GetSpecialNumber().ToString());

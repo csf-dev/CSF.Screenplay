@@ -6,7 +6,7 @@ namespace CSF.Screenplay.SampleTests
 {
   public class DoAThing : Performable
   {
-    public override void PerformAs(IPerformer actor)
+    protected override void PerformAs(IPerformer actor)
     {
       actor.Perform(new AThing(value: "The parameter"));
     }

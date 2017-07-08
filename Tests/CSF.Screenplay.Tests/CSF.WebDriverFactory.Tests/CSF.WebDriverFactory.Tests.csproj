@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6273A66-8B2A-47C0-A982-F94E6BEA79F8}</ProjectGuid>
+    <ProjectGuid>{9A92340A-F3AA-445B-955D-DCF68B3580AC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.Tests</RootNamespace>
-    <AssemblyName>CSF.Screenplay.Tests</AssemblyName>
+    <RootNamespace>CSF.WebDriverFactory.Tests</RootNamespace>
+    <AssemblyName>CSF.WebDriverFactory.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -27,30 +27,36 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Castle.Core">
-      <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
+      <HintPath>..\..\..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\..\..\packages\AutoFixture.3.50.3\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.AutoMoq">
+      <HintPath>..\..\..\packages\AutoFixture.AutoMoq.3.50.3\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.NUnit3">
+      <HintPath>..\..\..\packages\AutoFixture.NUnit3.3.50.3\lib\net40\Ploeh.AutoFixture.NUnit3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationWebDriverFactoryProviderTests.cs" />
+    <Compile Include="AutoMoqDataAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj">
-      <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
-      <Name>CSF.Screenplay</Name>
+    <ProjectReference Include="..\..\..\CSF.WebDriverFactory\CSF.WebDriverFactory.csproj">
+      <Project>{C99466AD-CA21-4C12-9E05-6730CDC3C031}</Project>
+      <Name>CSF.WebDriverFactory</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Actors\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Actors\CastTests.cs" />
-    <Compile Include="ActorTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
