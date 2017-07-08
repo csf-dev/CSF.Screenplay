@@ -8,6 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>0.2.0.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +39,10 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Actions\Open.cs" />
     <Compile Include="Abilities\BrowseTheWeb.cs" />
+    <Compile Include="Abilities\IUrlTransformer.cs" />
+    <Compile Include="Abilities\NoOpUrlTransformer.cs" />
+    <Compile Include="Abilities\RootUrlAppendingTransformer.cs" />
+    <Compile Include="Models\ApplicationUri.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

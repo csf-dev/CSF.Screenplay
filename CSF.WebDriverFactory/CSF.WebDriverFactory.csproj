@@ -50,6 +50,7 @@
     <Compile Include="Impl\ChromeWebDriverFactory.cs" />
     <Compile Include="Impl\InternetExplorerWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFactory.cs" />
+    <Compile Include="Impl\RemoteWebDriverFromEnvironmentFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -9,7 +9,11 @@ namespace CSF.WebDriverFactory.Impl
   /// </summary>
   public class RemoteWebDriverFactory : IWebDriverFactory
   {
-    public string BrowserType { get; set; }
+    public string BrowserName { get; set; }
+
+    public string BrowserVersion { get; set; }
+
+    public string Platform { get; set; }
 
     public string RemoteAddress { get; set; }
 
@@ -19,38 +23,37 @@ namespace CSF.WebDriverFactory.Impl
     /// Gets the web driver.
     /// </summary>
     /// <returns>The web driver.</returns>
-    public IWebDriver GetWebDriver()
+    public virtual IWebDriver GetWebDriver()
     {
       var capabilities = GetCapabilities();
       var uri = GetRemoteUri();
-      return new RemoteWebDriver(uri, capabilities, TimeSpan.FromSeconds(CommandTimeoutSeconds));
+      var timeout = GetTimeout();
+      return new RemoteWebDriver(uri, capabilities, timeout);
     }
 
     protected virtual ICapabilities GetCapabilities()
     {
-      switch(BrowserType)
-      {
-      case "Chrome":
-      case "chrome":
-        return DesiredCapabilities.Chrome();
+      var caps = new DesiredCapabilities();
 
-      case "Firefox":
-      case "firefox":
-        return DesiredCapabilities.Firefox();
+      caps.SetCapability(CapabilityType.BrowserName, BrowserName);
 
-      case "IE":
-      case "ie":
-      case "Explorer":
-      case "explorer":
-      case "InternetExplorer":
-      case "internetexplorer":
-      case "Internet Explorer":
-      case "internet explorer":
-        return DesiredCapabilities.InternetExplorer();
+      SetCapabilityIfNotNull(caps, CapabilityType.Version, BrowserVersion);
+      SetCapabilityIfNotNull(caps, CapabilityType.Platform, Platform);
 
-      default:
-        throw new InvalidOperationException($"Unreconised requested browser type: {BrowserType}");
-      }
+      return caps;
+    }
+
+    protected virtual TimeSpan GetTimeout()
+    {
+      return TimeSpan.FromSeconds(CommandTimeoutSeconds);
+    }
+
+    protected virtual void SetCapabilityIfNotNull(DesiredCapabilities caps, string name, string value)
+    {
+      if(value == null)
+        return;
+
+      caps.SetCapability(name, value);
     }
 
     protected virtual Uri GetRemoteUri()
@@ -60,7 +63,7 @@ namespace CSF.WebDriverFactory.Impl
 
     public RemoteWebDriverFactory()
     {
-      BrowserType = "Chrome";
+      BrowserName = "Chrome";
       RemoteAddress = "http://127.0.0.1:4444/wd/hub";
       CommandTimeoutSeconds = 60;
     }
