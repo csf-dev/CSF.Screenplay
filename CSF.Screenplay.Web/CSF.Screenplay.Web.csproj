@@ -8,7 +8,6 @@
     <RootNamespace>CSF.Screenplay.Web</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.2.0.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,7 +29,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="WebDriver">
-      <HintPath>..\..\..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
   </ItemGroup>
