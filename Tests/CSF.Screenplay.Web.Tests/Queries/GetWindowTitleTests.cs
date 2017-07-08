@@ -16,9 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Queries
     [SetUp]
     public void Setup()
     {
-      joe = new Actor("joe");
-      var browseTheWeb = WebdriverTestSetup.GetDefaultWebBrowsingAbility();
-      joe.IsAbleTo(browseTheWeb);
+      joe = WebdriverTestSetup.GetJoe();
     }
 
     [Test]
@@ -35,6 +33,7 @@ namespace CSF.Screenplay.Web.Tests.Queries
       var result = When(joe).AttemptsTo(readTheWindowTitle);
 
       // Assert
+      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetWindowTitle_returns_correct_result));
       Assert.AreEqual("App home page", result);
     }
   }

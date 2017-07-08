@@ -21,6 +21,36 @@ namespace CSF.Screenplay.Web.Tests
       return new BrowseTheWeb(WebDriver, DefaultUriTransformer, true);
     }
 
+    public static void TakeScreenshot(Type clazz, string testName)
+    {
+      var shotTaker = WebDriver as ITakesScreenshot;
+
+      if(shotTaker == null)
+        return;
+
+      // shotTaker.GetScreenshot().SaveAsFile($"{clazz.Name}.{testName}.jpeg", ScreenshotImageFormat.Jpeg);
+    }
+
+    public static Actor GetJoe()
+    {
+      var joe = new Actor("Joe");
+
+      var browseTheWeb = GetDefaultWebBrowsingAbility();
+      joe.IsAbleTo(browseTheWeb);
+
+      joe.BeginPerformance += (sender, e) => {
+        Console.WriteLine(e.Performable.GetReport(e.Actor));
+      };
+      joe.PerformanceResult += (sender, e) => {
+        Console.WriteLine("  the result was {0}", e.Result);
+      };
+      joe.PerformanceFailed += (sender, e) => {
+        Console.WriteLine("-- FAILED --\n\n{0}", e.Exception);
+      };
+
+      return joe;
+    }
+
     [OneTimeSetUp]
     public void OnetimeSetup()
     {

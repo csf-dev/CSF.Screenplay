@@ -16,13 +16,11 @@ namespace CSF.Screenplay.Web.Tests.Queries
     [SetUp]
     public void Setup()
     {
-      joe = new Actor("joe");
-      var browseTheWeb = WebdriverTestSetup.GetDefaultWebBrowsingAbility();
-      joe.IsAbleTo(browseTheWeb);
+      joe = WebdriverTestSetup.GetJoe();
     }
 
     [Test]
-    public void GetValue_returns_expected_value()
+    public void GetConvertedValue_returns_expected_value()
     {
       // Arrange
       var homePage = new HomePage();
@@ -35,6 +33,7 @@ namespace CSF.Screenplay.Web.Tests.Queries
       var result = When(joe).AttemptsTo(readTheValue);
 
       // Assert
+      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetConvertedValue_returns_expected_value));
       Assert.AreEqual(42, result);
     }
   }
