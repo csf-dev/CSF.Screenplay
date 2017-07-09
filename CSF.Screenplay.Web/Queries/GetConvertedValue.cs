@@ -8,11 +8,11 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Queries
 {
-  public class GetConvertedValue<T> : TargettedAction<T>
+  public class GetConvertedValue<T> : TargettedQuery<T>
   {
     protected override string GetReport(INamed actor)
     {
-      return $"{actor.Name} reads {Target.GetName()}.";
+      return $"{actor.Name} reads {GetTargetName()}.";
     }
 
     protected override T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)

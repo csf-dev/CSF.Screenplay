@@ -4,7 +4,7 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.ActionBuilders
+namespace CSF.Screenplay.Web.Builders
 {
   public class Select
   {

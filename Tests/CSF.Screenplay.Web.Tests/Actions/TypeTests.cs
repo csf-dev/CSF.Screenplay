@@ -8,7 +8,7 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Web.Tests.Actions
 {
   [TestFixture]
-  public class EnterTests
+  public class TypeTests
   {
     Actor joe;
 
@@ -19,12 +19,12 @@ namespace CSF.Screenplay.Web.Tests.Actions
     }
 
     [Test]
-    public void Enter_text_into_an_input_box_produces_expected_result_on_page()
+    public void Type_text_into_an_input_box_produces_expected_result_on_page()
     {
       // Arrange
       var pageTwo = new PageTwo();
       var openPageTwo = new Open(pageTwo);
-      var enterTheText = new Enter(pageTwo.SpecialInputField, "The right value");
+      var enterTheText = new Web.Actions.Type(pageTwo.SpecialInputField, "The right value");
       var seeTheValue = new GetValue(pageTwo.TheDynamicTextArea);
 
       Given(joe).WasAbleTo(openPageTwo);
@@ -33,18 +33,18 @@ namespace CSF.Screenplay.Web.Tests.Actions
       When(joe).AttemptsTo(enterTheText);
 
       // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Enter_text_into_an_input_box_produces_expected_result_on_page));
+      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Type_text_into_an_input_box_produces_expected_result_on_page));
       var result = Then(joe).Should(seeTheValue);
       Assert.AreEqual("different value", result);
     }
 
     [Test]
-    public void Enter_different_text_into_an_input_box_produces_expected_result_on_page()
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page()
     {
       // Arrange
       var pageTwo = new PageTwo();
       var openPageTwo = new Open(pageTwo);
-      var enterTheText = new Enter(pageTwo.SpecialInputField, "The wrong value");
+      var enterTheText = new Web.Actions.Type(pageTwo.SpecialInputField, "The wrong value");
       var seeTheValue = new GetValue(pageTwo.TheDynamicTextArea);
 
       Given(joe).WasAbleTo(openPageTwo);
@@ -53,7 +53,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       When(joe).AttemptsTo(enterTheText);
 
       // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Enter_different_text_into_an_input_box_produces_expected_result_on_page));
+      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Type_different_text_into_an_input_box_produces_expected_result_on_page));
       var result = Then(joe).Should(seeTheValue);
       Assert.AreEqual("dynamic value", result);
     }

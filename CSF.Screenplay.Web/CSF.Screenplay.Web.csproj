@@ -59,10 +59,9 @@
     <Compile Include="Queries\GetValue.cs" />
     <Compile Include="Queries\GetConvertedValue.cs" />
     <Compile Include="Actions\TargettedAction.cs" />
-    <Compile Include="Actions\TargettedAction`1.cs" />
     <Compile Include="Queries\GetWindowTitle.cs" />
     <Compile Include="Actions\Click.cs" />
-    <Compile Include="Actions\Enter.cs" />
+    <Compile Include="Actions\Type.cs" />
     <Compile Include="Actions\SelectByText.cs" />
     <Compile Include="Actions\SelectAction.cs" />
     <Compile Include="Actions\SelectByValue.cs" />
@@ -72,12 +71,13 @@
     <Compile Include="Actions\DeselectByIndex.cs" />
     <Compile Include="Actions\DeselectAll.cs" />
     <Compile Include="Actions\WebElementProvider.cs" />
-    <Compile Include="ActionBuilders\Click.cs" />
-    <Compile Include="ActionBuilders\Deselect.cs" />
-    <Compile Include="ActionBuilders\SelectStrategy.cs" />
-    <Compile Include="ActionBuilders\Select.cs" />
-    <Compile Include="ActionBuilders\Type.cs" />
-    <Compile Include="ActionBuilders\GoTo.cs" />
+    <Compile Include="Builders\Click.cs" />
+    <Compile Include="Builders\Deselect.cs" />
+    <Compile Include="Builders\SelectStrategy.cs" />
+    <Compile Include="Builders\Select.cs" />
+    <Compile Include="Builders\Type.cs" />
+    <Compile Include="Builders\GoTo.cs" />
+    <Compile Include="Queries\TargettedQuery`1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -93,7 +93,7 @@
     <Folder Include="Models\" />
     <Folder Include="Abilities\" />
     <Folder Include="Queries\" />
-    <Folder Include="ActionBuilders\" />
+    <Folder Include="Builders\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,7 +3,7 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.ActionBuilders
+namespace CSF.Screenplay.Web.Builders
 {
   public class Type
   {
@@ -11,12 +11,12 @@ namespace CSF.Screenplay.Web.ActionBuilders
 
     public IPerformable Into(ITarget target)
     {
-      return new Actions.Enter(target, val);
+      return new Actions.Type(target, val);
     }
 
     public IPerformable Into(IWebElement element)
     {
-      return new Actions.Enter(element, val);
+      return new Actions.Type(element, val);
     }
 
     public static Type TheText(string val)

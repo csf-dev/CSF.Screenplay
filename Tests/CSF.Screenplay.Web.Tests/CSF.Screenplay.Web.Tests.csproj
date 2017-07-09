@@ -65,7 +65,7 @@
     <Compile Include="Queries\GetConvertedValueTests.cs" />
     <Compile Include="Actions\ClickTests.cs" />
     <Compile Include="Pages\PageTwo.cs" />
-    <Compile Include="Actions\EnterTests.cs" />
+    <Compile Include="Actions\TypeTests.cs" />
     <Compile Include="Actions\SelectByTextTests.cs" />
     <Compile Include="ScreenshotService.cs" />
   </ItemGroup>

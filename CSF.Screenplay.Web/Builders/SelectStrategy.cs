@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.ActionBuilders
+namespace CSF.Screenplay.Web.Builders
 {
   enum SelectStrategy
   {

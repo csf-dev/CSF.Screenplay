@@ -2,7 +2,7 @@
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Models;
 
-namespace CSF.Screenplay.Web.ActionBuilders
+namespace CSF.Screenplay.Web.Builders
 {
   public class GoTo
   {

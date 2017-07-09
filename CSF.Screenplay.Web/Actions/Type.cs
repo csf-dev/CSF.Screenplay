@@ -6,13 +6,13 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Actions
 {
-  public class Enter : TargettedAction
+  public class Type : TargettedAction
   {
     readonly string text;
 
     protected override string GetReport(INamed actor)
     {
-      return $"{actor.Name} enters '{text}' into {GetTargetName()}";
+      return $"{actor.Name} types '{text}' into {GetTargetName()}";
     }
 
     protected override void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)
@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Web.Actions
       element.SendKeys(text);
     }
 
-    public Enter(ITarget target, string text) : base(target)
+    public Type(ITarget target, string text) : base(target)
     {
       if(text == null)
         throw new ArgumentNullException(nameof(text));
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Actions
       this.text = text;
     }
 
-    public Enter(IWebElement element, string text) : base(element)
+    public Type(IWebElement element, string text) : base(element)
     {
       if(text == null)
         throw new ArgumentNullException(nameof(text));

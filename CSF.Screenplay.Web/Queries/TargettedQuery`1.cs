@@ -2,18 +2,16 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Actions;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Web.Queries
 {
-  public abstract class TargettedAction<T> : Performable<T>
+  public abstract class TargettedQuery<T> : Performable<T>
   {
     readonly ITarget target;
     readonly IWebElement element;
-
-    protected ITarget Target => target;
-    protected IWebElement Element => element;
 
     protected override T PerformAs(IPerformer actor)
     {
@@ -29,15 +27,23 @@ namespace CSF.Screenplay.Web.Actions
 
     protected virtual IWebElement GetWebElement(BrowseTheWeb ability)
     {
-      if(Element != null)
+      if(element != null)
         return element;
 
-      return TargettedAction.ElementProvider.GetElement(ability, Target);
+      return TargettedAction.ElementProvider.GetElement(ability, target);
+    }
+
+    protected virtual string GetTargetName()
+    {
+      if(target != null)
+        return target.GetName();
+
+      return $"the <{element.TagName}> element";
     }
 
     protected abstract T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element);
 
-    public TargettedAction(ITarget target)
+    public TargettedQuery(ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -45,7 +51,7 @@ namespace CSF.Screenplay.Web.Actions
       this.target = target;
     }
 
-    public TargettedAction(IWebElement element)
+    public TargettedQuery(IWebElement element)
     {
       if(element == null)
         throw new ArgumentNullException(nameof(element));
