@@ -32,6 +32,12 @@
       <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Utils">
+      <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +61,23 @@
     <Compile Include="Actions\TargettedAction.cs" />
     <Compile Include="Actions\TargettedAction`1.cs" />
     <Compile Include="Queries\GetWindowTitle.cs" />
+    <Compile Include="Actions\Click.cs" />
+    <Compile Include="Actions\Enter.cs" />
+    <Compile Include="Actions\SelectByText.cs" />
+    <Compile Include="Actions\SelectAction.cs" />
+    <Compile Include="Actions\SelectByValue.cs" />
+    <Compile Include="Actions\SelectByIndex.cs" />
+    <Compile Include="Actions\DeselectByText.cs" />
+    <Compile Include="Actions\DeselectByValue.cs" />
+    <Compile Include="Actions\DeselectByIndex.cs" />
+    <Compile Include="Actions\DeselectAll.cs" />
+    <Compile Include="Actions\WebElementProvider.cs" />
+    <Compile Include="ActionBuilders\Click.cs" />
+    <Compile Include="ActionBuilders\Deselect.cs" />
+    <Compile Include="ActionBuilders\SelectStrategy.cs" />
+    <Compile Include="ActionBuilders\Select.cs" />
+    <Compile Include="ActionBuilders\Type.cs" />
+    <Compile Include="ActionBuilders\GoTo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -70,6 +93,7 @@
     <Folder Include="Models\" />
     <Folder Include="Abilities\" />
     <Folder Include="Queries\" />
+    <Folder Include="ActionBuilders\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

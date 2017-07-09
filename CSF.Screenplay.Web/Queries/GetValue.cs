@@ -21,5 +21,7 @@ namespace CSF.Screenplay.Web.Queries
     }
 
     public GetValue(ITarget target) : base(target) {}
+
+    public GetValue(IWebElement element) : base(element) {}
   }
 }

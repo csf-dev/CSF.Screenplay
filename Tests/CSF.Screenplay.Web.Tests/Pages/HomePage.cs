@@ -12,5 +12,7 @@ namespace CSF.Screenplay.Web.Tests.Pages
     public ITarget ImportantString => new IdTarget("important_string", "the important string");
 
     public ITarget ImportantNumber => new IdTarget("important_number", "the important number");
+
+    public ITarget SecondPageLink => new ClassNameTarget("second_page_link", "the hyperlink to page two");
   }
 }

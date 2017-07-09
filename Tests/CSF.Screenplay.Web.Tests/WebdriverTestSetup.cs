@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using CSF.Screenplay.Web.Abilities;
 using CSF.WebDriverFactory;
 using NUnit.Framework;
@@ -23,12 +24,10 @@ namespace CSF.Screenplay.Web.Tests
 
     public static void TakeScreenshot(Type clazz, string testName)
     {
-      var shotTaker = WebDriver as ITakesScreenshot;
+      var screenshotDir = Path.Combine(Environment.CurrentDirectory, "Screenshots");
 
-      if(shotTaker == null)
-        return;
-
-      // shotTaker.GetScreenshot().SaveAsFile($"{clazz.Name}.{testName}.jpeg", ScreenshotImageFormat.Jpeg);
+      var service = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
+      service.TakeAndSaveScreenshot(clazz, testName);
     }
 
     public static Actor GetJoe()

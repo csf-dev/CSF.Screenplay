@@ -33,6 +33,9 @@
       <HintPath>..\..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="CSF.Utils">
+      <HintPath>..\..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,6 +63,11 @@
     <Compile Include="WebdriverTestSetup.cs" />
     <Compile Include="Queries\GetValueTests.cs" />
     <Compile Include="Queries\GetConvertedValueTests.cs" />
+    <Compile Include="Actions\ClickTests.cs" />
+    <Compile Include="Pages\PageTwo.cs" />
+    <Compile Include="Actions\EnterTests.cs" />
+    <Compile Include="Actions\SelectByTextTests.cs" />
+    <Compile Include="ScreenshotService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

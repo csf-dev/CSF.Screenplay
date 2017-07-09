@@ -8,6 +8,7 @@ packages/*/*
 TestResult.xml
 TestResult.formatted.xml
 Tests/Temp/
+Screenshots/
 *.log
 *.orig
 

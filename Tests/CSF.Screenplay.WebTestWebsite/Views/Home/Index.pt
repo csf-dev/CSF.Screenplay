@@ -10,17 +10,20 @@
 <header>Common page header</header>
 <div class="page" metal:fill-slot="page_content">
   <h1>Home page</h1>
-  <p>This is the content for the home page of the testing website.</p>
+  <p>
+    This is the content for the home page of the testing website.
+    From here you could also <a class="second_page_link" href="PageTwo">navigate to the second page</a>.
+  </p>
   <h2>Important string</h2>
   <p>
     There is an important string on this page which may be read by the testing framework.<br>
     That string is <strong id="important_string">banana!</strong>
-  <p>
+  </p>
   <h2>Important number</h2>
   <p>
     There is an important number on this page as well, which is also read by the testing framework.<br>
     That number is <strong id="important_number">42</strong>.
-  <p>
+  </p>
 </div>
 <footer>Common page footer</footer>
 </body>
