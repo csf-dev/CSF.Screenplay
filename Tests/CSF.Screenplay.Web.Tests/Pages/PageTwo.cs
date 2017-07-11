@@ -9,12 +9,12 @@ namespace CSF.Screenplay.Web.Tests.Pages
 
     public override IUriProvider GetUri() => new AppUri("PageTwo");
 
-    public ITarget SpecialInputField => new CssSelectorTarget(".special_text input", "the special input field");
+    public ITarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
 
-    public ITarget TheDynamicTextArea => new IdTarget("dynamic_value", "the dynamic value");
+    public ITarget TheDynamicTextArea => new ElementId("dynamic_value", "the dynamic value");
 
-    public ITarget SingleSelectionList => new CssSelectorTarget("#single_selection", "the single selection list");
+    public ITarget SingleSelectionList => new CssSelector("#single_selection", "the single selection list");
 
-    public ITarget SingleSelectionValue => new CssSelectorTarget("#single_selected_value", "the single selection value");
+    public ITarget SingleSelectionValue => new CssSelector("#single_selected_value", "the single selection value");
   }
 }

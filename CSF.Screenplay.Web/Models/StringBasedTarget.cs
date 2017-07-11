@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Web.Models
   {
     readonly string searchString, name;
 
-    string ITarget.GetName()
+    string IHasTargetName.GetName()
     {
       return name;
     }

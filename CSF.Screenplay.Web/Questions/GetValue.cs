@@ -1,23 +1,21 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Web.Questions
 {
-  public class GetValue : TargettedQuery<string>
+  public class GetValue : TargettedQuestion<string>
   {
     protected override string GetReport(INamed actor)
     {
-      return $"{actor.Name} reads {GetTargetName()}.";
+      return $"{actor.Name} reads the value of {GetTargetName()}.";
     }
 
-    protected override string PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)
+    protected override string PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
     {
-      return element.Text;
+      return adapter.GetValue();
     }
 
     public GetValue(ITarget target) : base(target) {}

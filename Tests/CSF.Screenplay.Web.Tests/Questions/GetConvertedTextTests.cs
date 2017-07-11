@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Web.Questions;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
@@ -9,7 +9,7 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Web.Tests.Queries
 {
   [TestFixture]
-  public class GetWindowTitleTests
+  public class GetConvertedTextTests
   {
     Actor joe;
 
@@ -20,21 +20,21 @@ namespace CSF.Screenplay.Web.Tests.Queries
     }
 
     [Test]
-    public void GetWindowTitle_returns_correct_result()
+    public void GetConvertedText_returns_expected_value()
     {
       // Arrange
       var homePage = new HomePage();
       var openTheHomePage = new Open(homePage);
-      var readTheWindowTitle = new GetWindowTitle();
+      var readTheValue = new GetConvertedText<int>(homePage.ImportantNumber);
 
       Given(joe).WasAbleTo(openTheHomePage);
 
       // Act
-      var result = When(joe).AttemptsTo(readTheWindowTitle);
+      var result = When(joe).AttemptsTo(readTheValue);
 
       // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetWindowTitle_returns_correct_result));
-      Assert.AreEqual("App home page", result);
+      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetConvertedText_returns_expected_value));
+      Assert.AreEqual(42, result);
     }
   }
 }

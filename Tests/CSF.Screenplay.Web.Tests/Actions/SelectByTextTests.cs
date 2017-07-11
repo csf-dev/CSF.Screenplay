@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Web.Questions;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       var pageTwo = new PageTwo();
       var openPageTwo = new Open(pageTwo);
       var selectTheValue = new SelectByText(pageTwo.SingleSelectionList, "Two");
-      var seeTheValue = new GetConvertedValue<int>(pageTwo.SingleSelectionValue);
+      var seeTheValue = new GetConvertedText<int>(pageTwo.SingleSelectionValue);
 
       Given(joe).WasAbleTo(openPageTwo);
 

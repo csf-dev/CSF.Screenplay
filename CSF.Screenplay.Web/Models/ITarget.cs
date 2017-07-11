@@ -3,10 +3,8 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
 {
-  public interface ITarget
+  public interface ITarget : IHasTargetName
   {
-    string GetName();
-
     By GetWebDriverLocator();
   }
 }

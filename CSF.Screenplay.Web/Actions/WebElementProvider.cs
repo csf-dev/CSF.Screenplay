@@ -8,6 +8,8 @@ namespace CSF.Screenplay.Web.Actions
 {
   public class WebElementProvider
   {
+    static readonly WebElementProvider singleton;
+
     public IWebElement GetElement(BrowseTheWeb ability, ITarget target)
     {
       var locator = target.GetWebDriverLocator();
@@ -21,5 +23,12 @@ namespace CSF.Screenplay.Web.Actions
       var webDriver = ability.WebDriver;
       return webDriver.FindElements(locator);
     }
+
+    static WebElementProvider()
+    {
+      singleton = new WebElementProvider();
+    }
+
+    internal static WebElementProvider Instance => singleton;
   }
 }

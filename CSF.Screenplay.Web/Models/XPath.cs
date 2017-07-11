@@ -3,13 +3,13 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
 {
-  public class XPathTarget : StringBasedTarget
+  public class XPath : StringBasedTarget
   {
     protected override By GetWebDriverLocator(string search)
     {
       return By.XPath(search);
     }
 
-    public XPathTarget(string selector, string name) : base(selector, name) {}
+    public XPath(string selector, string name) : base(selector, name) {}
   }
 }

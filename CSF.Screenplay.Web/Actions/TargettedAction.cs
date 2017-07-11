@@ -9,11 +9,8 @@ namespace CSF.Screenplay.Web.Actions
 {
   public abstract class TargettedAction : Performable
   {
-    readonly static WebElementProvider elementProvider;
     readonly ITarget target;
     readonly IWebElement element;
-
-    internal static WebElementProvider ElementProvider => elementProvider;
 
     protected override void PerformAs(IPerformer actor)
     {
@@ -32,7 +29,7 @@ namespace CSF.Screenplay.Web.Actions
       if(element != null)
         return element;
 
-      return elementProvider.GetElement(ability, target);
+      return WebElementProvider.Instance.GetElement(ability, target);
     }
 
     protected virtual string GetTargetName()
@@ -59,11 +56,6 @@ namespace CSF.Screenplay.Web.Actions
         throw new ArgumentNullException(nameof(element));
 
       this.element = element;
-    }
-
-    static TargettedAction()
-    {
-      elementProvider = new WebElementProvider();
     }
   }
 }

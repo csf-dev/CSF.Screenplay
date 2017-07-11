@@ -9,10 +9,10 @@ namespace CSF.Screenplay.Web.Tests.Pages
 
     public override IUriProvider GetUri() => new AppUri("");
 
-    public ITarget ImportantString => new IdTarget("important_string", "the important string");
+    public ITarget ImportantString => new ElementId("important_string", "the important string");
 
-    public ITarget ImportantNumber => new IdTarget("important_number", "the important number");
+    public ITarget ImportantNumber => new ElementId("important_number", "the important number");
 
-    public ITarget SecondPageLink => new ClassNameTarget("second_page_link", "the hyperlink to page two");
+    public ITarget SecondPageLink => new ClassName("second_page_link", "the hyperlink to page two");
   }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Web.Questions;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       var pageTwo = new PageTwo();
       var openPageTwo = new Open(pageTwo);
       var enterTheText = new Web.Actions.Type(pageTwo.SpecialInputField, "The right value");
-      var seeTheValue = new GetValue(pageTwo.TheDynamicTextArea);
+      var seeTheValue = new GetText(pageTwo.TheDynamicTextArea);
 
       Given(joe).WasAbleTo(openPageTwo);
 
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       var pageTwo = new PageTwo();
       var openPageTwo = new Open(pageTwo);
       var enterTheText = new Web.Actions.Type(pageTwo.SpecialInputField, "The wrong value");
-      var seeTheValue = new GetValue(pageTwo.TheDynamicTextArea);
+      var seeTheValue = new GetText(pageTwo.TheDynamicTextArea);
 
       Given(joe).WasAbleTo(openPageTwo);
 

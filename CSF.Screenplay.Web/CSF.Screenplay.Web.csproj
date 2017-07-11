@@ -51,15 +51,15 @@
     <Compile Include="Models\IUriProvider.cs" />
     <Compile Include="Models\AbsoluteUri.cs" />
     <Compile Include="Models\ITarget.cs" />
-    <Compile Include="Models\CssSelectorTarget.cs" />
+    <Compile Include="Models\CssSelector.cs" />
     <Compile Include="Models\StringBasedTarget.cs" />
-    <Compile Include="Models\IdTarget.cs" />
-    <Compile Include="Models\ClassNameTarget.cs" />
-    <Compile Include="Models\XPathTarget.cs" />
-    <Compile Include="Queries\GetValue.cs" />
-    <Compile Include="Queries\GetConvertedValue.cs" />
+    <Compile Include="Models\ElementId.cs" />
+    <Compile Include="Models\ClassName.cs" />
+    <Compile Include="Models\XPath.cs" />
+    <Compile Include="Questions\GetText.cs" />
+    <Compile Include="Questions\GetConvertedText.cs" />
     <Compile Include="Actions\TargettedAction.cs" />
-    <Compile Include="Queries\GetWindowTitle.cs" />
+    <Compile Include="Questions\GetWindowTitle.cs" />
     <Compile Include="Actions\Click.cs" />
     <Compile Include="Actions\Type.cs" />
     <Compile Include="Actions\SelectByText.cs" />
@@ -77,7 +77,35 @@
     <Compile Include="Builders\Select.cs" />
     <Compile Include="Builders\Type.cs" />
     <Compile Include="Builders\GoTo.cs" />
-    <Compile Include="Queries\TargettedQuery`1.cs" />
+    <Compile Include="Questions\TargettedQuestion`1.cs" />
+    <Compile Include="Questions\GetAttribute.cs" />
+    <Compile Include="Questions\GetCssValue.cs" />
+    <Compile Include="Models\IWebElementAdapter.cs" />
+    <Compile Include="Models\Option.cs" />
+    <Compile Include="Models\PixelDistance.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Size.cs" />
+    <Compile Include="Models\WebElementAdapter.cs" />
+    <Compile Include="Questions\GetValue.cs" />
+    <Compile Include="Questions\GetConvertedValue.cs" />
+    <Compile Include="Questions\GetAllOptions.cs" />
+    <Compile Include="Questions\GetSelectedOptions.cs" />
+    <Compile Include="Questions\GetLocation.cs" />
+    <Compile Include="Questions\GetSize.cs" />
+    <Compile Include="Builders\TheOptions.cs" />
+    <Compile Include="Builders\TheSelectedOptions.cs" />
+    <Compile Include="Builders\TheAttribute.cs" />
+    <Compile Include="Builders\TheCss.cs" />
+    <Compile Include="Builders\TheText.cs" />
+    <Compile Include="Builders\TheValue.cs" />
+    <Compile Include="Builders\TheWindow.cs" />
+    <Compile Include="Builders\TheSize.cs" />
+    <Compile Include="Builders\TheLocation.cs" />
+    <Compile Include="Questions\FindElements.cs" />
+    <Compile Include="Questions\FindElementsOnPage.cs" />
+    <Compile Include="Matchers\IElementMatcher.cs" />
+    <Compile Include="Models\ElementCollection.cs" />
+    <Compile Include="Models\IHasTargetName.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -92,8 +120,9 @@
     <Folder Include="Actions\" />
     <Folder Include="Models\" />
     <Folder Include="Abilities\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Questions\" />
     <Folder Include="Builders\" />
+    <Folder Include="Matchers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

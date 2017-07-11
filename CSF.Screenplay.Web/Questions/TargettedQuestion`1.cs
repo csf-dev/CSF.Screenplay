@@ -6,18 +6,19 @@ using CSF.Screenplay.Web.Actions;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Web.Questions
 {
-  public abstract class TargettedQuery<T> : Performable<T>
+  public abstract class TargettedQuestion<T> : Performable<T>
   {
     readonly ITarget target;
-    readonly IWebElement element;
+    IWebElement element;
 
     protected override T PerformAs(IPerformer actor)
     {
       var ability = GetAbility(actor);
       var ele = GetWebElement(ability);
-      return PerformAs(actor, ability, ele);
+      var adapter = GetWebElementAdapter(ele);
+      return PerformAs(actor, ability, adapter);
     }
 
     protected virtual BrowseTheWeb GetAbility(IPerformer actor)
@@ -30,7 +31,13 @@ namespace CSF.Screenplay.Web.Queries
       if(element != null)
         return element;
 
-      return TargettedAction.ElementProvider.GetElement(ability, target);
+      element = WebElementProvider.Instance.GetElement(ability, target);
+      return element;
+    }
+
+    protected virtual IWebElementAdapter GetWebElementAdapter(IWebElement element)
+    {
+      return new WebElementAdapter(element);
     }
 
     protected virtual string GetTargetName()
@@ -38,12 +45,15 @@ namespace CSF.Screenplay.Web.Queries
       if(target != null)
         return target.GetName();
 
-      return $"the <{element.TagName}> element";
+      if(element != null)
+        return $"the <{element.TagName}> element";
+
+      return "the element";
     }
 
-    protected abstract T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element);
+    protected abstract T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter);
 
-    public TargettedQuery(ITarget target)
+    public TargettedQuestion(ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -51,7 +61,7 @@ namespace CSF.Screenplay.Web.Queries
       this.target = target;
     }
 
-    public TargettedQuery(IWebElement element)
+    public TargettedQuestion(IWebElement element)
     {
       if(element == null)
         throw new ArgumentNullException(nameof(element));
