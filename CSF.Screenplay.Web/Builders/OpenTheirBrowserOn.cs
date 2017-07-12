@@ -4,7 +4,7 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Builders
 {
-  public class GoTo
+  public class OpenTheirBrowserOn
   {
     public static IPerformable ThePage<TPage>() where TPage : Page,new()
     {

@@ -5,26 +5,26 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
 {
-  public class Type
+  public class Enter
   {
     readonly string val;
 
     public IPerformable Into(ITarget target)
     {
-      return new Actions.Type(target, val);
+      return new Actions.Enter(target, val);
     }
 
     public IPerformable Into(IWebElement element)
     {
-      return new Actions.Type(element, val);
+      return new Actions.Enter(element, val);
     }
 
-    public static Type TheText(string val)
+    public static Enter TheText(string val)
     {
-      return new Type(val);
+      return new Enter(val);
     }
 
-    Type(string val)
+    Enter(string val)
     {
       if(val == null)
         throw new ArgumentNullException(nameof(val));

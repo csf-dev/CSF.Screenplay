@@ -12,6 +12,7 @@ namespace CSF.Screenplay.Web.Tests
   {
     static IWebDriver webDriver;
     static IUriTransformer defaultUriTransformer;
+    static string screenshotDir;
 
     public static IWebDriver WebDriver => webDriver;
 
@@ -24,10 +25,9 @@ namespace CSF.Screenplay.Web.Tests
 
     public static void TakeScreenshot(Type clazz, string testName)
     {
-      var screenshotDir = Path.Combine(Environment.CurrentDirectory, "Screenshots");
+      var screenshotService = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
 
-      var service = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
-      service.TakeAndSaveScreenshot(clazz, testName);
+      screenshotService.TakeAndSaveScreenshot(clazz, testName);
     }
 
     public static Actor GetJoe()
@@ -46,13 +46,36 @@ namespace CSF.Screenplay.Web.Tests
       joe.PerformanceFailed += (sender, e) => {
         Console.WriteLine("-- FAILED --\n\n{0}", e.Exception);
       };
+      joe.BeginThen += (sender, e) => {
+        TakeScreenshotBeforeThen();
+      };
 
       return joe;
+    }
+
+    static void TakeScreenshotBeforeThen()
+    {
+      var ctx = TestContext.CurrentContext;
+      var testName = ctx.Test.FullName;
+
+      var screenshotService = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
+
+      screenshotService.TakeAndSaveScreenshot(testName);
+    }
+
+    static void DeleteScreenshotsDir()
+    {
+      var dir = new DirectoryInfo(screenshotDir);
+      if(!dir.Exists)
+        return;
+
+      dir.Delete(true);
     }
 
     [OneTimeSetUp]
     public void OnetimeSetup()
     {
+      DeleteScreenshotsDir();
       webDriver = GetWebDriver();
     }
 
@@ -71,6 +94,7 @@ namespace CSF.Screenplay.Web.Tests
 
     static WebdriverTestSetup()
     {
+      screenshotDir = Path.Combine(Environment.CurrentDirectory, "Screenshots");
       defaultUriTransformer = new RootUrlAppendingTransformer("http://localhost:8080/");
     }
   }

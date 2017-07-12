@@ -1,12 +1,11 @@
 ﻿using System;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
+using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Queries
+namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
   public class GetWindowTitleTests
@@ -22,19 +21,12 @@ namespace CSF.Screenplay.Web.Tests.Queries
     [Test]
     public void GetWindowTitle_returns_correct_result()
     {
-      // Arrange
-      var homePage = new HomePage();
-      var openTheHomePage = new Open(homePage);
-      var readTheWindowTitle = new GetWindowTitle();
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Given(joe).WasAbleTo(openTheHomePage);
+      var result = When(joe).Sees(TheWindow.Title());
 
-      // Act
-      var result = When(joe).AttemptsTo(readTheWindowTitle);
-
-      // Assert
       WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetWindowTitle_returns_correct_result));
-      Assert.AreEqual("App home page", result);
+      result.Should().Be("App home page");
     }
   }
 }

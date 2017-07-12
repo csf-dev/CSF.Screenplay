@@ -8,12 +8,12 @@ namespace CSF.Screenplay.Web.Builders
 {
   public class TheSize
   {
-    public static IPerformable<Size> Of(ITarget target)
+    public static IQuestion<Size> Of(ITarget target)
     {
       return new Questions.GetSize(target);
     }
 
-    public static IPerformable<Size> Of(IWebElement element)
+    public static IQuestion<Size> Of(IWebElement element)
     {
       return new Questions.GetSize(element);
     }

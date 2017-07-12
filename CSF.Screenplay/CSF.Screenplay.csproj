@@ -80,6 +80,7 @@
     <Compile Include="Actors\PerformanceResultEventArgs.cs" />
     <Compile Include="Actors\GainAbilityEventArgs.cs" />
     <Compile Include="Actors\PerformanceEventArgsBase.cs" />
+    <Compile Include="Actors\ActorEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

@@ -32,5 +32,35 @@ namespace CSF.Screenplay.Actors
     /// Occurs when an actor gains a new ability.
     /// </summary>
     event EventHandler<GainAbilityEventArgs> GainedAbility;
+
+    /// <summary>
+    /// Occurs when the actor begins a 'Given' task, action or question.
+    /// </summary>
+    event EventHandler<ActorEventArgs> BeginGiven;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'Given' task, action or question.
+    /// </summary>
+    event EventHandler<ActorEventArgs> EndGiven;
+
+    /// <summary>
+    /// Occurs when the actor begins a 'When' task, action or question.
+    /// </summary>
+    event EventHandler<ActorEventArgs> BeginWhen;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'When' task, action or question.
+    /// </summary>
+    event EventHandler<ActorEventArgs> EndWhen;
+
+    /// <summary>
+    /// Occurs when the actor begins a 'Then' task, action or question (usually a question).
+    /// </summary>
+    event EventHandler<ActorEventArgs> BeginThen;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'Then' task, action or question (usually a question).
+    /// </summary>
+    event EventHandler<ActorEventArgs> EndThen;
   }
 }

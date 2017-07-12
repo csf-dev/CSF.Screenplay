@@ -9,12 +9,12 @@ namespace CSF.Screenplay.Web.Builders
   {
     readonly string name;
 
-    public IPerformable<string> From(ITarget target)
+    public IQuestion<string> From(ITarget target)
     {
       return new Questions.GetAttribute(target, name);
     }
 
-    public IPerformable<string> From(IWebElement element)
+    public IQuestion<string> From(IWebElement element)
     {
       return new Questions.GetAttribute(element, name);
     }

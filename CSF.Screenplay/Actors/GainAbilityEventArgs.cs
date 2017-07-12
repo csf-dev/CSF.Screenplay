@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Actors
   /// <summary>
   /// Event arguments for an actor gaining an ability.
   /// </summary>
-  public class GainAbilityEventArgs : EventArgs
+  public class GainAbilityEventArgs : ActorEventArgs
   {
     /// <summary>
     /// Gets the ability which was added to the actor.
@@ -15,25 +15,16 @@ namespace CSF.Screenplay.Actors
     public IAbility Ability { get; private set; }
 
     /// <summary>
-    /// Gets the actor which gained the ability
-    /// </summary>
-    /// <value>The actor.</value>
-    public INamed Actor { get; private set; }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="GainAbilityEventArgs"/> class.
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="ability">The ability.</param>
-    public GainAbilityEventArgs(INamed actor, IAbility ability)
+    public GainAbilityEventArgs(INamed actor, IAbility ability) : base(actor)
     {
       if(ability == null)
         throw new ArgumentNullException(nameof(ability));
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
 
       Ability = ability;
-      Actor = actor;
     }
   }
 }

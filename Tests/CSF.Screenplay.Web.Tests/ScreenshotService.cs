@@ -11,19 +11,25 @@ namespace CSF.Screenplay.Web.Tests
     readonly DirectoryInfo rootPath;
     readonly ScreenshotImageFormat format;
 
-    public void TakeAndSaveScreenshot(Type testClass, string testName)
+    public void TakeAndSaveScreenshot(Type testClass, string testMethod)
+    {
+      var testName = CreateTestName(testClass, testMethod);
+      TakeAndSaveScreenshot(testName);
+    }
+
+    public void TakeAndSaveScreenshot(string testName)
     {
       var screenshotDriver = webDriver as ITakesScreenshot;
       if(screenshotDriver == null)
         return;
 
-      TakeAndSaveScreenshot(screenshotDriver, testClass, testName);
+      TakeAndSaveScreenshot(screenshotDriver, testName);
     }
 
-    void TakeAndSaveScreenshot(ITakesScreenshot driver, Type testClass, string testName)
+    void TakeAndSaveScreenshot(ITakesScreenshot driver, string testName)
     {
       CreateRootPath();
-      var filePath = GetFilePath(testClass, testName);
+      var filePath = GetFilePath(testName);
       driver.GetScreenshot().SaveAsFile(filePath, format);
     }
 
@@ -32,9 +38,14 @@ namespace CSF.Screenplay.Web.Tests
       rootPath.CreateRecursively();
     }
 
-    string GetFilePath(Type testClass, string testName)
+    string CreateTestName(Type testClass, string testMethod)
     {
-      string filename = $"{testClass.Name}.{testName}.{format.ToString().ToLowerInvariant()}";
+      return $"{testClass.Name}.{testMethod}";
+    }
+
+    string GetFilePath(string testName)
+    {
+      string filename = $"{testName}.{format.ToString().ToLowerInvariant()}";
       return Path.Combine(rootPath.FullName, filename);
     }
 

@@ -1,12 +1,11 @@
 ﻿using System;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
+using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Queries
+namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
   public class GetConvertedTextTests
@@ -22,19 +21,12 @@ namespace CSF.Screenplay.Web.Tests.Queries
     [Test]
     public void GetConvertedText_returns_expected_value()
     {
-      // Arrange
-      var homePage = new HomePage();
-      var openTheHomePage = new Open(homePage);
-      var readTheValue = new GetConvertedText<int>(homePage.ImportantNumber);
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Given(joe).WasAbleTo(openTheHomePage);
+      var result = When(joe).Sees(TheText.From(HomePage.ImportantNumber).As<int>());
 
-      // Act
-      var result = When(joe).AttemptsTo(readTheValue);
-
-      // Assert
       WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetConvertedText_returns_expected_value));
-      Assert.AreEqual(42, result);
+      result.Should().Be(42);
     }
   }
 }

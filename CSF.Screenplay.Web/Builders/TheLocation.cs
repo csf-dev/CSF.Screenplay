@@ -8,12 +8,12 @@ namespace CSF.Screenplay.Web.Builders
 {
   public class TheLocation
   {
-    public static IPerformable<Position> Of(ITarget target)
+    public static IQuestion<Position> Of(ITarget target)
     {
       return new Questions.GetLocation(target);
     }
 
-    public static IPerformable<Position> Of(IWebElement element)
+    public static IQuestion<Position> Of(IWebElement element)
     {
       return new Questions.GetLocation(element);
     }

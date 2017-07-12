@@ -61,7 +61,7 @@
     <Compile Include="Actions\TargettedAction.cs" />
     <Compile Include="Questions\GetWindowTitle.cs" />
     <Compile Include="Actions\Click.cs" />
-    <Compile Include="Actions\Type.cs" />
+    <Compile Include="Actions\Enter.cs" />
     <Compile Include="Actions\SelectByText.cs" />
     <Compile Include="Actions\SelectAction.cs" />
     <Compile Include="Actions\SelectByValue.cs" />
@@ -75,8 +75,8 @@
     <Compile Include="Builders\Deselect.cs" />
     <Compile Include="Builders\SelectStrategy.cs" />
     <Compile Include="Builders\Select.cs" />
-    <Compile Include="Builders\Type.cs" />
-    <Compile Include="Builders\GoTo.cs" />
+    <Compile Include="Builders\Enter.cs" />
+    <Compile Include="Builders\OpenTheirBrowserOn.cs" />
     <Compile Include="Questions\TargettedQuestion`1.cs" />
     <Compile Include="Questions\GetAttribute.cs" />
     <Compile Include="Questions\GetCssValue.cs" />

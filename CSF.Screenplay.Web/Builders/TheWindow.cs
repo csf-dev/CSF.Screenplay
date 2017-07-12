@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Web.Builders
 {
   public class TheWindow
   {
-    public static IPerformable<string> Title()
+    public static IQuestion<string> Title()
     {
       return new Questions.GetWindowTitle();
     }

@@ -10,12 +10,12 @@ namespace CSF.Screenplay.Web.Builders
     readonly ITarget target;
     readonly IWebElement element;
 
-    public static IPerformable<string> Of(ITarget target)
+    public static IQuestion<string> Of(ITarget target)
     {
       return new Questions.GetValue(target);
     }
 
-    public static IPerformable<string> Of(IWebElement element)
+    public static IQuestion<string> Of(IWebElement element)
     {
       return new Questions.GetValue(element);
     }
@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Web.Builders
       return new TheValue(element);
     }
 
-    public IPerformable<T> As<T>()
+    public IQuestion<T> As<T>()
     {
       if(target != null)
         return new Questions.GetConvertedValue<T>(target);

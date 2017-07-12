@@ -115,10 +115,7 @@ namespace CSF.Screenplay.Web.Models
       }
 
       return options
-        .Select(x => new Option {
-          Text = x.Text,
-          Value = x.GetAttribute(ValueAttribute)
-        })
+        .Select(x => new Option(x.Text, x.GetAttribute(ValueAttribute)))
         .ToArray();
     }
 

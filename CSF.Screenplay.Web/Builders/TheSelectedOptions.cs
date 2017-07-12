@@ -8,12 +8,12 @@ namespace CSF.Screenplay.Web.Builders
 {
   public class TheSelectedOptions
   {
-    public static IPerformable<IReadOnlyList<Option>> In(ITarget target)
+    public static IQuestion<IReadOnlyList<Option>> In(ITarget target)
     {
       return new Questions.GetSelectedOptions(target);
     }
 
-    public static IPerformable<IReadOnlyList<Option>> In(IWebElement element)
+    public static IQuestion<IReadOnlyList<Option>> In(IWebElement element)
     {
       return new Questions.GetSelectedOptions(element);
     }

@@ -1,9 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
+using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
 
 namespace CSF.Screenplay.Web.Tests.Actions
@@ -22,20 +21,13 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Test]
     public void Click_OnLinkToPageTwo_navigates_to_second_page()
     {
-      // Arrange
-      var homePage = new HomePage();
-      var openTheHomePage = new Open(homePage);
-      var clickTheLinkToTheSecondPage = new Click(homePage.SecondPageLink);
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Given(joe).WasAbleTo(openTheHomePage);
+      When(joe).AttemptsTo(Click.On(HomePage.SecondPageLink));
 
-      // Act
-      When(joe).AttemptsTo(clickTheLinkToTheSecondPage);
-
-      // Assert
       WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Click_OnLinkToPageTwo_navigates_to_second_page));
-      var result = Then(joe).Should(new GetWindowTitle());
-      Assert.AreEqual("Page two", result);
+
+      Then(joe).ShouldSee(TheWindow.Title()).Should().Be("Page two");
     }
   }
 }

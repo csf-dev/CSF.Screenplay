@@ -1,12 +1,11 @@
 ﻿using System;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
+using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Queries
+namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
   public class GetTextTests
@@ -22,19 +21,12 @@ namespace CSF.Screenplay.Web.Tests.Queries
     [Test]
     public void GetText_returns_expected_value()
     {
-      // Arrange
-      var homePage = new HomePage();
-      var openTheHomePage = new Open(homePage);
-      var readTheValue = new GetText(homePage.ImportantString);
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Given(joe).WasAbleTo(openTheHomePage);
+      var result = When(joe).Sees(TheText.Of(HomePage.ImportantString));
 
-      // Act
-      var result = When(joe).AttemptsTo(readTheValue);
-
-      // Assert
       WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetText_returns_expected_value));
-      Assert.AreEqual("banana!", result);
+      result.Should().Be("banana!");
     }
   }
 }

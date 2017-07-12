@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Actions
 {
-  public class Type : TargettedAction
+  public class Enter : TargettedAction
   {
     readonly string text;
 
@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Web.Actions
       element.SendKeys(text);
     }
 
-    public Type(ITarget target, string text) : base(target)
+    public Enter(ITarget target, string text) : base(target)
     {
       if(text == null)
         throw new ArgumentNullException(nameof(text));
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Actions
       this.text = text;
     }
 
-    public Type(IWebElement element, string text) : base(element)
+    public Enter(IWebElement element, string text) : base(element)
     {
       if(text == null)
         throw new ArgumentNullException(nameof(text));

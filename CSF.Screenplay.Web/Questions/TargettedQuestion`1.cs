@@ -8,12 +8,12 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
-  public abstract class TargettedQuestion<T> : Performable<T>
+  public abstract class TargettedQuestion<T> : Question<T>
   {
     readonly ITarget target;
     IWebElement element;
 
-    protected override T PerformAs(IPerformer actor)
+    protected override T GetAnswer(IPerformer actor)
     {
       var ability = GetAbility(actor);
       var ele = GetWebElement(ability);

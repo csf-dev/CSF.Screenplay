@@ -195,6 +195,36 @@ namespace CSF.Screenplay
     public event EventHandler<GainAbilityEventArgs> GainedAbility;
 
     /// <summary>
+    /// Occurs when the actor begins a 'Given' task, action or question.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> BeginGiven;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'Given' task, action or question.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> EndGiven;
+
+    /// <summary>
+    /// Occurs when the actor begins a 'When' task, action or question.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> BeginWhen;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'When' task, action or question.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> EndWhen;
+
+    /// <summary>
+    /// Occurs when the actor begins a 'Then' task, action or question (usually a question).
+    /// </summary>
+    public event EventHandler<ActorEventArgs> BeginThen;
+
+    /// <summary>
+    /// Occurs when the actor finishes a 'Then' task, action or question (usually a question).
+    /// </summary>
+    public event EventHandler<ActorEventArgs> EndThen;
+
+    /// <summary>
     /// Invokes the begin performance event.
     /// </summary>
     /// <param name="performable">Performable.</param>
@@ -246,53 +276,131 @@ namespace CSF.Screenplay
       GainedAbility?.Invoke(this, args);
     }
 
+    /// <summary>
+    /// Invokes the begin-given event.
+    /// </summary>
+    protected virtual void InvokeBeginGiven()
+    {
+      var args = new ActorEventArgs(this);
+      BeginGiven?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the end-given event.
+    /// </summary>
+    protected virtual void InvokeEndGiven()
+    {
+      var args = new ActorEventArgs(this);
+      EndGiven?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the begin-when event.
+    /// </summary>
+    protected virtual void InvokeBeginWhen()
+    {
+      var args = new ActorEventArgs(this);
+      BeginWhen?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the end-when event.
+    /// </summary>
+    protected virtual void InvokeEndWhen()
+    {
+      var args = new ActorEventArgs(this);
+      EndWhen?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the begin-then event.
+    /// </summary>
+    protected virtual void InvokeBeginThen()
+    {
+      var args = new ActorEventArgs(this);
+      BeginThen?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Invokes the end-then event.
+    /// </summary>
+    protected virtual void InvokeEndThen()
+    {
+      var args = new ActorEventArgs(this);
+      EndThen?.Invoke(this, args);
+    }
+
     #endregion
 
     #region explicit IPerformer and IActor implementations
 
     void IGivenActor.WasAbleTo(IPerformable performable)
     {
+      InvokeBeginGiven();
       Perform(performable);
+      InvokeEndGiven();
     }
 
     void IWhenActor.AttemptsTo(IPerformable performable)
     {
+      InvokeBeginWhen();
       Perform(performable);
+      InvokeEndWhen();
     }
 
     void IThenActor.Should(IPerformable performable)
     {
+      InvokeBeginThen();
       Perform(performable);
+      InvokeEndThen();
     }
 
     TResult IGivenActor.WasAbleTo<TResult>(IPerformable<TResult> performable)
     {
-      return Perform(performable);
+      InvokeBeginGiven();
+      var result = Perform(performable);
+      InvokeEndGiven();
+      return result;
     }
 
     TResult IWhenActor.AttemptsTo<TResult>(IPerformable<TResult> performable)
     {
-      return Perform(performable);
+      InvokeBeginWhen();
+      var result = Perform(performable);
+      InvokeEndWhen();
+      return result;
     }
 
     TResult IThenActor.Should<TResult>(IPerformable<TResult> performable)
     {
-      return Perform(performable);
+      InvokeBeginThen();
+      var result = Perform(performable);
+      InvokeEndThen();
+      return result;
     }
 
     TResult IGivenActor.Saw<TResult>(IQuestion<TResult> question)
     {
-      return Perform(question);
+      InvokeBeginGiven();
+      var result = Perform(question);
+      InvokeEndGiven();
+      return result;
     }
 
     TResult IWhenActor.Sees<TResult>(IQuestion<TResult> question)
     {
-      return Perform(question);
+      InvokeBeginWhen();
+      var result = Perform(question);
+      InvokeEndWhen();
+      return result;
     }
 
     TResult IThenActor.ShouldSee<TResult>(IQuestion<TResult> question)
     {
-      return Perform(question);
+      InvokeBeginThen();
+      var result = Perform(question);
+      InvokeEndThen();
+      return result;
     }
 
     bool IPerformer.HasAbility<TAbility>()
