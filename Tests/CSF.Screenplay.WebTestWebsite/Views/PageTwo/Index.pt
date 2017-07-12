@@ -16,13 +16,16 @@
     There is an important string on this page which may be read by the testing framework.<br>
     That string is <strong id="important_string">orange!</strong>
   </p>
-  <h2>Text box</h2>
+  <h2>Text boxes</h2>
   <p>
     This text box can have data entered, if the correct data is entered then this
     <em id="dynamic_value" title="This is a dynamic value">dynamic value</em> will change.
   </p>
   <div class="special_text">
     <input type="text" value="" />
+  </div>
+  <div class="second_textbox">
+    <input type="text" value="This is a text box" />
   </div>
   <h2>Single selection list</h2>
   <p>

@@ -11,6 +11,8 @@ namespace CSF.Screenplay.Web.Tests.Pages
 
     public static ITarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
 
+    public static ITarget SecondTextbox => new CssSelector(".second_textbox input", "the second text box");
+
     public static ITarget TheDynamicTextArea => new ElementId("dynamic_value", "the dynamic value");
 
     public static ITarget SingleSelectionList => new CssSelector("#single_selection", "the single selection list");

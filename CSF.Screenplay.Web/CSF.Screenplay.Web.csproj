@@ -93,7 +93,6 @@
     <Compile Include="Questions\GetLocation.cs" />
     <Compile Include="Questions\GetSize.cs" />
     <Compile Include="Builders\TheOptions.cs" />
-    <Compile Include="Builders\TheSelectedOptions.cs" />
     <Compile Include="Builders\TheAttribute.cs" />
     <Compile Include="Builders\TheCss.cs" />
     <Compile Include="Builders\TheText.cs" />

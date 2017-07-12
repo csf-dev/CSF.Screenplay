@@ -25,5 +25,13 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
       Then(joe).ShouldSee(TheText.Of(HomePage.ImportantString)).Should().Be("banana!");
     }
+
+    [Test]
+    public void GetConvertedText_returns_expected_value()
+    {
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+
+      Then(joe).ShouldSee(TheText.From(HomePage.ImportantNumber).As<int>()).Should().Be(42);
+    }
   }
 }

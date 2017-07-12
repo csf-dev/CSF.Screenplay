@@ -8,7 +8,7 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
-  public class GetAllOptionsTests
+  public class GetOptionsTests
   {
     Actor joe;
 
@@ -30,6 +30,19 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
+    }
+
+    [Test]
+    public void GetSelectedOptions_returns_expected_collection()
+    {
+      var expected = new Models.Option[] {
+        new Models.Option("Carrot", "veg"),
+        new Models.Option("Steak", "meat"),
+      };
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+
+      Then(joe).ShouldSee(TheOptions.SelectedIn(PageTwo.MultiSelectionList)).ShouldBeEquivalentTo(expected);
     }
   }
 }

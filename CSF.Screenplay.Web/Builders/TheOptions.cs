@@ -17,5 +17,15 @@ namespace CSF.Screenplay.Web.Builders
     {
       return new Questions.GetAllOptions(element);
     }
+
+    public static IQuestion<IReadOnlyList<Option>> SelectedIn(ITarget target)
+    {
+      return new Questions.GetSelectedOptions(target);
+    }
+
+    public static IQuestion<IReadOnlyList<Option>> SelectedIn(IWebElement element)
+    {
+      return new Questions.GetSelectedOptions(element);
+    }
   }
 }

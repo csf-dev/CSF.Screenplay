@@ -8,7 +8,7 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
-  public class GetConvertedTextTests
+  public class GetCssValueTests
   {
     Actor joe;
 
@@ -19,11 +19,11 @@ namespace CSF.Screenplay.Web.Tests.Questions
     }
 
     [Test]
-    public void GetConvertedText_returns_expected_value()
+    public void GetCssValue_for_red_string_gets_correct_colour()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Then(joe).ShouldSee(TheText.From(HomePage.ImportantNumber).As<int>()).Should().Be(42);
+      Then(joe).ShouldSee(TheCss.Property("color").From(HomePage.ImportantString)).Should().Be("rgba(255, 0, 0, 1)");
     }
   }
 }

@@ -24,6 +24,9 @@ code {
 strong {
   font-weight: bold;
 }
+#important_string {
+  color: red;
+}
 body>header {
   margin-bottom: 2em;
   background-color: #225;
