@@ -23,13 +23,6 @@ namespace CSF.Screenplay.Web.Tests
       return new BrowseTheWeb(WebDriver, DefaultUriTransformer, true);
     }
 
-    public static void TakeScreenshot(Type clazz, string testName)
-    {
-      var screenshotService = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
-
-      screenshotService.TakeAndSaveScreenshot(clazz, testName);
-    }
-
     public static Actor GetJoe()
     {
       var joe = new Actor("Joe");

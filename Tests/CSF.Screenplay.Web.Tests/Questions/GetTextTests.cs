@@ -23,10 +23,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      var result = When(joe).Sees(TheText.Of(HomePage.ImportantString));
-
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetText_returns_expected_value));
-      result.Should().Be("banana!");
+      Then(joe).ShouldSee(TheText.Of(HomePage.ImportantString)).Should().Be("banana!");
     }
   }
 }

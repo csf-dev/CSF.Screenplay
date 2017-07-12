@@ -23,10 +23,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
-      var result = When(joe).Sees(TheAttribute.Named("title").From(PageTwo.TheDynamicTextArea));
-
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetAttribute_returns_expected_value));
-      result.ShouldBeEquivalentTo("This is a dynamic value");
+      Then(joe).ShouldSee(TheAttribute.Named("title").From(PageTwo.TheDynamicTextArea)).Should().Be("This is a dynamic value");
     }
   }
 }

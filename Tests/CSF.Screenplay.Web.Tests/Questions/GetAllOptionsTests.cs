@@ -29,10 +29,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
-      var result = When(joe).Sees(TheOptions.In(PageTwo.SingleSelectionList));
-
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetAllOptions_returns_expected_collection));
-      result.ShouldBeEquivalentTo(expected);
+      Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
     }
   }
 }

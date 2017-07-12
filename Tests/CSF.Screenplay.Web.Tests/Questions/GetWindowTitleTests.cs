@@ -23,10 +23,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      var result = When(joe).Sees(TheWindow.Title());
-
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(GetWindowTitle_returns_correct_result));
-      result.Should().Be("App home page");
+      Then(joe).ShouldSee(TheWindow.Title()).Should().Be("App home page");
     }
   }
 }

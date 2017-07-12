@@ -25,8 +25,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Click.On(HomePage.SecondPageLink));
 
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Click_OnLinkToPageTwo_navigates_to_second_page));
-
       Then(joe).ShouldSee(TheWindow.Title()).Should().Be("Page two");
     }
   }

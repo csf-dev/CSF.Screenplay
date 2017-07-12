@@ -25,7 +25,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Enter.TheText("The right value").Into(PageTwo.SpecialInputField));
 
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Type_text_into_an_input_box_produces_expected_result_on_page));
       Then(joe).ShouldSee(TheText.Of(PageTwo.TheDynamicTextArea)).Should().Be("different value");
     }
 
@@ -36,7 +35,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Enter.TheText("The wrong value").Into(PageTwo.SpecialInputField));
 
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(Type_different_text_into_an_input_box_produces_expected_result_on_page));
       Then(joe).ShouldSee(TheText.Of(PageTwo.TheDynamicTextArea)).Should().Be("dynamic value");
     }
   }

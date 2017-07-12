@@ -25,8 +25,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Deselect.EverythingFrom(PageTwo.MultiSelectionList));
 
-      // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(DeselectAll_leaves_nothing_selected));
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("Nothing!");
     }
 
@@ -37,8 +35,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Deselect.ItemNumber(2).From(PageTwo.MultiSelectionList));
 
-      // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(DeselectByIndex_leaves_one_item_selected));
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("meat");
     }
 
@@ -49,8 +45,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Deselect.Item("Steak").From(PageTwo.MultiSelectionList));
 
-      // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(DeselectByText_leaves_one_item_selected));
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("veg");
     }
 
@@ -61,8 +55,6 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Deselect.ItemValued("meat").From(PageTwo.MultiSelectionList));
 
-      // Assert
-      WebdriverTestSetup.TakeScreenshot(GetType(), nameof(DeselectByValue_leaves_one_item_selected));
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("veg");
     }
   }
