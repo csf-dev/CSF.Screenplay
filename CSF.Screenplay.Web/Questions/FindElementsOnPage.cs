@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
-  public class FindElementsOnPage : Performable<ElementCollection>
+  public class FindElementsOnPage : Performable<ElementCollection>, IQuestion<ElementCollection>
   {
     static readonly ITarget thePage;
     readonly IPerformable<ElementCollection> findWithinBody;

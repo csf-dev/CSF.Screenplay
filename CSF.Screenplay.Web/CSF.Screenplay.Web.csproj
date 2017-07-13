@@ -105,6 +105,7 @@
     <Compile Include="Matchers\IElementMatcher.cs" />
     <Compile Include="Models\ElementCollection.cs" />
     <Compile Include="Models\IHasTargetName.cs" />
+    <Compile Include="Builders\Elements.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

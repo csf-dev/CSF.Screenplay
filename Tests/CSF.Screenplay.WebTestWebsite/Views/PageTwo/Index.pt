@@ -27,6 +27,17 @@
   <div class="second_textbox">
     <input type="text" value="This is a text box" />
   </div>
+  <h2>List</h2>
+  <p>
+    This area contains a list of elements.
+  </p>
+  <ul id="list_of_items">
+    <li class="odd">One</li>
+    <li>Two</li>
+    <li class="odd">Three</li>
+    <li>Four</li>
+    <li class="odd">Five</li>
+  </ul>
   <h2>Single selection list</h2>
   <p>
     This selection list outputs its <strong id="single_selected_value">currently selected value</strong>.

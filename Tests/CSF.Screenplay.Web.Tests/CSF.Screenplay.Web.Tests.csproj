@@ -80,6 +80,7 @@
     <Compile Include="Questions\GetAttributeTests.cs" />
     <Compile Include="Questions\GetCssValueTests.cs" />
     <Compile Include="Questions\GetValueTests.cs" />
+    <Compile Include="Questions\FindElementsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
