@@ -3,9 +3,13 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
 {
+  /// <summary>
+  /// Base type for <see cref="ITarget"/> implementations which use a <c>System.String</c> to identify the
+  /// element(s) that they match.
+  /// </summary>
   public abstract class StringBasedTarget : ITarget
   {
-    readonly string searchString, name;
+    readonly string identifier, name;
 
     string IHasTargetName.GetName()
     {
@@ -14,19 +18,29 @@ namespace CSF.Screenplay.Web.Models
 
     By ITarget.GetWebDriverLocator()
     {
-      return GetWebDriverLocator(searchString);
+      return GetWebDriverLocator(identifier);
     }
 
-    protected abstract By GetWebDriverLocator(string search);
+    /// <summary>
+    /// Gets a Selenium WebDriver <c>By</c> implementation using the given identifier.
+    /// </summary>
+    /// <returns>A Selenium WebDriver locator instance.</returns>
+    /// <param name="identifier">The identifier which will be used to get the locator.</param>
+    protected abstract By GetWebDriverLocator(string identifier);
 
-    public StringBasedTarget(string searchString, string name)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="StringBasedTarget"/> class.
+    /// </summary>
+    /// <param name="identifier">The identifier for the target.</param>
+    /// <param name="name">The human-readable target name.</param>
+    public StringBasedTarget(string identifier, string name)
     {
-      if(searchString == null)
-        throw new ArgumentNullException(nameof(searchString));
+      if(identifier == null)
+        throw new ArgumentNullException(nameof(identifier));
       if(name == null)
         throw new ArgumentNullException(nameof(name));
 
-      this.searchString = searchString;
+      this.identifier = identifier;
       this.name = name;
     }
   }

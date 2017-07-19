@@ -17,14 +17,7 @@ namespace CSF.Screenplay.Web.Questions
 
     protected override string GetReport(INamed actor)
     {
-      var report = $"{actor.Name} gets {elementGroupName?? "elements"} from within {GetTargetName()}";
-
-      if(matcher != null)
-      {
-        report += $" which {matcher.GetDescription()}";
-      }
-        
-      return report;
+      return $"{actor.Name} gets {GetGroupName()} from {GetTargetName()}{GetMatchDescription()}.";
     }
 
     protected override ElementCollection PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
@@ -37,6 +30,24 @@ namespace CSF.Screenplay.Web.Questions
     protected override IElementDataProvider<ElementCollection> GetDataProvider()
     {
       throw new NotSupportedException();
+    }
+
+    string GetGroupName()
+    {
+      if(!String.IsNullOrEmpty(elementGroupName))
+        return elementGroupName;
+      else if(innerTarget != null)
+        return innerTarget.GetName();
+      else
+        return "the elements";
+    }
+
+    string GetMatchDescription()
+    {
+      if(matcher != null)
+        return $" which {matcher.GetDescription()}";
+      else
+        return String.Empty;
     }
 
     IEnumerable<IWebElement> GetElements(IWebElementAdapter adapter)
@@ -62,12 +73,14 @@ namespace CSF.Screenplay.Web.Questions
 
     public FindElements(ITarget target, ITarget innerTarget = null, IElementMatcher matcher = null, string elementGroupName = null) : base(target)
     {
+      this.innerTarget = innerTarget;
       this.matcher = matcher;
       this.elementGroupName = elementGroupName;
     }
 
     public FindElements(IWebElement element, ITarget innerTarget = null, IElementMatcher matcher = null, string elementGroupName = null) : base(element)
     {
+      this.innerTarget = innerTarget;
       this.matcher = matcher;
       this.elementGroupName = elementGroupName;
     }

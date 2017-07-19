@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Web.Tests.Pages
   {
     public override string GetName() => "the second page";
 
-    public override IUriProvider GetUri() => new AppUri("PageTwo");
+    public override IUriProvider GetUriProvider() => new AppUri("PageTwo");
 
     public static ITarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
 

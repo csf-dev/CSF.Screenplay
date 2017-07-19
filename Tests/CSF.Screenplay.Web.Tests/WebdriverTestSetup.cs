@@ -88,7 +88,7 @@ namespace CSF.Screenplay.Web.Tests
     static WebdriverTestSetup()
     {
       screenshotDir = Path.Combine(Environment.CurrentDirectory, "Screenshots");
-      defaultUriTransformer = new RootUrlAppendingTransformer("http://localhost:8080/");
+      defaultUriTransformer = new RootUriPrependingTransformer("http://localhost:8080/");
     }
   }
 }

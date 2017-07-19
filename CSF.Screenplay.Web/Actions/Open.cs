@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Web.Actions
 
     IUriProvider GetUriProvider()
     {
-      return uriProvider?? page.GetUri();
+      return uriProvider?? page.GetUriProvider();
     }
 
     Uri GetUri(BrowseTheWeb ability)
@@ -59,7 +59,7 @@ namespace CSF.Screenplay.Web.Actions
       if(url == null)
         throw new ArgumentNullException(nameof(url));
 
-      this.uriProvider = new AbsoluteUri(url);
+      this.uriProvider = AppUri.Absolute(url);
     }
 
     public Open(Uri uri)
@@ -67,7 +67,7 @@ namespace CSF.Screenplay.Web.Actions
       if(uri == null)
         throw new ArgumentNullException(nameof(uri));
 
-      this.uriProvider = new AbsoluteUri(uri);
+      this.uriProvider = new AppUri(uri);
     }
 
     public Open(IUriProvider uri)

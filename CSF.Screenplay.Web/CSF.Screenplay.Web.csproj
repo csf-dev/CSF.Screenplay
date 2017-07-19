@@ -48,11 +48,10 @@
     <Compile Include="Actions\Open.cs" />
     <Compile Include="Abilities\BrowseTheWeb.cs" />
     <Compile Include="Abilities\IUriTransformer.cs" />
-    <Compile Include="Abilities\NoOpUrlTransformer.cs" />
-    <Compile Include="Abilities\RootUrlAppendingTransformer.cs" />
+    <Compile Include="Abilities\NoOpUriTransformer.cs" />
+    <Compile Include="Abilities\RootUriPrependingTransformer.cs" />
     <Compile Include="Models\AppUri.cs" />
     <Compile Include="Models\IUriProvider.cs" />
-    <Compile Include="Models\AbsoluteUri.cs" />
     <Compile Include="Models\ITarget.cs" />
     <Compile Include="Models\CssSelector.cs" />
     <Compile Include="Models\StringBasedTarget.cs" />
