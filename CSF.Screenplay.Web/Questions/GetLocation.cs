@@ -7,6 +7,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
+  /// <summary>
+  /// Gets the pixel location of the target within the browser window.
+  /// </summary>
   public class GetLocation : TargettedQuestion<Position>
   {
     /// <summary>
@@ -29,8 +32,16 @@ namespace CSF.Screenplay.Web.Questions
       return new LocationMatcher();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetLocation"/> class from a target.
+    /// </summary>
+    /// <param name="target">Target.</param>
     public GetLocation(ITarget target) : base(target) {}
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetLocation"/> class from a Selenium element.
+    /// </summary>
+    /// <param name="element">Element.</param>
     public GetLocation(IWebElement element) : base(element) {}
   }
 }

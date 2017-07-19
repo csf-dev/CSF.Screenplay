@@ -121,6 +121,8 @@
     <Compile Include="Matchers\TextMatcher.cs" />
     <Compile Include="Matchers\ValueMatcher.cs" />
     <Compile Include="Matchers\IElementDataProvider.cs" />
+    <Compile Include="Builders\ElementsWithin.cs" />
+    <Compile Include="Builders\ElementsOnPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

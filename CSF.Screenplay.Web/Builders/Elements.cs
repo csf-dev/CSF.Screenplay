@@ -1,20 +1,18 @@
 ﻿using System;
-using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Questions;
 
 namespace CSF.Screenplay.Web.Builders
 {
   public class Elements
   {
-    public static IQuestion<ElementCollection> OnThePage()
+    public static ElementsOnPage OnThePage()
     {
-      return new FindElementsOnPage();
+      return new ElementsOnPage();
     }
 
-    public static IQuestion<ElementCollection> In(ITarget target)
+    public static ElementsWithin In(ITarget target)
     {
-      return new FindElements(target);
+      return new ElementsWithin(target);
     }
   }
 }

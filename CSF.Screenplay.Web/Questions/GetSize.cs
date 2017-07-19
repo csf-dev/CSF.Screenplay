@@ -8,6 +8,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
+  /// <summary>
+  /// Gets the pixel size (height &amp; width) of the target.
+  /// </summary>
   public class GetSize : TargettedQuestion<Size>
   {
     /// <summary>
@@ -30,8 +33,16 @@ namespace CSF.Screenplay.Web.Questions
       return new SizeMatcher();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetSize"/> class from a target.
+    /// </summary>
+    /// <param name="target">Target.</param>
     public GetSize(ITarget target) : base(target) {}
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetSize"/> class from a Selenium element.
+    /// </summary>
+    /// <param name="element">Element.</param>
     public GetSize(IWebElement element) : base(element) {}
   }
 }

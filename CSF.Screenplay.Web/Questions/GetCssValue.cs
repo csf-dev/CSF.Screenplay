@@ -7,6 +7,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
+  /// <summary>
+  /// Gets the value of the named CSS property.
+  /// </summary>
   public class GetCssValue : TargettedQuestion<string>
   {
     readonly string propertyName;
@@ -31,6 +34,11 @@ namespace CSF.Screenplay.Web.Questions
       return new CssValueMatcher(propertyName);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetCssValue"/> class from a target.
+    /// </summary>
+    /// <param name="target">Target.</param>
+    /// <param name="propertyName">Property name.</param>
     public GetCssValue(ITarget target, string propertyName) : base(target)
     {
       if(propertyName == null)
@@ -39,6 +47,11 @@ namespace CSF.Screenplay.Web.Questions
       this.propertyName = propertyName;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetCssValue"/> class from a Selenium element.
+    /// </summary>
+    /// <param name="element">Element.</param>
+    /// <param name="propertyName">Property name.</param>
     public GetCssValue(IWebElement element, string propertyName) : base(element)
     {
       if(propertyName == null)
