@@ -3,6 +3,7 @@ using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Actions;
+using CSF.Screenplay.Web.Matchers;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
@@ -51,7 +52,13 @@ namespace CSF.Screenplay.Web.Questions
       return "the element";
     }
 
-    protected abstract T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter);
+    protected virtual T PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
+    {
+      var provider = GetDataProvider();
+      return provider.GetElementData(adapter);
+    }
+
+    protected abstract IElementDataProvider<T> GetDataProvider();
 
     public TargettedQuestion(ITarget target)
     {

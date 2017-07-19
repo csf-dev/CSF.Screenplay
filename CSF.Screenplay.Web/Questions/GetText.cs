@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Matchers;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
@@ -13,9 +14,9 @@ namespace CSF.Screenplay.Web.Questions
       return $"{actor.Name} reads {GetTargetName()}.";
     }
 
-    protected override string PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
+    protected override IElementDataProvider<string> GetDataProvider()
     {
-      return adapter.GetText();
+      return new TextMatcher();
     }
 
     public GetText(ITarget target) : base(target) {}

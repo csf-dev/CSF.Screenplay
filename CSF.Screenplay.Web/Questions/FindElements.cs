@@ -12,6 +12,7 @@ namespace CSF.Screenplay.Web.Questions
   public class FindElements : TargettedQuestion<ElementCollection>
   {
     readonly IElementMatcher matcher;
+    readonly ITarget innerTarget;
     readonly string elementGroupName;
 
     protected override string GetReport(INamed actor)
@@ -29,45 +30,43 @@ namespace CSF.Screenplay.Web.Questions
     protected override ElementCollection PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
     {
       var elements = GetElements(adapter);
-      var wrapped = GetWrappedElements(elements);
-      var matching = GetMatchingElements(wrapped);
+      var matching = GetMatchingElements(elements);
       return GetElementCollection(matching);
+    }
+
+    protected override IElementDataProvider<ElementCollection> GetDataProvider()
+    {
+      throw new NotSupportedException();
     }
 
     IEnumerable<IWebElement> GetElements(IWebElementAdapter adapter)
     {
-      if(matcher?.TargetMatch != null)
-        return adapter.Find(matcher.TargetMatch);
+      if(innerTarget != null)
+        return adapter.Find(innerTarget);
 
       return adapter.Find();
     }
 
-    IEnumerable<IWebElementAdapter> GetWrappedElements(IEnumerable<IWebElement> source)
-    {
-      return source.Select(x => new WebElementAdapter(x)).ToArray();
-    }
-
-    IEnumerable<IWebElementAdapter> GetMatchingElements(IEnumerable<IWebElementAdapter> source)
+    IEnumerable<IWebElement> GetMatchingElements(IEnumerable<IWebElement> source)
     {
       if(matcher == null)
         return source;
       
-      return source.Where(matcher.GetMatchPredicate()).ToArray();
+      return source.Where(x => matcher.IsMatch(x));
     }
 
-    ElementCollection GetElementCollection(IEnumerable<IWebElementAdapter> source)
+    ElementCollection GetElementCollection(IEnumerable<IWebElement> source)
     {
-      var elements = source.Select(x => x.GetSourceElement()).ToArray();
-      return new ElementCollection(elements, elementGroupName);
+      return new ElementCollection(source.ToArray(), elementGroupName);
     }
 
-    public FindElements(ITarget target, IElementMatcher matcher = null, string elementGroupName = null) : base(target)
+    public FindElements(ITarget target, ITarget innerTarget = null, IElementMatcher matcher = null, string elementGroupName = null) : base(target)
     {
       this.matcher = matcher;
       this.elementGroupName = elementGroupName;
     }
 
-    public FindElements(IWebElement element, IElementMatcher matcher = null, string elementGroupName = null) : base(element)
+    public FindElements(IWebElement element, ITarget innerTarget = null, IElementMatcher matcher = null, string elementGroupName = null) : base(element)
     {
       this.matcher = matcher;
       this.elementGroupName = elementGroupName;

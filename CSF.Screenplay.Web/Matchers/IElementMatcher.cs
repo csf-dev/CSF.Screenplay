@@ -1,13 +1,14 @@
 ﻿using System;
 using CSF.Screenplay.Web.Models;
+using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Matchers
 {
   public interface IElementMatcher
   {
-    ITarget TargetMatch { get; }
+    bool IsMatch(IWebElement element);
 
-    Func<IWebElementAdapter,bool> GetMatchPredicate();
+    bool IsMatch(IWebElementAdapter adapter);
 
     string GetDescription();
   }

@@ -23,9 +23,9 @@ namespace CSF.Screenplay.Web.Questions
       return findWithinBody.PerformAs(actor);
     }
 
-    public FindElementsOnPage(IElementMatcher matcher = null, string elementGroupName = null)
+    public FindElementsOnPage(ITarget target = null, IElementMatcher matcher = null, string elementGroupName = null)
     {
-      findWithinBody = new FindElements(thePage, matcher, elementGroupName);
+      findWithinBody = new FindElements(thePage, target, matcher, elementGroupName);
     }
 
     static FindElementsOnPage()

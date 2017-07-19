@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Matchers;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
@@ -15,9 +16,9 @@ namespace CSF.Screenplay.Web.Questions
       return $"{actor.Name} reads the {attributeName} attribute from {GetTargetName()}.";
     }
 
-    protected override string PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
+    protected override IElementDataProvider<string> GetDataProvider()
     {
-      return adapter.GetAttributeValue(attributeName);
+      return new AttributeMatcher(attributeName);
     }
 
     public GetAttribute(ITarget target, string attributeName) : base(target)

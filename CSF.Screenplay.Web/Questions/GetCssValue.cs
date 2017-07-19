@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Matchers;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
@@ -15,9 +16,9 @@ namespace CSF.Screenplay.Web.Questions
       return $"{actor.Name} reads the CSS property {propertyName} from {GetTargetName()}.";
     }
 
-    protected override string PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
+    protected override IElementDataProvider<string> GetDataProvider()
     {
-      return adapter.GetCssValue(propertyName);
+      return new CssValueMatcher(propertyName);
     }
 
     public GetCssValue(ITarget target, string propertyName) : base(target)

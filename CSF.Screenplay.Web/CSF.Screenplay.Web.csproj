@@ -14,16 +14,19 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.Web.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CSF.Screenplay.Web.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
@@ -106,6 +109,19 @@
     <Compile Include="Models\ElementCollection.cs" />
     <Compile Include="Models\IHasTargetName.cs" />
     <Compile Include="Builders\Elements.cs" />
+    <Compile Include="Matchers\ElementMatcher.cs" />
+    <Compile Include="Matchers\TargetMatcher.cs" />
+    <Compile Include="Matchers\IElementDataProvider.cs" />
+    <Compile Include="Matchers\OptionsMatcher.cs" />
+    <Compile Include="Matchers\AttributeMatcher.cs" />
+    <Compile Include="Matchers\ConvertedTextMatcher.cs" />
+    <Compile Include="Matchers\ConvertedValueMatcher.cs" />
+    <Compile Include="Matchers\CssValueMatcher.cs" />
+    <Compile Include="Matchers\LocationMatcher.cs" />
+    <Compile Include="Matchers\SelectedOptionsMatcher.cs" />
+    <Compile Include="Matchers\SizeMatcher.cs" />
+    <Compile Include="Matchers\TextMatcher.cs" />
+    <Compile Include="Matchers\ValueMatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
