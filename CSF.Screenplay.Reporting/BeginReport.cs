@@ -16,9 +16,6 @@ namespace CSF.Screenplay.Reporting
     public override string ToString()
     {
       return $"BEGIN:   {Performable.GetReport(Actor)}";
-              //"SUCCESS:" +
-              //"FAILURE:" +
-              //"RESULT: "
     }
 
     /// <summary>

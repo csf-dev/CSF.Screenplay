@@ -160,10 +160,6 @@ namespace CSF.Screenplay
       return ability;
     }
 
-    IReporter GetDefaultReporter()
-    {
-      return new TraceReporter();
-    }
 
     #endregion
 

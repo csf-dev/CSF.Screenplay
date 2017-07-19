@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Gets the name of the trace source.
     /// </summary>
-    internal const string SourceName = "CSF.Screenplay";
+    internal const string SourceName = "CSF.Screenplay.Reporting";
 
     /// <summary>
     /// Gets the trace source itself.

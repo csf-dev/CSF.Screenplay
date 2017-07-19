@@ -46,21 +46,12 @@
     <Compile Include="Actors\Cast.cs" />
     <Compile Include="Actors\DuplicateActorException.cs" />
     <Compile Include="Actors\IActor.cs" />
-    <Compile Include="Reporting\IReporter.cs" />
-    <Compile Include="Reporting\Trace.cs" />
-    <Compile Include="Reporting\IReportable.cs" />
     <Compile Include="Actors\INamed.cs" />
     <Compile Include="Performables\IPerformable.cs" />
     <Compile Include="Performables\IPerformableWithResult.cs" />
     <Compile Include="Performables\IPerformable`1.cs" />
     <Compile Include="Performables\Performable.cs" />
     <Compile Include="Performables\Performable`1.cs" />
-    <Compile Include="Reporting\TraceReporter.cs" />
-    <Compile Include="Reporting\PerformableReportBase.cs" />
-    <Compile Include="Reporting\BeginReport.cs" />
-    <Compile Include="Reporting\SuccessReport.cs" />
-    <Compile Include="Reporting\FailureReport.cs" />
-    <Compile Include="Reporting\ResultReport.cs" />
     <Compile Include="Actors\MissingAbilityException.cs" />
     <Compile Include="Performables\IAction.cs" />
     <Compile Include="Performables\IAction`1.cs" />
@@ -69,9 +60,6 @@
     <Compile Include="Performables\IQuestion`1.cs" />
     <Compile Include="Performables\Question.cs" />
     <Compile Include="Actors\ICast.cs" />
-    <Compile Include="Reporting\AbilityReport.cs" />
-    <Compile Include="Reporting\IPerformanceStart.cs" />
-    <Compile Include="Reporting\IPerformanceEnd.cs" />
     <Compile Include="Abilities\IAbilityStore.cs" />
     <Compile Include="Abilities\AbilityStore.cs" />
     <Compile Include="Actors\BeginPerformanceEventArgs.cs" />
@@ -81,6 +69,7 @@
     <Compile Include="Actors\GainAbilityEventArgs.cs" />
     <Compile Include="Actors\PerformanceEventArgsBase.cs" />
     <Compile Include="Actors\ActorEventArgs.cs" />
+    <Compile Include="Reporting\IReportable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Web.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebTestWebsite", "Tests\CSF.Screenplay.WebTestWebsite\CSF.Screenplay.WebTestWebsite.csproj", "{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting", "CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj", "{18010B4E-22A7-4462-B057-7199B3386D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18010B4E-22A7-4462-B057-7199B3386D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18010B4E-22A7-4462-B057-7199B3386D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18010B4E-22A7-4462-B057-7199B3386D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18010B4E-22A7-4462-B057-7199B3386D48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6273A66-8B2A-47C0-A982-F94E6BEA79F8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
