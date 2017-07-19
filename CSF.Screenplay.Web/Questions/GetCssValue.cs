@@ -11,11 +11,21 @@ namespace CSF.Screenplay.Web.Questions
   {
     readonly string propertyName;
 
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
     {
       return $"{actor.Name} reads the CSS property {propertyName} from {GetTargetName()}.";
     }
 
+    /// <summary>
+    /// Gets a <see cref="IElementDataProvider"/> implementation which interrogates the element adapter and
+    /// provides the raw answer data.
+    /// </summary>
+    /// <returns>The data provider.</returns>
     protected override IElementDataProvider<string> GetDataProvider()
     {
       return new CssValueMatcher(propertyName);

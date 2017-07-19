@@ -4,9 +4,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Matchers
 {
-  public interface IElementDataProvider<TElementData>
+  public interface IElementDataProvider
   {
-    TElementData GetElementData(IWebElement element);
-    TElementData GetElementData(IWebElementAdapter adapter);
+    object GetElementData(IWebElement element);
+    object GetElementData(IWebElementAdapter adapter);
   }
 }

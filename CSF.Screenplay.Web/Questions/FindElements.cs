@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Web.Questions
       return $"{actor.Name} gets {GetGroupName()} from {GetTargetName()}{GetMatchDescription()}.";
     }
 
-    protected override ElementCollection PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
+    protected override ElementCollection GetAnswer(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter adapter)
     {
       var elements = GetElements(adapter);
       var matching = GetMatchingElements(elements);

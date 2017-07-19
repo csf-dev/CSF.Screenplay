@@ -7,6 +7,11 @@ namespace CSF.Screenplay.Web.Questions
 {
   public class GetWindowTitle : Question<string>
   {
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
     {
       return $"{actor.Name} reads the window title.";

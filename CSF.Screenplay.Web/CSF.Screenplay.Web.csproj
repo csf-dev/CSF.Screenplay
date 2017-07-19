@@ -109,8 +109,7 @@
     <Compile Include="Models\IHasTargetName.cs" />
     <Compile Include="Builders\Elements.cs" />
     <Compile Include="Matchers\ElementMatcher.cs" />
-    <Compile Include="Matchers\TargetMatcher.cs" />
-    <Compile Include="Matchers\IElementDataProvider.cs" />
+    <Compile Include="Matchers\IElementDataProvider`1.cs" />
     <Compile Include="Matchers\OptionsMatcher.cs" />
     <Compile Include="Matchers\AttributeMatcher.cs" />
     <Compile Include="Matchers\ConvertedTextMatcher.cs" />
@@ -121,6 +120,7 @@
     <Compile Include="Matchers\SizeMatcher.cs" />
     <Compile Include="Matchers\TextMatcher.cs" />
     <Compile Include="Matchers\ValueMatcher.cs" />
+    <Compile Include="Matchers\IElementDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

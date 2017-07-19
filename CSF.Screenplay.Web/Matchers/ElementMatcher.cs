@@ -48,6 +48,20 @@ namespace CSF.Screenplay.Web.Matchers
       return GetElementData(adapter);
     }
 
+    object IElementDataProvider.GetElementData(IWebElement element)
+    {
+      var adapter = GetAdapter(element);
+      return GetElementData(adapter);
+    }
+
+    object IElementDataProvider.GetElementData(IWebElementAdapter adapter)
+    {
+      if(adapter == null)
+        throw new ArgumentNullException(nameof(adapter));
+
+      return GetElementData(adapter);
+    }
+
     public ElementMatcher() : this(x => true) {}
 
     public ElementMatcher(Func<TElementData,bool> predicate)
