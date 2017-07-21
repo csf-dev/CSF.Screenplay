@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Matchers;
+using CSF.Screenplay.Web.ElementMatching;
 using CSF.Screenplay.Web.Models;
-using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Questions
 {
@@ -42,7 +40,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <param name="target">An optional target which the found elements must match.</param>
     /// <param name="matcher">An optional matcher providing criteria for the matched elements.</param>
     /// <param name="elementGroupName">An optional logical/human-readable name for the matched elements.</param>
-    public FindElementsOnPage(ITarget target = null, IElementMatcher matcher = null, string elementGroupName = null)
+    public FindElementsOnPage(ITarget target = null, IMatcher matcher = null, string elementGroupName = null)
     {
       findWithinBody = new FindElements(thePage, target, matcher, elementGroupName);
     }

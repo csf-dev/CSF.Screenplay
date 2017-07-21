@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Matchers;
+using CSF.Screenplay.Web.ElementMatching;
 using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Web.Questions
   /// </summary>
   public class FindElements : TargettedQuestion<ElementCollection>
   {
-    readonly IElementMatcher matcher;
+    readonly IMatcher matcher;
     readonly ITarget innerTarget;
     readonly string elementGroupName;
 
@@ -41,21 +41,6 @@ namespace CSF.Screenplay.Web.Questions
       var elements = GetElements(adapter);
       var matching = GetMatchingElements(elements);
       return GetElementCollection(matching);
-    }
-
-    /// <summary>
-    /// UNSUPPORTED - Gets a <see cref="T:IElementDataProvider{T}"/> implementation which interrogates the
-    /// element adapter and provides the raw answer data.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// This method is unsupported on this implementation of <see cref="T:TargettedQuestion{T}"/>.
-    /// </para>
-    /// </remarks>
-    /// <returns>The data provider.</returns>
-    protected override IElementDataProvider<ElementCollection> GetDataProvider()
-    {
-      throw new NotSupportedException();
     }
 
     string GetGroupName()
@@ -106,7 +91,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <param name="elementGroupName">An optional logical/human-readable name for the matched elements.</param>
     public FindElements(ITarget target,
                         ITarget innerTarget = null,
-                        IElementMatcher matcher = null,
+                        IMatcher matcher = null,
                         string elementGroupName = null) : base(target)
     {
       this.innerTarget = innerTarget;
@@ -123,7 +108,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <param name="elementGroupName">An optional logical/human-readable name for the matched elements.</param>
     public FindElements(IWebElement element,
                         ITarget innerTarget = null,
-                        IElementMatcher matcher = null,
+                        IMatcher matcher = null,
                         string elementGroupName = null) : base(element)
     {
       this.innerTarget = innerTarget;

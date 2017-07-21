@@ -1,6 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Matchers;
+using CSF.Screenplay.Web.ElementMatching;
 using CSF.Screenplay.Web.Models;
 using CSF.Screenplay.Web.Questions;
 
@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Web.Builders
   public class ElementsOnPage
   {
     ITarget innerTarget;
-    IElementMatcher matcher;
+    IMatcher matcher;
 
     public ElementsOnPage ThatAre(ITarget target)
     {
@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Web.Builders
       return this;
     }
 
-    public ElementsOnPage That(IElementMatcher matcher)
+    public ElementsOnPage That(IMatcher matcher)
     {
       this.matcher = matcher;
       return this;

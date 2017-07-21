@@ -58,8 +58,6 @@
     <Compile Include="Models\ElementId.cs" />
     <Compile Include="Models\ClassName.cs" />
     <Compile Include="Models\XPath.cs" />
-    <Compile Include="Questions\GetText.cs" />
-    <Compile Include="Questions\GetConvertedText.cs" />
     <Compile Include="Actions\TargettedAction.cs" />
     <Compile Include="Questions\GetWindowTitle.cs" />
     <Compile Include="Actions\Click.cs" />
@@ -80,20 +78,12 @@
     <Compile Include="Builders\Enter.cs" />
     <Compile Include="Builders\OpenTheirBrowserOn.cs" />
     <Compile Include="Questions\TargettedQuestion`1.cs" />
-    <Compile Include="Questions\GetAttribute.cs" />
-    <Compile Include="Questions\GetCssValue.cs" />
     <Compile Include="Models\IWebElementAdapter.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\PixelDistance.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Size.cs" />
     <Compile Include="Models\WebElementAdapter.cs" />
-    <Compile Include="Questions\GetValue.cs" />
-    <Compile Include="Questions\GetConvertedValue.cs" />
-    <Compile Include="Questions\GetAllOptions.cs" />
-    <Compile Include="Questions\GetSelectedOptions.cs" />
-    <Compile Include="Questions\GetLocation.cs" />
-    <Compile Include="Questions\GetSize.cs" />
     <Compile Include="Builders\TheOptions.cs" />
     <Compile Include="Builders\TheAttribute.cs" />
     <Compile Include="Builders\TheCss.cs" />
@@ -104,25 +94,31 @@
     <Compile Include="Builders\TheLocation.cs" />
     <Compile Include="Questions\FindElements.cs" />
     <Compile Include="Questions\FindElementsOnPage.cs" />
-    <Compile Include="Matchers\IElementMatcher.cs" />
+    <Compile Include="ElementMatching\IMatcher.cs" />
     <Compile Include="Models\ElementCollection.cs" />
     <Compile Include="Models\IHasTargetName.cs" />
     <Compile Include="Builders\Elements.cs" />
-    <Compile Include="Matchers\ElementMatcher.cs" />
-    <Compile Include="Matchers\IElementDataProvider`1.cs" />
-    <Compile Include="Matchers\OptionsMatcher.cs" />
-    <Compile Include="Matchers\AttributeMatcher.cs" />
-    <Compile Include="Matchers\ConvertedTextMatcher.cs" />
-    <Compile Include="Matchers\ConvertedValueMatcher.cs" />
-    <Compile Include="Matchers\CssValueMatcher.cs" />
-    <Compile Include="Matchers\LocationMatcher.cs" />
-    <Compile Include="Matchers\SelectedOptionsMatcher.cs" />
-    <Compile Include="Matchers\SizeMatcher.cs" />
-    <Compile Include="Matchers\TextMatcher.cs" />
-    <Compile Include="Matchers\ValueMatcher.cs" />
-    <Compile Include="Matchers\IElementDataProvider.cs" />
+    <Compile Include="ElementMatching\Matcher`1.cs" />
     <Compile Include="Builders\ElementsWithin.cs" />
     <Compile Include="Builders\ElementsOnPage.cs" />
+    <Compile Include="Questions\TargettedMultiQuestion`1.cs" />
+    <Compile Include="Questions\Question.cs" />
+    <Compile Include="ElementMatching\AndMatcher.cs" />
+    <Compile Include="Queries\OptionsQuery.cs" />
+    <Compile Include="Queries\AttributeQuery.cs" />
+    <Compile Include="Queries\CssQuery.cs" />
+    <Compile Include="Queries\LocationQuery.cs" />
+    <Compile Include="Queries\SelectedOptionsQuery.cs" />
+    <Compile Include="Queries\SizeQuery.cs" />
+    <Compile Include="Queries\TextQuery.cs" />
+    <Compile Include="Queries\TextQuery`1.cs" />
+    <Compile Include="Queries\ValueQuery.cs" />
+    <Compile Include="Queries\ValueQuery`1.cs" />
+    <Compile Include="Queries\IQuery`1.cs" />
+    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Queries\Query.cs" />
+    <Compile Include="ElementMatching\Matcher.cs" />
+    <Compile Include="ElementMatching\OrMatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -139,7 +135,8 @@
     <Folder Include="Abilities\" />
     <Folder Include="Questions\" />
     <Folder Include="Builders\" />
-    <Folder Include="Matchers\" />
+    <Folder Include="ElementMatching\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

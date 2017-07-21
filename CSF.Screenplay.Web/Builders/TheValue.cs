@@ -1,6 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Performables;
+using System.Collections.Generic;
 using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Web.Queries;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
@@ -10,14 +12,24 @@ namespace CSF.Screenplay.Web.Builders
     readonly ITarget target;
     readonly IWebElement element;
 
-    public static IQuestion<string> Of(ITarget target)
+    public static Performables.IQuestion<string> Of(ITarget target)
     {
-      return new Questions.GetValue(target);
+      return Question.Create(target, new ValueQuery());
     }
 
-    public static IQuestion<string> Of(IWebElement element)
+    public static Performables.IQuestion<string> Of(IWebElement element)
     {
-      return new Questions.GetValue(element);
+      return Question.Create(element, new ValueQuery());
+    }
+
+    public static Performables.IQuestion<IReadOnlyList<string>> OfAll(ITarget target)
+    {
+      return Question.CreateMulti(target, new ValueQuery());
+    }
+
+    public static Performables.IQuestion<IReadOnlyList<string>> Of(IReadOnlyList<IWebElement> elements)
+    {
+      return Question.CreateMulti(elements, new ValueQuery());
     }
 
     public static TheValue From(ITarget target)
@@ -30,12 +42,12 @@ namespace CSF.Screenplay.Web.Builders
       return new TheValue(element);
     }
 
-    public IQuestion<T> As<T>()
+    public Performables.IQuestion<T> As<T>()
     {
       if(target != null)
-        return new Questions.GetConvertedValue<T>(target);
+        return Question.Create(target, new ValueQuery<T>());
 
-      return new Questions.GetConvertedValue<T>(element);
+      return Question.Create(element, new ValueQuery<T>());
     }
 
     TheValue(ITarget target)

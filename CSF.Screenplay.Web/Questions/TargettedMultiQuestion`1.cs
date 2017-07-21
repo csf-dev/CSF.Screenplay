@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
@@ -10,13 +12,13 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Web.Questions
 {
   /// <summary>
-  /// A <see cref="T:Question{T}"/> which gets a piece of information from either an <see cref="ITarget"/> or a
-  /// Selenium <c>IWebElement</c> instance.
+  /// A <see cref="T:Question{T}"/> which gets a collection of information from either an <see cref="ITarget"/>
+  /// (representing a collection of elements) or a collection of  Selenium <c>IWebElement</c> instances.
   /// </summary>
-  public class TargettedQuestion<T> : Question<T>
+  public class TargettedMultiQuestion<T> : Question<IReadOnlyList<T>>
   {
     readonly ITarget target;
-    IWebElement element;
+    IReadOnlyList<IWebElement> elements;
     readonly IQuery<T> query;
 
     /// <summary>
@@ -34,12 +36,12 @@ namespace CSF.Screenplay.Web.Questions
     /// </summary>
     /// <returns>The answer.</returns>
     /// <param name="actor">The actor asking this question.</param>
-    protected override T GetAnswer(IPerformer actor)
+    protected override IReadOnlyList<T> GetAnswer(IPerformer actor)
     {
       var ability = GetAbility(actor);
-      var ele = GetWebElement(ability);
-      var adapter = GetWebElementAdapter(ele);
-      return GetAnswer(actor, ability, adapter);
+      var ele = GetWebElements(ability);
+      var adapters = GetWebElementAdapters(ele);
+      return GetAnswer(actor, ability, adapters);
     }
 
     /// <summary>
@@ -53,27 +55,27 @@ namespace CSF.Screenplay.Web.Questions
     }
 
     /// <summary>
-    /// Gets a Selenium <c>IWebElement</c> to interrogate for the answer to the question.
+    /// Gets a collection of Selenium <c>IWebElement</c> to interrogate for the answer to the question.
     /// </summary>
-    /// <returns>The web element.</returns>
+    /// <returns>The web elements.</returns>
     /// <param name="ability">The appropriate browse-the-web ability.</param>
-    protected virtual IWebElement GetWebElement(BrowseTheWeb ability)
+    protected virtual IReadOnlyList<IWebElement> GetWebElements(BrowseTheWeb ability)
     {
-      if(element != null)
-        return element;
+      if(elements != null)
+        return elements;
 
-      element = WebElementProvider.Instance.GetElement(ability, target);
-      return element;
+      elements = WebElementProvider.Instance.GetElements(ability, target);
+      return elements;
     }
 
     /// <summary>
     /// Gets a <see cref="IWebElementAdapter"/> instance which wraps the given <c>IWebElement</c>.
     /// </summary>
     /// <returns>The web element adapter.</returns>
-    /// <param name="element">The Selenium <c>IWebElement</c>.</param>
-    protected virtual IWebElementAdapter GetWebElementAdapter(IWebElement element)
+    /// <param name="elements">The Selenium <c>IWebElement</c>.</param>
+    protected virtual IReadOnlyList<IWebElementAdapter> GetWebElementAdapters(IEnumerable<IWebElement> elements)
     {
-      return new WebElementAdapter(element);
+      return elements.Select(x => new WebElementAdapter(x)).ToArray();
     }
 
     /// <summary>
@@ -85,11 +87,22 @@ namespace CSF.Screenplay.Web.Questions
       if(target != null)
         return target.GetName();
 
-      if(element != null)
-        return $"the <{element.TagName}> element";
+      return "the elements";
+    }
 
-      // In theory this can't happen because one of the two null-checks above will have returned true
-      return "the element";
+    /// <summary>
+    /// Gets the answer for the current instance, using information from the actor, their web browsing ability and
+    /// a <see cref="IWebElementAdapter"/> representing the current targetted element.
+    /// </summary>
+    /// <returns>The question answer.</returns>
+    /// <param name="actor">The actor.</param>
+    /// <param name="ability">The actor's web-browsing ability.</param>
+    /// <param name="adapters">The element adapter.</param>
+    protected virtual IReadOnlyList<T> GetAnswer(IPerformer actor,
+                                                 BrowseTheWeb ability,
+                                                 IReadOnlyList<IWebElementAdapter> adapters)
+    {
+      return adapters.Select(x => GetAnswer(actor, ability, x)).ToArray();
     }
 
     /// <summary>
@@ -110,34 +123,8 @@ namespace CSF.Screenplay.Web.Questions
     /// instance.
     /// </summary>
     /// <param name="target">The target to inspect for the answer.</param>
-    protected TargettedQuestion(ITarget target)
-    {
-      if(target == null)
-        throw new ArgumentNullException(nameof(target));
-
-      this.target = target;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using a Selenium
-    /// <c>IWebElement</c> instance.
-    /// </summary>
-    /// <param name="element">The element to inspect for the answer.</param>
-    protected TargettedQuestion(IWebElement element)
-    {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
-
-      this.element = element;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using an <see cref="ITarget"/>
-    /// instance.
-    /// </summary>
-    /// <param name="target">The target to inspect for the answer.</param>
     /// <param name="query">A service type which will provide the answers to this question.</param>
-    public TargettedQuestion(ITarget target, IQuery<T> query)
+    public TargettedMultiQuestion(ITarget target, IQuery<T> query)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -152,16 +139,16 @@ namespace CSF.Screenplay.Web.Questions
     /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using a Selenium
     /// <c>IWebElement</c> instance.
     /// </summary>
-    /// <param name="element">The element to inspect for the answer.</param>
+    /// <param name="elements">The element to inspect for the answer.</param>
     /// <param name="query">A service type which will provide the answers to this question.</param>
-    public TargettedQuestion(IWebElement element, IQuery<T> query)
+    public TargettedMultiQuestion(IReadOnlyList<IWebElement> elements, IQuery<T> query)
     {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
+      if(elements == null)
+        throw new ArgumentNullException(nameof(elements));
       if(query == null)
         throw new ArgumentNullException(nameof(query));
 
-      this.element = element;
+      this.elements = elements;
       this.query = query;
     }
   }
