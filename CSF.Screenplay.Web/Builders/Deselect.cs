@@ -14,42 +14,22 @@ namespace CSF.Screenplay.Web.Builders
 
     public IPerformable From(ITarget target)
     {
-      switch(strategy)
-      {
-      case SelectStrategy.Index:
-        return new Actions.DeselectByIndex(target, index);
-      case SelectStrategy.Text:
-        return new Actions.DeselectByText(target, val);
-      case SelectStrategy.Value:
-        return new Actions.DeselectByValue(target, val);
-      default:
-        throw new InvalidOperationException("Unexpected selection strategy.");
-      }
+      return new Actions.TargettedAction(target, GetActionDriver());
     }
 
     public IPerformable From(IWebElement element)
     {
-      switch(strategy)
-      {
-      case SelectStrategy.Index:
-        return new Actions.DeselectByIndex(element, index);
-      case SelectStrategy.Text:
-        return new Actions.DeselectByText(element, val);
-      case SelectStrategy.Value:
-        return new Actions.DeselectByValue(element, val);
-      default:
-        throw new InvalidOperationException("Unexpected selection strategy.");
-      }
+      return new Actions.TargettedAction(element, GetActionDriver());
     }
 
     public static IPerformable EverythingFrom(ITarget target)
     {
-      return new Actions.DeselectAll(target);
+      return new Actions.TargettedAction(target, new Actions.DeselectAll());
     }
 
     public static IPerformable EverythingFrom(IWebElement element)
     {
-      return new Actions.DeselectAll(element);
+      return new Actions.TargettedAction(element, new Actions.DeselectAll());
     }
 
     public static Deselect ItemNumber(int number)
@@ -65,6 +45,21 @@ namespace CSF.Screenplay.Web.Builders
     public static Deselect ItemValued(string value)
     {
       return new Deselect(SelectStrategy.Value, val: value);
+    }
+
+    Actions.SelectActionDriver GetActionDriver()
+    {
+      switch(strategy)
+      {
+        case SelectStrategy.Index:
+          return new Actions.DeselectByIndex(index);
+        case SelectStrategy.Text:
+          return new Actions.DeselectByText(val);
+        case SelectStrategy.Value:
+          return new Actions.DeselectByValue(val);
+        default:
+          throw new InvalidOperationException("Unexpected selection strategy.");
+      }
     }
 
     Deselect(SelectStrategy strategy, int index = 0, string val = null)

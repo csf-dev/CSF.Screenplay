@@ -73,7 +73,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <param name="element">The Selenium <c>IWebElement</c>.</param>
     protected virtual IWebElementAdapter GetWebElementAdapter(IWebElement element)
     {
-      return new WebElementAdapter(element);
+      return new SeleniumWebElementAdapter(element);
     }
 
     /// <summary>

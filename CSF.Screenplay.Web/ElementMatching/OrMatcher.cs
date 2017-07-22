@@ -4,6 +4,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.ElementMatching
 {
+  /// <summary>
+  /// A matcher which combines two others together with a logical OR operation.
+  /// </summary>
   public class OrMatcher : IMatcher
   {
     readonly IMatcher first, second;
@@ -48,7 +51,7 @@ namespace CSF.Screenplay.Web.ElementMatching
     /// <param name="element">The element to test.</param>
     public bool IsMatch(IWebElement element)
     {
-      return first.IsMatch(element) && second.IsMatch(element);
+      return first.IsMatch(element) || second.IsMatch(element);
     }
 
     /// <summary>

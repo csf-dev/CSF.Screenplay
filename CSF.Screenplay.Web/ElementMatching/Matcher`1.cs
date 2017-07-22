@@ -74,7 +74,7 @@ namespace CSF.Screenplay.Web.ElementMatching
       if(element == null)
         throw new ArgumentNullException(nameof(element));
 
-      return new WebElementAdapter(element);
+      return new SeleniumWebElementAdapter(element);
     }
 
     /// <summary>

@@ -75,7 +75,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <param name="elements">The Selenium <c>IWebElement</c>.</param>
     protected virtual IReadOnlyList<IWebElementAdapter> GetWebElementAdapters(IEnumerable<IWebElement> elements)
     {
-      return elements.Select(x => new WebElementAdapter(x)).ToArray();
+      return elements.Select(x => new SeleniumWebElementAdapter(x)).ToArray();
     }
 
     /// <summary>

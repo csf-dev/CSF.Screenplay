@@ -1,15 +1,14 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Actions
 {
   /// <summary>
-  /// An action driver representing a user clicking upon an element.
+  /// A service which 'drives' a single interaction with a web element.
   /// </summary>
-  public class Click : IActionDriver
+  public interface IActionDriver
   {
     /// <summary>
     /// Gets a human-readable report of the action.
@@ -17,10 +16,7 @@ namespace CSF.Screenplay.Web.Actions
     /// <returns>The report.</returns>
     /// <param name="actor">Actor.</param>
     /// <param name="targetName">The name of the target of this action.</param>
-    public string GetReport(INamed actor, string targetName)
-    {
-      return $"{actor.Name} clicks on {targetName}";
-    }
+    string GetReport(INamed actor, string targetName);
 
     /// <summary>
     /// Performs the action using the given actor, web-browsing ability and target element.
@@ -28,9 +24,6 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
-    public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)
-    {
-      element.Click();
-    }
+    void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element);
   }
 }

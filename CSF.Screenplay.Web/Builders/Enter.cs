@@ -11,12 +11,12 @@ namespace CSF.Screenplay.Web.Builders
 
     public IPerformable Into(ITarget target)
     {
-      return new Actions.Enter(target, val);
+      return new Actions.TargettedAction(target, new Actions.Enter(val));
     }
 
     public IPerformable Into(IWebElement element)
     {
-      return new Actions.Enter(element, val);
+      return new Actions.TargettedAction(element, new Actions.Enter(val));
     }
 
     public static Enter TheText(string val)

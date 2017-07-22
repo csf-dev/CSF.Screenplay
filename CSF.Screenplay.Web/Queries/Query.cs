@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Web.Queries
     /// <param name="element">Element.</param>
     protected virtual T GetElementData(IWebElement element)
     {
-      var adapter = new WebElementAdapter(element);
+      var adapter = new SeleniumWebElementAdapter(element);
       return GetElementData(adapter);
     }
 

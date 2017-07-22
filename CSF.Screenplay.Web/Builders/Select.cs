@@ -14,32 +14,12 @@ namespace CSF.Screenplay.Web.Builders
 
     public IPerformable From(ITarget target)
     {
-      switch(strategy)
-      {
-      case SelectStrategy.Index:
-        return new Actions.SelectByIndex(target, index);
-      case SelectStrategy.Text:
-        return new Actions.SelectByText(target, val);
-      case SelectStrategy.Value:
-        return new Actions.SelectByValue(target, val);
-      default:
-        throw new InvalidOperationException("Unexpected selection strategy.");
-      }
+      return new Actions.TargettedAction(target, GetActionDriver());
     }
 
     public IPerformable From(IWebElement element)
     {
-      switch(strategy)
-      {
-      case SelectStrategy.Index:
-        return new Actions.SelectByIndex(element, index);
-      case SelectStrategy.Text:
-        return new Actions.SelectByText(element, val);
-      case SelectStrategy.Value:
-        return new Actions.SelectByValue(element, val);
-      default:
-        throw new InvalidOperationException("Unexpected selection strategy.");
-      }
+      return new Actions.TargettedAction(element, GetActionDriver());
     }
 
     public static Select ItemNumber(int number)
@@ -55,6 +35,21 @@ namespace CSF.Screenplay.Web.Builders
     public static Select ItemValued(string value)
     {
       return new Select(SelectStrategy.Value, val: value);
+    }
+
+    Actions.SelectActionDriver GetActionDriver()
+    {
+      switch(strategy)
+      {
+        case SelectStrategy.Index:
+          return new Actions.SelectByIndex(index);
+        case SelectStrategy.Text:
+          return new Actions.SelectByText(val);
+        case SelectStrategy.Value:
+          return new Actions.SelectByValue(val);
+        default:
+          throw new InvalidOperationException("Unexpected selection strategy.");
+      }
     }
 
     Select(SelectStrategy strategy, int index = 0, string val = null)

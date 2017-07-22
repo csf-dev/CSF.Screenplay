@@ -63,7 +63,7 @@
     <Compile Include="Actions\Click.cs" />
     <Compile Include="Actions\Enter.cs" />
     <Compile Include="Actions\SelectByText.cs" />
-    <Compile Include="Actions\SelectAction.cs" />
+    <Compile Include="Actions\SelectActionDriver.cs" />
     <Compile Include="Actions\SelectByValue.cs" />
     <Compile Include="Actions\SelectByIndex.cs" />
     <Compile Include="Actions\DeselectByText.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Models\PixelDistance.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Size.cs" />
-    <Compile Include="Models\WebElementAdapter.cs" />
+    <Compile Include="Models\SeleniumWebElementAdapter.cs" />
     <Compile Include="Builders\TheOptions.cs" />
     <Compile Include="Builders\TheAttribute.cs" />
     <Compile Include="Builders\TheCss.cs" />
@@ -117,8 +117,10 @@
     <Compile Include="Queries\IQuery`1.cs" />
     <Compile Include="Queries\IQuery.cs" />
     <Compile Include="Queries\Query.cs" />
-    <Compile Include="ElementMatching\Matcher.cs" />
     <Compile Include="ElementMatching\OrMatcher.cs" />
+    <Compile Include="Builders\Matcher.cs" />
+    <Compile Include="Waits\IWait.cs" />
+    <Compile Include="Actions\IActionDriver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -137,6 +139,7 @@
     <Folder Include="Builders\" />
     <Folder Include="ElementMatching\" />
     <Folder Include="Queries\" />
+    <Folder Include="Waits\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

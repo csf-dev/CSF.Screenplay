@@ -9,12 +9,12 @@ namespace CSF.Screenplay.Web.Builders
   {
     public static IPerformable On(ITarget target)
     {
-      return new Actions.Click(target);
+      return new Actions.TargettedAction(target, new Actions.Click());
     }
 
     public static IPerformable On(IWebElement element)
     {
-      return new Actions.Click(element);
+      return new Actions.TargettedAction(element, new Actions.Click());
     }
   }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Web.ElementMatching;
 
-namespace CSF.Screenplay.Web.ElementMatching
+namespace CSF.Screenplay.Web.Builders
 {
   /// <summary>
   /// A helper type for composing <see cref="IMatcher"/> instances.
