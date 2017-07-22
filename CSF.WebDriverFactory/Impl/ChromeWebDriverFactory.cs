@@ -10,8 +10,7 @@ namespace CSF.WebDriverFactory.Impl
   public class ChromeWebDriverFactory : IWebDriverFactory
   {
     /// <summary>
-    /// Gets or sets the timeout (in seconds) between the web driver issuing a command to the browser and receiving
-    /// a response.
+    /// Gets or sets the timeout (in seconds) between issuing a command to the web driver and receiving a response.
     /// </summary>
     /// <value>The command timeout seconds.</value>
     public int CommandTimeoutSeconds { get; set; }
@@ -20,19 +19,19 @@ namespace CSF.WebDriverFactory.Impl
     /// Gets or sets the TCP port on which the web driver process will listen.
     /// </summary>
     /// <value>The chrome driver port.</value>
-    public int? ChromeDriverPort { get; set; }
+    public int? DriverPort { get; set; }
 
     /// <summary>
     /// Gets or sets the filesystem path to the web-driver executable (<c>chromedriver</c>).
     /// </summary>
     /// <value>The chrome driver path.</value>
-    public string ChromeDriverPath { get; set; }
+    public string DriverPath { get; set; }
 
     /// <summary>
     /// Gets or sets the filesystem path to the Google Chrome web browser executable.
     /// </summary>
     /// <value>The chrome executable path.</value>
-    public string ChromeExecutablePath { get; set; }
+    public string BrowserExecutablePath { get; set; }
 
     /// <summary>
     /// Gets the web driver.
@@ -55,16 +54,16 @@ namespace CSF.WebDriverFactory.Impl
     {
       ChromeDriverService output;
 
-      if(String.IsNullOrEmpty(ChromeDriverPath))
+      if(String.IsNullOrEmpty(DriverPath))
         output = ChromeDriverService.CreateDefaultService();
       else
-        output = ChromeDriverService.CreateDefaultService(ChromeDriverPath);
+        output = ChromeDriverService.CreateDefaultService(DriverPath);
 
       output.HideCommandPromptWindow = true;
       output.SuppressInitialDiagnosticInformation = false;
 
-      if(ChromeDriverPort.HasValue)
-        output.Port = ChromeDriverPort.Value;
+      if(DriverPort.HasValue)
+        output.Port = DriverPort.Value;
 
       return output;
     }
@@ -73,8 +72,8 @@ namespace CSF.WebDriverFactory.Impl
     {
       var output = new ChromeOptions();
 
-      if(!String.IsNullOrEmpty(ChromeExecutablePath))
-        output.BinaryLocation = ChromeExecutablePath;
+      if(!String.IsNullOrEmpty(BrowserExecutablePath))
+        output.BinaryLocation = BrowserExecutablePath;
 
       return output;
     }

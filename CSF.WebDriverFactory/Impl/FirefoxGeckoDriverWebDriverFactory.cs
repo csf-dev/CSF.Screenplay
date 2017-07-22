@@ -10,9 +10,29 @@ namespace CSF.WebDriverFactory.Impl
   /// </summary>
   public class FirefoxGeckoDriverWebDriverFactory : IWebDriverFactory
   {
-    public string ExecutablePath { get; set; }
-
+    /// <summary>
+    /// Gets or sets the timeout (in seconds) between issuing a command to the web driver and receiving a response.
+    /// </summary>
+    /// <value>The command timeout seconds.</value>
     public int CommandTimeoutSeconds { get; set; }
+
+    /// <summary>
+    /// Gets or sets the TCP port on which the web driver process will listen.
+    /// </summary>
+    /// <value>The gecko driver port.</value>
+    public int? DriverPort { get; set; }
+
+    /// <summary>
+    /// Gets or sets the filesystem path to the web-driver executable (<c>chromedriver</c>).
+    /// </summary>
+    /// <value>The gecko driver path.</value>
+    public string DriverPath { get; set; }
+
+    /// <summary>
+    /// Gets or sets the filesystem path to the Mozilla Firefox web browser executable.
+    /// </summary>
+    /// <value>The firefox executable path.</value>
+    public string BrowserExecutablePath { get; set; }
 
     /// <summary>
     /// Gets the web driver.
@@ -20,16 +40,43 @@ namespace CSF.WebDriverFactory.Impl
     /// <returns>The web driver.</returns>
     public IWebDriver GetWebDriver()
     {
-      var driverService = FirefoxDriverService.CreateDefaultService();
-      driverService.FirefoxBinaryPath = ExecutablePath;
-      driverService.HideCommandPromptWindow = true;
-      driverService.SuppressInitialDiagnosticInformation = true;
-      return new FirefoxDriver(driverService, new FirefoxOptions(), TimeSpan.FromSeconds(CommandTimeoutSeconds));
+      var driverService = GetDriverService();
+      var options = GetFirefoxOptions();
+      var timeout = GetTimeout();
+      return new FirefoxDriver(driverService, options, timeout);
     }
 
-    public FirefoxGeckoDriverWebDriverFactory()
+    TimeSpan GetTimeout()
     {
-      CommandTimeoutSeconds = 60;
+      return TimeSpan.FromSeconds(CommandTimeoutSeconds);
+    }
+
+    FirefoxDriverService GetDriverService()
+    {
+      FirefoxDriverService output;
+
+      if(String.IsNullOrEmpty(DriverPath))
+        output = FirefoxDriverService.CreateDefaultService();
+      else
+        output = FirefoxDriverService.CreateDefaultService(DriverPath);
+
+      output.HideCommandPromptWindow = true;
+      output.SuppressInitialDiagnosticInformation = false;
+
+      if(DriverPort.HasValue)
+        output.Port = DriverPort.Value;
+
+      return output;
+    }
+
+    FirefoxOptions GetFirefoxOptions()
+    {
+      var output = new FirefoxOptions();
+
+      if(!String.IsNullOrEmpty(BrowserExecutablePath))
+        output.BrowserExecutableLocation = BrowserExecutablePath;
+
+      return output;
     }
   }
 }
