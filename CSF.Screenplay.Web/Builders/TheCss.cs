@@ -7,30 +7,58 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
 {
+  /// <summary>
+  /// Builds a question which gets the value of a named CSS property from a target.
+  /// </summary>
   public class TheCss
   {
     readonly string property;
 
+    /// <summary>
+    /// Gets a question which fetches the CSS value from a single target.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="target">Target.</param>
     public IQuestion<string> From(ITarget target)
     {
       return Questions.Question.Create(target, new CssQuery(property));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the CSS value from a web element.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="element">Element.</param>
     public IQuestion<string> From(IWebElement element)
     {
       return Questions.Question.Create(element, new CssQuery(property));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the CSS value from a target which represents a collection of elements.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="target">Target.</param>
     public IQuestion<IReadOnlyList<string>> FromAllOf(ITarget target)
     {
       return Questions.Question.CreateMulti(target, new CssQuery(property));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the CSS value from a collection of web elements.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="elements">Elements.</param>
     public IQuestion<IReadOnlyList<string>> From(IReadOnlyList<IWebElement> elements)
     {
       return Questions.Question.CreateMulti(elements, new CssQuery(property));
     }
 
+    /// <summary>
+    /// Indicates the name of the CSS property which is to be retrieved.
+    /// </summary>
+    /// <returns>A builder instance which may be further configured.</returns>
+    /// <param name="name">The property name.</param>
     public static TheCss Property(string name)
     {
       return new TheCss(name);

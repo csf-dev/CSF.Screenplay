@@ -8,30 +8,58 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
 {
+  /// <summary>
+  /// Builds a question which gets the value of an attribute from a target.
+  /// </summary>
   public class TheAttribute
   {
     readonly string name;
 
+    /// <summary>
+    /// Gets a question which fetches the attribute value from a single target.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="target">Target.</param>
     public IQuestion<string> From(ITarget target)
     {
       return Question.Create(target, new AttributeQuery(name));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the attribute value from a web element.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="element">Element.</param>
     public IQuestion<string> From(IWebElement element)
     {
       return Question.Create(element, new AttributeQuery(name));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the attribute value from a target which represents a collection of elements.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="target">Target.</param>
     public IQuestion<IReadOnlyList<string>> FromAllOf(ITarget target)
     {
       return Question.CreateMulti(target, new AttributeQuery(name));
     }
 
+    /// <summary>
+    /// Gets a question which fetches the attribute value from a collection of web elements.
+    /// </summary>
+    /// <returns>A performable question instance.</returns>
+    /// <param name="elements">Elements.</param>
     public IQuestion<IReadOnlyList<string>> From(IReadOnlyList<IWebElement> elements)
     {
       return Question.CreateMulti(elements, new AttributeQuery(name));
     }
 
+    /// <summary>
+    /// Indicates the name of the attribute which is to be retrieved.
+    /// </summary>
+    /// <returns>A builder instance which may be further configured.</returns>
+    /// <param name="name">The attribute name.</param>
     public static TheAttribute Named(string name)
     {
       return new TheAttribute(name);

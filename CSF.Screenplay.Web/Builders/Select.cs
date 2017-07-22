@@ -6,32 +6,60 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
 {
+  /// <summary>
+  /// Builds an action representing an actor selecting options from an HTML <c>select</c> element.
+  /// </summary>
   public class Select
   {
     readonly int index;
     readonly string val;
     readonly SelectStrategy strategy;
 
+    /// <summary>
+    /// Performs the selection using a given target.
+    /// </summary>
+    /// <returns>A performable action instance.</returns>
+    /// <param name="target">Target.</param>
     public IPerformable From(ITarget target)
     {
       return new Actions.TargettedAction(target, GetActionDriver());
     }
 
+    /// <summary>
+    /// Performs the selection using a given web element.
+    /// </summary>
+    /// <returns>A performable action instance.</returns>
+    /// <param name="element">Element.</param>
     public IPerformable From(IWebElement element)
     {
       return new Actions.TargettedAction(element, GetActionDriver());
     }
 
+    /// <summary>
+    /// Selects the numbered item (the first item is item number 1).
+    /// </summary>
+    /// <returns>A select builder instance accepting further configuration.</returns>
+    /// <param name="number">The item number (starting at 1).</param>
     public static Select ItemNumber(int number)
     {
       return new Select(SelectStrategy.Index, index: number - 1);
     }
 
+    /// <summary>
+    /// Selects an item by its displayed human-readable text.
+    /// </summary>
+    /// <returns>A select builder instance accepting further configuration.</returns>
+    /// <param name="text">The text of the item to select.</param>
     public static Select Item(string text)
     {
       return new Select(SelectStrategy.Text, val: text);
     }
 
+    /// <summary>
+    /// Selects an item by its underlying value.
+    /// </summary>
+    /// <returns>A select builder instance accepting further configuration.</returns>
+    /// <param name="value">The value of the item to select.</param>
     public static Select ItemValued(string value)
     {
       return new Select(SelectStrategy.Value, val: value);
