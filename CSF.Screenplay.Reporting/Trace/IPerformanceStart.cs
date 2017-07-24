@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Marks the moment at which an actor begins performing a performable item.

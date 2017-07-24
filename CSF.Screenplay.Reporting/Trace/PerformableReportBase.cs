@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Base type for a report upon an actor's performance.

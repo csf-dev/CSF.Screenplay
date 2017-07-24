@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void Type_text_into_an_input_box_produces_expected_result_on_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.Of(PageTwo.TheDynamicTextArea)).Should().Be("different value");
     }
 
-    [Test]
+    [Test,Reportable]
     public void Type_different_text_into_an_input_box_produces_expected_result_on_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

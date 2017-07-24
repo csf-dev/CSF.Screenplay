@@ -1,7 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -23,5 +21,16 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="actor">Actor.</param>
     void Unsubscribe(IActor actor);
+
+    /// <summary>
+    /// Indicates to the reporter that a new test-run has begun.
+    /// </summary>
+    void BeginNewTestRun();
+
+    /// <summary>
+    /// Indicates to the reporter that a new scenario has begun.
+    /// </summary>
+    /// <param name="name">The scenario name.</param>
+    void BeginNewScenario(string name);
   }
 }

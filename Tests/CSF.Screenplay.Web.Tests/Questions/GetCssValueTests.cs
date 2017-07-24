@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetCssValue_for_red_string_gets_correct_colour()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());

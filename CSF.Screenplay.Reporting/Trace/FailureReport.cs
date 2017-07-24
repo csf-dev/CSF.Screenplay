@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Represents a report that the performing of an item has failed, possibly due to an exception.

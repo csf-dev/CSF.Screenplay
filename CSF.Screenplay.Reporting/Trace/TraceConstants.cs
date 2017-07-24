@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Singleton which contains information about the trace source configured for this assembly.
   /// </summary>
-  static class Trace
+  static class TraceConstants
   {
     /// <summary>
     /// Gets the name of the trace source.

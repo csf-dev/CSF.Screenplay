@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetWindowTitle_returns_correct_result()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());

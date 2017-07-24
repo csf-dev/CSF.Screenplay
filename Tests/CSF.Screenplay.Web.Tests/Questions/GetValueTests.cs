@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetValue_returns_expected_value()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Then(joe).ShouldSee(TheValue.Of(PageTwo.SecondTextbox)).Should().Be("This is a text box");
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetConvertedValue_returns_expected_value()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

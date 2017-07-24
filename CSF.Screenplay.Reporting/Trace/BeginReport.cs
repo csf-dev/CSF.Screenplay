@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Represents a report that an actor is beginning to perform an action, task or ask a question.

@@ -2,7 +2,7 @@
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.Reporting.Trace
 {
   /// <summary>
   /// Represents a report upon an actor gaining an ability.

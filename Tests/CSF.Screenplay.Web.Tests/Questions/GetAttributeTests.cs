@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetAttribute_returns_expected_value()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

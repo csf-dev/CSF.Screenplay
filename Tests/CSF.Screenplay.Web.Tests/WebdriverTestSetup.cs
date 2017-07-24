@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Web.Abilities;
 using CSF.WebDriverFactory;
 using NUnit.Framework;
@@ -13,6 +14,7 @@ namespace CSF.Screenplay.Web.Tests
     static IWebDriver webDriver;
     static IUriTransformer defaultUriTransformer;
     static string screenshotDir;
+    internal static TextReporter Reporter;
 
     public static IWebDriver WebDriver => webDriver;
 
@@ -27,18 +29,11 @@ namespace CSF.Screenplay.Web.Tests
     {
       var joe = new Actor("Joe");
 
+      Reporter.Subscribe(joe);
+
       var browseTheWeb = GetDefaultWebBrowsingAbility();
       joe.IsAbleTo(browseTheWeb);
 
-      joe.BeginPerformance += (sender, e) => {
-        Console.WriteLine(e.Performable.GetReport(e.Actor));
-      };
-      joe.PerformanceResult += (sender, e) => {
-        Console.WriteLine("  the result was {0}", e.Result);
-      };
-      joe.PerformanceFailed += (sender, e) => {
-        Console.WriteLine("-- FAILED --\n\n{0}", e.Exception);
-      };
       joe.BeginThen += (sender, e) => {
         TakeScreenshotBeforeThen();
       };
@@ -48,12 +43,9 @@ namespace CSF.Screenplay.Web.Tests
 
     static void TakeScreenshotBeforeThen()
     {
-      var ctx = TestContext.CurrentContext;
-      var testName = ctx.Test.FullName;
-
       var screenshotService = new ScreenshotService(WebDriver, new DirectoryInfo(screenshotDir));
 
-      screenshotService.TakeAndSaveScreenshot(testName);
+      screenshotService.TakeAndSaveScreenshot(GetCurrentTestName());
     }
 
     static void DeleteScreenshotsDir()
@@ -70,13 +62,20 @@ namespace CSF.Screenplay.Web.Tests
     {
       DeleteScreenshotsDir();
       webDriver = GetWebDriver();
+
+      Reporter = new TextReporter(TestContext.Out);
+      Reporter.BeginNewTestRun();
     }
 
     [OneTimeTearDown]
     public void OnetimeTeardown()
     {
       webDriver.Dispose();
+      Reporter.CompleteTestRun();
+      TestContext.Out.Flush();
     }
+
+    static string GetCurrentTestName() => TestContext.CurrentContext.Test.FullName;
 
     IWebDriver GetWebDriver()
     {

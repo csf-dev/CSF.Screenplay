@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void DeselectAll_leaves_nothing_selected()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("Nothing!");
     }
 
-    [Test]
+    [Test,Reportable]
     public void DeselectByIndex_leaves_one_item_selected()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("meat");
     }
 
-    [Test]
+    [Test,Reportable]
     public void DeselectByText_leaves_one_item_selected()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -48,7 +48,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("veg");
     }
 
-    [Test]
+    [Test,Reportable]
     public void DeselectByValue_leaves_one_item_selected()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

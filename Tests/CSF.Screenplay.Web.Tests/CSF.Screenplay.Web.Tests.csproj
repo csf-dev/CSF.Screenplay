@@ -62,6 +62,10 @@
       <Project>{C99466AD-CA21-4C12-9E05-6730CDC3C031}</Project>
       <Name>CSF.WebDriverFactory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
+      <Project>{18010B4E-22A7-4462-B057-7199B3386D48}</Project>
+      <Name>CSF.Screenplay.Reporting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
@@ -81,6 +85,8 @@
     <Compile Include="Questions\GetCssValueTests.cs" />
     <Compile Include="Questions\GetValueTests.cs" />
     <Compile Include="Questions\FindElementsTests.cs" />
+    <Compile Include="ReportableAttribute.cs" />
+    <Compile Include="ReportableCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

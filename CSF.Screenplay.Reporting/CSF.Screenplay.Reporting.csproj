@@ -31,27 +31,49 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="CSF.Utils">
+      <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AbilityReport.cs" />
-    <Compile Include="BeginReport.cs" />
-    <Compile Include="FailureReport.cs" />
-    <Compile Include="IPerformanceEnd.cs" />
-    <Compile Include="IPerformanceStart.cs" />
     <Compile Include="IReporter.cs" />
-    <Compile Include="PerformableReportBase.cs" />
-    <Compile Include="ResultReport.cs" />
-    <Compile Include="SuccessReport.cs" />
-    <Compile Include="Trace.cs" />
-    <Compile Include="TraceReporter.cs" />
-    <Compile Include="Reporter.cs" />
+    <Compile Include="NoOpReporter.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Scenario.cs" />
+    <Compile Include="Models\Performance.cs" />
+    <Compile Include="Models\PerformanceType.cs" />
+    <Compile Include="Models\Outcome.cs" />
+    <Compile Include="Models\GainAbility.cs" />
+    <Compile Include="Models\Reportable.cs" />
+    <Compile Include="Trace\TraceConstants.cs" />
+    <Compile Include="Trace\AbilityReport.cs" />
+    <Compile Include="Trace\BeginReport.cs" />
+    <Compile Include="Trace\FailureReport.cs" />
+    <Compile Include="Trace\IPerformanceEnd.cs" />
+    <Compile Include="Trace\IPerformanceStart.cs" />
+    <Compile Include="Trace\PerformableReportBase.cs" />
+    <Compile Include="Trace\ResultReport.cs" />
+    <Compile Include="Trace\SuccessReport.cs" />
+    <Compile Include="Trace\TraceReporter.cs" />
+    <Compile Include="ReportBuildingReporter.cs" />
+    <Compile Include="Builders\PerformanceBuilder.cs" />
+    <Compile Include="Builders\ReportBuilder.cs" />
+    <Compile Include="TextReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Trace\" />
+    <Folder Include="Builders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

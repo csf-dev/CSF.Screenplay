@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetText_returns_expected_value()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Then(joe).ShouldSee(TheText.Of(HomePage.ImportantString)).Should().Be("banana!");
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetConvertedText_returns_expected_value()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());

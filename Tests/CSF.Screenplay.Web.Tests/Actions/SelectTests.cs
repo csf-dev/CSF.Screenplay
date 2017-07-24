@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void SelectByText_generates_expected_result_on_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(2);
     }
 
-    [Test]
+    [Test,Reportable]
     public void SelectByIndex_generates_expected_result_on_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(3);
     }
 
-    [Test]
+    [Test,Reportable]
     public void SelectByValue_generates_expected_result_on_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

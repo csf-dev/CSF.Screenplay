@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void Click_OnLinkToPageTwo_navigates_to_second_page()
     {
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());

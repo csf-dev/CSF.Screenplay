@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       joe = WebdriverTestSetup.GetJoe();
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetAllOptions_returns_expected_collection()
     {
       var expected = new Models.Option[] {
@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
     }
 
-    [Test]
+    [Test,Reportable]
     public void GetSelectedOptions_returns_expected_collection()
     {
       var expected = new Models.Option[] {
