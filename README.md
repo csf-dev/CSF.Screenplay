@@ -18,33 +18,6 @@ When used with Selenium, Screenplay could be thought of as a specialisation of t
 Its goals are narrower than those of Serenity BDD in that it does not set out to be a complete testing framework.
 The ramifications of this are as follows.
 
-### No need to create a Domain Specific Language (DSL)
-It is assumed that the coder is using this library alongside another BDD/acceptance testing framework, such as [SpecFlow].  Thus less emphasis (than is placed by Serenity) is placed upon achieving DSL-like method syntaxes.
-
-Serenity (and other implementations) achieve this almost-huamn-readable syntax via static types and static methods.
-This makes gains in the readability of the test execution methods, but makes sacrifices in the ability to refactor the code.
-
-If you are already making use of a framework such as SpecFlow, then a DSL-like language (created by Screenplay) operating directly below another DSL (Cucumber/Gherkin) within the same domain is redundant.
-A non-developer may read the Cucumber features, developers may read the bindings and task/action files.
-Whilst a decision has been made to avoid sacrificing good coding principles for human-readability, tasks are still quite legible.
-For example, consider the following hypothetical task:
-
-```csharp
-public void TakeOutTheTrash(IPerformer actor)
-{
-  var pickUp = actor.GetAction<PickUp>();
-  var walk = actor.GetAction<Walk>();
-  
-  var theTrashCans = new PickUpParameters { Item = "TheTrashCans" };
-  var outside = new WalkParameters { Destination = "Outside" };
-  
-  actor.Perform(pickUp, theTrashCans);
-  actor.Perform(walk, outside);
-}
-```
-
-[SpecFlow]: http://specflow.org/
-
 ### No need to handle assertions
 It is assumed that the coder is using a testing library (rather obviously).
 Such a library will come with its own assertion methods/functionality in order to match the return values (answers) from questions with expectations.
