@@ -32,5 +32,11 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="name">The scenario name.</param>
     void BeginNewScenario(string name);
+
+    /// <summary>
+    /// Indicates to the reporter that a scenario has finished.
+    /// </summary>
+    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    void CompleteScenario(bool success);
   }
 }

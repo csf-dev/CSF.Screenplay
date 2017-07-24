@@ -106,7 +106,7 @@ namespace CSF.Screenplay.Reporting
 
     void WritePerformanceType(Reportable reportable)
     {
-      writer.Write("{0,-5} ", GetPerformanceTypeString(reportable.PerformanceType));
+      writer.Write("{0,5} ", GetPerformanceTypeString(reportable.PerformanceType));
     }
 
     void WriteResult(Performance reportable, int currentIndentLevel)
@@ -122,8 +122,8 @@ namespace CSF.Screenplay.Reporting
       var exception = reportable.Exception?.ToString();
       if(exception != null)
         writer.WriteLine("FAILED\n{0}", exception);
-      
-      writer.WriteLine("FAILED");
+      else
+        writer.WriteLine("FAILED");
     }
 
     string GetIndent(int currentLevel) 

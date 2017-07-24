@@ -40,6 +40,15 @@ namespace CSF.Screenplay.Reporting
     }
 
     /// <summary>
+    /// Indicates to the reporter that a scenario has finished.
+    /// </summary>
+    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    public override void CompleteScenario(bool success)
+    {
+      builder.EndScenario(success);
+    }
+
+    /// <summary>
     /// Reports that an actor has begun a 'given' part of their performance and that subsequent performables occur
     /// in this context.
     /// </summary>

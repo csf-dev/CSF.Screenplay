@@ -29,6 +29,16 @@ namespace CSF.Screenplay.Reporting.Builders
     }
 
     /// <summary>
+    /// Reports the end of a scenario.
+    /// </summary>
+    /// <param name="isSuccess">If set to <c>false</c> then the scenario is marked as a failure.</param>
+    public void EndScenario(bool isSuccess)
+    {
+      if(!isSuccess)
+        currentScenario.IsFailure = true;
+    }
+
+    /// <summary>
     /// Begins reporting of a new performable.
     /// </summary>
     /// <param name="actor">Actor.</param>

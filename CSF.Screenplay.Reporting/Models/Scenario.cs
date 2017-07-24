@@ -30,12 +30,22 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual IList<Reportable> Reportables => children;
 
     /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/>
+    /// is a failure.
+    /// </summary>
+    /// <value><c>true</c> if this scenario is a failure; otherwise, <c>false</c>.</value>
+    public virtual bool IsFailure { get; set; }
+
+    /// <summary>
     /// Gets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/> is a success.
     /// </summary>
     /// <value><c>true</c> if is success; otherwise, <c>false</c>.</value>
     public virtual bool IsSuccess
     {
       get {
+        if(IsFailure)
+          return false;
+        
         var reportables = FindReportables();
         return reportables.All(x => SuccessOutcomes.Contains(x.Outcome));
       }
