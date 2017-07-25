@@ -21,9 +21,7 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="target">Target.</param>
     public IWebElement GetElement(BrowseTheWeb ability, ITarget target)
     {
-      var locator = target.GetWebDriverLocator();
-      var webDriver = ability.WebDriver;
-      return webDriver.FindElement(locator);
+      return GetElement(ability.WebDriver, target);
     }
 
     /// <summary>
@@ -34,8 +32,30 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="target">Target.</param>
     public IReadOnlyList<IWebElement> GetElements(BrowseTheWeb ability, ITarget target)
     {
+      return GetElements(ability.WebDriver, target);
+    }
+
+    /// <summary>
+    /// Gets a single element.
+    /// </summary>
+    /// <returns>The element.</returns>
+    /// <param name="webDriver">Web driver.</param>
+    /// <param name="target">Target.</param>
+    public IWebElement GetElement(IWebDriver webDriver, ITarget target)
+    {
       var locator = target.GetWebDriverLocator();
-      var webDriver = ability.WebDriver;
+      return webDriver.FindElement(locator);
+    }
+
+    /// <summary>
+    /// Gets the a collection of elements.
+    /// </summary>
+    /// <returns>The elements.</returns>
+    /// <param name="webDriver">Web driver.</param>
+    /// <param name="target">Target.</param>
+    public IReadOnlyList<IWebElement> GetElements(IWebDriver webDriver, ITarget target)
+    {
+      var locator = target.GetWebDriverLocator();
       return webDriver.FindElements(locator);
     }
 
