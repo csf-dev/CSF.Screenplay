@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Web.Queries
     /// </summary>
     /// <returns>The match description.</returns>
     protected override string GetMatchDescription()
-    => "matching text";
+    => "has matching text";
 
     /// <summary>
     /// Gets the element data.

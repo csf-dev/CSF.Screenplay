@@ -70,7 +70,6 @@
     <Compile Include="Actions\DeselectByValue.cs" />
     <Compile Include="Actions\DeselectByIndex.cs" />
     <Compile Include="Actions\DeselectAll.cs" />
-    <Compile Include="Actions\WebElementProvider.cs" />
     <Compile Include="Builders\Click.cs" />
     <Compile Include="Builders\Deselect.cs" />
     <Compile Include="Builders\SelectStrategy.cs" />
@@ -119,8 +118,10 @@
     <Compile Include="Queries\Query.cs" />
     <Compile Include="ElementMatching\OrMatcher.cs" />
     <Compile Include="Builders\Matcher.cs" />
-    <Compile Include="Waits\IWait.cs" />
+    <Compile Include="Waits\TargettedWait.cs" />
     <Compile Include="Actions\IActionDriver.cs" />
+    <Compile Include="Builders\Wait.cs" />
+    <Compile Include="Models\ILocatorBasedTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

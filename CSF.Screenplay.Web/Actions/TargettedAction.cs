@@ -13,7 +13,6 @@ namespace CSF.Screenplay.Web.Actions
   public class TargettedAction : Performable
   {
     readonly ITarget target;
-    readonly IWebElement element;
     readonly IActionDriver driver;
 
     /// <summary>
@@ -52,25 +51,16 @@ namespace CSF.Screenplay.Web.Actions
     /// </summary>
     /// <returns>The web element.</returns>
     /// <param name="ability">Ability.</param>
-    protected virtual IWebElement GetWebElement(BrowseTheWeb ability)
+    protected virtual IWebElementAdapter GetWebElement(BrowseTheWeb ability)
     {
-      if(element != null)
-        return element;
-
-      return WebElementProvider.Instance.GetElement(ability, target);
+      return target.GetWebElementAdapter(ability);
     }
 
     /// <summary>
     /// Gets the name of the current target for this action.
     /// </summary>
     /// <returns>The target name.</returns>
-    protected virtual string GetTargetName()
-    {
-      if(target != null)
-        return target.GetName();
-
-      return $"the <{element.TagName}> element";
-    }
+    protected virtual string GetTargetName() => target.GetName();
 
     TargettedAction(IActionDriver driver)
     {
@@ -91,19 +81,6 @@ namespace CSF.Screenplay.Web.Actions
         throw new ArgumentNullException(nameof(target));
 
       this.target = target;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TargettedAction"/> class from a web element.
-    /// </summary>
-    /// <param name="element">Element.</param>
-    /// <param name="driver">A type which drives the actual action itself.</param>
-    public TargettedAction(IWebElement element, IActionDriver driver) : this(driver)
-    {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
-
-      this.element = element;
     }
   }
 }

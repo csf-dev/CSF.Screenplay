@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Web.Queries
     /// </summary>
     /// <returns>The match description.</returns>
     protected override string GetMatchDescription()
-      => "a matching screen location";
+      => "has a matching screen location";
 
     /// <summary>
     /// Gets the element data.

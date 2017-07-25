@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
     /// <param name="select">The select element</param>
-    protected override void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element, SelectElement select)
+    protected override void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element, SelectElement select)
     {
       select.SelectByIndex(index);
     }

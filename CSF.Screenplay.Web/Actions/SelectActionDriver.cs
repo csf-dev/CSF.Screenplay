@@ -26,9 +26,9 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
-    public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)
+    public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
     {
-      var selectElement = new SelectElement(element);
+      var selectElement = new SelectElement(element.GetUnderlyingElement());
       PerformAs(actor, ability, element, selectElement);
     }
 
@@ -39,6 +39,6 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
     /// <param name="select">The select element</param>
-    protected abstract void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element, SelectElement select);
+    protected abstract void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element, SelectElement select);
   }
 }

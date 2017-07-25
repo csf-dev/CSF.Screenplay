@@ -18,7 +18,6 @@ namespace CSF.Screenplay.Web.Questions
   public class TargettedMultiQuestion<T> : Question<IReadOnlyList<T>>
   {
     readonly ITarget target;
-    IReadOnlyList<IWebElement> elements;
     readonly IQuery<T> query;
 
     /// <summary>
@@ -39,8 +38,7 @@ namespace CSF.Screenplay.Web.Questions
     protected override IReadOnlyList<T> GetAnswer(IPerformer actor)
     {
       var ability = GetAbility(actor);
-      var ele = GetWebElements(ability);
-      var adapters = GetWebElementAdapters(ele);
+      var adapters = GetWebElementAdapters(ability);
       return GetAnswer(actor, ability, adapters);
     }
 
@@ -55,27 +53,13 @@ namespace CSF.Screenplay.Web.Questions
     }
 
     /// <summary>
-    /// Gets a collection of Selenium <c>IWebElement</c> to interrogate for the answer to the question.
+    /// Gets a collection of <see cref="IWebElementAdapter"/> to interrogate for the answer to the question.
     /// </summary>
     /// <returns>The web elements.</returns>
     /// <param name="ability">The appropriate browse-the-web ability.</param>
-    protected virtual IReadOnlyList<IWebElement> GetWebElements(BrowseTheWeb ability)
+    protected virtual IReadOnlyList<IWebElementAdapter> GetWebElementAdapters(BrowseTheWeb ability)
     {
-      if(elements != null)
-        return elements;
-
-      elements = WebElementProvider.Instance.GetElements(ability, target);
-      return elements;
-    }
-
-    /// <summary>
-    /// Gets a <see cref="IWebElementAdapter"/> instance which wraps the given <c>IWebElement</c>.
-    /// </summary>
-    /// <returns>The web element adapter.</returns>
-    /// <param name="elements">The Selenium <c>IWebElement</c>.</param>
-    protected virtual IReadOnlyList<IWebElementAdapter> GetWebElementAdapters(IEnumerable<IWebElement> elements)
-    {
-      return elements.Select(x => new SeleniumWebElementAdapter(x)).ToArray();
+      return target.GetWebElementAdapters(ability).Elements;
     }
 
     /// <summary>
@@ -84,10 +68,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <returns>The target name.</returns>
     protected virtual string GetTargetName()
     {
-      if(target != null)
-        return target.GetName();
-
-      return "the elements";
+      return target.GetName();
     }
 
     /// <summary>
@@ -132,23 +113,6 @@ namespace CSF.Screenplay.Web.Questions
         throw new ArgumentNullException(nameof(query));
 
       this.target = target;
-      this.query = query;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using a Selenium
-    /// <c>IWebElement</c> instance.
-    /// </summary>
-    /// <param name="elements">The element to inspect for the answer.</param>
-    /// <param name="query">A service type which will provide the answers to this question.</param>
-    public TargettedMultiQuestion(IReadOnlyList<IWebElement> elements, IQuery<T> query)
-    {
-      if(elements == null)
-        throw new ArgumentNullException(nameof(elements));
-      if(query == null)
-        throw new ArgumentNullException(nameof(query));
-
-      this.elements = elements;
       this.query = query;
     }
   }

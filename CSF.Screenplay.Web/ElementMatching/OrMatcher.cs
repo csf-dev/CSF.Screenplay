@@ -45,16 +45,6 @@ namespace CSF.Screenplay.Web.ElementMatching
     }
 
     /// <summary>
-    /// Gets a value indicating whether or not the given Selenium web element matches the contained predicate or not.
-    /// </summary>
-    /// <returns><c>true</c>, if the element matches, <c>false</c> otherwise.</returns>
-    /// <param name="element">The element to test.</param>
-    public bool IsMatch(IWebElement element)
-    {
-      return first.IsMatch(element) || second.IsMatch(element);
-    }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.ElementMatching.OrMatcher"/> class.
     /// </summary>
     /// <param name="first">First.</param>

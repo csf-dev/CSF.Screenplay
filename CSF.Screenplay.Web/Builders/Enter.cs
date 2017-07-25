@@ -23,16 +23,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// The actor enters the text into a given web element.
-    /// </summary>
-    /// <returns>A performable action instance.</returns>
-    /// <param name="element">Element.</param>
-    public IPerformable Into(IWebElement element)
-    {
-      return new Actions.TargettedAction(element, new Actions.Enter(val));
-    }
-
-    /// <summary>
     /// Indicates the text that the actor is to enter.
     /// </summary>
     /// <returns>A builder instance accepting further configuration.</returns>
