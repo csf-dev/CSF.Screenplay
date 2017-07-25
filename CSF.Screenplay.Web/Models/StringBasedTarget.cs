@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CSF.Screenplay.Web.Abilities;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
@@ -7,18 +10,68 @@ namespace CSF.Screenplay.Web.Models
   /// Base type for <see cref="ITarget"/> implementations which use a <c>System.String</c> to identify the
   /// element(s) that they match.
   /// </summary>
-  public abstract class StringBasedTarget : ITarget
+  public abstract class StringBasedTarget : ILocatorBasedTarget
   {
     readonly string identifier, name;
 
-    string IHasTargetName.GetName()
+    string IHasTargetName.GetName() => name;
+
+    By ILocatorBasedTarget.GetWebDriverLocator() => GetWebDriverLocator(identifier);
+
+    /// <summary>
+    /// Gets a web element adapter from the current instance, using the given web-browsing ability.
+    /// </summary>
+    /// <returns>The web element adapter.</returns>
+    /// <param name="ability">Ability.</param>
+    public IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability)
     {
-      return name;
+      if(ability == null)
+        throw new ArgumentNullException(nameof(ability));
+
+      return GetWebElementAdapter(ability.WebDriver);
     }
 
-    By ITarget.GetWebDriverLocator()
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using the given web-browsing ability.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="ability">Ability.</param>
+    public ElementCollection GetWebElementAdapters(BrowseTheWeb ability)
     {
-      return GetWebDriverLocator(identifier);
+      if(ability == null)
+        throw new ArgumentNullException(nameof(ability));
+
+      return GetWebElementAdapters(ability.WebDriver);
+    }
+
+    /// <summary>
+    /// Gets a web element adapter from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapter.</returns>
+    /// <param name="driver">The web driver.</param>
+    public IWebElementAdapter GetWebElementAdapter(IWebDriver driver)
+    {
+      if(driver == null)
+        throw new ArgumentNullException(nameof(driver));
+
+      var locator = GetWebDriverLocator(identifier);
+      var element = driver.FindElement(locator);
+      return new SeleniumWebElementAdapter(element, name);
+    }
+
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="driver">The web driver.</param>
+    public ElementCollection GetWebElementAdapters(IWebDriver driver)
+    {
+      if(driver == null)
+        throw new ArgumentNullException(nameof(driver));
+
+      var locator = GetWebDriverLocator(identifier);
+      var elements = driver.FindElements(locator);
+      return new ElementCollection(elements.Select(x => new SeleniumWebElementAdapter(x, name)).ToArray(), name);
     }
 
     /// <summary>

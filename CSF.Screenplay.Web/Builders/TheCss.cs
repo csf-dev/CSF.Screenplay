@@ -25,16 +25,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Gets a question which fetches the CSS value from a web element.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="element">Element.</param>
-    public IQuestion<string> From(IWebElement element)
-    {
-      return Questions.Question.Create(element, new CssQuery(property));
-    }
-
-    /// <summary>
     /// Gets a question which fetches the CSS value from a target which represents a collection of elements.
     /// </summary>
     /// <returns>A performable question instance.</returns>
@@ -42,16 +32,6 @@ namespace CSF.Screenplay.Web.Builders
     public IQuestion<IReadOnlyList<string>> FromAllOf(ITarget target)
     {
       return Questions.Question.CreateMulti(target, new CssQuery(property));
-    }
-
-    /// <summary>
-    /// Gets a question which fetches the CSS value from a collection of web elements.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="elements">Elements.</param>
-    public IQuestion<IReadOnlyList<string>> From(IReadOnlyList<IWebElement> elements)
-    {
-      return Questions.Question.CreateMulti(elements, new CssQuery(property));
     }
 
     /// <summary>

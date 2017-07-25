@@ -56,23 +56,13 @@ namespace CSF.Screenplay.Web.Waits
     }
 
     /// <summary>
-    /// Gets a Selenium <c>IWebElement</c> to interrogate for the answer to the question.
+    /// Gets a <see cref="IWebElementAdapter"/> instance to interrogate for the answer to the question.
     /// </summary>
     /// <returns>The web element.</returns>
     /// <param name="driver">The web driver.</param>
-    protected virtual IWebElement GetWebElement(IWebDriver driver)
+    protected virtual IWebElementAdapter GetWebElementAdapter(IWebDriver driver)
     {
-      return WebElementProvider.Instance.GetElement(driver, target);
-    }
-
-    /// <summary>
-    /// Gets a <see cref="IWebElementAdapter"/> instance which wraps the given <c>IWebElement</c>.
-    /// </summary>
-    /// <returns>The web element adapter.</returns>
-    /// <param name="element">The Selenium <c>IWebElement</c>.</param>
-    protected virtual IWebElementAdapter GetWebElementAdapter(IWebElement element)
-    {
-      return new SeleniumWebElementAdapter(element);
+      return target.GetWebElementAdapter(driver);
     }
 
     /// <summary>
@@ -104,8 +94,7 @@ namespace CSF.Screenplay.Web.Waits
     /// <param name="driver">A web driver.</param>
     protected virtual bool WaitConditionIsSatisfied(IWebDriver driver)
     {
-      var ele = GetWebElement(driver);
-      var adapter = GetWebElementAdapter(ele);
+      var adapter = GetWebElementAdapter(driver);
       var webElementValue = query.GetElementData(adapter);
       return predicate(webElementValue);
     }

@@ -11,7 +11,8 @@ namespace CSF.Screenplay.Web.Builders
   /// </summary>
   public class ElementsWithin
   {
-    ITarget innerTarget, target;
+    ILocatorBasedTarget innerTarget;
+    ITarget target;
     IMatcher matcher;
 
     /// <summary>
@@ -19,7 +20,7 @@ namespace CSF.Screenplay.Web.Builders
     /// </summary>
     /// <returns>The builder instance.</returns>
     /// <param name="target">A target specification.</param>
-    public ElementsWithin ThatAre(ITarget target)
+    public ElementsWithin ThatAre(ILocatorBasedTarget target)
     {
       this.innerTarget = target;
       return this;

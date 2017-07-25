@@ -26,16 +26,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Gets a question which fetches the attribute value from a web element.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="element">Element.</param>
-    public IQuestion<string> From(IWebElement element)
-    {
-      return Question.Create(element, new AttributeQuery(name));
-    }
-
-    /// <summary>
     /// Gets a question which fetches the attribute value from a target which represents a collection of elements.
     /// </summary>
     /// <returns>A performable question instance.</returns>
@@ -43,16 +33,6 @@ namespace CSF.Screenplay.Web.Builders
     public IQuestion<IReadOnlyList<string>> FromAllOf(ITarget target)
     {
       return Question.CreateMulti(target, new AttributeQuery(name));
-    }
-
-    /// <summary>
-    /// Gets a question which fetches the attribute value from a collection of web elements.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="elements">Elements.</param>
-    public IQuestion<IReadOnlyList<string>> From(IReadOnlyList<IWebElement> elements)
-    {
-      return Question.CreateMulti(elements, new AttributeQuery(name));
     }
 
     /// <summary>
