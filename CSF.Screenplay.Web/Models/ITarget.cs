@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using CSF.Screenplay.Web.Abilities;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
@@ -18,9 +20,31 @@ namespace CSF.Screenplay.Web.Models
   public interface ITarget : IHasTargetName
   {
     /// <summary>
-    /// Gets a Selenium WebDriver <c>By</c> implementation for the current instance.
+    /// Gets a web element adapter from the current instance, using the given web-browsing ability.
     /// </summary>
-    /// <returns>A Selenium WebDriver locator instance.</returns>
-    By GetWebDriverLocator();
+    /// <returns>The web element adapter.</returns>
+    /// <param name="ability">Ability.</param>
+    IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability);
+
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using the given web-browsing ability.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="ability">Ability.</param>
+    ElementCollection GetWebElementAdapters(BrowseTheWeb ability);
+
+    /// <summary>
+    /// Gets a web element adapter from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapter.</returns>
+    /// <param name="driver">The web driver.</param>
+    IWebElementAdapter GetWebElementAdapter(IWebDriver driver);
+
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="driver">The web driver.</param>
+    ElementCollection GetWebElementAdapters(IWebDriver driver);
   }
 }

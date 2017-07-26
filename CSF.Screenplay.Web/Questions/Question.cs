@@ -36,31 +36,5 @@ namespace CSF.Screenplay.Web.Questions
     {
       return new TargettedMultiQuestion<T>(target, query);
     }
-
-    /// <summary>
-    /// Creates a targetted question from a given Selenium web element and query.
-    /// </summary>
-    /// <returns>The question instance</returns>
-    /// <param name="element">The target of the question.</param>
-    /// <param name="query">The query.</param>
-    /// <typeparam name="T">The data-type which the query will analyse.</typeparam>
-    public static Performables.IQuestion<T> Create<T>(IWebElement element,
-                                                      IQuery<T> query)
-    {
-      return new TargettedQuestion<T>(element, query);
-    }
-
-    /// <summary>
-    /// Creates a targetted multi-question from a given collection of Selenium elements and a query.
-    /// </summary>
-    /// <returns>The question instance</returns>
-    /// <param name="elements">A collection of elements.</param>
-    /// <param name="query">The query.</param>
-    /// <typeparam name="T">The data-type which the query will analyse.</typeparam>
-    public static Performables.IQuestion<IReadOnlyList<T>> CreateMulti<T>(IReadOnlyList<IWebElement> elements,
-                                                                          IQuery<T> query)
-    {
-      return new TargettedMultiQuestion<T>(elements, query);
-    }
   }
 }

@@ -16,7 +16,6 @@ namespace CSF.Screenplay.Web.Questions
   public class TargettedQuestion<T> : Question<T>
   {
     readonly ITarget target;
-    IWebElement element;
     readonly IQuery<T> query;
 
     /// <summary>
@@ -37,8 +36,7 @@ namespace CSF.Screenplay.Web.Questions
     protected override T GetAnswer(IPerformer actor)
     {
       var ability = GetAbility(actor);
-      var ele = GetWebElement(ability);
-      var adapter = GetWebElementAdapter(ele);
+      var adapter = GetWebElementAdapter(ability);
       return GetAnswer(actor, ability, adapter);
     }
 
@@ -53,27 +51,13 @@ namespace CSF.Screenplay.Web.Questions
     }
 
     /// <summary>
-    /// Gets a Selenium <c>IWebElement</c> to interrogate for the answer to the question.
-    /// </summary>
-    /// <returns>The web element.</returns>
-    /// <param name="ability">The appropriate browse-the-web ability.</param>
-    protected virtual IWebElement GetWebElement(BrowseTheWeb ability)
-    {
-      if(element != null)
-        return element;
-
-      element = WebElementProvider.Instance.GetElement(ability, target);
-      return element;
-    }
-
-    /// <summary>
     /// Gets a <see cref="IWebElementAdapter"/> instance which wraps the given <c>IWebElement</c>.
     /// </summary>
     /// <returns>The web element adapter.</returns>
-    /// <param name="element">The Selenium <c>IWebElement</c>.</param>
-    protected virtual IWebElementAdapter GetWebElementAdapter(IWebElement element)
+    /// <param name="ability">The web-browsing ability.</param>
+    protected virtual IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability)
     {
-      return new SeleniumWebElementAdapter(element);
+      return target.GetWebElementAdapter(ability);
     }
 
     /// <summary>
@@ -82,14 +66,7 @@ namespace CSF.Screenplay.Web.Questions
     /// <returns>The target name.</returns>
     protected virtual string GetTargetName()
     {
-      if(target != null)
-        return target.GetName();
-
-      if(element != null)
-        return $"the <{element.TagName}> element";
-
-      // In theory this can't happen because one of the two null-checks above will have returned true
-      return "the element";
+      return target.GetName();
     }
 
     /// <summary>
@@ -119,19 +96,6 @@ namespace CSF.Screenplay.Web.Questions
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using a Selenium
-    /// <c>IWebElement</c> instance.
-    /// </summary>
-    /// <param name="element">The element to inspect for the answer.</param>
-    protected TargettedQuestion(IWebElement element)
-    {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
-
-      this.element = element;
-    }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using an <see cref="ITarget"/>
     /// instance.
     /// </summary>
@@ -145,23 +109,6 @@ namespace CSF.Screenplay.Web.Questions
         throw new ArgumentNullException(nameof(query));
 
       this.target = target;
-      this.query = query;
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:TargettedQuestion{T}"/> class using a Selenium
-    /// <c>IWebElement</c> instance.
-    /// </summary>
-    /// <param name="element">The element to inspect for the answer.</param>
-    /// <param name="query">A service type which will provide the answers to this question.</param>
-    public TargettedQuestion(IWebElement element, IQuery<T> query)
-    {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
-      if(query == null)
-        throw new ArgumentNullException(nameof(query));
-
-      this.element = element;
       this.query = query;
     }
   }

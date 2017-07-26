@@ -10,13 +10,6 @@ namespace CSF.Screenplay.Web.ElementMatching
   public interface IMatcher
   {
     /// <summary>
-    /// Gets a value indicating whether or not the given Selenium web element matches the contained predicate or not.
-    /// </summary>
-    /// <returns><c>true</c>, if the element matches, <c>false</c> otherwise.</returns>
-    /// <param name="element">The element to test.</param>
-    bool IsMatch(IWebElement element);
-
-    /// <summary>
     /// Gets a value indicating whether or not the given web element adapter matches the contained predicate or not.
     /// </summary>
     /// <returns><c>true</c>, if the adapter matches, <c>false</c> otherwise.</returns>

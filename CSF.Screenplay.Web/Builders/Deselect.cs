@@ -26,16 +26,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Performs the deselection using a given web element.
-    /// </summary>
-    /// <returns>A performable action instance.</returns>
-    /// <param name="element">Element.</param>
-    public IPerformable From(IWebElement element)
-    {
-      return new Actions.TargettedAction(element, GetActionDriver());
-    }
-
-    /// <summary>
     /// Deselects all of the options from the given target.
     /// </summary>
     /// <returns>A performable action instance.</returns>
@@ -43,16 +33,6 @@ namespace CSF.Screenplay.Web.Builders
     public static IPerformable EverythingFrom(ITarget target)
     {
       return new Actions.TargettedAction(target, new Actions.DeselectAll());
-    }
-
-    /// <summary>
-    /// Deselects all of the options from the given web element.
-    /// </summary>
-    /// <returns>A performable action instance.</returns>
-    /// <param name="element">Element.</param>
-    public static IPerformable EverythingFrom(IWebElement element)
-    {
-      return new Actions.TargettedAction(element, new Actions.DeselectAll());
     }
 
     /// <summary>

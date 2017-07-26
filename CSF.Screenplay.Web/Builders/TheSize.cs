@@ -23,16 +23,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Gets a question which asks the size of a given web element.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="element">Element.</param>
-    public static IQuestion<Size> Of(IWebElement element)
-    {
-      return Questions.Question.Create(element, new SizeQuery());
-    }
-
-    /// <summary>
     /// Gets a question which asks the size of a given target which represents a collection of elements.
     /// </summary>
     /// <returns>A performable question instance.</returns>
@@ -40,16 +30,6 @@ namespace CSF.Screenplay.Web.Builders
     public static IQuestion<IReadOnlyList<Size>> OfAll(ITarget target)
     {
       return Questions.Question.CreateMulti(target, new SizeQuery());
-    }
-
-    /// <summary>
-    /// Gets a question which asks the size of a given collection of web elements.
-    /// </summary>
-    /// <returns>A performable question instance.</returns>
-    /// <param name="elements">Elements.</param>
-    public static IQuestion<IReadOnlyList<Size>> Of(IReadOnlyList<IWebElement> elements)
-    {
-      return Questions.Question.CreateMulti(elements, new SizeQuery());
     }
   }
 }

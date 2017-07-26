@@ -30,9 +30,9 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
-    public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element)
+    public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
     {
-      element.SendKeys(text);
+      element.GetUnderlyingElement().SendKeys(text);
     }
 
     /// <summary>

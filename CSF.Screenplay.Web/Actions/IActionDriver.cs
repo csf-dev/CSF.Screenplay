@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Web.Abilities;
-using OpenQA.Selenium;
+using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Actions
 {
@@ -24,6 +24,6 @@ namespace CSF.Screenplay.Web.Actions
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
     /// <param name="element">Element.</param>
-    void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElement element);
+    void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element);
   }
 }

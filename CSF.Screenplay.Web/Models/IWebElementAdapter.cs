@@ -7,8 +7,14 @@ namespace CSF.Screenplay.Web.Models
   /// <summary>
   /// An adapter/wrapper around an underlying Selenium web element.
   /// </summary>
-  public interface IWebElementAdapter
+  public interface IWebElementAdapter : ITarget
   {
+    /// <summary>
+    /// Gets the underlying Selenium Web Element.
+    /// </summary>
+    /// <returns>The underlying element.</returns>
+    IWebElement GetUnderlyingElement();
+
     /// <summary>
     /// Gets the value of a named HTML attribute.
     /// </summary>
@@ -125,7 +131,7 @@ namespace CSF.Screenplay.Web.Models
     /// Gets a collection of elements, contained within the current element, which match the given target.
     /// </summary>
     /// <param name="target">A target specification.</param>
-    IReadOnlyList<IWebElement> Find(ITarget target);
+    IReadOnlyList<IWebElement> Find(ILocatorBasedTarget target);
 
     /// <summary>
     /// Gets a collection of the elements contained within the current element.

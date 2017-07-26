@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.Screenplay.Web.Abilities;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Models
@@ -18,9 +19,10 @@ namespace CSF.Screenplay.Web.Models
       NoneDisplay = "none",
       ValueAttribute = "value";
 
-    static readonly ITarget OptionElements = new CssSelector("option", "option elements");
+    static readonly ILocatorBasedTarget OptionElements = new CssSelector("option", "option elements");
 
     readonly IWebElement wrappedElement;
+    readonly string name;
 
     /// <summary>
     /// Gets a reference to the source <c>IWebElement</c> instance.
@@ -189,7 +191,7 @@ namespace CSF.Screenplay.Web.Models
     /// Gets a collection of elements, contained within the current element, which match the given target.
     /// </summary>
     /// <param name="target">A target specification.</param>
-    public IReadOnlyList<IWebElement> Find(ITarget target)
+    public IReadOnlyList<IWebElement> Find(ILocatorBasedTarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -204,6 +206,48 @@ namespace CSF.Screenplay.Web.Models
     {
       return Find(CssSelector.AllElements);
     }
+
+    /// <summary>
+    /// Gets a web element adapter from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapter.</returns>
+    /// <param name="driver">The web driver.</param>
+    public IWebElementAdapter GetWebElementAdapter(IWebDriver driver) => this;
+
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using a given Selenium web driver.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="driver">The web driver.</param>
+    public ElementCollection GetWebElementAdapters(IWebDriver driver)
+      => new ElementCollection(new [] { this }, name);
+
+    /// <summary>
+    /// Gets the underlying Selenium Web Element.
+    /// </summary>
+    /// <returns>The underlying element.</returns>
+    public IWebElement GetUnderlyingElement() => wrappedElement;
+
+    /// <summary>
+    /// Gets a web element adapter from the current instance, using the given web-browsing ability.
+    /// </summary>
+    /// <returns>The web element adapter.</returns>
+    /// <param name="ability">Ability.</param>
+    public IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability) => this;
+
+    /// <summary>
+    /// Gets a collection of web element adapters from the current instance, using the given web-browsing ability.
+    /// </summary>
+    /// <returns>The web element adapters.</returns>
+    /// <param name="ability">Ability.</param>
+    public ElementCollection GetWebElementAdapters(BrowseTheWeb ability)
+      =>  new ElementCollection(new [] { this }, name);
+
+    /// <summary>
+    /// Gets the human-readable target name.
+    /// </summary>
+    /// <returns>The name.</returns>
+    public string GetName() => name ?? $"the <{wrappedElement.TagName}> element";
 
     IReadOnlyList<Option> GetOptions(Func<IWebElement,bool> predicate = null)
     {
@@ -223,12 +267,14 @@ namespace CSF.Screenplay.Web.Models
     /// Initializes a new instance of the <see cref="SeleniumWebElementAdapter"/> class.
     /// </summary>
     /// <param name="wrappedElement">Wrapped element.</param>
-    public SeleniumWebElementAdapter(IWebElement wrappedElement)
+    /// <param name="name">A name for the wrapped element.</param>
+    public SeleniumWebElementAdapter(IWebElement wrappedElement, string name = null)
     {
       if(wrappedElement == null)
         throw new ArgumentNullException(nameof(wrappedElement));
 
       this.wrappedElement = wrappedElement;
+      this.name = name;
     }
   }
 }

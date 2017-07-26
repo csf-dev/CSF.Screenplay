@@ -26,16 +26,6 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Performs the selection using a given web element.
-    /// </summary>
-    /// <returns>A performable action instance.</returns>
-    /// <param name="element">Element.</param>
-    public IPerformable From(IWebElement element)
-    {
-      return new Actions.TargettedAction(element, GetActionDriver());
-    }
-
-    /// <summary>
     /// Selects the numbered item (the first item is item number 1).
     /// </summary>
     /// <returns>A select builder instance accepting further configuration.</returns>

@@ -19,15 +19,5 @@ namespace CSF.Screenplay.Web.Builders
     {
       return new Actions.TargettedAction(target, new Actions.Click());
     }
-
-    /// <summary>
-    /// The actor clicks on a given web element.
-    /// </summary>
-    /// <returns>A performable action instance.</returns>
-    /// <param name="element">Element.</param>
-    public static IPerformable On(IWebElement element)
-    {
-      return new Actions.TargettedAction(element, new Actions.Click());
-    }
   }
 }
