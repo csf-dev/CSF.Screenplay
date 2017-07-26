@@ -9,11 +9,6 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Scenario
   {
-    readonly static Outcome[] SuccessOutcomes = new [] {
-      Outcome.Success,
-      Outcome.SuccessWithResult,
-    };
-
     readonly string name;
     readonly IList<Reportable> children;
 
@@ -40,16 +35,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/> is a success.
     /// </summary>
     /// <value><c>true</c> if is success; otherwise, <c>false</c>.</value>
-    public virtual bool IsSuccess
-    {
-      get {
-        if(IsFailure)
-          return false;
-        
-        var reportables = FindReportables();
-        return reportables.All(x => SuccessOutcomes.Contains(x.Outcome));
-      }
-    }
+    public virtual bool IsSuccess => !IsFailure;
 
     IEnumerable<Reportable> FindReportables()
     {
