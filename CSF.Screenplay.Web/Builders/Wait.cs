@@ -3,6 +3,7 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Models;
 using CSF.Screenplay.Web.Queries;
 using CSF.Screenplay.Web.Waits;
+using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web.Builders
 {
@@ -88,7 +89,29 @@ namespace CSF.Screenplay.Web.Builders
       return GetTargettedWait(new TextQuery(), x => x != null && x.Contains(text));
     }
 
-    IPerformable GetTargettedWait<T>(IQuery<T> query, Func<T,bool> predicate)
+    /// <summary>
+    /// Gets a 'wait' performable which completes when the target is visible to the user.
+    /// </summary>
+    /// <returns>The visible.</returns>
+    public IPerformable IsVisible()
+    {
+      var wait = GetTargettedWait(new VisibilityQuery(), x => x);
+      wait.IgnoredExceptionTypes.Add(typeof(NotFoundException));
+      return wait;
+    }
+
+    /// <summary>
+    /// Gets a 'wait' performable which completes when the target is visible to the user.
+    /// </summary>
+    /// <returns>The visible.</returns>
+    public IPerformable IsClickable()
+    {
+      var wait = GetTargettedWait(new ClickableQuery(), x => x);
+      wait.IgnoredExceptionTypes.Add(typeof(NotFoundException));
+      return wait;
+    }
+
+    ITargettedWait GetTargettedWait<T>(IQuery<T> query, Func<T,bool> predicate)
     {
       if(query == null)
         throw new ArgumentNullException(nameof(query));

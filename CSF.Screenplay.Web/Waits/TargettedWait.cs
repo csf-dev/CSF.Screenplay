@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
@@ -13,12 +15,20 @@ namespace CSF.Screenplay.Web.Waits
   /// <summary>
   /// A performable which represents the actor waiting for a condition to become true.
   /// </summary>
-  public class TargettedWait<T> : Performable
+  public class TargettedWait<T> : Performable, ITargettedWait
   {
     readonly ITarget target;
     readonly IQuery<T> query;
     readonly Func<T,bool> predicate;
     readonly TimeSpan timeout;
+    readonly ISet<Type> ignoredExceptionTypes;
+
+    /// <summary>
+    /// Gets a collection of <c>System.Type</c> representing exception types which will be ignored during the wait
+    /// operation.
+    /// </summary>
+    /// <value>The ignored exception types.</value>
+    public virtual ISet<Type> IgnoredExceptionTypes => ignoredExceptionTypes;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -73,7 +83,17 @@ namespace CSF.Screenplay.Web.Waits
     protected virtual void Wait(IPerformer actor, BrowseTheWeb ability)
     {
       var wait = new WebDriverWait(ability.WebDriver, timeout);
+      ConfigureWait(wait);
       Wait(actor, wait);
+    }
+
+    /// <summary>
+    /// Performs additional configuration upon the Wait object before it is executed.
+    /// </summary>
+    /// <param name="wait">Wait.</param>
+    protected virtual void ConfigureWait(IWait<IWebDriver> wait)
+    {
+      wait.IgnoreExceptionTypes(ignoredExceptionTypes.ToArray());
     }
 
     /// <summary>
@@ -84,7 +104,14 @@ namespace CSF.Screenplay.Web.Waits
     protected virtual void Wait(IPerformer actor,
                                 IWait<IWebDriver> wait)
     {
-      wait.Until(WaitConditionIsSatisfied);
+      try
+      {
+        wait.Until(WaitConditionIsSatisfied);
+      }
+      catch(WebDriverTimeoutException ex)
+      {
+        throw new GivenUpWaitingException("Given up waiting", ex);
+      }
     }
 
     /// <summary>
@@ -122,6 +149,8 @@ namespace CSF.Screenplay.Web.Waits
       this.query = query;
       this.predicate = predicate;
       this.timeout = timeout;
+
+      ignoredExceptionTypes = new HashSet<Type>();
     }
   }
 }

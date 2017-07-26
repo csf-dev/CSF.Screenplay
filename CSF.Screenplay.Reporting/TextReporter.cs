@@ -119,6 +119,14 @@ namespace CSF.Screenplay.Reporting
     void WriteFailure(Performance reportable, int currentIndentLevel)
     {
       WriteResultOrFailureIndent(currentIndentLevel);
+
+      var reportableException = reportable.Exception as IReportable;
+      if(reportableException != null)
+      {
+        writer.WriteLine("FAILED {0}", reportableException.GetReport(reportable.Actor));
+        return;
+      }
+
       var exception = reportable.Exception?.ToString();
       if(exception != null)
         writer.WriteLine("FAILED\n{0}", exception);

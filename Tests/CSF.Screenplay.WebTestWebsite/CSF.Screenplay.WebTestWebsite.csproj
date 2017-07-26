@@ -112,6 +112,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\PageTwo\" />
+    <Folder Include="Views\PageThree\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Controllers\PageTwoController.cs" />
+    <Compile Include="Controllers\PageThreeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -130,6 +132,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\PageTwo.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\PageThree.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
@@ -137,6 +140,7 @@
     <None Include="Views\Shared\Header.pt" />
     <None Include="Views\Home\Index.pt" />
     <None Include="Views\PageTwo\Index.pt" />
+    <None Include="Views\PageThree\Index.pt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

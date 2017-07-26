@@ -122,6 +122,10 @@
     <Compile Include="Actions\IActionDriver.cs" />
     <Compile Include="Builders\Wait.cs" />
     <Compile Include="Models\ILocatorBasedTarget.cs" />
+    <Compile Include="Queries\VisibilityQuery.cs" />
+    <Compile Include="Queries\ClickableQuery.cs" />
+    <Compile Include="Waits\ITargettedWait.cs" />
+    <Compile Include="Models\GivenUpWaitingException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
