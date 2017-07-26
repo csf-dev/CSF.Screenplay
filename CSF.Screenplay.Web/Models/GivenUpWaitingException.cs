@@ -4,7 +4,9 @@ using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay.Web.Models
 {
-  
+  /// <summary>
+  /// Exception raised when an actor gives up on a wait performance.
+  /// </summary>
   [System.Serializable]
   public class GivenUpWaitingException : Exception, IReportable
   {
