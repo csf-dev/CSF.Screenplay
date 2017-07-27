@@ -34,6 +34,10 @@
     <Reference Include="CSF.Reflection">
       <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +55,14 @@
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay.Web\CSF.Screenplay.Web.csproj">
+      <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
+      <Name>CSF.Screenplay.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSF.WebDriverFactory\CSF.WebDriverFactory.csproj">
+      <Project>{C99466AD-CA21-4C12-9E05-6730CDC3C031}</Project>
+      <Name>CSF.WebDriverFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

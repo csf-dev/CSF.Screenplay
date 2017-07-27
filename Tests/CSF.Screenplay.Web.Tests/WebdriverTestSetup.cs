@@ -13,14 +13,10 @@ namespace CSF.Screenplay.Web.Tests
   [SetUpFixture]
   public class WebdriverTestSetup
   {
-    static IWebDriver webDriver;
-    readonly IUriTransformer defaultUriTransformer;
-
     [OneTimeSetUp]
     public void OnetimeSetup()
     {
-      webDriver = GetWebDriver();
-
+      Stage.UriTransformer = new RootUriPrependingTransformer("http://localhost:8080/");
       Stage.Reporter = new TextReporter(TestContext.Out);
       Stage.Cast.NewActorCallback = ConfigureActor;
     }
@@ -28,7 +24,7 @@ namespace CSF.Screenplay.Web.Tests
     [OneTimeTearDown]
     public void OnetimeTeardown()
     {
-      webDriver.Dispose();
+      Stage.DisposeCurrentWebDriver();
       Stage.Reporter.CompleteTestRun();
       TestContext.Out.Flush();
     }
@@ -37,20 +33,8 @@ namespace CSF.Screenplay.Web.Tests
     {
       Stage.Reporter.Subscribe(actor);
 
-      var browseTheWeb = new BrowseTheWeb(webDriver, defaultUriTransformer, true);
+      var browseTheWeb = Stage.GetDefaultWebBrowsingAbility();
       actor.IsAbleTo(browseTheWeb);
-    }
-
-    IWebDriver GetWebDriver()
-    {
-      var webdriverFactoryProvider = new ConfigurationWebDriverFactoryProvider();
-      var webdriverFactory = webdriverFactoryProvider.GetFactory();
-      return webdriverFactory.GetWebDriver();
-    }
-
-    public WebdriverTestSetup()
-    {
-      defaultUriTransformer = new RootUriPrependingTransformer("http://localhost:8080/");
     }
   }
 }
