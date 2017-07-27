@@ -66,6 +66,10 @@
       <Project>{18010B4E-22A7-4462-B057-7199B3386D48}</Project>
       <Name>CSF.Screenplay.Reporting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.NUnit\CSF.Screenplay.NUnit.csproj">
+      <Project>{78571AD2-4C55-4459-A4D9-2CD63A9AACC7}</Project>
+      <Name>CSF.Screenplay.NUnit</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
@@ -78,17 +82,15 @@
     <Compile Include="Pages\PageTwo.cs" />
     <Compile Include="Actions\EnterTests.cs" />
     <Compile Include="Actions\SelectTests.cs" />
-    <Compile Include="ScreenshotService.cs" />
     <Compile Include="Actions\DeselectTests.cs" />
     <Compile Include="Questions\GetOptionsTests.cs" />
     <Compile Include="Questions\GetAttributeTests.cs" />
     <Compile Include="Questions\GetCssValueTests.cs" />
     <Compile Include="Questions\GetValueTests.cs" />
     <Compile Include="Questions\FindElementsTests.cs" />
-    <Compile Include="ReportableAttribute.cs" />
-    <Compile Include="ReportableCommand.cs" />
     <Compile Include="Pages\PageThree.cs" />
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
+    <Compile Include="ScreenplayNUnitIntegration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

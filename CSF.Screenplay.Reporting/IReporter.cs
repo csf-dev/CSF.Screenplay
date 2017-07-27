@@ -28,10 +28,17 @@ namespace CSF.Screenplay.Reporting
     void BeginNewTestRun();
 
     /// <summary>
+    /// Indicates to the reporter that a test run has completed; it may now prepare its report.
+    /// </summary>
+    void CompleteTestRun();
+
+    /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
-    /// <param name="name">The scenario name.</param>
-    void BeginNewScenario(string name);
+    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="featureName">The feature name.</param>
+    /// <param name="idName">The uniquely identifying name for the test.</param>
+    void BeginNewScenario(string idName, string friendlyName, string featureName);
 
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.

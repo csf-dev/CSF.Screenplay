@@ -9,14 +9,26 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Scenario
   {
-    readonly string name;
+    readonly string idName, friendlyName, featureName;
     readonly IList<Reportable> children;
+
+    /// <summary>
+    /// Gets the unique identifier name of the scenario.
+    /// </summary>
+    /// <value>The identifier.</value>
+    public virtual string Id => idName;
+
+    /// <summary>
+    /// Gets the name of the feature.
+    /// </summary>
+    /// <value>The feature name.</value>
+    public virtual string Feature => featureName;
 
     /// <summary>
     /// Gets the name of the scenario.
     /// </summary>
-    /// <value>The name.</value>
-    public virtual string Name => name;
+    /// <value>The scenario name.</value>
+    public virtual string FriendlyName => friendlyName;
 
     /// <summary>
     /// Gets the contained reportables.
@@ -58,13 +70,17 @@ namespace CSF.Screenplay.Reporting.Models
     /// <summary>
     /// Initializes a new instance of the <see cref="Scenario"/> class.
     /// </summary>
-    /// <param name="name">Name.</param>
-    public Scenario(string name)
+    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="featureName">The feature name.</param>
+    /// <param name="idName">The uniquely identifying name for the test.</param>
+    public Scenario(string idName, string friendlyName, string featureName)
     {
-      if(name == null)
-        throw new ArgumentNullException(nameof(name));
+      if(idName == null)
+        throw new ArgumentNullException(nameof(idName));
 
-      this.name = name;
+      this.idName = idName;
+      this.friendlyName = friendlyName;
+      this.featureName = featureName;
 
       children = new List<Reportable>();
     }

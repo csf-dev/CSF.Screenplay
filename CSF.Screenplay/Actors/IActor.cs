@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Actors
   /// Actors are given <see cref="Abilities.IAbility"/> abilities.  These abilities allow them to make use of
   /// <see cref="Performables.IPerformable"/> items, which may be tasks, actions or questions.
   /// </summary>
-  public interface IActor : INamed, IPerformer, IGivenActor, IThenActor, IWhenActor, ICanReceiveAbilities, IDisposable
+  public interface IActor : INamed, IPerformer, IGivenActor, IThenActor, IWhenActor, ICanReceiveAbilities
   {
     /// <summary>
     /// Occurs when the actor begins a performance.

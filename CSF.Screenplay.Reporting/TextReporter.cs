@@ -32,14 +32,39 @@ namespace CSF.Screenplay.Reporting
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
-      
-      writer.WriteLine();
-      writer.WriteLine("{0,7} Scenario: {1}", GetOutcome(scenario), scenario.Name);
+
+      WriteScenarioHeader(scenario);
 
       foreach(var reportable in scenario.Reportables)
       {
         WriteReportable(reportable);
       }
+    }
+
+    void WriteScenarioHeader(Scenario scenario)
+    {
+      writer.WriteLine();
+
+      var featureText = GetFeatureText(scenario);
+      if(featureText != null)
+        writer.WriteLine(featureText);
+
+      writer.WriteLine(GetScenarioText(scenario));
+
+      writer.WriteLine(GetOutcome(scenario));
+    }
+
+    string GetFeatureText(Scenario scenario)
+    {
+      if(scenario.Feature != null)
+        return $"Feature:  {scenario.Feature}";
+
+      return null;
+    }
+
+    string GetScenarioText(Scenario scenario)
+    {
+      return $"Scenario: {scenario.FriendlyName?? scenario.Id}";
     }
 
     void WriteReportable(Reportable reportable, int currentIndentLevel = 1)
@@ -91,7 +116,7 @@ namespace CSF.Screenplay.Reporting
       return type.ToString();
     }
 
-    string GetOutcome(Scenario scenario) => scenario.IsSuccess? "SUCCESS" : "FAILURE";
+    string GetOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
 
     void WriteIndent(int currentLevel)
     {
