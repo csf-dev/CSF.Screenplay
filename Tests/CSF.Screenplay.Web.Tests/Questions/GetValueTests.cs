@@ -1,34 +1,34 @@
-﻿using System;
+using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
+  [Description("Reading the value of a form element")]
   public class GetValueTests
   {
-    Actor joe;
-
-    [SetUp]
-    public void Setup()
-    {
-      joe = WebdriverTestSetup.GetJoe();
-    }
-
-    [Test,Reportable]
+    [Test]
+    [Description("Reading the value of an element detects the expected value.")]
     public void GetValue_returns_expected_value()
     {
+      var joe = Stage.Cast.GetOrAdd("joe");
+
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       Then(joe).ShouldSee(TheValue.Of(PageTwo.SecondTextbox)).Should().Be("This is a text box");
     }
 
-    [Test,Reportable]
+    [Test]
+    [Description("Reading the value of an element and converting it to a number detects the expected value.")]
     public void GetConvertedValue_returns_expected_value()
     {
+      var joe = Stage.Cast.GetOrAdd("joe");
+
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
       Given(joe).WasAbleTo(Enter.TheText("55").Into(PageTwo.SpecialInputField));
 

@@ -19,10 +19,12 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Begins reporting upon a new scenario.
     /// </summary>
-    /// <param name="name">Name.</param>
-    public void BeginNewScenario(string name)
+    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="featureName">The feature name.</param>
+    /// <param name="idName">The uniquely identifying name for the test.</param>
+    public void BeginNewScenario(string idName, string friendlyName = null, string featureName = null)
     {
-      currentScenario = new Scenario(name);
+      currentScenario = new Scenario(idName, friendlyName, featureName);
       scenarios.Add(currentScenario);
       currentPerformanceType = PerformanceType.Unspecified;
       builderStack.Clear();
@@ -36,6 +38,7 @@ namespace CSF.Screenplay.Reporting.Builders
     {
       if(!isSuccess)
         currentScenario.IsFailure = true;
+      currentScenario = null;
     }
 
     /// <summary>

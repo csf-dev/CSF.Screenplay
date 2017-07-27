@@ -1,26 +1,23 @@
-﻿using System;
+using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
   [TestFixture]
+  [Description("Reading options from HTML <select> elements")]
   public class GetOptionsTests
   {
-    Actor joe;
-
-    [SetUp]
-    public void Setup()
-    {
-      joe = WebdriverTestSetup.GetJoe();
-    }
-
-    [Test,Reportable]
+    [Test]
+    [Description("Reading the available options reveals the expected collection of items.")]
     public void GetAllOptions_returns_expected_collection()
     {
+      var joe = Stage.Cast.GetOrAdd("joe");
+
       var expected = new Models.Option[] {
         new Models.Option("One", "1"),
         new Models.Option("Two", "2"),
@@ -32,9 +29,12 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
     }
 
-    [Test,Reportable]
+    [Test]
+    [Description("Reading the selected options reveals the expected collection of items.")]
     public void GetSelectedOptions_returns_expected_collection()
     {
+      var joe = Stage.Cast.GetOrAdd("joe");
+
       var expected = new Models.Option[] {
         new Models.Option("Carrot", "veg"),
         new Models.Option("Steak", "meat"),

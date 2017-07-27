@@ -23,6 +23,12 @@ namespace CSF.Screenplay.Actors
 
     readonly IDictionary<string,IActor> actors;
 
+    /// <summary>
+    /// Gets a collection of the currently-available actors.
+    /// </summary>
+    /// <value>The actors.</value>
+    protected IDictionary<string,IActor> Actors => actors;
+
     #endregion
 
     #region public API
@@ -31,7 +37,7 @@ namespace CSF.Screenplay.Actors
     /// Gets a collection of all of the actors contained within the current instance.
     /// </summary>
     /// <returns>A collection of actors.</returns>
-    public virtual IEnumerable<IActor> GetAll() => actors.Values.ToArray();
+    public virtual IEnumerable<IActor> GetAll() => Actors.Values.ToArray();
 
     /// <summary>
     /// Gets a single actor by their name.
@@ -41,11 +47,27 @@ namespace CSF.Screenplay.Actors
     public virtual IActor GetActor(string name)
     {
       IActor output;
-      if(actors.TryGetValue(name, out output))
+      if(Actors.TryGetValue(name, out output))
       {
         return output;
       }
       return null;
+    }
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    public virtual IActor GetOrAdd(string name)
+    {
+      IActor output;
+      if(Actors.TryGetValue(name, out output))
+      {
+        return output;
+      }
+
+      return Add(name);
     }
 
     /// <summary>
@@ -56,6 +78,7 @@ namespace CSF.Screenplay.Actors
     public virtual IActor Add(string name)
     {
       var actor = CreateActor(name);
+      ConfigureNewActor(actor);
       Add(actor);
       return actor;
     }
@@ -77,8 +100,22 @@ namespace CSF.Screenplay.Actors
       if(actors.ContainsKey(name))
         throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
       
-      actors.Add(name, actor);
+      Actors.Add(name, actor);
     }
+
+    /// <summary>
+    /// Clears the current cast.
+    /// </summary>
+    public virtual void Clear()
+    {
+      actors.Clear();
+    }
+
+    /// <summary>
+    /// Gets or sets a callback which is applied to all newly-created actors after they are created.
+    /// </summary>
+    /// <value>The new actor callback.</value>
+    public virtual Action<IActor> NewActorCallback { get; set; }
 
     /// <summary>
     /// Creates and returns a new object which implements <see cref="IActor"/>.
@@ -90,35 +127,14 @@ namespace CSF.Screenplay.Actors
       return new Actor(name);
     }
 
-    #endregion
-
-    #region IDisposable Support
-
-    bool disposed;
-
     /// <summary>
-    /// Disposes of the current instance, which in turn disposes of all of the contained actors.
+    /// Configures a newly-created actor.
     /// </summary>
-    /// <param name="disposing">If set to <c>true</c> disposing.</param>
-    protected virtual void Dispose(bool disposing)
+    /// <param name="actor">Actor.</param>
+    protected virtual void ConfigureNewActor(IActor actor)
     {
-      if(!disposed)
-      {
-        if(disposing)
-        {
-          foreach(IDisposable actor in actors.Values)
-          {
-            actor.Dispose();
-          }
-        }
-
-        disposed = true;
-      }
-    }
-
-    void IDisposable.Dispose()
-    {
-      Dispose(true);
+      if(NewActorCallback != null)
+        NewActorCallback(actor);
     }
 
     #endregion

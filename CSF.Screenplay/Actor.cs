@@ -421,40 +421,6 @@ namespace CSF.Screenplay
 
     #endregion
 
-    #region IDisposable implementation
-
-    bool disposed;
-
-    /// <summary>
-    /// Gets a value indicating whether this <see cref="Actor"/> is disposed.
-    /// </summary>
-    /// <value><c>true</c> if disposed; otherwise, <c>false</c>.</value>
-    protected bool Disposed => disposed;
-
-    /// <summary>
-    /// Performs disposal of the current instance.
-    /// </summary>
-    /// <param name="disposing">If set to <c>true</c> then we are explicitly disposing.</param>
-    protected virtual void Dispose(bool disposing)
-    {
-      if(!disposed)
-      {
-        if(disposing)
-        {
-          abilityStore.Dispose();
-        }
-
-        disposed = true;
-      }
-    }
-
-    void IDisposable.Dispose()
-    {
-      Dispose(true);
-    }
-
-    #endregion
-
     #region constructor
 
     /// <summary>

@@ -16,8 +16,14 @@ namespace CSF.Screenplay.Actors
   /// This is where the <see cref="Cast"/> object becomes useful.
   /// </para>
   /// </remarks>
-  public interface ICast : IDisposable
+  public interface ICast
   {
+    /// <summary>
+    /// Gets or sets a callback which is applied to all newly-created actors after they are created.
+    /// </summary>
+    /// <value>The new actor callback.</value>
+    Action<IActor> NewActorCallback { get; set; }
+
     /// <summary>
     /// Gets a collection of all of the actors contained within the current instance.
     /// </summary>
@@ -32,6 +38,13 @@ namespace CSF.Screenplay.Actors
     IActor GetActor(string name);
 
     /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    IActor GetOrAdd(string name);
+
+    /// <summary>
     /// Creates a new actor of the given name, adds it to the current cast instance and returns it.
     /// </summary>
     /// <returns>The created actor.</returns>
@@ -43,5 +56,10 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="actor">An actor.</param>
     void Add(IActor actor);
+
+    /// <summary>
+    /// Clears the current cast.
+    /// </summary>
+    void Clear();
   }
 }

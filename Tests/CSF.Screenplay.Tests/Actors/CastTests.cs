@@ -154,24 +154,6 @@ namespace CSF.Screenplay.Tests.Actors
       Assert.Pass();
     }
 
-    [Test]
-    public void Dispose_disposes_all_actors()
-    {
-      // Arrange
-      var cast = CreateCast();
-      var joe = Mock.Of<IActor>(x => x.Name == "joe");
-      cast.Add(joe);
-      var davina = Mock.Of<IActor>(x => x.Name == "davina");
-      cast.Add(davina);
-
-      // Act
-      ((IDisposable) cast).Dispose();
-
-      // Assert
-      Mock.Get(joe).Verify(x => x.Dispose(), Times.Once());
-      Mock.Get(davina).Verify(x => x.Dispose(), Times.Once());
-    }
-
     Cast CreateCast()
     {
       return new Cast();
