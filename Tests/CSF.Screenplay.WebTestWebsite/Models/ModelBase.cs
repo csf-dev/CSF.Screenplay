@@ -20,7 +20,7 @@ namespace CSF.Screenplay.WebTestWebsite.Models
 
     public ModelBase()
     {
-      baseUri = new Uri("http://localhost:8080/");
+      baseUri = new Uri("http://localhost:80/");
     }
   }
 }

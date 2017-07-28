@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests
     [OneTimeSetUp]
     public void OnetimeSetup()
     {
-      Stage.UriTransformer = new RootUriPrependingTransformer("http://localhost:8080/");
+      Stage.UriTransformer = new RootUriPrependingTransformer("http://localhost:80/");
       Stage.Reporter = new TextReporter(TestContext.Out);
       Stage.Cast.NewActorCallback = ConfigureActor;
     }

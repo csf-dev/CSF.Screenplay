@@ -10,7 +10,7 @@ namespace CSF.Screenplay.WebTestWebsite.Controllers
       if(model == null)
         throw new ArgumentNullException(nameof(model));
 
-      model.BaseUri = new Uri("http://localhost:8080/");
+      model.BaseUri = new Uri("http://localhost:80/");
     }
   }
 }

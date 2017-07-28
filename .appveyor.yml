@@ -25,9 +25,9 @@ artifacts:
 deploy:
   - provider: Local
     TestWebsite.deploy_website: true
-    TestWebsite.port: 8080
+    TestWebsite.port: 80
     TestWebsite.protocol: http
-    TestWebsite.site_name: "Testing Web Site"
+    TestWebsite.site_name: "Default Web Site"
     TestWebsite.remove_files: true
 after_deploy:
 - cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
