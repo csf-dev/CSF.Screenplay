@@ -1,13 +1,11 @@
 ﻿version: '{branch}-{build}'
 init:
-- cmd: git config --global core.autocrlf true
+  - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: >-
-  git submodule update --init --recursive
-  
-  nuget restore CSF.Screenplay.sln
-  
-  copy /y Tests\CSF.Screenplay.Web.Tests\App.config.AppVeyor Tests\CSF.Screenplay.Web.Tests\App.config
+  - cmd: >-
+    git submodule update --init --recursive
+    nuget restore CSF.Screenplay.sln
+    copy /y Tests\CSF.Screenplay.Web.Tests\App.config.AppVeyor Tests\CSF.Screenplay.Web.Tests\App.config
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
