@@ -1,9 +1,14 @@
 language: csharp
 solution: CSF.Screenplay.sln
 
+before_install:
+  - mkdir -p .nuget
+  - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  - mono .nuget/nuget.exe # Output NuGet's version number
+
 install:
-  - nuget restore CSF.Screenplay.sln
-  - nuget install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory testrunner
+  - mono .nuget/nuget.exe restore CSF.Screenplay.sln
+  - mono .nuget/nuget.exe install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory testrunner
 
 script:
   - msbuild /p:Configuration=Debug CSF.Screenplay.sln
