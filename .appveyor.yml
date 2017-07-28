@@ -1,11 +1,13 @@
 ﻿version: '{branch}-{build}'
-init:
-- cmd: git config --global core.autocrlf true
 before_build:
 - cmd: >-
     git submodule update --init --recursive
 
     nuget restore CSF.Screenplay.sln
+
+    copy /y Tests\CSF.Screenplay.Web.Tests\App.config.AppVeyor Tests\CSF.Screenplay.Web.Tests\App.config
+services:
+  - iis
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
@@ -15,3 +17,14 @@ test:
     - '**\CSF.Screenplay.Web.Tests.dll'
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
+artifacts:
+  - path: Tests\CSF.Screenplay.WebTestWebsite
+    name: TestWebsite
+    type: WebDeployPackage
+deploy:
+  - provider: Local
+    TestWebsite.deploy_website: true
+    TestWebsite.site_name: "Test Web Site"
+    TestWebsite.port: 8080
+after_deploy:
+- cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll

@@ -3,9 +3,10 @@
   <configSections>
     <section name="WebDriverFactory" type="CSF.WebDriverFactory.Config.WebDriverConfigurationSection, CSF.WebDriverFactory" />
   </configSections>
-  <WebDriverFactory FactoryType="CSF.WebDriverFactory.Impl.ChromeWebDriverFactory, CSF.WebDriverFactory">
+  <WebDriverFactory FactoryType="CSF.WebDriverFactory.Impl.FirefoxGeckoDriverWebDriverFactory, CSF.WebDriverFactory">
     <FactoryProperties>
-      <Property Name="CommandTimeoutSeconds" Value="10" />
+      <Property Name="CommandTimeoutSeconds" Value="60" />
+      <Property Name="BrowserExecutablePath" Value="C:\Program Files (x86)\Mozilla Firefox\firefox.exe" />
     </FactoryProperties>
   </WebDriverFactory>
 </configuration>
