@@ -1,0 +1,16 @@
+﻿version: '{branch}-{build}'
+init:
+- cmd: git config --global core.autocrlf true
+before_build:
+- cmd: >-
+    git submodule update --init --recursive
+
+    nuget restore CSF.Screenplay.sln
+build:
+  project: CSF.Screenplay.sln
+  verbosity: normal
+test:
+  assemblies:
+    except:
+    - '**\CSF.Screenplay.Web.Tests.dll'
+    - '**\Ploeh.AutoFixture.NUnit3.dll'
