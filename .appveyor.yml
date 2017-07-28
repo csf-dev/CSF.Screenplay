@@ -11,11 +11,6 @@ before_build:
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
-test:
-  assemblies:
-    except:
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
-    - '**\CSF.Screenplay.NUnit.dll'
 artifacts:
 - path: Tests\CSF.Screenplay.WebTestWebsite
   name: TestWebsite
@@ -27,3 +22,8 @@ deploy:
   TestWebsite.ip: 127.0.0.1
   TestWebsite.hostname: localhost
   TestWebsite.remove_files: true
+test:
+  assemblies:
+    except:
+    - '**\Ploeh.AutoFixture.NUnit3.dll'
+    - '**\CSF.Screenplay.NUnit.dll'
