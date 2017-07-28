@@ -1,6 +1,6 @@
 ﻿version: '{branch}-{build}'
 init:
-  - cmd: git config --global core.autocrlf true
+- cmd: git config --global core.autocrlf true
 before_build:
 - cmd: >-
     git submodule update --init --recursive
@@ -30,4 +30,4 @@ deploy:
     TestWebsite.hostname: localhost
     TestWebsite.remove_files: true
 after-deploy:
-  - cmd: nunit3-console.exe 'Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll'
+- cmd: nunit3-console.exe 'Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll'
