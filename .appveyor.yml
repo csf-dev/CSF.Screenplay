@@ -4,14 +4,15 @@ init:
 before_build:
 - cmd: >-
     git submodule update --init --recursive
-
+    
     nuget restore CSF.Screenplay.sln
+    
+    copy /y Tests\CSF.Screenplay.Web.Tests\App.config.AppVeyor Tests\CSF.Screenplay.Web.Tests\App.config
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
 test:
   assemblies:
     except:
-    - '**\CSF.Screenplay.Web.Tests.dll'
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
