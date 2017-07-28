@@ -61,10 +61,13 @@ namespace CSF.WebDriverFactory.Impl
         output = FirefoxDriverService.CreateDefaultService(DriverPath);
 
       output.HideCommandPromptWindow = true;
-      output.SuppressInitialDiagnosticInformation = false;
+      output.SuppressInitialDiagnosticInformation = true;
 
       if(DriverPort.HasValue)
         output.Port = DriverPort.Value;
+
+      if(!String.IsNullOrEmpty(BrowserExecutablePath))
+        output.FirefoxBinaryPath = BrowserExecutablePath;
 
       return output;
     }
