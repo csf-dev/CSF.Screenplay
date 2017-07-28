@@ -1,8 +1,8 @@
 ﻿version: '{branch}-{build}'
 init:
-- cmd: git config --global core.autocrlf true
+  - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: >-
+  - cmd: >-
     git submodule update --init --recursive
     
     nuget restore CSF.Screenplay.sln
@@ -11,6 +11,12 @@ before_build:
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
+test:
+  assemblies:
+    except:
+    - '**\CSF.Screenplay.Web.Tests.dll'
+    - '**\Ploeh.AutoFixture.NUnit3.dll'
+    - '**\CSF.Screenplay.NUnit.dll'
 artifacts:
   - path: Tests\CSF.Screenplay.WebTestWebsite
     name: TestWebsite
@@ -22,8 +28,5 @@ deploy:
     TestWebsite.ip: 127.0.0.1
     TestWebsite.hostname: localhost
     TestWebsite.remove_files: true
-test:
-  assemblies:
-    except:
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
-    - '**\CSF.Screenplay.NUnit.dll'
+after-deploy:
+  - cmd: nunit3-console.exe 'Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll'
