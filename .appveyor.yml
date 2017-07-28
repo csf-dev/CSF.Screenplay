@@ -30,4 +30,4 @@ deploy:
     TestWebsite.hostname: localhost
     TestWebsite.remove_files: true
 after_deploy:
-- cmd: nunit3-console.exe 'Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll'
+- cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
