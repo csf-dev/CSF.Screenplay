@@ -30,5 +30,6 @@ deploy:
     TestWebsite.ip: 127.0.0.1
     TestWebsite.hostname: localhost
     TestWebsite.remove_files: true
+    TestWebsite.application_path: /
 after_deploy:
 - cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
