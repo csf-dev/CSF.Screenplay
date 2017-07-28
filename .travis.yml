@@ -1,0 +1,17 @@
+language: csharp
+solution: CSF.Screenplay.sln
+
+before_install:
+  # Manually download NuGet latest, Travis uses Xamarin's repo version which is ancient
+  - mkdir -p .nuget
+  - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  # This just forces it to output its own version number
+  - mono .nuget/nuget.exe
+
+install:
+  - mono .nuget/nuget.exe restore CSF.Screenplay.sln
+  - mono .nuget/nuget.exe install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory testrunner
+
+script:
+  - msbuild /p:Configuration=Debug CSF.Screenplay.sln
+  - mono "./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe" $(find ./Tests/ -type f -path "*/bin/Debug/*" -name "CSF.*.Tests.dll" \! -name "CSF.Screenplay.Web.Tests.dll")
