@@ -1,6 +1,4 @@
 ﻿version: '{branch}-{build}'
-init:
-- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 before_build:
 - cmd: >-
     git submodule update --init --recursive
@@ -26,8 +24,7 @@ artifacts:
 deploy:
   - provider: Local
     TestWebsite.deploy_website: true
-    TestWebsite.site_name: "Default Web Site"
+    TestWebsite.site_name: "Test Web Site"
+    TestWebsite.port: 8080
 after_deploy:
 - cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
