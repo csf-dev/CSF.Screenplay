@@ -11,17 +11,17 @@ before_build:
 build:
   project: CSF.Screenplay.sln
   verbosity: normal
-artifacts:
-- path: Tests\CSF.Screenplay.WebTestWebsite
-  name: TestWebsite
-  type: WebDeployPackage
-deploy:
-- provider: Local
-  TestWebsite.deploy_website: true
-  TestWebsite.port: 8080
-  TestWebsite.ip: 127.0.0.1
-  TestWebsite.hostname: localhost
-  TestWebsite.remove_files: true
+artifacts:
+  - path: Tests\CSF.Screenplay.WebTestWebsite
+    name: TestWebsite
+    type: WebDeployPackage
+deploy:
+  - provider: Local
+    TestWebsite.deploy_website: true
+    TestWebsite.port: 8080
+    TestWebsite.ip: 127.0.0.1
+    TestWebsite.hostname: localhost
+    TestWebsite.remove_files: true
 test:
   assemblies:
     except:
