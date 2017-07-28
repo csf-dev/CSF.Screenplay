@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CSF.Screenplay</RootNamespace>
+    <AssemblyName>CSF.Screenplay</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>0.1.0</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.xml</DocumentationFile>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CSF.Screenplay.xml</DocumentationFile>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepComposer.cs" />
+    <Compile Include="Abilities\IAbility.cs" />
+    <Compile Include="Abilities\Ability.cs" />
+    <Compile Include="Actors\ICanReceiveAbilities.cs" />
+    <Compile Include="Actor.cs" />
+    <Compile Include="Actors\IGivenActor.cs" />
+    <Compile Include="Actors\IWhenActor.cs" />
+    <Compile Include="Actors\IThenActor.cs" />
+    <Compile Include="Actors\IPerformer.cs" />
+    <Compile Include="Actors\Cast.cs" />
+    <Compile Include="Actors\DuplicateActorException.cs" />
+    <Compile Include="Actors\IActor.cs" />
+    <Compile Include="Actors\INamed.cs" />
+    <Compile Include="Performables\IPerformable.cs" />
+    <Compile Include="Performables\IPerformableWithResult.cs" />
+    <Compile Include="Performables\IPerformable`1.cs" />
+    <Compile Include="Performables\Performable.cs" />
+    <Compile Include="Performables\Performable`1.cs" />
+    <Compile Include="Actors\MissingAbilityException.cs" />
+    <Compile Include="Performables\IAction.cs" />
+    <Compile Include="Performables\IAction`1.cs" />
+    <Compile Include="Performables\ITask.cs" />
+    <Compile Include="Performables\ITask`1.cs" />
+    <Compile Include="Performables\IQuestion`1.cs" />
+    <Compile Include="Performables\Question.cs" />
+    <Compile Include="Actors\ICast.cs" />
+    <Compile Include="Abilities\IAbilityStore.cs" />
+    <Compile Include="Abilities\AbilityStore.cs" />
+    <Compile Include="Actors\BeginPerformanceEventArgs.cs" />
+    <Compile Include="Actors\EndSuccessfulPerformanceEventArgs.cs" />
+    <Compile Include="Actors\PerformanceFailureEventArgs.cs" />
+    <Compile Include="Actors\PerformanceResultEventArgs.cs" />
+    <Compile Include="Actors\GainAbilityEventArgs.cs" />
+    <Compile Include="Actors\PerformanceEventArgsBase.cs" />
+    <Compile Include="Actors\ActorEventArgs.cs" />
+    <Compile Include="Reporting\IReportable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actors\" />
+    <Folder Include="Abilities\" />
+    <Folder Include="Reporting\" />
+    <Folder Include="Performables\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,15 @@
+bin/
+obj/
+packages/*/*
+testrunner/
+.directory
+*.userprefs
+*.csproj.user
+.vs/
+TestResult.xml
+TestResult.formatted.xml
+Tests/Temp/
+Screenshots/
+*.log
+*.orig
+
