@@ -48,6 +48,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="App.config" />
+    <None Include="App.config.AppVeyor" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj">
