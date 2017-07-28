@@ -20,7 +20,8 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Then(joe).ShouldSee(TheCss.Property("color").From(HomePage.ImportantString)).Should().Be("rgba(255, 0, 0, 1)");
+      Then(joe).ShouldSee(TheCss.Property("color").From(HomePage.ImportantString))
+               .Should().MatchRegex(@"^rgba?\(255, *0, *0(, *1)?\)$");
     }
   }
 }
