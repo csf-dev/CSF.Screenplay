@@ -2,9 +2,11 @@ language: csharp
 solution: CSF.Screenplay.sln
 
 before_install:
+  # Manually download NuGet latest, Travis uses Xamarin's repo version which is ancient
   - mkdir -p .nuget
   - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  - mono .nuget/nuget.exe # Output NuGet's version number
+  # This just forces it to output its own version number
+  - mono .nuget/nuget.exe
 
 install:
   - mono .nuget/nuget.exe restore CSF.Screenplay.sln
