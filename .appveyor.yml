@@ -1,4 +1,6 @@
 ﻿version: '{branch}-{build}'
+init:
+- cmd: git config --global core.autocrlf true
 before_build:
 - cmd: >-
     git submodule update --init --recursive

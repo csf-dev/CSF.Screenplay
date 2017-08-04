@@ -33,12 +33,16 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Reports the end of a scenario.
     /// </summary>
-    /// <param name="isSuccess">If set to <c>false</c> then the scenario is marked as a failure.</param>
-    public void EndScenario(bool isSuccess)
+    /// <param name="isSuccess">Optional.  If set to <c>false</c> then the scenario is marked as a failure.</param>
+    public void EndScenario(bool isSuccess = true)
     {
+      EnsureCurrentScenario();
+
       if(!isSuccess)
         currentScenario.IsFailure = true;
+      
       currentScenario = null;
+      builderStack.Clear();
     }
 
     /// <summary>
@@ -48,12 +52,26 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="performable">Performable.</param>
     public void BeginPerformance(INamed actor, Performables.IPerformable performable)
     {
+      EnsureCurrentScenario();
+
       var builder = new PerformanceBuilder {
         Performable = performable,
         Actor = actor,
         PerformanceType = currentPerformanceType,
       };
       AddPerformanceBuilder(builder);
+    }
+
+    /// <summary>
+    /// Begins reporting of a performance of a given type.
+    /// </summary>
+    /// <param name="performanceType">Performance type.</param>
+    public void BeginPerformanceType(PerformanceType performanceType)
+    {
+      EnsureCurrentScenario();
+
+      performanceType.RequireDefinedValue(nameof(performanceType));
+      currentPerformanceType = performanceType;
     }
 
     /// <summary>
@@ -94,19 +112,9 @@ namespace CSF.Screenplay.Reporting.Builders
     }
 
     /// <summary>
-    /// Begins reporting of a performance of a given type.
-    /// </summary>
-    /// <param name="performanceType">Performance type.</param>
-    public void BeginPerformance(PerformanceType performanceType)
-    {
-      performanceType.RequireDefinedValue(nameof(performanceType));
-      currentPerformanceType = performanceType;
-    }
-
-    /// <summary>
     /// Ends the performance of the current type.
     /// </summary>
-    public void EndPerformance()
+    public void EndPerformanceType()
     {
       currentPerformanceType = PerformanceType.Unspecified;
     }
@@ -192,6 +200,12 @@ namespace CSF.Screenplay.Reporting.Builders
         return currentScenario.Reportables;
 
       throw new InvalidOperationException("Cannot get the current reportables, there must be either a current builder or a current scenario.");
+    }
+
+    void EnsureCurrentScenario()
+    {
+      if(ReferenceEquals(currentScenario, null))
+        throw new InvalidOperationException("There must be a current scenario in order to report upon performables.");
     }
 
     /// <summary>

@@ -51,7 +51,7 @@ namespace CSF.Screenplay.Reporting
 
       writer.WriteLine(GetScenarioText(scenario));
 
-      writer.WriteLine(GetOutcome(scenario));
+      WriteScenarioOutcome(scenario);
     }
 
     string GetFeatureText(Scenario scenario)
@@ -67,7 +67,7 @@ namespace CSF.Screenplay.Reporting
       return $"Scenario: {scenario.FriendlyName?? scenario.Id}";
     }
 
-    void WriteReportable(Reportable reportable, int currentIndentLevel = 1)
+    void WriteReportable(Reportable reportable, int currentIndentLevel = 0)
     {
       if(reportable == null)
         throw new ArgumentNullException(nameof(reportable));
@@ -83,7 +83,7 @@ namespace CSF.Screenplay.Reporting
     void WriteGainAbility(GainAbility reportable, int currentIndentLevel)
     {
       WriteIndent(currentIndentLevel);
-      WritePerformanceType(reportable);
+      WritePerformanceType(reportable, currentIndentLevel);
 
       writer.Write(reportable.Ability.GetReport(reportable.Actor));
       writer.WriteLine();
@@ -92,7 +92,7 @@ namespace CSF.Screenplay.Reporting
     void WritePerformance(Performance reportable, int currentIndentLevel)
     {
       WriteIndent(currentIndentLevel);
-      WritePerformanceType(reportable);
+      WritePerformanceType(reportable, currentIndentLevel);
 
       writer.Write(reportable.Performable.GetReport(reportable.Actor));
       writer.WriteLine();
@@ -104,19 +104,24 @@ namespace CSF.Screenplay.Reporting
 
       foreach(var child in reportable.Reportables)
       {
-        WriteReportable(child, currentIndentLevel++);
+        WriteReportable(child, currentIndentLevel + 1);
       }
     }
 
-    string GetPerformanceTypeString(PerformanceType type)
+    string GetPerformanceTypeString(PerformanceType type, int currentIndentLevel)
     {
-      if(type == PerformanceType.Unspecified)
+      if(type == PerformanceType.Unspecified || currentIndentLevel > 0)
         return String.Empty;
 
       return type.ToString();
     }
 
-    string GetOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
+    void WriteScenarioOutcome(Scenario scenario)
+    {
+      writer.WriteLine("**** {0} ****", GetScenarioOutcome(scenario));
+    }
+
+    string GetScenarioOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
 
     void WriteIndent(int currentLevel)
     {
@@ -129,9 +134,9 @@ namespace CSF.Screenplay.Reporting
       writer.Write(new String(INDENT_CHAR, RESULT_OR_FAILURE_INDENT_WIDTH));
     }
 
-    void WritePerformanceType(Reportable reportable)
+    void WritePerformanceType(Reportable reportable, int currentIndentLevel)
     {
-      writer.Write("{0,5} ", GetPerformanceTypeString(reportable.PerformanceType));
+      writer.Write("{0,5} ", GetPerformanceTypeString(reportable.PerformanceType, currentIndentLevel));
     }
 
     void WriteResult(Performance reportable, int currentIndentLevel)
