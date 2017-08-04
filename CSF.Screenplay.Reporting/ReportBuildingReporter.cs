@@ -57,7 +57,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void BeginGiven(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.Given);
+      builder.BeginPerformanceType(Models.PerformanceType.Given);
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndGiven(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void BeginWhen(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.When);
+      builder.BeginPerformanceType(Models.PerformanceType.When);
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndWhen(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void BeginThen(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.Then);
+      builder.BeginPerformanceType(Models.PerformanceType.Then);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndThen(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
