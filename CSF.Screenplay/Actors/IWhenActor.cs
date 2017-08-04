@@ -16,6 +16,12 @@ namespace CSF.Screenplay.Actors
     void AttemptsTo(IPerformable performable);
 
     /// <summary>
+    /// Performs an action or task which has a public parameterless constructor.
+    /// </summary>
+    /// <typeparam name="TPerformable">The type of the performable item to execute.</typeparam>
+    void AttemptsTo<TPerformable>() where TPerformable : IPerformable,new();
+
+    /// <summary>
     /// Performs the given action, task or question and gets a result.
     /// </summary>
     /// <returns>The result of performing the task.</returns>

@@ -240,6 +240,22 @@ namespace CSF.Screenplay.Tests
       Assert.Throws<MissingAbilityException>(() => performer.GetAbility<SampleAbility>());
     }
 
+    [Test]
+    public void Perform_may_be_used_generically()
+    {
+      // Arrange
+      var actor = CreateActor();
+      var performed = false;
+
+      actor.BeginPerformance += (sender, e) => performed = true;
+
+      // Act
+      actor.Perform<SampleAction>();
+
+      // Assert
+      Assert.That(performed, Is.True);
+    }
+
     IActor CreateActor(IAbility ability, string name = null)
     {
       return CreateActor(new [] { ability }, name);
@@ -248,7 +264,7 @@ namespace CSF.Screenplay.Tests
     IActor CreateActor(IEnumerable<IAbility> abilities = null, string name = null)
     {
       abilities = abilities?? Enumerable.Empty<IAbility>();
-      name = name?? "joe";
+      name = name?? "Joe";
 
       var performer = new Actor(name);
       foreach(var ability in abilities)
@@ -259,5 +275,13 @@ namespace CSF.Screenplay.Tests
     }
 
     public class SampleAbility : Ability {}
+
+    public class SampleAction : Performable
+    {
+      protected override void PerformAs(IPerformer actor)
+      {
+        // Intentional no-op
+      }
+    }
   }
 }
