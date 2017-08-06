@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
 using CSF.Screenplay.Context;
 
 namespace CSF.Screenplay
