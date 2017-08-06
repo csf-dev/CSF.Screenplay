@@ -20,9 +20,6 @@ test:
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
 artifacts:
-  - path: screenplay-report.txt
-    name: ScreenPlayReport
-    type: File
   - path: Tests\CSF.Screenplay.WebTestWebsite
     name: TestWebsite
     type: WebDeployPackage
@@ -32,4 +29,12 @@ deploy:
     TestWebsite.site_name: "Test Web Site"
     TestWebsite.port: 8080
 after_deploy:
-- cmd: nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
+- cmd: >-
+    nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
+    
+    echo "
+Screenplay report
+*****************
+"
+    
+    type screenplay-report.txt
