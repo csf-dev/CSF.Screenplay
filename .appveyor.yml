@@ -20,6 +20,9 @@ test:
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
 artifacts:
+  - path: screenplay-report.txt
+    name: ScreenPlayReport
+    type: File
   - path: Tests\CSF.Screenplay.WebTestWebsite
     name: TestWebsite
     type: WebDeployPackage
