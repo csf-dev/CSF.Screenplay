@@ -78,7 +78,6 @@
     <Compile Include="Pages\GoogleHomePage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Questions\GetWindowTitleTests.cs" />
-    <Compile Include="WebdriverTestSetup.cs" />
     <Compile Include="Questions\GetTextTests.cs" />
     <Compile Include="Actions\ClickTests.cs" />
     <Compile Include="Pages\PageTwo.cs" />
@@ -93,6 +92,7 @@
     <Compile Include="Pages\PageThree.cs" />
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
     <Compile Include="ScreenplayNUnitIntegration.cs" />
+    <Compile Include="ScreenplayAssemblyAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

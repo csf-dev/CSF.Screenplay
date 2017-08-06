@@ -1,8 +1,9 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Context;
 using CSF.Screenplay.Reporting;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
-using System.Reflection;
 
 namespace CSF.Screenplay.NUnit
 {
@@ -12,94 +13,77 @@ namespace CSF.Screenplay.NUnit
   /// </summary>
   [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly,
                   AllowMultiple = true)]
-  public class ScreenplayTestAttribute : Attribute, ITestAction
+  public class ScreenplayTestAttribute : TestActionAttribute
   {
     /// <summary>
     /// Gets the targets for this attribute (the affected tests).
     /// </summary>
     /// <value>The targets.</value>
-    public ActionTargets Targets => ActionTargets.Test;
+    public override ActionTargets Targets => ActionTargets.Test;
 
     /// <summary>
     /// Executes actions after each affected test.
     /// </summary>
     /// <param name="test">Test.</param>
-    public void AfterTest(ITest test)
+    public override void AfterTest(ITest test)
     {
-      var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-      Stage.Reporter.CompleteScenario(passed);
+      InformReporterOfCompletedScenario();
     }
 
     /// <summary>
     /// Executes actions before each affected test.
     /// </summary>
     /// <param name="test">Test.</param>
-    public void BeforeTest(ITest test)
+    public override void BeforeTest(ITest test)
     {
-      HireNewCast();
+      DismissCast();
       InformReporterOfNewScenario(test);
     }
 
-    void InformReporterOfNewScenario(ITest test)
+    /// <summary>
+    /// Informs the reporter (if registered in the current <see cref="ScreenplayContext"/>) of a completed scenario.
+    /// </summary>
+    protected virtual void InformReporterOfCompletedScenario()
     {
-      var testId = test.FullName;
-      var testName = GetTestFriendlyName(test);
-      var featureName = GetFeatureName(test);
-      var featureId = GetFeatureId(test);
+      var reporter = Context.GetReporter();
+      if(reporter == null)
+        return;
 
-      Stage.Reporter.BeginNewScenario(testId, testName, featureName, featureId);
+      var result = TestContext.CurrentContext.Result;
+      reporter.CompleteScenario(result.Outcome.Status == TestStatus.Passed);
     }
 
-    string GetTestFriendlyName(ITest test)
+    /// <summary>
+    /// Informs the reporter (if registered in the current <see cref="ScreenplayContext"/>) of a new scenario.
+    /// </summary>
+    /// <param name="test">The NUnit test object.</param>
+    protected virtual void InformReporterOfNewScenario(ITest test)
     {
-      var method = test.Method?.MethodInfo;
+      var reporter = Context.GetReporter();
+      if(reporter == null)
+        return;
 
-      if(method == null)
-        return null;
-
-      return GetDescription(method);
+      var adapter = new ScenarioAdapter(test);
+      reporter.BeginNewScenario(adapter.ScenarioId, adapter.ScenarioName, adapter.FeatureName, adapter.FeatureId);
     }
 
-    string GetFeatureName(ITest test)
+    /// <summary>
+    /// Discmisses (clears) the current <see cref="ICast"/>, if it is registered in the
+    /// current <see cref="ScreenplayContext"/>.
+    /// </summary>
+    protected virtual void DismissCast()
     {
-      var fixtureType = GetFixtureType(test);
-
-      if(fixtureType == null)
-        return null;
-
-      return GetDescription(fixtureType);
+      var cast = Context.GetCast();
+      if(cast == null)
+        return;
+      
+      cast.Dismiss();
     }
 
-    string GetFeatureId(ITest test)
-    {
-      var fixtureType = GetFixtureType(test);
-
-      if(fixtureType == null)
-        return null;
-
-      return fixtureType.FullName;
-    }
-
-    string GetDescription(MemberInfo member)
-    {
-      var attrib = member.GetCustomAttribute<DescriptionAttribute>();
-
-      if(attrib == null)
-        return member.Name;
-
-
-      return attrib.Properties.Get("Description")?.ToString();
-    }
-
-    Type GetFixtureType(ITest test)
-    {
-      return test.Fixture?.GetType();
-    }
-
-
-    void HireNewCast()
-    {
-      Stage.Cast.Clear();
-    }
+    /// <summary>
+    /// Gets the current screenplay context.
+    /// </summary>
+    /// <value>The context.</value>
+    protected ScreenplayContext Context => ScreenplayContext.Current;
   }
 }

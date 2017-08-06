@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = CreateCast();
 
       // Act
-      var joe = cast.Add("joe");
+      var joe = cast.CreateAndAdd("joe");
 
       // Assert
       Assert.NotNull(joe);
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      var joe = cast.Add(name);
+      var joe = cast.CreateAndAdd(name);
 
       // Assert
       Assert.AreEqual(name, joe.Name);
@@ -43,10 +43,10 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.Add(name);
+      cast.CreateAndAdd(name);
 
       // Act and assert
-      Assert.Throws<DuplicateActorException>(() => cast.Add(name));
+      Assert.Throws<DuplicateActorException>(() => cast.CreateAndAdd(name));
     }
 
     [Test]
@@ -56,8 +56,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = CreateCast();
 
       // Act
-      cast.Add("joe");
-      cast.Add("davina");
+      cast.CreateAndAdd("joe");
+      cast.CreateAndAdd("davina");
 
       // Act and assert
       Assert.Pass();
@@ -82,7 +82,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = CreateCast();
       var name = "joe";
-      var joe = cast.Add(name);
+      var joe = cast.CreateAndAdd(name);
 
       // Act
       var joeClone = cast.GetActor(name);
@@ -96,8 +96,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = CreateCast();
-      var joe = cast.Add("joe");
-      var davina = cast.Add("davina");
+      var joe = cast.CreateAndAdd("joe");
+      var davina = cast.CreateAndAdd("davina");
 
       // Act
       var all = cast.GetAll();

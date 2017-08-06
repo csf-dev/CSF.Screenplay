@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the text of an element detects the expected value.")]
     public void GetText_returns_expected_value()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
     public void GetConvertedText_returns_expected_value()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

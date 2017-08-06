@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Actors
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable.</param>
     /// <param name="result">The result retrieved from the performable.</param>
-    public PerformanceResultEventArgs(INamed actor, IPerformable performable, object result)
+    public PerformanceResultEventArgs(IActor actor, IPerformable performable, object result)
       : base(actor, performable)
     {
       Result = result;

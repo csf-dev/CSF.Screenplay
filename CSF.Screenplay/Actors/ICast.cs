@@ -19,10 +19,16 @@ namespace CSF.Screenplay.Actors
   public interface ICast
   {
     /// <summary>
-    /// Gets or sets a callback which is applied to all newly-created actors after they are created.
+    /// An event which is triggered any time a new actor is created by the current cast.
+    /// Fires before <see cref="ActorAdded"/>.
     /// </summary>
-    /// <value>The new actor callback.</value>
-    Action<IActor> NewActorCallback { get; set; }
+    event EventHandler<ActorEventArgs> ActorCreated;
+
+    /// <summary>
+    /// An event which is triggered any time a new actor is added to the current cast.
+    /// Where an actor is created then added, this event fires after <see cref="ActorCreated"/>.
+    /// </summary>
+    event EventHandler<ActorEventArgs> ActorAdded;
 
     /// <summary>
     /// Gets a collection of all of the actors contained within the current instance.
@@ -39,20 +45,24 @@ namespace CSF.Screenplay.Actors
 
     /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    IActor GetOrAdd(string name);
+    IActor GetOrCreate(string name);
 
     /// <summary>
     /// Creates a new actor of the given name, adds it to the current cast instance and returns it.
+    /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    IActor Add(string name);
+    IActor CreateAndAdd(string name);
 
     /// <summary>
     /// Adds the given actor to the current cast instance.
+    /// This operation will fire <see cref="ActorAdded"/> but not <see cref="ActorCreated"/>.
     /// </summary>
     /// <param name="actor">An actor.</param>
     void Add(IActor actor);
@@ -60,6 +70,6 @@ namespace CSF.Screenplay.Actors
     /// <summary>
     /// Clears the current cast.
     /// </summary>
-    void Clear();
+    void Dismiss();
   }
 }
