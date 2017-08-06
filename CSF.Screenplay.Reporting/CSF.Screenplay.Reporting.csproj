@@ -60,7 +60,9 @@
     <Compile Include="ReportBuildingReporter.cs" />
     <Compile Include="Builders\PerformanceBuilder.cs" />
     <Compile Include="Builders\ReportBuilder.cs" />
-    <Compile Include="TextReporter.cs" />
+    <Compile Include="IModelBuildingReporter.cs" />
+    <Compile Include="IReportWriter.cs" />
+    <Compile Include="TextReportWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

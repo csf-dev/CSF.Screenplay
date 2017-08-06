@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Reporting.Builders;
+using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -7,7 +8,7 @@ namespace CSF.Screenplay.Reporting
   /// Implementation of <see cref="IReporter"/> which builds a report model.  Does nothing on its own but may be
   /// subclassed to provide reporting functionality based upon the report model.
   /// </summary>
-  public abstract class ReportBuildingReporter : NoOpReporter
+  public class ReportBuildingReporter : NoOpReporter, IModelBuildingReporter
   {
     ReportBuilder builder;
 
@@ -24,11 +25,6 @@ namespace CSF.Screenplay.Reporting
     {
       BeginNewReport();
     }
-
-    /// <summary>
-    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
-    /// </summary>
-    public abstract override void CompleteTestRun();
 
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
@@ -48,6 +44,15 @@ namespace CSF.Screenplay.Reporting
     public override void CompleteScenario(bool success)
     {
       builder.EndScenario(success);
+    }
+
+    /// <summary>
+    /// Gets the completed report model.
+    /// </summary>
+    /// <returns>The report.</returns>
+    public virtual Report GetReport()
+    {
+      return builder.GetReport();
     }
 
     /// <summary>
@@ -157,15 +162,6 @@ namespace CSF.Screenplay.Reporting
     protected override void Success(Actors.INamed actor, Performables.IPerformable performable)
     {
       builder.RecordSuccess(performable);
-    }
-
-    /// <summary>
-    /// Gets the completed report model.
-    /// </summary>
-    /// <returns>The report.</returns>
-    protected virtual Models.Report GetReportModel()
-    {
-      return builder.GetReport();
     }
 
     void BeginNewReport()

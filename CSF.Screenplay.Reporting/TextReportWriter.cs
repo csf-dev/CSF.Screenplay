@@ -6,10 +6,11 @@ using CSF.Screenplay.Reporting.Models;
 namespace CSF.Screenplay.Reporting
 {
   /// <summary>
-  /// Implementation of <see cref="IReporter" /> which writes the report to a text-based format, via a
-  /// <c>System.IO.TextWriter</c>.
+  /// An <see cref="IReportWriter"/> which writes the report to a <c>System.IO.TextWriter</c>, be that a text file or
+  /// an output stream.  This writer uses a simple text-based format to render the results of the report in a
+  /// human-readable format.
   /// </summary>
-  public class TextReporter : ReportBuildingReporter
+  public class TextReportWriter : IReportWriter
   {
     const char INDENT_CHAR = ' ';
     const int INDENT_WIDTH = 4, RESULT_OR_FAILURE_INDENT_WIDTH = 6;
@@ -17,12 +18,12 @@ namespace CSF.Screenplay.Reporting
     readonly TextWriter writer;
 
     /// <summary>
-    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
+    /// Write the specified report to the text writer.
     /// </summary>
-    public override void CompleteTestRun()
+    /// <param name="reportModel">Report model.</param>
+    public void Write(Report reportModel)
     {
-      var model = GetReportModel();
-      foreach(var scenario in model.Scenarios)
+      foreach(var scenario in reportModel.Scenarios)
       {
         WriteScenario(scenario);
       }
@@ -110,7 +111,11 @@ namespace CSF.Screenplay.Reporting
 
     string GetPerformanceTypeString(PerformanceType type, int currentIndentLevel)
     {
-      if(type == PerformanceType.Unspecified || currentIndentLevel > 0)
+      if(type == PerformanceType.Unspecified)
+        return String.Empty;
+
+      // Don't keep writing the performance type after the base indent level
+      if(currentIndentLevel > 0)
         return String.Empty;
 
       return type.ToString();
@@ -159,7 +164,7 @@ namespace CSF.Screenplay.Reporting
 
       var exception = reportable.Exception?.ToString();
       if(exception != null)
-        writer.WriteLine("FAILED\n{0}", exception);
+        writer.WriteLine("FAILED with an exception:\n{0}", exception);
       else
         writer.WriteLine("FAILED");
     }
@@ -168,10 +173,10 @@ namespace CSF.Screenplay.Reporting
       => String.Join(String.Empty, Enumerable.Range(0, currentLevel).Select(x => new String(INDENT_CHAR, INDENT_WIDTH)));
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TextReporter"/> class.
+    /// Initializes a new instance of the <see cref="TextReportWriter"/> class.
     /// </summary>
     /// <param name="writer">Writer.</param>
-    public TextReporter(TextWriter writer)
+    public TextReportWriter(TextWriter writer)
     {
       if(writer == null)
         throw new ArgumentNullException(nameof(writer));

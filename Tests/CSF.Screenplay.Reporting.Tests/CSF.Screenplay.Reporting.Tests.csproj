@@ -8,6 +8,7 @@
     <RootNamespace>CSF.Screenplay.Reporting.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Reporting.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>0.1.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +49,7 @@
   <ItemGroup>
     <Compile Include="ReportBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
-    <Compile Include="TestReporterTests.cs" />
+    <Compile Include="TextReportWriterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

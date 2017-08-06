@@ -14,13 +14,13 @@ namespace CSF.Screenplay.Reporting.Models
     readonly IPerformable performable;
     readonly object result;
     readonly Exception exception;
-    readonly IReadOnlyList<Reportable> children;
+    readonly IList<Reportable> children;
 
     /// <summary>
     /// Gets the contained reportables.
     /// </summary>
     /// <value>The reportables.</value>
-    public virtual IReadOnlyList<Reportable> Reportables => children;
+    public virtual IList<Reportable> Reportables => children;
 
     /// <summary>
     /// Gets the performable associated with the current instance.
@@ -56,7 +56,7 @@ namespace CSF.Screenplay.Reporting.Models
                        PerformanceType performanceType = PerformanceType.Unspecified,
                        object result = null,
                        Exception exception = null,
-                       IReadOnlyList<Reportable> children = null) : base(actor, outcome, performanceType)
+                       IList<Reportable> children = null) : base(actor, outcome, performanceType)
     {
       if(performable == null)
         throw new ArgumentNullException(nameof(performable));
@@ -65,7 +65,7 @@ namespace CSF.Screenplay.Reporting.Models
       this.result = result;
       this.exception = exception;
 
-      this.children = children?? Enumerable.Empty<Reportable>().ToArray();
+      this.children = children?? new List<Reportable>();
     }
   }
 }

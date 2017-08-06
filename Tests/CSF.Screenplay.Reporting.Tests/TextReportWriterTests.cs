@@ -6,14 +6,15 @@ using System.IO;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using Moq;
+using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
   [TestFixture]
-  public class TestReporterTests
+  public class TextReportWriterTests
   {
     StringBuilder sb;
-    IReporter sut;
+    IReportWriter sut;
     TextWriter writer;
 
     [SetUp]
@@ -21,23 +22,23 @@ namespace CSF.Screenplay.Reporting.Tests
     {
       sb = new StringBuilder();
       writer = new StringWriter(sb);
-      sut = new TextReporter(writer);
+      sut = new TextReportWriter(writer);
     }
 
-    string GetReport()
+    string ExerciseSut(Report report)
     {
-      sut.CompleteTestRun();
+      sut.Write(report);
       writer.Flush();
       writer.Dispose();
       return sb.ToString();
     }
 
     [Test,AutoMoqData]
-    public void Can_create_report_with_one_performance(IActor actor,
-                                                       IPerformable performable,
-                                                       string id,
+    public void Can_create_report_with_one_performance(string id,
                                                        string name,
-                                                       string feature)
+                                                       string feature,
+                                                       IActor actor,
+                                                       IPerformable performable)
     {
       // Arrange
       var expected = $@"
@@ -47,23 +48,18 @@ Scenario: {name}
 Given Joe does a thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, feature);
-
       Mock.Get(performable)
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
+      var scenario = new Scenario(id, name, feature);
+      scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -82,23 +78,18 @@ Scenario: {name}
 Given Joe does a thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, feature);
-
       Mock.Get(performable)
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
+      var scenario = new Scenario(id, name, feature) { IsFailure = true };
+      scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(false);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -115,23 +106,18 @@ Scenario: {name}
 Given Joe does a thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, null);
-
       Mock.Get(performable)
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
+      var scenario = new Scenario(id, name, null);
+      scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -149,23 +135,18 @@ Scenario: {id}
 Given Joe does a thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, null, feature);
-
       Mock.Get(performable)
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
+      var scenario = new Scenario(id, null, feature);
+      scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -186,24 +167,19 @@ Given Joe does a thing
           Joe does a different thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, feature);
-
       Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
       Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
 
+      var scenario = new Scenario(id, name, feature);
+      var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
+      parentPerformance.Reportables.Add(new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given));
+      scenario.Reportables.Add(parentPerformance);
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -226,27 +202,23 @@ Given Joe does a thing
               Joe does a totally different thing
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, feature);
-
       Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
       Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
       Mock.Get(grandChildPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a totally different thing");
 
+      var scenario = new Scenario(id, name, feature);
+      var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
+      var childPerformance = new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given);
+      var grandchildPerformance = new Performance(actor, Outcome.Success, grandChildPerformable, PerformanceType.Given);
+      parentPerformance.Reportables.Add(childPerformance);
+      childPerformance.Reportables.Add(grandchildPerformance);
+      scenario.Reportables.Add(parentPerformance);
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, grandChildPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, grandChildPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
 
@@ -273,35 +245,29 @@ Given Joe does a thing
  When Joe takes some kind of action
 ";
 
-      sut.Subscribe(actor);
-      sut.BeginNewTestRun();
-      sut.BeginNewScenario(id, name, feature);
-
       Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
       Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
       Mock.Get(grandChildPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a totally different thing");
       Mock.Get(siblingPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does an unrelated thing");
       Mock.Get(secondPerformable).Setup(x => x.GetReport(actor)).Returns("Joe takes some kind of action");
 
+      var scenario = new Scenario(id, name, feature);
+      var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
+      var childPerformance = new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given);
+      var grandchildPerformance = new Performance(actor, Outcome.Success, grandChildPerformable, PerformanceType.Given);
+      var siblingPerformance = new Performance(actor, Outcome.Success, siblingPerformable, PerformanceType.Given);
+      var secondPerformance = new Performance(actor, Outcome.Success, secondPerformable, PerformanceType.When);
+      parentPerformance.Reportables.Add(childPerformance);
+      parentPerformance.Reportables.Add(siblingPerformance);
+      childPerformance.Reportables.Add(grandchildPerformance);
+      scenario.Reportables.Add(parentPerformance);
+      scenario.Reportables.Add(secondPerformance);
+      var report = new Report(new [] { scenario });
+
       // Act
-      Mock.Get(actor).Raise(x => x.BeginGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, grandChildPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, grandChildPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, childPerformable));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, siblingPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, siblingPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, performable));
-      Mock.Get(actor).Raise(x => x.EndGiven += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginWhen += null, new ActorEventArgs(actor));
-      Mock.Get(actor).Raise(x => x.BeginPerformance += null, new BeginPerformanceEventArgs(actor, secondPerformable));
-      Mock.Get(actor).Raise(x => x.EndPerformance += null, new EndSuccessfulPerformanceEventArgs(actor, secondPerformable));
-      Mock.Get(actor).Raise(x => x.EndWhen += null, new ActorEventArgs(actor));
-      sut.CompleteScenario(true);
+      var result = ExerciseSut(report);
 
       // Assert
-      var result = GetReport();
       Assert.That(result, Is.EqualTo(expected));
     }
   }

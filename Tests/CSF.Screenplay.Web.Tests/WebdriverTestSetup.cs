@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Web.Tests
     public void OnetimeSetup()
     {
       Stage.UriTransformer = new RootUriPrependingTransformer("http://localhost:8080/");
-      Stage.Reporter = new TextReporter(TestContext.Out);
+      Stage.Reporter = new ReportBuildingReporter();
       Stage.Cast.NewActorCallback = ConfigureActor;
     }
 
@@ -26,7 +26,21 @@ namespace CSF.Screenplay.Web.Tests
     {
       Stage.DisposeCurrentWebDriver();
       Stage.Reporter.CompleteTestRun();
-      TestContext.Out.Flush();
+      WriteReport();
+    }
+
+    void WriteReport()
+    {
+      if(Stage.Reporter is IModelBuildingReporter)
+      {
+        var report = ((IModelBuildingReporter) Stage.Reporter).GetReport();
+        using(var writer = new StreamWriter("screenplay-report.txt"))
+        {
+          var reportWriter = new TextReportWriter(writer);
+          reportWriter.Write(report);
+          writer.Flush();
+        }
+      }
     }
 
     void ConfigureActor(IActor actor)
