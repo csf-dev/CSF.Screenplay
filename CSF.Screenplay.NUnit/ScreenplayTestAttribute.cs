@@ -1,7 +1,4 @@
 ﻿using System;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Context;
-using CSF.Screenplay.Reporting;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
@@ -68,7 +65,7 @@ namespace CSF.Screenplay.NUnit
     }
 
     /// <summary>
-    /// Discmisses (clears) the current <see cref="ICast"/>, if it is registered in the
+    /// Discmisses (clears) the current <see cref="Actors.ICast"/>, if it is registered in the
     /// current <see cref="ScreenplayContext"/>.
     /// </summary>
     protected virtual void DismissCast()
