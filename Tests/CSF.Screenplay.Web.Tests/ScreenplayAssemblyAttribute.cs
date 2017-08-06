@@ -12,11 +12,6 @@ namespace CSF.Screenplay.Web.Tests
     protected override IUriTransformer GetUriTransformer()
       => new RootUriPrependingTransformer("http://localhost:8080/");
 
-    protected override void ConfigureActorsInCast(ICast cast)
-    {
-      cast.ActorCreated += Cast_ActorCreated;
-    }
-
     protected override void WriteReport(Report report)
     {
       using(var writer = new StreamWriter("screenplay-report.txt"))
@@ -27,8 +22,9 @@ namespace CSF.Screenplay.Web.Tests
       }
     }
 
-    void Cast_ActorCreated(object sender, ActorEventArgs e)
+    protected override void HandleActorCreatedInCast(object sender, ActorEventArgs e)
     {
+      base.HandleActorCreatedInCast(sender, e);
       GrantWebBrowsingAbility(e.Actor);
     }
 

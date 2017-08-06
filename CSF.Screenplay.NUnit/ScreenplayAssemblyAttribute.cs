@@ -39,7 +39,6 @@ namespace CSF.Screenplay.NUnit
       RegisterCast();
       RegisterReporter();
       RegisterDefaultWebBrowsingAbility();
-      ReportOnAllActorsInCast();
       ConfigureActorsInCast();
     }
 
@@ -53,24 +52,6 @@ namespace CSF.Screenplay.NUnit
       Context.RegisterDefaultReportBuildingReporter();
     }
 
-    protected virtual void ReportOnAllActorsInCast()
-    {
-      var cast = Context.GetCast();
-      if(cast == null)
-        return;
-      
-      cast.ActorAdded += SubscribeReporterToActor;
-    }
-
-    protected virtual void SubscribeReporterToActor(object sender, ActorEventArgs args)
-    {
-      var reporter = Context.GetReporter();
-      if(reporter == null)
-        return;
-      
-      reporter.Subscribe(args.Actor);
-    }
-
     protected void ConfigureActorsInCast()
     {
       var cast = Context.GetCast();
@@ -82,7 +63,27 @@ namespace CSF.Screenplay.NUnit
 
     protected virtual void ConfigureActorsInCast(ICast cast)
     {
-      // Intentional no-op, subclasses may override this
+      cast.ActorAdded += HandleActorAddedToCast;
+      cast.ActorCreated += HandleActorCreatedInCast;
+    }
+
+    protected virtual void HandleActorCreatedInCast(object sender, ActorEventArgs args)
+    {
+      SubscribeReporter(args.Actor);
+    }
+
+    protected virtual void HandleActorAddedToCast(object sender, ActorEventArgs args)
+    {
+      // Intentional no-op, method is here for subclasses to override.
+    }
+
+    protected virtual void SubscribeReporter(IActor actor)
+    {
+      var reporter = Context.GetReporter();
+      if(reporter == null)
+        return;
+
+      reporter.Subscribe(actor);
     }
 
     protected virtual void InformReporterOfCompletion()
