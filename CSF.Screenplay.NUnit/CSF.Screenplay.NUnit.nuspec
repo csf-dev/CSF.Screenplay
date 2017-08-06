@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.NUnit</id>
-    <version>0.1.1-alpha</version>
+    <version>0.2.0-alpha</version>
     <title>CSF.Screenplay.NUnit</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -14,10 +14,10 @@
       <dependency id="CSF.Reflection" version="[1.0.1,2.0.0)" />
       <dependency id="NUnit" version="[3.4.0,4.0.0)" />
       <dependency id="Selenium.WebDriver" version="[3.4.0,4.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.1.1-alpha" />
-      <dependency id="CSF.Screenplay.Reporting" version="0.1.1-alpha" />
-      <dependency id="CSF.Screenplay.Web" version="0.1.1-alpha" />
-      <dependency id="CSF.WebDriverFactory" version="0.1.1-alpha" />
+      <dependency id="CSF.Screenplay" version="0.2.0-alpha" />
+      <dependency id="CSF.Screenplay.Reporting" version="0.2.0-alpha" />
+      <dependency id="CSF.Screenplay.Web" version="0.2.0-alpha" />
+      <dependency id="CSF.WebDriverFactory" version="0.2.0-alpha" />
     </dependencies>
   </metadata>
   <files>

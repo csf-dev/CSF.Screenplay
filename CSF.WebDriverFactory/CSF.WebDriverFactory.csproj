@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSF.WebDriverFactory.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Impl\" />

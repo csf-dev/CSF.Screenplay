@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSF.Screenplay.Web.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions\" />

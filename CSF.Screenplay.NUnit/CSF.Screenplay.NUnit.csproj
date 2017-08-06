@@ -52,6 +52,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Stage.cs" />
+    <None Include="CSF.Screenplay.NUnit.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
