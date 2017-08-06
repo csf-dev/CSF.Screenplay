@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.NUnit</RootNamespace>
     <AssemblyName>CSF.Screenplay.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.1.1</ReleaseVersion>
+    <ReleaseVersion>0.2.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,6 +52,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Stage.cs" />
+    <None Include="CSF.Screenplay.NUnit.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
