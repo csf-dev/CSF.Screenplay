@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Scenario
   {
-    readonly string idName, friendlyName, featureName;
+    readonly string idName, friendlyName, featureName, featureId;
     readonly IList<Reportable> children;
 
     /// <summary>
@@ -22,7 +22,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the name of the feature.
     /// </summary>
     /// <value>The feature name.</value>
-    public virtual string Feature => featureName;
+    public virtual string FeatureName => featureName;
+
+    /// <summary>
+    /// Gets the identifier for the feature.
+    /// </summary>
+    /// <value>The feature identifier.</value>
+    public virtual string FeatureId => featureId;
 
     /// <summary>
     /// Gets the name of the scenario.
@@ -73,7 +79,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="friendlyName">The friendly scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
-    public Scenario(string idName, string friendlyName, string featureName)
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    public Scenario(string idName, string friendlyName = null, string featureName = null, string featureId = null)
     {
       if(idName == null)
         throw new ArgumentNullException(nameof(idName));
@@ -81,6 +88,7 @@ namespace CSF.Screenplay.Reporting.Models
       this.idName = idName;
       this.friendlyName = friendlyName;
       this.featureName = featureName;
+      this.featureId = featureId;
 
       children = new List<Reportable>();
     }

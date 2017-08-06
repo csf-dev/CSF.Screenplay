@@ -38,7 +38,8 @@ namespace CSF.Screenplay.Reporting
     /// <param name="friendlyName">The friendly scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
-    void BeginNewScenario(string idName, string friendlyName, string featureName);
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId);
 
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.

@@ -27,7 +27,21 @@ namespace CSF.Screenplay.Reporting.Tests
       var scenario = report.Scenarios.Single();
       Assert.That(scenario.Id, Is.EqualTo(id), "Scenario ID is correct");
       Assert.That(scenario.FriendlyName, Is.EqualTo(name), "Scenario name is correct");
-      Assert.That(scenario.Feature, Is.EqualTo(feature), "Scenario feature name is correct");
+      Assert.That(scenario.FeatureName, Is.EqualTo(feature), "Scenario feature name is correct");
+    }
+
+    [Test,AutoMoqData]
+    public void BeginNewScenario_passes_feature_name(string id,
+                                                     string featureId,
+                                                     ReportBuilder sut)
+    {
+      // Act
+      sut.BeginNewScenario(id, featureId: featureId);
+
+      // Assert
+      var report = sut.GetReport();
+      var scenario = report.Scenarios.Single();
+      Assert.That(scenario.FeatureId, Is.EqualTo(featureId));
     }
 
     [Test,AutoMoqData]

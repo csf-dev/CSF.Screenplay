@@ -44,36 +44,58 @@ namespace CSF.Screenplay.NUnit
     {
       var testId = test.FullName;
       var testName = GetTestFriendlyName(test);
-      string featureName = GetFeatureName(test);
+      var featureName = GetFeatureName(test);
+      var featureId = GetFeatureId(test);
 
-      Stage.Reporter.BeginNewScenario(testId, testName, featureName);
+      Stage.Reporter.BeginNewScenario(testId, testName, featureName, featureId);
     }
 
     string GetTestFriendlyName(ITest test)
     {
       var method = test.Method?.MethodInfo;
-      if(method != null)
-      {
-        var descriptionAttrib = method.GetCustomAttribute<DescriptionAttribute>();
-        var name = descriptionAttrib?.Properties?.Get("Description")?.ToString();
-        if(name != null)
-          return name;
-      }
 
-      return test.Name;
+      if(method == null)
+        return null;
+
+      return GetDescription(method);
     }
 
     string GetFeatureName(ITest test)
     {
-      var fixtureType = test.Fixture?.GetType();
-      if(fixtureType != null)
-      {
-        var descriptionAttrib = fixtureType.GetCustomAttribute<DescriptionAttribute>();
-        return descriptionAttrib?.Properties?.Get("Description")?.ToString() ?? fixtureType.Name;
-      }
+      var fixtureType = GetFixtureType(test);
 
-      return null;
+      if(fixtureType == null)
+        return null;
+
+      return GetDescription(fixtureType);
     }
+
+    string GetFeatureId(ITest test)
+    {
+      var fixtureType = GetFixtureType(test);
+
+      if(fixtureType == null)
+        return null;
+
+      return fixtureType.FullName;
+    }
+
+    string GetDescription(MemberInfo member)
+    {
+      var attrib = member.GetCustomAttribute<DescriptionAttribute>();
+
+      if(attrib == null)
+        return member.Name;
+
+
+      return attrib.Properties.Get("Description")?.ToString();
+    }
+
+    Type GetFixtureType(ITest test)
+    {
+      return test.Fixture?.GetType();
+    }
+
 
     void HireNewCast()
     {

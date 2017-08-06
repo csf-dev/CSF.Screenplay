@@ -22,9 +22,10 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="friendlyName">The friendly scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
-    public void BeginNewScenario(string idName, string friendlyName = null, string featureName = null)
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    public void BeginNewScenario(string idName, string friendlyName = null, string featureName = null, string featureId = null)
     {
-      currentScenario = new Scenario(idName, friendlyName, featureName);
+      currentScenario = new Scenario(idName, friendlyName, featureName, featureId);
       scenarios.Add(currentScenario);
       currentPerformanceType = PerformanceType.Unspecified;
       builderStack.Clear();

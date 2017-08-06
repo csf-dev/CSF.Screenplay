@@ -57,8 +57,8 @@ namespace CSF.Screenplay.Reporting
 
     string GetFeatureText(Scenario scenario)
     {
-      if(scenario.Feature != null)
-        return $"Feature:  {scenario.Feature}";
+      if(scenario.FeatureName != null)
+        return $"Feature:  {scenario.FeatureName}";
 
       return null;
     }

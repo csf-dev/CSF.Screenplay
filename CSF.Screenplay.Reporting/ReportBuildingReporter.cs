@@ -32,9 +32,10 @@ namespace CSF.Screenplay.Reporting
     /// <param name="friendlyName">The friendly scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
-    public override void BeginNewScenario(string idName, string friendlyName, string featureName)
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    public override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
     {
-      builder.BeginNewScenario(idName, friendlyName, featureName);
+      builder.BeginNewScenario(idName, friendlyName, featureName, featureId);
     }
 
     /// <summary>
