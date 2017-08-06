@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Clicking on the link to page two navigates to the second page.")]
     public void Click_OnLinkToPageTwo_navigates_to_second_page()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = Stage.Cast.GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

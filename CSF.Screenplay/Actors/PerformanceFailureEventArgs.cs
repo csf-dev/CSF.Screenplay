@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Actors
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable.</param>
     /// <param name="exception">The exception.</param>
-    public PerformanceFailureEventArgs(INamed actor, IPerformable performable, Exception exception)
+    public PerformanceFailureEventArgs(IActor actor, IPerformable performable, Exception exception)
       : base(actor, performable)
     {
       if(exception == null)

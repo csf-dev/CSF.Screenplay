@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
     public void GetWindowTitle_returns_correct_result()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = Stage.Cast.GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

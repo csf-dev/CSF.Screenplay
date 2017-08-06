@@ -1,3 +1,3 @@
-﻿using CSF.Screenplay.NUnit;
-
-[assembly: ScreenplayTest]
+﻿
+[assembly: CSF.Screenplay.NUnit.ScreenplayTest]
+[assembly: CSF.Screenplay.Web.Tests.ScreenplayAssembly]

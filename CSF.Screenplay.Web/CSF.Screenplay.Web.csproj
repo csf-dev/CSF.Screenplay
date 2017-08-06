@@ -131,6 +131,7 @@
     <Compile Include="Actions\DeleteCookie.cs" />
     <Compile Include="Actions\ClearLocalStorage.cs" />
     <Compile Include="Builders\ClearTheirBrowser.cs" />
+    <Compile Include="Abilities\ScreenplayContextWebBrowsingExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

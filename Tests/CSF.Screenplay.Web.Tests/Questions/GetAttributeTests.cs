@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the value of a 'title' attribute detects the expected value.")]
     public void GetAttribute_returns_expected_value()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = Stage.Cast.GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Typing text into an input box produces the expected result on the page.")]
     public void Type_text_into_an_input_box_produces_expected_result_on_page()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = Stage.Cast.GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Typing different text into an input box produces the expected result on the page.")]
     public void Type_different_text_into_an_input_box_produces_expected_result_on_page()
     {
-      var joe = Stage.Cast.GetOrAdd("joe");
+      var joe = Stage.Cast.GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

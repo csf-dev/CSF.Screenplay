@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable.</param>
-    public PerformanceEventArgsBase(INamed actor, IPerformable performable) : base(actor)
+    public PerformanceEventArgsBase(IActor actor, IPerformable performable) : base(actor)
     {
       if(performable == null)
         throw new ArgumentNullException(nameof(performable));

@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="ability">The ability.</param>
-    public GainAbilityEventArgs(INamed actor, IAbility ability) : base(actor)
+    public GainAbilityEventArgs(IActor actor, IAbility ability) : base(actor)
     {
       if(ability == null)
         throw new ArgumentNullException(nameof(ability));
