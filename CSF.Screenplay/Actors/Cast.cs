@@ -22,6 +22,11 @@ namespace CSF.Screenplay.Actors
     #region fields
 
     readonly IDictionary<string,IActor> actors;
+    readonly object syncRoot;
+
+    #endregion
+
+    #region properties
 
     /// <summary>
     /// Gets a collection of the currently-available actors.
@@ -46,12 +51,10 @@ namespace CSF.Screenplay.Actors
     /// <param name="name">The actor name.</param>
     public virtual IActor GetActor(string name)
     {
-      IActor output;
-      if(Actors.TryGetValue(name, out output))
+      lock(syncRoot)
       {
-        return output;
+        return GetActorLocked(name);
       }
-      return null;
     }
 
     /// <summary>
@@ -59,15 +62,12 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor GetOrAdd(string name)
+    public virtual IActor GetOrCreate(string name)
     {
-      IActor output;
-      if(Actors.TryGetValue(name, out output))
+      lock(syncRoot)
       {
-        return output;
+        return GetActorLocked(name)?? CreateAndAddLocked(name);
       }
-
-      return Add(name);
     }
 
     /// <summary>
@@ -75,12 +75,12 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor Add(string name)
+    public virtual IActor CreateAndAdd(string name)
     {
-      var actor = CreateActor(name);
-      ConfigureNewActor(actor);
-      Add(actor);
-      return actor;
+      lock(syncRoot)
+      {
+        return CreateAndAddLocked(name);
+      }
     }
 
     /// <summary>
@@ -89,33 +89,22 @@ namespace CSF.Screenplay.Actors
     /// <param name="actor">An actor.</param>
     public virtual void Add(IActor actor)
     {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
-      var name = actor.Name;
-      if(name == null)
-        throw new ArgumentException("Actors must have a name", nameof(actor));
-
-
-      if(actors.ContainsKey(name))
-        throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
-      
-      Actors.Add(name, actor);
+      lock(syncRoot)
+      {
+        AddLocked(actor);
+      }
     }
 
     /// <summary>
     /// Clears the current cast.
     /// </summary>
-    public virtual void Clear()
+    public virtual void Dismiss()
     {
-      actors.Clear();
+      lock(syncRoot)
+      {
+        Actors.Clear();
+      }
     }
-
-    /// <summary>
-    /// Gets or sets a callback which is applied to all newly-created actors after they are created.
-    /// </summary>
-    /// <value>The new actor callback.</value>
-    public virtual Action<IActor> NewActorCallback { get; set; }
 
     /// <summary>
     /// Creates and returns a new object which implements <see cref="IActor"/>.
@@ -124,17 +113,78 @@ namespace CSF.Screenplay.Actors
     /// <param name="name">The actor's name.</param>
     protected virtual IActor CreateActor(string name)
     {
-      return new Actor(name);
+      var actor = new Actor(name);
+      OnActorCreated(actor);
+      return actor;
+    }
+
+    IActor GetActorLocked(string name)
+    {
+      IActor output;
+      if(Actors.TryGetValue(name, out output))
+      {
+        return output;
+      }
+      return null;
+    }
+
+    IActor CreateAndAddLocked(string name)
+    {
+      var actor = CreateActor(name);
+      AddLocked(actor);
+      return actor;
+    }
+
+    void AddLocked(IActor actor)
+    {
+      if(actor == null)
+        throw new ArgumentNullException(nameof(actor));
+
+      var name = actor.Name;
+      if(name == null)
+        throw new ArgumentException("Actors must have a name", nameof(actor));
+
+      if(Actors.ContainsKey(name))
+        throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
+
+      Actors.Add(name, actor);
+      OnActorAdded(actor);
+    }
+
+    #endregion
+
+    #region events and invokers
+
+    /// <summary>
+    /// An event which is triggered any time a new actor is created by the current cast.
+    /// Fires before <see cref="ActorAdded"/>.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> ActorCreated;
+
+    /// <summary>
+    /// Event invoker for the <see cref="ActorCreated"/> event.
+    /// </summary>
+    /// <param name="actor">Actor.</param>
+    protected virtual void OnActorCreated(IActor actor)
+    {
+      var args = new ActorEventArgs(actor);
+      ActorCreated?.Invoke(this, args);
     }
 
     /// <summary>
-    /// Configures a newly-created actor.
+    /// An event which is triggered any time a new actor is added to the current cast.
+    /// Where an actor is created then added, this event fires after <see cref="ActorCreated"/>.
+    /// </summary>
+    public event EventHandler<ActorEventArgs> ActorAdded;
+
+    /// <summary>
+    /// Event invoker for the <see cref="ActorAdded"/> event.
     /// </summary>
     /// <param name="actor">Actor.</param>
-    protected virtual void ConfigureNewActor(IActor actor)
+    protected virtual void OnActorAdded(IActor actor)
     {
-      if(NewActorCallback != null)
-        NewActorCallback(actor);
+      var args = new ActorEventArgs(actor);
+      ActorAdded?.Invoke(this, args);
     }
 
     #endregion
@@ -146,6 +196,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     public Cast()
     {
+      syncRoot = new Object();
       actors = new Dictionary<string,IActor>();
     }
 

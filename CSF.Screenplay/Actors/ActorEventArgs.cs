@@ -10,13 +10,13 @@ namespace CSF.Screenplay.Actors
     /// Gets the actor.
     /// </summary>
     /// <value>The actor.</value>
-    public INamed Actor { get; private set; }
+    public IActor Actor { get; private set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Actors.ActorEventArgs"/> class.
     /// </summary>
     /// <param name="actor">Actor.</param>
-    public ActorEventArgs(INamed actor)
+    public ActorEventArgs(IActor actor)
     {
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));

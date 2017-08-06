@@ -6,10 +6,11 @@ using CSF.Screenplay.Reporting.Models;
 namespace CSF.Screenplay.Reporting
 {
   /// <summary>
-  /// Implementation of <see cref="IReporter" /> which writes the report to a text-based format, via a
-  /// <c>System.IO.TextWriter</c>.
+  /// An <see cref="IReportWriter"/> which writes the report to a <c>System.IO.TextWriter</c>, be that a text file or
+  /// an output stream.  This writer uses a simple text-based format to render the results of the report in a
+  /// human-readable format.
   /// </summary>
-  public class TextReporter : ReportBuildingReporter
+  public class TextReportWriter : IReportWriter
   {
     const char INDENT_CHAR = ' ';
     const int INDENT_WIDTH = 4, RESULT_OR_FAILURE_INDENT_WIDTH = 6;
@@ -17,12 +18,12 @@ namespace CSF.Screenplay.Reporting
     readonly TextWriter writer;
 
     /// <summary>
-    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
+    /// Write the specified report to the text writer.
     /// </summary>
-    public override void CompleteTestRun()
+    /// <param name="reportModel">Report model.</param>
+    public void Write(Report reportModel)
     {
-      var model = GetReportModel();
-      foreach(var scenario in model.Scenarios)
+      foreach(var scenario in reportModel.Scenarios)
       {
         WriteScenario(scenario);
       }
@@ -51,13 +52,13 @@ namespace CSF.Screenplay.Reporting
 
       writer.WriteLine(GetScenarioText(scenario));
 
-      writer.WriteLine(GetOutcome(scenario));
+      WriteScenarioOutcome(scenario);
     }
 
     string GetFeatureText(Scenario scenario)
     {
-      if(scenario.Feature != null)
-        return $"Feature:  {scenario.Feature}";
+      if(scenario.FeatureName != null)
+        return $"Feature:  {scenario.FeatureName}";
 
       return null;
     }
@@ -67,7 +68,7 @@ namespace CSF.Screenplay.Reporting
       return $"Scenario: {scenario.FriendlyName?? scenario.Id}";
     }
 
-    void WriteReportable(Reportable reportable, int currentIndentLevel = 1)
+    void WriteReportable(Reportable reportable, int currentIndentLevel = 0)
     {
       if(reportable == null)
         throw new ArgumentNullException(nameof(reportable));
@@ -83,7 +84,7 @@ namespace CSF.Screenplay.Reporting
     void WriteGainAbility(GainAbility reportable, int currentIndentLevel)
     {
       WriteIndent(currentIndentLevel);
-      WritePerformanceType(reportable);
+      WritePerformanceType(reportable, currentIndentLevel);
 
       writer.Write(reportable.Ability.GetReport(reportable.Actor));
       writer.WriteLine();
@@ -92,7 +93,7 @@ namespace CSF.Screenplay.Reporting
     void WritePerformance(Performance reportable, int currentIndentLevel)
     {
       WriteIndent(currentIndentLevel);
-      WritePerformanceType(reportable);
+      WritePerformanceType(reportable, currentIndentLevel);
 
       writer.Write(reportable.Performable.GetReport(reportable.Actor));
       writer.WriteLine();
@@ -104,19 +105,28 @@ namespace CSF.Screenplay.Reporting
 
       foreach(var child in reportable.Reportables)
       {
-        WriteReportable(child, currentIndentLevel++);
+        WriteReportable(child, currentIndentLevel + 1);
       }
     }
 
-    string GetPerformanceTypeString(PerformanceType type)
+    string GetPerformanceTypeString(PerformanceType type, int currentIndentLevel)
     {
       if(type == PerformanceType.Unspecified)
+        return String.Empty;
+
+      // Don't keep writing the performance type after the base indent level
+      if(currentIndentLevel > 0)
         return String.Empty;
 
       return type.ToString();
     }
 
-    string GetOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
+    void WriteScenarioOutcome(Scenario scenario)
+    {
+      writer.WriteLine("**** {0} ****", GetScenarioOutcome(scenario));
+    }
+
+    string GetScenarioOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
 
     void WriteIndent(int currentLevel)
     {
@@ -129,9 +139,9 @@ namespace CSF.Screenplay.Reporting
       writer.Write(new String(INDENT_CHAR, RESULT_OR_FAILURE_INDENT_WIDTH));
     }
 
-    void WritePerformanceType(Reportable reportable)
+    void WritePerformanceType(Reportable reportable, int currentIndentLevel)
     {
-      writer.Write("{0,5} ", GetPerformanceTypeString(reportable.PerformanceType));
+      writer.Write("{0,5} ", GetPerformanceTypeString(reportable.PerformanceType, currentIndentLevel));
     }
 
     void WriteResult(Performance reportable, int currentIndentLevel)
@@ -154,7 +164,7 @@ namespace CSF.Screenplay.Reporting
 
       var exception = reportable.Exception?.ToString();
       if(exception != null)
-        writer.WriteLine("FAILED\n{0}", exception);
+        writer.WriteLine("FAILED with an exception:\n{0}", exception);
       else
         writer.WriteLine("FAILED");
     }
@@ -163,10 +173,10 @@ namespace CSF.Screenplay.Reporting
       => String.Join(String.Empty, Enumerable.Range(0, currentLevel).Select(x => new String(INDENT_CHAR, INDENT_WIDTH)));
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TextReporter"/> class.
+    /// Initializes a new instance of the <see cref="TextReportWriter"/> class.
     /// </summary>
     /// <param name="writer">Writer.</param>
-    public TextReporter(TextWriter writer)
+    public TextReportWriter(TextWriter writer)
     {
       if(writer == null)
         throw new ArgumentNullException(nameof(writer));

@@ -13,6 +13,6 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable.</param>
-    public BeginPerformanceEventArgs(INamed actor, IPerformable performable) : base(actor, performable) {}
+    public BeginPerformanceEventArgs(IActor actor, IPerformable performable) : base(actor, performable) {}
   }
 }

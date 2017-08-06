@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.1.1</ReleaseVersion>
+    <ReleaseVersion>0.2.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -127,6 +127,11 @@
     <Compile Include="Queries\ClickableQuery.cs" />
     <Compile Include="Waits\ITargettedWait.cs" />
     <Compile Include="Models\GivenUpWaitingException.cs" />
+    <Compile Include="Actions\ClearCookies.cs" />
+    <Compile Include="Actions\DeleteCookie.cs" />
+    <Compile Include="Actions\ClearLocalStorage.cs" />
+    <Compile Include="Builders\ClearTheirBrowser.cs" />
+    <Compile Include="Abilities\ScreenplayContextWebBrowsingExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -136,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSF.Screenplay.Web.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions\" />

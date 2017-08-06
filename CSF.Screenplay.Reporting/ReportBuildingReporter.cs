@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Reporting.Builders;
+using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -7,7 +8,7 @@ namespace CSF.Screenplay.Reporting
   /// Implementation of <see cref="IReporter"/> which builds a report model.  Does nothing on its own but may be
   /// subclassed to provide reporting functionality based upon the report model.
   /// </summary>
-  public abstract class ReportBuildingReporter : NoOpReporter
+  public class ReportBuildingReporter : NoOpReporter, IModelBuildingReporter
   {
     ReportBuilder builder;
 
@@ -26,19 +27,15 @@ namespace CSF.Screenplay.Reporting
     }
 
     /// <summary>
-    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
-    /// </summary>
-    public abstract override void CompleteTestRun();
-
-    /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
     /// <param name="friendlyName">The friendly scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
-    public override void BeginNewScenario(string idName, string friendlyName, string featureName)
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    public override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
     {
-      builder.BeginNewScenario(idName, friendlyName, featureName);
+      builder.BeginNewScenario(idName, friendlyName, featureName, featureId);
     }
 
     /// <summary>
@@ -51,13 +48,22 @@ namespace CSF.Screenplay.Reporting
     }
 
     /// <summary>
+    /// Gets the completed report model.
+    /// </summary>
+    /// <returns>The report.</returns>
+    public virtual Report GetReport()
+    {
+      return builder.GetReport();
+    }
+
+    /// <summary>
     /// Reports that an actor has begun a 'given' part of their performance and that subsequent performables occur
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
     protected override void BeginGiven(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.Given);
+      builder.BeginPerformanceType(Models.PerformanceType.Given);
     }
 
     /// <summary>
@@ -66,7 +72,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndGiven(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
@@ -76,7 +82,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void BeginWhen(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.When);
+      builder.BeginPerformanceType(Models.PerformanceType.When);
     }
 
     /// <summary>
@@ -85,7 +91,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndWhen(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
@@ -95,7 +101,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void BeginThen(Actors.INamed actor)
     {
-      builder.BeginPerformance(Models.PerformanceType.Then);
+      builder.BeginPerformanceType(Models.PerformanceType.Then);
     }
 
     /// <summary>
@@ -104,7 +110,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected override void EndThen(Actors.INamed actor)
     {
-      builder.EndPerformance();
+      builder.EndPerformanceType();
     }
 
     /// <summary>
@@ -157,15 +163,6 @@ namespace CSF.Screenplay.Reporting
     protected override void Success(Actors.INamed actor, Performables.IPerformable performable)
     {
       builder.RecordSuccess(performable);
-    }
-
-    /// <summary>
-    /// Gets the completed report model.
-    /// </summary>
-    /// <returns>The report.</returns>
-    protected virtual Models.Report GetReportModel()
-    {
-      return builder.GetReport();
     }
 
     void BeginNewReport()

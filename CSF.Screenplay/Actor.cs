@@ -107,6 +107,16 @@ namespace CSF.Screenplay
     }
 
     /// <summary>
+    /// Performs an action or task which has a public parameterless constructor.
+    /// </summary>
+    /// <typeparam name="TPerformable">The type of the performable item to execute.</typeparam>
+    protected virtual void Perform<TPerformable>() where TPerformable : IPerformable,new()
+    {
+      var performable = Activator.CreateInstance<TPerformable>();
+      Perform(performable);
+    }
+
+    /// <summary>
     /// Performs an action, task or asks a question which returns a result value.
     /// </summary>
     /// <returns>The result of performing the item</returns>
@@ -337,6 +347,13 @@ namespace CSF.Screenplay
       InvokeEndGiven();
     }
 
+    void IGivenActor.WasAbleTo<TPerformable>()
+    {
+      InvokeBeginGiven();
+      Perform<TPerformable>();
+      InvokeEndGiven();
+    }
+
     void IWhenActor.AttemptsTo(IPerformable performable)
     {
       InvokeBeginWhen();
@@ -344,10 +361,24 @@ namespace CSF.Screenplay
       InvokeEndWhen();
     }
 
+    void IWhenActor.AttemptsTo<TPerformable>()
+    {
+      InvokeBeginWhen();
+      Perform<TPerformable>();
+      InvokeEndWhen();
+    }
+
     void IThenActor.Should(IPerformable performable)
     {
       InvokeBeginThen();
       Perform(performable);
+      InvokeEndThen();
+    }
+
+    void IThenActor.Should<TPerformable>()
+    {
+      InvokeBeginThen();
+      Perform<TPerformable>();
       InvokeEndThen();
     }
 
@@ -412,6 +443,11 @@ namespace CSF.Screenplay
     void IPerformer.Perform(IPerformable performable)
     {
       Perform(performable);
+    }
+
+    void IPerformer.Perform<TPerformable>()
+    {
+      Perform<TPerformable>();
     }
 
     TResult IPerformer.Perform<TResult>(IPerformable<TResult> performable)

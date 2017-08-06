@@ -30,6 +30,12 @@ namespace CSF.Screenplay.Actors
     void Perform(IPerformable performable);
 
     /// <summary>
+    /// Performs an action or task which has a public parameterless constructor.
+    /// </summary>
+    /// <typeparam name="TPerformable">The type of the performable item to execute.</typeparam>
+    void Perform<TPerformable>() where TPerformable : IPerformable,new();
+
+    /// <summary>
     /// Performs an action, task or asks a question which returns a result value.
     /// </summary>
     /// <returns>The result of performing the item</returns>
