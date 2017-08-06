@@ -75,10 +75,10 @@
     <Compile Include="Actors\ActorEventArgs.cs" />
     <Compile Include="Reporting\IReportable.cs" />
     <Compile Include="Context\IScreenplayContext.cs" />
-    <Compile Include="Context\ScreenplayContext.cs" />
     <Compile Include="Context\ServiceRegistration.cs" />
     <Compile Include="Context\ServiceLifetime.cs" />
-    <Compile Include="Actors\ScreenplayContextCastExtensions.cs" />
+    <Compile Include="ScreenplayContext.cs" />
+    <Compile Include="ScreenplayContextCastExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

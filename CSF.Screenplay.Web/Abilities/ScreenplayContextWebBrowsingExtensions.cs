@@ -1,8 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Context;
+using CSF.Screenplay.Web.Abilities;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay
 {
   /// <summary>
   /// Extension methods related to registering and retrieving the <see cref="BrowseTheWeb"/> ability

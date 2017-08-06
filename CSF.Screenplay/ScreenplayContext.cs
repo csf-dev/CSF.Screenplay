@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace CSF.Screenplay.Context
+namespace CSF.Screenplay
 {
   /// <summary>
   /// The screenplay context type, which acts as a service locator for the various services.

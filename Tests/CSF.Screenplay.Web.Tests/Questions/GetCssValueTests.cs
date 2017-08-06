@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the value of the 'color' property detects the expected value.")]
     public void GetCssValue_for_red_string_gets_correct_colour()
     {
-      var joe = Stage.Cast.GetOrCreate("joe");
+      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

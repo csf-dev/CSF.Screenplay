@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Context;
 
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay
 {
   /// <summary>
   /// Extension methods related to registering and retrieving the <see cref="IReporter"/> associated with the current

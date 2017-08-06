@@ -4,7 +4,7 @@ using CSF.Screenplay.Web.Abilities;
 using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.NUnit
+namespace CSF.Screenplay
 {
   /// <summary>
   /// Extension methods related to registering and retrieving the <see cref="BrowseTheWeb"/> ability
