@@ -2,12 +2,7 @@
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: >-
-    git submodule update --init --recursive
-
-    nuget restore CSF.Screenplay.sln
-
-    copy /y Tests\CSF.Screenplay.Web.Tests\App.config.AppVeyor Tests\CSF.Screenplay.Web.Tests\App.config
+- cmd: .appveyor.before_build.bat
 services:
   - iis
 build:
@@ -29,13 +24,4 @@ deploy:
     TestWebsite.site_name: "Test Web Site"
     TestWebsite.port: 8080
 after_deploy:
-- cmd: >-
-    nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll
-    
-    echo "Screenplay report"
-    
-    echo "*****************"
-    
-    echo
-    
-    type screenplay-report.txt
+- cmd: .appveyor.after_deploy.bat
