@@ -24,10 +24,8 @@ namespace CSF.Screenplay.Web.Models
     /// <param name="actor">An actor for whom to write the report.</param>
     public string GetReport(INamed actor)
     {
-      if(Target != null)
-        return $"{actor.Name} cannot see {Target.GetName()} on the screen.";
-
-      return $"{actor.Name} cannot see the action target on the screen.";
+      var targetName = (Target != null)? Target.GetName() : "the required element";
+      return $"{actor.Name} cannot see {targetName} on the screen.";
     }
 
     /// <summary>

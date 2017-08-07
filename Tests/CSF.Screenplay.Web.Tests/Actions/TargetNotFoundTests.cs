@@ -36,14 +36,15 @@ namespace CSF.Screenplay.Web.Tests.Actions
       try
       {
         When(joe).AttemptsTo(Click.On(PageTwo.ListOfItems));
+        Assert.Fail("The action should raise an exception.");
       }
       catch(TargetNotFoundException ex)
       {
         target = ex.Target;
       }
-      catch(Exception)
+      catch(Exception ex)
       {
-        Assert.Fail("Wrong exception type caught.");
+        Assert.Fail($"Wrong exception type caught. Expected {nameof(TargetNotFoundException)}, got:\n{ex.ToString()}");
       }
 
       Assert.That(target, Is.Not.Null, "Target should not be null.");
@@ -71,7 +72,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       var result = ex.GetReport(joe);
 
-      Assert.That(result, Is.EqualTo("Joe cannot see the action target on the screen."));
+      Assert.That(result, Is.EqualTo("Joe cannot see the required element on the screen."));
     }
   }
 }
