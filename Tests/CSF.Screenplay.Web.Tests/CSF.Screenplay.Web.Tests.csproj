@@ -93,6 +93,7 @@
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
     <Compile Include="ScreenplayNUnitIntegration.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
+    <Compile Include="Actions\TargetNotFoundTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
