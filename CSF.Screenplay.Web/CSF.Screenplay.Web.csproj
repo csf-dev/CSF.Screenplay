@@ -132,6 +132,7 @@
     <Compile Include="Actions\ClearLocalStorage.cs" />
     <Compile Include="Builders\ClearTheirBrowser.cs" />
     <Compile Include="Abilities\ScreenplayContextWebBrowsingExtensions.cs" />
+    <Compile Include="Models\TargetNotFoundException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
