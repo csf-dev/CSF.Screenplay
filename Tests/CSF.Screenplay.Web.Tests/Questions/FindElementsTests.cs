@@ -9,15 +9,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("Finding HTML elements")]
   public class FindElementsTests
   {
+    readonly ScreenplayContext context;
+
+    public FindElementsTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Finding child elements of the item list detects the correct count of children.")]
     public void FindElements_In_gets_expected_count_of_elements()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -30,7 +39,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Finding elements on the page detects the correct count of children.")]
     public void FindElements_OnThePage_gets_expected_count_of_elements()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

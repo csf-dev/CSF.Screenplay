@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("The deselect action")]
   public class DeselectTests
   {
+    readonly ScreenplayContext context;
+
+    public DeselectTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Deselecting everything leaves nothing selected.")]
     public void DeselectAll_leaves_nothing_selected()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -29,7 +38,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Deselecting by index leaves one item selected.")]
     public void DeselectByIndex_leaves_one_item_selected()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -42,7 +51,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Deselecting by text leaves one item selected.")]
     public void DeselectByText_leaves_one_item_selected()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -55,7 +64,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Deselecting by value leaves one item selected.")]
     public void DeselectByValue_leaves_one_item_selected()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
