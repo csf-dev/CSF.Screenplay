@@ -13,8 +13,22 @@ namespace CSF.Screenplay.NUnit
     readonly IReporter reporter;
     readonly ScreenplayContext context;
 
+    /// <summary>
+    /// Gets the cast.
+    /// </summary>
+    /// <value>The cast.</value>
     protected ICast Cast => cast;
+
+    /// <summary>
+    /// Gets the reporter.
+    /// </summary>
+    /// <value>The reporter.</value>
     protected IReporter Reporter => reporter;
+
+    /// <summary>
+    /// Gets the context.
+    /// </summary>
+    /// <value>The context.</value>
     protected ScreenplayContext Context => context;
 
     /// <summary>
@@ -60,6 +74,7 @@ namespace CSF.Screenplay.NUnit
     /// </summary>
     /// <param name="cast">Cast.</param>
     /// <param name="reporter">Reporter.</param>
+    /// <param name="context">The current context.</param>
     public CastReportingHelper(ICast cast, IReporter reporter, ScreenplayContext context)
     {
       if(reporter == null)

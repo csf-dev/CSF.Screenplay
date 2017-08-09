@@ -101,6 +101,7 @@ namespace CSF.Screenplay.NUnit
     /// <returns>The reporting helper.</returns>
     /// <param name="cast">Cast.</param>
     /// <param name="reporter">Reporter.</param>
+    /// <param name="context">The current context.</param>
     protected virtual CastReportingHelper GetReportingHelper(ICast cast, IReporter reporter, ScreenplayContext context)
       => new CastReportingHelper(cast, reporter, context);
 

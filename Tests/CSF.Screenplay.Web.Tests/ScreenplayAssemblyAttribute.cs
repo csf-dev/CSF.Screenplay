@@ -28,6 +28,7 @@ namespace CSF.Screenplay.Web.Tests
     /// <returns>The reporting helper.</returns>
     /// <param name="cast">Cast.</param>
     /// <param name="reporter">Reporter.</param>
+    /// <param name="context">The current context.</param>
     protected override NUnit.CastReportingHelper GetReportingHelper(ICast cast,
                                                                     IReporter reporter,
                                                                     ScreenplayContext context)
