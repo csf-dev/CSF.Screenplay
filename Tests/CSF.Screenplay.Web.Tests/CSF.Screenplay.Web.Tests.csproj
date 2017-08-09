@@ -94,6 +94,7 @@
     <Compile Include="ScreenplayNUnitIntegration.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="Actions\TargetNotFoundTests.cs" />
+    <Compile Include="NUnitIntegrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

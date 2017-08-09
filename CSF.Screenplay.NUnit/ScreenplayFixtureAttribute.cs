@@ -8,11 +8,21 @@ using NUnit.Framework.Internal.Builders;
 
 namespace CSF.Screenplay.NUnit
 {
-  public class ScreenplayFixtureAttribute : TestFixtureAttribute
+  public class ScreenplayFixtureAttribute : TestFixtureAttribute, IFixtureBuilder
   {
     readonly NUnitTestFixtureBuilder builder;
 
     public new IEnumerable<TestSuite> BuildFrom (ITypeInfo typeInfo)
+    {
+      return BuildTestSuites(typeInfo);
+    }
+
+    IEnumerable<TestSuite> IFixtureBuilder.BuildFrom(ITypeInfo typeInfo)
+    {
+      return BuildTestSuites(typeInfo);
+    }
+
+    IEnumerable<TestSuite> BuildTestSuites(ITypeInfo typeInfo)
     {
       var data = new TestFixtureData(ScreenplayContextContainer.GetContext(typeInfo.Assembly));
       var output = builder.BuildFrom(typeInfo, data);
