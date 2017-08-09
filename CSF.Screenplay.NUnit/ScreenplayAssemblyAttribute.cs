@@ -28,6 +28,8 @@ namespace CSF.Screenplay.NUnit
     public override void AfterTest(ITest test)
     {
       var context = GetContext(test);
+      if(context == null)
+        return;
 
       DisposeWebBrowsingAbility(context);
       InformReporterOfCompletion(context);
@@ -41,6 +43,8 @@ namespace CSF.Screenplay.NUnit
     public override void BeforeTest(ITest test)
     {
       var context = GetContext(test);
+      if(context == null)
+        return;
 
       RegisterCast(context);
       RegisterReporter(context);
@@ -181,6 +185,8 @@ namespace CSF.Screenplay.NUnit
     /// </summary>
     /// <value>The context.</value>
     protected ScreenplayContext GetContext(ITest test)
-      => ScreenplayContextContainer.GetContext(test.Fixture);
+    {
+      return ScreenplayContextContainer.GetContext();
+    }
   }
 }

@@ -25,13 +25,13 @@ namespace CSF.Screenplay.NUnit
 
     public void BeforeTest(ITest test)
     {
-      var context = ScreenplayContextContainer.GetContext(test.Fixture);
+      var context = ScreenplayContextContainer.GetContext();
       beforeAfterHelper.BeforeScenario(context, test);
     }
 
     public void AfterTest(ITest test)
     {
-      var context = ScreenplayContextContainer.GetContext(test.Fixture);
+      var context = ScreenplayContextContainer.GetContext();
       beforeAfterHelper.AfterScenario(context, test);
     }
 

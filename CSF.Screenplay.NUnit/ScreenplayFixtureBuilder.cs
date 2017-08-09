@@ -14,7 +14,7 @@ namespace CSF.Screenplay.NUnit
 
     internal IEnumerable<TestSuite> BuildTestSuites(ITypeInfo typeInfo)
     {
-      var data = new TestFixtureData(ScreenplayContextContainer.GetContext(typeInfo.Assembly));
+      var data = new TestFixtureData(ScreenplayContextContainer.GetContext());
       var output = builder.BuildFrom(typeInfo, data);
       return new [] { output };
     }
