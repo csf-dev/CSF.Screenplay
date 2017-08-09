@@ -48,6 +48,8 @@
     <Compile Include="ScenarioAdapter.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="ScreenplayContextWebBrowsingExtensions.cs" />
+    <Compile Include="ScreenplayFixtureAttribute.cs" />
+    <Compile Include="ScreenplayContextContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
