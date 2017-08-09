@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("Reading options from HTML <select> elements")]
   public class GetOptionsTests
   {
+    readonly ScreenplayContext context;
+
+    public GetOptionsTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Reading the available options reveals the expected collection of items.")]
     public void GetAllOptions_returns_expected_collection()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       var expected = new Models.Option[] {
         new Models.Option("One", "1"),
@@ -33,7 +42,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the selected options reveals the expected collection of items.")]
     public void GetSelectedOptions_returns_expected_collection()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().GetOrCreate("joe");
 
       var expected = new Models.Option[] {
         new Models.Option("Carrot", "veg"),

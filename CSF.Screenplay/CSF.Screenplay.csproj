@@ -79,6 +79,8 @@
     <Compile Include="Context\ServiceLifetime.cs" />
     <Compile Include="ScreenplayContext.cs" />
     <Compile Include="ScreenplayContextCastExtensions.cs" />
+    <Compile Include="Context\BeginScenarioEventArgs.cs" />
+    <Compile Include="Context\EndScenarioEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

@@ -44,12 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScreenplayTestAttribute.cs" />
     <Compile Include="ScenarioAdapter.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="ScreenplayContextWebBrowsingExtensions.cs" />
     <Compile Include="ScreenplayFixtureAttribute.cs" />
     <Compile Include="ScreenplayContextContainer.cs" />
+    <Compile Include="ScreenplayFixtureBuilder.cs" />
+    <Compile Include="BeforeAfterTestHelper.cs" />
+    <Compile Include="CastReportingHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

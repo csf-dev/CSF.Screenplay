@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Web.Abilities;
 using NUnit.Framework;
@@ -26,9 +27,11 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      DisposeWebBrowsingAbility();
-      InformReporterOfCompletion();
-      WriteReport();
+      var context = GetContext(test);
+
+      DisposeWebBrowsingAbility(context);
+      InformReporterOfCompletion(context);
+      WriteReport(context);
     }
 
     /// <summary>
@@ -37,89 +40,72 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      RegisterCast();
-      RegisterReporter();
-      RegisterDefaultWebBrowsingAbility();
-      ConfigureActorsInCast();
+      var context = GetContext(test);
+
+      RegisterCast(context);
+      RegisterReporter(context);
+      RegisterDefaultWebBrowsingAbility(context);
+      ConfigureActorsInCast(context);
     }
 
     /// <summary>
     /// Registers an implementation of <see cref="ICast"/> with the current context.
     /// </summary>
-    protected virtual void RegisterCast()
+    protected virtual void RegisterCast(ScreenplayContext context)
     {
-      Context.RegisterDefaultCast();
+      context.RegisterDefaultCast();
     }
 
     /// <summary>
     /// Registers an implementation of <see cref="Reporting.IReporter"/> with the current context.
     /// </summary>
-    protected virtual void RegisterReporter()
+    protected virtual void RegisterReporter(ScreenplayContext context)
     {
-      Context.RegisterDefaultReportBuildingReporter();
+      context.RegisterDefaultReportBuildingReporter();
     }
 
     /// <summary>
     /// Adds event listeners to the current <see cref="ICast"/> registered in the context.
     /// </summary>
-    protected void ConfigureActorsInCast()
+    protected void ConfigureActorsInCast(ScreenplayContext context)
     {
-      var cast = Context.GetCast();
+      var cast = context.GetCast();
       if(cast == null)
         return;
 
-      ConfigureActorsInCast(cast);
+      SetupReportingUponCast(cast, context);
     }
 
     /// <summary>
-    /// Adds event listeners to the given <see cref="ICast"/> instance.
+    /// Sets up the cast such that any newly-created actors are reported-upon.
     /// </summary>
     /// <param name="cast">Cast.</param>
-    protected virtual void ConfigureActorsInCast(ICast cast)
+    /// <param name="context">Context.</param>
+    protected void SetupReportingUponCast(ICast cast, ScreenplayContext context)
     {
-      cast.ActorAdded += HandleActorAddedToCast;
-      cast.ActorCreated += HandleActorCreatedInCast;
-    }
-
-    /// <summary>
-    /// Handles the creation of a new actor within an <see cref="ICast"/> instance.
-    /// </summary>
-    /// <param name="sender">Sender.</param>
-    /// <param name="args">Arguments.</param>
-    protected virtual void HandleActorCreatedInCast(object sender, ActorEventArgs args)
-    {
-      SubscribeReporter(args.Actor);
-    }
-
-    /// <summary>
-    /// Handles the addition of a new actor to an <see cref="ICast"/> instance.
-    /// </summary>
-    /// <param name="sender">Sender.</param>
-    /// <param name="args">Arguments.</param>
-    protected virtual void HandleActorAddedToCast(object sender, ActorEventArgs args)
-    {
-      // Intentional no-op, method is here for subclasses to override.
-    }
-
-    /// <summary>
-    /// Gets the <see cref="Reporting.IReporter"/> from the current context and subscribes it to the given actor.
-    /// </summary>
-    /// <param name="actor">Actor.</param>
-    protected virtual void SubscribeReporter(IActor actor)
-    {
-      var reporter = Context.GetReporter();
+      var reporter = context.GetReporter();
       if(reporter == null)
         return;
 
-      reporter.Subscribe(actor);
+      var reportingHelper = GetReportingHelper(cast, reporter, context);
+      reportingHelper.SetupSubscriptions();
     }
+
+    /// <summary>
+    /// Gets a helper type which sets up reporting for the cast.
+    /// </summary>
+    /// <returns>The reporting helper.</returns>
+    /// <param name="cast">Cast.</param>
+    /// <param name="reporter">Reporter.</param>
+    protected virtual CastReportingHelper GetReportingHelper(ICast cast, IReporter reporter, ScreenplayContext context)
+      => new CastReportingHelper(cast, reporter, context);
 
     /// <summary>
     /// Informs the reporter (from the current context) that the test run has completed.
     /// </summary>
-    protected virtual void InformReporterOfCompletion()
+    protected virtual void InformReporterOfCompletion(ScreenplayContext context)
     {
-      var reporter = Context.GetReporter();
+      var reporter = context.GetReporter();
       if(reporter == null)
         return;
 
@@ -129,9 +115,9 @@ namespace CSF.Screenplay.NUnit
     /// <summary>
     /// Gets the <see cref="Reporting.IReporter"/> from the current context and uses it to write a report.
     /// </summary>
-    protected virtual void WriteReport()
+    protected virtual void WriteReport(ScreenplayContext context)
     {
-      var report = GetReportModel();
+      var report = GetReportModel(context);
       if(report == null)
         return;
 
@@ -151,9 +137,9 @@ namespace CSF.Screenplay.NUnit
     /// Gets a report model from the <see cref="Reporting.IReporter"/> which is registered in the current context.
     /// </summary>
     /// <returns>The report model.</returns>
-    protected Report GetReportModel()
+    protected Report GetReportModel(ScreenplayContext context)
     {
-      var reporter = Context.GetReportBuildingReporter();
+      var reporter = context.GetReportBuildingReporter();
       if(reporter == null)
         return null;
 
@@ -172,18 +158,18 @@ namespace CSF.Screenplay.NUnit
     /// <summary>
     /// Registers the default web browsing ability with the current context.
     /// </summary>
-    protected virtual void RegisterDefaultWebBrowsingAbility()
+    protected virtual void RegisterDefaultWebBrowsingAbility(ScreenplayContext context)
     {
       var transformer = GetUriTransformer();
-      Context.RegisterSingletonBrowseTheWebAbility(transformer);
+      context.RegisterSingletonBrowseTheWebAbility(transformer);
     }
 
     /// <summary>
     /// Disposes the web browsing ability from the current context.
     /// </summary>
-    protected virtual void DisposeWebBrowsingAbility()
+    protected virtual void DisposeWebBrowsingAbility(ScreenplayContext context)
     {
-      var ability = Context.GetWebBrowsingAbility();
+      var ability = context.GetWebBrowsingAbility();
       if(ability == null)
         return;
 
@@ -194,6 +180,7 @@ namespace CSF.Screenplay.NUnit
     /// Gets the current screenplay context.
     /// </summary>
     /// <value>The context.</value>
-    protected ScreenplayContext Context => ScreenplayContext.Current;
+    protected ScreenplayContext GetContext(ITest test)
+      => ScreenplayContextContainer.GetContext(test.Fixture);
   }
 }

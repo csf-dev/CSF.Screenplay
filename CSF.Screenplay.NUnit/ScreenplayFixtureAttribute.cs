@@ -1,39 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
-using NUnit.Framework.Internal.Builders;
 
 namespace CSF.Screenplay.NUnit
 {
-  public class ScreenplayFixtureAttribute : TestFixtureAttribute, IFixtureBuilder
+  public class ScreenplayFixtureAttribute : TestFixtureAttribute, IFixtureBuilder, ITestAction
   {
-    readonly NUnitTestFixtureBuilder builder;
+    readonly ScreenplayFixtureBuilder fixtureBuilder;
+    readonly BeforeAfterTestHelper beforeAfterHelper;
+
+    public ActionTargets Targets => ActionTargets.Test;
 
     public new IEnumerable<TestSuite> BuildFrom (ITypeInfo typeInfo)
     {
-      return BuildTestSuites(typeInfo);
+      return fixtureBuilder.BuildTestSuites(typeInfo);
     }
 
     IEnumerable<TestSuite> IFixtureBuilder.BuildFrom(ITypeInfo typeInfo)
     {
-      return BuildTestSuites(typeInfo);
+      return fixtureBuilder.BuildTestSuites(typeInfo);
     }
 
-    IEnumerable<TestSuite> BuildTestSuites(ITypeInfo typeInfo)
+    public void BeforeTest(ITest test)
     {
-      var data = new TestFixtureData(ScreenplayContextContainer.GetContext(typeInfo.Assembly));
-      var output = builder.BuildFrom(typeInfo, data);
-      return new [] { output };
+      var context = ScreenplayContextContainer.GetContext(test.Fixture);
+      beforeAfterHelper.BeforeScenario(context, test);
+    }
+
+    public void AfterTest(ITest test)
+    {
+      var context = ScreenplayContextContainer.GetContext(test.Fixture);
+      beforeAfterHelper.AfterScenario(context, test);
     }
 
     public ScreenplayFixtureAttribute() : this(new object[0]) {}
 
     public ScreenplayFixtureAttribute(params object[] arguments) : base(arguments)
     {
-      builder = new NUnitTestFixtureBuilder();
+      fixtureBuilder = new ScreenplayFixtureBuilder();
+      beforeAfterHelper = new BeforeAfterTestHelper();
     }
   }
 }

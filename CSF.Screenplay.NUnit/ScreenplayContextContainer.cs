@@ -9,6 +9,14 @@ namespace CSF.Screenplay.NUnit
     static readonly IDictionary<Assembly,ScreenplayContext> contexts;
     static object syncRoot;
 
+    internal static ScreenplayContext GetContext(object fixture)
+    {
+      if(fixture == null)
+        throw new ArgumentNullException(nameof(fixture));
+
+      return GetContext(fixture.GetType());
+    }
+
     internal static ScreenplayContext GetContext(Type fixtureType)
     {
       if(fixtureType == null)
@@ -17,21 +25,21 @@ namespace CSF.Screenplay.NUnit
       return GetContext(fixtureType.Assembly);
     }
 
-    internal static ScreenplayContext GetContext(Assembly assembly)
+    internal static ScreenplayContext GetContext(Assembly fixtureAssembly)
     {
-      if(assembly == null)
-        throw new ArgumentNullException(nameof(assembly));
+      if(fixtureAssembly == null)
+        throw new ArgumentNullException(nameof(fixtureAssembly));
 
       lock(syncRoot)
       {
-        if(!contexts.ContainsKey(assembly))
+        if(!contexts.ContainsKey(fixtureAssembly))
         {
           var context = new ScreenplayContext();
-          contexts.Add(assembly, context);
+          contexts.Add(fixtureAssembly, context);
         }
       }
 
-      return contexts[assembly];
+      return contexts[fixtureAssembly];
     }
 
     static ScreenplayContextContainer()

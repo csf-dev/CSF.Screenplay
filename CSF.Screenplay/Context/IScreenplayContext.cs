@@ -36,5 +36,15 @@ namespace CSF.Screenplay.Context
     /// <param name="name">The optional name of the registration.</param>
     /// <typeparam name="TService">The service type.</typeparam>
     void RegisterPerScenario<TService>(string name = null) where TService : class,new();
+
+    /// <summary>
+    /// Event raised when a new test scenario begins.
+    /// </summary>
+    event EventHandler<BeginScenarioEventArgs> BeginScenario;
+
+    /// <summary>
+    /// Event raised when a test scenario ends.
+    /// </summary>
+    event EventHandler<EndScenarioEventArgs> EndScenario;
   }
 }

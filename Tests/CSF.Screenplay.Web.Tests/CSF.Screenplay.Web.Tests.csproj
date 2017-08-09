@@ -95,6 +95,7 @@
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
+    <Compile Include="CastReportingHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
