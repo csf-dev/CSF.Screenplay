@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the value of an element detects the expected value.")]
     public void GetValue_returns_expected_value()
     {
-      var joe = context.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -36,7 +36,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
     public void GetConvertedValue_returns_expected_value()
     {
-      var joe = context.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
       Given(joe).WasAbleTo(Enter.TheText("55").Into(PageTwo.SpecialInputField));

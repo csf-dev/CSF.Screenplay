@@ -49,7 +49,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, or a <c>null</c> reference if no such actor is contained in the current instance.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor GetActor(string name)
+    public virtual IActor GetExisting(string name)
     {
       lock(syncRoot)
       {
@@ -62,7 +62,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor GetOrCreate(string name)
+    public virtual IActor Get(string name)
     {
       lock(syncRoot)
       {
@@ -75,11 +75,11 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor CreateAndAdd(string name)
+    public virtual void Add(string name)
     {
       lock(syncRoot)
       {
-        return CreateAndAddLocked(name);
+        CreateAndAddLocked(name);
       }
     }
 

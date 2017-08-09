@@ -37,11 +37,11 @@ namespace CSF.Screenplay.Actors
     IEnumerable<IActor> GetAll();
 
     /// <summary>
-    /// Gets a single actor by their name.
+    /// Gets a single actor by their name, but does not create a new actor if they do not already exist.
     /// </summary>
     /// <returns>The named actor, or a <c>null</c> reference if no such actor is contained in the current instance.</returns>
     /// <param name="name">The actor name.</param>
-    IActor GetActor(string name);
+    IActor GetExisting(string name);
 
     /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
@@ -50,15 +50,14 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    IActor GetOrCreate(string name);
+    IActor Get(string name);
 
     /// <summary>
-    /// Creates a new actor of the given name, adds it to the current cast instance and returns it.
+    /// Creates a new actor of the given name and adds it to the current cast instance.
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
-    /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    IActor CreateAndAdd(string name);
+    void Add(string name);
 
     /// <summary>
     /// Adds the given actor to the current cast instance.

@@ -9,19 +9,6 @@ namespace CSF.Screenplay.Tests.Actors
   public class CastTests
   {
     [Test]
-    public void Add_using_name_returns_new_actor()
-    {
-      // Arrange
-      var cast = CreateCast();
-
-      // Act
-      var joe = cast.CreateAndAdd("joe");
-
-      // Assert
-      Assert.NotNull(joe);
-    }
-
-    [Test]
     public void Add_using_name_sets_actors_name()
     {
       // Arrange
@@ -29,7 +16,8 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      var joe = cast.CreateAndAdd(name);
+      cast.Add(name);
+      var joe = cast.GetExisting(name);
 
       // Assert
       Assert.AreEqual(name, joe.Name);
@@ -43,10 +31,10 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.CreateAndAdd(name);
+      cast.Add(name);
 
       // Act and assert
-      Assert.Throws<DuplicateActorException>(() => cast.CreateAndAdd(name));
+      Assert.Throws<DuplicateActorException>(() => cast.Add(name));
     }
 
     [Test]
@@ -56,39 +44,39 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = CreateCast();
 
       // Act
-      cast.CreateAndAdd("joe");
-      cast.CreateAndAdd("davina");
+      cast.Add("joe");
+      cast.Add("davina");
 
       // Act and assert
       Assert.Pass();
     }
 
     [Test]
-    public void GetActor_returns_null_for_nonexistent_actors()
+    public void Get_returns_null_for_nonexistent_actors()
     {
       // Arrange
       var cast = CreateCast();
 
       // Act
-      var joe = cast.GetActor("joe");
+      var joe = cast.GetExisting("joe");
 
       // Assert
       Assert.IsNull(joe);
     }
 
     [Test]
-    public void GetActor_returns_instance_for_created_actor()
+    public void Get_returns_instance_for_created_actor()
     {
       // Arrange
       var cast = CreateCast();
       var name = "joe";
-      var joe = cast.CreateAndAdd(name);
+      cast.Add(name);
 
       // Act
-      var joeClone = cast.GetActor(name);
+      var joe = cast.GetExisting(name);
 
       // Assert
-      Assert.AreSame(joe, joeClone);
+      Assert.NotNull(joe);
     }
 
     [Test]
@@ -96,8 +84,11 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = CreateCast();
-      var joe = cast.CreateAndAdd("joe");
-      var davina = cast.CreateAndAdd("davina");
+      cast.Add("joe");
+      cast.Add("davina");
+
+      var joe = cast.GetExisting("joe");
+      var davina = cast.GetExisting("davina");
 
       // Act
       var all = cast.GetAll();
@@ -116,7 +107,7 @@ namespace CSF.Screenplay.Tests.Actors
 
       // Act
       cast.Add(joe);
-      var joeClone = cast.GetActor(name);
+      var joeClone = cast.GetExisting(name);
 
       // Assert
       Assert.NotNull(joeClone);

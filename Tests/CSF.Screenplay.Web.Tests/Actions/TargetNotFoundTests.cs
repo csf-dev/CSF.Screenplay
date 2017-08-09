@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("Attempting to click on a link which does not exist raises an appropriate 'target not found' exception.")]
     public void Click_on_non_existent_element_raises_TargetNotFoundException()
     {
-      var joe = context.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("When a 'target not found' exception is raised, it should have a name which matches the missing target.")]
     public void TargetNotFoundException_raised_has_correct_target_name()
     {
-      var joe = context.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -64,7 +64,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
     public void TargetNotFoundException_includes_target_name_in_report()
     {
-      var joe = context.GetCast().GetOrCreate("Joe");
+      var joe = context.GetCast().Get("Joe");
       var ex = new TargetNotFoundException() { Target = PageTwo.ListOfItems };
 
       var result = ex.GetReport(joe);
@@ -76,7 +76,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
     public void TargetNotFoundException_can_create_a_report_without_target()
     {
-      var joe = context.GetCast().GetOrCreate("Joe");
+      var joe = context.GetCast().Get("Joe");
       var ex = new TargetNotFoundException();
 
       var result = ex.GetReport(joe);
