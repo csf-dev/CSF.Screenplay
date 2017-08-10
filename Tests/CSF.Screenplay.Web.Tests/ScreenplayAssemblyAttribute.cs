@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Web.Tests
 
     protected override void WriteReport(Report report)
     {
-      using(var writer = new StreamWriter("screenplay-report.txt"))
+      using(var writer = new StreamWriter("NUnit.report.txt"))
       {
         var reportWriter = new TextReportWriter(writer);
         reportWriter.Write(report);
@@ -29,9 +29,9 @@ namespace CSF.Screenplay.Web.Tests
     /// <param name="cast">Cast.</param>
     /// <param name="reporter">Reporter.</param>
     /// <param name="context">The current context.</param>
-    protected override NUnit.CastReportingHelper GetReportingHelper(ICast cast,
-                                                                    IReporter reporter,
-                                                                    ScreenplayContext context)
+    protected override Reporting.CastReportingHelper GetReportingHelper(ICast cast,
+                                                              IReporter reporter,
+                                                              ScreenplayContext context)
     => new CastReportingHelper(cast, reporter, context);
   }
 }

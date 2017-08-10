@@ -139,6 +139,10 @@
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CSF.WebDriverFactory\CSF.WebDriverFactory.csproj">
+      <Project>{C99466AD-CA21-4C12-9E05-6730CDC3C031}</Project>
+      <Name>CSF.WebDriverFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

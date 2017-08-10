@@ -1,8 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay.NUnit
+namespace CSF.Screenplay.Reporting
 {
   /// <summary>
   /// Sets up subscriptions between a <see cref="ICast"/> and an <see cref="IReporter"/>.

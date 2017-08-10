@@ -4,7 +4,7 @@ using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay.Web.Tests
 {
-  public class CastReportingHelper : NUnit.CastReportingHelper
+  public class CastReportingHelper : Reporting.CastReportingHelper
   {
     protected override void HandleActorCreatedInCast(object sender, ActorEventArgs e)
     {

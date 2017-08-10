@@ -8,7 +8,7 @@ testrunner/
 .vs/
 TestResult.xml
 TestResult.formatted.xml
-screenplay-report.txt
+*.report.txt
 Tests/Temp/
 Screenshots/
 *.log
