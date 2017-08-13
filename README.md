@@ -51,7 +51,7 @@ Screenplay tests start with **Actors**. Actors interact with the application via
 
 Where a task represents a high-level interaction with the application, the building blocks from which they are composed are **Actions**. Each action represents a single interaction between an actor and the application, such as a mouse click.
 
-In order to perform actions and ask questions, actors have **Abilities**. Abilities provide whatever is needed for the action/question to do its work.
+Actions and questions interact with the application, but they do so via APIs provided by **Abilities** which the actor has been granted.
 
 ![Diagram of Screenplay architecture](Screenplay1.jpg)
 
