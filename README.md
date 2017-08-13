@@ -49,7 +49,7 @@ public class BuyGroceriesTests
 ## Anatomy of a Screenplay test
 Screenplay tests start with **Actors**. Actors interact with the application via **Tasks** and query the state of the app with **Questions**.
 
-Where a task represents a high-level interaction with the application, the building blocks from which they are composed are **Actions**. Each action represents a single interaction between an actor and the application, such as a mouse click.
+Tasks represent high-level operations performed by the actor, which may involve a number of steps carried out in order. Tasks may be composed of other tasks, in order to create higher-level tasks. However, the building blocks which make tasks useful are **Actions**. Each action represents a single unit of interaction between an actor and the application, such as a mouse click.
 
 Actions and questions interact with the application, but they do so via APIs provided by **Abilities** which the actor has been granted.
 
