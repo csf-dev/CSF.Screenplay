@@ -28,18 +28,13 @@ public class BuyGroceriesTests
   [Test]
   public void JoeCanBuyEggs()
   {
-    var joe = ctx.GetCast()
-      .Get("Joe");
-    var browseTheWeb = ctx
-      .GetWebBrowsingAbility();
+    var joe = ctx.GetCast().Get("Joe");
+    var browseTheWeb = ctx.GetWebBrowsingAbility();
     joe.IsAbleTo(browseTheWeb);
 
-    Given(joe)
-      .WasAbleTo(SearchTheShop.ForGroceries());
-    When(joe)
-      .AttemptsTo(Click.On(GroceriesForSale.BuyEggsButton));
-    var message = Then(joe)
-      .ShouldSee(TheText.Of(GroceriesForSale.FeedbackMessage));
+    Given(joe).WasAbleTo(SearchTheShop.ForGroceries());
+    When(joe).AttemptsTo(Click.On(GroceriesForSale.BuyEggsButton));
+    var message = Then(joe).ShouldSee(TheText.Of(GroceriesForSale.FeedbackMessage));
 
     Assert.That(message, Is.EqualTo("Thankyou for buying eggs."));
   }
@@ -49,9 +44,9 @@ public class BuyGroceriesTests
 ## Anatomy of a Screenplay test
 Screenplay tests start with **Actors**. Actors interact with the application via **Tasks** and query the state of the app with **Questions**.
 
-Tasks represent high-level operations performed by the actor, which may involve a number of steps carried out in order. Tasks may be composed of other tasks, in order to create higher-level tasks. However, the building blocks which make tasks useful are **Actions**. Each action represents a single unit of interaction between an actor and the application, such as a mouse click.
+Tasks represent high-level operations performed by the actor, which may involve a number of steps carried out in order. Tasks may be composed of other tasks in order to create higher-level operations, but the building blocks which make them useful are **Actions**. Each action represents a single unit of interaction between an actor and the application, such as a mouse click.
 
-Actions and questions interact with the application, but they do so via APIs provided by **Abilities** which the actor has been granted.
+Actions and questions interact with the application. They do so via APIs provided by **Abilities** which the actor has been granted.
 
 ![Diagram of Screenplay architecture](Screenplay1.jpg)
 
