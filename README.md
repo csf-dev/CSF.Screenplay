@@ -53,6 +53,8 @@ Where a task represents a high-level interaction with the application, the build
 
 In order to perform actions and ask questions, actors have **Abilities**. Abilities provide whatever is needed for the action/question to do its work.
 
+![Diagram of Screenplay architecture](Screenplay1.jpeg)
+
 ### Applied to the example above
 In the example above, our **actor** is the variable `joe`.
 
