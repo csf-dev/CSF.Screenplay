@@ -18,9 +18,8 @@ namespace CSF.Screenplay.SpecFlow.Tests
         return actor;
       }
 
-      actor = cast.GetExisting(name);
-      if(actor != null)
-        return actor;
+      if(cast.HasActor(name))
+        return cast.GetExisting(name);
 
       actor = cast.Get(name);
       actor.IsAbleTo<AddNumbers>();

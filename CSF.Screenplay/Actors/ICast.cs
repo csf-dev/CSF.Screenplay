@@ -44,6 +44,13 @@ namespace CSF.Screenplay.Actors
     IActor GetExisting(string name);
 
     /// <summary>
+    /// Gets a value which indicates whether or not the current instance has an actor of the given name.
+    /// </summary>
+    /// <returns><c>true</c>, if an actor of the specified name exists in the current cast, <c>false</c> otherwise.</returns>
+    /// <param name="name">The name for which to search.</param>
+    bool HasActor(string name);
+
+    /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
     /// If this operation leads to the creation of a new actor then it will fire both
     /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
