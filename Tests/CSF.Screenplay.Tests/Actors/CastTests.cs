@@ -5,7 +5,7 @@ using Moq;
 
 namespace CSF.Screenplay.Tests.Actors
 {
-  [TestFixture]
+  [TestFixture,Parallelizable]
   public class CastTests
   {
     [Test]
