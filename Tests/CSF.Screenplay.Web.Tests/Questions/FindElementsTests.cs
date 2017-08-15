@@ -43,10 +43,8 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
-      var theDesiredItems = new CssSelector("#list_of_items li", "the items in the list");
-
       Then(joe)
-        .ShouldSee(Elements.OnThePage().ThatAre(theDesiredItems).Called("the listed items"))
+        .ShouldSee(Elements.OnThePage().ThatAre(PageTwo.ItemsInTheList).Called("the listed items"))
         .Elements.Count.Should().Be(5);
     }
   }
