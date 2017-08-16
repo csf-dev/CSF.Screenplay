@@ -67,3 +67,21 @@ The very last line doesn't really use screenplay at all. It is a standard NUnit 
 * This project is inspired by [Serenity BDD] (for Java), which provides a screenplay implementation of its own
 
 [Serenity BDD]: https://github.com/serenity-bdd
+
+## Continuous integration status
+CI builds are configured via both **Travis** (for build & test on Linux/Mono) and **AppVeyor** (Windows/.NET).
+Below are links to the most recent build statuses for these two CI platforms.
+
+The Travis build also includes browser-based testing on the "big 5" browsers. All of these are tested using Windows 10 and the latest available versions.  The obvious exception being Safari, which is tested on OSX 10.12.
+
+* Edge
+* Internet Explorer
+* Chrome
+* Firefox
+* Safari
+
+Platform | Status
+-------- | ------
+Linux/Mono (Travis) | [![Travis Status](https://travis-ci.org/csf-dev/CSF.Screenplay.svg?branch=master)](https://travis-ci.org/csf-dev/CSF.Screenplay)
+Windows/.NET (AppVeyor) | [![AppVeyor status](https://ci.appveyor.com/api/projects/status/y9ejfko3kflosava?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay)
+
