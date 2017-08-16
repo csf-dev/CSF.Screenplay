@@ -1,17 +1,15 @@
 language: csharp
 solution: CSF.Screenplay.sln
 
-before_install:
-  # Manually download NuGet latest, Travis uses Xamarin's repo version which is ancient
-  - mkdir -p .nuget
-  - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  # This just forces it to output its own version number
-  - mono .nuget/nuget.exe
+addons:
+  sauce_connect:
+    username: "craigfowler_screenplay"
+    direct_domains: google.com
+  jwt:
+    secure: "Z9LFke3tPdO/LOZf5Q6QHIRJk62PBTm+/45uxDTcLu8GHtzQp20myx1iH8pPnep2ribR9GP9qBmSTnBGeOHQNGMms64HPo5iMOoyb7+mfMxQzrP6ft/M8jBxAz5f46hP5shsnkdcXVEk47IU8yw0ceYMVa3/ZPgdfJ3xjeIqNFume/ceQd5dwHZJWLMmmzjvngecFZEEyqR0uY8pYQ3qI9n31YIF/qaFmoFbfkxDLnRM+JrqrNxdIqvYN3q4P7nLuUNpR/k+t0NibX+ZejQ2+SnIwlcAz2p8DWILx+QwN8qCfsh21d9y2EW+0TvnGzUKbOmF9fPdiGWmD0WsnJLnkVdl+PCKO2tgYryA8s/QWVOrV6LJWWsGhBR6lA4oJRcturuMaTm8LP5LtLPpV7OOAqV/7aMuOyrORXm+vdBhM47XnIkjU+HY8umq0UqzbHK5BIZzz3lbxbSOi9QfOL+AvP94+VKAMlZA97TkzyJfIgUiIgxopO+So8n181rsNMOux3+wmEzit4m34vYI9xg4adA5b+WL8I0BzkS0jHEQVY0pyqZg/N+h9Std1yR7ohtnLojdX4CXRkCZ7Wn4/6GLrLTuwLK24AO2/RlugAqMl32mfFhJ8GPzpaPJ3JvraWI5gM0tlNzZr8C1bIapu8FpLvUOYDGgT8fZWqiypkdzudk="
 
-install:
-  - mono .nuget/nuget.exe restore CSF.Screenplay.sln
-  - mono .nuget/nuget.exe install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory testrunner
+install: ./.travis.install.sh
 
-script:
-  - msbuild /p:Configuration=Debug CSF.Screenplay.sln
-  - mono "./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe" $(find ./Tests/ -type f -path "*/bin/Debug/*" -name "CSF.*.Tests.dll" \! -name "CSF.Screenplay.Web.Tests.dll")
+script: ./.travis.build.sh
+
+deploy: ./.travis.deploy.sh
