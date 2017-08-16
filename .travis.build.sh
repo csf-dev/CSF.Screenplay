@@ -35,7 +35,7 @@ run_unit_tests()
 
 start_webserver()
 {
-  xsp4 --address "$SERVER_ADDR" --port "$SERVER_PORT" --applications "$SERVER_WEB_APP" --pidfile "$SERVER_PID" &
+  xsp4 --nonstop --address "$SERVER_ADDR" --port "$SERVER_PORT" --applications "$SERVER_WEB_APP" --pidfile "$SERVER_PID" &
   echo "Waiting for 10 seconds for the web server to come up ..."
   sleep 10
 }
@@ -50,6 +50,7 @@ shutdown_webserver()
 {
   echo "Shutting down webserver ..."
   kill $(cat "$SERVER_PID")
+  rm "$SERVER_PID"
 }
 
 build_solution
