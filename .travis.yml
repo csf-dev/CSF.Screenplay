@@ -4,31 +4,32 @@ solution: CSF.Screenplay.sln
 
 addons:
   sauce_connect:
-    username: "craigfowler_screenplay"
     direct_domains: google.com
-  jwt:
-    secure: "Z9LFke3tPdO/LOZf5Q6QHIRJk62PBTm+/45uxDTcLu8GHtzQp20myx1iH8pPnep2ribR9GP9qBmSTnBGeOHQNGMms64HPo5iMOoyb7+mfMxQzrP6ft/M8jBxAz5f46hP5shsnkdcXVEk47IU8yw0ceYMVa3/ZPgdfJ3xjeIqNFume/ceQd5dwHZJWLMmmzjvngecFZEEyqR0uY8pYQ3qI9n31YIF/qaFmoFbfkxDLnRM+JrqrNxdIqvYN3q4P7nLuUNpR/k+t0NibX+ZejQ2+SnIwlcAz2p8DWILx+QwN8qCfsh21d9y2EW+0TvnGzUKbOmF9fPdiGWmD0WsnJLnkVdl+PCKO2tgYryA8s/QWVOrV6LJWWsGhBR6lA4oJRcturuMaTm8LP5LtLPpV7OOAqV/7aMuOyrORXm+vdBhM47XnIkjU+HY8umq0UqzbHK5BIZzz3lbxbSOi9QfOL+AvP94+VKAMlZA97TkzyJfIgUiIgxopO+So8n181rsNMOux3+wmEzit4m34vYI9xg4adA5b+WL8I0BzkS0jHEQVY0pyqZg/N+h9Std1yR7ohtnLojdX4CXRkCZ7Wn4/6GLrLTuwLK24AO2/RlugAqMl32mfFhJ8GPzpaPJ3JvraWI5gM0tlNzZr8C1bIapu8FpLvUOYDGgT8fZWqiypkdzudk="
   apt:
     packages:
       - mono-xsp4
+
+env:
+- SAUCE_USERNAME="craigfowler_screenplay"
+- secure: "ZI+FDrm6aec9HNMS4bbkgUzpeqVwy11flgnqWpYIyG12GzKQmrdXqMoAwD1kimIRNvry4r/z33GhBPDQaHly8edFzlkG4H8ITCyE48qttrVG71j5yYsyk6RLPm28zhcuhmnlalssk9jCsp09YFJ3zRO3Ayj/vboxTkQFhTa8d6nwag+MpfiVZVRdouO3qcKL3lPeWaQECo9hpX8o5MrQDCWprqg7b0ZMgW0vi5bqIFAmKoE/hn+qgp7BUQeVc983D8KClqYBsoJ09crn5ifd3CeCoOzeyczyS/DPrRgOOT63VdllGEQGKQZ78RY1LoloqEbbRI5ibjq7vuc8Er73yzxSbBbnKhG6nHRdfdNwxn2IAtZw86tpNSaKO1u8lprFDLbdCbHu42J6qQx4R8HZcq12Myv1eRYvupQrFv3mDAHK+NWYwCMKvouof50RNnJiFn6zcisvNQXCgG8NWeDBWbszRIwgvmQLsNB/vHCzrHO1bAT4lEYNuFVoUstO8t1r0C7ZVM6Qruuj46J0ZESTo10hUoHCohutdJ0ZAmH4ZxmW57L+BO1eFarkM7hmEZX6fImn0fobNHhSaEy+dNpYa9OS6n4iE6N4teTw20rpZ/AjkLUvJXjMh/YPkQ7M4VvDLqUHh5MPqAbgq3tUEfgPTm+lNy9QibquFwBRsAb3HRU="
 
 matrix:
   include:
     - env:
       - BROWSER_PLATFORM="Windows 10"
       - BROWSER_NAME="Chrome"
-    - env:
-      - BROWSER_PLATFORM="Windows 10"
-      - BROWSER_NAME="Firefox"
-    - env:
-      - BROWSER_PLATFORM="Windows 10"
-      - BROWSER_NAME="Internet Explorer"
-    - env:
-      - BROWSER_PLATFORM="Windows 10"
-      - BROWSER_NAME="MicrosoftEdge"
-    - env:
-      - BROWSER_PLATFORM="macOS 10.12"
-      - BROWSER_NAME="Safari"
+#    - env:
+#      - BROWSER_PLATFORM="Windows 10"
+#      - BROWSER_NAME="Firefox"
+#    - env:
+#      - BROWSER_PLATFORM="Windows 10"
+#      - BROWSER_NAME="Internet Explorer"
+#    - env:
+#      - BROWSER_PLATFORM="Windows 10"
+#      - BROWSER_NAME="MicrosoftEdge"
+#    - env:
+#      - BROWSER_PLATFORM="macOS 10.12"
+#      - BROWSER_NAME="Safari"
 
 install: ./.travis.install.sh
 
