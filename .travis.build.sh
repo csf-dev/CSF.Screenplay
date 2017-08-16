@@ -49,7 +49,7 @@ run_integration_tests()
 shutdown_webserver()
 {
   echo "Shutting down webserver ..."
-  cat "$SERVER_PID" | kill
+  kill $(cat "$SERVER_PID")
 }
 
 build_solution
