@@ -7,23 +7,25 @@ namespace CSF.Screenplay.Web.Tests
   {
     const string
       TunnelIdCapability = "tunnel-identifier",
+      UsernameCapability = "username",
+      ApiKeyCapability = "accessKey",
       TunnelIdEnvVariable = "TRAVIS_JOB_NUMBER",
       SauceUsernameEnvVariable = "SAUCE_USERNAME",
-      SauceApiKeyEnvVariable = "SAUCE_ACCESS_KEY",
-      SauceLabsEndpointFormat = "http://{0}:{1}@ondemand.saucelabs.com/wd/hub";
+      SauceApiKeyEnvVariable = "SAUCE_ACCESS_KEY";
 
     protected override void ConfigureCapabilities(OpenQA.Selenium.Remote.DesiredCapabilities caps)
     {
       base.ConfigureCapabilities(caps);
-      caps.SetCapability(TunnelIdCapability, Environment.GetEnvironmentVariable(TunnelIdEnvVariable));
+
+      caps.SetCapability(TunnelIdCapability, GetTunnelId());
+      caps.SetCapability(UsernameCapability, GetSauceUsername());
+      caps.SetCapability(ApiKeyCapability, GetSauceAccessKey());
     }
 
-    protected override Uri GetRemoteUri()
-    {
-      var username = Environment.GetEnvironmentVariable(SauceUsernameEnvVariable);
-      var apiKey = Environment.GetEnvironmentVariable(SauceApiKeyEnvVariable);
-      var endpoint = String.Format(SauceLabsEndpointFormat, username, apiKey);
-      return new Uri(endpoint);
-    }
+    string GetTunnelId() => Environment.GetEnvironmentVariable(TunnelIdEnvVariable);
+
+    string GetSauceUsername() => Environment.GetEnvironmentVariable(SauceUsernameEnvVariable);
+
+    string GetSauceAccessKey() => Environment.GetEnvironmentVariable(SauceApiKeyEnvVariable);
   }
 }
