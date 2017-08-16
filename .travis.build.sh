@@ -56,7 +56,7 @@ shutdown_webserver()
 
 echo_integration_test_results_to_console()
 {
-  cat SpecFlow.report.txt
+  cat NUnit.report.txt
 }
 
 build_solution
