@@ -10,7 +10,7 @@ namespace CSF.Screenplay.Web.Tests
       TunnelIdEnvVariable = "TRAVIS_JOB_NUMBER",
       SauceUsernameEnvVariable = "SAUCE_USERNAME",
       SauceApiKeyEnvVariable = "SAUCE_ACCESS_KEY",
-      SauceLabsEndpointFormat = "http://{0}:{1}ondemand.saucelabs.com/wd/hub";
+      SauceLabsEndpointFormat = "http://{0}:{1}@ondemand.saucelabs.com/wd/hub";
 
     protected override void ConfigureCapabilities(OpenQA.Selenium.Remote.DesiredCapabilities caps)
     {
