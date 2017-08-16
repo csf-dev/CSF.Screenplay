@@ -14,12 +14,6 @@ stop_if_failure()
   fi
 }
 
-install_webserver()
-{
-  sudo apt-get install mono-xsp4
-  stop_if_failure $?
-}
-
 install_latest_nuget()
 {
   # Travis uses Xamarin's apt repo which has an ancient nuget version
@@ -56,6 +50,5 @@ echo_nuget_version_to_console
 setup_travis_test_config
 install_test_runner
 restore_solution_nuget_packages
-install_webserver
 
 exit 0
