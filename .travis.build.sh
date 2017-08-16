@@ -8,7 +8,7 @@ SERVER_PORT="8080"
 SERVER_ADDR="127.0.0.1"
 SERVER_WEB_APP="/:Tests/CSF.Screenplay.WebTestWebsite/"
 SERVER_PID=".xsp4.pid"
-WEBSERVER_PAUSE_SECONDS="2"
+APP_HOMEPAGE="http://localhost:8080/Home"
 
 test_outcome=1
 
@@ -37,8 +37,13 @@ run_unit_tests()
 start_webserver()
 {
   xsp4 --nonstop --address "$SERVER_ADDR" --port "$SERVER_PORT" --applications "$SERVER_WEB_APP" --pidfile "$SERVER_PID" &
-  echo "Waiting for $WEBSERVER_PAUSE_SECONDS seconds for the web server to come up ..."
-  sleep $WEBSERVER_PAUSE_SECONDS
+}
+
+wait_for_app_to_become_available()
+{
+  sleep 1
+  wget -O - "$APP_HOMEPAGE" >/dev/null 2>&1
+  stop_if_failure $?
 }
 
 run_integration_tests()
@@ -62,6 +67,7 @@ echo_integration_test_results_to_console()
 build_solution
 run_unit_tests
 start_webserver
+wait_for_app_to_become_available
 run_integration_tests
 echo_integration_test_results_to_console
 shutdown_webserver
