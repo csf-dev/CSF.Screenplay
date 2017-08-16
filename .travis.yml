@@ -11,5 +11,3 @@ addons:
 install: ./.travis.install.sh
 
 script: ./.travis.build.sh
-
-deploy: ./.travis.deploy.sh

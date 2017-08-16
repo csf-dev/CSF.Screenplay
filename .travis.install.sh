@@ -46,7 +46,6 @@ restore_solution_nuget_packages()
 }
 
 install_latest_nuget
-
 echo_nuget_version_to_console
 setup_travis_test_config
 install_test_runner
