@@ -48,7 +48,7 @@ Tasks represent high-level operations performed by the actor, which may involve 
 
 Actions and questions interact with the application. They do so via APIs provided by **Abilities** which the actor has been granted.
 
-![Diagram of Screenplay architecture](Screenplay1.jpg)
+![Diagram of Screenplay architecture](screenplay-architecture-diagram.jpeg)
 
 ### Applied to the example above
 In the example above, our **actor** is the variable `joe`.
