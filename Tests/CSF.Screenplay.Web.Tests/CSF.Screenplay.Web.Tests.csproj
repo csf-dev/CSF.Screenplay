@@ -97,6 +97,7 @@
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
     <Compile Include="CastReportingHelper.cs" />
+    <Compile Include="SauceConnectWebDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
