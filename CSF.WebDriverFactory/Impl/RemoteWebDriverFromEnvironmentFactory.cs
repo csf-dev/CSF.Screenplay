@@ -84,18 +84,14 @@ namespace CSF.WebDriverFactory.Impl
     }
 
     /// <summary>
-    /// Gets a set of <c>ICapabilities</c> from the current state of this instance.
+    /// Configures the capabilities desired for the current instance.
     /// </summary>
-    /// <returns>The capabilities.</returns>
-    protected override ICapabilities GetCapabilities()
+    /// <param name="caps">Caps.</param>
+    protected override void ConfigureCapabilities(DesiredCapabilities caps)
     {
-      var caps = new DesiredCapabilities();
-
       SetCapabilityToEnvOrSetting(caps, CapabilityType.BrowserName, BrowserNameVar, BrowserName);
       SetCapabilityToEnvOrSetting(caps, CapabilityType.Version, BrowserVersionVar, BrowserVersion);
       SetCapabilityToEnvOrSetting(caps, CapabilityType.Platform, PlatformVar, Platform);
-
-      return caps;
     }
 
     /// <summary>
