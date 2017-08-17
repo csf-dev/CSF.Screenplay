@@ -49,7 +49,8 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="App.config" />
-    <None Include="App.config.AppVeyor" />
+    <None Include="App.AppVeyor.config" />
+    <None Include="App.Travis.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -96,6 +97,9 @@
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
     <Compile Include="CastReportingHelper.cs" />
+    <Compile Include="SauceConnectWebDriverFactory.cs" />
+    <Compile Include="IgnoreOn.cs" />
+    <Compile Include="BrowserName.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

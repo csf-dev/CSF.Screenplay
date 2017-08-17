@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Web.Tests.Pages
   {
     public override string GetName() => "the app home page";
 
-    public override IUriProvider GetUriProvider() => new AppUri("");
+    public override IUriProvider GetUriProvider() => new AppUri("Home");
 
     public static ITarget ImportantString => new ElementId("important_string", "the important string");
 
