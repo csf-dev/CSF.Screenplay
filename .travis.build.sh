@@ -47,8 +47,8 @@ start_webserver()
 wait_for_app_to_become_available()
 {
   echo "Waiting for the app to become available ..."
-  sleep 1
-  wget -O - "$APP_HOMEPAGE" >/dev/null 2>&1
+  sleep 2
+  wget -T 90 -O - "$APP_HOMEPAGE" >/dev/null
   stop_if_failure $? "Wait for the app to start up"
 }
 
