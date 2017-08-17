@@ -1,14 +1,10 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"
 WEB_TESTS_PATH="Tests/CSF.Screenplay.Web.Tests/bin/Debug/CSF.Screenplay.Web.Tests.dll"
-SERVER_PORT="8080"
-SERVER_ADDR="127.0.0.1"
-SERVER_WEB_APP="/:Tests/CSF.Screenplay.WebTestWebsite/"
 SERVER_PID=".xsp4.pid"
-APP_HOMEPAGE="http://localhost:8080/Home"
 
 test_outcome=1
 
@@ -40,16 +36,9 @@ run_unit_tests()
 
 start_webserver()
 {
-  echo "Starting the app on a web server ..."
-  xsp4 --nonstop --address "$SERVER_ADDR" --port "$SERVER_PORT" --applications "$SERVER_WEB_APP" --pidfile "$SERVER_PID" &
-}
-
-wait_for_app_to_become_available()
-{
-  echo "Waiting for the app to become available ..."
-  sleep 2
-  wget -T 90 -O - "$APP_HOMEPAGE" >/dev/null
-  stop_if_failure $? "Wait for the app to start up"
+  echo "Starting up the application ..."
+  bash ./.travis.start_webserver.sh
+  stop_if_failure $? "Starting the application"
 }
 
 run_integration_tests()
@@ -74,7 +63,6 @@ echo_integration_test_results_to_console()
 build_solution
 run_unit_tests
 start_webserver
-wait_for_app_to_become_available
 run_integration_tests
 echo_integration_test_results_to_console
 shutdown_webserver
