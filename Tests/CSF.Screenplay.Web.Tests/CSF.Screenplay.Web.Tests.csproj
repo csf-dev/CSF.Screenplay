@@ -98,6 +98,8 @@
     <Compile Include="NUnitIntegrationTests.cs" />
     <Compile Include="CastReportingHelper.cs" />
     <Compile Include="SauceConnectWebDriverFactory.cs" />
+    <Compile Include="IgnoreOn.cs" />
+    <Compile Include="BrowserName.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
