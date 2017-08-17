@@ -45,11 +45,18 @@ namespace CSF.Screenplay.Actors
     public virtual IEnumerable<IActor> GetAll() => Actors.Values.ToArray();
 
     /// <summary>
+    /// Gets a value which indicates whether or not the current instance has an actor of the given name.
+    /// </summary>
+    /// <returns><c>true</c>, if an actor of the specified name exists in the current cast, <c>false</c> otherwise.</returns>
+    /// <param name="name">The name for which to search.</param>
+    public virtual bool HasActor(string name) => Actors.ContainsKey(name);
+
+    /// <summary>
     /// Gets a single actor by their name.
     /// </summary>
     /// <returns>The named actor, or a <c>null</c> reference if no such actor is contained in the current instance.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor GetActor(string name)
+    public virtual IActor GetExisting(string name)
     {
       lock(syncRoot)
       {
@@ -62,7 +69,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor GetOrCreate(string name)
+    public virtual IActor Get(string name)
     {
       lock(syncRoot)
       {
@@ -75,11 +82,11 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor CreateAndAdd(string name)
+    public virtual void Add(string name)
     {
       lock(syncRoot)
       {
-        return CreateAndAddLocked(name);
+        CreateAndAddLocked(name);
       }
     }
 

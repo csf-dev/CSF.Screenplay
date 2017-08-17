@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("Reading the title of the browser window")]
   public class GetWindowTitleTests
   {
+    readonly ScreenplayContext context;
+
+    public GetWindowTitleTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
     public void GetWindowTitle_returns_correct_result()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

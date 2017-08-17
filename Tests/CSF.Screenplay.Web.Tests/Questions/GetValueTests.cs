@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("Reading the value of a form element")]
   public class GetValueTests
   {
+    readonly ScreenplayContext context;
+
+    public GetValueTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Reading the value of an element detects the expected value.")]
     public void GetValue_returns_expected_value()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -27,7 +36,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
     public void GetConvertedValue_returns_expected_value()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
       Given(joe).WasAbleTo(Enter.TheText("55").Into(PageTwo.SpecialInputField));

@@ -58,13 +58,20 @@ namespace CSF.WebDriverFactory.Impl
     protected virtual ICapabilities GetCapabilities()
     {
       var caps = new DesiredCapabilities();
+      ConfigureCapabilities(caps);
+      return caps;
+    }
 
+    /// <summary>
+    /// Configures the capabilities desired for the current instance.
+    /// </summary>
+    /// <param name="caps">Caps.</param>
+    protected virtual void ConfigureCapabilities(DesiredCapabilities caps)
+    {
       caps.SetCapability(CapabilityType.BrowserName, BrowserName);
 
       SetCapabilityIfNotNull(caps, CapabilityType.Version, BrowserVersion);
       SetCapabilityIfNotNull(caps, CapabilityType.Platform, Platform);
-
-      return caps;
     }
 
     /// <summary>

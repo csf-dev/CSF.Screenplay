@@ -8,7 +8,7 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
-  [TestFixture]
+  [TestFixture,Parallelizable]
   public class ReportBuilderTests
   {
     [Test,AutoMoqData]

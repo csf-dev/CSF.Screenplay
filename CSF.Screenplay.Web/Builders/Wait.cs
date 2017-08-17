@@ -97,6 +97,7 @@ namespace CSF.Screenplay.Web.Builders
     {
       var wait = GetTargettedWait(new VisibilityQuery(), x => x);
       wait.IgnoredExceptionTypes.Add(typeof(NotFoundException));
+      wait.IgnoredExceptionTypes.Add(typeof(TargetNotFoundException));
       return wait;
     }
 
@@ -108,6 +109,7 @@ namespace CSF.Screenplay.Web.Builders
     {
       var wait = GetTargettedWait(new ClickableQuery(), x => x);
       wait.IgnoredExceptionTypes.Add(typeof(NotFoundException));
+      wait.IgnoredExceptionTypes.Add(typeof(TargetNotFoundException));
       return wait;
     }
 

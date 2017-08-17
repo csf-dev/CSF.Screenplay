@@ -9,7 +9,7 @@ using Ploeh.AutoFixture.NUnit3;
 
 namespace CSF.WebDriverFactory.Tests
 {
-  [TestFixture]
+  [TestFixture,Parallelizable]
   public class ConfigurationWebDriverFactoryProviderTests
   {
     [TestCase(typeof(ChromeWebDriverFactory))]

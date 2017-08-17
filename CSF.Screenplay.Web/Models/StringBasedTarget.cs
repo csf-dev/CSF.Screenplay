@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Web.Models
         throw new ArgumentNullException(nameof(driver));
 
       var locator = GetWebDriverLocator(identifier);
-      var element = driver.FindElement(locator);
+      var element = GetElement(locator, driver);
       return new SeleniumWebElementAdapter(element, name);
     }
 
@@ -80,6 +80,20 @@ namespace CSF.Screenplay.Web.Models
     /// <returns>A Selenium WebDriver locator instance.</returns>
     /// <param name="identifier">The identifier which will be used to get the locator.</param>
     protected abstract By GetWebDriverLocator(string identifier);
+
+    IWebElement GetElement(By locator, IWebDriver driver)
+    {
+      try
+      {
+        return driver.FindElement(locator);
+      }
+      catch(NoSuchElementException ex)
+      {
+        throw new TargetNotFoundException("The required element was not found on the screen.", ex) {
+          Target = this
+        };
+      }
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StringBasedTarget"/> class.

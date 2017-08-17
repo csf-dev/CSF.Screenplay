@@ -25,6 +25,12 @@ namespace CSF.Screenplay
         throw new ArgumentNullException(nameof(reporter));
 
       context.RegisterSingleton(reporter, name);
+
+      if(name == null)
+      {
+        context.BeginScenario += HandleBeginScenario;
+        context.EndScenario += HandleEndScenario;
+      }
     }
 
     /// <summary>
@@ -69,6 +75,37 @@ namespace CSF.Screenplay
         throw new ArgumentNullException(nameof(context));
 
       return context.GetService<IReporter>(name) as IModelBuildingReporter;
+    }
+
+    static void HandleBeginScenario(object sender, BeginScenarioEventArgs args)
+    {
+      var context = GetContext(sender);
+      if(context == null)
+        return;
+
+      var reporter = context.GetReporter();
+      if(reporter == null)
+        return;
+
+      reporter.BeginNewScenario(args.ScenarioId, args.ScenarioName, args.FeatureName, args.FeatureId);
+    }
+
+    static void HandleEndScenario(object sender, EndScenarioEventArgs args)
+    {
+      var context = GetContext(sender);
+      if(context == null)
+        return;
+
+      var reporter = context.GetReporter();
+      if(reporter == null)
+        return;
+
+      reporter.CompleteScenario(args.Success);
+    }
+
+    static ScreenplayContext GetContext(object context)
+    {
+      return context as ScreenplayContext;
     }
   }
 }

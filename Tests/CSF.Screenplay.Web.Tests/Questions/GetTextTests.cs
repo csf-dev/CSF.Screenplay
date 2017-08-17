@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("Reading the text of an element")]
   public class GetTextTests
   {
+    readonly ScreenplayContext context;
+
+    public GetTextTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Reading the text of an element detects the expected value.")]
     public void GetText_returns_expected_value()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -27,11 +36,26 @@ namespace CSF.Screenplay.Web.Tests.Questions
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
     public void GetConvertedText_returns_expected_value()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
       Then(joe).ShouldSee(TheText.From(HomePage.ImportantNumber).As<int>()).Should().Be(42);
+    }
+
+    [Test]
+    [Description("Reading the text of multiple elements returns the correct collection of values.")]
+    public void GetText_for_multiple_elements_returns_expected_values()
+    {
+      var joe = context.GetCast().Get("joe");
+
+      var expected = new [] { "One", "Two", "Three", "Four", "Five" };
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+
+      Then(joe)
+        .ShouldSee(TheText.OfAll(PageTwo.ItemsInTheList))
+        .Should().BeEquivalentTo(expected);
     }
   }
 }

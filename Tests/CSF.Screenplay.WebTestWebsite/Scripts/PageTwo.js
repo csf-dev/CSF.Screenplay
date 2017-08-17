@@ -30,11 +30,11 @@
       value.text(val);
   }
   
-  singleSelection.on('change', function() {
+  singleSelection.on('change click', function() {
     recalculateSelections(singleSelection, singleSelectionValue);
   });
     
-  multiSelection.on('change', function() {
+  multiSelection.on('change click', function() {
     recalculateSelections(multiSelection, multiSelectionValue);
   });
   

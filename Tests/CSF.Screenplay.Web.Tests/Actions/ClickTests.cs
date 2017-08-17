@@ -8,15 +8,24 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [TestFixture]
+  [ScreenplayFixture]
   [Description("The click action")]
   public class ClickTests
   {
+    readonly ScreenplayContext context;
+
+    public ClickTests(ScreenplayContext context)
+    {
+      if(context == null)
+        throw new ArgumentNullException(nameof(context));
+      this.context = context;
+    }
+
     [Test]
     [Description("Clicking on the link to page two navigates to the second page.")]
     public void Click_OnLinkToPageTwo_navigates_to_second_page()
     {
-      var joe = ScreenplayContext.Current.GetCast().GetOrCreate("joe");
+      var joe = context.GetCast().Get("joe");
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

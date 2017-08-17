@@ -12,8 +12,14 @@ namespace CSF.Screenplay
   /// </summary>
   public class ScreenplayContext : IScreenplayContext
   {
+    #region fields
+
     readonly IDictionary<ServiceRegistration,object> singletonServices;
     readonly IDictionary<ServiceRegistration,Func<object>> perScenarioServices;
+
+    #endregion
+
+    #region explicit interface implementation
 
     TService IScreenplayContext.GetService<TService>(string name)
     {
@@ -35,9 +41,53 @@ namespace CSF.Screenplay
     {
       if(instance == null)
         throw new ArgumentNullException(nameof(instance));
-      
+
       var reg = CreateRegistration(typeof(TService), name, ServiceLifetime.PerTestRun);
       singletonServices.Add(reg, instance);
+    }
+
+    /// <summary>
+    /// Event raised when a new test scenario begins.
+    /// </summary>
+    public event EventHandler<BeginScenarioEventArgs> BeginScenario;
+
+    /// <summary>
+    /// Event raised when a test scenario ends.
+    /// </summary>
+    public event EventHandler<EndScenarioEventArgs> EndScenario;
+
+    #endregion
+
+    #region methods
+
+    /// <summary>
+    /// Triggers the <see cref="BeginScenario"/> event.
+    /// </summary>
+    /// <param name="scenarioId">Scenario identifier.</param>
+    /// <param name="scenarioName">Scenario name.</param>
+    /// <param name="featureId">Feature identifier.</param>
+    /// <param name="featureName">Feature name.</param>
+    public void OnBeginScenario(string scenarioId, string scenarioName, string featureId, string featureName)
+    {
+      var args = new BeginScenarioEventArgs {
+        ScenarioId = scenarioId,
+        ScenarioName = scenarioName,
+        FeatureId = featureId,
+        FeatureName = featureName
+      };
+      BeginScenario?.Invoke(this, args);
+    }
+
+    /// <summary>
+    /// Triggers the <see cref="EndScenario"/> event.
+    /// </summary>
+    /// <param name="success">A value indicating whether the scenario was a success or not.</param>
+    public void OnEndScenario(bool success)
+    {
+      var args = new EndScenarioEventArgs {
+        Success = success,
+      };
+      EndScenario?.Invoke(this, args);
     }
 
     TService GetPerScenarioService<TService>(string name) where TService : class
@@ -69,7 +119,7 @@ namespace CSF.Screenplay
         throw new ArgumentNullException(nameof(type));
       if(factory == null)
         throw new ArgumentNullException(nameof(factory));
-      
+
       var reg = CreateRegistration(type, name, ServiceLifetime.PerScenario);
       perScenarioServices.Add(reg, factory);
     }
@@ -79,6 +129,8 @@ namespace CSF.Screenplay
       return new ServiceRegistration(type, name, lifetime);
     }
 
+    #endregion
+
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Context.ScreenplayContext"/> class.
     /// </summary>
@@ -87,25 +139,5 @@ namespace CSF.Screenplay
       singletonServices = new ConcurrentDictionary<ServiceRegistration,object>();
       perScenarioServices = new ConcurrentDictionary<ServiceRegistration,Func<object>>();
     }
-
-    #region singleton
-
-    static ScreenplayContext current;
-
-    /// <summary>
-    /// Gets the current <see cref="ScreenplayContext"/>.
-    /// </summary>
-    /// <value>The current context.</value>
-    public static ScreenplayContext Current => current;
-
-    /// <summary>
-    /// Initializes the <see cref="T:CSF.Screenplay.Context.ScreenplayContext"/> class.
-    /// </summary>
-    static ScreenplayContext()
-    {
-      current = new ScreenplayContext();
-    }
-
-    #endregion
   }
 }

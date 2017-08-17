@@ -24,5 +24,7 @@ namespace CSF.Screenplay.Web.Tests.Pages
     public static ITarget MultiSelectionValue => new CssSelector("#multiple_selected_value", "the multi-selection value");
 
     public static ITarget ListOfItems => new CssSelector("#list_of_items", "the list of items");
+
+    public static ILocatorBasedTarget ItemsInTheList => new CssSelector("#list_of_items li", "items in the list");
   }
 }

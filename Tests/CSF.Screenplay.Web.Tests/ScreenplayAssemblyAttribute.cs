@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Web.Tests
 
     protected override void WriteReport(Report report)
     {
-      using(var writer = new StreamWriter("screenplay-report.txt"))
+      using(var writer = new StreamWriter("NUnit.report.txt"))
       {
         var reportWriter = new TextReportWriter(writer);
         reportWriter.Write(report);
@@ -22,19 +22,16 @@ namespace CSF.Screenplay.Web.Tests
       }
     }
 
-    protected override void HandleActorCreatedInCast(object sender, ActorEventArgs e)
-    {
-      base.HandleActorCreatedInCast(sender, e);
-      GrantWebBrowsingAbility(e.Actor);
-    }
-
-    void GrantWebBrowsingAbility(IActor actor)
-    {
-      var browseTheWeb = Context.GetWebBrowsingAbility();
-      if(browseTheWeb == null)
-        return;
-
-      actor.IsAbleTo(browseTheWeb);
-    }
+    /// <summary>
+    /// Gets a helper type which sets up reporting for the cast.
+    /// </summary>
+    /// <returns>The reporting helper.</returns>
+    /// <param name="cast">Cast.</param>
+    /// <param name="reporter">Reporter.</param>
+    /// <param name="context">The current context.</param>
+    protected override Reporting.CastReportingHelper GetReportingHelper(ICast cast,
+                                                              IReporter reporter,
+                                                              ScreenplayContext context)
+    => new CastReportingHelper(cast, reporter, context);
   }
 }
