@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 SERVER_PORT="8080"
 SERVER_ADDR="127.0.0.1"
