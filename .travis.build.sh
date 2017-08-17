@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
@@ -45,7 +45,7 @@ run_integration_tests()
 {
   echo "Running integration tests ..."
   mono "$NUNIT_PATH" "$WEB_TESTS_PATH"
-  test_outcome=$? "Run integration tests"
+  test_outcome=$?
 }
 
 shutdown_webserver()
