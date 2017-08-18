@@ -17,7 +17,7 @@
 
       setTimeout(function() {
         delayTargetOne.append($('<a href="https://google.com/" class="appeared">This link appears!</a>'));
-      }, 6000);
+      }, 4000);
     });
   }
 

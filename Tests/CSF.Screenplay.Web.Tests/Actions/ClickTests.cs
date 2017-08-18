@@ -31,7 +31,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       When(joe).AttemptsTo(Click.On(HomePage.SecondPageLink));
 
-      Then(joe).Should(Wait.ForAtMost(TimeSpan.FromSeconds(2)).Until(PageTwo.SpecialInputField).IsVisible());
+      Then(joe).Should(Wait.ForAtMost(2).Seconds().OrUntil(PageTwo.SpecialInputField).IsVisible());
 
       Then(joe).ShouldSee(TheWindow.Title()).Should().Be("Page two");
     }

@@ -31,7 +31,7 @@ namespace CSF.Screenplay.Web.Tests.Waits
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 
       When(joe).AttemptsTo(Click.On(PageThree.DelayedButtonOne));
-      When(joe).AttemptsTo(Wait.ForAtMost(TimeSpan.FromSeconds(10)).Until(PageThree.DelayedLinkOne).IsVisible());
+      When(joe).AttemptsTo(Wait.ForAtMost(5).Seconds().OrUntil(PageThree.DelayedLinkOne).IsVisible());
 
       Then(joe).ShouldSee(TheText.Of(PageThree.DelayedLinkOne)).Should().Be("This link appears!");
     }
@@ -47,7 +47,7 @@ namespace CSF.Screenplay.Web.Tests.Waits
       When(joe).AttemptsTo(Click.On(PageThree.DelayedButtonOne));
 
       Assert.Throws<GivenUpWaitingException>(() => {
-        When(joe).AttemptsTo(Wait.ForAtMost(TimeSpan.FromSeconds(4)).Until(PageThree.DelayedLinkOne).IsVisible());
+        When(joe).AttemptsTo(Wait.ForAtMost(2).Seconds().OrUntil(PageThree.DelayedLinkOne).IsVisible());
       });
     }
   }
