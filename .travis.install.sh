@@ -1,6 +1,7 @@
 #!/bin/bash
 
 NUGET_LATEST_DIST="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+NUNIT_CONSOLE_VERSION="3.7.0"
 TRAVIS_TEST_CONFIG_SOURCE="Tests/CSF.Screenplay.Web.Tests/App.Travis.config"
 TEST_CONFIG_DESTINATION="Tests/CSF.Screenplay.Web.Tests/App.config"
 NUGET_PATH=".nuget/nuget.exe"
@@ -41,7 +42,10 @@ setup_travis_test_config()
 install_test_runner()
 {
   echo "Downloading an NUnit test runner ..."
-  mono "$NUGET_PATH" install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory testrunner
+  mono "$NUGET_PATH" install \
+    "NUnit.ConsoleRunner" \
+    -Version "$NUNIT_CONSOLE_VERSION" \
+    -OutputDirectory testrunner
   stop_if_failure $? "Download NUnit test runner"
 }
 
