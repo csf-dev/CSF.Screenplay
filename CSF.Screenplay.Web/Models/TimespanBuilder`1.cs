@@ -1,7 +1,6 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Web.Models
 {
   /// <summary>
   /// Builder for <c>System.TimeSpan</c> instances.
