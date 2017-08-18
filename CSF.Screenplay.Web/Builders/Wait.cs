@@ -12,22 +12,22 @@ namespace CSF.Screenplay.Web.Builders
   /// </summary>
   public class Wait
   {
-    static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(10);
+    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(10));
 
-    TimeSpan timeout;
+    IProvidesTimespan timespanProvider;
     ITarget target;
 
     /// <summary>
     /// Gets a builder instance for a wait with a specified timeout.
     /// </summary>
-    /// <returns>A wait builder.</returns>
-    /// <param name="timeout">Timeout.</param>
-    public static Wait ForAtMost(TimeSpan timeout)
+    /// <returns>A timespan builder.</returns>
+    /// <param name="timeValue">The amount of milliseconds, seconds or minutes to wait.</param>
+    public static TimespanBuilder<Wait> ForAtMost(int timeValue)
     {
-      return new Wait
-      {
-        timeout = timeout,
-      };
+      var builder = new Wait();
+      var wrapper = new TimespanBuilder<Wait>(timeValue, builder);
+      builder.timespanProvider = wrapper;
+      return wrapper;
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Web.Builders
     /// </summary>
     /// <returns>A wait builder.</returns>
     /// <param name="target">Target.</param>
-    public static Wait For(ITarget target)
+    public static Wait Until(ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -43,7 +43,7 @@ namespace CSF.Screenplay.Web.Builders
       return new Wait
       {
         target = target,
-        timeout = DefaultTimeout,
+        timespanProvider = DefaultTimeout,
       };
     }
 
@@ -52,7 +52,7 @@ namespace CSF.Screenplay.Web.Builders
     /// </summary>
     /// <returns>A wait builder.</returns>
     /// <param name="target">Target.</param>
-    public Wait Until(ITarget target)
+    public Wait OrUntil(ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
@@ -122,7 +122,7 @@ namespace CSF.Screenplay.Web.Builders
       if(target == null)
         throw new InvalidOperationException("You must choose a target.");
 
-      return new TargettedWait<T>(target, query, predicate, timeout);
+      return new TargettedWait<T>(target, query, predicate, timespanProvider.GetTimespan());
     }
   }
 }

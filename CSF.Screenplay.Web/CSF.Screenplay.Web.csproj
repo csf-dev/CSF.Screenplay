@@ -133,6 +133,9 @@
     <Compile Include="Builders\ClearTheirBrowser.cs" />
     <Compile Include="Abilities\ScreenplayContextWebBrowsingExtensions.cs" />
     <Compile Include="Models\TargetNotFoundException.cs" />
+    <Compile Include="Builders\TimespanBuilder.cs" />
+    <Compile Include="Builders\IProvidesTimespan.cs" />
+    <Compile Include="Builders\TimespanWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
