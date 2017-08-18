@@ -141,6 +141,7 @@
     <Compile Include="Models\DurationFormatter.cs" />
     <Compile Include="Models\GeneralWaitBuilder.cs" />
     <Compile Include="Builders\TheVisibility.cs" />
+    <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

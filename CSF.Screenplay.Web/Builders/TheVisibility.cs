@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Web.Builders
     /// <param name="target">Target.</param>
     public static Performables.IQuestion<bool> Of(ITarget target)
     {
-      return Question.Create(target, new VisibilityQuery());
+      return new TargettedVisibilityQuestion(target, new VisibilityQuery());
     }
 
     /// <summary>
