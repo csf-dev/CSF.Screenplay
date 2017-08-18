@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Web.Builders
   /// </summary>
   public class Wait
   {
-    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(10));
+    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(4));
 
     IProvidesTimespan timespanProvider;
     ITarget target;
