@@ -31,6 +31,15 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
+    /// Gets a builder for a general-purpose wait.
+    /// </summary>
+    /// <param name="timeValue">Time value.</param>
+    public static GeneralWaitBuilder For(int timeValue)
+    {
+      return new GeneralWaitBuilder(timeValue);
+    }
+
+    /// <summary>
     /// Gets a builder for a given target, with the default 10-second timeout.
     /// </summary>
     /// <returns>A wait builder.</returns>

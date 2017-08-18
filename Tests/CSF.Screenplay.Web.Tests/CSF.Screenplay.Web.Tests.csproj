@@ -100,6 +100,7 @@
     <Compile Include="SauceConnectWebDriverFactory.cs" />
     <Compile Include="IgnoreOn.cs" />
     <Compile Include="BrowserName.cs" />
+    <Compile Include="Waits\GeneralWaitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

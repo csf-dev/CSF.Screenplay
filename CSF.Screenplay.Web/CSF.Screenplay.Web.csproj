@@ -133,9 +133,15 @@
     <Compile Include="Builders\ClearTheirBrowser.cs" />
     <Compile Include="Abilities\ScreenplayContextWebBrowsingExtensions.cs" />
     <Compile Include="Models\TargetNotFoundException.cs" />
-    <Compile Include="Builders\TimespanBuilder.cs" />
     <Compile Include="Models\IProvidesTimespan.cs" />
     <Compile Include="Models\TimespanWrapper.cs" />
+    <Compile Include="Models\TimespanBuilder`1.cs" />
+    <Compile Include="Waits\GeneralWait.cs" />
+    <Compile Include="Models\IDurationFormatter.cs" />
+    <Compile Include="Models\DurationFormatter.cs" />
+    <Compile Include="Models\GeneralWaitBuilder.cs" />
+    <Compile Include="Builders\TheVisibility.cs" />
+    <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
