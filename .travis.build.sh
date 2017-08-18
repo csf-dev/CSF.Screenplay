@@ -1,6 +1,7 @@
 #!/bin/bash
 
-NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
+NUNIT_CONSOLE_VERSION="3.7.0"
+NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"
 WEB_TESTS_PATH="Tests/CSF.Screenplay.Web.Tests/bin/Debug/CSF.Screenplay.Web.Tests.dll"
