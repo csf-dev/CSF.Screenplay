@@ -65,6 +65,10 @@
     <Compile Include="TextReportWriter.cs" />
     <Compile Include="ScreenplayContextReportingExtensions.cs" />
     <Compile Include="CastReportingHelper.cs" />
+    <Compile Include="Trace\ActorReport.cs" />
+    <Compile Include="Trace\TracableEvent.cs" />
+    <Compile Include="Trace\BeginScenarioReport.cs" />
+    <Compile Include="Trace\CompleteScenarioReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

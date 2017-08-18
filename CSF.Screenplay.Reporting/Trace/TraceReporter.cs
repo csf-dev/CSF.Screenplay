@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
@@ -19,7 +20,7 @@ namespace CSF.Screenplay.Reporting.Trace
     protected override void GainAbility(INamed actor, IAbility ability)
     {
       var report = new AbilityReport(actor, ability);
-      TraceConstants.Source.TraceData(TraceConstants.AbilityType, TraceConstants.AbilityId, report);
+      Trace(TraceConstants.GainAbility, report);
     }
 
     /// <summary>
@@ -30,19 +31,7 @@ namespace CSF.Screenplay.Reporting.Trace
     protected override void Begin(INamed actor, IPerformable performable)
     {
       var report = new BeginReport(actor, performable);
-      TraceConstants.Source.TraceData(TraceConstants.BeginType, TraceConstants.BeginId, report);
-    }
-
-    /// <summary>
-    /// Reports that a performable item has failed and possible terminated early.
-    /// </summary>
-    /// <param name="actor">The actor.</param>
-    /// <param name="performable">The performable item.</param>
-    /// <param name="exception">An exception encountered whilst attempting to perform the item.</param>
-    protected override void Failure(INamed actor, IPerformable performable, Exception exception)
-    {
-      var report = new FailureReport(actor, performable, exception);
-      TraceConstants.Source.TraceData(TraceConstants.FailureType, TraceConstants.FailureId, report);
+      Trace(TraceConstants.BeginPerformance, report);
     }
 
     /// <summary>
@@ -53,7 +42,7 @@ namespace CSF.Screenplay.Reporting.Trace
     protected override void Success(INamed actor, IPerformable performable)
     {
       var report = new SuccessReport(actor, performable);
-      TraceConstants.Source.TraceData(TraceConstants.SuccessType, TraceConstants.SuccessId, report);
+      Trace(TraceConstants.PerformanceSuccess, report);
     }
 
     /// <summary>
@@ -65,7 +54,138 @@ namespace CSF.Screenplay.Reporting.Trace
     protected override void Result(INamed actor, IPerformable performable, object result)
     {
       var report = new ResultReport(actor, performable, result);
-      TraceConstants.Source.TraceData(TraceConstants.ResultType, TraceConstants.ResultId, report);
+      Trace(TraceConstants.PerformanceResult, report);
     }
+
+    /// <summary>
+    /// Reports that a performable item has failed and possible terminated early.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    /// <param name="performable">The performable item.</param>
+    /// <param name="exception">An exception encountered whilst attempting to perform the item.</param>
+    protected override void Failure(INamed actor, IPerformable performable, Exception exception)
+    {
+      var report = new FailureReport(actor, performable, exception);
+      Trace(TraceConstants.PerformanceFailure, report);
+    }
+
+    /// <summary>
+    /// Reports that an actor has begun a 'given' part of their performance and that subsequent performables occur
+    /// in this context.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void BeginGiven(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.BeginGiven, report);
+    }
+
+    /// <summary>
+    /// Reports that an actor has ended the 'given' part of their performance.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void EndGiven(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.EndGiven, report);
+    }
+
+    /// <summary>
+    /// Reports that an actor has begun a 'when' part of their performance and that subsequent performables occur
+    /// in this context.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void BeginWhen(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.BeginWhen, report);
+    }
+    /// <summary>
+    /// Reports that an actor has ended the 'when' part of their performance.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void EndWhen(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.EndWhen, report);
+    }
+
+    /// <summary>
+    /// Reports that an actor has begun a 'then' part of their performance and that subsequent performables occur
+    /// in this context.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void BeginThen(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.BeginThen, report);
+    }
+
+    /// <summary>
+    /// Reports that an actor has ended the 'then' part of their performance.
+    /// </summary>
+    /// <param name="actor">The actor.</param>
+    protected override void EndThen(INamed actor)
+    {
+      var report = new ActorReport(actor);
+      Trace(TraceConstants.EndThen, report);
+    }
+
+    /// <summary>
+    /// Indicates to the reporter that a new test-run has begun.
+    /// </summary>
+    public override void BeginNewTestRun()
+    {
+      Trace(TraceConstants.BeginNewTestRun);
+    }
+
+    /// <summary>
+    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
+    /// </summary>
+    public override void CompleteTestRun()
+    {
+      Trace(TraceConstants.CompleteTestRun);
+    }
+
+    /// <summary>
+    /// Indicates to the reporter that a new scenario has begun.
+    /// </summary>
+    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="featureName">The feature name.</param>
+    /// <param name="idName">The uniquely identifying name for the test.</param>
+    /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    public override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
+    {
+      var report = new BeginScenarioReport(idName, friendlyName, featureId, featureName);
+      Trace(TraceConstants.BeginNewScenario, report);
+    }
+
+    /// <summary>
+    /// Indicates to the reporter that a scenario has finished.
+    /// </summary>
+    /// <param name="success">
+    /// <c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    public override void CompleteScenario(bool success)
+    {
+      var report = new CompleteScenarioReport(success);
+      Trace(TraceConstants.CompleteScenario, report);
+    }
+
+    void Trace(TracableEvent tracableEvent, object report)
+    {
+      if(tracableEvent == null)
+        throw new ArgumentNullException(nameof(tracableEvent));
+      
+      TraceConstants.Source.TraceData(tracableEvent.EventType, tracableEvent.EventId, report);
+    }
+
+    void Trace(TracableEvent tracableEvent)
+    {
+      if(tracableEvent == null)
+        throw new ArgumentNullException(nameof(tracableEvent));
+
+      TraceConstants.Source.TraceEvent(tracableEvent.EventType, tracableEvent.EventId);
+    }
+
   }
 }
