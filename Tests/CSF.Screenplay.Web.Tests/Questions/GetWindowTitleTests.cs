@@ -8,7 +8,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Reading the title of the browser window")]
   public class GetWindowTitleTests
   {

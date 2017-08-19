@@ -9,7 +9,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Waits
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Waiting for elements to be available")]
   public class WaitUntilVisibleTests
   {

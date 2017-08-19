@@ -9,7 +9,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Finding HTML elements")]
   public class FindElementsTests
   {

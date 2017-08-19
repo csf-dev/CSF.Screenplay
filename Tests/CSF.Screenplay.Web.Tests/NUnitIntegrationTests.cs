@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace CSF.Screenplay.Web.Tests
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   public class NUnitIntegrationTests
   {
     readonly ScreenplayContext context;

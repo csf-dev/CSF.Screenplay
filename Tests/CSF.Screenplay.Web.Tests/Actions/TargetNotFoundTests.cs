@@ -8,7 +8,7 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Behaviours when a target is not found for a desired action")]
   public class TargetNotFoundTests
   {

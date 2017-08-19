@@ -8,7 +8,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Reading element attributes")]
   public class GetAttributeTests
   {

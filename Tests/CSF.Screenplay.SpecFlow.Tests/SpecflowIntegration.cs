@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace CSF.Screenplay.SpecFlow.Tests
 {
   [Binding]
-  public class SpecflowIntegration : ScreenplayHooks
+  public class SpecflowIntegration : ScreenplayBinding
   {
     readonly IObjectContainer container;
 

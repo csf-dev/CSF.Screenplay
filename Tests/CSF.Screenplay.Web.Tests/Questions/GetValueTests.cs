@@ -8,7 +8,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("Reading the value of a form element")]
   public class GetValueTests
   {

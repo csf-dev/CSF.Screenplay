@@ -8,7 +8,7 @@ using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("The click action")]
   public class ClickTests
   {

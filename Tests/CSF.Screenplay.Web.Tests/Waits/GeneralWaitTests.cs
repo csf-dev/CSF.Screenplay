@@ -9,7 +9,7 @@ using FluentAssertions;
 
 namespace CSF.Screenplay.Web.Tests.Waits
 {
-  [ScreenplayFixture]
+  [ScreenplayTest]
   [Description("General waits which pause the test execution")]
   public class GeneralWaitTests
   {
