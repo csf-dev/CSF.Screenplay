@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Reporting
       }
     }
 
-    void WriteScenario(Scenario scenario)
+    void WriteScenario(Models.Scenario scenario)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Reporting
       }
     }
 
-    void WriteScenarioHeader(Scenario scenario)
+    void WriteScenarioHeader(Models.Scenario scenario)
     {
       writer.WriteLine();
 
@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Reporting
       WriteScenarioOutcome(scenario);
     }
 
-    string GetFeatureText(Scenario scenario)
+    string GetFeatureText(Models.Scenario scenario)
     {
       if(scenario.FeatureName != null)
         return $"Feature:  {scenario.FeatureName}";
@@ -63,7 +63,7 @@ namespace CSF.Screenplay.Reporting
       return null;
     }
 
-    string GetScenarioText(Scenario scenario)
+    string GetScenarioText(Models.Scenario scenario)
     {
       return $"Scenario: {scenario.FriendlyName?? scenario.Id}";
     }
@@ -121,12 +121,12 @@ namespace CSF.Screenplay.Reporting
       return type.ToString();
     }
 
-    void WriteScenarioOutcome(Scenario scenario)
+    void WriteScenarioOutcome(Models.Scenario scenario)
     {
       writer.WriteLine("**** {0} ****", GetScenarioOutcome(scenario));
     }
 
-    string GetScenarioOutcome(Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
+    string GetScenarioOutcome(Models.Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
 
     void WriteIndent(int currentLevel)
     {
