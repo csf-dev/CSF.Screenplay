@@ -3,12 +3,23 @@ using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay
 {
+  /// <summary>
+  /// Represents a single scenario within Screenplay-based test.
+  /// </summary>
   public class ScreenplayScenario : IScreenplayScenario
   {
     readonly ServiceResolver resolver;
 
+    /// <summary>
+    /// Gets identifying information about the current feature under test.
+    /// </summary>
+    /// <value>The feature identifier.</value>
     public IdAndName FeatureId { get; private set; }
 
+    /// <summary>
+    /// Gets identifying information about the current scenario which is being tested.
+    /// </summary>
+    /// <value>The scenario identifier.</value>
     public IdAndName ScenarioId { get; private set; }
 
     TService IServiceResolver.GetService<TService>(string name)
@@ -31,20 +42,36 @@ namespace CSF.Screenplay
       return resolver.GetOptionalService(metadata);
     }
 
+    /// <summary>
+    /// Notifies subscribers that the scenario has begun.
+    /// </summary>
     public void Begin()
     {
       OnBeginScenario();
     }
 
+    /// <summary>
+    /// Notifies subscribers that the scenario has ended.
+    /// </summary>
+    /// <param name="success">If set to <c>true</c> then the scenario is a success.</param>
     public void End(bool success)
     {
       OnEndScenario(success);
     }
 
+    /// <summary>
+    /// Occurs when the scenario begins.
+    /// </summary>
     public event EventHandler<BeginScenarioEventArgs> BeginScenario;
 
+    /// <summary>
+    /// Occurs when the scenario ends.
+    /// </summary>
     public event EventHandler<EndScenarioEventArgs> EndScenario;
 
+    /// <summary>
+    /// Event invoker for <see cref="BeginScenario"/>.
+    /// </summary>
     protected virtual void OnBeginScenario()
     {
       var args = new BeginScenarioEventArgs {
@@ -54,6 +81,9 @@ namespace CSF.Screenplay
       BeginScenario?.Invoke(this, args);
     }
 
+    /// <summary>
+    /// Event invoker for <see cref="EndScenario"/>.
+    /// </summary>
     protected virtual void OnEndScenario(bool success)
     {
       var args = new EndScenarioEventArgs {
@@ -64,6 +94,12 @@ namespace CSF.Screenplay
       EndScenario?.Invoke(this, args);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.
+    /// </summary>
+    /// <param name="featureId">Feature identifier.</param>
+    /// <param name="scenarioId">Scenario identifier.</param>
+    /// <param name="resolver">Resolver.</param>
     public ScreenplayScenario(IdAndName featureId,
                               IdAndName scenarioId,
                               ServiceResolver resolver)

@@ -5,10 +5,19 @@ using System.Linq;
 
 namespace CSF.Screenplay.Scenarios
 {
+  /// <summary>
+  /// Concrete implementation of <see cref="IServiceRegistryBuilder"/>.
+  /// </summary>
   public class ServiceRegistryBuilder : IServiceRegistryBuilder
   {
     readonly ICollection<IServiceRegistration> registrations;
 
+    /// <summary>
+    /// Registers a service which will be used across all scenarios within a test run.
+    /// </summary>
+    /// <param name="instance">Instance.</param>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The 1st type parameter.</typeparam>
     public void RegisterSingleton<TService>(TService instance, string name = null) where TService : class
     {
       var meta = GetMetadata<TService>(name);
@@ -16,6 +25,13 @@ namespace CSF.Screenplay.Scenarios
       registrations.Add(reg);
     }
 
+    /// <summary>
+    /// Registers a service which will be constructed afresh (using the given factory function) for
+    /// each scenario within a test run.
+    /// </summary>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The 1st type parameter.</typeparam>
     public void RegisterPerScenario<TService>(Func<IServiceResolver,TService> factory, string name = null) where TService : class
     {
       var meta = GetMetadata<TService>(name);
@@ -24,6 +40,10 @@ namespace CSF.Screenplay.Scenarios
       registrations.Add(reg);
     }
 
+    /// <summary>
+    /// Builds and returns a service registry.
+    /// </summary>
+    /// <returns>The registry.</returns>
     public ServiceRegistry BuildRegistry()
     {
       var builtRegistrations = new ReadOnlyCollection<IServiceRegistration>(registrations.ToList());
@@ -40,6 +60,9 @@ namespace CSF.Screenplay.Scenarios
       return scenario => genericFactory(scenario);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Scenarios.ServiceRegistryBuilder"/> class.
+    /// </summary>
     public ServiceRegistryBuilder()
     {
       registrations = new List<IServiceRegistration>();

@@ -11,6 +11,7 @@ namespace CSF.Screenplay.Web.Tests
 {
   public class ScreenplayAssemblyAttribute : NUnit.ScreenplayAssemblyAttribute
   {
+    static IWebDriver driver;
     IModelBuildingReporter reporter;
 
     protected override void RegisterServices(IServiceRegistryBuilder builder)
@@ -19,7 +20,8 @@ namespace CSF.Screenplay.Web.Tests
 
       builder.RegisterCast();
       builder.RegisterReporter(reporter);
-      builder.RegisterWebDriver(GetWebDriver);
+      builder.RegisterUriTransformer(GetUriTransformer);
+      builder.RegisterWebDriver(GetWebDriver());
       builder.RegisterWebBrowser();
     }
 
@@ -27,7 +29,7 @@ namespace CSF.Screenplay.Web.Tests
     {
       if(reporter != null)
         reporter.Subscribe(testRunEvents);
-      
+
       testRunEvents.CompleteTestRun += OnCompleteTestRun;
 
       base.RegisterBeforeAndAfterTestRunEvents(testRunEvents);
@@ -35,16 +37,27 @@ namespace CSF.Screenplay.Web.Tests
 
     IModelBuildingReporter GetReporter() => new ReportBuildingReporter();
 
-    IWebDriver GetWebDriver(IServiceResolver res)
+    IWebDriver GetWebDriver()
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();
-      return factory.GetWebDriver();
+      driver = factory.GetWebDriver();
+      return driver;
     }
+
+    IUriTransformer GetUriTransformer(IServiceResolver res)
+      => new RootUriPrependingTransformer("http://localhost:8080/");
 
     void OnCompleteTestRun(object sender, EventArgs ev)
     {
+      DisposeWebDriver();
       WriteReport();
+    }
+
+    void DisposeWebDriver()
+    {
+      if(driver != null)
+        driver.Dispose();
     }
 
     void WriteReport()

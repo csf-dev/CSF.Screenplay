@@ -5,7 +5,8 @@ namespace CSF.Screenplay.Web.Tests
   {
     protected override void CustomiseScenario(ScreenplayScenario scenario)
     {
-      scenario.SubscribeReporterToActorCreation();
+      scenario.SubscribeReporterToScenarioEvents();
+      scenario.SubscribeReporterToCastActorCreation();
     }
   }
 }

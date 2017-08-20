@@ -48,8 +48,17 @@ namespace CSF.Screenplay.NUnit
 
     ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
 
+    /// <summary>
+    /// Registers services which will be used by Screenplay.  Subclasses should override this method,
+    /// providing the applicable registration code.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
     protected abstract void RegisterServices(IServiceRegistryBuilder builder);
 
+    /// <summary>
+    /// Provides a hook by which components may subscribe to the before-test-run and after-test-run events.
+    /// </summary>
+    /// <param name="testRunEvents">Test run events.</param>
     protected virtual void RegisterBeforeAndAfterTestRunEvents(IProvidesTestRunEvents testRunEvents)
     {
       // Intentional no-op, subclasses may override this to provide functionality.

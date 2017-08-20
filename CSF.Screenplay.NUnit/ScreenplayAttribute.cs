@@ -48,6 +48,11 @@ namespace CSF.Screenplay.NUnit
       ScenarioGetter.Scenario = null;
     }
 
+    /// <summary>
+    /// Provides a hook by which subclasses may customise the Screenplay scenario before a test case is
+    /// executed.
+    /// </summary>
+    /// <param name="scenario">Scenario.</param>
     protected virtual void CustomiseScenario(ScreenplayScenario scenario)
     {
       // Intentional no-op, subclasses may override this to customise the scenario

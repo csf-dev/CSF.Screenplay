@@ -1,7 +1,9 @@
 ﻿using System;
 namespace CSF.Screenplay.Scenarios
 {
-  
+  /// <summary>
+  /// Exception which is raised when an attempt is made to get a Screenplay service, but that service is not registered.
+  /// </summary>
   [System.Serializable]
   public class ServiceNotRegisteredException : Exception
   {

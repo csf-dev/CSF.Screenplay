@@ -11,11 +11,8 @@ namespace CSF.Screenplay.Web.Tests
     [Description("An NUnit test fixture decorated with `Screenplay' can access the current scenario via a static property")]
     public void ScreenplayScenario_is_visible_from_ScenarioGetter()
     {
-      // Act
-      var screenplay = Scenario;
-
       // Assert
-      Assert.That(screenplay, Is.Not.Null);
+      Assert.That(Scenario, Is.Not.Null);
     }
   }
 }

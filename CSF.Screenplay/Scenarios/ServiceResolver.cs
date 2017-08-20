@@ -4,22 +4,42 @@ using System.Linq;
 
 namespace CSF.Screenplay.Scenarios
 {
+  /// <summary>
+  /// Concrete implementation of <see cref="IServiceResolver"/>.
+  /// </summary>
   public class ServiceResolver : IServiceResolver
   {
     readonly IDictionary<ServiceMetadata,Lazy<object>> services;
 
+    /// <summary>
+    /// Gets a service of the indicated type and name.
+    /// </summary>
+    /// <returns>The service.</returns>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The desired service type.</typeparam>
     public TService GetService<TService>(string name) where TService : class
     {
       var metadata = new ServiceMetadata(typeof(TService), name);
       return (TService) GetService(metadata);
     }
 
+    /// <summary>
+    /// Gets a service of the indicated type and name, returning a <c>null</c> reference if no service is found.
+    /// </summary>
+    /// <returns>The service.</returns>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The desired service type.</typeparam>
     public TService GetOptionalService<TService>(string name) where TService : class
     {
       var metadata = new ServiceMetadata(typeof(TService), name);
       return (TService) GetOptionalService(metadata);
     }
 
+    /// <summary>
+    /// Gets a service which matches the given metadata.
+    /// </summary>
+    /// <returns>The service.</returns>
+    /// <param name="metadata">Metadata.</param>
     public object GetService(ServiceMetadata metadata)
     {
       var service = GetOptionalService(metadata);
@@ -32,6 +52,11 @@ namespace CSF.Screenplay.Scenarios
       return service;
     }
 
+    /// <summary>
+    /// Gets a service which matches the given metadata, returning a <c>null</c> reference if no service is found.
+    /// </summary>
+    /// <returns>The service.</returns>
+    /// <param name="metadata">Metadata.</param>
     public object GetOptionalService(ServiceMetadata metadata)
     {
       if(!services.ContainsKey(metadata))
@@ -55,6 +80,10 @@ Service name:{registration.Name}";
       return message;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Scenarios.ServiceResolver"/> class.
+    /// </summary>
+    /// <param name="registrations">Registrations.</param>
     public ServiceResolver(IReadOnlyCollection<IServiceRegistration> registrations)
     {
       if(registrations == null)
