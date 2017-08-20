@@ -60,7 +60,7 @@ Service name:{registration.Name}";
       if(registrations == null)
         throw new ArgumentNullException(nameof(registrations));
 
-      services = registrations.ToDictionary(k => k.Metadata, v => new Lazy<object>(() => v.GetService(this)));
+      services = registrations.ToDictionary(k => k.Metadata, v => v.GetService(this));
     }
   }
 }
