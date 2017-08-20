@@ -1,0 +1,25 @@
+﻿using System;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Scenarios;
+
+namespace CSF.Screenplay.Web.Tests
+{
+  public static class ScenarioExtensions
+  {
+    public static IActor GetJoe(this ScreenplayScenario scenario)
+    {
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      var cast = scenario.GetCast();
+      var joe = cast.Get("Joe", CustomiseJoe, scenario);
+      return joe;
+    }
+
+    static void CustomiseJoe(IActor joe, IScreenplayScenario scenario)
+    {
+      var browseTheWeb = scenario.GetWebBrowser();
+      joe.IsAbleTo(browseTheWeb);
+    }
+  }
+}

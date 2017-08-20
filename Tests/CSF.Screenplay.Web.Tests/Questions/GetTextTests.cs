@@ -4,19 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("Reading the text of an element")]
   public class GetTextTests
   {
     [Test]
     [Description("Reading the text of an element detects the expected value.")]
-    public void GetText_returns_expected_value(ScreenplayScenario context)
+    public void GetText_returns_expected_value()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -25,9 +25,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedText_returns_expected_value(ScreenplayScenario context)
+    public void GetConvertedText_returns_expected_value()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -36,9 +36,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the text of multiple elements returns the correct collection of values.")]
-    public void GetText_for_multiple_elements_returns_expected_values(ScreenplayScenario context)
+    public void GetText_for_multiple_elements_returns_expected_values()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       var expected = new [] { "One", "Two", "Three", "Four", "Five" };
 

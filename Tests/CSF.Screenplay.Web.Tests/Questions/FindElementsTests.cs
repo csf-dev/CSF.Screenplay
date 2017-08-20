@@ -4,20 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("Finding HTML elements")]
   public class FindElementsTests
   {
     [Test]
     [Description("Finding child elements of the item list detects the correct count of children.")]
-    public void FindElements_In_gets_expected_count_of_elements(ScreenplayScenario context)
+    public void FindElements_In_gets_expected_count_of_elements()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -28,9 +27,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Finding elements on the page detects the correct count of children.")]
-    public void FindElements_OnThePage_gets_expected_count_of_elements(ScreenplayScenario context)
+    public void FindElements_OnThePage_gets_expected_count_of_elements()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

@@ -4,19 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("The click action")]
   public class ClickTests
   {
     [Test]
     [Description("Clicking on the link to page two navigates to the second page.")]
-    public void Click_OnLinkToPageTwo_navigates_to_second_page(ScreenplayScenario context)
+    public void Click_OnLinkToPageTwo_navigates_to_second_page()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

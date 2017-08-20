@@ -19,7 +19,6 @@ namespace CSF.Screenplay.Web.Tests
 
       builder.RegisterCast();
       builder.RegisterReporter(reporter);
-      builder.RegisterUriTransformer(GetUriTransformer);
       builder.RegisterWebDriver(GetWebDriver);
       builder.RegisterWebBrowser();
     }
@@ -35,9 +34,6 @@ namespace CSF.Screenplay.Web.Tests
     }
 
     IModelBuildingReporter GetReporter() => new ReportBuildingReporter();
-
-    IUriTransformer GetUriTransformer(IServiceResolver res)
-      => new RootUriPrependingTransformer("http://localhost:8080/");
 
     IWebDriver GetWebDriver(IServiceResolver res)
     {

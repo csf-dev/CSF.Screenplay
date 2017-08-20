@@ -4,19 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("Reading options from HTML <select> elements")]
   public class GetOptionsTests
   {
     [Test]
     [Description("Reading the available options reveals the expected collection of items.")]
-    public void GetAllOptions_returns_expected_collection(ScreenplayScenario context)
+    public void GetAllOptions_returns_expected_collection()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       var expected = new Models.Option[] {
         new Models.Option("One", "1"),
@@ -31,9 +31,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the selected options reveals the expected collection of items.")]
-    public void GetSelectedOptions_returns_expected_collection(ScreenplayScenario context)
+    public void GetSelectedOptions_returns_expected_collection()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       var expected = new Models.Option[] {
         new Models.Option("Carrot", "veg"),

@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.Web.Models;
@@ -9,15 +9,15 @@ using FluentAssertions;
 
 namespace CSF.Screenplay.Web.Tests.Waits
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("General waits which pause the test execution")]
   public class GeneralWaitTests
   {
     [Test]
     [Description("When waiting for only half a second, the page event has not yet occurred")]
-    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ScreenplayScenario context)
+    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 
@@ -29,9 +29,9 @@ namespace CSF.Screenplay.Web.Tests.Waits
 
     [Test]
     [Description("When waiting for 6 seconds, the page event fires")]
-    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ScreenplayScenario context)
+    public void Wait_for_6_seconds_means_that_the_delayed_link_appears()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 

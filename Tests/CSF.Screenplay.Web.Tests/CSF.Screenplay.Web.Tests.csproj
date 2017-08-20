@@ -99,7 +99,8 @@
     <Compile Include="IgnoreOn.cs" />
     <Compile Include="BrowserName.cs" />
     <Compile Include="Waits\GeneralWaitTests.cs" />
-    <Compile Include="ScreenplayTestAttribute.cs" />
+    <Compile Include="ScreenplayAttribute.cs" />
+    <Compile Include="ScenarioExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

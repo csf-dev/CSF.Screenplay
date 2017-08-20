@@ -4,19 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayTest]
+  [TestFixture,Screenplay]
   [Description("Entering text into elements")]
   public class EnterTests
   {
     [Test]
     [Description("Typing text into an input box produces the expected result on the page.")]
-    public void Type_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario context)
+    public void Type_text_into_an_input_box_produces_expected_result_on_page()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -27,9 +27,9 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Typing different text into an input box produces the expected result on the page.")]
-    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario context)
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
