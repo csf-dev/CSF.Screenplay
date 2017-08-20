@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Actions
   [Description("The select action")]
   public class SelectTests
   {
-    readonly ScreenplayContext context;
-
-    public SelectTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page()
+    public void SelectByText_generates_expected_result_on_page(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -36,7 +27,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page()
+    public void SelectByIndex_generates_expected_result_on_page(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -49,7 +40,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page()
+    public void SelectByValue_generates_expected_result_on_page(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

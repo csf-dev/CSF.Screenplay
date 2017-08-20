@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading element attributes")]
   public class GetAttributeTests
   {
-    readonly ScreenplayContext context;
-
-    public GetAttributeTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the value of a 'title' attribute detects the expected value.")]
-    public void GetAttribute_returns_expected_value()
+    public void GetAttribute_returns_expected_value(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

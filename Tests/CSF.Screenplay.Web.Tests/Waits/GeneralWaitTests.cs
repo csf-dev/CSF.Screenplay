@@ -13,18 +13,9 @@ namespace CSF.Screenplay.Web.Tests.Waits
   [Description("General waits which pause the test execution")]
   public class GeneralWaitTests
   {
-    readonly ScreenplayContext context;
-
-    public GeneralWaitTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("When waiting for only half a second, the page event has not yet occurred")]
-    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared()
+    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -38,7 +29,7 @@ namespace CSF.Screenplay.Web.Tests.Waits
 
     [Test]
     [Description("When waiting for 6 seconds, the page event fires")]
-    public void Wait_for_6_seconds_means_that_the_delayed_link_appears()
+    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

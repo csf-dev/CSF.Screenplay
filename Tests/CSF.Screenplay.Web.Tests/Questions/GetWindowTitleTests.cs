@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading the title of the browser window")]
   public class GetWindowTitleTests
   {
-    readonly ScreenplayContext context;
-
-    public GetWindowTitleTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
-    public void GetWindowTitle_returns_correct_result()
+    public void GetWindowTitle_returns_correct_result(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Actions
   [Description("Behaviours when a target is not found for a desired action")]
   public class TargetNotFoundTests
   {
-    readonly ScreenplayContext context;
-
-    public TargetNotFoundTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Attempting to click on a link which does not exist raises an appropriate 'target not found' exception.")]
-    public void Click_on_non_existent_element_raises_TargetNotFoundException()
+    public void Click_on_non_existent_element_raises_TargetNotFoundException(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -35,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("When a 'target not found' exception is raised, it should have a name which matches the missing target.")]
-    public void TargetNotFoundException_raised_has_correct_target_name()
+    public void TargetNotFoundException_raised_has_correct_target_name(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -62,7 +53,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
-    public void TargetNotFoundException_includes_target_name_in_report()
+    public void TargetNotFoundException_includes_target_name_in_report(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("Joe");
       var ex = new TargetNotFoundException() { Target = PageTwo.ListOfItems };
@@ -74,7 +65,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
-    public void TargetNotFoundException_can_create_a_report_without_target()
+    public void TargetNotFoundException_can_create_a_report_without_target(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("Joe");
       var ex = new TargetNotFoundException();

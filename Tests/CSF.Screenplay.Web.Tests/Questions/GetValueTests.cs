@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading the value of a form element")]
   public class GetValueTests
   {
-    readonly ScreenplayContext context;
-
-    public GetValueTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the value of an element detects the expected value.")]
-    public void GetValue_returns_expected_value()
+    public void GetValue_returns_expected_value(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -34,7 +25,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedValue_returns_expected_value()
+    public void GetConvertedValue_returns_expected_value(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

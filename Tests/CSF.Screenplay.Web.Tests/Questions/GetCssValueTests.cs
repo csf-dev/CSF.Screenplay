@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading the value of CSS properties")]
   public class GetCssValueTests
   {
-    readonly ScreenplayContext context;
-
-    public GetCssValueTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the value of the 'color' property detects the expected value.")]
-    public void GetCssValue_for_red_string_gets_correct_colour()
+    public void GetCssValue_for_red_string_gets_correct_colour(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

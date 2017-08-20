@@ -7,21 +7,12 @@ namespace CSF.Screenplay.Web.Tests
   [ScreenplayTest]
   public class NUnitIntegrationTests
   {
-    readonly ScreenplayContext context;
-
     [Test]
-    [Description("An NUnit test fixture decorated with `ScreenplayFixture' receives an injected context")]
-    public void ScreenplayContext_should_be_injected_by_ScreenplayFixture_attribute()
+    [Description("An NUnit test fixture decorated with `ScreenplayFixture' receives an injected screenplay scenario")]
+    public void ScreenplayContext_should_be_injected_by_ScreenplayFixture_attribute(ScreenplayScenario screenplay)
     {
       // Assert
-      Assert.That(context, Is.Not.Null);
-    }
-
-    public NUnitIntegrationTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
+      Assert.That(screenplay, Is.Not.Null);
     }
   }
 }

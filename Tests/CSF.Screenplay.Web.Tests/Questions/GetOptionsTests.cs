@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading options from HTML <select> elements")]
   public class GetOptionsTests
   {
-    readonly ScreenplayContext context;
-
-    public GetOptionsTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the available options reveals the expected collection of items.")]
-    public void GetAllOptions_returns_expected_collection()
+    public void GetAllOptions_returns_expected_collection(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -40,7 +31,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the selected options reveals the expected collection of items.")]
-    public void GetSelectedOptions_returns_expected_collection()
+    public void GetSelectedOptions_returns_expected_collection(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

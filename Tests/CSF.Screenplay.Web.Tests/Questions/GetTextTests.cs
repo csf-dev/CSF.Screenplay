@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Questions
   [Description("Reading the text of an element")]
   public class GetTextTests
   {
-    readonly ScreenplayContext context;
-
-    public GetTextTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the text of an element detects the expected value.")]
-    public void GetText_returns_expected_value()
+    public void GetText_returns_expected_value(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -34,7 +25,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedText_returns_expected_value()
+    public void GetConvertedText_returns_expected_value(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -45,7 +36,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test]
     [Description("Reading the text of multiple elements returns the correct collection of values.")]
-    public void GetText_for_multiple_elements_returns_expected_values()
+    public void GetText_for_multiple_elements_returns_expected_values(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

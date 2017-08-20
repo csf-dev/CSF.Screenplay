@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Actions
   [Description("Entering text into elements")]
   public class EnterTests
   {
-    readonly ScreenplayContext context;
-
-    public EnterTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Typing text into an input box produces the expected result on the page.")]
-    public void Type_text_into_an_input_box_produces_expected_result_on_page()
+    public void Type_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 
@@ -36,7 +27,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Typing different text into an input box produces the expected result on the page.")]
-    public void Type_different_text_into_an_input_box_produces_expected_result_on_page()
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario context)
     {
       var joe = context.GetCast().Get("joe");
 

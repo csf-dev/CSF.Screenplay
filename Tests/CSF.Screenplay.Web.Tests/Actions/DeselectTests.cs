@@ -12,18 +12,9 @@ namespace CSF.Screenplay.Web.Tests.Actions
   [Description("The deselect action")]
   public class DeselectTests
   {
-    readonly ScreenplayContext context;
-
-    public DeselectTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Deselecting everything leaves nothing selected.")]
-    public void DeselectAll_leaves_nothing_selected()
+    public void DeselectAll_leaves_nothing_selected(ScreenplayScenario context)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -39,7 +30,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Deselecting by index leaves one item selected.")]
-    public void DeselectByIndex_leaves_one_item_selected()
+    public void DeselectByIndex_leaves_one_item_selected(ScreenplayScenario context)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -55,7 +46,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Deselecting by text leaves one item selected.")]
-    public void DeselectByText_leaves_one_item_selected()
+    public void DeselectByText_leaves_one_item_selected(ScreenplayScenario context)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -71,7 +62,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test]
     [Description("Deselecting by value leaves one item selected.")]
-    public void DeselectByValue_leaves_one_item_selected()
+    public void DeselectByValue_leaves_one_item_selected(ScreenplayScenario context)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
