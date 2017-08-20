@@ -78,7 +78,27 @@ namespace CSF.Screenplay.SpecFlow
     bool GetScenarioSuccess(ScenarioContext scenario)
       => scenario.TestError == null;
 
-    static ScreenplayEnvironment GetEnvironment() => ScreenplayEnvironment.Default;
+    protected static ServiceRegistry ServiceRegistry
+    {
+      get { 
+        return Environment.ServiceRegistry;
+      }
+      set {
+        Environment.ServiceRegistry = value;
+      }
+    }
+
+    protected static void NotifyBeginTestRun()
+    {
+      Environment.NotifyCompleteTestRun();
+    }
+
+    protected static void NotifyCompleteTestRun()
+    {
+      Environment.NotifyCompleteTestRun();
+    }
+
+    static ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
 
     public ScreenplayBinding(IObjectContainer container)
     {

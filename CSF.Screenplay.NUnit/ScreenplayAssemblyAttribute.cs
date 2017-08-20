@@ -23,8 +23,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      var env = GetEnvironment();
-      env.NotifyCompleteTestRun();
+      Environment.NotifyCompleteTestRun();
     }
 
     /// <summary>
@@ -33,10 +32,9 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      var env = GetEnvironment();
-      env.ServiceRegistry = GetRegistry();
-      RegisterBeforeAndAfterTestRunEvents(env);
-      env.NotifyBeginTestRun();
+      Environment.ServiceRegistry = GetRegistry();
+      RegisterBeforeAndAfterTestRunEvents(Environment);
+      Environment.NotifyBeginTestRun();
     }
 
     ServiceRegistry GetRegistry()
@@ -46,7 +44,7 @@ namespace CSF.Screenplay.NUnit
       return builder.BuildRegistry();
     }
 
-    ScreenplayEnvironment GetEnvironment() => ScreenplayEnvironment.Default;
+    ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
 
     protected abstract void RegisterServices(IServiceRegistryBuilder builder);
 
