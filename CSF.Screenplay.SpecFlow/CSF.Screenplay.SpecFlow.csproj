@@ -35,10 +35,6 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.5.0\lib\net40\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ScreenplayBinding.cs" />
