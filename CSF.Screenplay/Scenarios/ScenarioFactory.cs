@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Scenarios
   /// </summary>
   public class ScenarioFactory : IScenarioFactory
   {
-    readonly ServiceRegistry registry;
+    readonly IServiceResolver resolver;
 
     /// <summary>
     /// Gets the scenario.
@@ -19,20 +19,19 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="scenarioId">Scenario identifier.</param>
     public ScreenplayScenario GetScenario(IdAndName featureId, IdAndName scenarioId)
     {
-      var resolver = registry.GetResolver();
       return new ScreenplayScenario(featureId, scenarioId, resolver);
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Scenarios.ScenarioFactory"/> class.
     /// </summary>
-    /// <param name="registry">Registry.</param>
-    public ScenarioFactory(ServiceRegistry registry)
+    /// <param name="resolver">Service resolver.</param>
+    public ScenarioFactory(IServiceResolver resolver)
     {
-      if(registry == null)
-        throw new ArgumentNullException(nameof(registry));
+      if(resolver == null)
+        throw new ArgumentNullException(nameof(resolver));
 
-      this.registry = registry;
+      this.resolver = resolver;
     }
   }
 }

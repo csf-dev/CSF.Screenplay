@@ -1,18 +1,18 @@
 ﻿using System;
-using static CSF.Screenplay.NUnit.ScenarioGetter;
 using NUnit.Framework;
 
 namespace CSF.Screenplay.Web.Tests
 {
-  [TestFixture,Screenplay]
+  [TestFixture]
+  [Description("The NUnit/Screenplay integration")]
   public class NUnitIntegrationTests
   {
-    [Test]
-    [Description("An NUnit test fixture decorated with `Screenplay' can access the current scenario via a static property")]
-    public void ScreenplayScenario_is_visible_from_ScenarioGetter()
+    [Test,Screenplay]
+    [Description("An NUnit test decorated with `Screenplay' receives the current scenario as an injected parameter")]
+    public void ScreenplayScenario_is_injected_from_parameter(ScreenplayScenario scenario)
     {
       // Assert
-      Assert.That(Scenario, Is.Not.Null);
+      Assert.That(scenario, Is.Not.Null);
     }
   }
 }

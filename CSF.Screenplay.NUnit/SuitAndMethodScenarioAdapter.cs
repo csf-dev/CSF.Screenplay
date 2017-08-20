@@ -5,12 +5,10 @@ using NUnit.Framework.Interfaces;
 
 namespace CSF.Screenplay.NUnit
 {
-  /// <summary>
-  /// Adapter type for describing a scenario, using NUnit's <c>ITest</c> interface.
-  /// </summary>
-  public class ScenarioAdapter : IScenarioAdapter
+  public class SuitAndMethodScenarioAdapter : IScenarioAdapter
   {
-    ITest test;
+    readonly ITest featureSuite;
+    readonly IMethodInfo scenarioMethod;
 
     /// <summary>
     /// Gets the name of the scenario.
@@ -19,7 +17,7 @@ namespace CSF.Screenplay.NUnit
     public string ScenarioName
     {
       get {
-        var method = test.Method?.MethodInfo;
+        var method = scenarioMethod.MethodInfo;
 
         if(method == null)
           return null;
@@ -32,7 +30,7 @@ namespace CSF.Screenplay.NUnit
     /// Gets the scenario identifier.
     /// </summary>
     /// <value>The scenario identifier.</value>
-    public string ScenarioId => test.FullName;
+    public string ScenarioId => $"{FeatureId}.{scenarioMethod.Name}";
 
     /// <summary>
     /// Gets the name of the feature.
@@ -41,7 +39,7 @@ namespace CSF.Screenplay.NUnit
     public string FeatureName
     {
       get {
-        var fixtureType = GetFixtureType();
+        var fixtureType = scenarioMethod.MethodInfo.DeclaringType;
 
         if(fixtureType == null)
           return null;
@@ -54,17 +52,7 @@ namespace CSF.Screenplay.NUnit
     /// Gets the feature identifier.
     /// </summary>
     /// <value>The feature identifier.</value>
-    public string FeatureId
-    {
-      get {
-        var fixtureType = GetFixtureType();
-
-        if(fixtureType == null)
-          return null;
-
-        return fixtureType.FullName;
-      }
-    }
+    public string FeatureId => featureSuite.FullName;
 
     string GetDescription(MemberInfo member)
     {
@@ -80,21 +68,15 @@ namespace CSF.Screenplay.NUnit
       return prop.ToString();
     }
 
-    Type GetFixtureType()
+    public SuitAndMethodScenarioAdapter(ITest featureSuite, IMethodInfo scenarioMethod)
     {
-      return test.Fixture?.GetType();
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScenarioAdapter"/> class.
-    /// </summary>
-    /// <param name="test">Test.</param>
-    public ScenarioAdapter(ITest test)
-    {
-      if(test == null)
-        throw new ArgumentNullException(nameof(test));
-
-      this.test = test;
+      if(scenarioMethod == null)
+        throw new ArgumentNullException(nameof(scenarioMethod));
+      if(featureSuite == null)
+        throw new ArgumentNullException(nameof(featureSuite));
+      
+      this.scenarioMethod = scenarioMethod;
+      this.featureSuite = featureSuite;
     }
   }
 }

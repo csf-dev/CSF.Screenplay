@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace CSF.Screenplay.Web.Tests
 {
   public class ScreenplayAttribute : NUnit.ScreenplayAttribute

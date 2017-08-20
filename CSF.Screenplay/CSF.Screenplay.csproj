@@ -94,6 +94,13 @@
     <Compile Include="Scenarios\BeginScenarioEventArgs.cs" />
     <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
+    <Compile Include="Integration\ScreenplayIntegration.cs" />
+    <Compile Include="Integration\ScreenplayEnvironment.cs" />
+    <Compile Include="Scenarios\IServiceResolverFactory.cs" />
+    <Compile Include="Integration\IServiceRegistrationProvider.cs" />
+    <Compile Include="Integration\ServiceRegistrationProvider.cs" />
+    <Compile Include="Scenarios\ServiceLifetime.cs" />
+    <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
@@ -101,6 +108,7 @@
     <Folder Include="Reporting\" />
     <Folder Include="Performables\" />
     <Folder Include="Scenarios\" />
+    <Folder Include="Integration\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

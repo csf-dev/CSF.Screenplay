@@ -45,6 +45,8 @@
     <Compile Include="ScreenplayAttribute.cs" />
     <Compile Include="ScreenplayEnvironment.cs" />
     <Compile Include="ScenarioGetter.cs" />
+    <Compile Include="IScenarioAdapter.cs" />
+    <Compile Include="SuitAndMethodScenarioAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

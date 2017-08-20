@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using CSF.Screenplay.Scenarios;
 using NUnit.Framework;
@@ -15,8 +14,10 @@ namespace CSF.Screenplay.NUnit
   /// </summary>
   [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly,
                   AllowMultiple = false)]
-  public class ScreenplayAttribute : Attribute, ITestAction
+  public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
   {
+    internal const string ScreenplayScenarioKey = "Current scenario";
+
     /// <summary>
     /// Gets the targets for the attribute (when performing before/after test actions).
     /// </summary>
@@ -29,9 +30,9 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void BeforeTest(ITest test)
     {
-      ScenarioGetter.Scenario = GetScenario(test);
-      CustomiseScenario(ScenarioGetter.Scenario);
-      ScenarioGetter.Scenario.Begin();
+      var scenario = GetScenario(test);
+      CustomiseScenario(scenario);
+      scenario.Begin();
     }
 
     /// <summary>
@@ -40,12 +41,27 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void AfterTest(ITest test)
     {
-      if(ScenarioGetter.Scenario == null)
+      var scenario = GetScenario(test);
+
+      if(scenario == null)
         return;
       
       var success = GetScenarioSuccess(test);
-      ScenarioGetter.Scenario.End(success);
-      ScenarioGetter.Scenario = null;
+      scenario.End(success);
+    }
+
+    public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
+    {
+      var scenario = CreateScenario(method, suite);
+
+      suite.Properties.Add(ScreenplayScenarioKey, scenario);
+
+      var builder = new NUnitTestCaseBuilder();
+      var tcParams = new TestCaseParameters(new [] { scenario });
+
+      var testMethod = builder.BuildTestMethod(method, suite, tcParams);
+
+      return new [] { testMethod };
     }
 
     /// <summary>
@@ -58,15 +74,30 @@ namespace CSF.Screenplay.NUnit
       // Intentional no-op, subclasses may override this to customise the scenario
     }
 
+    ServiceRegistry GetRegistry()
+    {
+      var builder = new ServiceRegistryBuilder();
+      RegisterServices(builder);
+      return builder.BuildRegistry();
+    }
+
     bool GetScenarioSuccess(ITest test)
     {
       var result = TestContext.CurrentContext.Result;
       return result.Outcome.Status == TestStatus.Passed;
     }
 
-    ScreenplayScenario GetScenario(ITest test)
+    protected virtual ScreenplayScenario GetScenario(ITest test)
     {
-      var testAdapter = new ScenarioAdapter(test);
+      if(!test.Properties.ContainsKey(ScreenplayScenarioKey))
+        return null;
+
+      return (ScreenplayScenario) test.Properties.Get(ScreenplayScenarioKey);
+    }
+
+    protected virtual ScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
+    {
+      var testAdapter = new SuitAndMethodScenarioAdapter(suite, method);
       var featureName = GetFeatureName(testAdapter);
       var scenarioName = GetScenarioName(testAdapter);
       var factory = GetScenarioFactory();
@@ -74,10 +105,17 @@ namespace CSF.Screenplay.NUnit
       return factory.GetScenario(featureName, scenarioName);
     }
 
+    /// <summary>
+    /// Registers services which will be used by Screenplay.  Subclasses should override this method,
+    /// providing the applicable registration code.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    protected abstract void RegisterServices(IServiceRegistryBuilder builder);
+
     IScenarioFactory GetScenarioFactory() => ScreenplayEnvironment.Default.GetScenarioFactory();
 
-    IdAndName GetFeatureName(ScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
+    IdAndName GetFeatureName(IScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
 
-    IdAndName GetScenarioName(ScenarioAdapter test) => new IdAndName(test.ScenarioId, test.ScenarioName);
+    IdAndName GetScenarioName(IScenarioAdapter test) => new IdAndName(test.ScenarioId, test.ScenarioName);
   }
 }

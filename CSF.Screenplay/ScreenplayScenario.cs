@@ -6,9 +6,10 @@ namespace CSF.Screenplay
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public class ScreenplayScenario : IScreenplayScenario
+  public class ScreenplayScenario : IScreenplayScenario, IEquatable<ScreenplayScenario>
   {
-    readonly ServiceResolver resolver;
+    readonly Guid identity;
+    readonly IServiceResolver resolver;
 
     /// <summary>
     /// Gets identifying information about the current feature under test.
@@ -95,6 +96,44 @@ namespace CSF.Screenplay
     }
 
     /// <summary>
+    /// Determines whether the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// </summary>
+    /// <param name="other">The <see cref="CSF.Screenplay.ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
+    /// <returns><c>true</c> if the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current
+    /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
+    public bool Equals(ScreenplayScenario other)
+    {
+      if(ReferenceEquals(other, null))
+        return false;
+      if(ReferenceEquals(other, this))
+        return true;
+
+      return identity == other.identity;
+    }
+
+    /// <summary>
+    /// Determines whether the specified <see cref="object"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// </summary>
+    /// <param name="obj">The <see cref="object"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
+    /// <returns><c>true</c> if the specified <see cref="object"/> is equal to the current
+    /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
+    public override bool Equals(object obj)
+    {
+      return Equals(obj as ScreenplayScenario);
+    }
+
+    /// <summary>
+    /// Serves as a hash function for a <see cref="T:CSF.Screenplay.ScreenplayScenario"/> object.
+    /// </summary>
+    /// <returns>A hash code for this instance that is suitable for use in hashing algorithms and data structures such as a hash table.</returns>
+    public override int GetHashCode()
+    {
+      return identity.GetHashCode();
+    }
+
+    public override string ToString() => "Screenplay scenario";
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.
     /// </summary>
     /// <param name="featureId">Feature identifier.</param>
@@ -102,7 +141,7 @@ namespace CSF.Screenplay
     /// <param name="resolver">Resolver.</param>
     public ScreenplayScenario(IdAndName featureId,
                               IdAndName scenarioId,
-                              ServiceResolver resolver)
+                              IServiceResolver resolver)
     {
       if(featureId == null)
         throw new ArgumentNullException(nameof(featureId));
@@ -111,8 +150,8 @@ namespace CSF.Screenplay
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
+      identity = Guid.NewGuid();
       this.resolver = resolver;
-
       FeatureId = featureId;
       ScenarioId = scenarioId;
     }

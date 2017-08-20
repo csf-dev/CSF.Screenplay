@@ -19,6 +19,12 @@ namespace CSF.Screenplay.Scenarios
     public string Name { get; private set; }
 
     /// <summary>
+    /// Gets the lifetime of the service registration.
+    /// </summary>
+    /// <value>The lifetime.</value>
+    public ServiceLifetime Lifetime { get; private set; }
+
+    /// <summary>
     /// Determines whether the specified <see cref="object"/> is equal to the current <see cref="T:CSF.Screenplay.Scenarios.ServiceMetadata"/>.
     /// </summary>
     /// <param name="obj">The <see cref="object"/> to compare with the current <see cref="T:CSF.Screenplay.Scenarios.ServiceMetadata"/>.</param>
@@ -61,13 +67,15 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <param name="type">Type.</param>
     /// <param name="name">Name.</param>
-    public ServiceMetadata(Type type, string name)
+    public ServiceMetadata(Type type, string name, ServiceLifetime lifetime = ServiceLifetime.Any)
     {
+      lifetime.RequireDefinedValue(nameof(lifetime));
       if(type == null)
         throw new ArgumentNullException(nameof(type));
 
       Type = type;
       Name = name;
+      Lifetime = lifetime;
     }
   }
 }
