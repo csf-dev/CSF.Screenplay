@@ -32,7 +32,9 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      Environment.ServiceRegistry = GetRegistry();
+      if(Environment.ServiceRegistry == null)
+        Environment.ServiceRegistry = GetRegistry();
+      
       RegisterBeforeAndAfterTestRunEvents(Environment);
       Environment.NotifyBeginTestRun();
     }

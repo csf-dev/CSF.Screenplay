@@ -15,35 +15,13 @@ namespace CSF.Screenplay.NUnit
   /// </summary>
   [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly,
                   AllowMultiple = false)]
-  public class ScreenplayTestAttribute : Attribute, ITestBuilder, ITestAction
+  public class ScreenplayAttribute : Attribute, ITestAction
   {
-    [ThreadStatic]
-    static ScreenplayScenario scenario;
-
     /// <summary>
     /// Gets the targets for the attribute (when performing before/after test actions).
     /// </summary>
     /// <value>The targets.</value>
     public ActionTargets Targets => ActionTargets.Test;
-
-    //public IEnumerable GetData(IParameterInfo parameter)
-    //{
-    //  if(parameter.ParameterType == typeof(ScreenplayScenario)
-    //     || parameter.ParameterType == typeof(IScreenplayScenario))
-    //  {
-    //    return new [] { scenario };
-    //  }
-
-    //  return null;
-    //}
-
-    public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
-    {
-      var builder = new NUnitTestCaseBuilder();
-      var testCaseParams = new TestCaseParameters(new [] { scenario });
-      var testMethod = builder.BuildTestMethod(method, suite, testCaseParams);
-      return new [] { testMethod };
-    }
 
     /// <summary>
     /// Performs actions before each test.
@@ -51,9 +29,9 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void BeforeTest(ITest test)
     {
-      scenario = GetScenario(test);
-      CustomiseScenario(scenario);
-      scenario.Begin();
+      ScenarioGetter.Scenario = GetScenario(test);
+      CustomiseScenario(ScenarioGetter.Scenario);
+      ScenarioGetter.Scenario.Begin();
     }
 
     /// <summary>
@@ -62,9 +40,12 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void AfterTest(ITest test)
     {
+      if(ScenarioGetter.Scenario == null)
+        return;
+      
       var success = GetScenarioSuccess(test);
-      scenario.End(success);
-      scenario = null;
+      ScenarioGetter.Scenario.End(success);
+      ScenarioGetter.Scenario = null;
     }
 
     protected virtual void CustomiseScenario(ScreenplayScenario scenario)

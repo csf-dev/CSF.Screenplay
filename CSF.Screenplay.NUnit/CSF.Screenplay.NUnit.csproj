@@ -46,8 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioAdapter.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
-    <Compile Include="ScreenplayTestAttribute.cs" />
+    <Compile Include="ScreenplayAttribute.cs" />
     <Compile Include="ScreenplayEnvironment.cs" />
+    <Compile Include="ScenarioGetter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
