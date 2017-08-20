@@ -183,5 +183,20 @@ namespace CSF.Screenplay.Reporting
 
       this.writer = writer;
     }
+
+    /// <summary>
+    /// Write the report to a file path.
+    /// </summary>
+    /// <param name="report">The report.</param>
+    /// <param name="path">Destination file path.</param>
+    public static void WriteToFile(Report report, string path)
+    {
+      using(var writer = new StreamWriter(path))
+      {
+        var reportWriter = new TextReportWriter(writer);
+        reportWriter.Write(report);
+        writer.Flush();
+      }
+    }
   }
 }
