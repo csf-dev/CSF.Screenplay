@@ -7,6 +7,7 @@ namespace CSF.Screenplay.Web.Tests
     {
       scenario.SubscribeReporterToScenarioEvents();
       scenario.SubscribeReporterToCastActorCreation();
+      scenario.DismissCastAfterEachScenario();
     }
   }
 }

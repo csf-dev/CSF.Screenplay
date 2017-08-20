@@ -22,5 +22,21 @@ namespace CSF.Screenplay
 
       return resolver.GetService<ICast>(name);
     }
+
+    /// <summary>
+    /// Configures the current scenario to dismiss the cast after each scenario completes .
+    /// </summary>
+    /// <param name="scenario">Scenario.</param>
+    /// <param name="name">Name.</param>
+    public static void DismissCastAfterEachScenario(this IScreenplayScenario scenario, string name = null)
+    {
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      scenario.EndScenario += (sender, e) => {
+        var cast = scenario.GetCast(name);
+        cast.Dismiss();
+      };
+    }
   }
 }
