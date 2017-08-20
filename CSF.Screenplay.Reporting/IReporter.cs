@@ -1,5 +1,6 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -23,28 +24,27 @@ namespace CSF.Screenplay.Reporting
     void Unsubscribe(IActor actor);
 
     /// <summary>
-    /// Indicates to the reporter that a new test-run has begun.
+    /// Subscribe to the specified test run.
     /// </summary>
-    void BeginNewTestRun();
+    /// <param name="testRun">Test run.</param>
+    void Subscribe(IProvidesTestRunEvents testRun);
 
     /// <summary>
-    /// Indicates to the reporter that a test run has completed; it may now prepare its report.
+    /// Unsubscribe to the specified test run.
     /// </summary>
-    void CompleteTestRun();
+    /// <param name="testRun">Test run.</param>
+    void Unsubscribe(IProvidesTestRunEvents testRun);
 
     /// <summary>
-    /// Indicates to the reporter that a new scenario has begun.
+    /// Subscribe to the specified scenario.
     /// </summary>
-    /// <param name="friendlyName">The friendly scenario name.</param>
-    /// <param name="featureName">The feature name.</param>
-    /// <param name="idName">The uniquely identifying name for the test.</param>
-    /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId);
+    /// <param name="scenario">Test run.</param>
+    void Subscribe(IScreenplayScenario scenario);
 
     /// <summary>
-    /// Indicates to the reporter that a scenario has finished.
+    /// Unsubscribe to the specified scenario.
     /// </summary>
-    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
-    void CompleteScenario(bool success);
+    /// <param name="scenario">Test run.</param>
+    void Unsubscribe(IScreenplayScenario scenario);
   }
 }

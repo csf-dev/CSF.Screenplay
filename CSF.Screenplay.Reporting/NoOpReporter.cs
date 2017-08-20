@@ -2,6 +2,7 @@
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -10,6 +11,8 @@ namespace CSF.Screenplay.Reporting
   /// </summary>
   public class NoOpReporter : IReporter
   {
+    #region Actor-related handlers
+
     /// <summary>
     /// Subscribe to the given actor and report upon their actions.
     /// </summary>
@@ -185,15 +188,45 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     protected virtual void EndThen(INamed actor) {}
 
-    /// <summary>
-    /// Indicates to the reporter that a new test-run has begun.
-    /// </summary>
-    public virtual void BeginNewTestRun() {}
+    #endregion
+
+    #region Scenario-related handlers
 
     /// <summary>
-    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
+    /// Subscribe to the specified scenario.
     /// </summary>
-    public virtual void CompleteTestRun() {}
+    /// <param name="scenario">Test run.</param>
+    public void Subscribe(IScreenplayScenario scenario)
+    {
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      scenario.BeginScenario += OnNewScenario;
+      scenario.EndScenario += OnEndScenario;
+    }
+
+    /// <summary>
+    /// Unsubscribe to the specified scenario.
+    /// </summary>
+    /// <param name="scenario">Test run.</param>
+    public void Unsubscribe(IScreenplayScenario scenario)
+    {
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      scenario.BeginScenario -= OnNewScenario;
+      scenario.EndScenario -= OnEndScenario;
+    }
+
+    void OnNewScenario(object sender, BeginScenarioEventArgs ev)
+    {
+      BeginNewScenario(ev.ScenarioId.Identity, ev.ScenarioId.Name, ev.FeatureId.Name, ev.FeatureId.Identity);
+    }
+
+    void OnEndScenario(object sender, EndScenarioEventArgs ev)
+    {
+      CompleteScenario(ev.ScenarioIsSuccess);
+    }
 
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
@@ -202,12 +235,64 @@ namespace CSF.Screenplay.Reporting
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    public virtual void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId) {}
+    protected virtual void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId) {}
 
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
     /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
-    public virtual void CompleteScenario(bool success) {}
+    protected virtual void CompleteScenario(bool success) {}
+
+    #endregion
+
+    #region Test-run-related handlers
+
+    /// <summary>
+    /// Subscribe to the specified test run.
+    /// </summary>
+    /// <param name="testRun">Test run.</param>
+    public void Subscribe(IProvidesTestRunEvents testRun)
+    {
+      if(testRun == null)
+        throw new ArgumentNullException(nameof(testRun));
+
+      testRun.BeginTestRun += OnNewTestRun;
+      testRun.CompleteTestRun += OnEndTestRun;
+    }
+
+    /// <summary>
+    /// Unsubscribe to the specified test run.
+    /// </summary>
+    /// <param name="testRun">Test run.</param>
+    public void Unsubscribe(IProvidesTestRunEvents testRun)
+    {
+      if(testRun == null)
+        throw new ArgumentNullException(nameof(testRun));
+
+      testRun.BeginTestRun -= OnNewTestRun;
+      testRun.CompleteTestRun -= OnEndTestRun;
+    }
+
+    void OnNewTestRun(object sender, EventArgs ev)
+    {
+      BeginNewTestRun();
+    }
+
+    void OnEndTestRun(object sender, EventArgs ev)
+    {
+      CompleteTestRun();
+    }
+
+    /// <summary>
+    /// Indicates to the reporter that a new test-run has begun.
+    /// </summary>
+    protected virtual void BeginNewTestRun() {}
+
+    /// <summary>
+    /// Indicates to the reporter that the test run has completed and that the report should be finalised.
+    /// </summary>
+    protected virtual void CompleteTestRun() {}
+
+    #endregion
   }
 }

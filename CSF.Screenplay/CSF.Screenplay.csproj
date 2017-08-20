@@ -74,20 +74,33 @@
     <Compile Include="Actors\PerformanceEventArgsBase.cs" />
     <Compile Include="Actors\ActorEventArgs.cs" />
     <Compile Include="Reporting\IReportable.cs" />
-    <Compile Include="Context\IScreenplayContext.cs" />
-    <Compile Include="Context\ServiceRegistration.cs" />
-    <Compile Include="Context\ServiceLifetime.cs" />
-    <Compile Include="ScreenplayContext.cs" />
-    <Compile Include="ScreenplayContextCastExtensions.cs" />
-    <Compile Include="Context\BeginScenarioEventArgs.cs" />
-    <Compile Include="Context\EndScenarioEventArgs.cs" />
+    <Compile Include="CastRegistryExtensions.cs" />
+    <Compile Include="ScreenplayScenario.cs" />
+    <Compile Include="Scenarios\IScreenplayScenario.cs" />
+    <Compile Include="Scenarios\ServiceMetadata.cs" />
+    <Compile Include="Scenarios\ServiceNotRegisteredException.cs" />
+    <Compile Include="Scenarios\IScenarioFactory.cs" />
+    <Compile Include="Scenarios\IdAndName.cs" />
+    <Compile Include="Scenarios\ScenarioFactory.cs" />
+    <Compile Include="Scenarios\SingletonRegistration.cs" />
+    <Compile Include="Scenarios\IServiceRegistration.cs" />
+    <Compile Include="Scenarios\PerScenarioRegistration.cs" />
+    <Compile Include="Scenarios\ServiceRegistryBuilder.cs" />
+    <Compile Include="Scenarios\ServiceRegistry.cs" />
+    <Compile Include="Scenarios\IServiceRegistryBuilder.cs" />
+    <Compile Include="CastResolverExtensions.cs" />
+    <Compile Include="Scenarios\ServiceResolver.cs" />
+    <Compile Include="Scenarios\IServiceResolver.cs" />
+    <Compile Include="Scenarios\BeginScenarioEventArgs.cs" />
+    <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
+    <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
     <Folder Include="Abilities\" />
     <Folder Include="Reporting\" />
     <Folder Include="Performables\" />
-    <Folder Include="Context\" />
+    <Folder Include="Scenarios\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,53 +3,51 @@ using System.IO;
 using BoDi;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.Scenarios;
 using TechTalk.SpecFlow;
 
 namespace CSF.Screenplay.SpecFlow.Tests
 {
   [Binding]
-  public class SpecflowIntegration : ScreenplayHooks
+  public class SpecflowIntegration : ScreenplayBinding
   {
-    readonly IObjectContainer container;
-
-    public SpecflowIntegration(IObjectContainer container)
-    {
-      this.container = container;
-    }
+    static IModelBuildingReporter reporter;
 
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-      RegisterCast();
-      RegisterReporter();
-      ConfigureActorsInCast();
+      var builder = new ServiceRegistryBuilder();
+      RegisterServices(builder);
+      ServiceRegistry = builder.BuildRegistry();
+      NotifyBeginTestRun();
     }
 
     [AfterTestRun]
     public static void AfterTestRun()
     {
-      DisposeWebBrowsingAbility();
-      InformReporterOfCompletion();
-
-      var report = GetReportModel();
-      if(report != null)
-        WriteReport(report);
+      NotifyCompleteTestRun();
+      WriteReport();
     }
 
-    public override void BeforeScenario()
+    static void RegisterServices(IServiceRegistryBuilder builder)
     {
-      base.BeforeScenario();
-      container.RegisterInstanceAs(Context);
+      reporter = GetReporter();
+
+      builder.RegisterCast();
+      builder.RegisterReporter(reporter);
     }
 
-    static void WriteReport(Report report)
+    static IModelBuildingReporter GetReporter() => new ReportBuildingReporter();
+
+    static void WriteReport()
     {
-      using(var writer = new StreamWriter("SpecFlow.report.txt"))
-      {
-        var reportWriter = new TextReportWriter(writer);
-        reportWriter.Write(report);
-        writer.Flush();
-      }
+      if(reporter == null)
+        return;
+
+      var report = reporter.GetReport();
+      TextReportWriter.WriteToFile(report, "SpecFlow.report.txt");
     }
+
+    public SpecflowIntegration(IObjectContainer container) : base(container) {}
   }
 }

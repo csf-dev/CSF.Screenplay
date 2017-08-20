@@ -11,8 +11,8 @@ namespace CSF.Screenplay.Reporting.Builders
   /// </summary>
   public class ReportBuilder
   {
-    List<Scenario> scenarios;
-    Scenario currentScenario;
+    List<Models.Scenario> scenarios;
+    Models.Scenario currentScenario;
     PerformanceType currentPerformanceType;
     Stack<PerformanceBuilder> builderStack;
 
@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
     public void BeginNewScenario(string idName, string friendlyName = null, string featureName = null, string featureId = null)
     {
-      currentScenario = new Scenario(idName, friendlyName, featureName, featureId);
+      currentScenario = new Models.Scenario(idName, friendlyName, featureName, featureId);
       scenarios.Add(currentScenario);
       currentPerformanceType = PerformanceType.Unspecified;
       builderStack.Clear();
@@ -214,7 +214,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     public ReportBuilder()
     {
-      scenarios = new List<Scenario>();
+      scenarios = new List<Models.Scenario>();
       builderStack = new Stack<PerformanceBuilder>();
       currentPerformanceType = PerformanceType.Unspecified;
     }

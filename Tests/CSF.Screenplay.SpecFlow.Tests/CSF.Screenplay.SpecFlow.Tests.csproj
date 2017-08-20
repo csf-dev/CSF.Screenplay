@@ -55,7 +55,7 @@
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
-    <Compile Include="ContextExtensions.cs" />
+    <Compile Include="ScenarioExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

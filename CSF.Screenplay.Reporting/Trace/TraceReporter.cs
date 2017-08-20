@@ -134,7 +134,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <summary>
     /// Indicates to the reporter that a new test-run has begun.
     /// </summary>
-    public override void BeginNewTestRun()
+    protected override void BeginNewTestRun()
     {
       Trace(TraceConstants.BeginNewTestRun);
     }
@@ -142,7 +142,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <summary>
     /// Indicates to the reporter that the test run has completed and that the report should be finalised.
     /// </summary>
-    public override void CompleteTestRun()
+    protected override void CompleteTestRun()
     {
       Trace(TraceConstants.CompleteTestRun);
     }
@@ -154,7 +154,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    public override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
+    protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
     {
       var report = new BeginScenarioReport(idName, friendlyName, featureId, featureName);
       Trace(TraceConstants.BeginNewScenario, report);
@@ -165,7 +165,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// </summary>
     /// <param name="success">
     /// <c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
-    public override void CompleteScenario(bool success)
+    protected override void CompleteScenario(bool success)
     {
       var report = new CompleteScenarioReport(success);
       Trace(TraceConstants.CompleteScenario, report);

@@ -4,28 +4,19 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [TestFixture,Screenplay]
   [Description("Reading the value of CSS properties")]
   public class GetCssValueTests
   {
-    readonly ScreenplayContext context;
-
-    public GetCssValueTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Reading the value of the 'color' property detects the expected value.")]
     public void GetCssValue_for_red_string_gets_correct_colour()
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

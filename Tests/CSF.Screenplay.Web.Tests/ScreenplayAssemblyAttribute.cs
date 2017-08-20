@@ -1,37 +1,74 @@
 ﻿using System;
-using System.IO;
-using CSF.Screenplay.Actors;
 using CSF.Screenplay.Reporting;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
+using CSF.WebDriverFactory;
+using OpenQA.Selenium;
+
+[assembly: CSF.Screenplay.Web.Tests.ScreenplayAssembly]
 
 namespace CSF.Screenplay.Web.Tests
 {
   public class ScreenplayAssemblyAttribute : NUnit.ScreenplayAssemblyAttribute
   {
-    protected override IUriTransformer GetUriTransformer()
-      => new RootUriPrependingTransformer("http://localhost:8080/");
+    static IWebDriver driver;
+    IModelBuildingReporter reporter;
 
-    protected override void WriteReport(Report report)
+    protected override void RegisterServices(IServiceRegistryBuilder builder)
     {
-      using(var writer = new StreamWriter("NUnit.report.txt"))
-      {
-        var reportWriter = new TextReportWriter(writer);
-        reportWriter.Write(report);
-        writer.Flush();
-      }
+      reporter = GetReporter();
+
+      builder.RegisterCast();
+      builder.RegisterReporter(reporter);
+      builder.RegisterUriTransformer(GetUriTransformer);
+      builder.RegisterWebDriver(GetWebDriver());
+      builder.RegisterWebBrowser();
     }
 
-    /// <summary>
-    /// Gets a helper type which sets up reporting for the cast.
-    /// </summary>
-    /// <returns>The reporting helper.</returns>
-    /// <param name="cast">Cast.</param>
-    /// <param name="reporter">Reporter.</param>
-    /// <param name="context">The current context.</param>
-    protected override Reporting.CastReportingHelper GetReportingHelper(ICast cast,
-                                                              IReporter reporter,
-                                                              ScreenplayContext context)
-    => new CastReportingHelper(cast, reporter, context);
+    protected override void RegisterBeforeAndAfterTestRunEvents(IProvidesTestRunEvents testRunEvents)
+    {
+      if(reporter != null)
+        reporter.Subscribe(testRunEvents);
+
+      testRunEvents.CompleteTestRun += OnCompleteTestRun;
+
+      base.RegisterBeforeAndAfterTestRunEvents(testRunEvents);
+    }
+
+    IModelBuildingReporter GetReporter() => new ReportBuildingReporter();
+
+    IWebDriver GetWebDriver()
+    {
+      var provider = new ConfigurationWebDriverFactoryProvider();
+      var factory = provider.GetFactory();
+      driver = factory.GetWebDriver();
+      return driver;
+    }
+
+    IUriTransformer GetUriTransformer(IServiceResolver res)
+      => new RootUriPrependingTransformer("http://localhost:8080/");
+
+    void OnCompleteTestRun(object sender, EventArgs ev)
+    {
+      DisposeWebDriver();
+      WriteReport();
+    }
+
+    void DisposeWebDriver()
+    {
+      if(driver != null)
+        driver.Dispose();
+    }
+
+    void WriteReport()
+    {
+      if(reporter == null)
+        return;
+
+      var path = "NUnit.report.txt";
+      var report = reporter.GetReport();
+
+      TextReportWriter.WriteToFile(report, path);
+    }
   }
 }

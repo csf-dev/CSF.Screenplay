@@ -4,23 +4,14 @@ using CSF.Screenplay.Web.Tests.Pages;
 using NUnit.Framework;
 using FluentAssertions;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.NUnit;
+using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayFixture]
+  [TestFixture,Screenplay]
   [Description("The deselect action")]
   public class DeselectTests
   {
-    readonly ScreenplayContext context;
-
-    public DeselectTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
     [Test]
     [Description("Deselecting everything leaves nothing selected.")]
     public void DeselectAll_leaves_nothing_selected()
@@ -28,7 +19,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
 
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -44,7 +35,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
 
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -60,7 +51,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
 
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -76,7 +67,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
 
-      var joe = context.GetCast().Get("joe");
+      var joe = Scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
