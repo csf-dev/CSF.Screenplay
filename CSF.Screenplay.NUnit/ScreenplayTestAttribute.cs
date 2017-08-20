@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using CSF.Screenplay.Scenarios;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+using NUnit.Framework.Internal.Builders;
 
 namespace CSF.Screenplay.NUnit
 {
@@ -12,7 +15,7 @@ namespace CSF.Screenplay.NUnit
   /// </summary>
   [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly,
                   AllowMultiple = false)]
-  public class ScreenplayTestAttribute : Attribute, IParameterDataSource, ITestAction
+  public class ScreenplayTestAttribute : Attribute, ITestBuilder, ITestAction
   {
     [ThreadStatic]
     static ScreenplayScenario scenario;
@@ -23,15 +26,23 @@ namespace CSF.Screenplay.NUnit
     /// <value>The targets.</value>
     public ActionTargets Targets => ActionTargets.Test;
 
-    public IEnumerable GetData(IParameterInfo parameter)
-    {
-      if(parameter.ParameterType == typeof(ScreenplayScenario)
-         || parameter.ParameterType == typeof(IScreenplayScenario))
-      {
-        return new [] { scenario };
-      }
+    //public IEnumerable GetData(IParameterInfo parameter)
+    //{
+    //  if(parameter.ParameterType == typeof(ScreenplayScenario)
+    //     || parameter.ParameterType == typeof(IScreenplayScenario))
+    //  {
+    //    return new [] { scenario };
+    //  }
 
-      return null;
+    //  return null;
+    //}
+
+    public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
+    {
+      var builder = new NUnitTestCaseBuilder();
+      var testCaseParams = new TestCaseParameters(new [] { scenario });
+      var testMethod = builder.BuildTestMethod(method, suite, testCaseParams);
+      return new [] { testMethod };
     }
 
     /// <summary>
