@@ -1,6 +1,10 @@
 ﻿using System;
 namespace CSF.Screenplay.Scenarios
 {
+  /// <summary>
+  /// Implementation of <see cref="IServiceRegistration"/> which provides a singleton service, but
+  /// constructs the instance only upon its first usage.
+  /// </summary>
   public class LazySingletonRegistration : IServiceRegistration
   {
     /// <summary>

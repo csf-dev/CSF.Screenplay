@@ -71,6 +71,7 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <param name="type">Type.</param>
     /// <param name="name">Name.</param>
+    /// <param name="lifetime">The service registration lifetime.</param>
     public ServiceMetadata(Type type, string name, ServiceLifetime lifetime)
     {
       lifetime.RequireDefinedValue(nameof(lifetime));

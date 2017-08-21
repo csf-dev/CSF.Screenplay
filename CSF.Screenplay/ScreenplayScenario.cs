@@ -131,6 +131,10 @@ namespace CSF.Screenplay
       return identity.GetHashCode();
     }
 
+    /// <summary>
+    /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// </summary>
+    /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</returns>
     public override string ToString() => "Screenplay scenario";
 
     /// <summary>
