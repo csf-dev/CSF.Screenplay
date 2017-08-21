@@ -54,7 +54,7 @@ install_experimental_test_runner()
   echo "Downloading an NUnit test runner (experimental CI build 3.8.0) ..."
   mkdir -p packages
   wget \
-    -O "NUnit.ConsoleRunner.${$NUNIT_CONSOLE_VERSION}.nupkg" \
+    -O "NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}.nupkg" \
     https://ci.appveyor.com/api/buildjobs/sl6ui4ek8wg8teno/artifacts/package%2FNUnit.ConsoleRunner.3.8.0-ci-03749-socketexcep.nupkg
   mono "$NUGET_PATH" install \
     "NUnit.ConsoleRunner" \
