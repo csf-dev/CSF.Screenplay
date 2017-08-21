@@ -48,7 +48,11 @@ namespace CSF.Screenplay.Scenarios
       if(ReferenceEquals(other, this))
         return true;
 
-      return other.Type == Type && other.Name == Name;
+      return (other.Type == Type
+              && other.Name == Name
+              && (Lifetime == ServiceLifetime.Any
+                  || other.Lifetime == ServiceLifetime.Any
+                  || Lifetime == other.Lifetime));
     }
 
     /// <summary>
@@ -67,7 +71,7 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <param name="type">Type.</param>
     /// <param name="name">Name.</param>
-    public ServiceMetadata(Type type, string name, ServiceLifetime lifetime = ServiceLifetime.Any)
+    public ServiceMetadata(Type type, string name, ServiceLifetime lifetime)
     {
       lifetime.RequireDefinedValue(nameof(lifetime));
       if(type == null)
