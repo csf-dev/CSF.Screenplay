@@ -74,7 +74,10 @@ restore_solution_nuget_packages()
 install_latest_nuget
 echo_nuget_version_to_console
 setup_travis_test_config
-install_test_runner
+# Temporarily replaced with experimental test runner.
+# Attempting to fix #58 (intermittent crashes)
+# install_test_runner
+install_experimental_test_runner
 restore_solution_nuget_packages
 
 exit 0
