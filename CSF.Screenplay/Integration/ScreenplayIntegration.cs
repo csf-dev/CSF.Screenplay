@@ -3,16 +3,16 @@ using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration
 {
-  public abstract class ScreenplayIntegration
+  public abstract class ScreenplayIntegration : IScreenplayIntegration
   {
     static ScreenplayEnvironment environment;
 
-    public virtual void BeforeBuildingFirstScenario()
+    public void EnsureServicesAreRegistered()
     {
-      RegisterServices();
+      environment.ConfigureServiceRegistryIfRequired(GetServiceRegistry);
     }
 
-    public virtual void BeforeExecutingFirstScenario()
+    public void BeforeExecutingFirstScenario()
     {
       BeforeExecutingFirstScenario(environment, CreateSingletonResolver());
       NotifySubscribersOfTestRunStart();
@@ -24,18 +24,19 @@ namespace CSF.Screenplay.Integration
       // Intentional no-op for subclasses to implement
     }
 
-    public virtual void BeforeScenario(ScreenplayScenario scenario)
+    public void BeforeScenario(ScreenplayScenario scenario)
     {
       CustomiseScenario(scenario);
       MarkAsBegun(scenario);
     }
 
-    public virtual void AfterScenario(ScreenplayScenario scenario, bool success)
+    public void AfterScenario(ScreenplayScenario scenario, bool success)
     {
+      AfterScenario(scenario);
       MarkAsEnded(scenario, success);
     }
 
-    public virtual void AfterExecutedLastScenario()
+    public void AfterExecutedLastScenario()
     {
       NotifySubscribersOfTestRunCompletion();
       AfterExecutedLastScenario(CreateSingletonResolver());
@@ -48,7 +49,12 @@ namespace CSF.Screenplay.Integration
 
     protected abstract IServiceRegistrationProvider GetRegistrationProvider();
 
-    protected virtual void CustomiseScenario(IScreenplayScenario scenario)
+    protected virtual void CustomiseScenario(ScreenplayScenario scenario)
+    {
+      // Intentional no-op for subclasses to implement
+    }
+
+    protected virtual void AfterScenario(ScreenplayScenario scenario)
     {
       // Intentional no-op for subclasses to implement
     }
@@ -65,19 +71,10 @@ namespace CSF.Screenplay.Integration
 
     protected void NotifySubscribersOfTestRunCompletion() => environment.NotifyCompleteTestRun();
 
-    protected void RegisterServices()
+    ServiceRegistry GetServiceRegistry()
     {
       var provider = GetRegistrationProvider();
-      var registry = provider.GetServiceRegistry();
-      RegisterServices(registry);
-    }
-
-    void RegisterServices(ServiceRegistry registry)
-    {
-      if(registry == null)
-        throw new ArgumentNullException(nameof(registry));
-
-      environment.ResolverFactory = registry;
+      return provider.GetServiceRegistry();
     }
 
     public ScreenplayIntegration()

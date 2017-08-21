@@ -165,7 +165,7 @@ namespace CSF.Screenplay.Actors
     }
 
     /// <summary>
-    /// Clears the current cast and detaches all event listeners.
+    /// Clears the current cast.
     /// </summary>
     public virtual void Dismiss()
     {
@@ -173,9 +173,6 @@ namespace CSF.Screenplay.Actors
       {
         Actors.Clear();
       }
-
-      ActorCreated = null;
-      ActorAdded = null;
     }
 
     /// <summary>

@@ -1,22 +1,21 @@
-using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
-using NUnit.Framework;
 using FluentAssertions;
+using CSF.Screenplay.NUnit;
+using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture,Screenplay]
+  [TestFixture]
   [Description("Reading options from HTML <select> elements")]
   public class GetOptionsTests
   {
-    [Test]
+    [Test,Screenplay]
     [Description("Reading the available options reveals the expected collection of items.")]
-    public void GetAllOptions_returns_expected_collection()
+    public void GetAllOptions_returns_expected_collection(ScreenplayScenario scenario)
     {
-      var joe = Scenario.GetJoe();
+      var joe = scenario.GetJoe();
 
       var expected = new Models.Option[] {
         new Models.Option("One", "1"),
@@ -29,11 +28,11 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
     }
 
-    [Test]
+    [Test,Screenplay]
     [Description("Reading the selected options reveals the expected collection of items.")]
-    public void GetSelectedOptions_returns_expected_collection()
+    public void GetSelectedOptions_returns_expected_collection(ScreenplayScenario scenario)
     {
-      var joe = Scenario.GetJoe();
+      var joe = scenario.GetJoe();
 
       var expected = new Models.Option[] {
         new Models.Option("Carrot", "veg"),

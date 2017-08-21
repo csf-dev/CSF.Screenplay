@@ -1,22 +1,21 @@
-using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
-using NUnit.Framework;
 using FluentAssertions;
+using CSF.Screenplay.NUnit;
+using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using static CSF.Screenplay.NUnit.ScenarioGetter;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [TestFixture,Screenplay]
+  [TestFixture]
   [Description("Reading the title of the browser window")]
   public class GetWindowTitleTests
   {
-    [Test]
+    [Test,Screenplay]
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
-    public void GetWindowTitle_returns_correct_result()
+    public void GetWindowTitle_returns_correct_result(ScreenplayScenario scenario)
     {
-      var joe = Scenario.GetJoe();
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
