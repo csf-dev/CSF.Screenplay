@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
@@ -82,14 +83,30 @@ namespace CSF.Screenplay.NUnit
 
     ScreenplayScenario GetScenario(ITest test)
     {
-      if(!test.Properties.ContainsKey(ScreenplayScenarioKey))
-      {
-        var message = $"The test instance must contain an instance of `{nameof(ScreenplayScenario)}' in " +
-                      $"its {nameof(ITest.Properties)}.";
-        throw new ArgumentException(message, nameof(test));
-      }
+      var scenario = GetScenario(test.Properties);
+      if(scenario != null)
+        return scenario;
 
-      return (ScreenplayScenario) test.Properties.Get(ScreenplayScenarioKey);
+      scenario = GetScenario(test.Arguments);
+      if(scenario != null)
+        return scenario;
+
+      var message = $"The test must contain an instance of `{nameof(ScreenplayScenario)}' in " +
+                    $"its {nameof(ITest.Properties)} or its {nameof(ITest.Arguments)}.";
+      throw new ArgumentException(message, nameof(test));
+    }
+
+    ScreenplayScenario GetScenario(IPropertyBag properties)
+    {
+      if(properties.ContainsKey(ScreenplayScenarioKey))
+        return (ScreenplayScenario) properties.Get(ScreenplayScenarioKey);
+
+      return null;
+    }
+
+    ScreenplayScenario GetScenario(object[] methodArguments)
+    {
+      return (ScreenplayScenario) methodArguments.FirstOrDefault(x => x is ScreenplayScenario);
     }
 
     ScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
