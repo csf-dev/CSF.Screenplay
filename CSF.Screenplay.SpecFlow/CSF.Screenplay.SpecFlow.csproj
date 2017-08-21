@@ -35,12 +35,17 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="CSF.Configuration">
+      <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ScreenplayBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioAndFeatureKey.cs" />
-    <Compile Include="ScreenplayEnvironment.cs" />
+    <Compile Include="SpecFlowScreenplayConfiguration.cs" />
+    <Compile Include="IScreenplayConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

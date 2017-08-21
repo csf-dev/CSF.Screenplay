@@ -4,42 +4,50 @@ using BoDi;
 using CSF.Screenplay.Scenarios;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
+using CSF.Screenplay.Integration;
 
 namespace CSF.Screenplay.SpecFlow
 {
+  [Binding]
   public class ScreenplayBinding
   {
     static IDictionary<ScenarioAndFeatureKey, Guid> scenarioIds;
     static IDictionary<FeatureContext, Guid> featureIds;
+    static IScreenplayConfiguration cachedConfiguration;
+    static IScreenplayIntegration cachedIntegration;
 
     readonly IObjectContainer container;
-
-    protected IObjectContainer Container => container;
 
     [Before]
     public virtual void BeforeScenario()
     {
       var scenario = CreateScenario(ScenarioContext.Current, FeatureContext.Current);
-      CustomiseScenario(scenario);
-      Container.RegisterInstanceAs(scenario);
-      scenario.Begin();
+      container.RegisterInstanceAs(scenario);
+      GetIntegration().BeforeScenario(scenario);
     }
 
     [After]
     public virtual void AfterScenario()
     {
       var scenario = GetScenario();
-
       var success = GetScenarioSuccess(ScenarioContext.Current);
-      scenario.End(success);
+      GetIntegration().AfterScenario(scenario, success);
     }
 
-    protected virtual void CustomiseScenario(ScreenplayScenario scenario)
+    [BeforeTestRun]
+    public static void BeforeTestRun()
     {
-      // Intentional no-op, subclasses may override this to customise the scenario
+      GetIntegration().EnsureServicesAreRegistered();
+      GetIntegration().BeforeExecutingFirstScenario();
     }
 
-    ScreenplayScenario GetScenario() => Container.Resolve<ScreenplayScenario>();
+    [AfterTestRun]
+    public static void AfterTestRun()
+    {
+      GetIntegration().AfterExecutedLastScenario();
+    }
+
+    ScreenplayScenario GetScenario() => container.Resolve<ScreenplayScenario>();
 
     ScreenplayScenario CreateScenario(ScenarioContext scenarioContext, FeatureContext featureContext)
     {
@@ -49,7 +57,7 @@ namespace CSF.Screenplay.SpecFlow
       return factory.GetScenario(featureName, scenarioName);
     }
 
-    IScenarioFactory GetScenarioFactory() => ScreenplayEnvironment.Default.GetScenarioFactory();
+    IScenarioFactory GetScenarioFactory() => GetIntegration().GetScenarioFactory();
 
     IdAndName GetFeatureName(FeatureContext ctx)
       => new IdAndName(GetFeatureId(ctx).ToString(), ctx.FeatureInfo.Title);
@@ -78,27 +86,51 @@ namespace CSF.Screenplay.SpecFlow
     bool GetScenarioSuccess(ScenarioContext scenario)
       => scenario.TestError == null;
 
-    protected static ServiceRegistry ServiceRegistry
+    static IScreenplayIntegration GetIntegration()
     {
-      get { 
-        return Environment.ServiceRegistry;
+      if(cachedIntegration == null)
+      {
+        cachedIntegration = CreateIntegration();
       }
-      set {
-        Environment.ServiceRegistry = value;
+
+      return cachedIntegration;
+    }
+
+    static IScreenplayConfiguration Configuration
+    {
+      get {
+        if(cachedConfiguration == null)
+        {
+          var reader = new CSF.Configuration.ConfigurationReader();
+          cachedConfiguration = reader.ReadSection<SpecFlowScreenplayConfiguration>();
+        }
+
+        return cachedConfiguration;
       }
     }
 
-    protected static void NotifyBeginTestRun()
+    static IScreenplayIntegration CreateIntegration()
     {
-      Environment.NotifyCompleteTestRun();
-    }
+      var config = Configuration;
+      if(config == null)
+        throw new InvalidOperationException("The SpecFlow/Screenplay configuration must be provided."); 
 
-    protected static void NotifyCompleteTestRun()
-    {
-      Environment.NotifyCompleteTestRun();
-    }
+      var integrationTypeName = Configuration.IntegrationAssemblyQualifiedName;
+      if(integrationTypeName == null)
+      {
+        var message = "The SpecFlow/Screenplay configuration must specify an assembly qualified type for the integration.";
+        throw new InvalidOperationException(message);
+      }
 
-    static ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
+      var integrationType = Type.GetType(integrationTypeName);
+      if(integrationType == null)
+      {
+        var message = $"The Screenplay integration type '{integrationTypeName}' was not found.";
+        throw new InvalidOperationException(message);
+      }
+
+      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+    }
 
     public ScreenplayBinding(IObjectContainer container)
     {
