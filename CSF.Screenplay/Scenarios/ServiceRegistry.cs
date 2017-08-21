@@ -7,17 +7,19 @@ namespace CSF.Screenplay.Scenarios
   /// <summary>
   /// Registry type which contains all of the Screenplay service registrations.
   /// </summary>
-  public class ServiceRegistry
+  public class ServiceRegistry : IServiceResolverFactory, ISingletonServiceResolverFactory
   {
     readonly IReadOnlyCollection<IServiceRegistration> registrations;
 
-    /// <summary>
-    /// Creates and returns a service resolver instance.
-    /// </summary>
-    /// <returns>The resolver.</returns>
-    public ServiceResolver GetResolver()
+    IServiceResolver IServiceResolverFactory.GetResolver()
     {
       return new ServiceResolver(registrations);
+    }
+
+    IServiceResolver ISingletonServiceResolverFactory.GetResolver()
+    {
+      var singletons = registrations.Where(x => x.Metadata.Lifetime == ServiceLifetime.Singleton).ToArray();
+      return new ServiceResolver(singletons);
     }
 
     /// <summary>

@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -13,10 +15,12 @@ namespace CSF.Screenplay.NUnit
   /// Applied to an assembly, fixture or test - this indicates that a test (or all of the tests within the
   /// scope of this attribute) are Screenplay tests.
   /// </summary>
-  [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Interface | AttributeTargets.Assembly,
-                  AllowMultiple = false)]
-  public class ScreenplayAttribute : Attribute, ITestAction
+  [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+  public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
   {
+    const string ScreenplayScenarioKey = "Current scenario";
+    IScreenplayIntegration cachedIntegration;
+
     /// <summary>
     /// Gets the targets for the attribute (when performing before/after test actions).
     /// </summary>
@@ -29,9 +33,8 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void BeforeTest(ITest test)
     {
-      ScenarioGetter.Scenario = GetScenario(test);
-      CustomiseScenario(ScenarioGetter.Scenario);
-      ScenarioGetter.Scenario.Begin();
+      var scenario = GetScenario(test);
+      GetIntegration(test).BeforeScenario(scenario);
     }
 
     /// <summary>
@@ -40,22 +43,36 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public void AfterTest(ITest test)
     {
-      if(ScenarioGetter.Scenario == null)
-        return;
-      
+      var scenario = GetScenario(test);
       var success = GetScenarioSuccess(test);
-      ScenarioGetter.Scenario.End(success);
-      ScenarioGetter.Scenario = null;
+      GetIntegration(test).AfterScenario(scenario, success);
     }
 
     /// <summary>
-    /// Provides a hook by which subclasses may customise the Screenplay scenario before a test case is
-    /// executed.
+    /// Builds a collectio of NUnit test methods from metadata about the test.
     /// </summary>
-    /// <param name="scenario">Scenario.</param>
-    protected virtual void CustomiseScenario(ScreenplayScenario scenario)
+    /// <returns>The test methods.</returns>
+    /// <param name="method">Method information.</param>
+    /// <param name="suite">Test suite information.</param>
+    public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
     {
-      // Intentional no-op, subclasses may override this to customise the scenario
+      GetIntegration(method).EnsureServicesAreRegistered();
+
+      var scenario = CreateScenario(method, suite);
+
+      suite.Properties.Add(ScreenplayScenarioKey, scenario);
+
+      return BuildFrom(method, suite, scenario);
+    }
+
+    IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, ScreenplayScenario scenario)
+    {
+      var builder = new NUnitTestCaseBuilder();
+      var tcParams = new TestCaseParameters(new [] { scenario });
+
+      var testMethod = builder.BuildTestMethod(method, suite, tcParams);
+
+      return new [] { testMethod };
     }
 
     bool GetScenarioSuccess(ITest test)
@@ -66,15 +83,74 @@ namespace CSF.Screenplay.NUnit
 
     ScreenplayScenario GetScenario(ITest test)
     {
-      var testAdapter = new ScenarioAdapter(test);
-      var featureName = GetFeatureName(testAdapter);
-      var scenarioName = GetScenarioName(testAdapter);
-      var factory = GetScenarioFactory();
+      var scenario = GetScenario(test.Properties);
+      if(scenario != null)
+        return scenario;
+
+      scenario = GetScenario(test.Arguments);
+      if(scenario != null)
+        return scenario;
+
+      var message = $"The test must contain an instance of `{nameof(ScreenplayScenario)}' in " +
+                    $"its {nameof(ITest.Properties)} or its {nameof(ITest.Arguments)}.";
+      throw new ArgumentException(message, nameof(test));
+    }
+
+    ScreenplayScenario GetScenario(IPropertyBag properties)
+    {
+      if(properties.ContainsKey(ScreenplayScenarioKey))
+        return (ScreenplayScenario) properties.Get(ScreenplayScenarioKey);
+
+      return null;
+    }
+
+    ScreenplayScenario GetScenario(object[] methodArguments)
+    {
+      return (ScreenplayScenario) methodArguments.FirstOrDefault(x => x is ScreenplayScenario);
+    }
+
+    ScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
+    {
+      var scenarioAdapter = new ScenarioAdapter(suite, method);
+      var featureName = GetFeatureName(scenarioAdapter);
+      var scenarioName = GetScenarioName(scenarioAdapter);
+      var factory = GetIntegration(method).GetScenarioFactory();
 
       return factory.GetScenario(featureName, scenarioName);
     }
 
-    IScenarioFactory GetScenarioFactory() => ScreenplayEnvironment.Default.GetScenarioFactory();
+    IScreenplayIntegration GetIntegration(IMethodInfo method)
+    {
+      if(cachedIntegration == null)
+      {
+        var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
+        if(assembly == null)
+        {
+          throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
+                                      nameof(method));
+        }
+
+        var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
+        if(assemblyAttrib == null)
+        {
+          var message = $"All test methods must be contained within assemblies which are " +
+                        $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
+          throw new InvalidOperationException(message);
+        }
+        
+        cachedIntegration = assemblyAttrib.Integration;
+      }
+
+      return cachedIntegration;
+    }
+
+    IScreenplayIntegration GetIntegration(ITest test)
+    {
+      if(test.Method == null)
+        throw new ArgumentException("The test must specify a method.", nameof(test));
+
+      return GetIntegration(test.Method);
+    }
 
     IdAndName GetFeatureName(ScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
 

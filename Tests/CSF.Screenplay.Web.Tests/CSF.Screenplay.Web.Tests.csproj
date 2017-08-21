@@ -92,15 +92,15 @@
     <Compile Include="Questions\FindElementsTests.cs" />
     <Compile Include="Pages\PageThree.cs" />
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
-    <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
     <Compile Include="SauceConnectWebDriverFactory.cs" />
     <Compile Include="IgnoreOn.cs" />
     <Compile Include="BrowserName.cs" />
     <Compile Include="Waits\GeneralWaitTests.cs" />
-    <Compile Include="ScreenplayAttribute.cs" />
     <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CustomIntegration.cs" />
+    <Compile Include="ScreenplayRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

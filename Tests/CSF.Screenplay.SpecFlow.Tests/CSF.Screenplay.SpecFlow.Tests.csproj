@@ -50,12 +50,13 @@
       <DependentUpon>Test.feature</DependentUpon>
     </Compile>
     <Compile Include="TestSteps.cs" />
-    <Compile Include="SpecflowIntegration.cs" />
     <Compile Include="Abilities\AddNumbers.cs" />
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
     <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CustomIntegration.cs" />
+    <Compile Include="ScreenplayRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

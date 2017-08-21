@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.Scenarios;
+using CSF.Screenplay.Integration;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
@@ -9,8 +9,16 @@ namespace CSF.Screenplay.NUnit
   /// Indicates that the assembly contains Screenplay tests.
   /// </summary>
   [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
-  public abstract class ScreenplayAssemblyAttribute : TestActionAttribute
+  public class ScreenplayAssemblyAttribute : TestActionAttribute
   {
+    IScreenplayIntegration integration;
+
+    /// <summary>
+    /// Gets the current Screenplay integration.
+    /// </summary>
+    /// <value>The integration.</value>
+    public IScreenplayIntegration Integration => integration;
+
     /// <summary>
     /// Gets the targets for this attribute (the affected tests).
     /// </summary>
@@ -23,45 +31,39 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      Environment.NotifyCompleteTestRun();
+      integration.AfterExecutedLastScenario();
     }
 
     /// <summary>
-    /// Executes actions before each affected test.
+    /// Executes actions before any tests in the current assembly.
     /// </summary>
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      if(Environment.ServiceRegistry == null)
-        Environment.ServiceRegistry = GetRegistry();
+      integration.BeforeExecutingFirstScenario();
+    }
+
+    IScreenplayIntegration BuildIntegration(Type integrationType)
+    {
+      if(integrationType == null)
+        throw new ArgumentNullException(nameof(integrationType));
       
-      RegisterBeforeAndAfterTestRunEvents(Environment);
-      Environment.NotifyBeginTestRun();
+      if(!typeof(IScreenplayIntegration).IsAssignableFrom(integrationType))
+      {
+        throw new ArgumentException($"Integration type must implement `{typeof(IScreenplayIntegration).Name}'.",
+                                    nameof(integrationType));
+      }
+
+      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
     }
 
-    ServiceRegistry GetRegistry()
-    {
-      var builder = new ServiceRegistryBuilder();
-      RegisterServices(builder);
-      return builder.BuildRegistry();
-    }
-
-    ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
-
     /// <summary>
-    /// Registers services which will be used by Screenplay.  Subclasses should override this method,
-    /// providing the applicable registration code.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScreenplayAssemblyAttribute"/> class.
     /// </summary>
-    /// <param name="builder">Builder.</param>
-    protected abstract void RegisterServices(IServiceRegistryBuilder builder);
-
-    /// <summary>
-    /// Provides a hook by which components may subscribe to the before-test-run and after-test-run events.
-    /// </summary>
-    /// <param name="testRunEvents">Test run events.</param>
-    protected virtual void RegisterBeforeAndAfterTestRunEvents(IProvidesTestRunEvents testRunEvents)
+    /// <param name="integrationType">Integration type.</param>
+    public ScreenplayAssemblyAttribute(Type integrationType)
     {
-      // Intentional no-op, subclasses may override this to provide functionality.
+      integration = BuildIntegration(integrationType);
     }
   }
 }

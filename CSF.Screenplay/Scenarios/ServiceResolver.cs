@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Scenarios
     /// <typeparam name="TService">The desired service type.</typeparam>
     public TService GetService<TService>(string name) where TService : class
     {
-      var metadata = new ServiceMetadata(typeof(TService), name);
+      var metadata = new ServiceMetadata(typeof(TService), name, ServiceLifetime.Any);
       return (TService) GetService(metadata);
     }
 
@@ -31,7 +31,7 @@ namespace CSF.Screenplay.Scenarios
     /// <typeparam name="TService">The desired service type.</typeparam>
     public TService GetOptionalService<TService>(string name) where TService : class
     {
-      var metadata = new ServiceMetadata(typeof(TService), name);
+      var metadata = new ServiceMetadata(typeof(TService), name, ServiceLifetime.Any);
       return (TService) GetOptionalService(metadata);
     }
 

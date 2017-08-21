@@ -4,42 +4,65 @@ using BoDi;
 using CSF.Screenplay.Scenarios;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
+using CSF.Screenplay.Integration;
 
 namespace CSF.Screenplay.SpecFlow
 {
+  /// <summary>
+  /// Binding type for the SpecFlow/Screenplay integration.
+  /// </summary>
+  [Binding]
   public class ScreenplayBinding
   {
     static IDictionary<ScenarioAndFeatureKey, Guid> scenarioIds;
     static IDictionary<FeatureContext, Guid> featureIds;
+    static IScreenplayConfiguration cachedConfiguration;
+    static IScreenplayIntegration cachedIntegration;
 
     readonly IObjectContainer container;
 
-    protected IObjectContainer Container => container;
-
+    /// <summary>
+    /// Executed before each scenario.
+    /// </summary>
     [Before]
-    public virtual void BeforeScenario()
+    public void BeforeScenario()
     {
       var scenario = CreateScenario(ScenarioContext.Current, FeatureContext.Current);
-      CustomiseScenario(scenario);
-      Container.RegisterInstanceAs(scenario);
-      scenario.Begin();
+      container.RegisterInstanceAs(scenario);
+      GetIntegration().BeforeScenario(scenario);
     }
 
+    /// <summary>
+    /// Executed after each scenario.
+    /// </summary>
     [After]
-    public virtual void AfterScenario()
+    public void AfterScenario()
     {
       var scenario = GetScenario();
-
       var success = GetScenarioSuccess(ScenarioContext.Current);
-      scenario.End(success);
+      GetIntegration().AfterScenario(scenario, success);
     }
 
-    protected virtual void CustomiseScenario(ScreenplayScenario scenario)
+    /// <summary>
+    /// Executed before a test run.
+    /// </summary>
+    [BeforeTestRun]
+    public static void BeforeTestRun()
     {
-      // Intentional no-op, subclasses may override this to customise the scenario
+      GetIntegration().EnsureServicesAreRegistered();
+      GetIntegration().BeforeExecutingFirstScenario();
     }
 
-    ScreenplayScenario GetScenario() => Container.Resolve<ScreenplayScenario>();
+    /// <summary>
+    /// Executed after a test run.
+    /// </summary>
+    [AfterTestRun]
+    public static void AfterTestRun()
+    {
+      GetIntegration().AfterExecutedLastScenario();
+    }
+
+    ScreenplayScenario GetScenario() => container.Resolve<ScreenplayScenario>();
 
     ScreenplayScenario CreateScenario(ScenarioContext scenarioContext, FeatureContext featureContext)
     {
@@ -49,7 +72,7 @@ namespace CSF.Screenplay.SpecFlow
       return factory.GetScenario(featureName, scenarioName);
     }
 
-    IScenarioFactory GetScenarioFactory() => ScreenplayEnvironment.Default.GetScenarioFactory();
+    IScenarioFactory GetScenarioFactory() => GetIntegration().GetScenarioFactory();
 
     IdAndName GetFeatureName(FeatureContext ctx)
       => new IdAndName(GetFeatureId(ctx).ToString(), ctx.FeatureInfo.Title);
@@ -78,33 +101,64 @@ namespace CSF.Screenplay.SpecFlow
     bool GetScenarioSuccess(ScenarioContext scenario)
       => scenario.TestError == null;
 
-    protected static ServiceRegistry ServiceRegistry
+    static IScreenplayIntegration GetIntegration()
     {
-      get { 
-        return Environment.ServiceRegistry;
+      if(cachedIntegration == null)
+      {
+        cachedIntegration = CreateIntegration();
       }
-      set {
-        Environment.ServiceRegistry = value;
+
+      return cachedIntegration;
+    }
+
+    static IScreenplayConfiguration Configuration
+    {
+      get {
+        if(cachedConfiguration == null)
+        {
+          var reader = new CSF.Configuration.ConfigurationReader();
+          cachedConfiguration = reader.ReadSection<SpecFlowScreenplayConfiguration>();
+        }
+
+        return cachedConfiguration;
       }
     }
 
-    protected static void NotifyBeginTestRun()
+    static IScreenplayIntegration CreateIntegration()
     {
-      Environment.NotifyCompleteTestRun();
+      var config = Configuration;
+      if(config == null)
+        throw new InvalidOperationException("The SpecFlow/Screenplay configuration must be provided."); 
+
+      var integrationTypeName = Configuration.IntegrationAssemblyQualifiedName;
+      if(integrationTypeName == null)
+      {
+        var message = "The SpecFlow/Screenplay configuration must specify an assembly qualified type for the integration.";
+        throw new InvalidOperationException(message);
+      }
+
+      var integrationType = Type.GetType(integrationTypeName);
+      if(integrationType == null)
+      {
+        var message = $"The Screenplay integration type '{integrationTypeName}' was not found.";
+        throw new InvalidOperationException(message);
+      }
+
+      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
     }
 
-    protected static void NotifyCompleteTestRun()
-    {
-      Environment.NotifyCompleteTestRun();
-    }
-
-    static ScreenplayEnvironment Environment => ScreenplayEnvironment.Default;
-
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayBinding"/> class.
+    /// </summary>
+    /// <param name="container">Container.</param>
     public ScreenplayBinding(IObjectContainer container)
     {
       this.container = container;
     }
 
+    /// <summary>
+    /// Initializes the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayBinding"/> class.
+    /// </summary>
     static ScreenplayBinding()
     {
       scenarioIds = new ConcurrentDictionary<ScenarioAndFeatureKey, Guid>();

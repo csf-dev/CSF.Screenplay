@@ -20,8 +20,22 @@ namespace CSF.Screenplay.Scenarios
     /// <typeparam name="TService">The 1st type parameter.</typeparam>
     public void RegisterSingleton<TService>(TService instance, string name = null) where TService : class
     {
-      var meta = GetMetadata<TService>(name);
+      var meta = GetMetadata<TService>(name, ServiceLifetime.Singleton);
       var reg = new SingletonRegistration(meta, instance);
+      registrations.Add(reg);
+    }
+
+    /// <summary>
+    /// Registers a service which will be used across all scenarios within a test run.
+    /// </summary>
+    /// <param name="initialiser">Initialiser.</param>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The 1st type parameter.</typeparam>
+    public void RegisterSingleton<TService>(Func<TService> initialiser, string name = null) where TService : class
+    {
+      var meta = GetMetadata<TService>(name, ServiceLifetime.Singleton);
+      var fac = GetNonGenericFactory(initialiser);
+      var reg = new LazySingletonRegistration(meta, fac);
       registrations.Add(reg);
     }
 
@@ -34,7 +48,7 @@ namespace CSF.Screenplay.Scenarios
     /// <typeparam name="TService">The 1st type parameter.</typeparam>
     public void RegisterPerScenario<TService>(Func<IServiceResolver,TService> factory, string name = null) where TService : class
     {
-      var meta = GetMetadata<TService>(name);
+      var meta = GetMetadata<TService>(name, ServiceLifetime.PerScenario);
       var fac = GetNonGenericFactory(factory);
       var reg = new PerScenarioRegistration(meta, fac);
       registrations.Add(reg);
@@ -50,14 +64,19 @@ namespace CSF.Screenplay.Scenarios
       return new ServiceRegistry(builtRegistrations);
     }
 
-    ServiceMetadata GetMetadata<TService>(string name)
+    ServiceMetadata GetMetadata<TService>(string name, ServiceLifetime lifetime)
     {
-      return new ServiceMetadata(typeof(TService), name);
+      return new ServiceMetadata(typeof(TService), name, lifetime);
     }
 
     Func<IServiceResolver,object> GetNonGenericFactory<TService>(Func<IServiceResolver,TService> genericFactory)
     {
       return scenario => genericFactory(scenario);
+    }
+
+    Func<object> GetNonGenericFactory<TService>(Func<TService> genericFactory)
+    {
+      return () => genericFactory();
     }
 
     /// <summary>

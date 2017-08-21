@@ -30,5 +30,20 @@ namespace CSF.Screenplay
         builder.RegisterSingleton((IModelBuildingReporter) reporter, name);
       }
     }
+
+    /// <summary>
+    /// Registers a single (default) model-bulilding reporter instance with the registry builder.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    /// <param name="name">Name.</param>
+    public static void RegisterDefaultModelBuildingReporter(this IServiceRegistryBuilder builder,
+                                                            string name = null)
+    {
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+
+      var reporter = new ReportBuildingReporter();
+      RegisterReporter(builder, reporter, name);
+    }
   }
 }
