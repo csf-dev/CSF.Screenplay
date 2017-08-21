@@ -8,6 +8,9 @@ using CSF.Screenplay.Integration;
 
 namespace CSF.Screenplay.SpecFlow
 {
+  /// <summary>
+  /// Binding type for the SpecFlow/Screenplay integration.
+  /// </summary>
   [Binding]
   public class ScreenplayBinding
   {
@@ -18,22 +21,31 @@ namespace CSF.Screenplay.SpecFlow
 
     readonly IObjectContainer container;
 
+    /// <summary>
+    /// Executed before each scenario.
+    /// </summary>
     [Before]
-    public virtual void BeforeScenario()
+    public void BeforeScenario()
     {
       var scenario = CreateScenario(ScenarioContext.Current, FeatureContext.Current);
       container.RegisterInstanceAs(scenario);
       GetIntegration().BeforeScenario(scenario);
     }
 
+    /// <summary>
+    /// Executed after each scenario.
+    /// </summary>
     [After]
-    public virtual void AfterScenario()
+    public void AfterScenario()
     {
       var scenario = GetScenario();
       var success = GetScenarioSuccess(ScenarioContext.Current);
       GetIntegration().AfterScenario(scenario, success);
     }
 
+    /// <summary>
+    /// Executed before a test run.
+    /// </summary>
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
@@ -41,6 +53,9 @@ namespace CSF.Screenplay.SpecFlow
       GetIntegration().BeforeExecutingFirstScenario();
     }
 
+    /// <summary>
+    /// Executed after a test run.
+    /// </summary>
     [AfterTestRun]
     public static void AfterTestRun()
     {
@@ -132,11 +147,18 @@ namespace CSF.Screenplay.SpecFlow
       return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayBinding"/> class.
+    /// </summary>
+    /// <param name="container">Container.</param>
     public ScreenplayBinding(IObjectContainer container)
     {
       this.container = container;
     }
 
+    /// <summary>
+    /// Initializes the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayBinding"/> class.
+    /// </summary>
     static ScreenplayBinding()
     {
       scenarioIds = new ConcurrentDictionary<ScenarioAndFeatureKey, Guid>();
