@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NUNIT_CONSOLE_VERSION="3.7.0"
+NUNIT_CONSOLE_VERSION="3.8.0-ci-03749-socketexcep"
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"

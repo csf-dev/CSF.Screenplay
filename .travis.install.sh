@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NUGET_LATEST_DIST="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-NUNIT_CONSOLE_VERSION="3.7.0"
+NUNIT_CONSOLE_VERSION="3.8.0-ci-03749-socketexcep"
 TRAVIS_TEST_CONFIG_SOURCE="Tests/CSF.Screenplay.Web.Tests/App.Travis.config"
 TEST_CONFIG_DESTINATION="Tests/CSF.Screenplay.Web.Tests/App.config"
 NUGET_PATH=".nuget/nuget.exe"
@@ -44,6 +44,21 @@ install_test_runner()
   echo "Downloading an NUnit test runner ..."
   mono "$NUGET_PATH" install \
     "NUnit.ConsoleRunner" \
+    -Version "$NUNIT_CONSOLE_VERSION" \
+    -OutputDirectory testrunner
+  stop_if_failure $? "Download NUnit test runner"
+}
+
+install_experimental_test_runner()
+{
+  echo "Downloading an NUnit test runner (experimental CI build 3.8.0) ..."
+  mkdir -p packages
+  wget \
+    -O "NUnit.ConsoleRunner.${$NUNIT_CONSOLE_VERSION}.nupkg" \
+    https://ci.appveyor.com/api/buildjobs/sl6ui4ek8wg8teno/artifacts/package%2FNUnit.ConsoleRunner.3.8.0-ci-03749-socketexcep.nupkg
+  mono "$NUGET_PATH" install \
+    "NUnit.ConsoleRunner" \
+    -Source $(pwd) \
     -Version "$NUNIT_CONSOLE_VERSION" \
     -OutputDirectory testrunner
   stop_if_failure $? "Download NUnit test runner"
