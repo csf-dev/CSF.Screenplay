@@ -15,6 +15,14 @@ namespace CSF.Screenplay.Scenarios
     void RegisterSingleton<TService>(TService instance, string name = null) where TService : class;
 
     /// <summary>
+    /// Registers a service which will be used across all scenarios within a test run.
+    /// </summary>
+    /// <param name="initialiser">Initialiser.</param>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The 1st type parameter.</typeparam>
+    void RegisterSingleton<TService>(Func<TService> initialiser, string name = null) where TService : class;
+
+    /// <summary>
     /// Registers a service which will be constructed afresh (using the given factory function) for
     /// each scenario within a test run.
     /// </summary>
