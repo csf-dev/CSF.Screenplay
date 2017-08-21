@@ -29,6 +29,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     protected override void AfterScenario(ScreenplayScenario scenario)
     {
       UnsubscribeReporterFromScenarioEvents(scenario);
+      DismissCast(scenario);
     }
 
     void SubscribeReporterToTestRunBeginAndEnd(IProvidesTestRunEvents testRunEvents,
@@ -58,6 +59,12 @@ namespace CSF.Screenplay.SpecFlow.Tests
     {
       var reporter = scenario.GetReporter();
       reporter.Unsubscribe(scenario);
+    }
+
+    void DismissCast(ScreenplayScenario scenario)
+    {
+      var cast = scenario.GetCast();
+      cast.Dismiss();
     }
 
     void WriteReport(IServiceResolver serviceResolver)

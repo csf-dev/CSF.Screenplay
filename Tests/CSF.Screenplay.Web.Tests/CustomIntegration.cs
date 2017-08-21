@@ -36,6 +36,7 @@ namespace CSF.Screenplay.Web.Tests
     protected override void AfterScenario(ScreenplayScenario scenario)
     {
       UnsubscribeReporterFromScenarioEvents(scenario);
+      DismissCast(scenario);
     }
 
     void SubscribeReporterToTestRunBeginAndEnd(IProvidesTestRunEvents testRunEvents,
@@ -71,6 +72,12 @@ namespace CSF.Screenplay.Web.Tests
     {
       var webDriver = serviceResolver.GetService<IWebDriver>();
       webDriver.Dispose();
+    }
+
+    void DismissCast(ScreenplayScenario scenario)
+    {
+      var cast = scenario.GetCast();
+      cast.Dismiss();
     }
 
     void WriteReport(IServiceResolver serviceResolver)
