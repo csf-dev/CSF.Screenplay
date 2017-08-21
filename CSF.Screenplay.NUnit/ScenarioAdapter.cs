@@ -5,7 +5,10 @@ using NUnit.Framework.Interfaces;
 
 namespace CSF.Screenplay.NUnit
 {
-  public class SuitAndMethodScenarioAdapter : IScenarioAdapter
+  /// <summary>
+  /// Adapter type which provides a simple API for getting feature/scenario identification information.
+  /// </summary>
+  public class ScenarioAdapter
   {
     readonly ITest featureSuite;
     readonly IMethodInfo scenarioMethod;
@@ -68,7 +71,12 @@ namespace CSF.Screenplay.NUnit
       return prop.ToString();
     }
 
-    public SuitAndMethodScenarioAdapter(ITest featureSuite, IMethodInfo scenarioMethod)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScenarioAdapter"/> class.
+    /// </summary>
+    /// <param name="featureSuite">Feature suite.</param>
+    /// <param name="scenarioMethod">Scenario method.</param>
+    public ScenarioAdapter(ITest featureSuite, IMethodInfo scenarioMethod)
     {
       if(scenarioMethod == null)
         throw new ArgumentNullException(nameof(scenarioMethod));

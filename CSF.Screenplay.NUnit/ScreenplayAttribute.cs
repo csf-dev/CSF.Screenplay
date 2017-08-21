@@ -111,9 +111,9 @@ namespace CSF.Screenplay.NUnit
 
     ScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
     {
-      var testAdapter = new SuitAndMethodScenarioAdapter(suite, method);
-      var featureName = GetFeatureName(testAdapter);
-      var scenarioName = GetScenarioName(testAdapter);
+      var scenarioAdapter = new ScenarioAdapter(suite, method);
+      var featureName = GetFeatureName(scenarioAdapter);
+      var scenarioName = GetScenarioName(scenarioAdapter);
       var factory = GetIntegration(method).GetScenarioFactory();
 
       return factory.GetScenario(featureName, scenarioName);
@@ -152,8 +152,8 @@ namespace CSF.Screenplay.NUnit
       return GetIntegration(test.Method);
     }
 
-    IdAndName GetFeatureName(IScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
+    IdAndName GetFeatureName(ScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
 
-    IdAndName GetScenarioName(IScenarioAdapter test) => new IdAndName(test.ScenarioId, test.ScenarioName);
+    IdAndName GetScenarioName(ScenarioAdapter test) => new IdAndName(test.ScenarioId, test.ScenarioName);
   }
 }
