@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Scenarios
         throw new ArgumentNullException(nameof(initialiser));
 
       Metadata = metadata;
-      Service = new Lazy<object>(() => initialiser);
+      Service = new Lazy<object>(initialiser);
     }
   }
 }
