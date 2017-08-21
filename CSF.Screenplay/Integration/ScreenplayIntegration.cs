@@ -77,7 +77,7 @@ namespace CSF.Screenplay.Integration
       return provider.GetServiceRegistry();
     }
 
-    public ScreenplayIntegration()
+    static ScreenplayIntegration()
     {
       environment = new ScreenplayEnvironment();
     }
