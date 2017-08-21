@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Web.Tests
       builder.RegisterDefaultModelBuildingReporter();
       builder.RegisterCast();
       builder.RegisterUriTransformer(GetUriTransformer);
-      builder.RegisterWebDriver(GetWebDriver());
+      builder.RegisterWebDriver(GetWebDriver);
       builder.RegisterWebBrowser();
     }
 

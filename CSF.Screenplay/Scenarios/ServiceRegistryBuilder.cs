@@ -26,6 +26,20 @@ namespace CSF.Screenplay.Scenarios
     }
 
     /// <summary>
+    /// Registers a service which will be used across all scenarios within a test run.
+    /// </summary>
+    /// <param name="initialiser">Initialiser.</param>
+    /// <param name="name">Name.</param>
+    /// <typeparam name="TService">The 1st type parameter.</typeparam>
+    public void RegisterSingleton<TService>(Func<TService> initialiser, string name = null) where TService : class
+    {
+      var meta = GetMetadata<TService>(name);
+      var fac = GetNonGenericFactory(initialiser);
+      var reg = new LazySingletonRegistration(meta, fac);
+      registrations.Add(reg);
+    }
+
+    /// <summary>
     /// Registers a service which will be constructed afresh (using the given factory function) for
     /// each scenario within a test run.
     /// </summary>
@@ -58,6 +72,11 @@ namespace CSF.Screenplay.Scenarios
     Func<IServiceResolver,object> GetNonGenericFactory<TService>(Func<IServiceResolver,TService> genericFactory)
     {
       return scenario => genericFactory(scenario);
+    }
+
+    Func<object> GetNonGenericFactory<TService>(Func<TService> genericFactory)
+    {
+      return () => genericFactory();
     }
 
     /// <summary>

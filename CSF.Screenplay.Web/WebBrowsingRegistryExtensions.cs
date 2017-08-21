@@ -32,18 +32,18 @@ namespace CSF.Screenplay
     /// Registers a single web driver instance which will be used for every scenario in the test run.
     /// </summary>
     /// <param name="builder">Builder.</param>
-    /// <param name="driver">Driver.</param>
+    /// <param name="initialiser">Driver.</param>
     /// <param name="name">Name.</param>
     public static void RegisterWebDriver(this IServiceRegistryBuilder builder,
-                                         IWebDriver driver,
+                                         Func<IWebDriver> initialiser,
                                          string name = null)
     {
       if(builder == null)
         throw new ArgumentNullException(nameof(builder));
-      if(driver == null)
-        throw new ArgumentNullException(nameof(driver));
+      if(initialiser == null)
+        throw new ArgumentNullException(nameof(initialiser));
 
-      builder.RegisterSingleton(driver, name);
+      builder.RegisterSingleton(initialiser, name);
     }
 
     /// <summary>

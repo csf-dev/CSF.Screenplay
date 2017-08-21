@@ -102,6 +102,7 @@
     <Compile Include="Scenarios\ServiceLifetime.cs" />
     <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
     <Compile Include="Integration\IScreenplayIntegration.cs" />
+    <Compile Include="Scenarios\LazySingletonRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
