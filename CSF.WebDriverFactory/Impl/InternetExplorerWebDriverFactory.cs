@@ -73,7 +73,7 @@ namespace CSF.WebDriverFactory.Impl
         output = InternetExplorerDriverService.CreateDefaultService(DriverPath);
 
       output.HideCommandPromptWindow = true;
-      output.SuppressInitialDiagnosticInformation = false;
+      output.SuppressInitialDiagnosticInformation = true;
 
       if(DriverPort.HasValue)
         output.Port = DriverPort.Value;

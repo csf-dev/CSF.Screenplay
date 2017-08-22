@@ -79,7 +79,7 @@ namespace CSF.WebDriverFactory.Impl
         output = ChromeDriverService.CreateDefaultService(DriverPath);
 
       output.HideCommandPromptWindow = true;
-      output.SuppressInitialDiagnosticInformation = false;
+      output.SuppressInitialDiagnosticInformation = true;
 
       if(DriverPort.HasValue)
         output.Port = DriverPort.Value;
