@@ -14,14 +14,14 @@ namespace CSF.Screenplay.Web.Tests
       builder.RegisterDefaultModelBuildingReporter();
       builder.RegisterCast();
       builder.RegisterUriTransformer(GetUriTransformer);
-      builder.RegisterWebDriver(x => GetWebDriver());
+      builder.RegisterWebDriver(GetWebDriver);
       builder.RegisterWebBrowser();
     }
 
     IUriTransformer GetUriTransformer(IServiceResolver res)
       => new RootUriPrependingTransformer("http://localhost:8080/");
 
-    IWebDriver GetWebDriver()
+    IWebDriver GetWebDriver(IScreenplayScenario scenario)
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();

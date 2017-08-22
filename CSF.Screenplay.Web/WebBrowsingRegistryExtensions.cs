@@ -17,7 +17,7 @@ namespace CSF.Screenplay
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void RegisterWebDriver(this IServiceRegistryBuilder builder,
-                                         Func<IServiceResolver,IWebDriver> factory,
+                                         Func<IScreenplayScenario,IWebDriver> factory,
                                          string name = null)
     {
       if(builder == null)
@@ -91,7 +91,7 @@ namespace CSF.Screenplay
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void RegisterWebBrowser(this IServiceRegistryBuilder builder,
-                                          Func<IServiceResolver,BrowseTheWeb> factory = null,
+                                          Func<IScreenplayScenario,BrowseTheWeb> factory = null,
                                           string name = null)
     {
       if(builder == null)
