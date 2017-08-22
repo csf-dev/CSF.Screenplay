@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Web.Tests
 {
   public class SauceConnectWebDriverFactory : RemoteWebDriverFromEnvironmentFactory
   {
-    const string
+    internal const string
       TunnelIdCapability = "tunnel-identifier",
       UsernameCapability = "username",
       ApiKeyCapability = "accessKey",
@@ -27,7 +27,6 @@ namespace CSF.Screenplay.Web.Tests
       caps.SetCapability(UsernameCapability, GetSauceUsername());
       caps.SetCapability(ApiKeyCapability, GetSauceAccessKey());
       caps.SetCapability(BuildNameCapability, GetSauceBuildName());
-      caps.SetCapability(TestNameCapability, GetSauceJobName());
     }
 
     string GetTunnelId() => Environment.GetEnvironmentVariable(TunnelIdEnvVariable);
@@ -44,8 +43,6 @@ namespace CSF.Screenplay.Web.Tests
 
     string GetJobNumber() => Environment.GetEnvironmentVariable(TravisJobNumberEnvVariable);
 
-    string GetSauceBuildName() => $"build-{GetBuildNumber()}-{GetCommitHash()}";
-
-    string GetSauceJobName() => $"Travis job {GetJobNumber()}; {GetBrowserName()}";
+    string GetSauceBuildName() => $"Travis job {GetJobNumber()}; {GetBrowserName()}";
   }
 }

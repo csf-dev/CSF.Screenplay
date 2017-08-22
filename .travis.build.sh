@@ -45,7 +45,12 @@ start_webserver()
 run_integration_tests()
 {
   echo "Running integration tests ..."
-  mono "$NUNIT_PATH" --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
+  if [ which travis_wait ]
+  then
+    travis_wait 30 mono "$NUNIT_PATH" --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
+  else
+    mono "$NUNIT_PATH" --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
+  fi
   test_outcome=$?
 }
 

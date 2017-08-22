@@ -17,7 +17,6 @@ namespace CSF.Screenplay.Web.Tests
 
     protected override void AfterExecutedLastScenario(IServiceResolver serviceResolver)
     {
-      DisposeWebDriver(serviceResolver);
       WriteReport(serviceResolver);
     }
 
@@ -36,6 +35,7 @@ namespace CSF.Screenplay.Web.Tests
     protected override void AfterScenario(ScreenplayScenario scenario)
     {
       UnsubscribeReporterFromScenarioEvents(scenario);
+      DisposeWebDriver(scenario);
       DismissCast(scenario);
     }
 

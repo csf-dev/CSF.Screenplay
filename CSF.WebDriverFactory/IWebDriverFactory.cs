@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 
 namespace CSF.WebDriverFactory
@@ -14,5 +15,11 @@ namespace CSF.WebDriverFactory
     /// </summary>
     /// <returns>The web driver.</returns>
     IWebDriver GetWebDriver();
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    IWebDriver GetWebDriver(IDictionary<string,object> capabilities);
   }
 }

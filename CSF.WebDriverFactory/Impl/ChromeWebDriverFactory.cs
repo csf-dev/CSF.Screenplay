@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -39,8 +40,26 @@ namespace CSF.WebDriverFactory.Impl
     /// <returns>The web driver.</returns>
     public IWebDriver GetWebDriver()
     {
+      return GetWebDriver(null);
+    }
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    public IWebDriver GetWebDriver(IDictionary<string,object> capabilities)
+    {
       var driverService = GetDriverService();
       var options = GetChromeOptions();
+
+      if(capabilities != null)
+      {
+        foreach(var cap in capabilities)
+        {
+          options.AddAdditionalCapability(cap.Key, cap.Value);
+        }
+      }
+
       var timeout = GetTimeout();
       return new ChromeDriver(driverService, options, timeout);
     }
@@ -60,7 +79,7 @@ namespace CSF.WebDriverFactory.Impl
         output = ChromeDriverService.CreateDefaultService(DriverPath);
 
       output.HideCommandPromptWindow = true;
-      output.SuppressInitialDiagnosticInformation = false;
+      output.SuppressInitialDiagnosticInformation = true;
 
       if(DriverPort.HasValue)
         output.Port = DriverPort.Value;

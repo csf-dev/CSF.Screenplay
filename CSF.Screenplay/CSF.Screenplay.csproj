@@ -96,7 +96,6 @@
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
     <Compile Include="Integration\ScreenplayIntegration.cs" />
     <Compile Include="Integration\ScreenplayEnvironment.cs" />
-    <Compile Include="Scenarios\IServiceResolverFactory.cs" />
     <Compile Include="Integration\IServiceRegistrationProvider.cs" />
     <Compile Include="Integration\ServiceRegistrationProvider.cs" />
     <Compile Include="Scenarios\ServiceLifetime.cs" />

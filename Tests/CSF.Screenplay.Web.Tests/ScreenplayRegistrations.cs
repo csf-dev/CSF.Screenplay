@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
@@ -21,11 +22,22 @@ namespace CSF.Screenplay.Web.Tests
     IUriTransformer GetUriTransformer(IServiceResolver res)
       => new RootUriPrependingTransformer("http://localhost:8080/");
 
-    IWebDriver GetWebDriver()
+    IWebDriver GetWebDriver(IScreenplayScenario scenario)
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();
-      return factory.GetWebDriver();
+
+      var caps = new Dictionary<string,object>();
+
+      if(factory is SauceConnectWebDriverFactory)
+      {
+        caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+      }
+
+      return factory.GetWebDriver(caps);
     }
+
+    string GetTestName(IScreenplayScenario scenario)
+      => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
   }
 }

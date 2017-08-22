@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration
@@ -8,17 +9,10 @@ namespace CSF.Screenplay.Integration
     object syncRoot;
     ServiceRegistry serviceRegistry;
 
-    IServiceResolverFactory ResolverFactory => serviceRegistry;
-
     ISingletonServiceResolverFactory SingletonResolverFactory => serviceRegistry;
 
-    internal IServiceResolver CreateResolver()
-    {
-      if(ResolverFactory == null)
-        throw new InvalidOperationException("Cannot create a resolver instance until the registrations have been configured.");
-
-      return ResolverFactory.GetResolver();
-    }
+    internal IReadOnlyCollection<IServiceRegistration> GetRegistrations()
+      => serviceRegistry.Registrations;
 
     internal IServiceResolver CreateSingletonResolver()
     {
@@ -61,8 +55,7 @@ namespace CSF.Screenplay.Integration
 
     internal IScenarioFactory GetScenarioFactory()
     {
-      var resolver = CreateResolver();
-      return new ScenarioFactory(resolver);
+      return new ScenarioFactory(GetRegistrations());
     }
 
     internal ScreenplayEnvironment()
