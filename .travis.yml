@@ -2,11 +2,6 @@ sudo: false
 language: csharp
 solution: CSF.Screenplay.sln
 
-branches:
-  only:
-  - master
-  - production
-
 addons:
   sauce_connect:
     direct_domains: google.com

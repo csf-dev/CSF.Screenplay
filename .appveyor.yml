@@ -1,8 +1,4 @@
 ﻿version: '{branch}-{build}'
-branches:
-  only:
-  - master
-  - production
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
