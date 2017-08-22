@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
@@ -25,7 +26,14 @@ namespace CSF.Screenplay.Web.Tests
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();
-      return factory.GetWebDriver();
+
+      var caps = new Dictionary<string,object>();
+      caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+
+      return factory.GetWebDriver(caps);
     }
+
+    string GetTestName(IScreenplayScenario scenario)
+      => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
   }
 }
