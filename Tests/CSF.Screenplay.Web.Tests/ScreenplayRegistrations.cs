@@ -28,7 +28,11 @@ namespace CSF.Screenplay.Web.Tests
       var factory = provider.GetFactory();
 
       var caps = new Dictionary<string,object>();
-      caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+
+      if(factory is SauceConnectWebDriverFactory)
+      {
+        caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+      }
 
       return factory.GetWebDriver(caps);
     }
