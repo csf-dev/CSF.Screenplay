@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
@@ -40,8 +41,26 @@ namespace CSF.WebDriverFactory.Impl
     /// <returns>The web driver.</returns>
     public IWebDriver GetWebDriver()
     {
+      return GetWebDriver(null);
+    }
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    public IWebDriver GetWebDriver(IDictionary<string,object> capabilities)
+    {
       var driverService = GetDriverService();
       var options = GetFirefoxOptions();
+
+      if(capabilities != null)
+      {
+        foreach(var cap in capabilities)
+        {
+          options.AddAdditionalCapability(cap.Key, cap.Value);
+        }
+      }
+
       var timeout = GetTimeout();
       return new FirefoxDriver(driverService, options, timeout);
     }
