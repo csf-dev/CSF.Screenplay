@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay
@@ -6,10 +7,9 @@ namespace CSF.Screenplay
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public class ScreenplayScenario : IScreenplayScenario, IEquatable<ScreenplayScenario>
+  public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>
   {
     readonly Guid identity;
-    readonly IServiceResolver resolver;
 
     /// <summary>
     /// Gets identifying information about the current feature under test.
@@ -22,26 +22,6 @@ namespace CSF.Screenplay
     /// </summary>
     /// <value>The scenario identifier.</value>
     public IdAndName ScenarioId { get; private set; }
-
-    TService IServiceResolver.GetService<TService>(string name)
-    {
-      return resolver.GetService<TService>(name);
-    }
-
-    TService IServiceResolver.GetOptionalService<TService>(string name)
-    {
-      return resolver.GetOptionalService<TService>(name);
-    }
-
-    object IServiceResolver.GetService(ServiceMetadata metadata)
-    {
-      return resolver.GetService(metadata);
-    }
-
-    object IServiceResolver.GetOptionalService(ServiceMetadata metadata)
-    {
-      return resolver.GetOptionalService(metadata);
-    }
 
     /// <summary>
     /// Notifies subscribers that the scenario has begun.
@@ -142,20 +122,17 @@ namespace CSF.Screenplay
     /// </summary>
     /// <param name="featureId">Feature identifier.</param>
     /// <param name="scenarioId">Scenario identifier.</param>
-    /// <param name="resolver">Resolver.</param>
+    /// <param name="registrations">Service registrations.</param>
     public ScreenplayScenario(IdAndName featureId,
                               IdAndName scenarioId,
-                              IServiceResolver resolver)
+                              IReadOnlyCollection<IServiceRegistration> registrations) : base(registrations)
     {
       if(featureId == null)
         throw new ArgumentNullException(nameof(featureId));
       if(scenarioId == null)
         throw new ArgumentNullException(nameof(scenarioId));
-      if(resolver == null)
-        throw new ArgumentNullException(nameof(resolver));
 
       identity = Guid.NewGuid();
-      this.resolver = resolver;
       FeatureId = featureId;
       ScenarioId = scenarioId;
     }
