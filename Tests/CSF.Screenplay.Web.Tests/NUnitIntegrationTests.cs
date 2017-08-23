@@ -1,27 +1,19 @@
 ﻿using System;
-using CSF.Screenplay.NUnit;
 using NUnit.Framework;
+using CSF.Screenplay.NUnit;
 
 namespace CSF.Screenplay.Web.Tests
 {
-  [ScreenplayFixture]
+  [TestFixture]
+  [Description("The NUnit/Screenplay integration")]
   public class NUnitIntegrationTests
   {
-    readonly ScreenplayContext context;
-
-    [Test]
-    [Description("An NUnit test fixture decorated with `ScreenplayFixture' receives an injected context")]
-    public void ScreenplayContext_should_be_injected_by_ScreenplayFixture_attribute()
+    [Test,Screenplay]
+    [Description("An NUnit test decorated with `Screenplay' receives the current scenario as an injected parameter")]
+    public void ScreenplayScenario_is_injected_from_parameter(ScreenplayScenario scenario)
     {
       // Assert
-      Assert.That(context, Is.Not.Null);
-    }
-
-    public NUnitIntegrationTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
+      Assert.That(scenario, Is.Not.Null);
     }
   }
 }

@@ -22,6 +22,7 @@ namespace CSF.Screenplay.Web.Waits
     readonly Func<T,bool> predicate;
     readonly TimeSpan timeout;
     readonly ISet<Type> ignoredExceptionTypes;
+    readonly IDurationFormatter durationFormatter;
 
     /// <summary>
     /// Gets a collection of <c>System.Type</c> representing exception types which will be ignored during the wait
@@ -40,9 +41,9 @@ namespace CSF.Screenplay.Web.Waits
       var actorName = actor.Name;
       var targetName = target.GetName();
       var matchDescription = query.GetMatchDescription();
-      var timeoutString = timeout.ToString("g");
+      var timeoutString = durationFormatter.GetDuration(timeout);
 
-      return $"{actorName} waits until {targetName} {matchDescription} or until {timeoutString} passes.";
+      return $"{actorName} waits for at most {timeoutString} or until {targetName} {matchDescription}.";
     }
 
     /// <summary>
@@ -151,6 +152,7 @@ namespace CSF.Screenplay.Web.Waits
       this.timeout = timeout;
 
       ignoredExceptionTypes = new HashSet<Type>();
+      durationFormatter = new DurationFormatter();
     }
   }
 }

@@ -1,31 +1,21 @@
-using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
-using NUnit.Framework;
 using FluentAssertions;
-using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.NUnit;
+using NUnit.Framework;
+using static CSF.Screenplay.StepComposer;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [TestFixture]
   [Description("Reading the value of CSS properties")]
   public class GetCssValueTests
   {
-    readonly ScreenplayContext context;
-
-    public GetCssValueTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
-    [Test]
+    [Test,Screenplay]
     [Description("Reading the value of the 'color' property detects the expected value.")]
-    public void GetCssValue_for_red_string_gets_correct_colour()
+    public void GetCssValue_for_red_string_gets_correct_colour(ScreenplayScenario scenario)
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

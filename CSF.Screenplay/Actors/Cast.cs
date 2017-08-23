@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Actors
 {
@@ -75,6 +76,67 @@ namespace CSF.Screenplay.Actors
       {
         return GetActorLocked(name)?? CreateAndAddLocked(name);
       }
+    }
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
+    public virtual IActor Get(string name, Action<IActor> createCustomisation)
+    {
+      if(createCustomisation == null)
+        throw new ArgumentNullException(nameof(createCustomisation));
+      
+      IActor actor;
+
+      lock(syncRoot)
+      {
+        actor = GetActorLocked(name);
+        if(actor != null)
+          return actor;
+
+        actor = CreateAndAddLocked(name);
+      }
+
+      createCustomisation(actor);
+      return actor;
+    }
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
+    /// <param name="scenario">The current screenplay scenario.</param>
+    public virtual IActor Get(string name,
+                              Action<IActor,IScreenplayScenario> createCustomisation,
+                              IScreenplayScenario scenario)
+    {
+      if(createCustomisation == null)
+        throw new ArgumentNullException(nameof(createCustomisation));
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      IActor actor;
+
+      lock(syncRoot)
+      {
+        actor = GetActorLocked(name);
+        if(actor != null)
+          return actor;
+
+        actor = CreateAndAddLocked(name);
+      }
+
+      createCustomisation(actor, scenario);
+      return actor;
     }
 
     /// <summary>

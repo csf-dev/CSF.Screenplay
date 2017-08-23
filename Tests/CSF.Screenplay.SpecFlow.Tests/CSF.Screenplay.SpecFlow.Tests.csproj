@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.3.0</ReleaseVersion>
+    <ReleaseVersion>0.4.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,12 +50,13 @@
       <DependentUpon>Test.feature</DependentUpon>
     </Compile>
     <Compile Include="TestSteps.cs" />
-    <Compile Include="SpecflowIntegration.cs" />
     <Compile Include="Abilities\AddNumbers.cs" />
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
-    <Compile Include="ContextExtensions.cs" />
+    <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CustomIntegration.cs" />
+    <Compile Include="ScreenplayRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

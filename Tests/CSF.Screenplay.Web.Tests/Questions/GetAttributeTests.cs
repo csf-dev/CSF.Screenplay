@@ -1,31 +1,21 @@
-using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
-using NUnit.Framework;
 using FluentAssertions;
-using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.NUnit;
+using NUnit.Framework;
+using static CSF.Screenplay.StepComposer;
 
 namespace CSF.Screenplay.Web.Tests.Questions
 {
-  [ScreenplayFixture]
+  [TestFixture]
   [Description("Reading element attributes")]
   public class GetAttributeTests
   {
-    readonly ScreenplayContext context;
-
-    public GetAttributeTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
-    [Test]
+    [Test,Screenplay]
     [Description("Reading the value of a 'title' attribute detects the expected value.")]
-    public void GetAttribute_returns_expected_value()
+    public void GetAttribute_returns_expected_value(ScreenplayScenario scenario)
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

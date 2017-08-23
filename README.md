@@ -15,21 +15,14 @@
 This example is written using **NUnit** test markup but NUnit is not required to use screenplay.
 
 ```csharp
-[ScreenplayFixture]
+[TestFixture]
 public class BuyGroceriesTests
 {
-  readonly ScreenplayContext ctx;
-
-  public BuyGroceriesTests(ScreenplayContext ctx)
+  [Test,Screenplay]
+  public void JoeCanBuyEggs(ScreenplayScenario screenplay)
   {
-    this.ctx = ctx;
-  }
-
-  [Test]
-  public void JoeCanBuyEggs()
-  {
-    var joe = ctx.GetCast().Get("Joe");
-    var browseTheWeb = ctx.GetWebBrowsingAbility();
+    var joe = screenplay.GetJoe();
+    var browseTheWeb = screenplay.GetWebBrowser();
     joe.IsAbleTo(browseTheWeb);
 
     Given(joe).WasAbleTo(SearchTheShop.ForGroceries());
@@ -51,9 +44,9 @@ Actions and questions interact with the application. They do so via APIs provide
 ![Diagram of Screenplay architecture](screenplay-architecture-diagram.jpeg)
 
 ### Applied to the example above
-In the example above, our **actor** is the variable `joe`.
+In the example above, our **actor** is the variable `joe`.  Notice that we retrieved Joe directly from a screenplay scenario. It is useful in Screenplay to have named methods for retrieving/initialising specific actors; it helps to ensure that they are constructed in a consistent manner.
 
-Notice that we retrieved Joe from a **Cast**. A cast is an optional registry of the actors involved in a single test scenario. Secondly we grant Joe the **ability** to use a web browser.
+For sake of demonstration, we then manually grant Joe the **ability** to use a web browser. If the actor Joe should always have that ability then we would typically include that logic in the `GetJoe` method.
 
 The line beginning `Given` demonstrates the use of a **task** named `SearchTheShop`, specifically for groceries. Note how this high-level operation would be recognisable and immediately understandable to a non-developer. The task class encapsulates the sequence of actions which would be required to search the shop for groceries.
 

@@ -1,31 +1,21 @@
-using System;
 using CSF.Screenplay.Web.Builders;
 using CSF.Screenplay.Web.Tests.Pages;
-using NUnit.Framework;
-using FluentAssertions;
-using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.NUnit;
+using FluentAssertions;
+using NUnit.Framework;
+using static CSF.Screenplay.StepComposer;
 
 namespace CSF.Screenplay.Web.Tests.Actions
 {
-  [ScreenplayFixture]
+  [TestFixture]
   [Description("The select action")]
   public class SelectTests
   {
-    readonly ScreenplayContext context;
-
-    public SelectTests(ScreenplayContext context)
-    {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
-      this.context = context;
-    }
-
-    [Test]
+    [Test,Screenplay]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page()
+    public void SelectByText_generates_expected_result_on_page(ScreenplayScenario scenario)
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -34,11 +24,11 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(2);
     }
 
-    [Test]
+    [Test,Screenplay]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page()
+    public void SelectByIndex_generates_expected_result_on_page(ScreenplayScenario scenario)
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -47,11 +37,11 @@ namespace CSF.Screenplay.Web.Tests.Actions
       Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(3);
     }
 
-    [Test]
+    [Test,Screenplay]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page()
+    public void SelectByValue_generates_expected_result_on_page(ScreenplayScenario scenario)
     {
-      var joe = context.GetCast().Get("joe");
+      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

@@ -52,7 +52,7 @@ Given Joe does a thing
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
-      var scenario = new Scenario(id, name, feature);
+      var scenario = new Models.Scenario(id, name, feature);
       scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
       var report = new Report(new [] { scenario });
 
@@ -82,7 +82,7 @@ Given Joe does a thing
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
-      var scenario = new Scenario(id, name, feature) { IsFailure = true };
+      var scenario = new Models.Scenario(id, name, feature) { IsFailure = true };
       scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
       var report = new Report(new [] { scenario });
 
@@ -110,7 +110,7 @@ Given Joe does a thing
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
-      var scenario = new Scenario(id, name, null);
+      var scenario = new Models.Scenario(id, name, null);
       scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
       var report = new Report(new [] { scenario });
 
@@ -139,7 +139,7 @@ Given Joe does a thing
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
-      var scenario = new Scenario(id, null, feature);
+      var scenario = new Models.Scenario(id, null, feature);
       scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
       var report = new Report(new [] { scenario });
 
@@ -170,7 +170,7 @@ Given Joe does a thing
       Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
       Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
 
-      var scenario = new Scenario(id, name, feature);
+      var scenario = new Models.Scenario(id, name, feature);
       var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
       parentPerformance.Reportables.Add(new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given));
       scenario.Reportables.Add(parentPerformance);
@@ -206,7 +206,7 @@ Given Joe does a thing
       Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
       Mock.Get(grandChildPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a totally different thing");
 
-      var scenario = new Scenario(id, name, feature);
+      var scenario = new Models.Scenario(id, name, feature);
       var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
       var childPerformance = new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given);
       var grandchildPerformance = new Performance(actor, Outcome.Success, grandChildPerformable, PerformanceType.Given);
@@ -251,7 +251,7 @@ Given Joe does a thing
       Mock.Get(siblingPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does an unrelated thing");
       Mock.Get(secondPerformable).Setup(x => x.GetReport(actor)).Returns("Joe takes some kind of action");
 
-      var scenario = new Scenario(id, name, feature);
+      var scenario = new Models.Scenario(id, name, feature);
       var parentPerformance = new Performance(actor, Outcome.Success, performable, PerformanceType.Given);
       var childPerformance = new Performance(actor, Outcome.Success, childPerformable, PerformanceType.Given);
       var grandchildPerformance = new Performance(actor, Outcome.Success, grandChildPerformable, PerformanceType.Given);

@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a new test-run has begun.
     /// </summary>
-    public override void BeginNewTestRun()
+    protected override void BeginNewTestRun()
     {
       BeginNewReport();
     }
@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    public override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
+    protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId)
     {
       builder.BeginNewScenario(idName, friendlyName, featureName, featureId);
     }
@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Reporting
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
     /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
-    public override void CompleteScenario(bool success)
+    protected override void CompleteScenario(bool success)
     {
       builder.EndScenario(success);
     }

@@ -67,7 +67,7 @@ namespace CSF.Screenplay.Web.Abilities
         throw new ArgumentNullException(nameof(webDriver));
 
       this.webDriver = webDriver;
-      this.uriTransformer = transformer?? new NoOpUriTransformer();
+      this.uriTransformer = transformer?? NoOpUriTransformer.Default;
       this.requireExplicitDisposal = requireExplicitDisposal;
     }
   }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -45,17 +46,35 @@ namespace CSF.WebDriverFactory.Impl
     /// <returns>The web driver.</returns>
     public virtual IWebDriver GetWebDriver()
     {
-      var capabilities = GetCapabilities();
+      return GetWebDriver(null);
+    }
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    public IWebDriver GetWebDriver(IDictionary<string,object> capabilities)
+    {
+      var baseCapabilities = GetCapabilities();
       var uri = GetRemoteUri();
+
+      if(capabilities != null)
+      {
+        foreach(var cap in capabilities)
+        {
+          baseCapabilities.SetCapability(cap.Key, cap.Value);
+        }
+      }
+
       var timeout = GetTimeout();
-      return new RemoteWebDriver(uri, capabilities, timeout);
+      return new RemoteWebDriver(uri, baseCapabilities, timeout);
     }
 
     /// <summary>
     /// Gets a set of <c>ICapabilities</c> from the current state of this instance.
     /// </summary>
     /// <returns>The capabilities.</returns>
-    protected virtual ICapabilities GetCapabilities()
+    protected virtual DesiredCapabilities GetCapabilities()
     {
       var caps = new DesiredCapabilities();
       ConfigureCapabilities(caps);

@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.3.0</ReleaseVersion>
+    <ReleaseVersion>0.4.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,6 +18,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.SpecFlow.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -25,6 +26,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CSF.Screenplay.SpecFlow.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
@@ -35,37 +37,25 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.3.5.0\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="System.Configuration" />
+    <Reference Include="CSF.Configuration">
+      <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScreenplayHooks.cs" />
+    <Compile Include="ScreenplayBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BeforeAfterTestHelper.cs" />
     <Compile Include="ScenarioAndFeatureKey.cs" />
+    <Compile Include="SpecFlowScreenplayConfiguration.cs" />
+    <Compile Include="IScreenplayConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
-      <Project>{18010B4E-22A7-4462-B057-7199B3386D48}</Project>
-      <Name>CSF.Screenplay.Reporting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSF.Screenplay.Web\CSF.Screenplay.Web.csproj">
-      <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
-      <Name>CSF.Screenplay.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSF.WebDriverFactory\CSF.WebDriverFactory.csproj">
-      <Project>{C99466AD-CA21-4C12-9E05-6730CDC3C031}</Project>
-      <Name>CSF.WebDriverFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

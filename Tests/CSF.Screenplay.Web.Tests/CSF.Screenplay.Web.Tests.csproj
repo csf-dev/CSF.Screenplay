@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.3.0</ReleaseVersion>
+    <ReleaseVersion>0.4.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,14 +92,15 @@
     <Compile Include="Questions\FindElementsTests.cs" />
     <Compile Include="Pages\PageThree.cs" />
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
-    <Compile Include="ScreenplayNUnitIntegration.cs" />
-    <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
-    <Compile Include="CastReportingHelper.cs" />
     <Compile Include="SauceConnectWebDriverFactory.cs" />
     <Compile Include="IgnoreOn.cs" />
     <Compile Include="BrowserName.cs" />
+    <Compile Include="Waits\GeneralWaitTests.cs" />
+    <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CustomIntegration.cs" />
+    <Compile Include="ScreenplayRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
