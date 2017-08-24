@@ -11,22 +11,18 @@ namespace CSF.Screenplay.Integration
     static ScreenplayEnvironment environment;
     readonly IScreenplayIntegrationHelper integrationHelper;
     bool loaded;
-    object loadLock;
 
     /// <summary>
     /// Loads the integration customisations and configurations.
     /// </summary>
     public void LoadIntegration()
     {
-      lock(loadLock)
-      {
-        if(loaded)
-          return;
+      if(loaded)
+        return;
 
-        CustomiseIntegration(integrationHelper);
-        environment.ConfigureServiceRegistryIfRequired(GetServiceRegistry);
-        loaded = true;
-      }
+      CustomiseIntegration(integrationHelper);
+      environment.ConfigureServiceRegistryIfRequired(GetServiceRegistry);
+      loaded = true;
     }
 
     /// <summary>
@@ -151,7 +147,6 @@ namespace CSF.Screenplay.Integration
     public ScreenplayIntegration()
     {
       integrationHelper = new IntegrationHelper();
-      loadLock = new object();
     }
 
     static ScreenplayIntegration()

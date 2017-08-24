@@ -19,7 +19,8 @@ namespace CSF.Screenplay.NUnit
   public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
   {
     const string ScreenplayScenarioKey = "Current scenario";
-    IScreenplayIntegration cachedIntegration;
+    static IScreenplayIntegration integration;
+    static object integrationLock;
 
     /// <summary>
     /// Gets the targets for the attribute (when performing before/after test actions).
@@ -121,27 +122,30 @@ namespace CSF.Screenplay.NUnit
 
     IScreenplayIntegration GetIntegration(IMethodInfo method)
     {
-      if(cachedIntegration == null)
+      lock(integrationLock)
       {
-        var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
-        if(assembly == null)
+        if(integration == null)
         {
-          throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
+          var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
+          if(assembly == null)
+          {
+            throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
                                       nameof(method));
-        }
+          }
 
-        var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
-        if(assemblyAttrib == null)
-        {
-          var message = $"All test methods must be contained within assemblies which are " +
-                        $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
-          throw new InvalidOperationException(message);
+          var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
+          if(assemblyAttrib == null)
+          {
+            var message = $"All test methods must be contained within assemblies which are " +
+              $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
+            throw new InvalidOperationException(message);
+          }
+
+          integration = assemblyAttrib.Integration;
         }
-        
-        cachedIntegration = assemblyAttrib.Integration;
       }
 
-      return cachedIntegration;
+      return integration;
     }
 
     IScreenplayIntegration GetIntegration(ITest test)
@@ -155,5 +159,10 @@ namespace CSF.Screenplay.NUnit
     IdAndName GetFeatureName(ScenarioAdapter test) => new IdAndName(test.FeatureId, test.FeatureName);
 
     IdAndName GetScenarioName(ScenarioAdapter test) => new IdAndName(test.ScenarioId, test.ScenarioName);
+
+    static ScreenplayAttribute()
+    {
+      integrationLock = new object();
+    }
   }
 }
