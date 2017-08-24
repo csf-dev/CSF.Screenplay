@@ -9,10 +9,10 @@ namespace CSF.Screenplay.Integration
   public interface IScreenplayIntegration
   {
     /// <summary>
-    /// Ensures that all of the screenplay services are registered.
-    /// This method is safe to be called many times, however it will only perform the actual registration once.
+    /// Loads the integration customisations and configurations.
+    /// This should only be called once.
     /// </summary>
-    void EnsureServicesAreRegistered();
+    void LoadIntegration();
 
     /// <summary>
     /// Executed once, before the first scenario in the test run is executed.  Note that

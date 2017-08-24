@@ -7,8 +7,10 @@ namespace CSF.Screenplay.Integration
   /// Abstract implementation of <see cref="IServiceRegistrationProvider"/>, suitable for subclassing
   /// in custom integrations.
   /// </summary>
-  public abstract class ServiceRegistrationProvider : IServiceRegistrationProvider
+  public class ServiceRegistrationProvider : IServiceRegistrationProvider
   {
+    readonly IScreenplayIntegrationHelper integrationHelper;
+
     /// <summary>
     /// Gets the service registry, containing all of the required registrations.
     /// </summary>
@@ -20,10 +22,24 @@ namespace CSF.Screenplay.Integration
       return builder.BuildRegistry();
     }
 
+    void RegisterServices(IServiceRegistryBuilder builder)
+    {
+      foreach(var registrationCallback in integrationHelper.RegisterServices)
+      {
+        registrationCallback(builder);
+      }
+    }
+
     /// <summary>
-    /// Registers all of the required Screenplay services using a builder instance.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.ServiceRegistrationProvider"/> class.
     /// </summary>
-    /// <param name="builder">Builder.</param>
-    protected abstract void RegisterServices(IServiceRegistryBuilder builder);
+    /// <param name="integrationHelper">Integration helper.</param>
+    public ServiceRegistrationProvider(IScreenplayIntegrationHelper integrationHelper)
+    {
+      if(integrationHelper == null)
+        throw new ArgumentNullException(nameof(integrationHelper));
+
+      this.integrationHelper = integrationHelper;
+    }
   }
 }

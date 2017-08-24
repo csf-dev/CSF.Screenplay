@@ -49,7 +49,7 @@ namespace CSF.Screenplay.SpecFlow
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-      GetIntegration().EnsureServicesAreRegistered();
+      GetIntegration().LoadIntegration();
       GetIntegration().BeforeExecutingFirstScenario();
     }
 

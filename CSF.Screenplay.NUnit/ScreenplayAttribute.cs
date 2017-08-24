@@ -56,7 +56,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="suite">Test suite information.</param>
     public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
     {
-      GetIntegration(method).EnsureServicesAreRegistered();
+      GetIntegration(method).LoadIntegration();
 
       var scenario = CreateScenario(method, suite);
 

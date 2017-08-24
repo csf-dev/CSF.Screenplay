@@ -100,7 +100,6 @@
     <Compile Include="Waits\GeneralWaitTests.cs" />
     <Compile Include="ScenarioExtensions.cs" />
     <Compile Include="CustomIntegration.cs" />
-    <Compile Include="ScreenplayRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

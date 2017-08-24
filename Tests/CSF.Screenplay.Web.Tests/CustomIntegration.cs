@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Scenarios;
+using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Tests;
+using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
 [assembly:ScreenplayAssembly(typeof(CustomIntegration))]
@@ -12,82 +15,38 @@ namespace CSF.Screenplay.Web.Tests
 {
   public class CustomIntegration : ScreenplayIntegration
   {
-    protected override IServiceRegistrationProvider GetRegistrationProvider()
-      => new ScreenplayRegistrations();
-
-    protected override void AfterExecutedLastScenario(IServiceResolver serviceResolver)
+    protected override void CustomiseIntegration(IScreenplayIntegrationHelper integrationHelper)
     {
-      WriteReport(serviceResolver);
+      integrationHelper.UseCast();
+      integrationHelper.UseReporter(config => {
+        config
+          .SubscribeToActorsCreatedInCast()
+          .WriteReport(report => {
+            var path = "NUnit.report.txt";
+            TextReportWriter.WriteToFile(report, path);
+          });
+      });
+      integrationHelper.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
+      integrationHelper.UseWebDriver(GetWebDriver);
+      integrationHelper.UseWebBrowser();
     }
 
-    protected override void BeforeExecutingFirstScenario(IProvidesTestRunEvents testRunEvents,
-                                                         IServiceResolver serviceResolver)
+    IWebDriver GetWebDriver(IScreenplayScenario scenario)
     {
-      SubscribeReporterToTestRunBeginAndEnd(testRunEvents, serviceResolver);
-      SubscribeReporterToCastEvents(serviceResolver);
+      var provider = new ConfigurationWebDriverFactoryProvider();
+      var factory = provider.GetFactory();
+
+      var caps = new Dictionary<string,object>();
+
+      if(factory is SauceConnectWebDriverFactory)
+      {
+        caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+      }
+
+      return factory.GetWebDriver(caps);
     }
 
-    protected override void CustomiseScenario(ScreenplayScenario scenario)
-    {
-      SubscribeReporterToScenarioEvents(scenario);
-    }
-
-    protected override void AfterScenario(ScreenplayScenario scenario)
-    {
-      UnsubscribeReporterFromScenarioEvents(scenario);
-      DisposeWebDriver(scenario);
-      DismissCast(scenario);
-    }
-
-    void SubscribeReporterToTestRunBeginAndEnd(IProvidesTestRunEvents testRunEvents,
-                                               IServiceResolver serviceResolver)
-    {
-      var reporter = serviceResolver.GetReporter();
-      reporter.Subscribe(testRunEvents);
-    }
-
-    void SubscribeReporterToCastEvents(IServiceResolver serviceResolver)
-    {
-      var cast = serviceResolver.GetCast();
-      var reporter = serviceResolver.GetReporter();
-
-      cast.ActorCreated += (sender, e) => {
-        reporter.Subscribe(e.Actor);
-      };
-    }
-
-    void SubscribeReporterToScenarioEvents(ScreenplayScenario scenario)
-    {
-      var reporter = scenario.GetReporter();
-      reporter.Subscribe(scenario);
-    }
-
-    void UnsubscribeReporterFromScenarioEvents(ScreenplayScenario scenario)
-    {
-      var reporter = scenario.GetReporter();
-      reporter.Unsubscribe(scenario);
-    }
-
-    void DisposeWebDriver(IServiceResolver serviceResolver)
-    {
-      var webDriver = serviceResolver.GetService<IWebDriver>();
-      webDriver.Dispose();
-    }
-
-    void DismissCast(ScreenplayScenario scenario)
-    {
-      var cast = scenario.GetCast();
-      cast.Dismiss();
-    }
-
-    void WriteReport(IServiceResolver serviceResolver)
-    {
-      var reporter = serviceResolver.GetReportBuildingReporter();
-
-      var path = "NUnit.report.txt";
-      var report = reporter.GetReport();
-
-      TextReportWriter.WriteToFile(report, path);
-    }
+    string GetTestName(IScreenplayScenario scenario)
+      => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
   }
 }

@@ -102,6 +102,9 @@
     <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
     <Compile Include="Integration\IScreenplayIntegration.cs" />
     <Compile Include="Scenarios\LazySingletonRegistration.cs" />
+    <Compile Include="Integration\IScreenplayIntegrationHelper.cs" />
+    <Compile Include="Integration\IntegrationHelper.cs" />
+    <Compile Include="CastIntegrationHelperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
