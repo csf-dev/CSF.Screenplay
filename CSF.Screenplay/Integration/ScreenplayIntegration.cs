@@ -63,8 +63,8 @@ namespace CSF.Screenplay.Integration
     /// <param name="success">If set to <c>true</c> success.</param>
     public void AfterScenario(ScreenplayScenario scenario, bool success)
     {
-      AfterScenario(scenario);
       MarkAsEnded(scenario, success);
+      AfterScenario(scenario);
     }
 
     /// <summary>

@@ -11,8 +11,8 @@ namespace CSF.Screenplay.Reporting
     IReporter reporterToUse;
     string name, castName;
     bool subscribeToCastActorCreation, subscribeToCastActorAddition;
-    Action<IReporter> reportWritingCallback;
-    Action<Report> writeReportModelCallback;
+    Action<IReporter> afterTestRunCallback;
+    Action<Report> writeReportCallback;
 
     #endregion
 
@@ -49,23 +49,15 @@ namespace CSF.Screenplay.Reporting
       return this;
     }
 
-    public ReporterIntegrationHelper AfterTestRun(Action<IReporter> reportWriter)
+    public ReporterIntegrationHelper AfterTestRun(Action<IReporter> callback)
     {
-      if(reportWriter == null)
-        throw new ArgumentNullException(nameof(reportWriter));
-
-      this.reportWritingCallback = reportWriter;
-      writeReportModelCallback = null;
+      this.afterTestRunCallback = callback;
       return this;
     }
 
-    public ReporterIntegrationHelper WriteReport(Action<Report> reportModel)
+    public ReporterIntegrationHelper WriteReport(Action<Report> callback)
     {
-      if(reportModel == null)
-        throw new ArgumentNullException(nameof(reportModel));
-
-      reportWritingCallback = null;
-      writeReportModelCallback = reportModel;
+      writeReportCallback = callback;
       return this;
     }
 
@@ -142,20 +134,19 @@ namespace CSF.Screenplay.Reporting
     {
       integration.AfterLastScenario.Add((resolver) => {
 
-        var modelReporter = resolver.GetOptionalService<IModelBuildingReporter>(name);
+        var reporter = resolver.GetReporter(name);
+        var modelReporter = reporter as IModelBuildingReporter;
 
-        if(modelReporter != null && writeReportModelCallback != null)
+        if(modelReporter != null && writeReportCallback != null)
         {
           var report = modelReporter.GetReport();
-          writeReportModelCallback(report);
+          writeReportCallback(report);
           return;
         }
 
-        var reporter = resolver.GetOptionalService<IReporter>(name);
-
-        if(reporter != null && reportWritingCallback != null)
+        if(reporter != null && afterTestRunCallback != null)
         {
-          reportWritingCallback(reporter);
+          afterTestRunCallback(reporter);
           return;
         }
       });
