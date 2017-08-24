@@ -21,10 +21,7 @@ namespace CSF.Screenplay.Web.Tests
       integrationHelper.UseReporter(config => {
         config
           .SubscribeToActorsCreatedInCast()
-          .WriteReport(report => {
-            var path = "NUnit.report.txt";
-            TextReportWriter.WriteToFile(report, path);
-          });
+          .WriteReport(WriteReport);
       });
       integrationHelper.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       integrationHelper.UseWebDriver(GetWebDriver);
@@ -48,5 +45,11 @@ namespace CSF.Screenplay.Web.Tests
 
     string GetTestName(IScreenplayScenario scenario)
       => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
+
+    void WriteReport(Reporting.Models.Report report)
+    {
+      var path = "NUnit.report.txt";
+      TextReportWriter.WriteToFile(report, path);
+    }
   }
 }

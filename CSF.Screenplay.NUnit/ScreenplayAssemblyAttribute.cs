@@ -11,7 +11,8 @@ namespace CSF.Screenplay.NUnit
   [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
   public class ScreenplayAssemblyAttribute : TestActionAttribute
   {
-    IScreenplayIntegration integration;
+    static IScreenplayIntegration integration;
+    static object integrationLock;
 
     /// <summary>
     /// Gets the current Screenplay integration.
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      integration.AfterExecutedLastScenario();
+      Integration.AfterExecutedLastScenario();
     }
 
     /// <summary>
@@ -40,21 +41,27 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      integration.BeforeExecutingFirstScenario();
+      Integration.BeforeExecutingFirstScenario();
     }
 
     IScreenplayIntegration BuildIntegration(Type integrationType)
     {
-      if(integrationType == null)
-        throw new ArgumentNullException(nameof(integrationType));
-      
-      if(!typeof(IScreenplayIntegration).IsAssignableFrom(integrationType))
+      lock(integrationLock)
       {
-        throw new ArgumentException($"Integration type must implement `{typeof(IScreenplayIntegration).Name}'.",
-                                    nameof(integrationType));
-      }
+        if(integration != null)
+          return integration;
 
-      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+        if(integrationType == null)
+          throw new ArgumentNullException(nameof(integrationType));
+
+        if(!typeof(IScreenplayIntegration).IsAssignableFrom(integrationType))
+        {
+          throw new ArgumentException($"Integration type must implement `{typeof(IScreenplayIntegration).Name}'.",
+                                    nameof(integrationType));
+        }
+
+        return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+      }
     }
 
     /// <summary>
@@ -64,6 +71,11 @@ namespace CSF.Screenplay.NUnit
     public ScreenplayAssemblyAttribute(Type integrationType)
     {
       integration = BuildIntegration(integrationType);
+    }
+
+    static ScreenplayAssemblyAttribute()
+    {
+      integrationLock = new object();
     }
   }
 }
