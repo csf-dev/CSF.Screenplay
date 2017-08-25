@@ -70,7 +70,7 @@
     <Compile Include="ReportingResolverExtensions.cs" />
     <Compile Include="ReportingRegistryExtensions.cs" />
     <Compile Include="ReportingIntegrationHelperExtensions.cs" />
-    <Compile Include="ReporterIntegrationHelper.cs" />
+    <Compile Include="ReportingIntegrationBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

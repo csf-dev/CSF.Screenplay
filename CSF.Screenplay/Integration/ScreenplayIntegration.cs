@@ -174,6 +174,11 @@ namespace CSF.Screenplay.Integration
 
     #region static methods
 
+    /// <summary>
+    /// Static factory method which creates a new implementation of <see cref="IScreenplayIntegration"/>
+    /// from a given configuration type.
+    /// </summary>
+    /// <param name="configType">Config type.</param>
     public static IScreenplayIntegration Create(Type configType)
     {
       var config = GetConfig(configType);

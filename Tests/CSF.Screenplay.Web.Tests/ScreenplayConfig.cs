@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests
     public void Configure(IIntegrationConfigBuilder builder)
     {
       builder.UseCast();
-      builder.UseReporter(config => {
+      builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
           .WriteReport(WriteReport);

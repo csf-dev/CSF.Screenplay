@@ -23,6 +23,11 @@ namespace CSF.Screenplay.SpecFlow
       set { this[IntegrationAssemblyQualifiedNameConfigName] = value; }
     }
 
+
+    /// <summary>
+    /// Gets the <c>System.Type</c> of the Screenplay integration configuration type to use.
+    /// </summary>
+    /// <returns>The integration config type.</returns>
     public Type GetIntegrationConfigType()
     {
 

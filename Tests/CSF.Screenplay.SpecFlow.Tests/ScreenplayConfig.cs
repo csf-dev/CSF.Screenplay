@@ -8,7 +8,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     public void Configure(IIntegrationConfigBuilder builder)
     {
       builder.UseCast();
-      builder.UseReporter(config => {
+      builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
           .WriteReport(report => {

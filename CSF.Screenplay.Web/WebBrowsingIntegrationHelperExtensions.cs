@@ -6,8 +6,18 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web
 {
+  /// <summary>
+  /// Extension methods relating to the registration of web-browsing-related services into Screenplay.
+  /// </summary>
   public static class WebBrowsingIntegrationHelperExtensions
   {
+    /// <summary>
+    /// Registers a Selenium IWebDriver into Screenplay, making use of a given factory.  This Web Driver
+    /// will be created afresh and disposed with each scenario.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
     public static void UseWebDriver(this IIntegrationConfigBuilder helper,
                                     Func<IScreenplayScenario,IWebDriver> factory,
                                     string name = null)
@@ -27,6 +37,13 @@ namespace CSF.Screenplay.Web
       });
     }
 
+    /// <summary>
+    /// Registers a Selenium IWebDriver into Screenplay, making use of a given initialiser.  This single Web Driver
+    /// created will be used/shared throughout the entire test run.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="initialiser">Initialiser.</param>
+    /// <param name="name">Name.</param>
     public static void UseWebDriver(this IIntegrationConfigBuilder helper,
                                     Func<IWebDriver> initialiser,
                                     string name = null)
@@ -41,6 +58,13 @@ namespace CSF.Screenplay.Web
       });
     }
 
+    /// <summary>
+    /// Registers a URI transformer into Screenplay. The transformer will be created afresh for every scenario
+    /// in the test run.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
     public static void UseUriTransformer(this IIntegrationConfigBuilder helper,
                                               Func<IServiceResolver,IUriTransformer> factory,
                                               string name = null)
@@ -55,6 +79,13 @@ namespace CSF.Screenplay.Web
       });
     }
 
+    /// <summary>
+    /// Registers a URI transformer into Screenplay. The single transformer instance will be shared/reused throughout
+    /// all scenarios in the test run.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="transformer">Transformer.</param>
+    /// <param name="name">Name.</param>
     public static void UseUriTransformer(this IIntegrationConfigBuilder helper,
                                               IUriTransformer transformer,
                                               string name = null)
@@ -69,6 +100,13 @@ namespace CSF.Screenplay.Web
       });
     }
 
+    /// <summary>
+    /// Registers the ability to use a web browser with Screenplay.  A fresh ability instance will be created with each
+    /// scenario throughout the test run.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
     public static void UseWebBrowser(this IIntegrationConfigBuilder helper,
                                      Func<IScreenplayScenario,BrowseTheWeb> factory = null,
                                      string name = null)

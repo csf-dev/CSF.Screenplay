@@ -4,7 +4,10 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting
 {
-  public class ReporterIntegrationHelper
+  /// <summary>
+  /// Builder type which permits the configuration of reporting throughout a Screenplay test run.
+  /// </summary>
+  public class ReportingIntegrationBuilder
   {
     #region fields
 
@@ -18,7 +21,11 @@ namespace CSF.Screenplay.Reporting
 
     #region builder methods
 
-    public ReporterIntegrationHelper WithReporter(IReporter reporter)
+    /// <summary>
+    /// Indicates that a given reporter should be used throughout the test run.
+    /// </summary>
+    /// <param name="reporter">Reporter.</param>
+    public ReportingIntegrationBuilder WithReporter(IReporter reporter)
     {
       if(reporter == null)
         throw new ArgumentNullException(nameof(reporter));
@@ -27,13 +34,23 @@ namespace CSF.Screenplay.Reporting
       return this;
     }
 
-    public ReporterIntegrationHelper Name(string name) 
+    /// <summary>
+    /// Names the reporter instance that the current builder is configuring.
+    /// </summary>
+    /// <param name="name">Name.</param>
+    public ReportingIntegrationBuilder Name(string name) 
     {
       this.name = name;
       return this;
     }
 
-    public ReporterIntegrationHelper SubscribeToActorsCreatedInCast(string castName = null)
+    /// <summary>
+    /// Causes the builder to subscribe to actors whenever they are created within a cast instance.
+    /// If actors are merely added to the cast (but created externally) then the reporter will not subscribe to them.
+    /// Requires a cast to be in use.
+    /// </summary>
+    /// <param name="castName">Cast name.</param>
+    public ReportingIntegrationBuilder SubscribeToActorsCreatedInCast(string castName = null)
     {
       subscribeToCastActorCreation = true;
       subscribeToCastActorAddition = false;
@@ -41,7 +58,14 @@ namespace CSF.Screenplay.Reporting
       return this;
     }
 
-    public ReporterIntegrationHelper SubscribeToActorsAddedToCast(string castName = null)
+    /// <summary>
+    /// Causes the builder to subscribe to actors whenever they are added to a cast instance.
+    /// This will cause the reporter to subscribe to all actors participating in the cast, those created within it and
+    /// also those added to it externally.
+    /// Requires a cast to be in use.
+    /// </summary>
+    /// <param name="castName">Cast name.</param>
+    public ReportingIntegrationBuilder SubscribeToActorsAddedToCast(string castName = null)
     {
       subscribeToCastActorCreation = false;
       subscribeToCastActorAddition = true;
@@ -49,13 +73,25 @@ namespace CSF.Screenplay.Reporting
       return this;
     }
 
-    public ReporterIntegrationHelper AfterTestRun(Action<IReporter> callback)
+    /// <summary>
+    /// Provides a callback with which the reporter may take actions after the test run is complete.
+    /// </summary>
+    /// <returns>The test run.</returns>
+    /// <param name="callback">Callback.</param>
+    public ReportingIntegrationBuilder AfterTestRun(Action<IReporter> callback)
     {
       this.afterTestRunCallback = callback;
       return this;
     }
 
-    public ReporterIntegrationHelper WriteReport(Action<Report> callback)
+    /// <summary>
+    /// Provides a callback exposing the report created by the reporter, from which you may write that report to
+    /// whatever destination you wish.
+    /// Requires that the reporter in use imlpements <see cref="IModelBuildingReporter"/> (this is the default behaviour).
+    /// </summary>
+    /// <returns>The report.</returns>
+    /// <param name="callback">Callback.</param>
+    public ReportingIntegrationBuilder WriteReport(Action<Report> callback)
     {
       writeReportCallback = callback;
       return this;
