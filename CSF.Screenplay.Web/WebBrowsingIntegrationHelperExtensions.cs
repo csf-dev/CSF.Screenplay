@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Web
 {
   public static class WebBrowsingIntegrationHelperExtensions
   {
-    public static void UseWebDriver(this IScreenplayIntegrationHelper helper,
+    public static void UseWebDriver(this IIntegrationConfigBuilder helper,
                                     Func<IScreenplayScenario,IWebDriver> factory,
                                     string name = null)
     {
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Web
       });
     }
 
-    public static void UseWebDriver(this IScreenplayIntegrationHelper helper,
+    public static void UseWebDriver(this IIntegrationConfigBuilder helper,
                                     Func<IWebDriver> initialiser,
                                     string name = null)
     {
@@ -41,7 +41,7 @@ namespace CSF.Screenplay.Web
       });
     }
 
-    public static void UseUriTransformer(this IScreenplayIntegrationHelper helper,
+    public static void UseUriTransformer(this IIntegrationConfigBuilder helper,
                                               Func<IServiceResolver,IUriTransformer> factory,
                                               string name = null)
     {
@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Web
       });
     }
 
-    public static void UseUriTransformer(this IScreenplayIntegrationHelper helper,
+    public static void UseUriTransformer(this IIntegrationConfigBuilder helper,
                                               IUriTransformer transformer,
                                               string name = null)
     {
@@ -69,7 +69,7 @@ namespace CSF.Screenplay.Web
       });
     }
 
-    public static void UseWebBrowser(this IScreenplayIntegrationHelper helper,
+    public static void UseWebBrowser(this IIntegrationConfigBuilder helper,
                                      Func<IScreenplayScenario,BrowseTheWeb> factory = null,
                                      string name = null)
     {

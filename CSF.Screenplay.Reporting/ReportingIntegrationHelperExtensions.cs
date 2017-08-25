@@ -9,7 +9,7 @@ namespace CSF.Screenplay
   /// </summary>
   public static class ReportingIntegrationHelperExtensions
   {
-    public static void UseReporter(this IScreenplayIntegrationHelper helper,
+    public static void UseReporter(this IIntegrationConfigBuilder helper,
                                    Action<ReporterIntegrationHelper> config)
     {
       if(helper == null)

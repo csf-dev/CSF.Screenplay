@@ -5,9 +5,9 @@ using CSF.Screenplay.Scenarios;
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
-  /// Default implementation of the <see cref="IScreenplayIntegrationHelper"/>.
+  /// Default implementation of the <see cref="IIntegrationConfigBuilder"/>.
   /// </summary>
-  public class IntegrationHelper : IScreenplayIntegrationHelper
+  public class IntegrationConfigurationBuilder : IIntegrationConfigBuilder
   {
     /// <summary>
     /// Gets a collection of callbacks which are used to register Screenplay-related services.
@@ -40,9 +40,9 @@ namespace CSF.Screenplay.Integration
     public IList<Action<IScreenplayScenario>> AfterScenario { get; private set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.IntegrationHelper"/> class.
+    /// Initializes a new instance of the <see cref="IntegrationConfigurationBuilder"/> class.
     /// </summary>
-    public IntegrationHelper()
+    public IntegrationConfigurationBuilder()
     {
       RegisterServices = new List<Action<IServiceRegistryBuilder>>();
       BeforeFirstScenario = new List<Action<IProvidesTestRunEvents,IServiceResolver>>();

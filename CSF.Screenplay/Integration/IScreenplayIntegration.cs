@@ -4,7 +4,9 @@ using CSF.Screenplay.Scenarios;
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
-  /// Describes the API of a screenplay integration type.
+  /// This is the API published to testing frameworks, for the purpose of integrating the testing
+  /// framework with Screenplay.  The methods published by this type should be executed at the named points
+  /// in the test run.
   /// </summary>
   public interface IScreenplayIntegration
   {

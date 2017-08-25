@@ -5,9 +5,10 @@ using CSF.Screenplay.Scenarios;
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
-  /// Helps in the registration and configuration of Screenplay-related services and extensions.
+  /// Exposes a number of collections of callbacks, which are used to configure the integration between
+  /// Screenplay and a testing framework.
   /// </summary>
-  public interface IScreenplayIntegrationHelper
+  public interface IIntegrationConfigBuilder
   {
     /// <summary>
     /// Gets a collection of callbacks which are used to register Screenplay-related services.

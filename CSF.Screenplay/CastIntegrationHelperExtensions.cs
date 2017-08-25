@@ -16,7 +16,7 @@ namespace CSF.Screenplay
     /// <param name="helper">Helper.</param>
     /// <param name="cast">Cast.</param>
     /// <param name="name">Name.</param>
-    public static void UseCast(this IScreenplayIntegrationHelper helper, ICast cast = null, string name = null)
+    public static void UseCast(this IIntegrationConfigBuilder helper, ICast cast = null, string name = null)
     {
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));

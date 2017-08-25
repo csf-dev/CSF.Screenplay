@@ -6,11 +6,18 @@ namespace CSF.Screenplay.Integration
   /// <summary>
   /// Base type for custom screenplay integrations.  This is suitable for subclassing in custom integrations.
   /// </summary>
-  public abstract class ScreenplayIntegration : IScreenplayIntegration
+  public class ScreenplayIntegration : IScreenplayIntegration
   {
-    static ScreenplayEnvironment environment;
-    readonly IScreenplayIntegrationHelper integrationHelper;
+    #region fields
+
+    readonly ScreenplayEnvironment environment;
+    readonly IIntegrationConfigBuilder builder;
+    readonly IIntegrationConfig config;
     bool loaded;
+
+    #endregion
+
+    #region public API
 
     /// <summary>
     /// Loads the integration customisations and configurations.
@@ -20,7 +27,7 @@ namespace CSF.Screenplay.Integration
       if(loaded)
         return;
 
-      CustomiseIntegration(integrationHelper);
+      CustomiseIntegration(builder);
       environment.ConfigureServiceRegistryIfRequired(GetServiceRegistry);
       loaded = true;
     }
@@ -38,7 +45,7 @@ namespace CSF.Screenplay.Integration
     void BeforeExecutingFirstScenario(IProvidesTestRunEvents testRunEvents,
                                       IServiceResolver serviceResolver)
     {
-      foreach(var callback in integrationHelper.BeforeFirstScenario)
+      foreach(var callback in builder.BeforeFirstScenario)
         callback(testRunEvents, serviceResolver);
     }
 
@@ -72,32 +79,36 @@ namespace CSF.Screenplay.Integration
       AfterExecutedLastScenario(CreateSingletonResolver());
     }
 
-    void AfterExecutedLastScenario(IServiceResolver serviceResolver)
-    {
-      foreach(var callback in integrationHelper.AfterLastScenario)
-        callback(serviceResolver);
-    }
-
-    IServiceRegistrationProvider GetRegistrationProvider()
-      => new ServiceRegistrationProvider(integrationHelper);
-
-    void CustomiseScenario(ScreenplayScenario scenario)
-    {
-      foreach(var callback in integrationHelper.BeforeScenario)
-        callback(scenario);
-    }
-
-    void AfterScenario(ScreenplayScenario scenario)
-    {
-      foreach(var callback in integrationHelper.AfterScenario)
-        callback(scenario);
-    }
-
     /// <summary>
     /// Gets the scenario factory.
     /// </summary>
     /// <returns>The scenario factory.</returns>
     public IScenarioFactory GetScenarioFactory() => environment.GetScenarioFactory();
+
+    #endregion
+
+    #region methods
+
+    void AfterExecutedLastScenario(IServiceResolver serviceResolver)
+    {
+      foreach(var callback in builder.AfterLastScenario)
+        callback(serviceResolver);
+    }
+
+    IServiceRegistryFactory GetRegistrationProvider()
+    => new ServiceRegistryFactory(builder);
+
+    void CustomiseScenario(ScreenplayScenario scenario)
+    {
+      foreach(var callback in builder.BeforeScenario)
+        callback(scenario);
+    }
+
+    void AfterScenario(ScreenplayScenario scenario)
+    {
+      foreach(var callback in builder.AfterScenario)
+        callback(scenario);
+    }
 
     /// <summary>
     /// Marks the scenario instance as having started (informing subscribers where applicable).
@@ -128,30 +139,61 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     void NotifySubscribersOfTestRunCompletion() => environment.NotifyCompleteTestRun();
 
-    /// <summary>
-    /// Customises this Screenplay integration.  Override this method to register
-    /// and configure your screenplay-related services.
-    /// </summary>
-    /// <param name="integrationHelper">Screenplay integration customisation helper.</param>
-    protected abstract void CustomiseIntegration(IScreenplayIntegrationHelper integrationHelper);
+    void CustomiseIntegration(IIntegrationConfigBuilder configBuilder)
+    {
+      if(configBuilder == null)
+        throw new ArgumentNullException(nameof(configBuilder));
 
-    ServiceRegistry GetServiceRegistry()
+      config.Configure(configBuilder);
+    }
+
+    IServiceRegistry GetServiceRegistry()
     {
       var provider = GetRegistrationProvider();
       return provider.GetServiceRegistry();
     }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.ScreenplayIntegration"/> class.
-    /// </summary>
-    public ScreenplayIntegration()
-    {
-      integrationHelper = new IntegrationHelper();
-    }
+    #endregion
 
-    static ScreenplayIntegration()
+    #region constructor
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ScreenplayIntegration"/> class.
+    /// </summary>
+    public ScreenplayIntegration(IIntegrationConfig config)
     {
+      if(config == null)
+        throw new ArgumentNullException(nameof(config));
+
+      this.config = config;
+      builder = new IntegrationConfigurationBuilder();
       environment = new ScreenplayEnvironment();
     }
+
+    #endregion
+
+    #region static methods
+
+    public static IScreenplayIntegration Create(Type configType)
+    {
+      var config = GetConfig(configType);
+      return new ScreenplayIntegration(config);
+    }
+
+    static IIntegrationConfig GetConfig(Type configType)
+    {
+      if(configType == null)
+        throw new ArgumentNullException(nameof(configType));
+
+      if(!typeof(IIntegrationConfig).IsAssignableFrom(configType))
+      {
+        throw new ArgumentException($"Configuration type must implement `{typeof(IIntegrationConfig).Name}'.",
+                                    nameof(configType));
+      }
+
+      return (IIntegrationConfig) Activator.CreateInstance(configType);
+    }
+
+    #endregion
   }
 }

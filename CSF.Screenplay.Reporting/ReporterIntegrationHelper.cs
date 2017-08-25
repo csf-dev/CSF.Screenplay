@@ -65,7 +65,7 @@ namespace CSF.Screenplay.Reporting
 
     #region private methods
 
-    internal void ApplyToIntegration(IScreenplayIntegrationHelper integration)
+    internal void ApplyToIntegration(IIntegrationConfigBuilder integration)
     {
       if(integration == null)
         throw new ArgumentNullException(nameof(integration));
@@ -77,14 +77,14 @@ namespace CSF.Screenplay.Reporting
       WriteReport(integration);
     }
 
-    void RegisterReporter(IScreenplayIntegrationHelper integration)
+    void RegisterReporter(IIntegrationConfigBuilder integration)
     {
       integration.RegisterServices.Add((builder) => {
         builder.RegisterReporter(reporterToUse, name);
       });
     }
 
-    void SubscribeToCast(IScreenplayIntegrationHelper integration)
+    void SubscribeToCast(IIntegrationConfigBuilder integration)
     {
       integration.BeforeFirstScenario.Add((events, resolver) => {
 
@@ -109,7 +109,7 @@ namespace CSF.Screenplay.Reporting
       });
     }
 
-    void SubscribeToBeginAndEndTestRun(IScreenplayIntegrationHelper integration)
+    void SubscribeToBeginAndEndTestRun(IIntegrationConfigBuilder integration)
     {
       integration.BeforeFirstScenario.Add((events, resolver) => {
         var reporter = resolver.GetReporter(name);
@@ -117,7 +117,7 @@ namespace CSF.Screenplay.Reporting
       });
     }
 
-    void SubscribeToScenario(IScreenplayIntegrationHelper integration)
+    void SubscribeToScenario(IIntegrationConfigBuilder integration)
     {
       integration.BeforeScenario.Add((scenario) => {
         var reporter = scenario.GetReporter(name);
@@ -130,7 +130,7 @@ namespace CSF.Screenplay.Reporting
       });
     }
 
-    void WriteReport(IScreenplayIntegrationHelper integration)
+    void WriteReport(IIntegrationConfigBuilder integration)
     {
       integration.AfterLastScenario.Add((resolver) => {
 

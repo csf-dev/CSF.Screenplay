@@ -9,23 +9,23 @@ using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
-[assembly:ScreenplayAssembly(typeof(CustomIntegration))]
+[assembly:ScreenplayAssembly(typeof(ScreenplayConfig))]
 
 namespace CSF.Screenplay.Web.Tests
 {
-  public class CustomIntegration : ScreenplayIntegration
+  public class ScreenplayConfig : IIntegrationConfig
   {
-    protected override void CustomiseIntegration(IScreenplayIntegrationHelper integrationHelper)
+    public void Configure(IIntegrationConfigBuilder builder)
     {
-      integrationHelper.UseCast();
-      integrationHelper.UseReporter(config => {
+      builder.UseCast();
+      builder.UseReporter(config => {
         config
           .SubscribeToActorsCreatedInCast()
           .WriteReport(WriteReport);
       });
-      integrationHelper.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
-      integrationHelper.UseWebDriver(GetWebDriver);
-      integrationHelper.UseWebBrowser();
+      builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
+      builder.UseWebDriver(GetWebDriver);
+      builder.UseWebBrowser();
     }
 
     IWebDriver GetWebDriver(IScreenplayScenario scenario)

@@ -4,18 +4,18 @@ using CSF.Screenplay.Scenarios;
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
-  /// Abstract implementation of <see cref="IServiceRegistrationProvider"/>, suitable for subclassing
+  /// Abstract implementation of <see cref="IServiceRegistryFactory"/>, suitable for subclassing
   /// in custom integrations.
   /// </summary>
-  public class ServiceRegistrationProvider : IServiceRegistrationProvider
+  public class ServiceRegistryFactory : IServiceRegistryFactory
   {
-    readonly IScreenplayIntegrationHelper integrationHelper;
+    readonly IIntegrationConfigBuilder integrationHelper;
 
     /// <summary>
     /// Gets the service registry, containing all of the required registrations.
     /// </summary>
     /// <returns>The service registry.</returns>
-    public virtual ServiceRegistry GetServiceRegistry()
+    public virtual IServiceRegistry GetServiceRegistry()
     {
       var builder = new ServiceRegistryBuilder();
       RegisterServices(builder);
@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Integration
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.ServiceRegistrationProvider"/> class.
     /// </summary>
     /// <param name="integrationHelper">Integration helper.</param>
-    public ServiceRegistrationProvider(IScreenplayIntegrationHelper integrationHelper)
+    public ServiceRegistryFactory(IIntegrationConfigBuilder integrationHelper)
     {
       if(integrationHelper == null)
         throw new ArgumentNullException(nameof(integrationHelper));
