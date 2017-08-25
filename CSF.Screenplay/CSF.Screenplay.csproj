@@ -96,12 +96,17 @@
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
     <Compile Include="Integration\ScreenplayIntegration.cs" />
     <Compile Include="Integration\ScreenplayEnvironment.cs" />
-    <Compile Include="Integration\IServiceRegistrationProvider.cs" />
-    <Compile Include="Integration\ServiceRegistrationProvider.cs" />
     <Compile Include="Scenarios\ServiceLifetime.cs" />
     <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
     <Compile Include="Integration\IScreenplayIntegration.cs" />
     <Compile Include="Scenarios\LazySingletonRegistration.cs" />
+    <Compile Include="Integration\IIntegrationConfigBuilder.cs" />
+    <Compile Include="Integration\IntegrationConfigurationBuilder.cs" />
+    <Compile Include="CastIntegrationHelperExtensions.cs" />
+    <Compile Include="Scenarios\IServiceRegistry.cs" />
+    <Compile Include="Integration\IIntegrationConfig.cs" />
+    <Compile Include="Scenarios\IServiceRegistryFactory.cs" />
+    <Compile Include="Integration\ServiceRegistryFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

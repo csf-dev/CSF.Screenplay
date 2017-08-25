@@ -56,7 +56,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="suite">Test suite information.</param>
     public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
     {
-      GetIntegration(method).EnsureServicesAreRegistered();
+      GetIntegration(method).LoadIntegration();
 
       var scenario = CreateScenario(method, suite);
 
@@ -127,17 +127,17 @@ namespace CSF.Screenplay.NUnit
         if(assembly == null)
         {
           throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
-                                      nameof(method));
+                                    nameof(method));
         }
 
         var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
         if(assemblyAttrib == null)
         {
           var message = $"All test methods must be contained within assemblies which are " +
-                        $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
+            $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
           throw new InvalidOperationException(message);
         }
-        
+
         cachedIntegration = assemblyAttrib.Integration;
       }
 

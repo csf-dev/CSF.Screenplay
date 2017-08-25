@@ -1,26 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSF.Screenplay.Integration;
+using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
+[assembly:ScreenplayAssembly(typeof(ScreenplayConfig))]
+
 namespace CSF.Screenplay.Web.Tests
 {
-  public class ScreenplayRegistrations : ServiceRegistrationProvider
+  public class ScreenplayConfig : IIntegrationConfig
   {
-    protected override void RegisterServices(IServiceRegistryBuilder builder)
+    public void Configure(IIntegrationConfigBuilder builder)
     {
-      builder.RegisterDefaultModelBuildingReporter();
-      builder.RegisterCast();
-      builder.RegisterUriTransformer(GetUriTransformer);
-      builder.RegisterWebDriver(GetWebDriver);
-      builder.RegisterWebBrowser();
+      builder.UseCast();
+      builder.UseReporting(config => {
+        config
+          .SubscribeToActorsCreatedInCast()
+          .WriteReport(WriteReport);
+      });
+      builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
+      builder.UseWebDriver(GetWebDriver);
+      builder.UseWebBrowser();
     }
-
-    IUriTransformer GetUriTransformer(IServiceResolver res)
-      => new RootUriPrependingTransformer("http://localhost:8080/");
 
     IWebDriver GetWebDriver(IScreenplayScenario scenario)
     {
@@ -39,5 +45,11 @@ namespace CSF.Screenplay.Web.Tests
 
     string GetTestName(IScreenplayScenario scenario)
       => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
+
+    void WriteReport(Reporting.Models.Report report)
+    {
+      var path = "NUnit.report.txt";
+      TextReportWriter.WriteToFile(report, path);
+    }
   }
 }

@@ -4,15 +4,17 @@ using CSF.Screenplay.Scenarios;
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
-  /// Describes the API of a screenplay integration type.
+  /// This is the API published to testing frameworks, for the purpose of integrating the testing
+  /// framework with Screenplay.  The methods published by this type should be executed at the named points
+  /// in the test run.
   /// </summary>
   public interface IScreenplayIntegration
   {
     /// <summary>
-    /// Ensures that all of the screenplay services are registered.
-    /// This method is safe to be called many times, however it will only perform the actual registration once.
+    /// Loads the integration customisations and configurations.
+    /// This should only be called once.
     /// </summary>
-    void EnsureServicesAreRegistered();
+    void LoadIntegration();
 
     /// <summary>
     /// Executed once, before the first scenario in the test run is executed.  Note that

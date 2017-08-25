@@ -11,7 +11,8 @@ namespace CSF.Screenplay.NUnit
   [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
   public class ScreenplayAssemblyAttribute : TestActionAttribute
   {
-    IScreenplayIntegration integration;
+    static IScreenplayIntegration integration;
+    static object integrationLock;
 
     /// <summary>
     /// Gets the current Screenplay integration.
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      integration.AfterExecutedLastScenario();
+      Integration.AfterExecutedLastScenario();
     }
 
     /// <summary>
@@ -40,30 +41,32 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      integration.BeforeExecutingFirstScenario();
+      Integration.BeforeExecutingFirstScenario();
     }
 
-    IScreenplayIntegration BuildIntegration(Type integrationType)
+    IScreenplayIntegration GetIntegration(Type configType)
     {
-      if(integrationType == null)
-        throw new ArgumentNullException(nameof(integrationType));
-      
-      if(!typeof(IScreenplayIntegration).IsAssignableFrom(integrationType))
+      lock(integrationLock)
       {
-        throw new ArgumentException($"Integration type must implement `{typeof(IScreenplayIntegration).Name}'.",
-                                    nameof(integrationType));
-      }
+        if(integration == null)
+          integration = ScreenplayIntegration.Create(configType);
 
-      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+        return integration;
+      }
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScreenplayAssemblyAttribute"/> class.
     /// </summary>
-    /// <param name="integrationType">Integration type.</param>
-    public ScreenplayAssemblyAttribute(Type integrationType)
+    /// <param name="configType">Integration type.</param>
+    public ScreenplayAssemblyAttribute(Type configType)
     {
-      integration = BuildIntegration(integrationType);
+      integration = GetIntegration(configType);
+    }
+
+    static ScreenplayAssemblyAttribute()
+    {
+      integrationLock = new object();
     }
   }
 }

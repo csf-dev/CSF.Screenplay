@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Scenarios
   /// <summary>
   /// Registry type which contains all of the Screenplay service registrations.
   /// </summary>
-  public class ServiceRegistry : ISingletonServiceResolverFactory
+  public class ServiceRegistry : IServiceRegistry, ISingletonServiceResolverFactory
   {
     readonly IReadOnlyCollection<IServiceRegistration> registrations;
 

@@ -7,11 +7,11 @@ namespace CSF.Screenplay.Integration
   class ScreenplayEnvironment : IProvidesTestRunEvents
   {
     object syncRoot;
-    ServiceRegistry serviceRegistry;
+    IServiceRegistry serviceRegistry;
 
     ISingletonServiceResolverFactory SingletonResolverFactory => serviceRegistry;
 
-    internal IReadOnlyCollection<IServiceRegistration> GetRegistrations()
+    IReadOnlyCollection<IServiceRegistration> GetRegistrations()
       => serviceRegistry.Registrations;
 
     internal IServiceResolver CreateSingletonResolver()
@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Integration
       return SingletonResolverFactory.GetResolver();
     }
 
-    internal void ConfigureServiceRegistryIfRequired(Func<ServiceRegistry> factory)
+    internal void ConfigureServiceRegistryIfRequired(Func<IServiceRegistry> factory)
     {
       if(factory == null)
         throw new ArgumentNullException(nameof(factory));

@@ -143,6 +143,7 @@
     <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
     <Compile Include="WebBrowsingRegistryExtensions.cs" />
     <Compile Include="WebBrowsingResolverExtensions.cs" />
+    <Compile Include="WebBrowsingIntegrationHelperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

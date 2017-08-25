@@ -99,8 +99,7 @@
     <Compile Include="BrowserName.cs" />
     <Compile Include="Waits\GeneralWaitTests.cs" />
     <Compile Include="ScenarioExtensions.cs" />
-    <Compile Include="CustomIntegration.cs" />
-    <Compile Include="ScreenplayRegistrations.cs" />
+    <Compile Include="ScreenplayConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

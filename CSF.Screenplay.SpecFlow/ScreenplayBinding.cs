@@ -49,7 +49,7 @@ namespace CSF.Screenplay.SpecFlow
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-      GetIntegration().EnsureServicesAreRegistered();
+      GetIntegration().LoadIntegration();
       GetIntegration().BeforeExecutingFirstScenario();
     }
 
@@ -111,12 +111,12 @@ namespace CSF.Screenplay.SpecFlow
       return cachedIntegration;
     }
 
-    static IScreenplayConfiguration Configuration
+    static IScreenplayConfiguration ScreenplayAppConfiguration
     {
       get {
         if(cachedConfiguration == null)
         {
-          var reader = new CSF.Configuration.ConfigurationReader();
+          var reader = new Configuration.ConfigurationReader();
           cachedConfiguration = reader.ReadSection<SpecFlowScreenplayConfiguration>();
         }
 
@@ -126,25 +126,11 @@ namespace CSF.Screenplay.SpecFlow
 
     static IScreenplayIntegration CreateIntegration()
     {
-      var config = Configuration;
-      if(config == null)
+      if(ScreenplayAppConfiguration == null)
         throw new InvalidOperationException("The SpecFlow/Screenplay configuration must be provided."); 
-
-      var integrationTypeName = Configuration.IntegrationAssemblyQualifiedName;
-      if(integrationTypeName == null)
-      {
-        var message = "The SpecFlow/Screenplay configuration must specify an assembly qualified type for the integration.";
-        throw new InvalidOperationException(message);
-      }
-
-      var integrationType = Type.GetType(integrationTypeName);
-      if(integrationType == null)
-      {
-        var message = $"The Screenplay integration type '{integrationTypeName}' was not found.";
-        throw new InvalidOperationException(message);
-      }
-
-      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+      
+      var integrationConfigType = ScreenplayAppConfiguration.GetIntegrationConfigType();
+      return ScreenplayIntegration.Create(integrationConfigType);
     }
 
     /// <summary>

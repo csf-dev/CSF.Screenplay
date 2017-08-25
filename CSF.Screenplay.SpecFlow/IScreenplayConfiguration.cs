@@ -7,9 +7,9 @@ namespace CSF.Screenplay.SpecFlow
   public interface IScreenplayConfiguration
   {
     /// <summary>
-    /// Gets the assembly-qualified type name for the Screenplay Integration class to be used.
+    /// Gets the <c>System.Type</c> of the Screenplay integration configuration type to use.
     /// </summary>
-    /// <value>The name of the integration assembly qualified.</value>
-    string IntegrationAssemblyQualifiedName { get; }
+    /// <returns>The integration config type.</returns>
+    Type GetIntegrationConfigType();
   }
 }
