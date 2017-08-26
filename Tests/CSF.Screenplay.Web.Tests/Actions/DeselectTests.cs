@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Deselecting everything leaves nothing selected.")]
-    public void DeselectAll_leaves_nothing_selected(ScreenplayScenario scenario)
+    public void DeselectAll_leaves_nothing_selected(IScreenplayScenario scenario)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by index leaves one item selected.")]
-    public void DeselectByIndex_leaves_one_item_selected(ScreenplayScenario scenario)
+    public void DeselectByIndex_leaves_one_item_selected(IScreenplayScenario scenario)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by text leaves one item selected.")]
-    public void DeselectByText_leaves_one_item_selected(ScreenplayScenario scenario)
+    public void DeselectByText_leaves_one_item_selected(IScreenplayScenario scenario)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
@@ -61,7 +61,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by value leaves one item selected.")]
-    public void DeselectByValue_leaves_one_item_selected(ScreenplayScenario scenario)
+    public void DeselectByValue_leaves_one_item_selected(IScreenplayScenario scenario)
     {
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);

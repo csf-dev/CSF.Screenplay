@@ -63,7 +63,7 @@ namespace CSF.Screenplay.NUnit
       return BuildFrom(method, suite, scenario);
     }
 
-    IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, ScreenplayScenario scenario)
+    IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, IScreenplayScenario scenario)
     {
       var builder = new NUnitTestCaseBuilder();
       var tcParams = new TestCaseParameters(new [] { scenario });
@@ -79,7 +79,7 @@ namespace CSF.Screenplay.NUnit
       return result.Outcome.Status == TestStatus.Passed;
     }
 
-    ScreenplayScenario GetScenario(ITest test)
+    IScreenplayScenario GetScenario(ITest test)
     {
       var scenario = GetScenario(test.Properties);
       if(scenario != null)
@@ -89,25 +89,25 @@ namespace CSF.Screenplay.NUnit
       if(scenario != null)
         return scenario;
 
-      var message = $"The test must contain an instance of `{nameof(ScreenplayScenario)}' in " +
+      var message = $"The test must contain an instance of `{nameof(IScreenplayScenario)}' in " +
                     $"its {nameof(ITest.Properties)} or its {nameof(ITest.Arguments)}.";
       throw new ArgumentException(message, nameof(test));
     }
 
-    ScreenplayScenario GetScenario(IPropertyBag properties)
+    IScreenplayScenario GetScenario(IPropertyBag properties)
     {
       if(properties.ContainsKey(ScreenplayScenarioKey))
-        return (ScreenplayScenario) properties.Get(ScreenplayScenarioKey);
+        return (IScreenplayScenario) properties.Get(ScreenplayScenarioKey);
 
       return null;
     }
 
-    ScreenplayScenario GetScenario(object[] methodArguments)
+    IScreenplayScenario GetScenario(object[] methodArguments)
     {
-      return (ScreenplayScenario) methodArguments.FirstOrDefault(x => x is ScreenplayScenario);
+      return (IScreenplayScenario) methodArguments.FirstOrDefault(x => x is IScreenplayScenario);
     }
 
-    ScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
+    IScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
     {
       var scenarioAdapter = new ScenarioAdapter(suite, method);
       var featureName = GetFeatureName(scenarioAdapter);

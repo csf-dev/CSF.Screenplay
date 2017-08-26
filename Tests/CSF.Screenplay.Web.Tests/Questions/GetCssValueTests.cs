@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of the 'color' property detects the expected value.")]
-    public void GetCssValue_for_red_string_gets_correct_colour(ScreenplayScenario scenario)
+    public void GetCssValue_for_red_string_gets_correct_colour(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

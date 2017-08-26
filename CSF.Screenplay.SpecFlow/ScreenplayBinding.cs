@@ -61,9 +61,9 @@ namespace CSF.Screenplay.SpecFlow
       GetIntegration().AfterExecutedLastScenario();
     }
 
-    ScreenplayScenario GetScenario() => container.Resolve<ScreenplayScenario>();
+    IScreenplayScenario GetScenario() => container.Resolve<IScreenplayScenario>();
 
-    ScreenplayScenario CreateScenario(ScenarioContext scenarioContext, FeatureContext featureContext)
+    IScreenplayScenario CreateScenario(ScenarioContext scenarioContext, FeatureContext featureContext)
     {
       var featureName = GetFeatureName(featureContext);
       var scenarioName = GetScenarioName(scenarioContext, featureContext);

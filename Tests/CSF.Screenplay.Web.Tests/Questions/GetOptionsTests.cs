@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the available options reveals the expected collection of items.")]
-    public void GetAllOptions_returns_expected_collection(ScreenplayScenario scenario)
+    public void GetAllOptions_returns_expected_collection(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the selected options reveals the expected collection of items.")]
-    public void GetSelectedOptions_returns_expected_collection(ScreenplayScenario scenario)
+    public void GetSelectedOptions_returns_expected_collection(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

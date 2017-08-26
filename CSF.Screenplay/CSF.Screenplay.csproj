@@ -75,8 +75,6 @@
     <Compile Include="Actors\ActorEventArgs.cs" />
     <Compile Include="Reporting\IReportable.cs" />
     <Compile Include="CastRegistryExtensions.cs" />
-    <Compile Include="ScreenplayScenario.cs" />
-    <Compile Include="Scenarios\IScreenplayScenario.cs" />
     <Compile Include="Scenarios\ServiceMetadata.cs" />
     <Compile Include="Scenarios\ServiceNotRegisteredException.cs" />
     <Compile Include="Scenarios\IScenarioFactory.cs" />
@@ -109,6 +107,9 @@
     <Compile Include="Integration\TestRunEvents.cs" />
     <Compile Include="Integration\IntegrationFactory.cs" />
     <Compile Include="Scenarios\IScenarioName.cs" />
+    <Compile Include="Scenarios\ScreenplayScenario.cs" />
+    <Compile Include="IScreenplayScenario.cs" />
+    <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

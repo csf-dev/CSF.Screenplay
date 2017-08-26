@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Scenarios;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Scenarios
 {
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
@@ -76,10 +75,10 @@ namespace CSF.Screenplay
     }
 
     /// <summary>
-    /// Determines whether the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// Determines whether the specified <see cref="ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
     /// </summary>
-    /// <param name="other">The <see cref="CSF.Screenplay.ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
-    /// <returns><c>true</c> if the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current
+    /// <param name="other">The <see cref="ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
+    /// <returns><c>true</c> if the specified <see cref="ScreenplayScenario"/> is equal to the current
     /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
     public bool Equals(ScreenplayScenario other)
     {
