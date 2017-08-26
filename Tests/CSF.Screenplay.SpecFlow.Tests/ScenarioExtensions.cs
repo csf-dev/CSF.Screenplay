@@ -1,12 +1,13 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.SpecFlow.Tests.Abilities;
 
 namespace CSF.Screenplay.SpecFlow.Tests
 {
   public static class ScenarioExtensions
   {
-    public static IActor GetMathsWhiz(this ScreenplayScenario context, string name)
+    public static IActor GetMathsWhiz(this IScreenplayScenario context, string name)
     {
       var cast = context.GetCast();
       if(cast == null)

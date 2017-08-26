@@ -42,12 +42,13 @@ namespace CSF.Screenplay.Integration
     /// Executed before each scenario in a test run.
     /// </summary>
     /// <param name="scenario">Scenario.</param>
-    public void BeforeScenario(ScreenplayScenario scenario)
+    public void BeforeScenario(IScreenplayScenario scenario)
     {
       foreach(var callback in builder.BeforeScenario)
         callback(scenario);
-      
-      scenario.Begin();
+
+      if(scenario is ICanBeginAndEndScenario)
+        ((ICanBeginAndEndScenario) scenario).Begin();
     }
 
     /// <summary>
@@ -55,9 +56,10 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <param name="scenario">Scenario.</param>
     /// <param name="success">If set to <c>true</c> success.</param>
-    public void AfterScenario(ScreenplayScenario scenario, bool success)
+    public void AfterScenario(IScreenplayScenario scenario, bool success)
     {
-      scenario.End(success);
+      if(scenario is ICanBeginAndEndScenario)
+        ((ICanBeginAndEndScenario) scenario).End(success);
 
       foreach(var callback in builder.AfterScenario)
         callback(scenario);

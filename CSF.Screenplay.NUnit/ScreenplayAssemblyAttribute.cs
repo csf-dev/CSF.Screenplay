@@ -11,14 +11,13 @@ namespace CSF.Screenplay.NUnit
   [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
   public class ScreenplayAssemblyAttribute : TestActionAttribute
   {
-    static IScreenplayIntegration integration;
-    static object integrationLock;
+    static Lazy<IScreenplayIntegration> integration;
 
     /// <summary>
     /// Gets the current Screenplay integration.
     /// </summary>
     /// <value>The integration.</value>
-    public IScreenplayIntegration Integration => integration;
+    public IScreenplayIntegration Integration => integration.Value;
 
     /// <summary>
     /// Gets the targets for this attribute (the affected tests).
@@ -44,29 +43,13 @@ namespace CSF.Screenplay.NUnit
       Integration.BeforeExecutingFirstScenario();
     }
 
-    IScreenplayIntegration GetIntegration(Type configType)
-    {
-      lock(integrationLock)
-      {
-        if(integration == null)
-          integration = new IntegrationFactory().Create(configType);
-
-        return integration;
-      }
-    }
-
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScreenplayAssemblyAttribute"/> class.
     /// </summary>
     /// <param name="configType">Integration type.</param>
     public ScreenplayAssemblyAttribute(Type configType)
     {
-      integration = GetIntegration(configType);
-    }
-
-    static ScreenplayAssemblyAttribute()
-    {
-      integrationLock = new object();
+      integration = integration?? new Lazy<IScreenplayIntegration>(() => new IntegrationFactory().Create(configType));
     }
   }
 }

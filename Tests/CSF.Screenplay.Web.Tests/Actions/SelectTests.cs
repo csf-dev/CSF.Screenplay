@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page(ScreenplayScenario scenario)
+    public void SelectByText_generates_expected_result_on_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page(ScreenplayScenario scenario)
+    public void SelectByIndex_generates_expected_result_on_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -39,7 +39,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page(ScreenplayScenario scenario)
+    public void SelectByValue_generates_expected_result_on_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

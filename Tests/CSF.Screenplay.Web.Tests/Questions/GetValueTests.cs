@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of an element detects the expected value.")]
-    public void GetValue_returns_expected_value(ScreenplayScenario scenario)
+    public void GetValue_returns_expected_value(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedValue_returns_expected_value(ScreenplayScenario scenario)
+    public void GetConvertedValue_returns_expected_value(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

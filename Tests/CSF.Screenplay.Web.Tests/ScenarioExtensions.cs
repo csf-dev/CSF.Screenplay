@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Web.Tests
 {
   public static class ScenarioExtensions
   {
-    public static IActor GetJoe(this ScreenplayScenario scenario)
+    public static IActor GetJoe(this IScreenplayScenario scenario)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));

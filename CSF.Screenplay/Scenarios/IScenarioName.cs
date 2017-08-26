@@ -7,6 +7,12 @@ namespace CSF.Screenplay.Scenarios
   public interface IScenarioName
   {
     /// <summary>
+    /// Gets a unique identity for the the current scenario instance.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    Guid Identity { get; }
+
+    /// <summary>
     /// Gets identifying information about the current feature under test.
     /// </summary>
     /// <value>The feature identifier.</value>

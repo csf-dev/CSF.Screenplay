@@ -4,7 +4,7 @@ using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Actors
 {
   /// <summary>
   /// The main implementation of <see cref="IActor"/>. which represents an actor/participant/persona within a test

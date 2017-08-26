@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Clicking on the link to page two navigates to the second page.")]
-    public void Click_OnLinkToPageTwo_navigates_to_second_page(ScreenplayScenario scenario)
+    public void Click_OnLinkToPageTwo_navigates_to_second_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

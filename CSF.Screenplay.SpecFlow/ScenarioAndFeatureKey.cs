@@ -9,8 +9,8 @@ namespace CSF.Screenplay.SpecFlow
   public class ScenarioAndFeatureKey : IEquatable<ScenarioAndFeatureKey>
   {
     readonly int cachedHashCode;
-    ScenarioContext scenario;
-    FeatureContext feature;
+    readonly ScenarioContext scenario;
+    readonly FeatureContext feature;
 
     /// <summary>
     /// Gets the scenario.

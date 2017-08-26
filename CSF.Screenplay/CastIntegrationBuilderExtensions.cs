@@ -24,11 +24,6 @@ namespace CSF.Screenplay
       helper.RegisterServices.Add((builder) => {
         builder.RegisterCast(cast, name);
       });
-
-      helper.AfterScenario.Add((scenario) => {
-        var c = scenario.GetCast(name);
-        c.Dismiss();
-      });
     }
   }
 }

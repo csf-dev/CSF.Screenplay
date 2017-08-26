@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Scenarios
     object GetOptionalService(ServiceMetadata metadata);
 
     /// <summary>
-    /// Releases all of the services which registered per-scenario.
+    /// Releases all of the services are which registered per-scenario.
     /// </summary>
     void ReleasePerScenarioServices();
   }

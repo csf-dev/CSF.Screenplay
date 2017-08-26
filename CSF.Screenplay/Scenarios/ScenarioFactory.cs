@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Scenarios
     /// <returns>The scenario.</returns>
     /// <param name="featureId">Feature identifier.</param>
     /// <param name="scenarioId">Scenario identifier.</param>
-    public ScreenplayScenario GetScenario(IdAndName featureId, IdAndName scenarioId)
+    public IScreenplayScenario GetScenario(IdAndName featureId, IdAndName scenarioId)
     {
       return new ScreenplayScenario(featureId, scenarioId, registrations);
     }
