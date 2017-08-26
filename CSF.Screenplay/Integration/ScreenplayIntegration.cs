@@ -18,6 +18,12 @@ namespace CSF.Screenplay.Integration
 
     #endregion
 
+    #region properties
+
+    IServiceRegistry ServiceRegistry => registryFactory.GetServiceRegistry();
+
+    #endregion
+
     #region public API
 
     /// <summary>
@@ -28,7 +34,7 @@ namespace CSF.Screenplay.Integration
       if(loaded)
         return;
 
-      CustomiseIntegration(builder);
+      config.Configure(builder);
       loaded = true;
     }
 
@@ -38,7 +44,7 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     public void BeforeExecutingFirstScenario()
     {
-      var resolver = CreateSingletonResolver();
+      var resolver = ServiceRegistry.GetSingletonResolver();
 
       foreach(var callback in builder.BeforeFirstScenario)
         callback(testRunEvents, resolver);
@@ -52,8 +58,10 @@ namespace CSF.Screenplay.Integration
     /// <param name="scenario">Scenario.</param>
     public void BeforeScenario(ScreenplayScenario scenario)
     {
-      CustomiseScenario(scenario);
-      MarkAsBegun(scenario);
+      foreach(var callback in builder.BeforeScenario)
+        callback(scenario);
+      
+      scenario.Begin();
     }
 
     /// <summary>
@@ -63,8 +71,10 @@ namespace CSF.Screenplay.Integration
     /// <param name="success">If set to <c>true</c> success.</param>
     public void AfterScenario(ScreenplayScenario scenario, bool success)
     {
-      MarkAsEnded(scenario, success);
-      AfterScenario(scenario);
+      scenario.End(success);
+
+      foreach(var callback in builder.AfterScenario)
+        callback(scenario);
     }
 
     /// <summary>
@@ -73,7 +83,11 @@ namespace CSF.Screenplay.Integration
     public void AfterExecutedLastScenario()
     {
       testRunEvents.NotifyCompleteTestRun();
-      AfterExecutedLastScenario(CreateSingletonResolver());
+
+      var resolver = ServiceRegistry.GetSingletonResolver();
+
+      foreach(var callback in builder.AfterLastScenario)
+        callback(resolver);
     }
 
     /// <summary>
@@ -81,57 +95,6 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <returns>The scenario factory.</returns>
     public IScenarioFactory GetScenarioFactory() => new ScenarioFactory(ServiceRegistry.Registrations);
-
-    #endregion
-
-    #region methods
-
-    void AfterExecutedLastScenario(IServiceResolver serviceResolver)
-    {
-      foreach(var callback in builder.AfterLastScenario)
-        callback(serviceResolver);
-    }
-
-    void CustomiseScenario(ScreenplayScenario scenario)
-    {
-      foreach(var callback in builder.BeforeScenario)
-        callback(scenario);
-    }
-
-    void AfterScenario(ScreenplayScenario scenario)
-    {
-      foreach(var callback in builder.AfterScenario)
-        callback(scenario);
-    }
-
-    /// <summary>
-    /// Marks the scenario instance as having started (informing subscribers where applicable).
-    /// </summary>
-    /// <param name="scenario">Scenario.</param>
-    void MarkAsBegun(ScreenplayScenario scenario) => scenario.Begin();
-
-    /// <summary>
-    /// Marks the scenario instance as having ended (informing subscribers where applicable).
-    /// </summary>
-    /// <param name="scenario">Scenario.</param>
-    /// <param name="success">If set to <c>true</c> success.</param>
-    void MarkAsEnded(ScreenplayScenario scenario, bool success) => scenario.End(success);
-
-    /// <summary>
-    /// Creates a service resolver which resolves only singleton service instances.
-    /// </summary>
-    /// <returns>The singleton resolver.</returns>
-    IServiceResolver CreateSingletonResolver() => ServiceRegistry.GetSingletonResolver();
-
-    void CustomiseIntegration(IIntegrationConfigBuilder configBuilder)
-    {
-      if(configBuilder == null)
-        throw new ArgumentNullException(nameof(configBuilder));
-
-      config.Configure(configBuilder);
-    }
-
-    IServiceRegistry ServiceRegistry => registryFactory.GetServiceRegistry();
 
     #endregion
 
