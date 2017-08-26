@@ -19,7 +19,7 @@ This example is written using **NUnit** test markup but NUnit is not required to
 public class BuyGroceriesTests
 {
   [Test,Screenplay]
-  public void JoeCanBuyEggs(ScreenplayScenario screenplay)
+  public void JoeCanBuyEggs(IScreenplayScenario screenplay)
   {
     var joe = screenplay.GetJoe();
     var browseTheWeb = screenplay.GetWebBrowser();
