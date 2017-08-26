@@ -49,7 +49,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="configType">Integration type.</param>
     public ScreenplayAssemblyAttribute(Type configType)
     {
-      integration = new Lazy<IScreenplayIntegration>(() => new IntegrationFactory().Create(configType));
+      integration = integration?? new Lazy<IScreenplayIntegration>(() => new IntegrationFactory().Create(configType));
     }
   }
 }
