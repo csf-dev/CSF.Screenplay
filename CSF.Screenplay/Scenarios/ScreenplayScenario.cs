@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Scenarios
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>
+  public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>, ICanBeginAndEndScenario
   {
     readonly Guid identity;
 
