@@ -107,7 +107,7 @@
     <Compile Include="Scenarios\IServiceRegistryFactory.cs" />
     <Compile Include="Integration\ServiceRegistryFactory.cs" />
     <Compile Include="Integration\TestRunEvents.cs" />
-    <Compile Include="Integration\CachingServiceRegistryFactory.cs" />
+    <Compile Include="Integration\IntegrationFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

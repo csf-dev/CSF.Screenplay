@@ -49,7 +49,7 @@ namespace CSF.Screenplay.NUnit
       lock(integrationLock)
       {
         if(integration == null)
-          integration = ScreenplayIntegration.Create(configType);
+          integration = new IntegrationFactory().Create(configType);
 
         return integration;
       }

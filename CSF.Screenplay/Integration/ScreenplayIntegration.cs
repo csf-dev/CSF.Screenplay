@@ -6,37 +6,23 @@ namespace CSF.Screenplay.Integration
   /// <summary>
   /// Base type for custom screenplay integrations.  This is suitable for subclassing in custom integrations.
   /// </summary>
-  public class ScreenplayIntegration : IScreenplayIntegration
+  class ScreenplayIntegration : IScreenplayIntegration
   {
     #region fields
 
-    readonly IServiceRegistryFactory registryFactory;
     readonly IIntegrationConfigBuilder builder;
-    readonly IIntegrationConfig config;
     readonly TestRunEvents testRunEvents;
-    bool loaded;
+    readonly Lazy<IServiceRegistry> serviceRegistry;
 
     #endregion
 
     #region properties
 
-    IServiceRegistry ServiceRegistry => registryFactory.GetServiceRegistry();
+    IServiceRegistry ServiceRegistry => serviceRegistry.Value;
 
     #endregion
 
     #region public API
-
-    /// <summary>
-    /// Loads the integration customisations and configurations.
-    /// </summary>
-    public void LoadIntegration()
-    {
-      if(loaded)
-        return;
-
-      config.Configure(builder);
-      loaded = true;
-    }
 
     /// <summary>
     /// Executed once, before the first scenario in the test run is executed.  Note that
@@ -94,7 +80,8 @@ namespace CSF.Screenplay.Integration
     /// Gets the scenario factory.
     /// </summary>
     /// <returns>The scenario factory.</returns>
-    public IScenarioFactory GetScenarioFactory() => new ScenarioFactory(ServiceRegistry.Registrations);
+    public IScenarioFactory GetScenarioFactory()
+      => new ScenarioFactory(ServiceRegistry.Registrations);
 
     #endregion
 
@@ -103,44 +90,18 @@ namespace CSF.Screenplay.Integration
     /// <summary>
     /// Initializes a new instance of the <see cref="ScreenplayIntegration"/> class.
     /// </summary>
-    public ScreenplayIntegration(IIntegrationConfig config)
+    internal ScreenplayIntegration(IIntegrationConfig config)
     {
       if(config == null)
         throw new ArgumentNullException(nameof(config));
 
-      this.config = config;
       builder = new IntegrationConfigurationBuilder();
+      config.Configure(builder);
+
+      var registryFactory = new ServiceRegistryFactory(builder);
+      serviceRegistry = new Lazy<IServiceRegistry>(() => registryFactory.GetServiceRegistry());
+
       testRunEvents = new TestRunEvents();
-      registryFactory = new CachingServiceRegistryFactory(builder);
-    }
-
-    #endregion
-
-    #region static methods
-
-    /// <summary>
-    /// Static factory method which creates a new implementation of <see cref="IScreenplayIntegration"/>
-    /// from a given configuration type.
-    /// </summary>
-    /// <param name="configType">Config type.</param>
-    public static IScreenplayIntegration Create(Type configType)
-    {
-      var config = GetConfig(configType);
-      return new ScreenplayIntegration(config);
-    }
-
-    static IIntegrationConfig GetConfig(Type configType)
-    {
-      if(configType == null)
-        throw new ArgumentNullException(nameof(configType));
-
-      if(!typeof(IIntegrationConfig).IsAssignableFrom(configType))
-      {
-        throw new ArgumentException($"Configuration type must implement `{typeof(IIntegrationConfig).Name}'.",
-                                    nameof(configType));
-      }
-
-      return (IIntegrationConfig) Activator.CreateInstance(configType);
     }
 
     #endregion
