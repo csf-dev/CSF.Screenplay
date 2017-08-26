@@ -10,9 +10,10 @@ namespace CSF.Screenplay.Integration
   {
     #region fields
 
-    readonly ScreenplayEnvironment environment;
+    readonly IServiceRegistryFactory registryFactory;
     readonly IIntegrationConfigBuilder builder;
     readonly IIntegrationConfig config;
+    readonly TestRunEvents testRunEvents;
     bool loaded;
 
     #endregion
@@ -28,7 +29,6 @@ namespace CSF.Screenplay.Integration
         return;
 
       CustomiseIntegration(builder);
-      environment.ConfigureServiceRegistryIfRequired(GetServiceRegistry);
       loaded = true;
     }
 
@@ -38,15 +38,12 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     public void BeforeExecutingFirstScenario()
     {
-      BeforeExecutingFirstScenario(environment, CreateSingletonResolver());
-      NotifySubscribersOfTestRunStart();
-    }
+      var resolver = CreateSingletonResolver();
 
-    void BeforeExecutingFirstScenario(IProvidesTestRunEvents testRunEvents,
-                                      IServiceResolver serviceResolver)
-    {
       foreach(var callback in builder.BeforeFirstScenario)
-        callback(testRunEvents, serviceResolver);
+        callback(testRunEvents, resolver);
+      
+      testRunEvents.NotifyBeginTestRun();
     }
 
     /// <summary>
@@ -75,7 +72,7 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     public void AfterExecutedLastScenario()
     {
-      NotifySubscribersOfTestRunCompletion();
+      testRunEvents.NotifyCompleteTestRun();
       AfterExecutedLastScenario(CreateSingletonResolver());
     }
 
@@ -83,7 +80,7 @@ namespace CSF.Screenplay.Integration
     /// Gets the scenario factory.
     /// </summary>
     /// <returns>The scenario factory.</returns>
-    public IScenarioFactory GetScenarioFactory() => environment.GetScenarioFactory();
+    public IScenarioFactory GetScenarioFactory() => new ScenarioFactory(ServiceRegistry.Registrations);
 
     #endregion
 
@@ -94,9 +91,6 @@ namespace CSF.Screenplay.Integration
       foreach(var callback in builder.AfterLastScenario)
         callback(serviceResolver);
     }
-
-    IServiceRegistryFactory GetRegistrationProvider()
-    => new ServiceRegistryFactory(builder);
 
     void CustomiseScenario(ScreenplayScenario scenario)
     {
@@ -127,17 +121,7 @@ namespace CSF.Screenplay.Integration
     /// Creates a service resolver which resolves only singleton service instances.
     /// </summary>
     /// <returns>The singleton resolver.</returns>
-    IServiceResolver CreateSingletonResolver() => environment.CreateSingletonResolver();
-
-    /// <summary>
-    /// Notifies the subscribers of test run start.
-    /// </summary>
-    void NotifySubscribersOfTestRunStart() => environment.NotifyBeginTestRun();
-
-    /// <summary>
-    /// Notifies the subscribers of test run completion.
-    /// </summary>
-    void NotifySubscribersOfTestRunCompletion() => environment.NotifyCompleteTestRun();
+    IServiceResolver CreateSingletonResolver() => ServiceRegistry.GetSingletonResolver();
 
     void CustomiseIntegration(IIntegrationConfigBuilder configBuilder)
     {
@@ -147,11 +131,7 @@ namespace CSF.Screenplay.Integration
       config.Configure(configBuilder);
     }
 
-    IServiceRegistry GetServiceRegistry()
-    {
-      var provider = GetRegistrationProvider();
-      return provider.GetServiceRegistry();
-    }
+    IServiceRegistry ServiceRegistry => registryFactory.GetServiceRegistry();
 
     #endregion
 
@@ -167,7 +147,8 @@ namespace CSF.Screenplay.Integration
 
       this.config = config;
       builder = new IntegrationConfigurationBuilder();
-      environment = new ScreenplayEnvironment();
+      testRunEvents = new TestRunEvents();
+      registryFactory = new CachingServiceRegistryFactory(builder);
     }
 
     #endregion

@@ -10,6 +10,6 @@ namespace CSF.Screenplay.Scenarios
     /// Gets a resolver.
     /// </summary>
     /// <returns>The resolver.</returns>
-    IServiceResolver GetResolver();
+    IServiceResolver GetSingletonResolver();
   }
 }

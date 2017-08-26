@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Scenarios
     /// <value>The registrations.</value>
     public IReadOnlyCollection<IServiceRegistration> Registrations => registrations;
 
-    IServiceResolver ISingletonServiceResolverFactory.GetResolver()
+    IServiceResolver ISingletonServiceResolverFactory.GetSingletonResolver()
     {
       var singletons = registrations.Where(x => x.Metadata.Lifetime == ServiceLifetime.Singleton).ToArray();
       return new ServiceResolver(singletons);
