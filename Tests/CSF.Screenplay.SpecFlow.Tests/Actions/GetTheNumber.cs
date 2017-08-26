@@ -7,7 +7,7 @@ namespace CSF.Screenplay.SpecFlow.Tests.Actions
 {
   public class GetTheNumber : Question<int>
   {
-    protected override int GetAnswer(IPerformer actor)
+    protected override int PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<AddNumbers>();
       return ability.GetTotal();

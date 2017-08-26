@@ -26,29 +26,20 @@ namespace CSF.Screenplay
     /// Returns the actor instance, as an <see cref="IGivenActor"/>, in order to perform precondition actions.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    public static IGivenActor Given(IActor actor)
-    {
-      return actor;
-    }
+    public static IGivenActor Given(IActor actor) => actor;
 
     /// <summary>
     /// Returns the actor instance, as an <see cref="IWhenActor"/>, in order to perform actions which exercise the
     /// application.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    public static IWhenActor When(IActor actor)
-    {
-      return actor;
-    }
+    public static IWhenActor When(IActor actor) => actor;
 
     /// <summary>
     /// Returns the actor instance, as an <see cref="IThenActor"/>, in order to perform actions which asserts that
     /// the desired outcome has come about.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    public static IThenActor Then(IActor actor)
-    {
-      return actor;
-    }
+    public static IThenActor Then(IActor actor) => actor;
   }
 }

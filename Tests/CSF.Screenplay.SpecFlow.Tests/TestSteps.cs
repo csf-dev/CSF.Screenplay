@@ -10,7 +10,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
   [Binding]
   public class TestSteps
   {
-    readonly ScreenplayScenario ctx;
+    readonly IScreenplayScenario ctx;
 
     [Given(@"([^ ]+) has the number (-?\d+)")]
     public void GivenJoeStartsWithTheNumber(string actorName, int number)
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
       Assert.That(result, Is.EqualTo(number));
     }
 
-    public TestSteps(ScreenplayScenario context)
+    public TestSteps(IScreenplayScenario context)
     {
       if(context == null)
         throw new ArgumentNullException(nameof(context));

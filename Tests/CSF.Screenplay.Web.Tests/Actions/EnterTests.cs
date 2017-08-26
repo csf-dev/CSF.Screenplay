@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Typing text into an input box produces the expected result on the page.")]
-    public void Type_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario scenario)
+    public void Type_text_into_an_input_box_produces_expected_result_on_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
     [Test,Screenplay]
     [Description("Typing different text into an input box produces the expected result on the page.")]
-    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ScreenplayScenario scenario)
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.4.0</ReleaseVersion>
+    <ReleaseVersion>0.5.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -143,6 +143,7 @@
     <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
     <Compile Include="WebBrowsingRegistryExtensions.cs" />
     <Compile Include="WebBrowsingResolverExtensions.cs" />
+    <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

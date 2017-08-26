@@ -12,6 +12,12 @@ namespace CSF.Screenplay.Scenarios
     readonly IDictionary<ServiceMetadata,Lazy<object>> services;
 
     /// <summary>
+    /// Gets the services managed by the current resolver instance.
+    /// </summary>
+    /// <value>The services.</value>
+    protected IDictionary<ServiceMetadata,Lazy<object>> Services => services;
+
+    /// <summary>
     /// Gets a service of the indicated type and name.
     /// </summary>
     /// <returns>The service.</returns>
@@ -63,6 +69,25 @@ namespace CSF.Screenplay.Scenarios
         return null;
 
       return services[metadata].Value;
+    }
+
+    /// <summary>
+    /// Releases all of the services which registered per-scenario.
+    /// </summary>
+    public void ReleasePerScenarioServices()
+    {
+      var perScenarioServices = services
+        .Where(x => x.Key.Lifetime == ServiceLifetime.PerScenario)
+        .Select(x => x.Value)
+        .ToArray();
+
+      foreach(var service in perScenarioServices)
+      {
+        if(service.IsValueCreated && service.Value is IDisposable)
+        {
+          ((IDisposable) service.Value).Dispose();
+        }
+      }
     }
 
     string GetNotRegisteredExceptionMessage(ServiceMetadata registration)

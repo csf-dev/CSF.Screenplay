@@ -23,26 +23,5 @@ namespace CSF.Screenplay
 
       return resolver.GetService<BrowseTheWeb>(name);
     }
-
-    /// <summary>
-    /// Configures a registered webdriver to be disposed after the <see cref="IScreenplayScenario.EndScenario"/>
-    /// event is triggered. This provides cleanup functionality for per-scenario web drivers.
-    /// </summary>
-    /// <param name="scenario">Scenario.</param>
-    /// <param name="webDriverName">Web driver name.</param>
-    public static void DisposeWebDriverAfterScenario(this IScreenplayScenario scenario,
-                                                     string webDriverName = null)
-    {
-      if(scenario == null)
-        throw new ArgumentNullException(nameof(scenario));
-
-      scenario.EndScenario += (sender, e) => {
-        var driver = scenario.GetOptionalService<IWebDriver>(webDriverName);
-        if(driver == null)
-          return;
-
-        driver.Dispose();
-      };
-    }
   }
 }

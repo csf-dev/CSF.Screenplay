@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
-    public void GetWindowTitle_returns_correct_result(ScreenplayScenario scenario)
+    public void GetWindowTitle_returns_correct_result(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

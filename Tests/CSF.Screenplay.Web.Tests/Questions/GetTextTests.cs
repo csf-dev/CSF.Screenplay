@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the text of an element detects the expected value.")]
-    public void GetText_returns_expected_value(ScreenplayScenario scenario)
+    public void GetText_returns_expected_value(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedText_returns_expected_value(ScreenplayScenario scenario)
+    public void GetConvertedText_returns_expected_value(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of multiple elements returns the correct collection of values.")]
-    public void GetText_for_multiple_elements_returns_expected_values(ScreenplayScenario scenario)
+    public void GetText_for_multiple_elements_returns_expected_values(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

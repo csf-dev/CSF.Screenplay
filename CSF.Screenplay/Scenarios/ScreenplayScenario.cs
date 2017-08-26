@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Scenarios;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Scenarios
 {
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>
+  public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>, ICanBeginAndEndScenario
   {
     readonly Guid identity;
+
+    /// <summary>
+    /// Gets a unique identity for the the current scenario instance.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    public Guid Identity => identity;
 
     /// <summary>
     /// Gets identifying information about the current feature under test.
@@ -76,10 +81,10 @@ namespace CSF.Screenplay
     }
 
     /// <summary>
-    /// Determines whether the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// Determines whether the specified <see cref="ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
     /// </summary>
-    /// <param name="other">The <see cref="CSF.Screenplay.ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
-    /// <returns><c>true</c> if the specified <see cref="CSF.Screenplay.ScreenplayScenario"/> is equal to the current
+    /// <param name="other">The <see cref="ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
+    /// <returns><c>true</c> if the specified <see cref="ScreenplayScenario"/> is equal to the current
     /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
     public bool Equals(ScreenplayScenario other)
     {
@@ -115,7 +120,7 @@ namespace CSF.Screenplay
     /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</returns>
-    public override string ToString() => "Screenplay scenario";
+    public override string ToString() => $"[Screenplay scenario:{identity.ToString()}]";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.
@@ -133,8 +138,12 @@ namespace CSF.Screenplay
         throw new ArgumentNullException(nameof(scenarioId));
 
       identity = Guid.NewGuid();
+
       FeatureId = featureId;
       ScenarioId = scenarioId;
+
+      Services.Add(new ServiceMetadata(typeof(IScenarioName), null, ServiceLifetime.PerScenario),
+                   new Lazy<object>(() => this));
     }
   }
 }

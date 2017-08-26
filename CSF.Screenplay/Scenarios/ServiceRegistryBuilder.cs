@@ -46,7 +46,7 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     /// <typeparam name="TService">The 1st type parameter.</typeparam>
-    public void RegisterPerScenario<TService>(Func<IScreenplayScenario,TService> factory, string name = null) where TService : class
+    public void RegisterPerScenario<TService>(Func<IServiceResolver,TService> factory, string name = null) where TService : class
     {
       var meta = GetMetadata<TService>(name, ServiceLifetime.PerScenario);
       var fac = GetNonGenericFactory(factory);
@@ -69,7 +69,7 @@ namespace CSF.Screenplay.Scenarios
       return new ServiceMetadata(typeof(TService), name, lifetime);
     }
 
-    Func<IScreenplayScenario,object> GetNonGenericFactory<TService>(Func<IScreenplayScenario,TService> genericFactory)
+    Func<IServiceResolver,object> GetNonGenericFactory<TService>(Func<IServiceResolver,TService> genericFactory)
     {
       return scenario => genericFactory(scenario);
     }

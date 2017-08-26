@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <AssemblyName>CSF.Screenplay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.4.0</ReleaseVersion>
+    <ReleaseVersion>0.5.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +42,6 @@
     <Compile Include="Abilities\IAbility.cs" />
     <Compile Include="Abilities\Ability.cs" />
     <Compile Include="Actors\ICanReceiveAbilities.cs" />
-    <Compile Include="Actor.cs" />
     <Compile Include="Actors\IGivenActor.cs" />
     <Compile Include="Actors\IWhenActor.cs" />
     <Compile Include="Actors\IThenActor.cs" />
@@ -75,8 +74,6 @@
     <Compile Include="Actors\ActorEventArgs.cs" />
     <Compile Include="Reporting\IReportable.cs" />
     <Compile Include="CastRegistryExtensions.cs" />
-    <Compile Include="ScreenplayScenario.cs" />
-    <Compile Include="Scenarios\IScreenplayScenario.cs" />
     <Compile Include="Scenarios\ServiceMetadata.cs" />
     <Compile Include="Scenarios\ServiceNotRegisteredException.cs" />
     <Compile Include="Scenarios\IScenarioFactory.cs" />
@@ -95,13 +92,24 @@
     <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
     <Compile Include="Integration\ScreenplayIntegration.cs" />
-    <Compile Include="Integration\ScreenplayEnvironment.cs" />
-    <Compile Include="Integration\IServiceRegistrationProvider.cs" />
-    <Compile Include="Integration\ServiceRegistrationProvider.cs" />
     <Compile Include="Scenarios\ServiceLifetime.cs" />
     <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
     <Compile Include="Integration\IScreenplayIntegration.cs" />
     <Compile Include="Scenarios\LazySingletonRegistration.cs" />
+    <Compile Include="Integration\IIntegrationConfigBuilder.cs" />
+    <Compile Include="Integration\IntegrationConfigurationBuilder.cs" />
+    <Compile Include="CastIntegrationBuilderExtensions.cs" />
+    <Compile Include="Scenarios\IServiceRegistry.cs" />
+    <Compile Include="Integration\IIntegrationConfig.cs" />
+    <Compile Include="Scenarios\IServiceRegistryFactory.cs" />
+    <Compile Include="Integration\ServiceRegistryFactory.cs" />
+    <Compile Include="Integration\TestRunEvents.cs" />
+    <Compile Include="Integration\IntegrationFactory.cs" />
+    <Compile Include="Scenarios\IScenarioName.cs" />
+    <Compile Include="Scenarios\ScreenplayScenario.cs" />
+    <Compile Include="IScreenplayScenario.cs" />
+    <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
+    <Compile Include="Actors\Actor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

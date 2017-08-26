@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of a 'title' attribute detects the expected value.")]
-    public void GetAttribute_returns_expected_value(ScreenplayScenario scenario)
+    public void GetAttribute_returns_expected_value(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

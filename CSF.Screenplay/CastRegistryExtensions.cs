@@ -20,14 +20,14 @@ namespace CSF.Screenplay
       if(builder == null)
         throw new ArgumentNullException(nameof(builder));
       
-      builder.RegisterSingleton(GetOrCreateCast(cast), name);
+      builder.RegisterPerScenario(GetCastFactory(cast), name);
     }
 
-    static ICast GetOrCreateCast(ICast cast)
+    static Func<IServiceResolver,ICast> GetCastFactory(ICast cast)
     {
-      if(cast != null) return cast;
+      if(cast != null) return r => cast;
       
-      return new Cast();
+      return r => new Cast();
     }
   }
 }

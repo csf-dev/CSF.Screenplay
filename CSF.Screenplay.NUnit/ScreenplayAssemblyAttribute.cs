@@ -11,13 +11,13 @@ namespace CSF.Screenplay.NUnit
   [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
   public class ScreenplayAssemblyAttribute : TestActionAttribute
   {
-    IScreenplayIntegration integration;
+    static Lazy<IScreenplayIntegration> integration;
 
     /// <summary>
     /// Gets the current Screenplay integration.
     /// </summary>
     /// <value>The integration.</value>
-    public IScreenplayIntegration Integration => integration;
+    public IScreenplayIntegration Integration => integration.Value;
 
     /// <summary>
     /// Gets the targets for this attribute (the affected tests).
@@ -31,7 +31,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void AfterTest(ITest test)
     {
-      integration.AfterExecutedLastScenario();
+      Integration.AfterExecutedLastScenario();
     }
 
     /// <summary>
@@ -40,30 +40,16 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public override void BeforeTest(ITest test)
     {
-      integration.BeforeExecutingFirstScenario();
-    }
-
-    IScreenplayIntegration BuildIntegration(Type integrationType)
-    {
-      if(integrationType == null)
-        throw new ArgumentNullException(nameof(integrationType));
-      
-      if(!typeof(IScreenplayIntegration).IsAssignableFrom(integrationType))
-      {
-        throw new ArgumentException($"Integration type must implement `{typeof(IScreenplayIntegration).Name}'.",
-                                    nameof(integrationType));
-      }
-
-      return (IScreenplayIntegration) Activator.CreateInstance(integrationType);
+      Integration.BeforeExecutingFirstScenario();
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.NUnit.ScreenplayAssemblyAttribute"/> class.
     /// </summary>
-    /// <param name="integrationType">Integration type.</param>
-    public ScreenplayAssemblyAttribute(Type integrationType)
+    /// <param name="configType">Integration type.</param>
+    public ScreenplayAssemblyAttribute(Type configType)
     {
-      integration = BuildIntegration(integrationType);
+      integration = integration?? new Lazy<IScreenplayIntegration>(() => new IntegrationFactory().Create(configType));
     }
   }
 }

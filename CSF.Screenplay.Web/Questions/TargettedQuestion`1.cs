@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Web.Questions
     /// </summary>
     /// <returns>The answer.</returns>
     /// <param name="actor">The actor asking this question.</param>
-    protected override T GetAnswer(IPerformer actor)
+    protected override T PerformAs(IPerformer actor)
     {
       var ability = GetAbility(actor);
       var adapter = GetWebElementAdapter(ability);

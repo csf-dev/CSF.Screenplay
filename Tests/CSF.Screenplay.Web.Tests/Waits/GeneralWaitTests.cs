@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Web.Tests.Waits
   {
     [Test,Screenplay]
     [Description("When waiting for only half a second, the page event has not yet occurred")]
-    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ScreenplayScenario scenario)
+    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Web.Tests.Waits
 
     [Test,Screenplay]
     [Description("When waiting for 6 seconds, the page event fires")]
-    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ScreenplayScenario scenario)
+    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 

@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Web.Questions
     /// </summary>
     /// <returns>The answer.</returns>
     /// <param name="actor">The actor asking this question.</param>
-    protected override IReadOnlyList<T> GetAnswer(IPerformer actor)
+    protected override IReadOnlyList<T> PerformAs(IPerformer actor)
     {
       var ability = GetAbility(actor);
       var adapters = GetWebElementAdapters(ability);

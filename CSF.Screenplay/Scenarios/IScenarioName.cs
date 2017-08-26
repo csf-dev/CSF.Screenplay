@@ -2,10 +2,16 @@
 namespace CSF.Screenplay.Scenarios
 {
   /// <summary>
-  /// Represents a single scenario within Screenplay-based test.
+  /// A service which provides identification information about a Screenplay feature and scenario.
   /// </summary>
-  public interface IScreenplayScenario : IServiceResolver
+  public interface IScenarioName
   {
+    /// <summary>
+    /// Gets a unique identity for the the current scenario instance.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    Guid Identity { get; }
+
     /// <summary>
     /// Gets identifying information about the current feature under test.
     /// </summary>
@@ -17,15 +23,5 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <value>The scenario identifier.</value>
     IdAndName ScenarioId { get; }
-
-    /// <summary>
-    /// Occurs when the scenario begins.
-    /// </summary>
-    event EventHandler<BeginScenarioEventArgs> BeginScenario;
-
-    /// <summary>
-    /// Occurs when the scenario ends.
-    /// </summary>
-    event EventHandler<EndScenarioEventArgs> EndScenario;
   }
 }
