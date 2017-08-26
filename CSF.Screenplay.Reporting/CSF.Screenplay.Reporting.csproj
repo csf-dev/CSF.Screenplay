@@ -69,7 +69,7 @@
     <Compile Include="Trace\CompleteScenarioReport.cs" />
     <Compile Include="ReportingResolverExtensions.cs" />
     <Compile Include="ReportingRegistryExtensions.cs" />
-    <Compile Include="ReportingIntegrationHelperExtensions.cs" />
+    <Compile Include="ReportingIntegrationBuilderExtensions.cs" />
     <Compile Include="ReportingIntegrationBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

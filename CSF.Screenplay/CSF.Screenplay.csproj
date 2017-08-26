@@ -101,7 +101,7 @@
     <Compile Include="Scenarios\LazySingletonRegistration.cs" />
     <Compile Include="Integration\IIntegrationConfigBuilder.cs" />
     <Compile Include="Integration\IntegrationConfigurationBuilder.cs" />
-    <Compile Include="CastIntegrationHelperExtensions.cs" />
+    <Compile Include="CastIntegrationBuilderExtensions.cs" />
     <Compile Include="Scenarios\IServiceRegistry.cs" />
     <Compile Include="Integration\IIntegrationConfig.cs" />
     <Compile Include="Scenarios\IServiceRegistryFactory.cs" />
