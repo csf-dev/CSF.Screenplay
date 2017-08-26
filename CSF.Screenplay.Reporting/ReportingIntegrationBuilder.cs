@@ -122,7 +122,7 @@ namespace CSF.Screenplay.Reporting
 
     void SubscribeToCast(IIntegrationConfigBuilder integration)
     {
-      integration.BeforeFirstScenario.Add((events, resolver) => {
+      integration.BeforeScenario.Add((resolver) => {
 
         if(!subscribeToCastActorCreation && !subscribeToCastActorAddition)
           return;
