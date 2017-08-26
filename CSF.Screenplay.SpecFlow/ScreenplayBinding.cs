@@ -27,8 +27,12 @@ namespace CSF.Screenplay.SpecFlow
     [Before]
     public void BeforeScenario()
     {
-      var scenario = CreateScenario(container.Resolve<ScenarioContext>(), container.Resolve<FeatureContext>());
+      var scenarioContext = container.Resolve<ScenarioContext>();
+      var featureContext = container.Resolve<FeatureContext>();
+
+      var scenario = CreateScenario(scenarioContext, featureContext);
       container.RegisterInstanceAs(scenario);
+
       GetIntegration().BeforeScenario(scenario);
     }
 
