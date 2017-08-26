@@ -10,7 +10,8 @@ namespace CSF.Screenplay.NUnit
   /// </summary>
   public class IntegrationReader
   {
-    IScreenplayIntegration cachedIntegration;
+    static object syncRoot;
+    static IScreenplayIntegration integration;
 
     /// <summary>
     /// Gets the integration from a given NUnit test method.
@@ -19,27 +20,30 @@ namespace CSF.Screenplay.NUnit
     /// <param name="method">Method.</param>
     public IScreenplayIntegration GetIntegration(IMethodInfo method)
     {
-      if(cachedIntegration == null)
+      lock(syncRoot)
       {
-        var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
-        if(assembly == null)
+        if(integration == null)
         {
-          throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
+          var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
+          if(assembly == null)
+          {
+            throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
                                       nameof(method));
-        }
+          }
 
-        var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
-        if(assemblyAttrib == null)
-        {
-          var message = $"All test methods must be contained within assemblies which are " +
-            $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
-          throw new InvalidOperationException(message);
-        }
+          var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
+          if(assemblyAttrib == null)
+          {
+            var message = $"All test methods must be contained within assemblies which are " +
+              $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
+            throw new InvalidOperationException(message);
+          }
 
-        cachedIntegration = assemblyAttrib.Integration;
+          integration = assemblyAttrib.Integration;
+        }
       }
 
-      return cachedIntegration;
+      return integration;
     }
 
     /// <summary>
@@ -53,6 +57,14 @@ namespace CSF.Screenplay.NUnit
         throw new ArgumentException("The test must specify a method.", nameof(test));
 
       return GetIntegration(test.Method);
+    }
+
+    /// <summary>
+    /// Initializes the <see cref="T:CSF.Screenplay.NUnit.IntegrationReader"/> class.
+    /// </summary>
+    static IntegrationReader()
+    {
+      syncRoot = new object();
     }
   }
 }
