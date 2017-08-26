@@ -61,6 +61,8 @@ namespace CSF.Screenplay.Integration
 
       foreach(var callback in builder.AfterScenario)
         callback(scenario);
+
+      scenario.ReleasePerScenarioServices();
     }
 
     /// <summary>
