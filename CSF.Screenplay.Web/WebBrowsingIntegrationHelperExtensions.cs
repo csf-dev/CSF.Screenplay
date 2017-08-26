@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Web
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void UseWebDriver(this IIntegrationConfigBuilder helper,
-                                    Func<IScreenplayScenario,IWebDriver> factory,
+                                    Func<IServiceResolver,IWebDriver> factory,
                                     string name = null)
     {
       if(helper == null)
@@ -108,7 +108,7 @@ namespace CSF.Screenplay.Web
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void UseWebBrowser(this IIntegrationConfigBuilder helper,
-                                     Func<IScreenplayScenario,BrowseTheWeb> factory = null,
+                                     Func<IServiceResolver,BrowseTheWeb> factory = null,
                                      string name = null)
     {
       if(helper == null)

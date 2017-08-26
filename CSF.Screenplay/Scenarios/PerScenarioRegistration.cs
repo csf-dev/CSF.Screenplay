@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Scenarios
     /// Gets the service factory function.
     /// </summary>
     /// <value>The service factory.</value>
-    public Func<IScreenplayScenario,object> ServiceFactory { get; private set; }
+    public Func<IServiceResolver,object> ServiceFactory { get; private set; }
 
     /// <summary>
     /// Gets a lazy-loading instance of the service which is wrapped by the current registration.
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="resolver">Resolver.</param>
     public Lazy<object> GetService(IServiceResolver resolver)
     {
-      return new Lazy<object>(() => ServiceFactory((IScreenplayScenario) resolver));
+      return new Lazy<object>(() => ServiceFactory(resolver));
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <param name="metadata">Metadata.</param>
     /// <param name="factory">Factory.</param>
-    public PerScenarioRegistration(ServiceMetadata metadata, Func<IScreenplayScenario,object> factory)
+    public PerScenarioRegistration(ServiceMetadata metadata, Func<IServiceResolver,object> factory)
     {
       if(metadata == null)
         throw new ArgumentNullException(nameof(metadata));
