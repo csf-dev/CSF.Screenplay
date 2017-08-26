@@ -27,7 +27,7 @@ namespace CSF.Screenplay.SpecFlow
     [Before]
     public void BeforeScenario()
     {
-      var scenario = CreateScenario(ScenarioContext.Current, FeatureContext.Current);
+      var scenario = CreateScenario(container.Resolve<ScenarioContext>(), container.Resolve<FeatureContext>());
       container.RegisterInstanceAs(scenario);
       GetIntegration().BeforeScenario(scenario);
     }
@@ -39,7 +39,7 @@ namespace CSF.Screenplay.SpecFlow
     public void AfterScenario()
     {
       var scenario = GetScenario();
-      var success = GetScenarioSuccess(ScenarioContext.Current);
+      var success = GetScenarioSuccess(container.Resolve<ScenarioContext>());
       GetIntegration().AfterScenario(scenario, success);
     }
 
