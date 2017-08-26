@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Web
   /// <summary>
   /// Extension methods relating to the registration of web-browsing-related services into Screenplay.
   /// </summary>
-  public static class WebBrowsingIntegrationHelperExtensions
+  public static class WebBrowsingIntegrationBuilderExtensions
   {
     /// <summary>
     /// Registers a Selenium IWebDriver into Screenplay, making use of a given factory.  This Web Driver
@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Web
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void UseWebDriver(this IIntegrationConfigBuilder helper,
-                                    Func<IScreenplayScenario,IWebDriver> factory,
+                                    Func<IServiceResolver,IWebDriver> factory,
                                     string name = null)
     {
       if(helper == null)
@@ -29,11 +29,6 @@ namespace CSF.Screenplay.Web
 
       helper.RegisterServices.Add((builder) => {
         builder.RegisterPerScenario(factory, name);
-      });
-
-      helper.AfterScenario.Add((scenario) => {
-        var webDriver = scenario.GetService<IWebDriver>();
-        webDriver.Dispose();
       });
     }
 
@@ -108,7 +103,7 @@ namespace CSF.Screenplay.Web
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     public static void UseWebBrowser(this IIntegrationConfigBuilder helper,
-                                     Func<IScreenplayScenario,BrowseTheWeb> factory = null,
+                                     Func<IServiceResolver,BrowseTheWeb> factory = null,
                                      string name = null)
     {
       if(helper == null)

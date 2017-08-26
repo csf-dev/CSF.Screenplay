@@ -115,7 +115,7 @@ namespace CSF.Screenplay
     /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</returns>
-    public override string ToString() => "Screenplay scenario";
+    public override string ToString() => $"[Screenplay scenario:{identity.ToString()}]";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.
@@ -135,6 +135,9 @@ namespace CSF.Screenplay
       identity = Guid.NewGuid();
       FeatureId = featureId;
       ScenarioId = scenarioId;
+
+      Services.Add(new ServiceMetadata(typeof(IScenarioName), null, ServiceLifetime.PerScenario),
+                   new Lazy<object>(() => this));
     }
   }
 }

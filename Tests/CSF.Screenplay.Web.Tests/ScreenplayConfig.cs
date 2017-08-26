@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Web.Tests
       builder.UseWebBrowser();
     }
 
-    IWebDriver GetWebDriver(IScreenplayScenario scenario)
+    IWebDriver GetWebDriver(IServiceResolver scenario)
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();
@@ -43,8 +43,11 @@ namespace CSF.Screenplay.Web.Tests
       return factory.GetWebDriver(caps);
     }
 
-    string GetTestName(IScreenplayScenario scenario)
-      => $"{scenario.FeatureId.Name} -> {scenario.ScenarioId.Name}";
+    string GetTestName(IServiceResolver resolver)
+    {
+      var scenarioName = resolver.GetService<IScenarioName>();
+      return $"{scenarioName.FeatureId.Name} -> {scenarioName.ScenarioId.Name}";
+    }
 
     void WriteReport(Reporting.Models.Report report)
     {

@@ -29,6 +29,6 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
     /// <typeparam name="TService">The 1st type parameter.</typeparam>
-    void RegisterPerScenario<TService>(Func<IScreenplayScenario,TService> factory, string name = null) where TService : class;
+    void RegisterPerScenario<TService>(Func<IServiceResolver,TService> factory, string name = null) where TService : class;
   }
 }

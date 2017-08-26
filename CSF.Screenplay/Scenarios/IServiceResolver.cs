@@ -35,5 +35,10 @@ namespace CSF.Screenplay.Scenarios
     /// <returns>The service.</returns>
     /// <param name="metadata">Metadata.</param>
     object GetOptionalService(ServiceMetadata metadata);
+
+    /// <summary>
+    /// Releases all of the services which registered per-scenario.
+    /// </summary>
+    void ReleasePerScenarioServices();
   }
 }

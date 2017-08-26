@@ -7,7 +7,7 @@ namespace CSF.Screenplay
   /// <summary>
   /// Extension methods related to integrating an <see cref="IReporter"/> with Screenplay.
   /// </summary>
-  public static class ReportingIntegrationHelperExtensions
+  public static class ReportingIntegrationBuilderExtensions
   {
     /// <summary>
     /// Registers and configures reporting within the Screenplay test run.  A configuration builder is used to

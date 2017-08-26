@@ -7,7 +7,7 @@ namespace CSF.Screenplay
   /// <summary>
   /// Extension methods related to integrating an <see cref="ICast"/> with Screenplay.
   /// </summary>
-  public static class CastIntegrationHelperExtensions
+  public static class CastIntegrationBuilderExtensions
   {
     /// <summary>
     /// Configures the current integration to make use of an <see cref="ICast"/> instance.
