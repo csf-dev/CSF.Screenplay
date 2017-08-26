@@ -49,7 +49,6 @@ namespace CSF.Screenplay.SpecFlow
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-      GetIntegration().LoadIntegration();
       GetIntegration().BeforeExecutingFirstScenario();
     }
 
@@ -130,7 +129,7 @@ namespace CSF.Screenplay.SpecFlow
         throw new InvalidOperationException("The SpecFlow/Screenplay configuration must be provided."); 
       
       var integrationConfigType = ScreenplayAppConfiguration.GetIntegrationConfigType();
-      return ScreenplayIntegration.Create(integrationConfigType);
+      return new IntegrationFactory().Create(integrationConfigType);
     }
 
     /// <summary>

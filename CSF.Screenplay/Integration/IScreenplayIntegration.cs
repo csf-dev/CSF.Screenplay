@@ -11,12 +11,6 @@ namespace CSF.Screenplay.Integration
   public interface IScreenplayIntegration
   {
     /// <summary>
-    /// Loads the integration customisations and configurations.
-    /// This should only be called once.
-    /// </summary>
-    void LoadIntegration();
-
-    /// <summary>
     /// Executed once, before the first scenario in the test run is executed.  Note that
     /// all services must have already been registered prior to executing this method.
     /// </summary>

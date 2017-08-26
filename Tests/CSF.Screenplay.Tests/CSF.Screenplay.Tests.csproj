@@ -48,10 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
+    <Folder Include="Abilities\" />
+    <Folder Include="Scenarios\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
     <Compile Include="ActorTests.cs" />
+    <Compile Include="Abilities\AbilityStoreTests.cs" />
+    <Compile Include="Scenarios\ServiceResolverTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

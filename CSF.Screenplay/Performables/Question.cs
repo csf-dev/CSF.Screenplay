@@ -25,55 +25,16 @@ namespace CSF.Screenplay.Performables
   /// The only real difference is conceptual.
   /// </para>
   /// </remarks>
-  public abstract class Question<TAnswer> : IQuestion<TAnswer>
+  public abstract class Question<TAnswer> : Performable<TAnswer>, IQuestion<TAnswer>
   {
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
     /// </summary>
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
-    protected virtual string GetReport(INamed actor)
+    protected override string GetReport(INamed actor)
     {
       return $"{actor.Name} asks {GetType().Name}.";
-    }
-
-    /// <summary>
-    /// Gets the answer to the current question.
-    /// </summary>
-    /// <returns>The answer.</returns>
-    /// <param name="actor">The actor for whom we are asking this question.</param>
-    protected abstract TAnswer GetAnswer(IPerformer actor);
-
-    TAnswer IPerformable<TAnswer>.PerformAs(IPerformer actor)
-    {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
-      return GetAnswer(actor);
-    }
-
-    object IPerformableWithResult.PerformAs(IPerformer actor)
-    {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
-      return GetAnswer(actor);
-    }
-
-    void IPerformable.PerformAs(IPerformer actor)
-    {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
-      GetAnswer(actor);
-    }
-
-    string IReportable.GetReport(INamed actor)
-    {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-
-      return GetReport(actor);
     }
   }
 }

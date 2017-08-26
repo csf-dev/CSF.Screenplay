@@ -25,9 +25,7 @@ namespace CSF.Screenplay.Integration
     void RegisterServices(IServiceRegistryBuilder builder)
     {
       foreach(var registrationCallback in integrationHelper.RegisterServices)
-      {
         registrationCallback(builder);
-      }
     }
 
     /// <summary>

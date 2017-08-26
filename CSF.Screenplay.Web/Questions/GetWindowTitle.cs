@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Web.Questions
     /// </summary>
     /// <returns>The answer.</returns>
     /// <param name="actor">The actor for whom we are asking this question.</param>
-    protected override string GetAnswer(IPerformer actor)
+    protected override string PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
       return ability.WebDriver.Title;
