@@ -75,9 +75,9 @@ namespace CSF.Screenplay.NUnit
 
     IScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
     {
-      var adapter = new ScenarioAdapter(suite, method);
       var integration = integrationReader.GetIntegration(method);
-      return adapter.CreateScenario(integration);
+      var adapter = new ScenarioAdapter(suite, method, integration);
+      return adapter.CreateScenario();
     }
 
     /// <summary>

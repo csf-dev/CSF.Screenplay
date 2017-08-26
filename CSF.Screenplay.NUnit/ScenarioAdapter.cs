@@ -17,6 +17,7 @@ namespace CSF.Screenplay.NUnit
 
     readonly ITest featureSuite;
     readonly IMethodInfo scenarioMethod;
+    readonly IScreenplayIntegration integration;
 
     /// <summary>
     /// Gets the name of the scenario.
@@ -66,8 +67,7 @@ namespace CSF.Screenplay.NUnit
     /// Creates a new Screenplay scenario using the state of the current instance, and the given integration.
     /// </summary>
     /// <returns>The scenario.</returns>
-    /// <param name="integration">Integration.</param>
-    public IScreenplayScenario CreateScenario(IScreenplayIntegration integration)
+    public IScreenplayScenario CreateScenario()
     {
       var factory = integration.GetScenarioFactory();
       return factory.GetScenario(FeatureIdAndName, ScenarioIdAndName);
@@ -96,8 +96,11 @@ namespace CSF.Screenplay.NUnit
     /// </summary>
     /// <param name="featureSuite">Feature suite.</param>
     /// <param name="scenarioMethod">Scenario method.</param>
-    public ScenarioAdapter(ITest featureSuite, IMethodInfo scenarioMethod)
+    /// <param name="integration">Screenplay integration.</param>
+    public ScenarioAdapter(ITest featureSuite, IMethodInfo scenarioMethod, IScreenplayIntegration integration)
     {
+      if(integration == null)
+        throw new ArgumentNullException(nameof(integration));
       if(scenarioMethod == null)
         throw new ArgumentNullException(nameof(scenarioMethod));
       if(featureSuite == null)
@@ -105,6 +108,7 @@ namespace CSF.Screenplay.NUnit
       
       this.scenarioMethod = scenarioMethod;
       this.featureSuite = featureSuite;
+      this.integration = integration;
     }
 
     /// <summary>
