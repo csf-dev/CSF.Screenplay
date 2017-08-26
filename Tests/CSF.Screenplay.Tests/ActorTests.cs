@@ -10,7 +10,7 @@ using NUnit.Framework;
 
 namespace CSF.Screenplay.Tests
 {
-  [TestFixture,Parallelizable]
+  [TestFixture,Parallelizable(ParallelScope.All)]
   public class ActorTests
   {
     [Test]

@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Questions
     /// </summary>
     /// <returns>The answer.</returns>
     /// <param name="actor">The actor asking this question.</param>
-    protected override bool GetAnswer(Actors.IPerformer actor)
+    protected override bool PerformAs(Actors.IPerformer actor)
     {
       var ability = GetAbility(actor);
 
