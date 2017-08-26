@@ -48,6 +48,8 @@
     <Compile Include="ScenarioAndFeatureKey.cs" />
     <Compile Include="SpecFlowScreenplayConfiguration.cs" />
     <Compile Include="IScreenplayConfiguration.cs" />
+    <Compile Include="ScenarioAdapter.cs" />
+    <Compile Include="IntegrationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

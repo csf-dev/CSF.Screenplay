@@ -11,6 +11,12 @@ namespace CSF.Screenplay.Scenarios
     readonly Guid identity;
 
     /// <summary>
+    /// Gets a unique identity for the the current scenario instance.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    public Guid Identity => identity;
+
+    /// <summary>
     /// Gets identifying information about the current feature under test.
     /// </summary>
     /// <value>The feature identifier.</value>
@@ -132,6 +138,7 @@ namespace CSF.Screenplay.Scenarios
         throw new ArgumentNullException(nameof(scenarioId));
 
       identity = Guid.NewGuid();
+
       FeatureId = featureId;
       ScenarioId = scenarioId;
 

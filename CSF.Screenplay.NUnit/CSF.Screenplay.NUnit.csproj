@@ -43,6 +43,7 @@
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="ScreenplayAttribute.cs" />
     <Compile Include="ScenarioAdapter.cs" />
+    <Compile Include="IntegrationReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

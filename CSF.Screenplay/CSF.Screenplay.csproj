@@ -42,7 +42,6 @@
     <Compile Include="Abilities\IAbility.cs" />
     <Compile Include="Abilities\Ability.cs" />
     <Compile Include="Actors\ICanReceiveAbilities.cs" />
-    <Compile Include="Actor.cs" />
     <Compile Include="Actors\IGivenActor.cs" />
     <Compile Include="Actors\IWhenActor.cs" />
     <Compile Include="Actors\IThenActor.cs" />
@@ -110,6 +109,7 @@
     <Compile Include="Scenarios\ScreenplayScenario.cs" />
     <Compile Include="IScreenplayScenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
+    <Compile Include="Actors\Actor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
