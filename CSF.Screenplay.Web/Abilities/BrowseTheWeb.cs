@@ -11,7 +11,6 @@ namespace CSF.Screenplay.Web.Abilities
   {
     readonly IWebDriver webDriver;
     readonly IUriTransformer uriTransformer;
-    readonly bool requireExplicitDisposal;
 
     /// <summary>
     /// Gets the Selenium WebDriver instance.
@@ -37,38 +36,18 @@ namespace CSF.Screenplay.Web.Abilities
     }
 
     /// <summary>
-    /// Disposes of the current instance and its resources.  This involves disposing of the underlying
-    /// WebDriver instance.
-    /// </summary>
-    /// <param name="disposing">A value which indicates whether we are performing an explicit disposal
-    /// (<c>true</c>) or not (<c>false</c>).</param>
-    protected override void Dispose(bool disposing)
-    {
-      if(!requireExplicitDisposal || disposing)
-      {
-        webDriver.Dispose();
-      }
-
-      base.Dispose(disposing);
-    }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Abilities.BrowseTheWeb"/> class.
     /// </summary>
     /// <param name="webDriver">The Selenium WebDriver instance.</param>
     /// <param name="transformer">An optoinal URI transformer.</param>
-    /// <param name="requireExplicitDisposal">When provided and set to <c>true</c>, indicates that this instance
-    /// should not dispose its WebDriver unless disposal is explicitly requested.</param>
     public BrowseTheWeb(IWebDriver webDriver,
-                        IUriTransformer transformer = null,
-                        bool requireExplicitDisposal = false)
+                        IUriTransformer transformer = null)
     {
       if(webDriver == null)
         throw new ArgumentNullException(nameof(webDriver));
 
       this.webDriver = webDriver;
       this.uriTransformer = transformer?? NoOpUriTransformer.Default;
-      this.requireExplicitDisposal = requireExplicitDisposal;
     }
   }
 }
