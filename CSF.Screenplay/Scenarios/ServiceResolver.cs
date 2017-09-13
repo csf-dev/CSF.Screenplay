@@ -81,13 +81,7 @@ namespace CSF.Screenplay.Scenarios
         .Select(x => x.Value)
         .ToArray();
 
-      foreach(var service in perScenarioServices)
-      {
-        if(service.IsValueCreated && service.Value is IDisposable)
-        {
-          ((IDisposable) service.Value).Dispose();
-        }
-      }
+      DisposeAllInitialised(perScenarioServices);
     }
 
     /// <summary>
@@ -109,10 +103,24 @@ namespace CSF.Screenplay.Scenarios
     /// </remarks>
     public void ReleaseLazySingletonServices()
     {
-      // TODO: Write this implementation
-      throw new NotImplementedException();
+      var lazySingletonServices = services
+        .Where(x => x.Key.Lifetime == ServiceLifetime.Singleton && x.Key.IsResolverOwned)
+        .Select(x => x.Value)
+        .ToArray();
+
+      DisposeAllInitialised(lazySingletonServices);
     }
 
+    void DisposeAllInitialised(IEnumerable<Lazy<object>> toDispose)
+    {
+      foreach(var service in toDispose)
+      {
+        if(service.IsValueCreated && service.Value is IDisposable)
+        {
+          ((IDisposable) service.Value).Dispose();
+        }
+      }
+    }
 
     string GetNotRegisteredExceptionMessage(ServiceMetadata registration)
     {
