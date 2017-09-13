@@ -40,5 +40,24 @@ namespace CSF.Screenplay.Scenarios
     /// Releases all of the services are which registered per-scenario.
     /// </summary>
     void ReleasePerScenarioServices();
+
+    /// <summary>
+    /// Releases all of the lazily-initialised services are which registered per-scenario.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This will release all singleton services which were registered lazily with the service resolver.
+    /// That is - where the resolver was itself responsible for instantiating/initialising the service.
+    /// </para>
+    /// <para>
+    /// Services which were initialised outside of the resolver and were passed simply as an already-constructed
+    /// and initialised object reference are NOT released/disposed by calling this method.  Other code must
+    /// be responsible for releasing/disposing these.
+    /// </para>
+    /// <para>
+    /// In short, this method only cleans up objects which the resolver created itself.
+    /// </para>
+    /// </remarks>
+    void ReleaseLazySingletonServices();
   }
 }

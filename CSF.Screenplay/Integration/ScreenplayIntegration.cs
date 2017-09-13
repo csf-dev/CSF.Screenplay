@@ -78,6 +78,8 @@ namespace CSF.Screenplay.Integration
 
       foreach(var callback in builder.AfterLastScenario)
         callback(resolver);
+
+      ServiceRegistry.GetSingletonResolver().ReleaseLazySingletonServices();
     }
 
     /// <summary>
@@ -96,7 +98,7 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <param name="configBuilder">Config builder.</param>
     /// <param name="registry">Service registry.</param>
-    public ScreenplayIntegration(IIntegrationConfigBuilder configBuilder, Lazy<IServiceRegistry> registry) : this()
+    public ScreenplayIntegration(IIntegrationConfigBuilder configBuilder, Lazy<IServiceRegistry> registry)
     {
       if(configBuilder == null)
         throw new ArgumentNullException(nameof(configBuilder));
