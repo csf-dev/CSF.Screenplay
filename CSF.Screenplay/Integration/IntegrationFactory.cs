@@ -1,4 +1,6 @@
 ﻿using System;
+using CSF.Screenplay.Scenarios;
+
 namespace CSF.Screenplay.Integration
 {
   /// <summary>
@@ -7,14 +9,17 @@ namespace CSF.Screenplay.Integration
   public class IntegrationFactory
   {
     /// <summary>
-    /// Static factory method which creates a new implementation of <see cref="IScreenplayIntegration"/>
+    /// Factory method which creates a new implementation of <see cref="IScreenplayIntegration"/>
     /// from a given configuration type.
     /// </summary>
     /// <param name="configType">Config type.</param>
     public IScreenplayIntegration Create(Type configType)
     {
       var config = GetConfig(configType);
-      return new ScreenplayIntegration(config);
+      var builder = GetBuilder(config);
+      var registry = GetServiceRegistry(builder);
+
+      return new ScreenplayIntegration(builder, registry);
     }
 
     IIntegrationConfig GetConfig(Type configType)
@@ -30,5 +35,22 @@ namespace CSF.Screenplay.Integration
 
       return (IIntegrationConfig) Activator.CreateInstance(configType);
     }
+
+    IIntegrationConfigBuilder GetBuilder(IIntegrationConfig config)
+    {
+      var output = new IntegrationConfigurationBuilder();
+      config.Configure(output);
+      return output;
+    }
+
+    Lazy<IServiceRegistry> GetServiceRegistry(IIntegrationConfigBuilder configBuilder)
+    {
+      if(configBuilder == null)
+        throw new ArgumentNullException(nameof(configBuilder));
+
+      var registryFactory = new ServiceRegistryFactory(configBuilder);
+      return new Lazy<IServiceRegistry>(registryFactory.GetServiceRegistry);
+    }
+
   }
 }
