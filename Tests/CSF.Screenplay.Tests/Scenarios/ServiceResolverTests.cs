@@ -96,13 +96,47 @@ namespace CSF.Screenplay.Tests.Scenarios
     {
       // Arrange
       var service = Mock.Of<DisposableService>();
-      var sut = GetSutWithDisposableSingletonRegistration(service);
+      var sut = GetSutWithDisposableLazySingletonRegistration(service);
 
       // Trigger the initialisation
       sut.GetService<ISampleService>();
 
       // Act
       sut.ReleasePerScenarioServices();
+
+      // Assert
+      Mock.Get(service).Verify(x => x.Dispose(), Times.Never());
+    }
+
+    [Test]
+    public void ReleaseLazySingletonServices_disposes_lazy_singleton_services()
+    {
+      // Arrange
+      var service = Mock.Of<DisposableService>();
+      var sut = GetSutWithDisposableLazySingletonRegistration(service);
+
+      // Trigger the initialisation
+      sut.GetService<ISampleService>();
+
+      // Act
+      sut.ReleaseLazySingletonServices();
+
+      // Assert
+      Mock.Get(service).Verify(x => x.Dispose(), Times.Once());
+    }
+
+    [Test]
+    public void ReleaseLazySingletonServices_does_not_dispose_non_lazy_singleton_services()
+    {
+      // Arrange
+      var service = Mock.Of<DisposableService>();
+      var sut = GetSutWithDisposableNonLazySingletonRegistration(service);
+
+      // Trigger the initialisation
+      sut.GetService<ISampleService>();
+
+      // Act
+      sut.ReleaseLazySingletonServices();
 
       // Assert
       Mock.Get(service).Verify(x => x.Dispose(), Times.Never());
@@ -135,9 +169,18 @@ namespace CSF.Screenplay.Tests.Scenarios
       return GetSut(registrations);
     }
 
-    IServiceResolver GetSutWithDisposableSingletonRegistration(DisposableService service)
+    IServiceResolver GetSutWithDisposableLazySingletonRegistration(DisposableService service)
     {
       var metadata = new ServiceMetadata(typeof(ISampleService), null, ServiceLifetime.Singleton);
+      var registration = new LazySingletonRegistration(metadata, () => service);
+
+      var registrations = new IServiceRegistration[] { registration };
+      return GetSut(registrations);
+    }
+
+    IServiceResolver GetSutWithDisposableNonLazySingletonRegistration(DisposableService service)
+    {
+      var metadata = new ServiceMetadata(typeof(ISampleService), null, ServiceLifetime.Singleton, isResolverOwned: false);
       var registration = new SingletonRegistration(metadata, service);
 
       var registrations = new IServiceRegistration[] { registration };

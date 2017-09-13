@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Scenarios
     /// <typeparam name="TService">The 1st type parameter.</typeparam>
     public void RegisterSingleton<TService>(TService instance, string name = null) where TService : class
     {
-      var meta = GetMetadata<TService>(name, ServiceLifetime.Singleton);
+      var meta = GetMetadata<TService>(name, ServiceLifetime.Singleton, false);
       var reg = new SingletonRegistration(meta, instance);
       registrations.Add(reg);
     }
@@ -64,9 +64,9 @@ namespace CSF.Screenplay.Scenarios
       return new ServiceRegistry(builtRegistrations);
     }
 
-    ServiceMetadata GetMetadata<TService>(string name, ServiceLifetime lifetime)
+    ServiceMetadata GetMetadata<TService>(string name, ServiceLifetime lifetime, bool isResolverOwned = true)
     {
-      return new ServiceMetadata(typeof(TService), name, lifetime);
+      return new ServiceMetadata(typeof(TService), name, lifetime, isResolverOwned);
     }
 
     Func<IServiceResolver,object> GetNonGenericFactory<TService>(Func<IServiceResolver,TService> genericFactory)

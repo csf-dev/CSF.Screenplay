@@ -25,6 +25,18 @@ namespace CSF.Screenplay.Scenarios
     public ServiceLifetime Lifetime { get; private set; }
 
     /// <summary>
+    /// Gets a value indicating whether the service is 'owned by' the resolver.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This will be <c>true</c> for any services which are constructed/initialised by the resolver (anything which
+    /// is created from a delegate), but <c>false</c> for any instances which are passed directly into the resolver.
+    /// </para>
+    /// </remarks>
+    /// <value><c>true</c> if the service is is resolver-owned; otherwise, <c>false</c>.</value>
+    public bool IsResolverOwned { get; private set; }
+
+    /// <summary>
     /// Determines whether the specified <see cref="object"/> is equal to the current <see cref="T:CSF.Screenplay.Scenarios.ServiceMetadata"/>.
     /// </summary>
     /// <param name="obj">The <see cref="object"/> to compare with the current <see cref="T:CSF.Screenplay.Scenarios.ServiceMetadata"/>.</param>
@@ -72,7 +84,8 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="type">Type.</param>
     /// <param name="name">Name.</param>
     /// <param name="lifetime">The service registration lifetime.</param>
-    public ServiceMetadata(Type type, string name, ServiceLifetime lifetime)
+    /// <param name="isResolverOwned">Whether or not the service is resolver-owned.</param>
+    public ServiceMetadata(Type type, string name, ServiceLifetime lifetime, bool isResolverOwned = true)
     {
       lifetime.RequireDefinedValue(nameof(lifetime));
       if(type == null)
@@ -81,6 +94,7 @@ namespace CSF.Screenplay.Scenarios
       Type = type;
       Name = name;
       Lifetime = lifetime;
+      IsResolverOwned = isResolverOwned;
     }
   }
 }
