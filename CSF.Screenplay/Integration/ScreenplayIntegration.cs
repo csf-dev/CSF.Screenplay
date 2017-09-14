@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Integration
   /// <summary>
   /// Base type for custom screenplay integrations.  This is suitable for subclassing in custom integrations.
   /// </summary>
-  class ScreenplayIntegration : IScreenplayIntegration
+  public class ScreenplayIntegration : IScreenplayIntegration
   {
     #region fields
 
@@ -78,6 +78,8 @@ namespace CSF.Screenplay.Integration
 
       foreach(var callback in builder.AfterLastScenario)
         callback(resolver);
+
+      ServiceRegistry.GetSingletonResolver().ReleaseLazySingletonServices();
     }
 
     /// <summary>
@@ -92,19 +94,19 @@ namespace CSF.Screenplay.Integration
     #region constructor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ScreenplayIntegration"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.ScreenplayIntegration"/> class.
     /// </summary>
-    internal ScreenplayIntegration(IIntegrationConfig config)
+    /// <param name="configBuilder">Config builder.</param>
+    /// <param name="registry">Service registry.</param>
+    public ScreenplayIntegration(IIntegrationConfigBuilder configBuilder, Lazy<IServiceRegistry> registry)
     {
-      if(config == null)
-        throw new ArgumentNullException(nameof(config));
+      if(configBuilder == null)
+        throw new ArgumentNullException(nameof(configBuilder));
+      if(registry == null)
+        throw new ArgumentNullException(nameof(registry));
 
-      builder = new IntegrationConfigurationBuilder();
-      config.Configure(builder);
-
-      var registryFactory = new ServiceRegistryFactory(builder);
-      serviceRegistry = new Lazy<IServiceRegistry>(() => registryFactory.GetServiceRegistry());
-
+      builder = configBuilder;
+      serviceRegistry = registry;
       testRunEvents = new TestRunEvents();
     }
 

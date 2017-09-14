@@ -81,7 +81,39 @@ namespace CSF.Screenplay.Scenarios
         .Select(x => x.Value)
         .ToArray();
 
-      foreach(var service in perScenarioServices)
+      DisposeAllInitialised(perScenarioServices);
+    }
+
+    /// <summary>
+    /// Releases all of the lazily-initialised services are which registered per-scenario.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This will release all singleton services which were registered lazily with the service resolver.
+    /// That is - where the resolver was itself responsible for instantiating/initialising the service.
+    /// </para>
+    /// <para>
+    /// Services which were initialised outside of the resolver and were passed simply as an already-constructed
+    /// and initialised object reference are NOT released/disposed by calling this method.  Other code must
+    /// be responsible for releasing/disposing these.
+    /// </para>
+    /// <para>
+    /// In short, this method only cleans up objects which the resolver created itself.
+    /// </para>
+    /// </remarks>
+    public void ReleaseLazySingletonServices()
+    {
+      var lazySingletonServices = services
+        .Where(x => x.Key.Lifetime == ServiceLifetime.Singleton && x.Key.IsResolverOwned)
+        .Select(x => x.Value)
+        .ToArray();
+
+      DisposeAllInitialised(lazySingletonServices);
+    }
+
+    void DisposeAllInitialised(IEnumerable<Lazy<object>> toDispose)
+    {
+      foreach(var service in toDispose)
       {
         if(service.IsValueCreated && service.Value is IDisposable)
         {
