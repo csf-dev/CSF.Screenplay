@@ -39,4 +39,4 @@ matrix:
 
 install: ./.travis.install.sh
 
-script: travis_wait 30 ./.travis.build.sh
+script: ./.travis.build.sh
