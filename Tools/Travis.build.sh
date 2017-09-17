@@ -38,22 +38,20 @@ run_unit_tests()
 start_webserver()
 {
   echo "Starting up the application ..."
-  bash ./.travis.start_webserver.sh
+  bash Tools/Start-webserver.sh
   stop_if_failure $? "Starting the application"
 }
 
 run_integration_tests()
 {
   echo "Running integration tests ..."
-  mono "$NUNIT_PATH" --labels=On --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
+  mono "$NUNIT_PATH" --labels=All --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
   test_outcome=$?
 }
 
 shutdown_webserver()
 {
-  echo "Shutting down webserver ..."
-  kill $(cat "$SERVER_PID")
-  rm "$SERVER_PID"
+  bash Tools/Stop-webserver.sh
 }
 
 echo_integration_test_results_to_console()
