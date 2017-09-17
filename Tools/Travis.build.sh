@@ -5,7 +5,6 @@ NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nuni
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"
 WEB_TESTS_PATH="Tests/CSF.Screenplay.Web.Tests/bin/Debug/CSF.Screenplay.Web.Tests.dll"
-SERVER_PID=".xsp4.pid"
 
 test_outcome=1
 
