@@ -1,11 +1,10 @@
 #!/bin/bash
 
-NUNIT_CONSOLE_VERSION="3.8.0-ci-03749-socketexcep"
+NUNIT_CONSOLE_VERSION="3.7.0"
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"
 WEB_TESTS_PATH="Tests/CSF.Screenplay.Web.Tests/bin/Debug/CSF.Screenplay.Web.Tests.dll"
-SERVER_PID=".xsp4.pid"
 
 test_outcome=1
 
@@ -31,7 +30,7 @@ run_unit_tests()
 {
   echo "Running unit tests ..."
   test_assemblies=$(find ./Tests/ -type f -path "*/bin/Debug/*" -name "$TEST_PATTERN" \! -name "$WEB_TESTS")
-  mono "$NUNIT_PATH" --remoting-wait-after-stop --remoting-shutdown-delay=5000 $test_assemblies
+  mono "$NUNIT_PATH" $test_assemblies
   stop_if_failure $? "Run unit tests"
 }
 
@@ -45,7 +44,7 @@ start_webserver()
 run_integration_tests()
 {
   echo "Running integration tests ..."
-  mono "$NUNIT_PATH" --labels=All --remoting-wait-after-stop --remoting-shutdown-delay=5000 "$WEB_TESTS_PATH"
+  mono "$NUNIT_PATH" --labels=All "$WEB_TESTS_PATH"
   test_outcome=$?
 }
 
