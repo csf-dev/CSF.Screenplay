@@ -144,6 +144,8 @@
     <Compile Include="WebBrowsingRegistryExtensions.cs" />
     <Compile Include="WebBrowsingResolverExtensions.cs" />
     <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
+    <Compile Include="Actions\ClearTheContents.cs" />
+    <Compile Include="Builders\Clear.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
