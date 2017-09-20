@@ -40,21 +40,5 @@ namespace CSF.Screenplay.Web.Tests.Waits
         When(joe).AttemptsTo(Wait.ForAtMost(2).Seconds().OrUntil(PageThree.DelayedLinkOne).IsVisible());
       });
     }
-
-    [Test,Screenplay]
-    [Description("If the actor waits for a page-load, then the operation blocks until the page is ready.")]
-    public void Wait_UntilThePageLoads_does_not_cause_race_condition_on_slow_loading_page(IScreenplayScenario scenario)
-    {
-      var joe = scenario.GetJoe();
-
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
-
-      When(joe).AttemptsTo(Click.On(HomePage.SlowLoadingLink));
-
-      Then(joe).Should(Wait.UntilThePageLoads());
-      Then(joe).ShouldSee(TheText.Of(HomePage.LoadDelay))
-               .Should()
-               .Be("2 seconds");
-    }
   }
 }

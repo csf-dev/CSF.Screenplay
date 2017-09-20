@@ -4,7 +4,9 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Actions;
 using CSF.Screenplay.Web.Builders;
+using CSF.Screenplay.Web.Models;
 using CSF.Screenplay.Web.Resources;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace CSF.Screenplay.Web.Waits
@@ -16,6 +18,7 @@ namespace CSF.Screenplay.Web.Waits
   {
     const string COMPLETE = "complete";
 
+    readonly IDurationFormatter durationFormatter;
     readonly TimeSpan timeout;
 
     /// <summary>
@@ -23,7 +26,11 @@ namespace CSF.Screenplay.Web.Waits
     /// </summary>
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
-    protected override string GetReport(INamed actor) => $"{actor.Name} waits until the page has loaded";
+    protected override string GetReport(INamed actor)
+    {
+      var timeoutString = durationFormatter.GetDuration(timeout);
+      return $"{actor.Name} waits for at most {timeoutString} or until the page has loaded";
+    }
 
     /// <summary>
     /// Performs this operation, as the given actor.
@@ -35,7 +42,14 @@ namespace CSF.Screenplay.Web.Waits
       var action = GetAction();
       var wait = new WebDriverWait(ability.WebDriver, timeout);
 
-      wait.Until(driver => Equals(action.PerformWith(driver), COMPLETE));
+      try
+      {
+        wait.Until(driver => Equals(action.PerformWith(driver), COMPLETE));
+      }
+      catch(WebDriverTimeoutException ex)
+      {
+        throw new GivenUpWaitingException("Given up waiting", ex);
+      }
     }
 
     ExecuteJavaScriptAndGetResult GetAction()
@@ -51,6 +65,7 @@ namespace CSF.Screenplay.Web.Waits
     public WaitUntilThePageLoads(TimeSpan timeout)
     {
       this.timeout = timeout;
+      durationFormatter = new DurationFormatter();
     }
   }
 }
