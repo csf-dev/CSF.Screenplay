@@ -14,5 +14,9 @@ namespace CSF.Screenplay.Web.Tests.Pages
     public static ITarget ImportantNumber => new ElementId("important_number", "the important number");
 
     public static ITarget SecondPageLink => new ClassName("second_page_link", "the hyperlink to page two");
+
+    public static ITarget SlowLoadingLink => new ElementId("load_in_2_seconds", "the link to reload with a 2-second delay");
+
+    public static ITarget LoadDelay => new ElementId("load_delay", "the readout of the page-load delay");
   }
 }

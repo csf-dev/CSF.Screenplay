@@ -146,6 +146,13 @@
     <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
     <Compile Include="Actions\ClearTheContents.cs" />
     <Compile Include="Builders\Clear.cs" />
+    <Compile Include="Actions\ExecuteJavaScript.cs" />
+    <Compile Include="Actions\ExecuteJavaScriptAndGetResult.cs" />
+    <Compile Include="Waits\WaitUntilThePageLoads.cs" />
+    <Compile Include="Resources\Javascripts.Designer.cs">
+      <DependentUpon>Javascripts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Builders\Execute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -170,6 +177,14 @@
     <Folder Include="ElementMatching\" />
     <Folder Include="Queries\" />
     <Folder Include="Waits\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Javascripts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>Javascripts.resources</LogicalName>
+      <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
