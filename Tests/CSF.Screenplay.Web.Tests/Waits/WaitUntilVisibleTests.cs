@@ -40,5 +40,21 @@ namespace CSF.Screenplay.Web.Tests.Waits
         When(joe).AttemptsTo(Wait.ForAtMost(2).Seconds().OrUntil(PageThree.DelayedLinkOne).IsVisible());
       });
     }
+
+    [Test,Screenplay]
+    [Description("If the actor waits for a page-load, that waiting does not raise an exception if the page takes a while to load.")]
+    public void Wait_UntilVisible_does_not_cause_race_condition_on_slow_loading_page(IScreenplayScenario scenario)
+    {
+      var joe = scenario.GetJoe();
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+
+      When(joe).AttemptsTo(Click.On(HomePage.SlowLoadingLink));
+
+      Then(joe).Should(Wait.Until(HomePage.LoadDelay).IsVisible());
+      Then(joe).ShouldSee(TheText.Of(HomePage.LoadDelay))
+               .Should()
+               .Be("2 seconds");
+    }
   }
 }

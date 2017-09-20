@@ -16,6 +16,8 @@ namespace CSF.Screenplay.WebTestWebsite.Models
       }
     }
 
+    public int LoadingPause { get; set; }
+
     public string BaseUrl => BaseUri.AbsoluteUri;
 
     public ModelBase()
