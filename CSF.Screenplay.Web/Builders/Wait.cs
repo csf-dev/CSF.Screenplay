@@ -40,7 +40,7 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Gets a builder for a given target, with the default 10-second timeout.
+    /// Gets a builder for a given target, with the default timeout.
     /// </summary>
     /// <returns>A wait builder.</returns>
     /// <param name="target">Target.</param>
@@ -55,6 +55,18 @@ namespace CSF.Screenplay.Web.Builders
         timespanProvider = DefaultTimeout,
       };
     }
+
+    /// <summary>
+    /// Gets a 'wait' performable which completes once the page has finished loading, using the default timeout.
+    /// </summary>
+    /// <returns>The performable.</returns>
+    public static IPerformable UntilThePageLoads() => new WaitUntilThePageLoads(DefaultTimeout.GetTimespan());
+
+    /// <summary>
+    /// Gets a 'wait' performable which completes once the page has finished loading.
+    /// </summary>
+    /// <returns>The performable.</returns>
+    public IPerformable OrUntilThePageLoads() => new WaitUntilThePageLoads(timespanProvider.GetTimespan());
 
     /// <summary>
     /// Gets a wait builder for a given target.
