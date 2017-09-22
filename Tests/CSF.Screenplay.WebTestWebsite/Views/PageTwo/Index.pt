@@ -61,6 +61,11 @@
       </select>
     </fieldset>
   </form>
+  <h2>Script output</h2>
+  <p>
+    The following container shows the output from scripts:
+  </p>
+  <div id="ScriptOutput"></div>
   <script src="Scripts/jquery-3.2.1.min.js"></script>
   <script src="Scripts/PageTwo.js"></script>
 </div>

@@ -1,7 +1,9 @@
 (function(window, $, undefined) {
   'use strict';
   
-  var specialInputField = $('.special_text input');
+  var
+    specialInputField = $('.special_text input'),
+    scriptOutput = $('#ScriptOutput');
   
   specialInputField.on('keyup', function() {
     if(specialInputField.val() === 'The right value')
@@ -38,10 +40,34 @@
     recalculateSelections(multiSelection, multiSelectionValue);
   });
   
+  function addCallableScripts()
+  {
+    window.myCallableScript = function()
+    {
+      scriptOutput.text('myCallableScript called');
+    }
+    
+    window.addFive = function(inputVal)
+    {
+      if(!inputVal)
+      {
+        inputVal = 1;
+        scriptOutput.text('addFive called without any input');
+      }
+      else
+      {
+        scriptOutput.text('addFive called with ' + inputVal);
+      }
+      
+      return inputVal + 5;
+    }
+  }
+  
   function init()
   {
     recalculateSelections(singleSelection, singleSelectionValue);
     recalculateSelections(multiSelection, multiSelectionValue);
+    addCallableScripts();
   }
   
   $(function() {

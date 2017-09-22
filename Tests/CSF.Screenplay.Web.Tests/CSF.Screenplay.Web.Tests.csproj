@@ -110,6 +110,7 @@
     <Compile Include="Actions\ClearTests.cs" />
     <Compile Include="Tasks\EnterTextIntoThePageTwoInputField.cs" />
     <Compile Include="Waits\WaitUntilThePageLoadsTests.cs" />
+    <Compile Include="Actions\ExecuteScriptTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
