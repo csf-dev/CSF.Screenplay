@@ -53,16 +53,10 @@ shutdown_webserver()
   bash Tools/Stop-webserver.sh
 }
 
-echo_integration_test_results_to_console()
-{
-  cat NUnit.report.txt
-}
-
 build_solution
 run_unit_tests
 start_webserver
 run_integration_tests
-echo_integration_test_results_to_console
 shutdown_webserver
 
 exit $test_outcome
