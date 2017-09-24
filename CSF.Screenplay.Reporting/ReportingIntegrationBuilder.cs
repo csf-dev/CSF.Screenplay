@@ -15,7 +15,8 @@ namespace CSF.Screenplay.Reporting
     string name, castName;
     bool subscribeToCastActorCreation, subscribeToCastActorAddition;
     Action<IReporter> afterTestRunCallback;
-    Action<Report> writeReportCallback;
+    Action<IObjectFormattingService,Report> writeReportCallback;
+    readonly IObjectFormatterRegistry formatterRegistry;
 
     #endregion
 
@@ -31,6 +32,27 @@ namespace CSF.Screenplay.Reporting
         throw new ArgumentNullException(nameof(reporter));
 
       this.reporterToUse = reporter;
+      return this;
+    }
+
+    /// <summary>
+    /// Adds an object formatter to the given reporter.
+    /// </summary>
+    /// <returns>The formatter.</returns>
+    /// <typeparam name="T">The object formatter type.</typeparam>
+    public ReportingIntegrationBuilder WithFormatter<T>() where T : IObjectFormatter,new()
+    {
+      return WithFormatter(new T());
+    }
+
+    /// <summary>
+    /// Adds an object formatter to the given reporter.
+    /// </summary>
+    /// <returns>The formatter.</returns>
+    /// <param name="formatter">Formatter.</param>
+    public ReportingIntegrationBuilder WithFormatter(IObjectFormatter formatter)
+    {
+      formatterRegistry.AddFormatter(formatter);
       return this;
     }
 
@@ -93,6 +115,19 @@ namespace CSF.Screenplay.Reporting
     /// <param name="callback">Callback.</param>
     public ReportingIntegrationBuilder WriteReport(Action<Report> callback)
     {
+      writeReportCallback = (formatService, report) => callback(report);
+      return this;
+    }
+
+    /// <summary>
+    /// Provides a callback exposing the report created by the reporter, from which you may write that report to
+    /// whatever destination you wish.
+    /// Requires that the reporter in use imlpements <see cref="IModelBuildingReporter"/> (this is the default behaviour).
+    /// </summary>
+    /// <returns>The report.</returns>
+    /// <param name="callback">Callback.</param>
+    public ReportingIntegrationBuilder WriteReport(Action<IObjectFormattingService,Report> callback)
+    {
       writeReportCallback = callback;
       return this;
     }
@@ -107,10 +142,21 @@ namespace CSF.Screenplay.Reporting
         throw new ArgumentNullException(nameof(integration));
 
       RegisterReporter(integration);
+      RegisterObjectFormatters(integration);
       SubscribeToCast(integration);
       SubscribeToBeginAndEndTestRun(integration);
       SubscribeToScenario(integration);
       WriteReport(integration);
+    }
+
+    void RegisterObjectFormatters(IIntegrationConfigBuilder integration)
+    {
+      integration.RegisterServices.Add((builder) => {
+        builder.RegisterSingleton(formatterRegistry);
+
+        var formatService = new ObjectFormattingService(formatterRegistry);
+        builder.RegisterSingleton(formatService);
+      });
     }
 
     void RegisterReporter(IIntegrationConfigBuilder integration)
@@ -172,11 +218,12 @@ namespace CSF.Screenplay.Reporting
 
         var reporter = resolver.GetReporter(name);
         var modelReporter = reporter as IModelBuildingReporter;
+        var formatter = resolver.GetObjectFormattingService();
 
         if(modelReporter != null && writeReportCallback != null)
         {
           var report = modelReporter.GetReport();
-          writeReportCallback(report);
+          writeReportCallback(formatter, report);
           return;
         }
 
@@ -190,5 +237,16 @@ namespace CSF.Screenplay.Reporting
 
     #endregion
 
+    #region constructor
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.ReportingIntegrationBuilder"/> class.
+    /// </summary>
+    public ReportingIntegrationBuilder()
+    {
+      formatterRegistry = new ObjectFormatterRegistry();
+    }
+
+    #endregion
   }
 }

@@ -71,6 +71,11 @@
     <Compile Include="ReportingRegistryExtensions.cs" />
     <Compile Include="ReportingIntegrationBuilderExtensions.cs" />
     <Compile Include="ReportingIntegrationBuilder.cs" />
+    <Compile Include="DefaultObjectFormatter.cs" />
+    <Compile Include="IObjectFormatterRegistry.cs" />
+    <Compile Include="ObjectFormatterRegistry.cs" />
+    <Compile Include="IObjectFormattingService.cs" />
+    <Compile Include="ObjectFormattingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

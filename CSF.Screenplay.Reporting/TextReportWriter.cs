@@ -16,6 +16,7 @@ namespace CSF.Screenplay.Reporting
     const int INDENT_WIDTH = 4, RESULT_OR_FAILURE_INDENT_WIDTH = 6;
 
     readonly TextWriter writer;
+    readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Write the specified report to the text writer.
@@ -147,8 +148,7 @@ namespace CSF.Screenplay.Reporting
     void WriteResult(Performance reportable, int currentIndentLevel)
     {
       WriteResultOrFailureIndent(currentIndentLevel);
-      var result = reportable.Result?.ToString();
-      writer.WriteLine("Result:{0}", result ?? "<null>");
+      writer.WriteLine("Result:{0}", Format(reportable.Result));
     }
 
     void WriteFailure(Performance reportable, int currentIndentLevel)
@@ -169,6 +169,8 @@ namespace CSF.Screenplay.Reporting
         writer.WriteLine("FAILED");
     }
 
+    string Format(object obj) => formattingService.Format(obj);
+
     string GetIndent(int currentLevel) 
       => String.Join(String.Empty, Enumerable.Range(0, currentLevel).Select(x => new String(INDENT_CHAR, INDENT_WIDTH)));
 
@@ -182,6 +184,18 @@ namespace CSF.Screenplay.Reporting
         throw new ArgumentNullException(nameof(writer));
 
       this.writer = writer;
+      formattingService = ObjectFormattingService.Default;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.TextReportWriter"/> class.
+    /// </summary>
+    /// <param name="writer">Writer.</param>
+    /// <param name="formattingService">Formatting service.</param>
+    public TextReportWriter(TextWriter writer, IObjectFormattingService formattingService)
+      : this(writer)
+    {
+      this.formattingService = formattingService ?? ObjectFormattingService.Default;
     }
 
     /// <summary>

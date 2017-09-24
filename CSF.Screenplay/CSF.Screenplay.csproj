@@ -110,6 +110,8 @@
     <Compile Include="IScreenplayScenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
     <Compile Include="Actors\Actor.cs" />
+    <Compile Include="Reporting\GenericObjectFormatter.cs" />
+    <Compile Include="Reporting\IObjectFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
