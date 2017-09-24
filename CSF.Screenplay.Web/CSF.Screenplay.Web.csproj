@@ -153,8 +153,12 @@
       <DependentUpon>Javascripts.resx</DependentUpon>
     </Compile>
     <Compile Include="Builders\Execute.cs" />
+    <Compile Include="Tasks\NavigateToNewPageByClicking.cs" />
     <Compile Include="Waits\WaitForACondition.cs" />
+    <Compile Include="Builders\Navigate.cs" />
     <Compile Include="Models\TimespanBuilder.cs" />
+    <Compile Include="Questions\GetElement.cs" />
+    <Compile Include="Builders\Get.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -180,6 +184,7 @@
     <Folder Include="Queries\" />
     <Folder Include="Waits\" />
     <Folder Include="Resources\" />
+    <Folder Include="Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
