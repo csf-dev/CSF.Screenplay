@@ -153,6 +153,8 @@
       <DependentUpon>Javascripts.resx</DependentUpon>
     </Compile>
     <Compile Include="Builders\Execute.cs" />
+    <Compile Include="Waits\WaitForACondition.cs" />
+    <Compile Include="Models\TimespanBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
