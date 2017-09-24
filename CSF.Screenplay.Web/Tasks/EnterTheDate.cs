@@ -30,14 +30,25 @@ namespace CSF.Screenplay.Web.Tasks
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
       var useLocaleFormat = ability.GetCapability(Capabilities.EnterDatesInLocaleFormat);
+      var useIsoFormat = ability.GetCapability(Capabilities.EnterDatesAsIsoStrings);
 
       if(useLocaleFormat)
       {
         actor.Perform(EnterTheDateInLocaleFormat());
       }
-      else
+      else if(useIsoFormat)
       {
         actor.Perform(EnterTheDateInIsoFormat());
+      }
+      else
+      {
+        var idTarget = target as ElementId;
+        if(idTarget == null)
+        {
+          string message = $"In order to use the {nameof(EnterADateBySettingTheValue)} task, the target must be an {nameof(ElementId)}, but got {target.GetType().Name} instead.";
+          throw new InvalidTargetException(message);
+        }
+        actor.Perform(EnterTheDateBySettingTheValue(idTarget));
       }
     }
 
@@ -46,6 +57,9 @@ namespace CSF.Screenplay.Web.Tasks
 
     IPerformable EnterTheDateInIsoFormat()
       => new EnterTheDateAsAnIsoFormattedString(date, target);
+
+    IPerformable EnterTheDateBySettingTheValue(ElementId id)
+      => new EnterADateBySettingTheValue(date, id);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterTheDate"/> class.

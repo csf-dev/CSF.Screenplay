@@ -167,6 +167,8 @@
     <Compile Include="Tasks\GetTheLocaleFormattedDate.cs" />
     <Compile Include="Tasks\EnterTheDateAsAnIsoFormattedString.cs" />
     <Compile Include="Tasks\EnterTheDate.cs" />
+    <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
+    <Compile Include="Models\InvalidTargetException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

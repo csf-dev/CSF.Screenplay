@@ -73,8 +73,11 @@ namespace CSF.Screenplay.Web.Tests
                                                   BrowserName.Edge);
       ability.AddCapabilityWhereSupported(Capabilities.EnterDatesInLocaleFormat,
                                           browserName,
-                                          BrowserName.Chrome,
-                                          BrowserName.Edge);
+                                          BrowserName.Chrome);
+      ability.AddCapabilityExceptWhereUnsupported(Capabilities.EnterDatesAsIsoStrings,
+                                                  browserName,
+                                                  BrowserName.Chrome,
+                                                  BrowserName.Edge);
     }
 
     string GetTestName(IServiceResolver resolver)

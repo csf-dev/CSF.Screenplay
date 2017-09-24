@@ -16,5 +16,11 @@ namespace CSF.Screenplay.Web.Abilities
     /// into <c>&lt;input type="date" /&gt;</c> controls.
     /// </summary>
     public static readonly string EnterDatesInLocaleFormat = "Enter values into input type='date' controls as a locale-formatted string";
+
+    /// <summary>
+    /// A capability which indicates that the browser allows the user to enter locale-formatted dates
+    /// into <c>&lt;input type="date" /&gt;</c> controls.
+    /// </summary>
+    public static readonly string EnterDatesAsIsoStrings = "Enter values into input type='date' controls as an ISO-formatted string (Year-Month-Day)";
   }
 }

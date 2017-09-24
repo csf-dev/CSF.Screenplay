@@ -31,8 +31,9 @@ namespace CSF.Screenplay.Web.Tasks
       // Months in JavaScript start with zero, because reasons
       var month = date.Month - 1;
 
-      var script = $"return new Date({date.Year},{month},{date.Day}).toLocaleDateString();";
-      return (string) actor.Perform(Execute.TheJavaScript(script).AndGetTheResult());
+      return (string) actor.Perform(Execute.TheJavaScript(Resources.Javascripts.GetLocalisedDate)
+                                    .WithTheParameters(date.Year, month, date.Day)
+                                    .AndGetTheResult());
     }
 
     /// <summary>
