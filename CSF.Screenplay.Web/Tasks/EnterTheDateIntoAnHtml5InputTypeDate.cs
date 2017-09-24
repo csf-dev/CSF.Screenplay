@@ -13,8 +13,12 @@ namespace CSF.Screenplay.Web.Tasks
   /// </summary>
   public class EnterTheDateIntoAnHtml5InputTypeDate : Performable
   {
-    const string NonNumericCharacters = @"\D";
-    static readonly Regex NonNumericStripper = new Regex(NonNumericCharacters, RegexOptions.Compiled);
+    const string
+      Numbers = @"\d+",
+      NonNumericCharacters = @"\D";
+    static readonly Regex
+      NumberMatcher = new Regex(Numbers, RegexOptions.Compiled),
+      NonNumericStripper = new Regex(NonNumericCharacters, RegexOptions.Compiled);
 
     readonly DateTime date;
     readonly ITarget target;
@@ -41,7 +45,21 @@ namespace CSF.Screenplay.Web.Tasks
     IQuestion<string> GetTheLocaleFormattedDate()
       => new GetTheLocaleFormattedDate(date);
 
-    string GetTheKeysToPress(string formattedDate) => NonNumericStripper.Replace(formattedDate, String.Empty);
+    string GetTheKeysToPress(string formattedDate)
+    {
+      var zeroPaddedFormattedDate = GetZeroPaddedFormattedDate(formattedDate);
+      return NonNumericStripper.Replace(zeroPaddedFormattedDate, String.Empty);
+    }
+
+    string GetZeroPaddedFormattedDate(string formattedDate)
+    {
+      return NumberMatcher.Replace(formattedDate, match => {
+        if(match.Length > 1)
+          return match.Value;
+
+        return String.Concat("0", match.Value);
+      });
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterTheDateIntoAnHtml5InputTypeDate"/> class.
