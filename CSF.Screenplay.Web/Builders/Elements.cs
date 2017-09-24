@@ -12,9 +12,9 @@ namespace CSF.Screenplay.Web.Builders
     /// Gets a builder instance for elements which are anywhere on the current page.
     /// </summary>
     /// <returns>The builder instance.</returns>
-    public static ElementsOnPage OnThePage()
+    public static ElementsInThePageBody InThePageBody()
     {
-      return new ElementsOnPage();
+      return new ElementsInThePageBody();
     }
 
     /// <summary>

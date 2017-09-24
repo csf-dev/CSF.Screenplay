@@ -100,7 +100,7 @@
     <Compile Include="Builders\Elements.cs" />
     <Compile Include="ElementMatching\Matcher`1.cs" />
     <Compile Include="Builders\ElementsWithin.cs" />
-    <Compile Include="Builders\ElementsOnPage.cs" />
+    <Compile Include="Builders\ElementsInThePageBody.cs" />
     <Compile Include="Questions\TargettedMultiQuestion`1.cs" />
     <Compile Include="Questions\Question.cs" />
     <Compile Include="ElementMatching\AndMatcher.cs" />
