@@ -38,7 +38,18 @@ namespace CSF.Screenplay.Web.Abilities
     /// </summary>
     /// <returns><c>true</c>, the browser is capable of the listed operation, <c>false</c> otherwise.</returns>
     /// <param name="capabilityName">Capability name.</param>
-    public bool IsCapableOf(string capabilityName) => webBrowserCapabilities.Contains(capabilityName);
+    public bool GetCapability(string capabilityName) => webBrowserCapabilities.Contains(capabilityName);
+
+    /// <summary>
+    /// Checks that the current instance contains the 
+    /// </summary>
+    /// <param name="capabilityName">Capability name.</param>
+    public void DemandCapability(string capabilityName)
+    {
+      var isCapable = GetCapability(capabilityName);
+      if(!isCapable)
+        throw new MissingCapabilityException($"The capability '{capabilityName}' is required but was not provided.");
+    }
 
     /// <summary>
     /// Gets the report text for the current ability.

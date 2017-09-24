@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -65,8 +66,7 @@ namespace CSF.Screenplay.Web.Tests
     {
       var browserName = factory.GetResolvedBrowserName();
 
-      if(!String.Equals(browserName, "Edge", StringComparison.InvariantCultureIgnoreCase))
-        ability.AddCapability(Capabilities.ClearDomainCookies);
+      ability.AddCapabilityExceptWhereUnsupported(Capabilities.ClearDomainCookies, browserName, "Edge");
     }
 
     string GetTestName(IServiceResolver resolver)
