@@ -154,7 +154,7 @@ namespace CSF.Screenplay.Reporting
       integration.RegisterServices.Add((builder) => {
         builder.RegisterSingleton(formatterRegistry);
 
-        var formatService = new ObjectFormattingService(formatterRegistry);
+        IObjectFormattingService formatService = new ObjectFormattingService(formatterRegistry);
         builder.RegisterSingleton(formatService);
       });
     }

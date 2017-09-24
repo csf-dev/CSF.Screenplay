@@ -203,11 +203,12 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="report">The report.</param>
     /// <param name="path">Destination file path.</param>
-    public static void WriteToFile(Report report, string path)
+    /// <param name="formattingService">Object formatting service.</param>
+    public static void WriteToFile(Report report, string path, IObjectFormattingService formattingService = null)
     {
       using(var writer = new StreamWriter(path))
       {
-        var reportWriter = new TextReportWriter(writer);
+        var reportWriter = new TextReportWriter(writer, formattingService);
         reportWriter.Write(report);
         writer.Flush();
       }

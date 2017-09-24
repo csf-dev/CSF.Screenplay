@@ -4,8 +4,10 @@ using System.Linq;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
+using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Web.Reporting;
 using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
 using CSF.WebDriverFactory.Impl;
@@ -23,7 +25,10 @@ namespace CSF.Screenplay.Web.Tests
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
-          .WriteReport(WriteReport);
+          .WriteReport(WriteReport)
+          .WithFormatter<StringArrayFormatter>()
+          .WithFormatter<OptionCollectionFormatter>()
+          .WithFormatter<ElementCollectionFormatter>();
       });
       builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       builder.UseWebDriver(GetWebDriver);
@@ -72,10 +77,10 @@ namespace CSF.Screenplay.Web.Tests
       return $"{scenarioName.FeatureId.Name} -> {scenarioName.ScenarioId.Name}";
     }
 
-    void WriteReport(Reporting.Models.Report report)
+    void WriteReport(IObjectFormattingService formatter, Report report)
     {
       var path = "NUnit.report.txt";
-      TextReportWriter.WriteToFile(report, path);
+      TextReportWriter.WriteToFile(report, path, formatter);
     }
   }
 }

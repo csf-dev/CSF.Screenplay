@@ -161,6 +161,8 @@
     <Compile Include="Builders\Get.cs" />
     <Compile Include="Abilities\Capabilities.cs" />
     <Compile Include="Abilities\MissingCapabilityException.cs" />
+    <Compile Include="Reporting\OptionCollectionFormatter.cs" />
+    <Compile Include="Reporting\ElementCollectionFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -187,6 +189,7 @@
     <Folder Include="Waits\" />
     <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
+    <Folder Include="Reporting\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
