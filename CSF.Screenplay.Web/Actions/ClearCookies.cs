@@ -26,8 +26,9 @@ namespace CSF.Screenplay.Web.Actions
     {
       var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
 
-      var cookies = browseTheWeb.WebDriver.Manage().Cookies;
+      browseTheWeb.DemandCapability(Capabilities.ClearDomainCookies);
 
+      var cookies = browseTheWeb.WebDriver.Manage().Cookies;
       cookies.DeleteAllCookies();
     }
   }
