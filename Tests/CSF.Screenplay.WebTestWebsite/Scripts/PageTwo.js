@@ -42,7 +42,7 @@
     recalculateSelections(multiSelection, multiSelectionValue);
   });
 
-  dateInput.on('change click keypress', function() {
+  dateInput.on('change click keyup', function() {
     dateOutput.text(dateInput.val());
   })
   
