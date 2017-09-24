@@ -69,7 +69,7 @@ namespace CSF.Screenplay.Web.Tests
       var browserName = factory.GetBrowserName();
 
       ability.AddCapabilityExceptWhereUnsupported(Capabilities.ClearDomainCookies, browserName, "Edge");
-      ability.AddCapabilityWhereSupported(Capabilities.EnterDatesInLocaleFormat, browserName, "Chrome");
+      ability.AddCapabilityWhereSupported(Capabilities.EnterDatesInLocaleFormat, browserName, "Chrome", "Edge");
     }
 
     string GetTestName(IServiceResolver resolver)
