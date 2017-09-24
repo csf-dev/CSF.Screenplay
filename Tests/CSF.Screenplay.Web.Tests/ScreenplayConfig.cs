@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -7,6 +8,7 @@ using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
+using CSF.WebDriverFactory.Impl;
 using OpenQA.Selenium;
 
 [assembly:ScreenplayAssembly(typeof(ScreenplayConfig))]
@@ -25,7 +27,7 @@ namespace CSF.Screenplay.Web.Tests
       });
       builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       builder.UseWebDriver(GetWebDriver);
-      builder.UseWebBrowser();
+      builder.UseWebBrowser(GetWebBrowser);
     }
 
     IWebDriver GetWebDriver(IServiceResolver scenario)
@@ -41,6 +43,27 @@ namespace CSF.Screenplay.Web.Tests
       }
 
       return factory.GetWebDriver(caps);
+    }
+
+    BrowseTheWeb GetWebBrowser(IServiceResolver scenario)
+    {
+      var provider = new ConfigurationWebDriverFactoryProvider();
+      var factory = provider.GetFactory();
+
+      var driver = scenario.GetService<IWebDriver>();
+      var transformer = scenario.GetOptionalService<IUriTransformer>();
+      var ability = new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
+
+      ConfigureBrowserCapabilities(ability, factory);
+
+      return ability;
+    }
+
+    void ConfigureBrowserCapabilities(BrowseTheWeb ability, IWebDriverFactory factory)
+    {
+      var browserName = factory.GetBrowserName();
+
+      ability.AddCapabilityExceptWhereUnsupported(Capabilities.ClearDomainCookies, browserName, "Edge");
     }
 
     string GetTestName(IServiceResolver resolver)

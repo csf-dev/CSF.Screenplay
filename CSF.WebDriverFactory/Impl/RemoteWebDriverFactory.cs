@@ -41,6 +41,18 @@ namespace CSF.WebDriverFactory.Impl
     public int CommandTimeoutSeconds { get; set; }
 
     /// <summary>
+    /// Gets the name of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser name.</returns>
+    public virtual string GetBrowserName() => BrowserName;
+
+    /// <summary>
+    /// Gets the version of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser version.</returns>
+    public virtual string GetBrowserVersion() => BrowserVersion;
+
+    /// <summary>
     /// Gets the web driver.
     /// </summary>
     /// <returns>The web driver.</returns>

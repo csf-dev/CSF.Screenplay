@@ -159,6 +159,8 @@
     <Compile Include="Models\TimespanBuilder.cs" />
     <Compile Include="Questions\GetElement.cs" />
     <Compile Include="Builders\Get.cs" />
+    <Compile Include="Abilities\Capabilities.cs" />
+    <Compile Include="Abilities\MissingCapabilityException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
