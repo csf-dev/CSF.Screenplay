@@ -6,6 +6,9 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Questions
 {
+  /// <summary>
+  /// An action which gets a reference to a single element in the document.
+  /// </summary>
   public class GetElement : Performable<IWebElementAdapter>, IQuestion<IWebElementAdapter>
   {
     readonly ILocatorBasedTarget target;

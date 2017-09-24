@@ -27,24 +27,5 @@ namespace CSF.Screenplay.Web.Tests.Tasks
                .Should()
                .Be("2 seconds");
     }
-
-    [Test,Screenplay]
-    [Description("If the user doesn't wait long enough then navigating to a slow-loading page will fail")]
-    public void Navigate_to_a_slow_loading_page_raises_exception_if_the_user_doesnt_wait_long_enough(IScreenplayScenario scenario)
-    {
-      var joe = scenario.GetJoe();
-
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
-
-      Assert.Throws<GivenUpWaitingException>(NavigateWithoutWaiting(joe));
-    }
-
-    TestDelegate NavigateWithoutWaiting(IActor joe)
-    {
-      return () => {
-        When(joe).AttemptsTo(Navigate.WaitingUpTo(500).Milliseconds()
-                                     .ToADifferentPageByClicking(HomePage.SlowLoadingLink));
-      };
-    }
   }
 }
