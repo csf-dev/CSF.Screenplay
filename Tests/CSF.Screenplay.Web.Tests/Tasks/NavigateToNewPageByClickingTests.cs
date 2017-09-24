@@ -5,23 +5,23 @@ using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Actors;
 
-namespace CSF.Screenplay.Web.Tests.Waits
+namespace CSF.Screenplay.Web.Tests.Tasks
 {
   [TestFixture]
-  [Description("Waiting for a page load")]
-  public class WaitUntilThePageLoadsTests
+  [Description("Navigating to a new page")]
+  public class NavigateToNewPageByClickingTests
   {
     [Test,Screenplay]
-    [Description("If the actor waits for a page-load, then the operation blocks until the page is ready.")]
-    public void Wait_UntilThePageLoads_blocks_operation_until_page_is_ready(IScreenplayScenario scenario)
+    [Description("Using the navigate task to a slow-loading page produces the expected output on the page")]
+    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
-      Given(joe).WasAbleTo(Click.On(HomePage.SlowLoadingLink));
 
-      When(joe).AttemptsTo(Wait.UntilThePageLoads());
+      When(joe).AttemptsTo(Navigate.ToAnotherPageByClicking(HomePage.SlowLoadingLink));
 
       Then(joe).ShouldSee(TheText.Of(HomePage.LoadDelay))
                .Should()

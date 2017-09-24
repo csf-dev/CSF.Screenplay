@@ -13,4 +13,4 @@ Tests/Temp/
 Screenshots/
 *.log
 *.orig
-
+.xsp4.pid

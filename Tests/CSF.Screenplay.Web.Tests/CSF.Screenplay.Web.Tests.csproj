@@ -109,8 +109,8 @@
     <Compile Include="Abilities\BrowseTheWebTests.cs" />
     <Compile Include="Actions\ClearTests.cs" />
     <Compile Include="Tasks\EnterTextIntoThePageTwoInputField.cs" />
-    <Compile Include="Waits\WaitUntilThePageLoadsTests.cs" />
     <Compile Include="Actions\ExecuteScriptTests.cs" />
+    <Compile Include="Tasks\NavigateToNewPageByClickingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

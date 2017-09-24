@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Web.Tests.Questions
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       Then(joe)
-        .ShouldSee(Elements.OnThePage().ThatAre(PageTwo.ItemsInTheList).Called("the listed items"))
+        .ShouldSee(Elements.InThePageBody().ThatAre(PageTwo.ItemsInTheList).Called("the listed items"))
         .Elements.Count.Should().Be(5);
     }
   }
