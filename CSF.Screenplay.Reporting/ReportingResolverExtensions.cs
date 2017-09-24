@@ -37,5 +37,19 @@ namespace CSF.Screenplay
 
       return resolver.GetService<IModelBuildingReporter>(name);
     }
+
+    /// <summary>
+    /// Gets the object formatting service from the current resolver.
+    /// </summary>
+    /// <returns>The object formatting service.</returns>
+    /// <param name="resolver">Resolver.</param>
+    /// <param name="name">Name.</param>
+    public static IObjectFormattingService GetObjectFormattingService(this IServiceResolver resolver, string name = null)
+    {
+      if(resolver == null)
+        throw new ArgumentNullException(nameof(resolver));
+
+      return resolver.GetService<IObjectFormattingService>(name);
+    }
   }
 }
