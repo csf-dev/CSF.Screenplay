@@ -6,6 +6,9 @@ using CSF.Screenplay.Web.Models;
 
 namespace CSF.Screenplay.Web.Tasks
 {
+  /// <summary>
+  /// A task which enters a date value into an input element (of type "date") in a cross-browser manner.
+  /// </summary>
   public class EnterTheDate : Performable
   {
     readonly DateTime date;

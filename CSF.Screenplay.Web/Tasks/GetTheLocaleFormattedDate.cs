@@ -28,7 +28,10 @@ namespace CSF.Screenplay.Web.Tasks
     /// <param name="actor">The actor performing this task.</param>
     protected override string PerformAs(IPerformer actor)
     {
-      var script = $"return new Date({date.Year}, {date.Month}, {date.Day}).toLocaleDateString();";
+      // Months in JavaScript start with zero, because reasons
+      var month = date.Month - 1;
+
+      var script = $"return new Date({date.Year},{month},{date.Day}).toLocaleDateString();";
       return (string) actor.Perform(Execute.TheJavaScript(script).AndGetTheResult());
     }
 

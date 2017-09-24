@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Web.Tasks
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
-      => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()}";
+      => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()} as an ISO-formatted string";
 
     /// <summary>
     /// Performs this operation, as the given actor.

@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Web.Tests.Tasks
   {
     [Test,Screenplay]
     [Description("Entering a date into an HTML 5 input field should work cross-browser")]
-    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(IScreenplayScenario scenario)
+    public void Enter_TheDate_puts_the_correct_value_into_the_control(IScreenplayScenario scenario)
     {
       var joe = scenario.GetJoe();
       var date = new DateTime(2012, 5, 6);
