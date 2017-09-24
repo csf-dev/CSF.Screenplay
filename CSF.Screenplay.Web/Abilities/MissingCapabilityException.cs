@@ -1,6 +1,9 @@
 ﻿using System;
 namespace CSF.Screenplay.Web.Abilities
 {
+  /// <summary>
+  /// Exception raised when a capability is demanded of a <see cref="BrowseTheWeb"/> ability but it is not available.
+  /// </summary>
   [System.Serializable]
   public class MissingCapabilityException : Exception
   {

@@ -111,7 +111,6 @@
     <Compile Include="Tasks\EnterTextIntoThePageTwoInputField.cs" />
     <Compile Include="Actions\ExecuteScriptTests.cs" />
     <Compile Include="Tasks\NavigateToNewPageByClickingTests.cs" />
-    <Compile Include="BrowseTheWebExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

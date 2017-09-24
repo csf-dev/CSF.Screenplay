@@ -48,28 +48,22 @@ namespace CSF.WebDriverFactory.Impl
     public string CommandTimeoutSecondsVar { get; set; }
 
     /// <summary>
-    /// Gets the resolved name of the web browser.
+    /// Gets the name of the web browser that this factory will create.
     /// </summary>
-    /// <returns>The resolved browser name.</returns>
-    public string GetResolvedBrowserName()
-    {
-      return GetFromEnvironmentOrSetting(BrowserNameVar, BrowserName);
-    }
+    /// <returns>The browser name.</returns>
+    public override string GetBrowserName() => GetFromEnvironmentOrSetting(BrowserNameVar, BrowserName);
 
     /// <summary>
-    /// Gets the resolved browser version.
+    /// Gets the version of the web browser that this factory will create.
     /// </summary>
-    /// <returns>The resolved browser version.</returns>
-    public string GetResolvedBrowserVersion()
-    {
-      return GetFromEnvironmentOrSetting(BrowserVersionVar, BrowserVersion);
-    }
+    /// <returns>The browser version.</returns>
+    public override string GetBrowserVersion() => GetFromEnvironmentOrSetting(BrowserVersionVar, BrowserVersion);
 
     /// <summary>
     /// Gets the resolved platform name.
     /// </summary>
     /// <returns>The resolved platform.</returns>
-    public string GetResolvedPlatform()
+    public virtual string GetPlatform()
     {
       return GetFromEnvironmentOrSetting(PlatformVar, Platform);
     }

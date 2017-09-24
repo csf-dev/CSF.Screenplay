@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Abilities;
 using OpenQA.Selenium;
 
@@ -49,6 +50,38 @@ namespace CSF.Screenplay.Web.Abilities
       var isCapable = GetCapability(capabilityName);
       if(!isCapable)
         throw new MissingCapabilityException($"The capability '{capabilityName}' is required but was not provided.");
+    }
+    /// <summary>
+    /// Adds a capability to the browse the web class, except for browsers where it is unsupported.
+    /// </summary>
+    /// <param name="capabilityName">Capability name.</param>
+    /// <param name="actualBrowser">Actual browser.</param>
+    /// <param name="unsupportedBrowsers">Unsupported browsers.</param>
+    public void AddCapabilityExceptWhereUnsupported(string capabilityName,
+                                                    string actualBrowser,
+                                                    params string[] unsupportedBrowsers)
+    {
+      if(!IsInListOfBrowserNames(actualBrowser, unsupportedBrowsers))
+        AddCapability(capabilityName);
+    }
+
+    /// <summary>
+    /// Adds a capability to the browse the web class for browsers where it is supported.
+    /// </summary>
+    /// <param name="capabilityName">Capability name.</param>
+    /// <param name="actualBrowser">Actual browser.</param>
+    /// <param name="supportedBrowsers">Supported browsers.</param>
+    public void AddCapabilityWhereSupported(string capabilityName,
+                                            string actualBrowser,
+                                            params string[] supportedBrowsers)
+    {
+      if(IsInListOfBrowserNames(actualBrowser, supportedBrowsers))
+        AddCapability(capabilityName);
+    }
+
+    static bool IsInListOfBrowserNames(string name, IEnumerable<string> names)
+    {
+      return names.Any(x => String.Equals(name, x, StringComparison.InvariantCultureIgnoreCase));
     }
 
     /// <summary>

@@ -54,17 +54,14 @@ namespace CSF.Screenplay.Web.Tests
       var transformer = scenario.GetOptionalService<IUriTransformer>();
       var ability = new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
 
-      if(factory is RemoteWebDriverFromEnvironmentFactory)
-      {
-        ConfigureBrowserCapabilities(ability, (RemoteWebDriverFromEnvironmentFactory) factory);
-      }
+      ConfigureBrowserCapabilities(ability, factory);
 
       return ability;
     }
 
-    void ConfigureBrowserCapabilities(BrowseTheWeb ability, RemoteWebDriverFromEnvironmentFactory factory)
+    void ConfigureBrowserCapabilities(BrowseTheWeb ability, IWebDriverFactory factory)
     {
-      var browserName = factory.GetResolvedBrowserName();
+      var browserName = factory.GetBrowserName();
 
       ability.AddCapabilityExceptWhereUnsupported(Capabilities.ClearDomainCookies, browserName, "Edge");
     }
