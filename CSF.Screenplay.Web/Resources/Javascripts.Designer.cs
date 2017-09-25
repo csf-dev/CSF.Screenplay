@@ -52,5 +52,17 @@ namespace CSF.Screenplay.Web.Resources {
                 return ResourceManager.GetString("GetDocumentReadyState", resourceCulture);
             }
         }
+        
+        internal static string GetLocalisedDate {
+            get {
+                return ResourceManager.GetString("GetLocalisedDate", resourceCulture);
+            }
+        }
+        
+        internal static string SetValueById {
+            get {
+                return ResourceManager.GetString("SetValueById", resourceCulture);
+            }
+        }
     }
 }

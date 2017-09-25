@@ -163,6 +163,12 @@
     <Compile Include="Abilities\MissingCapabilityException.cs" />
     <Compile Include="Reporting\OptionCollectionFormatter.cs" />
     <Compile Include="Reporting\ElementCollectionFormatter.cs" />
+    <Compile Include="Tasks\EnterTheDateIntoAnHtml5InputTypeDate.cs" />
+    <Compile Include="Tasks\GetTheLocaleFormattedDate.cs" />
+    <Compile Include="Tasks\EnterTheDateAsAnIsoFormattedString.cs" />
+    <Compile Include="Tasks\EnterTheDate.cs" />
+    <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
+    <Compile Include="Models\InvalidTargetException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

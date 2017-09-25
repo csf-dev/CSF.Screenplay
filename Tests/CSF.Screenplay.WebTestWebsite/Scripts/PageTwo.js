@@ -20,7 +20,9 @@
     singleSelection = $('#single_selection'),
     singleSelectionValue = $('#single_selected_value'),
     multiSelection = $('#multiple_selection'),
-    multiSelectionValue = $('#multiple_selected_value');
+    multiSelectionValue = $('#multiple_selected_value'),
+    dateInput = $('#DateInput'),
+    dateOutput = $('#DateOutput');
   
   function recalculateSelections(selection, value)
   {
@@ -39,6 +41,10 @@
   multiSelection.on('change click', function() {
     recalculateSelections(multiSelection, multiSelectionValue);
   });
+
+  dateInput.on('change click keyup', function() {
+    dateOutput.text(dateInput.val());
+  })
   
   function addCallableScripts()
   {

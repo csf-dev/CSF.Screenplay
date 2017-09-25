@@ -14,6 +14,12 @@ namespace CSF.Screenplay.Web.Models
   {
     readonly string identifier, name;
 
+    /// <summary>
+    /// Gets the value of the string element identifier;
+    /// </summary>
+    /// <value>The identifier value.</value>
+    public string IdentifierValue => identifier;
+
     string IHasTargetName.GetName() => name;
 
     By ILocatorBasedTarget.GetWebDriverLocator() => GetWebDriverLocator(identifier);

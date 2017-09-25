@@ -26,11 +26,7 @@ namespace CSF.Screenplay.Web.Tests.Actions
 
       Given(joe).WasAbleTo(new EnterTextIntoThePageTwoInputField("Some text"));
 
-      When(joe).AttemptsTo(Clear.TheContentsOf(PageTwo.SpecialInputField));
-
-      Then(joe).ShouldSee(TheValue.Of(PageTwo.SpecialInputField))
-               .Should()
-               .BeEmpty();
+      Assert.DoesNotThrow(() => When(joe).AttemptsTo(ClearTheirBrowser.Cookies()));
     }
   }
 }

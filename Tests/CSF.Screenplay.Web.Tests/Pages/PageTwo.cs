@@ -28,5 +28,9 @@ namespace CSF.Screenplay.Web.Tests.Pages
     public static ILocatorBasedTarget ItemsInTheList => new CssSelector("#list_of_items li", "items in the list");
 
     public static ITarget JavaScriptResult => new ElementId("ScriptOutput", "the Javascript output");
+
+    public static ILocatorBasedTarget DateInput = new ElementId("DateInput", "the date input field");
+
+    public static ILocatorBasedTarget DateOutput = new ElementId("DateOutput", "the date display");
   }
 }
