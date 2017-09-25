@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.5.1</ReleaseVersion>
+    <ReleaseVersion>0.6.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
