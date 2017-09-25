@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.5.1</ReleaseVersion>
+    <ReleaseVersion>0.6.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -100,7 +100,7 @@
     <Compile Include="Builders\Elements.cs" />
     <Compile Include="ElementMatching\Matcher`1.cs" />
     <Compile Include="Builders\ElementsWithin.cs" />
-    <Compile Include="Builders\ElementsOnPage.cs" />
+    <Compile Include="Builders\ElementsInThePageBody.cs" />
     <Compile Include="Questions\TargettedMultiQuestion`1.cs" />
     <Compile Include="Questions\Question.cs" />
     <Compile Include="ElementMatching\AndMatcher.cs" />
@@ -144,6 +144,31 @@
     <Compile Include="WebBrowsingRegistryExtensions.cs" />
     <Compile Include="WebBrowsingResolverExtensions.cs" />
     <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
+    <Compile Include="Actions\ClearTheContents.cs" />
+    <Compile Include="Builders\Clear.cs" />
+    <Compile Include="Actions\ExecuteJavaScript.cs" />
+    <Compile Include="Actions\ExecuteJavaScriptAndGetResult.cs" />
+    <Compile Include="Waits\WaitUntilThePageLoads.cs" />
+    <Compile Include="Resources\Javascripts.Designer.cs">
+      <DependentUpon>Javascripts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Builders\Execute.cs" />
+    <Compile Include="Tasks\NavigateToNewPageByClicking.cs" />
+    <Compile Include="Waits\WaitForACondition.cs" />
+    <Compile Include="Builders\Navigate.cs" />
+    <Compile Include="Models\TimespanBuilder.cs" />
+    <Compile Include="Questions\GetElement.cs" />
+    <Compile Include="Builders\Get.cs" />
+    <Compile Include="Abilities\Capabilities.cs" />
+    <Compile Include="Abilities\MissingCapabilityException.cs" />
+    <Compile Include="Reporting\OptionCollectionFormatter.cs" />
+    <Compile Include="Reporting\ElementCollectionFormatter.cs" />
+    <Compile Include="Tasks\EnterTheDateIntoAnHtml5InputTypeDate.cs" />
+    <Compile Include="Tasks\GetTheLocaleFormattedDate.cs" />
+    <Compile Include="Tasks\EnterTheDateAsAnIsoFormattedString.cs" />
+    <Compile Include="Tasks\EnterTheDate.cs" />
+    <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
+    <Compile Include="Models\InvalidTargetException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -168,6 +193,16 @@
     <Folder Include="ElementMatching\" />
     <Folder Include="Queries\" />
     <Folder Include="Waits\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Tasks\" />
+    <Folder Include="Reporting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Javascripts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>Javascripts.resources</LogicalName>
+      <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

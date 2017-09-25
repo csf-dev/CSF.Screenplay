@@ -118,8 +118,7 @@ namespace CSF.Screenplay.NUnit
     /// <param name="test">Test.</param>
     public static bool GetSuccess(ITest test)
     {
-      // TODO: I'm not sure if this is thread-safe or not.
-      // More research is required to determine if that's the case or not.
+      // TODO: #96 - is this call to TestContext.CurrentContext thread-safe or not?
       var result = TestContext.CurrentContext.Result;
       return result.Outcome.Status == TestStatus.Passed;
     }

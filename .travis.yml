@@ -37,6 +37,6 @@ matrix:
       - BROWSER_PLATFORM="macOS 10.12"
       - BROWSER_NAME="Safari"
 
-install: ./.travis.install.sh
+install: Tools/Travis.install.sh
 
-script: travis_wait 30 ./.travis.build.sh
+script: Tools/Travis.build.sh

@@ -24,6 +24,13 @@
     There is an important number on this page as well, which is also read by the testing framework.<br>
     That number is <strong id="important_number">42</strong>.
   </p>
+  <h2>Slow loading link</h2>
+  <p>
+    A delay of <strong tal:content="string:${here/LoadingPause} seconds"
+                       id="load_delay">5 seconds</strong> was added to the
+    load-time of this page.
+    <a id="load_in_2_seconds" href="Home?delay=2">Reload with a 2-second delay</a>.
+  </p>
 </div>
 <footer>Common page footer</footer>
 </body>

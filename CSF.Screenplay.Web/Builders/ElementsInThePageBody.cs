@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Web.Builders
   /// <summary>
   /// A builder type which returns a collection of matching elements from the current page.
   /// </summary>
-  public class ElementsOnPage
+  public class ElementsInThePageBody
   {
     ILocatorBasedTarget innerTarget;
     IMatcher matcher;
@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Web.Builders
     /// </summary>
     /// <returns>The builder instance.</returns>
     /// <param name="target">A target specification.</param>
-    public ElementsOnPage ThatAre(ILocatorBasedTarget target)
+    public ElementsInThePageBody ThatAre(ILocatorBasedTarget target)
     {
       this.innerTarget = target;
       return this;
@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Web.Builders
     /// </summary>
     /// <returns>The builder instance.</returns>
     /// <param name="matcher">A matcher instance.</param>
-    public ElementsOnPage That(IMatcher matcher)
+    public ElementsInThePageBody That(IMatcher matcher)
     {
       this.matcher = matcher;
       return this;

@@ -2,7 +2,7 @@
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: .appveyor.before_build.bat
+- cmd: Tools\Appveyor.before_build.bat
 services:
   - iis
 build:
@@ -24,4 +24,4 @@ deploy:
     TestWebsite.site_name: "Test Web Site"
     TestWebsite.port: 8080
 after_deploy:
-- cmd: .appveyor.after_deploy.bat
+- cmd: Tools\Appveyor.after_deploy.bat

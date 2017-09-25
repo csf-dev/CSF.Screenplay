@@ -59,8 +59,21 @@
         <option value="meat" selected>Steak</option>
         <option value="drink">Coffee</option>
       </select>
+      <h2>HTML 5 date field</h2>
+      <p>
+        This is an HTML 5 date field, some browsers will treat it specially and render it with a date-picker.
+        Others will degrade back to standard text input behaviour. The date which is currently displayed is
+        <strong id="DateOutput">2011-03-04</strong>.
+      </p>
+      <input type="date" value="2011-03-04" id="DateInput" />
     </fieldset>
   </form>
+  <h2>Script output</h2>
+  <p>
+    The following container shows the output from scripts:
+  </p>
+  <div id="ScriptOutput"></div>
+
   <script src="Scripts/jquery-3.2.1.min.js"></script>
   <script src="Scripts/PageTwo.js"></script>
 </div>

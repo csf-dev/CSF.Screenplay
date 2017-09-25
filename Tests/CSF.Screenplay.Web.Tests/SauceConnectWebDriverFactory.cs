@@ -39,8 +39,6 @@ namespace CSF.Screenplay.Web.Tests
 
     string GetCommitHash() => Environment.GetEnvironmentVariable(TravisCommitEnvVariable);
 
-    string GetBrowserName() => Environment.GetEnvironmentVariable(BrowserNameEnvVariable);
-
     string GetJobNumber() => Environment.GetEnvironmentVariable(TravisJobNumberEnvVariable);
 
     string GetSauceBuildName() => $"Travis job {GetJobNumber()}; {GetBrowserName()}";

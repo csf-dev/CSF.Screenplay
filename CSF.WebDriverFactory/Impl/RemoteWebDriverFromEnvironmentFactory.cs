@@ -48,6 +48,27 @@ namespace CSF.WebDriverFactory.Impl
     public string CommandTimeoutSecondsVar { get; set; }
 
     /// <summary>
+    /// Gets the name of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser name.</returns>
+    public override string GetBrowserName() => GetFromEnvironmentOrSetting(BrowserNameVar, BrowserName);
+
+    /// <summary>
+    /// Gets the version of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser version.</returns>
+    public override string GetBrowserVersion() => GetFromEnvironmentOrSetting(BrowserVersionVar, BrowserVersion);
+
+    /// <summary>
+    /// Gets the resolved platform name.
+    /// </summary>
+    /// <returns>The resolved platform.</returns>
+    public virtual string GetPlatform()
+    {
+      return GetFromEnvironmentOrSetting(PlatformVar, Platform);
+    }
+
+    /// <summary>
     /// Gets the URI to the remote web driver.
     /// </summary>
     /// <returns>The remote URI.</returns>
@@ -105,14 +126,22 @@ namespace CSF.WebDriverFactory.Impl
     /// <param name="envName">The name of an environment variable from which to get a value.</param>
     protected virtual void SetCapabilityToEnvOrSetting(DesiredCapabilities caps, string name, string envName, string value)
     {
-      if(String.IsNullOrEmpty(envName))
-      {
-        base.SetCapabilityIfNotNull(caps, name, value);
-        return;
-      }
+      var resolvedValue = GetFromEnvironmentOrSetting(envName, value);
+      base.SetCapabilityIfNotNull(caps, name, resolvedValue);
+    }
 
-      var val = GetEnv(envName);
-      caps.SetCapability(name, val);
+    /// <summary>
+    /// Gets a value from either the environment variable or a provided setting.
+    /// </summary>
+    /// <returns>The resolved value.</returns>
+    /// <param name="envName">Environment variable name.</param>
+    /// <param name="value">The provided setting.</param>
+    protected virtual string GetFromEnvironmentOrSetting(string envName, string value)
+    {
+      if(String.IsNullOrEmpty(envName))
+        return value;
+
+      return GetEnv(envName);
     }
 
     string GetEnv(string name)

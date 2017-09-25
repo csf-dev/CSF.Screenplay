@@ -10,6 +10,15 @@ MAX_ATTEMPTS="10"
 
 app_available=1
 
+stop_if_already_started()
+{
+  if [ -f "$SERVER_PID" ]
+  then
+    echo "Stopping a running webserver first ..."
+    Tools/Stop-webserver.sh
+  fi
+}
+
 start_webserver()
 {
   echo "Starting the app on a web server ..."
@@ -51,6 +60,7 @@ try_web_app_connection()
   fi
 }
 
+stop_if_already_started
 start_webserver
 wait_for_app_to_become_available
 

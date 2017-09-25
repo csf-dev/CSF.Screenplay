@@ -35,6 +35,18 @@ namespace CSF.WebDriverFactory.Impl
     public string BrowserExecutablePath { get; set; }
 
     /// <summary>
+    /// Gets the name of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser name.</returns>
+    public string GetBrowserName() => "Chrome";
+
+    /// <summary>
+    /// Gets the version of the web browser that this factory will create.
+    /// </summary>
+    /// <returns>The browser version.</returns>
+    public string GetBrowserVersion() => null;
+
+    /// <summary>
     /// Gets the web driver.
     /// </summary>
     /// <returns>The web driver.</returns>

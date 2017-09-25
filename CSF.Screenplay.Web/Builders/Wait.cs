@@ -31,6 +31,13 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
+    /// Gets a builder instance for a wait with a specified timeout.
+    /// </summary>
+    /// <returns>A timespan builder.</returns>
+    /// <param name="timespan">The amount of time to wait.</param>
+    public static Wait ForAtMost(TimeSpan timespan) => new Wait { timespanProvider = new TimespanWrapper(timespan) };
+
+    /// <summary>
     /// Gets a builder for a general-purpose wait.
     /// </summary>
     /// <param name="timeValue">Time value.</param>
@@ -40,7 +47,7 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Gets a builder for a given target, with the default 10-second timeout.
+    /// Gets a builder for a given target, with the default timeout.
     /// </summary>
     /// <returns>A wait builder.</returns>
     /// <param name="target">Target.</param>
@@ -57,6 +64,29 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
+    /// Gets a wait action for a given condition.
+    /// </summary>
+    /// <returns>A wait builder.</returns>
+    /// <param name="expectedCondition">An expected condition.</param>
+    /// <param name="conditionName">A name for the condition.</param>
+    public static IPerformable Until(Func<IWebDriver,bool> expectedCondition, string conditionName)
+    {
+      return new WaitForACondition(expectedCondition, conditionName, DefaultTimeout.GetTimespan());
+    }
+
+    /// <summary>
+    /// Gets a 'wait' performable which completes once the page has finished loading, using the default timeout.
+    /// </summary>
+    /// <returns>The performable.</returns>
+    public static IPerformable UntilThePageLoads() => new WaitUntilThePageLoads(DefaultTimeout.GetTimespan());
+
+    /// <summary>
+    /// Gets a 'wait' performable which completes once the page has finished loading.
+    /// </summary>
+    /// <returns>The performable.</returns>
+    public IPerformable OrUntilThePageLoads() => new WaitUntilThePageLoads(timespanProvider.GetTimespan());
+
+    /// <summary>
     /// Gets a wait builder for a given target.
     /// </summary>
     /// <returns>A wait builder.</returns>
@@ -70,6 +100,17 @@ namespace CSF.Screenplay.Web.Builders
 
       this.target = target;
       return this;
+    }
+
+    /// <summary>
+    /// Gets a wait action for a given condition.
+    /// </summary>
+    /// <returns>A wait builder.</returns>
+    /// <param name="expectedCondition">An expected condition.</param>
+    /// <param name="conditionName">A name for the condition.</param>
+    public IPerformable OrUntil(Func<IWebDriver,bool> expectedCondition, string conditionName)
+    {
+      return new WaitForACondition(expectedCondition, conditionName, timespanProvider.GetTimespan());
     }
 
     /// <summary>
