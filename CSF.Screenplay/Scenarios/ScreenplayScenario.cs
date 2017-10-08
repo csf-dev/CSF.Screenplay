@@ -64,6 +64,7 @@ namespace CSF.Screenplay.Scenarios
       var args = new BeginScenarioEventArgs {
         FeatureId = FeatureId,
         ScenarioId = ScenarioId,
+        ScenarioIdentity = Identity,
       };
       BeginScenario?.Invoke(this, args);
     }
@@ -77,6 +78,7 @@ namespace CSF.Screenplay.Scenarios
         FeatureId = FeatureId,
         ScenarioId = ScenarioId,
         ScenarioIsSuccess = success,
+        ScenarioIdentity = Identity,
       };
       EndScenario?.Invoke(this, args);
     }

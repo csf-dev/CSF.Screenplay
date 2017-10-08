@@ -470,6 +470,7 @@ namespace CSF.Screenplay.Actors
     /// Initializes a new instance of the <see cref="Actor"/> class.
     /// </summary>
     /// <param name="name">The actor's name.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     public Actor(string name, Guid scenarioIdentity)
     {
       if(name == null)

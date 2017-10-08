@@ -139,6 +139,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The actor.</returns>
     /// <param name="name">The actor's name.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected virtual IActor CreateActor(string name, Guid scenarioIdentity)
     {
       var actor = new Actor(name, scenarioIdentity);
