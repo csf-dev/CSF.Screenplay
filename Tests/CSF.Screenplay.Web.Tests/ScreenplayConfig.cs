@@ -1,4 +1,5 @@
-﻿using CSF.Screenplay.Integration;
+﻿using System.Collections.Generic;
+using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
@@ -27,24 +28,23 @@ namespace CSF.Screenplay.Web.Tests
           .WithFormatter<ElementCollectionFormatter>();
       });
       builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
-      builder.UseWebDriverFactory(CustomiseWebDriver);
+      builder.UseWebDriverFactory();
+      builder.UseWebDriver(GetWebDriver);
       builder.UseWebBrowser(GetWebBrowser);
     }
 
-    void CustomiseWebDriver(IServiceResolver scenario, IWebDriver driver)
+    IWebDriver GetWebDriver(IServiceResolver scenario)
     {
-      var factory = scenario.GetOptionalService<IWebDriverFactory>();
-      if(factory == null) return;
+      var factory = scenario.GetService<IWebDriverFactory>();
 
-      ConfigureTestName(scenario, factory);
-    }
+      var caps = new Dictionary<string,object>();
+      if(factory is SauceConnectWebDriverFactory)
+      {
+        var testName = GetTestName(scenario);
+        caps.Add(WebDriverFactory.Impl.SauceConnectWebDriverFactory.TestNameCapability, testName);
+      }
 
-    void ConfigureTestName(IServiceResolver scenario, IWebDriverFactory factory)
-    {
-      var sauceFactory = factory as SauceConnectWebDriverFactory;
-      if(sauceFactory == null) return;
-
-      sauceFactory.SauceTestNameCallback = () => GetTestName(scenario);
+      return factory.GetWebDriver(caps);
     }
 
     BrowseTheWeb GetWebBrowser(IServiceResolver scenario)

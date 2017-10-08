@@ -8,7 +8,6 @@ namespace CSF.Screenplay.Web.Tests
       TunnelIdEnvVariable = "TRAVIS_JOB_NUMBER",
       SauceUsernameEnvVariable = "SAUCE_USERNAME",
       SauceApiKeyEnvVariable = "SAUCE_ACCESS_KEY",
-      TestNameCapability = "name",
       TravisJobNumberEnvVariable = "TRAVIS_JOB_NUMBER";
 
     protected override string GetSauceUsername() => Environment.GetEnvironmentVariable(SauceUsernameEnvVariable);

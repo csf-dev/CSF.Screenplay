@@ -19,7 +19,6 @@ namespace CSF.Screenplay.Web
     /// <param name="customisationCallback">Customisation callback.</param>
     /// <param name="name">Name.</param>
     public static void UseWebDriverFactory(this IIntegrationConfigBuilder builder,
-                                           Action<IServiceResolver,IWebDriver> customisationCallback = null,
                                            string name = null)
     {
       if(builder == null)
@@ -28,13 +27,6 @@ namespace CSF.Screenplay.Web
       builder.RegisterServices.Add(cfg => {
         cfg.RegisterSingleton(GetWebDriverFactory, name);
       });
-
-      builder.UseWebDriver(resolver => {
-        var output = resolver.GetService<IWebDriverFactory>(name).GetWebDriver();
-        if(customisationCallback != null)
-          customisationCallback(resolver, output);
-        return output;
-      }, name);
     }
 
     /// <summary>

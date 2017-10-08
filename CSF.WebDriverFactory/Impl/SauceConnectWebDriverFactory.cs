@@ -13,9 +13,15 @@ namespace CSF.WebDriverFactory.Impl
       TunnelIdCapability = "tunnel-identifier",
       UsernameCapability = "username",
       ApiKeyCapability = "accessKey",
-      TestNameCapability = "name",
+      TestNameCapabilityName = "name",
       BuildNameCapability = "build",
       PassedScriptTemplate = "sauce:job-result={0}";
+
+    /// <summary>
+    /// Gets the name of the capability which provides the test name.
+    /// </summary>
+    /// <value>The test name capability.</value>
+    public static string TestNameCapability => TestNameCapabilityName;
 
     /// <summary>
     /// Configures the capabilities desired for the current instance.
@@ -25,7 +31,6 @@ namespace CSF.WebDriverFactory.Impl
     {
       base.ConfigureCapabilities(caps);
       ConfigureSauceConnectCapabilities(caps);
-      ConfigureSauceConnectTestName(caps);
     }
 
     /// <summary>
@@ -38,20 +43,6 @@ namespace CSF.WebDriverFactory.Impl
       caps.SetCapability(UsernameCapability, GetSauceUsername());
       caps.SetCapability(ApiKeyCapability, GetSauceAccessKey());
       caps.SetCapability(BuildNameCapability, GetSauceBuildName());
-    }
-
-    /// <summary>
-    /// Configures the optional 'test name' Sauce Connect capability.
-    /// </summary>
-    /// <param name="caps">Caps.</param>
-    protected virtual void ConfigureSauceConnectTestName(OpenQA.Selenium.Remote.DesiredCapabilities caps)
-    {
-      if(SauceTestNameCallback == null)
-        return;
-
-      var testName = SauceTestNameCallback();
-      if(testName != null)
-        caps.SetCapability(TestNameCapability, testName);
     }
 
     /// <summary>
@@ -77,12 +68,6 @@ namespace CSF.WebDriverFactory.Impl
     /// </summary>
     /// <returns>The sauce build name.</returns>
     protected abstract string GetSauceBuildName();
-
-    /// <summary>
-    /// An optional function/callback which provides the name of the current test scenario (the Sauce Labs 'test name').
-    /// </summary>
-    /// <returns>The sauce test name callback.</returns>
-    public virtual Func<string> SauceTestNameCallback { get; set; }
 
     /// <summary>
     /// Marks the web driver as having passed the current test scenario.
