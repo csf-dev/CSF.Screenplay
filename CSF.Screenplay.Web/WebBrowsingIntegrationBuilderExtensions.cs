@@ -2,6 +2,7 @@
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
+using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web
@@ -29,6 +30,18 @@ namespace CSF.Screenplay.Web
 
       helper.RegisterServices.Add((builder) => {
         builder.RegisterPerScenario(factory, name);
+      });
+      helper.AfterScenario.Add(scenario => {
+        var wdFactory = scenario.GetOptionalService<IWebDriverFactory>(name);
+        if(wdFactory == null) return;
+        if(!scenario.Success.HasValue) return;
+
+        var driver = scenario.GetService<IWebDriver>(name);
+        var success = scenario.Success.Value;
+        if(success)
+          wdFactory.MarkTestAsPassed(driver);
+        else
+          wdFactory.MarkTestAsFailed(driver);
       });
     }
 

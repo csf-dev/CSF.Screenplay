@@ -58,6 +58,8 @@ namespace CSF.Screenplay.Integration
     /// <param name="success">If set to <c>true</c> success.</param>
     public void AfterScenario(IScreenplayScenario scenario, bool success)
     {
+      scenario.Success = success;
+
       if(scenario is ICanBeginAndEndScenario)
         ((ICanBeginAndEndScenario) scenario).End(success);
 

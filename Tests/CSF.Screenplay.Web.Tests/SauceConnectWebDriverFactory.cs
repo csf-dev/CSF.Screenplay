@@ -1,46 +1,24 @@
 ﻿using System;
-using CSF.WebDriverFactory.Impl;
 
 namespace CSF.Screenplay.Web.Tests
 {
-  public class SauceConnectWebDriverFactory : RemoteWebDriverFromEnvironmentFactory
+  public class SauceConnectWebDriverFactory : CSF.WebDriverFactory.Impl.SauceConnectWebDriverFactory
   {
-    internal const string
-      TunnelIdCapability = "tunnel-identifier",
-      UsernameCapability = "username",
-      ApiKeyCapability = "accessKey",
+    const string
       TunnelIdEnvVariable = "TRAVIS_JOB_NUMBER",
       SauceUsernameEnvVariable = "SAUCE_USERNAME",
       SauceApiKeyEnvVariable = "SAUCE_ACCESS_KEY",
       TestNameCapability = "name",
-      BuildNameCapability = "build",
-      TravisBuildNumberEnvVariable = "TRAVIS_BUILD_NUMBER",
-      TravisCommitEnvVariable = "TRAVIS_COMMIT",
-      BrowserNameEnvVariable = "BROWSER_NAME",
       TravisJobNumberEnvVariable = "TRAVIS_JOB_NUMBER";
 
-    protected override void ConfigureCapabilities(OpenQA.Selenium.Remote.DesiredCapabilities caps)
-    {
-      base.ConfigureCapabilities(caps);
+    protected override string GetSauceUsername() => Environment.GetEnvironmentVariable(SauceUsernameEnvVariable);
 
-      caps.SetCapability(TunnelIdCapability, GetTunnelId());
-      caps.SetCapability(UsernameCapability, GetSauceUsername());
-      caps.SetCapability(ApiKeyCapability, GetSauceAccessKey());
-      caps.SetCapability(BuildNameCapability, GetSauceBuildName());
-    }
+    protected override string GetSauceAccessKey() => Environment.GetEnvironmentVariable(SauceApiKeyEnvVariable);
 
-    string GetTunnelId() => Environment.GetEnvironmentVariable(TunnelIdEnvVariable);
+    protected override string GetSauceTunnelId() => Environment.GetEnvironmentVariable(TunnelIdEnvVariable);
 
-    string GetSauceUsername() => Environment.GetEnvironmentVariable(SauceUsernameEnvVariable);
-
-    string GetSauceAccessKey() => Environment.GetEnvironmentVariable(SauceApiKeyEnvVariable);
-
-    string GetBuildNumber() => Environment.GetEnvironmentVariable(TravisBuildNumberEnvVariable);
-
-    string GetCommitHash() => Environment.GetEnvironmentVariable(TravisCommitEnvVariable);
+    protected override string GetSauceBuildName()=> $"Travis job {GetJobNumber()}; {GetBrowserName()}";
 
     string GetJobNumber() => Environment.GetEnvironmentVariable(TravisJobNumberEnvVariable);
-
-    string GetSauceBuildName() => $"Travis job {GetJobNumber()}; {GetBrowserName()}";
   }
 }

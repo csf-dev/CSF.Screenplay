@@ -12,6 +12,12 @@ namespace CSF.Screenplay.Scenarios
     readonly Guid identity;
 
     /// <summary>
+    /// Gets a value which indicates whether or not the scenario was a success.
+    /// </summary>
+    /// <value>The success.</value>
+    public bool? Success { get; set; }
+
+    /// <summary>
     /// Gets a unique identity for the the current scenario instance.
     /// </summary>
     /// <value>The scenario identity.</value>

@@ -40,14 +40,17 @@ namespace CSF.Screenplay.Web.Tests
       var provider = new ConfigurationWebDriverFactoryProvider();
       var factory = provider.GetFactory();
 
-      var caps = new Dictionary<string,object>();
+      ConfigureTestName(scenario, factory);
 
-      if(factory is SauceConnectWebDriverFactory)
-      {
-        caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
-      }
+      return factory.GetWebDriver();
+    }
 
-      return factory.GetWebDriver(caps);
+    void ConfigureTestName(IServiceResolver scenario, IWebDriverFactory factory)
+    {
+      var sauceFactory = factory as SauceConnectWebDriverFactory;
+      if(sauceFactory == null) return;
+
+      sauceFactory.SauceTestNameCallback = () => GetTestName(scenario);
     }
 
     BrowseTheWeb GetWebBrowser(IServiceResolver scenario)
