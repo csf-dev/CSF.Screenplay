@@ -101,7 +101,9 @@ namespace CSF.Screenplay.Reporting
 
       if(reportable.Outcome == Outcome.SuccessWithResult)
         WriteResult(reportable, currentIndentLevel);
-      else if(reportable.Outcome == Outcome.Failure || reportable.Outcome == Outcome.FailureWithException)
+      else if(reportable.Outcome == Outcome.Failure)
+        WriteFailure(reportable, currentIndentLevel);
+      else if(reportable.Outcome == Outcome.FailureWithException && !reportable.Reportables.Any())
         WriteFailure(reportable, currentIndentLevel);
 
       foreach(var child in reportable.Reportables)
