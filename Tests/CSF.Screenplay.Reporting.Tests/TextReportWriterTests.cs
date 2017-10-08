@@ -87,6 +87,51 @@ Given Joe does a thing
     }
 
     [Test,AutoMoqData]
+    public void Reported_exceptions_should_not_be_duplicated_up_the_reporting_chain(IActor actor,
+                                                                                    IPerformable performable,
+                                                                                    IPerformable childPerformable,
+                                                                                    string id,
+                                                                                    string name,
+                                                                                    string feature,
+                                                                                    Exception error)
+    {
+      // Arrange
+      var expected = $@"
+Feature:  {feature}
+Scenario: {name}
+**** Success ****
+Given Joe does a thing
+          Joe does a different thing
+          FAILED with an exception:
+{error.ToString()}
+";
+
+      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
+      Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
+
+      var scenario = new Models.Scenario(id, name, feature);
+      var parentPerformance = new Performance(actor,
+                                              Outcome.FailureWithException,
+                                              performable,
+                                              PerformanceType.Given,
+                                              exception: error);
+      var childPerformance = new Performance(actor,
+                                             Outcome.FailureWithException,
+                                             childPerformable,
+                                             PerformanceType.Given,
+                                             exception: error);
+      parentPerformance.Reportables.Add(childPerformance);
+      scenario.Reportables.Add(parentPerformance);
+      var report = new Report(new [] { scenario });
+
+      // Act
+      var result = ExerciseSut(report);
+
+      // Assert
+      Assert.That(result, Is.EqualTo(expected));
+    }
+
+    [Test,AutoMoqData]
     public void Feature_name_is_omitted_if_not_provided(IActor actor,
                                                         IPerformable performable,
                                                         string id,
