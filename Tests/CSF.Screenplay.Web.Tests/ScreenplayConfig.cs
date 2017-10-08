@@ -27,18 +27,16 @@ namespace CSF.Screenplay.Web.Tests
           .WithFormatter<ElementCollectionFormatter>();
       });
       builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
-      builder.UseWebDriver(GetWebDriver);
+      builder.UseWebDriverFactory(CustomiseWebDriver);
       builder.UseWebBrowser(GetWebBrowser);
     }
 
-    IWebDriver GetWebDriver(IServiceResolver scenario)
+    void CustomiseWebDriver(IServiceResolver scenario, IWebDriver driver)
     {
-      var provider = new ConfigurationWebDriverFactoryProvider();
-      var factory = provider.GetFactory();
+      var factory = scenario.GetOptionalService<IWebDriverFactory>();
+      if(factory == null) return;
 
       ConfigureTestName(scenario, factory);
-
-      return factory.GetWebDriver();
     }
 
     void ConfigureTestName(IServiceResolver scenario, IWebDriverFactory factory)
@@ -51,11 +49,10 @@ namespace CSF.Screenplay.Web.Tests
 
     BrowseTheWeb GetWebBrowser(IServiceResolver scenario)
     {
-      var provider = new ConfigurationWebDriverFactoryProvider();
-      var factory = provider.GetFactory();
-
+      var factory = scenario.GetOptionalService<IWebDriverFactory>();
       var driver = scenario.GetService<IWebDriver>();
       var transformer = scenario.GetOptionalService<IUriTransformer>();
+
       var ability = new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
 
       ConfigureBrowserCapabilities(ability, factory);
