@@ -45,9 +45,9 @@ namespace CSF.Screenplay.NUnit
     public void AfterTest(ITest test)
     {
       var scenario = ScenarioAdapter.GetScenario(test);
-      var success = ScenarioAdapter.GetSuccess(test);
+      var outcome = GetOutcome(test);
       var integration = integrationReader.GetIntegration(test);
-      integration.AfterScenario(scenario, success);
+      integration.AfterScenario(scenario, outcome);
     }
 
     /// <summary>
@@ -61,6 +61,17 @@ namespace CSF.Screenplay.NUnit
       var scenario = CreateScenario(method, suite);
       suite.Properties.Add(ScenarioAdapter.ScreenplayScenarioKey, scenario);
       return BuildFrom(method, suite, scenario);
+    }
+
+    bool? GetOutcome(ITest test)
+    {
+      var success = ScenarioAdapter.GetSuccess(test);
+      var failure = ScenarioAdapter.GetFailure(test);
+
+      if(success) return true;
+      if(failure) return false;
+
+      return null;
     }
 
     IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, IScreenplayScenario scenario)

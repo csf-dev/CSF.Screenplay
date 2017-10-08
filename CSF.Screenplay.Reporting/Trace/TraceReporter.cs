@@ -175,12 +175,12 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
-    /// <param name="success">
+    /// <param name="outcome">
     /// <c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void CompleteScenario(bool success, Guid scenarioIdentity)
+    protected override void CompleteScenario(bool? outcome, Guid scenarioIdentity)
     {
-      var report = new CompleteScenarioReport(success);
+      var report = new CompleteScenarioReport(outcome);
       Trace(TraceConstants.CompleteScenario, report);
     }
 

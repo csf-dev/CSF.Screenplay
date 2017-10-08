@@ -112,7 +112,7 @@ namespace CSF.Screenplay.NUnit
     }
 
     /// <summary>
-    /// Gets the success of a single test.
+    /// Gets a value which indicates whether a single test passed.
     /// </summary>
     /// <returns><c>true</c>, if the test was successful, <c>false</c> otherwise.</returns>
     /// <param name="test">Test.</param>
@@ -120,6 +120,17 @@ namespace CSF.Screenplay.NUnit
     {
       var result = TestContext.CurrentContext.Result;
       return result.Outcome.Status == TestStatus.Passed;
+    }
+
+    /// <summary>
+    /// Gets a value which indicates whether a single test failed.
+    /// </summary>
+    /// <returns><c>true</c>, if the test was a failure, <c>false</c> otherwise.</returns>
+    /// <param name="test">Test.</param>
+    public static bool GetFailure(ITest test)
+    {
+      var result = TestContext.CurrentContext.Result;
+      return result.Outcome.Status == TestStatus.Failed;
     }
 
     /// <summary>

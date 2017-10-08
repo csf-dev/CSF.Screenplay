@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -10,10 +8,9 @@ using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Reporting;
 using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
-using CSF.WebDriverFactory.Impl;
 using OpenQA.Selenium;
 
-[assembly:ScreenplayAssembly(typeof(ScreenplayConfig))]
+[assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
 
 namespace CSF.Screenplay.Web.Tests
 {
@@ -31,20 +28,20 @@ namespace CSF.Screenplay.Web.Tests
           .WithFormatter<ElementCollectionFormatter>();
       });
       builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
+      builder.UseWebDriverFactory();
       builder.UseWebDriver(GetWebDriver);
       builder.UseWebBrowser(GetWebBrowser);
     }
 
     IWebDriver GetWebDriver(IServiceResolver scenario)
     {
-      var provider = new ConfigurationWebDriverFactoryProvider();
-      var factory = provider.GetFactory();
+      var factory = scenario.GetService<IWebDriverFactory>();
 
       var caps = new Dictionary<string,object>();
-
       if(factory is SauceConnectWebDriverFactory)
       {
-        caps.Add(SauceConnectWebDriverFactory.TestNameCapability, GetTestName(scenario));
+        var testName = GetTestName(scenario);
+        caps.Add(WebDriverFactory.Impl.SauceConnectWebDriverFactory.TestNameCapability, testName);
       }
 
       return factory.GetWebDriver(caps);
@@ -52,11 +49,10 @@ namespace CSF.Screenplay.Web.Tests
 
     BrowseTheWeb GetWebBrowser(IServiceResolver scenario)
     {
-      var provider = new ConfigurationWebDriverFactoryProvider();
-      var factory = provider.GetFactory();
-
+      var factory = scenario.GetOptionalService<IWebDriverFactory>();
       var driver = scenario.GetService<IWebDriver>();
       var transformer = scenario.GetOptionalService<IUriTransformer>();
+
       var ability = new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
 
       ConfigureBrowserCapabilities(ability, factory);

@@ -19,12 +19,12 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Finalise the current scenario, recording whether or not it was a success.
     /// </summary>
-    /// <param name="success">If set to <c>true</c> success.</param>
-    public void Finalise(bool success)
+    /// <param name="outcome">If set to <c>true</c> success.</param>
+    public void Finalise(bool? outcome)
     {
       EnsureNotFinalised();
       finalised = true;
-      scenario.IsFailure = !success;
+      scenario.Outcome = outcome;
     }
 
     /// <summary>
@@ -117,7 +117,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void GainAbility(INamed actor, IAbility ability)
     {
       EnsureNotFinalised();
-      var item = new GainAbility(actor, Outcome.Success, ability, currentPerformanceType);
+      var item = new GainAbility(actor, PerformanceOutcome.Success, ability, currentPerformanceType);
       AddReportable(item);
     }
 

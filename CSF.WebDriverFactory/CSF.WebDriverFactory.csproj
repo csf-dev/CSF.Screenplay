@@ -55,6 +55,8 @@
     <Compile Include="Impl\RemoteWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFromEnvironmentFactory.cs" />
     <Compile Include="Impl\SauceConnectWebDriverFactory.cs" />
+    <Compile Include="WebDriverFactoryExtensions.cs" />
+    <Compile Include="IMarksWebDriverWithOutcome.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

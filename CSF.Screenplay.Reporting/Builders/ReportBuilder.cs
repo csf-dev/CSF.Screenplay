@@ -37,13 +37,13 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Reports the end of a scenario.
     /// </summary>
-    /// <param name="isSuccess">If set to <c>false</c> then the scenario is marked as a failure.</param>
+    /// <param name="outcome">If set to <c>false</c> then the scenario is marked as a failure.</param>
     /// <param name="scenarioId">The screenplay scenario identity.</param>
-    public void EndScenario(bool isSuccess,
+    public void EndScenario(bool? outcome,
                             Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);
-      scenario.Finalise(isSuccess);
+      scenario.Finalise(outcome);
     }
 
     /// <summary>

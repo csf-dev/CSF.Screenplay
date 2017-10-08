@@ -42,11 +42,11 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
-    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    /// <param name="outcome"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void CompleteScenario(bool success, Guid scenarioIdentity)
+    protected override void CompleteScenario(bool? outcome, Guid scenarioIdentity)
     {
-      builder.EndScenario(success, scenarioIdentity);
+      builder.EndScenario(outcome, scenarioIdentity);
     }
 
     /// <summary>
