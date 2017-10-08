@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CSF.Screenplay.Integration;
+﻿using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
@@ -10,10 +7,9 @@ using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Reporting;
 using CSF.Screenplay.Web.Tests;
 using CSF.WebDriverFactory;
-using CSF.WebDriverFactory.Impl;
 using OpenQA.Selenium;
 
-[assembly:ScreenplayAssembly(typeof(ScreenplayConfig))]
+[assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
 
 namespace CSF.Screenplay.Web.Tests
 {
