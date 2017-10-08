@@ -8,7 +8,7 @@ using CSF.Screenplay.Reporting;
 using Moq;
 using NUnit.Framework;
 
-namespace CSF.Screenplay.Tests
+namespace CSF.Screenplay.Tests.Actors
 {
   [TestFixture,Parallelizable(ParallelScope.All)]
   public class ActorTests
