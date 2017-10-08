@@ -54,6 +54,7 @@
     <Compile Include="Impl\InternetExplorerWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFromEnvironmentFactory.cs" />
+    <Compile Include="Impl\SauceConnectWebDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
