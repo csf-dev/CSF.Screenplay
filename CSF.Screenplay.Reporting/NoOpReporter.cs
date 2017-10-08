@@ -240,7 +240,7 @@ namespace CSF.Screenplay.Reporting
 
     void OnEndScenario(object sender, EndScenarioEventArgs ev)
     {
-      CompleteScenario(ev.ScenarioIsSuccess, ev.ScenarioIdentity);
+      CompleteScenario(ev.ScenarioOutcome, ev.ScenarioIdentity);
     }
 
     /// <summary>
@@ -260,9 +260,9 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
-    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    /// <param name="outcome"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected virtual void CompleteScenario(bool success, Guid scenarioIdentity) {}
+    protected virtual void CompleteScenario(bool? outcome, Guid scenarioIdentity) {}
 
     #endregion
 

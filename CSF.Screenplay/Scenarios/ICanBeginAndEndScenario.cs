@@ -14,6 +14,6 @@ namespace CSF.Screenplay.Scenarios
     /// <summary>
     /// Marks the scenario as having ended (which may trigger event listeners).
     /// </summary>
-    void End(bool success);
+    void End(bool? success);
   }
 }

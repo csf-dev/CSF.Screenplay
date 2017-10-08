@@ -46,10 +46,10 @@ namespace CSF.Screenplay.Scenarios
     /// <summary>
     /// Notifies subscribers that the scenario has ended.
     /// </summary>
-    /// <param name="success">If set to <c>true</c> then the scenario is a success.</param>
-    public void End(bool success)
+    /// <param name="outcome">If set to <c>true</c> then the scenario is a success.</param>
+    public void End(bool? outcome)
     {
-      OnEndScenario(success);
+      OnEndScenario(outcome);
     }
 
     /// <summary>
@@ -78,12 +78,12 @@ namespace CSF.Screenplay.Scenarios
     /// <summary>
     /// Event invoker for <see cref="EndScenario"/>.
     /// </summary>
-    protected virtual void OnEndScenario(bool success)
+    protected virtual void OnEndScenario(bool? outcome)
     {
       var args = new EndScenarioEventArgs {
         FeatureId = FeatureId,
         ScenarioId = ScenarioId,
-        ScenarioIsSuccess = success,
+        ScenarioOutcome = outcome,
         ScenarioIdentity = Identity,
       };
       EndScenario?.Invoke(this, args);

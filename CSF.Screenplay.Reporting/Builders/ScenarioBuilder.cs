@@ -19,12 +19,12 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Finalise the current scenario, recording whether or not it was a success.
     /// </summary>
-    /// <param name="success">If set to <c>true</c> success.</param>
-    public void Finalise(bool success)
+    /// <param name="outcome">If set to <c>true</c> success.</param>
+    public void Finalise(bool? outcome)
     {
       EnsureNotFinalised();
       finalised = true;
-      scenario.IsFailure = !success;
+      scenario.Outcome = outcome;
     }
 
     /// <summary>

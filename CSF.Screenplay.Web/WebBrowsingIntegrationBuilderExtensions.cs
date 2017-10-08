@@ -16,7 +16,6 @@ namespace CSF.Screenplay.Web
     /// Registers a <see cref="IWebDriverFactory"/> for the creation of web drivers.
     /// </summary>
     /// <param name="builder">Builder.</param>
-    /// <param name="customisationCallback">Customisation callback.</param>
     /// <param name="name">Name.</param>
     public static void UseWebDriverFactory(this IIntegrationConfigBuilder builder,
                                            string name = null)
@@ -48,18 +47,7 @@ namespace CSF.Screenplay.Web
       helper.RegisterServices.Add((builder) => {
         builder.RegisterPerScenario(factory, name);
       });
-      helper.AfterScenario.Add(scenario => {
-        var wdFactory = scenario.GetOptionalService<IWebDriverFactory>(name);
-        if(wdFactory == null) return;
-        if(!scenario.Success.HasValue) return;
-
-        var driver = scenario.GetService<IWebDriver>(name);
-        var success = scenario.Success.Value;
-        if(success)
-          wdFactory.MarkTestAsPassed(driver);
-        else
-          wdFactory.MarkTestAsFailed(driver);
-      });
+      helper.AfterScenario.Add(MarkWebDriverWithOutcome(name));
     }
 
     /// <summary>
@@ -158,6 +146,23 @@ namespace CSF.Screenplay.Web
     {
       var provider = new ConfigurationWebDriverFactoryProvider();
       return provider.GetFactory();
+    }
+
+    static Action<IScreenplayScenario> MarkWebDriverWithOutcome(string name)
+    {
+      return scenario => {
+        var wdFactory = scenario.GetOptionalService<IWebDriverFactory>(name);
+        if(wdFactory == null) return;
+        if(!scenario.Success.HasValue) return;
+
+        var driver = scenario.GetService<IWebDriver>(name);
+
+        var success = scenario.Success.Value;
+        if(success)
+          wdFactory.MarkTestAsPassed(driver);
+        else
+          wdFactory.MarkTestAsFailed(driver);
+      };
     }
   }
 }

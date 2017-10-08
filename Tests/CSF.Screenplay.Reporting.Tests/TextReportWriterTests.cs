@@ -75,7 +75,7 @@ Given Joe does a thing
           .Setup(x => x.GetReport(actor))
           .Returns("Joe does a thing");
 
-      var scenario = new Models.Scenario(id, name, feature) { IsFailure = true };
+      var scenario = new Models.Scenario(id, name, feature) { Outcome = false };
       scenario.Reportables.Add(new Performance(actor, Outcome.Success, performable, PerformanceType.Given));
       var report = new Report(new [] { scenario });
 

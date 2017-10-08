@@ -129,7 +129,12 @@ namespace CSF.Screenplay.Reporting
       writer.WriteLine("**** {0} ****", GetScenarioOutcome(scenario));
     }
 
-    string GetScenarioOutcome(Models.Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
+    string GetScenarioOutcome(Models.Scenario scenario)
+    {
+      if(scenario.IsSuccess) return "Success";
+      if(scenario.IsFailure) return "Failure";
+      return "Inconclusive";
+    }
 
     void WriteIndent(int currentLevel)
     {

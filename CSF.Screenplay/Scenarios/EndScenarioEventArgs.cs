@@ -28,6 +28,6 @@ namespace CSF.Screenplay.Scenarios
     /// Gets or sets a value indicating whether the scenario was a success.
     /// </summary>
     /// <value><c>true</c> if the scenario was a success; otherwise, <c>false</c>.</value>
-    public bool ScenarioIsSuccess { get; set; }
+    public bool? ScenarioOutcome { get; set; }
   }
 }
