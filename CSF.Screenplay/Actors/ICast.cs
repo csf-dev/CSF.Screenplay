@@ -58,25 +58,6 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    IActor Get(string name);
-
-    /// <summary>
-    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
-    /// If this operation leads to the creation of a new actor then it will fire both
-    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
-    /// </summary>
-    /// <returns>The named actor, which might be a newly-created actor.</returns>
-    /// <param name="name">The actor name.</param>
-    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
-    IActor Get(string name, Action<IActor> createCustomisation);
-
-    /// <summary>
-    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
-    /// If this operation leads to the creation of a new actor then it will fire both
-    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
-    /// </summary>
-    /// <returns>The named actor, which might be a newly-created actor.</returns>
-    /// <param name="name">The actor name.</param>
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
     /// <param name="scenario">The current screenplay scenario.</param>
     IActor Get(string name, Action<IActor,IScreenplayScenario> createCustomisation, IScreenplayScenario scenario);
@@ -86,7 +67,8 @@ namespace CSF.Screenplay.Actors
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <param name="name">The actor name.</param>
-    void Add(string name);
+    /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
+    void Add(string name, Guid scenarioIdentity);
 
     /// <summary>
     /// Adds the given actor to the current cast instance.

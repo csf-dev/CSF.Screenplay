@@ -266,7 +266,7 @@ namespace CSF.Screenplay.Tests
       abilities = abilities?? Enumerable.Empty<IAbility>();
       name = name?? "Joe";
 
-      var performer = new Actor(name);
+      var performer = new Actor(name, Guid.NewGuid());
       foreach(var ability in abilities)
       {
         performer.IsAbleTo(ability);
