@@ -75,6 +75,7 @@
     <Compile Include="ObjectFormatterRegistry.cs" />
     <Compile Include="IObjectFormattingService.cs" />
     <Compile Include="ObjectFormattingService.cs" />
+    <Compile Include="Builders\ScenarioBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
