@@ -13,24 +13,17 @@ namespace CSF.Screenplay.Reporting.Tests
   [TestFixture]
   public class TextReportWriterTests
   {
-    StringBuilder sb;
-    IReportWriter sut;
-    TextWriter writer;
-
-    [SetUp]
-    public void Setup()
-    {
-      sb = new StringBuilder();
-      writer = new StringWriter(sb);
-      sut = new TextReportWriter(writer);
-    }
-
     string ExerciseSut(Report report)
     {
-      sut.Write(report);
-      writer.Flush();
-      writer.Dispose();
-      return sb.ToString();
+      var builder = new StringBuilder();
+
+      using(var writer = new StringWriter(builder))
+      {
+        var sut = new TextReportWriter(writer);
+        sut.Write(report);
+      }
+
+      return builder.ToString();
     }
 
     [Test,AutoMoqData]
