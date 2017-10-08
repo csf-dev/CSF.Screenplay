@@ -33,6 +33,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId, Guid scenarioIdentity)
     {
       builder.BeginNewScenario(idName, friendlyName, featureName, featureId, scenarioIdentity);
@@ -42,6 +43,7 @@ namespace CSF.Screenplay.Reporting
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
     /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void CompleteScenario(bool success, Guid scenarioIdentity)
     {
       builder.EndScenario(success, scenarioIdentity);
@@ -61,6 +63,7 @@ namespace CSF.Screenplay.Reporting
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginGiven(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.BeginPerformanceType(Models.PerformanceType.Given, scenarioIdentity);
@@ -70,6 +73,7 @@ namespace CSF.Screenplay.Reporting
     /// Reports that an actor has ended the 'given' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndGiven(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.EndPerformanceType(scenarioIdentity);
@@ -80,6 +84,7 @@ namespace CSF.Screenplay.Reporting
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginWhen(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.BeginPerformanceType(Models.PerformanceType.When, scenarioIdentity);
@@ -89,6 +94,7 @@ namespace CSF.Screenplay.Reporting
     /// Reports that an actor has ended the 'when' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndWhen(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.EndPerformanceType(scenarioIdentity);
@@ -99,6 +105,7 @@ namespace CSF.Screenplay.Reporting
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginThen(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.BeginPerformanceType(Models.PerformanceType.Then, scenarioIdentity);
@@ -108,6 +115,7 @@ namespace CSF.Screenplay.Reporting
     /// Reports that an actor has ended the 'then' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndThen(Actors.INamed actor, Guid scenarioIdentity)
     {
       builder.EndPerformanceType(scenarioIdentity);
@@ -118,6 +126,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="ability">The ability.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void GainAbility(Actors.INamed actor, Abilities.IAbility ability, Guid scenarioIdentity)
     {
       builder.GainAbility(actor, ability, scenarioIdentity);
@@ -128,6 +137,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Begin(Actors.INamed actor, Performables.IPerformable performable, Guid scenarioIdentity)
     {
       builder.BeginPerformance(actor, performable, scenarioIdentity);
@@ -139,6 +149,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="result">The result produced.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Result(Actors.INamed actor, Performables.IPerformable performable, object result, Guid scenarioIdentity)
     {
       builder.RecordResult(performable, result, scenarioIdentity);
@@ -150,6 +161,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="exception">An exception encountered whilst attempting to perform the item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Failure(Actors.INamed actor, Performables.IPerformable performable, Exception exception, Guid scenarioIdentity)
     {
       builder.RecordFailure(performable, exception, scenarioIdentity);
@@ -160,6 +172,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Success(Actors.INamed actor, Performables.IPerformable performable, Guid scenarioIdentity)
     {
       builder.RecordSuccess(performable, scenarioIdentity);

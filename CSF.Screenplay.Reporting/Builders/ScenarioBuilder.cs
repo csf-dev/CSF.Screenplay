@@ -6,6 +6,9 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Builders
 {
+  /// <summary>
+  /// Builder type for the reporting on a single Screenplay Scenario.
+  /// </summary>
   public class ScenarioBuilder
   {
     readonly Scenario scenario;
@@ -13,6 +16,10 @@ namespace CSF.Screenplay.Reporting.Builders
     PerformanceType currentPerformanceType;
     bool finalised;
 
+    /// <summary>
+    /// Finalise the current scenario, recording whether or not it was a success.
+    /// </summary>
+    /// <param name="success">If set to <c>true</c> success.</param>
     public void Finalise(bool success)
     {
       EnsureNotFinalised();
@@ -20,6 +27,10 @@ namespace CSF.Screenplay.Reporting.Builders
       scenario.IsFailure = !success;
     }
 
+    /// <summary>
+    /// Gets the underlying scenario report model.
+    /// </summary>
+    /// <returns>The scenario.</returns>
     public Scenario GetScenario() => scenario;
 
     /// <summary>
@@ -176,6 +187,13 @@ namespace CSF.Screenplay.Reporting.Builders
       return scenario.Reportables;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Builders.ScenarioBuilder"/> class.
+    /// </summary>
+    /// <param name="idName">Identifier name.</param>
+    /// <param name="friendlyName">Friendly name.</param>
+    /// <param name="featureName">Feature name.</param>
+    /// <param name="featureId">Feature identifier.</param>
     public ScenarioBuilder(string idName,
                            string friendlyName,
                            string featureName,

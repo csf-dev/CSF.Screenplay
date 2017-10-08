@@ -6,6 +6,10 @@ namespace CSF.Screenplay.Scenarios
   /// </summary>
   public class EndScenarioEventArgs : EventArgs
   {
+    /// <summary>
+    /// Gets or sets the scenario identity.
+    /// </summary>
+    /// <value>The scenario identity.</value>
     public Guid ScenarioIdentity { get; set; }
 
     /// <summary>

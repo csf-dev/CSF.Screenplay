@@ -17,6 +17,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="ability">The ability.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void GainAbility(INamed actor, IAbility ability, Guid scenarioIdentity)
     {
       var report = new AbilityReport(actor, ability);
@@ -28,6 +29,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Begin(INamed actor, IPerformable performable, Guid scenarioIdentity)
     {
       var report = new BeginReport(actor, performable);
@@ -39,6 +41,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Success(INamed actor, IPerformable performable, Guid scenarioIdentity)
     {
       var report = new SuccessReport(actor, performable);
@@ -51,6 +54,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="result">The result produced.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Result(INamed actor, IPerformable performable, object result, Guid scenarioIdentity)
     {
       var report = new ResultReport(actor, performable, result);
@@ -63,6 +67,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="exception">An exception encountered whilst attempting to perform the item.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void Failure(INamed actor, IPerformable performable, Exception exception, Guid scenarioIdentity)
     {
       var report = new FailureReport(actor, performable, exception);
@@ -74,6 +79,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginGiven(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -84,6 +90,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// Reports that an actor has ended the 'given' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndGiven(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -95,6 +102,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginWhen(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -104,6 +112,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// Reports that an actor has ended the 'when' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndWhen(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -115,6 +124,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginThen(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -125,6 +135,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// Reports that an actor has ended the 'then' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndThen(INamed actor, Guid scenarioIdentity)
     {
       var report = new ActorReport(actor);
@@ -154,6 +165,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId, Guid scenarioIdentity)
     {
       var report = new BeginScenarioReport(idName, friendlyName, featureId, featureName);
@@ -165,6 +177,7 @@ namespace CSF.Screenplay.Reporting.Trace
     /// </summary>
     /// <param name="success">
     /// <c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void CompleteScenario(bool success, Guid scenarioIdentity)
     {
       var report = new CompleteScenarioReport(success);

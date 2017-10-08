@@ -22,6 +22,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void BeginNewScenario(string idName,
                                  string friendlyName,
                                  string featureName,
@@ -36,7 +37,8 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Reports the end of a scenario.
     /// </summary>
-    /// <param name="isSuccess">Optional.  If set to <c>false</c> then the scenario is marked as a failure.</param>
+    /// <param name="isSuccess">If set to <c>false</c> then the scenario is marked as a failure.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void EndScenario(bool isSuccess,
                             Guid scenarioId)
     {
@@ -49,6 +51,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="actor">Actor.</param>
     /// <param name="performable">Performable.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void BeginPerformance(INamed actor, Performables.IPerformable performable,
                                  Guid scenarioId)
     {
@@ -60,6 +63,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Begins reporting of a performance of a given type.
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void BeginPerformanceType(PerformanceType performanceType,
                                      Guid scenarioId)
     {
@@ -72,6 +76,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performable">Performable.</param>
     /// <param name="result">Result.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void RecordResult(Performables.IPerformable performable, object result,
                              Guid scenarioId)
     {
@@ -84,6 +89,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performable">Performable.</param>
     /// <param name="exception">Exception.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void RecordFailure(Performables.IPerformable performable, Exception exception,
                               Guid scenarioId)
     {
@@ -95,6 +101,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Records that the current performable has completed successfully.
     /// </summary>
     /// <param name="performable">Performable.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void RecordSuccess(Performables.IPerformable performable,
                               Guid scenarioId)
     {
@@ -116,6 +123,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
     public void GainAbility(INamed actor, IAbility ability,
                             Guid scenarioId)
     {
