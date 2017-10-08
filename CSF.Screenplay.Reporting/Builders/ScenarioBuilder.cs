@@ -117,7 +117,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void GainAbility(INamed actor, IAbility ability)
     {
       EnsureNotFinalised();
-      var item = new GainAbility(actor, Outcome.Success, ability, currentPerformanceType);
+      var item = new GainAbility(actor, PerformanceOutcome.Success, ability, currentPerformanceType);
       AddReportable(item);
     }
 

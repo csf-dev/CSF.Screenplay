@@ -51,7 +51,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="exception">Exception.</param>
     /// <param name="children">Children.</param>
     public Performance(INamed actor,
-                       Outcome outcome,
+                       PerformanceOutcome outcome,
                        IPerformable performable,
                        PerformanceType performanceType = PerformanceType.Unspecified,
                        object result = null,

@@ -44,7 +44,7 @@
     <Compile Include="Models\Scenario.cs" />
     <Compile Include="Models\Performance.cs" />
     <Compile Include="Models\PerformanceType.cs" />
-    <Compile Include="Models\Outcome.cs" />
+    <Compile Include="Models\PerformanceOutcome.cs" />
     <Compile Include="Models\GainAbility.cs" />
     <Compile Include="Models\Reportable.cs" />
     <Compile Include="Trace\TraceConstants.cs" />

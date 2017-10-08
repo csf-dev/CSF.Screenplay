@@ -99,11 +99,11 @@ namespace CSF.Screenplay.Reporting
       writer.Write(reportable.Performable.GetReport(reportable.Actor));
       writer.WriteLine();
 
-      if(reportable.Outcome == Outcome.SuccessWithResult)
+      if(reportable.Outcome == PerformanceOutcome.SuccessWithResult)
         WriteResult(reportable, currentIndentLevel);
-      else if(reportable.Outcome == Outcome.Failure)
+      else if(reportable.Outcome == PerformanceOutcome.Failure)
         WriteFailure(reportable, currentIndentLevel);
-      else if(reportable.Outcome == Outcome.FailureWithException && !reportable.Reportables.Any())
+      else if(reportable.Outcome == PerformanceOutcome.FailureWithException && !reportable.Reportables.Any())
         WriteFailure(reportable, currentIndentLevel);
 
       foreach(var child in reportable.Reportables)

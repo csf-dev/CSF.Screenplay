@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Reporting.Models
   public class Reportable
   {
     readonly INamed actor;
-    readonly Outcome outcome;
+    readonly PerformanceOutcome outcome;
     readonly PerformanceType performanceType;
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the outcome of the reported-upon action.
     /// </summary>
     /// <value>The outcome.</value>
-    public virtual Outcome Outcome => outcome;
+    public virtual PerformanceOutcome Outcome => outcome;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Reportable"/> class.
@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="outcome">Outcome.</param>
     /// <param name="performanceType">Performance type.</param>
     public Reportable(INamed actor,
-                      Outcome outcome,
+                      PerformanceOutcome outcome,
                       PerformanceType performanceType = PerformanceType.Unspecified)
     {
       if(actor == null)
