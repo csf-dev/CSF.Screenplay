@@ -8,7 +8,7 @@ using CSF.Screenplay.Reporting;
 using Moq;
 using NUnit.Framework;
 
-namespace CSF.Screenplay.Tests
+namespace CSF.Screenplay.Tests.Actors
 {
   [TestFixture,Parallelizable(ParallelScope.All)]
   public class ActorTests
@@ -266,7 +266,7 @@ namespace CSF.Screenplay.Tests
       abilities = abilities?? Enumerable.Empty<IAbility>();
       name = name?? "Joe";
 
-      var performer = new Actor(name);
+      var performer = new Actor(name, Guid.NewGuid());
       foreach(var ability in abilities)
       {
         performer.IsAbleTo(ability);

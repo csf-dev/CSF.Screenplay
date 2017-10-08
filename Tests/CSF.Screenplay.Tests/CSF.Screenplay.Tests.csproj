@@ -54,10 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
-    <Compile Include="ActorTests.cs" />
     <Compile Include="Abilities\AbilityStoreTests.cs" />
     <Compile Include="Scenarios\ServiceResolverTests.cs" />
     <Compile Include="Integration\ScreenplayIntegrationTests.cs" />
+    <Compile Include="Actors\ActorTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

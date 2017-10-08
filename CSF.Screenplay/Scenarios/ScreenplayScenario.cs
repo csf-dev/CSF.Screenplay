@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Scenarios
 {
@@ -121,6 +122,13 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</returns>
     public override string ToString() => $"[Screenplay scenario:{identity.ToString()}]";
+
+    /// <summary>
+    /// Creates a new actor with the given name.
+    /// </summary>
+    /// <returns>The actor.</returns>
+    /// <param name="name">Name.</param>
+    public virtual IActor CreateActor(string name) => new Actor(name, Identity);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.

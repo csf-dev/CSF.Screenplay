@@ -27,6 +27,7 @@ namespace CSF.Screenplay.Actors
 
     readonly IAbilityStore abilityStore;
     readonly string name;
+    readonly Guid scenarioIdentity;
 
     #endregion
 
@@ -37,6 +38,12 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <value>The name.</value>
     public virtual string Name => name;
+
+    /// <summary>
+    /// Gets the identity of the scenario with which the current actor is associated.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    public virtual Guid ScenarioIdentity => scenarioIdentity;
 
     #endregion
 
@@ -463,12 +470,15 @@ namespace CSF.Screenplay.Actors
     /// Initializes a new instance of the <see cref="Actor"/> class.
     /// </summary>
     /// <param name="name">The actor's name.</param>
-    public Actor(string name)
+    public Actor(string name, Guid scenarioIdentity)
     {
       if(name == null)
         throw new ArgumentNullException(nameof(name));
+      if(scenarioIdentity == Guid.Empty)
+        throw new ArgumentException("The scenario identity must be populated", nameof(scenarioIdentity));
 
       this.name = name;
+      this.scenarioIdentity = scenarioIdentity;
       abilityStore = new AbilityStore();
     }
 
