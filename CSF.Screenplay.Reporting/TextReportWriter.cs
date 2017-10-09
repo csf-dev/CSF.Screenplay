@@ -171,7 +171,7 @@ namespace CSF.Screenplay.Reporting
 
       var exception = reportable.Exception?.ToString();
       if(exception != null)
-        writer.WriteLine("FAILED with an exception:\n{0}", exception);
+        writer.WriteLine("FAILED with an exception:{1}{0}", exception, Environment.NewLine);
       else
         writer.WriteLine("FAILED");
     }
