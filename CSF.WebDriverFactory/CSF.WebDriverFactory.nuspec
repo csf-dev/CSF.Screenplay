@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.WebDriverFactory</id>
-    <version>0.6.0-alpha</version>
+    <version>0.7.0-alpha</version>
     <title>CSF.WebDriverFactory</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
