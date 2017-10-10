@@ -43,17 +43,30 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual IList<Reportable> Reportables => children;
 
     /// <summary>
+    /// Gets or sets the outcome for the test scenario.
+    /// </summary>
+    /// <value>The outcome.</value>
+    public virtual bool? Outcome { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/>
+    /// is inconclusive (neither success nor failure).
+    /// </summary>
+    /// <value><c>true</c> if this scenario is inconclusive; otherwise, <c>false</c>.</value>
+    public virtual bool IsInconclusive => !Outcome.HasValue;
+
+    /// <summary>
     /// Gets or sets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/>
     /// is a failure.
     /// </summary>
     /// <value><c>true</c> if this scenario is a failure; otherwise, <c>false</c>.</value>
-    public virtual bool IsFailure { get; set; }
+    public virtual bool IsFailure => Outcome.HasValue && !Outcome.Value;
 
     /// <summary>
     /// Gets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/> is a success.
     /// </summary>
     /// <value><c>true</c> if is success; otherwise, <c>false</c>.</value>
-    public virtual bool IsSuccess => !IsFailure;
+    public virtual bool IsSuccess => Outcome.HasValue && Outcome.Value;
 
     IEnumerable<Reportable> FindReportables()
     {

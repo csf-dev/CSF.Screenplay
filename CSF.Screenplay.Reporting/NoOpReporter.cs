@@ -59,57 +59,57 @@ namespace CSF.Screenplay.Reporting
 
     void OnGainAbility(object sender, GainAbilityEventArgs ev)
     {
-      GainAbility(ev.Actor, ev.Ability);
+      GainAbility(ev.Actor, ev.Ability, ev.Actor.ScenarioIdentity);
     }
 
     void OnBegin(object sender, BeginPerformanceEventArgs ev)
     {
-      Begin(ev.Actor, ev.Performable);
+      Begin(ev.Actor, ev.Performable, ev.Actor.ScenarioIdentity);
     }
 
     void OnSuccess(object sender, EndSuccessfulPerformanceEventArgs ev)
     {
-      Success(ev.Actor, ev.Performable);
+      Success(ev.Actor, ev.Performable, ev.Actor.ScenarioIdentity);
     }
 
     void OnResult(object sender, PerformanceResultEventArgs ev)
     {
-      Result(ev.Actor, ev.Performable, ev.Result);
+      Result(ev.Actor, ev.Performable, ev.Result, ev.Actor.ScenarioIdentity);
     }
 
     void OnFailure(object sender, PerformanceFailureEventArgs ev)
     {
-      Failure(ev.Actor, ev.Performable, ev.Exception);
+      Failure(ev.Actor, ev.Performable, ev.Exception, ev.Actor.ScenarioIdentity);
     }
 
     void OnBeginGiven(object sender, ActorEventArgs ev)
     {
-      BeginGiven(ev.Actor);
+      BeginGiven(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     void OnEndGiven(object sender, ActorEventArgs ev)
     {
-      EndGiven(ev.Actor);
+      EndGiven(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     void OnBeginWhen(object sender, ActorEventArgs ev)
     {
-      BeginWhen(ev.Actor);
+      BeginWhen(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     void OnEndWhen(object sender, ActorEventArgs ev)
     {
-      EndWhen(ev.Actor);
+      EndWhen(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     void OnBeginThen(object sender, ActorEventArgs ev)
     {
-      BeginThen(ev.Actor);
+      BeginThen(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     void OnEndThen(object sender, ActorEventArgs ev)
     {
-      EndThen(ev.Actor);
+      EndThen(ev.Actor, ev.Actor.ScenarioIdentity);
     }
 
     /// <summary>
@@ -117,21 +117,24 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="ability">The ability.</param>
-    protected virtual void GainAbility(INamed actor, IAbility ability) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void GainAbility(INamed actor, IAbility ability, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that a performable item has begun.
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
-    protected virtual void Begin(INamed actor, IPerformable performable) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void Begin(INamed actor, IPerformable performable, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that a performable item has completed successfully.
     /// </summary>
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
-    protected virtual void Success(INamed actor, IPerformable performable) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void Success(INamed actor, IPerformable performable, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that a performable item has produced a result.
@@ -139,7 +142,8 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="result">The result produced.</param>
-    protected virtual void Result(INamed actor, IPerformable performable, object result) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void Result(INamed actor, IPerformable performable, object result, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that a performable item has failed and possible terminated early.
@@ -147,46 +151,53 @@ namespace CSF.Screenplay.Reporting
     /// <param name="actor">The actor.</param>
     /// <param name="performable">The performable item.</param>
     /// <param name="exception">An exception encountered whilst attempting to perform the item.</param>
-    protected virtual void Failure(INamed actor, IPerformable performable, Exception exception) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void Failure(INamed actor, IPerformable performable, Exception exception, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has begun a 'given' part of their performance and that subsequent performables occur
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void BeginGiven(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void BeginGiven(INamed actor, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has ended the 'given' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void EndGiven(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void EndGiven(INamed actor, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has begun a 'when' part of their performance and that subsequent performables occur
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void BeginWhen(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void BeginWhen(INamed actor, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has ended the 'when' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void EndWhen(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void EndWhen(INamed actor, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has begun a 'then' part of their performance and that subsequent performables occur
     /// in this context.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void BeginThen(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void BeginThen(INamed actor, Guid scenarioIdentity) {}
 
     /// <summary>
     /// Reports that an actor has ended the 'then' part of their performance.
     /// </summary>
     /// <param name="actor">The actor.</param>
-    protected virtual void EndThen(INamed actor) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void EndThen(INamed actor, Guid scenarioIdentity) {}
 
     #endregion
 
@@ -220,12 +231,16 @@ namespace CSF.Screenplay.Reporting
 
     void OnNewScenario(object sender, BeginScenarioEventArgs ev)
     {
-      BeginNewScenario(ev.ScenarioId.Identity, ev.ScenarioId.Name, ev.FeatureId.Name, ev.FeatureId.Identity);
+      BeginNewScenario(ev.ScenarioId.Identity,
+                       ev.ScenarioId.Name,
+                       ev.FeatureId.Name,
+                       ev.FeatureId.Identity,
+                       ev.ScenarioIdentity);
     }
 
     void OnEndScenario(object sender, EndScenarioEventArgs ev)
     {
-      CompleteScenario(ev.ScenarioIsSuccess);
+      CompleteScenario(ev.ScenarioOutcome, ev.ScenarioIdentity);
     }
 
     /// <summary>
@@ -235,13 +250,19 @@ namespace CSF.Screenplay.Reporting
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    protected virtual void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId) {}
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void BeginNewScenario(string idName,
+                                            string friendlyName,
+                                            string featureName,
+                                            string featureId,
+                                            Guid scenarioIdentity) {}
 
     /// <summary>
     /// Indicates to the reporter that a scenario has finished.
     /// </summary>
-    /// <param name="success"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
-    protected virtual void CompleteScenario(bool success) {}
+    /// <param name="outcome"><c>true</c> if the scenario was a success; <c>false</c> otherwise.</param>
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual void CompleteScenario(bool? outcome, Guid scenarioIdentity) {}
 
     #endregion
 

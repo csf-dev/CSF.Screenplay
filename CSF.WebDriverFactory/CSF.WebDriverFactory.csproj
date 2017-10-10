@@ -8,7 +8,7 @@
     <RootNamespace>CSF.WebDriverFactory</RootNamespace>
     <AssemblyName>CSF.WebDriverFactory</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.6.0</ReleaseVersion>
+    <ReleaseVersion>0.7.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +54,9 @@
     <Compile Include="Impl\InternetExplorerWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFactory.cs" />
     <Compile Include="Impl\RemoteWebDriverFromEnvironmentFactory.cs" />
+    <Compile Include="Impl\SauceConnectWebDriverFactory.cs" />
+    <Compile Include="WebDriverFactoryExtensions.cs" />
+    <Compile Include="IMarksWebDriverWithOutcome.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

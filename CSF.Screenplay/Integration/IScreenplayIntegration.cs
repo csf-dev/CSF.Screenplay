@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <param name="scenario">Scenario.</param>
     /// <param name="success">If set to <c>true</c> success.</param>
-    void AfterScenario(IScreenplayScenario scenario, bool success);
+    void AfterScenario(IScreenplayScenario scenario, bool? success);
 
     /// <summary>
     /// Executed after the last scenario in a test run.

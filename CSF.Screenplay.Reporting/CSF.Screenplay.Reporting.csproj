@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Reporting</RootNamespace>
     <AssemblyName>CSF.Screenplay.Reporting</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.6.0</ReleaseVersion>
+    <ReleaseVersion>0.7.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +44,7 @@
     <Compile Include="Models\Scenario.cs" />
     <Compile Include="Models\Performance.cs" />
     <Compile Include="Models\PerformanceType.cs" />
-    <Compile Include="Models\Outcome.cs" />
+    <Compile Include="Models\PerformanceOutcome.cs" />
     <Compile Include="Models\GainAbility.cs" />
     <Compile Include="Models\Reportable.cs" />
     <Compile Include="Trace\TraceConstants.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="ObjectFormatterRegistry.cs" />
     <Compile Include="IObjectFormattingService.cs" />
     <Compile Include="ObjectFormattingService.cs" />
+    <Compile Include="Builders\ScenarioBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

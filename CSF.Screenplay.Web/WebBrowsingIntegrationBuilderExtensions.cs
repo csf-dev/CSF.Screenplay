@@ -2,6 +2,7 @@
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
+using CSF.WebDriverFactory;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web
@@ -11,6 +12,22 @@ namespace CSF.Screenplay.Web
   /// </summary>
   public static class WebBrowsingIntegrationBuilderExtensions
   {
+    /// <summary>
+    /// Registers a <see cref="IWebDriverFactory"/> for the creation of web drivers.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    /// <param name="name">Name.</param>
+    public static void UseWebDriverFactory(this IIntegrationConfigBuilder builder,
+                                           string name = null)
+    {
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+
+      builder.RegisterServices.Add(cfg => {
+        cfg.RegisterSingleton(GetWebDriverFactory, name);
+      });
+    }
+
     /// <summary>
     /// Registers a Selenium IWebDriver into Screenplay, making use of a given factory.  This Web Driver
     /// will be created afresh and disposed with each scenario.
@@ -30,6 +47,7 @@ namespace CSF.Screenplay.Web
       helper.RegisterServices.Add((builder) => {
         builder.RegisterPerScenario(factory, name);
       });
+      helper.AfterScenario.Add(MarkWebDriverWithOutcome(name));
     }
 
     /// <summary>
@@ -122,6 +140,29 @@ namespace CSF.Screenplay.Web
       var driver = resolver.GetService<IWebDriver>();
       var transformer = resolver.GetOptionalService<IUriTransformer>();
       return new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
+    }
+
+    static IWebDriverFactory GetWebDriverFactory()
+    {
+      var provider = new ConfigurationWebDriverFactoryProvider();
+      return provider.GetFactory();
+    }
+
+    static Action<IScreenplayScenario> MarkWebDriverWithOutcome(string name)
+    {
+      return scenario => {
+        var wdFactory = scenario.GetOptionalService<IWebDriverFactory>(name);
+        if(wdFactory == null) return;
+        if(!scenario.Success.HasValue) return;
+
+        var driver = scenario.GetService<IWebDriver>(name);
+
+        var success = scenario.Success.Value;
+        if(success)
+          wdFactory.MarkTestAsPassed(driver);
+        else
+          wdFactory.MarkTestAsFailed(driver);
+      };
     }
   }
 }

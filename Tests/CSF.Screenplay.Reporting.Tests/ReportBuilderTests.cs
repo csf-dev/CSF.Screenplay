@@ -15,10 +15,11 @@ namespace CSF.Screenplay.Reporting.Tests
     public void BeginNewScenario_creates_single_scenario(string id,
                                                          string name,
                                                          string feature,
-                                                         ReportBuilder sut)
+                                                         ReportBuilder sut,
+                                                         Guid scenarioIdentity)
     {
       // Act
-      sut.BeginNewScenario(id, name, feature);
+      sut.BeginNewScenario(id, name, feature, null, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -33,10 +34,11 @@ namespace CSF.Screenplay.Reporting.Tests
     [Test,AutoMoqData]
     public void BeginNewScenario_passes_feature_name(string id,
                                                      string featureId,
-                                                     ReportBuilder sut)
+                                                     ReportBuilder sut,
+                                                     Guid scenarioIdentity)
     {
       // Act
-      sut.BeginNewScenario(id, featureId: featureId);
+      sut.BeginNewScenario(id, null, null, featureId, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -46,21 +48,27 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void EndScenario_raises_exception_when_called_before_BeginScenario(ReportBuilder sut,
-                                                                              bool success)
+                                                                              bool success,
+                                                                              Guid scenarioIdentity)
     {
       // Act & assert
-      Assert.That(() => sut.EndScenario(success), Throws.TypeOf<InvalidOperationException>());
+      Assert.That(() => sut.EndScenario(success, scenarioIdentity), Throws.TypeOf<InvalidOperationException>());
     }
 
     [Test,AutoMoqData]
-    public void EndScenario_closes_the_current_scenario(ReportBuilder sut, bool success, string idOne, string idTwo)
+    public void EndScenario_closes_the_current_scenario(ReportBuilder sut,
+                                                        bool success,
+                                                        string idOne,
+                                                        string idTwo,
+                                                        Guid scenarioIdentity,
+                                                        Guid otherIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(idOne);
+      sut.BeginNewScenario(idOne, null, null, null, scenarioIdentity);
 
       // Act
-      sut.EndScenario(success);
-      sut.BeginNewScenario(idTwo);
+      sut.EndScenario(success, scenarioIdentity);
+      sut.BeginNewScenario(idTwo, null, null, null, otherIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -69,12 +77,27 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
+    public void BeginScenario_with_the_same_identity_twice_raises_an_exception(ReportBuilder sut,
+                                                                               bool success,
+                                                                               string idOne,
+                                                                               string idTwo,
+                                                                               Guid scenarioIdentity)
+    {
+      // Arrange
+      sut.BeginNewScenario(idOne, null, null, null, scenarioIdentity);
+
+      // Act & assert
+      Assert.That(() => sut.BeginNewScenario(idTwo, null, null, null, scenarioIdentity), Throws.InvalidOperationException);
+    }
+
+    [Test,AutoMoqData]
     public void BeginPerformance_raises_exception_when_called_before_BeginScenario(INamed actor,
                                                                                    IPerformable performable,
-                                                                                   ReportBuilder sut)
+                                                                                   ReportBuilder sut,
+                                                                                   Guid scenarioIdentity)
     {
       // Act & assert
-      Assert.That(() => sut.BeginPerformance(actor, performable), Throws.TypeOf<InvalidOperationException>());
+      Assert.That(() => sut.BeginPerformance(actor, performable, scenarioIdentity), Throws.TypeOf<InvalidOperationException>());
     }
 
     [Test,AutoMoqData]
@@ -82,52 +105,56 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                                 IPerformable performable,
                                                                                 string id,
                                                                                 bool success,
-                                                                                ReportBuilder sut)
+                                                                                ReportBuilder sut,
+                                                                                Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
-      sut.EndScenario(success);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
+      sut.EndScenario(success, scenarioIdentity);
 
       // Act & assert
-      Assert.That(() => sut.BeginPerformance(actor, performable), Throws.TypeOf<InvalidOperationException>());
+      Assert.That(() => sut.BeginPerformance(actor, performable, scenarioIdentity), Throws.TypeOf<InvalidOperationException>());
     }
 
     [Test,AutoMoqData]
     public void BeginPerformanceType_raises_exception_when_called_before_BeginScenario(PerformanceType type,
-                                                                                       ReportBuilder sut)
+                                                                                       ReportBuilder sut,
+                                                                                       Guid scenarioIdentity)
     {
       // Act & assert
-      Assert.That(() => sut.BeginPerformanceType(type), Throws.TypeOf<InvalidOperationException>());
+      Assert.That(() => sut.BeginPerformanceType(type, scenarioIdentity), Throws.TypeOf<InvalidOperationException>());
     }
 
     [Test,AutoMoqData]
     public void BeginPerformanceType_raises_exception_when_called_after_EndScenario(PerformanceType type,
                                                                                     string id,
                                                                                     bool success,
-                                                                                    ReportBuilder sut)
+                                                                                    ReportBuilder sut,
+                                                                                    Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
-      sut.EndScenario(success);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
+      sut.EndScenario(success, scenarioIdentity);
 
       // Act & assert
-      Assert.That(() => sut.BeginPerformanceType(type), Throws.TypeOf<InvalidOperationException>());
+      Assert.That(() => sut.BeginPerformanceType(type, scenarioIdentity), Throws.TypeOf<InvalidOperationException>());
     }
 
     [Test,AutoMoqData]
     public void BeginPerformanceType_marks_a_performance_with_the_appropriate_type(ReportBuilder sut,
                                                                                    string id,
                                                                                    INamed actor,
-                                                                                   IPerformable performable)
+                                                                                   IPerformable performable,
+                                                                                   Guid scenarioIdentity)
     {
       // Arrange
       var type = PerformanceType.Then;
-      sut.BeginNewScenario(id);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
 
       // Act
-      sut.BeginPerformanceType(type);
-      sut.BeginPerformance(actor, performable);
-      sut.RecordSuccess(performable);
+      sut.BeginPerformanceType(type, scenarioIdentity);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -138,14 +165,15 @@ namespace CSF.Screenplay.Reporting.Tests
     public void BeginPerformance_records_the_actor(ReportBuilder sut,
                                                    string id,
                                                    INamed actor,
-                                                   IPerformable performable)
+                                                   IPerformable performable,
+                                                   Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
 
       // Act
-      sut.BeginPerformance(actor, performable);
-      sut.RecordSuccess(performable);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -156,14 +184,15 @@ namespace CSF.Screenplay.Reporting.Tests
     public void BeginPerformance_creates_a_performance_report(ReportBuilder sut,
                                                               string id,
                                                               INamed actor,
-                                                              IPerformable performable)
+                                                              IPerformable performable,
+                                                              Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
 
       // Act
-      sut.BeginPerformance(actor, performable);
-      sut.RecordSuccess(performable);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -175,14 +204,15 @@ namespace CSF.Screenplay.Reporting.Tests
     public void BeginPerformance_records_the_performable(ReportBuilder sut,
                                                          string id,
                                                          INamed actor,
-                                                         IPerformable performable)
+                                                         IPerformable performable,
+                                                         Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
 
       // Act
-      sut.BeginPerformance(actor, performable);
-      sut.RecordSuccess(performable);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();
@@ -195,16 +225,17 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                string id,
                                                                INamed actor,
                                                                IPerformable performable,
-                                                               IPerformable differentPerformable)
+                                                               IPerformable differentPerformable,
+                                                               Guid scenarioIdentity)
     {
       // Arrange
-      sut.BeginNewScenario(id);
-      sut.BeginPerformance(actor, performable);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
 
       // Act
-      sut.BeginPerformance(actor, differentPerformable);
-      sut.RecordSuccess(differentPerformable);
-      sut.RecordSuccess(performable);
+      sut.BeginPerformance(actor, differentPerformable, scenarioIdentity);
+      sut.RecordSuccess(differentPerformable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
 
       // Assert
       var report = sut.GetReport();

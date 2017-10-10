@@ -17,11 +17,27 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.Add(name);
+      cast.Add(name, Guid.NewGuid());
       var joe = cast.GetExisting(name);
 
       // Assert
       Assert.AreEqual(name, joe.Name);
+    }
+
+    [Test]
+    public void Add_using_guid_sets_scenario_identity()
+    {
+      // Arrange
+      var cast = GetSut();
+      var name = "joe";
+      var identity = Guid.NewGuid();
+
+      // Act
+      cast.Add(name, identity);
+      var joe = cast.GetExisting(name);
+
+      // Assert
+      Assert.AreEqual(identity, joe.ScenarioIdentity);
     }
 
     [Test]
@@ -32,10 +48,10 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.Add(name);
+      cast.Add(name, Guid.NewGuid());
 
       // Act and assert
-      Assert.Throws<DuplicateActorException>(() => cast.Add(name));
+      Assert.Throws<DuplicateActorException>(() => cast.Add(name, Guid.NewGuid()));
     }
 
     [Test]
@@ -45,8 +61,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      cast.Add("joe");
-      cast.Add("davina");
+      cast.Add("joe", Guid.NewGuid());
+      cast.Add("davina", Guid.NewGuid());
 
       // Act and assert
       Assert.Pass();
@@ -71,7 +87,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = GetSut();
       var name = "joe";
-      cast.Add(name);
+      cast.Add(name, Guid.NewGuid());
 
       // Act
       var joe = cast.GetExisting(name);
@@ -87,10 +103,25 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe");
+      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(joe, Is.Not.Null);
+    }
+
+    [Test]
+    public void Get_assigns_scenario_identity_to_created_actor()
+    {
+      // Arrange
+      var cast = GetSut();
+      var identity = Guid.NewGuid();
+      var scenario = Mock.Of<IScreenplayScenario>(x => x.Identity == identity);
+
+      // Act
+      var joe = cast.Get("joe", (a, s) => {}, scenario);
+
+      // Assert
+      Assert.That(joe.ScenarioIdentity, Is.EqualTo(identity));
     }
 
     [Test]
@@ -100,8 +131,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe");
-      var joeAgain = cast.Get("joe");
+      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
+      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(joe, Is.SameAs(joeAgain));
@@ -112,43 +143,14 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe");
+      cast.Add("joe", Guid.NewGuid());
       var joe = cast.GetExisting("joe");
 
       // Act
-      var joeAgain = cast.Get("joe");
+      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>());
 
       // Assert
       Assert.That(joeAgain, Is.SameAs(joe));
-    }
-
-    [Test]
-    public void Get_applies_customisation_if_creating_a_new_actor()
-    {
-      // Arrange
-      var cast = GetSut();
-      var customisationCallCount = 0;
-
-      // Act
-      cast.Get("joe", a => customisationCallCount++);
-
-      // Assert
-      Assert.That(customisationCallCount, Is.EqualTo(1));
-    }
-
-    [Test]
-    public void Get_does_not_apply_customisation_if_actor_already_exists()
-    {
-      // Arrange
-      var cast = GetSut();
-      cast.Add("joe");
-      var customisationCallCount = 0;
-
-      // Act
-      cast.Get("joe", a => customisationCallCount++);
-
-      // Assert
-      Assert.That(customisationCallCount, Is.EqualTo(0));
     }
 
     [Test]
@@ -159,7 +161,7 @@ namespace CSF.Screenplay.Tests.Actors
       var customisationCallCount = 0;
 
       // Act
-      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScreenplayScenario>());
+      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(customisationCallCount, Is.EqualTo(1));
@@ -170,7 +172,7 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe");
+      cast.Add("joe", Guid.NewGuid());
       var customisationCallCount = 0;
 
       // Act
@@ -185,8 +187,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe");
-      cast.Add("davina");
+      cast.Add("joe", Guid.NewGuid());
+      cast.Add("davina", Guid.NewGuid());
 
       var joe = cast.GetExisting("joe");
       var davina = cast.GetExisting("davina");
@@ -203,8 +205,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe");
-      cast.Add("davina");
+      cast.Add("joe", Guid.NewGuid());
+      cast.Add("davina", Guid.NewGuid());
 
       // Act
       cast.Dismiss();
@@ -220,7 +222,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = GetSut();
       var name = "joe";
-      var joe = new Actor(name);
+      var joe = new Actor(name, Guid.NewGuid());
 
       // Act
       cast.Add(joe);
@@ -237,7 +239,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = GetSut();
       var name = "joe";
-      var joe = new Actor(name);
+      var joe = new Actor(name, Guid.NewGuid());
 
       // Act
       cast.Add(joe);
@@ -251,15 +253,12 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      var joe = new Actor("joe");
-      var davina = new Actor("davina");
+      var joe = new Actor("joe", Guid.NewGuid());
+      var davina = new Actor("davina", Guid.NewGuid());
 
       // Act
       cast.Add(joe);
-      cast.Add(davina);
-
-      // Act and assert
-      Assert.Pass();
+      Assert.That(() => cast.Add(davina), Throws.Nothing);
     }
 
     ICast GetSut() => new Cast();

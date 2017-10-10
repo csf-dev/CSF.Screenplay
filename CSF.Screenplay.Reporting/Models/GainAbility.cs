@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="ability">Ability.</param>
     /// <param name="performanceType">Performance type.</param>
     public GainAbility(INamed actor,
-                       Outcome outcome,
+                       PerformanceOutcome outcome,
                        IAbility ability,
                        PerformanceType performanceType = PerformanceType.Unspecified)
       : base(actor, outcome, performanceType)

@@ -7,6 +7,12 @@ namespace CSF.Screenplay.Scenarios
   public class EndScenarioEventArgs : EventArgs
   {
     /// <summary>
+    /// Gets or sets the scenario identity.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    public Guid ScenarioIdentity { get; set; }
+
+    /// <summary>
     /// Gets or sets the feature identifier.
     /// </summary>
     /// <value>The feature identifier.</value>
@@ -22,6 +28,6 @@ namespace CSF.Screenplay.Scenarios
     /// Gets or sets a value indicating whether the scenario was a success.
     /// </summary>
     /// <value><c>true</c> if the scenario was a success; otherwise, <c>false</c>.</value>
-    public bool ScenarioIsSuccess { get; set; }
+    public bool? ScenarioOutcome { get; set; }
   }
 }

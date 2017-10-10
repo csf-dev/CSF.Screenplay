@@ -99,9 +99,11 @@ namespace CSF.Screenplay.Reporting
       writer.Write(reportable.Performable.GetReport(reportable.Actor));
       writer.WriteLine();
 
-      if(reportable.Outcome == Outcome.SuccessWithResult)
+      if(reportable.Outcome == PerformanceOutcome.SuccessWithResult)
         WriteResult(reportable, currentIndentLevel);
-      else if(reportable.Outcome == Outcome.Failure || reportable.Outcome == Outcome.FailureWithException)
+      else if(reportable.Outcome == PerformanceOutcome.Failure)
+        WriteFailure(reportable, currentIndentLevel);
+      else if(reportable.Outcome == PerformanceOutcome.FailureWithException && !reportable.Reportables.Any())
         WriteFailure(reportable, currentIndentLevel);
 
       foreach(var child in reportable.Reportables)
@@ -127,7 +129,12 @@ namespace CSF.Screenplay.Reporting
       writer.WriteLine("**** {0} ****", GetScenarioOutcome(scenario));
     }
 
-    string GetScenarioOutcome(Models.Scenario scenario) => scenario.IsSuccess? "Success" : "Failure";
+    string GetScenarioOutcome(Models.Scenario scenario)
+    {
+      if(scenario.IsSuccess) return "Success";
+      if(scenario.IsFailure) return "Failure";
+      return "Inconclusive";
+    }
 
     void WriteIndent(int currentLevel)
     {
@@ -164,7 +171,7 @@ namespace CSF.Screenplay.Reporting
 
       var exception = reportable.Exception?.ToString();
       if(exception != null)
-        writer.WriteLine("FAILED with an exception:\n{0}", exception);
+        writer.WriteLine("FAILED with an exception:{1}{0}", exception, Environment.NewLine);
       else
         writer.WriteLine("FAILED");
     }

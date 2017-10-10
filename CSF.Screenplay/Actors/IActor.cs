@@ -9,6 +9,12 @@ namespace CSF.Screenplay.Actors
   public interface IActor : INamed, IPerformer, IGivenActor, IThenActor, IWhenActor, ICanReceiveAbilities
   {
     /// <summary>
+    /// Gets the identity of the scenario with which the current actor is associated.
+    /// </summary>
+    /// <value>The scenario identity.</value>
+    Guid ScenarioIdentity { get;}
+
+    /// <summary>
     /// Occurs when the actor begins a performance.
     /// </summary>
     event EventHandler<BeginPerformanceEventArgs> BeginPerformance;

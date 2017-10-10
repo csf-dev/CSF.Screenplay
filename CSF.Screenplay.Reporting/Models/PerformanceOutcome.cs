@@ -4,7 +4,7 @@ namespace CSF.Screenplay.Reporting.Models
   /// <summary>
   /// Enumerates the possible outcomes of a performance.
   /// </summary>
-  public enum Outcome
+  public enum PerformanceOutcome
   {
     /// <summary>
     /// The performance was a success.

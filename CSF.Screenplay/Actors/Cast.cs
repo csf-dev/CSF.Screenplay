@@ -66,47 +66,6 @@ namespace CSF.Screenplay.Actors
 
     /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
-    /// </summary>
-    /// <returns>The named actor, which might be a newly-created actor.</returns>
-    /// <param name="name">The actor name.</param>
-    public virtual IActor Get(string name)
-    {
-      lock(syncRoot)
-      {
-        return GetActorLocked(name)?? CreateAndAddLocked(name);
-      }
-    }
-
-    /// <summary>
-    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
-    /// If this operation leads to the creation of a new actor then it will fire both
-    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
-    /// </summary>
-    /// <returns>The named actor, which might be a newly-created actor.</returns>
-    /// <param name="name">The actor name.</param>
-    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
-    public virtual IActor Get(string name, Action<IActor> createCustomisation)
-    {
-      if(createCustomisation == null)
-        throw new ArgumentNullException(nameof(createCustomisation));
-      
-      IActor actor;
-
-      lock(syncRoot)
-      {
-        actor = GetActorLocked(name);
-        if(actor != null)
-          return actor;
-
-        actor = CreateAndAddLocked(name);
-      }
-
-      createCustomisation(actor);
-      return actor;
-    }
-
-    /// <summary>
-    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
     /// If this operation leads to the creation of a new actor then it will fire both
     /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
@@ -131,7 +90,7 @@ namespace CSF.Screenplay.Actors
         if(actor != null)
           return actor;
 
-        actor = CreateAndAddLocked(name);
+        actor = CreateAndAddLocked(name, scenario.Identity);
       }
 
       createCustomisation(actor, scenario);
@@ -139,15 +98,16 @@ namespace CSF.Screenplay.Actors
     }
 
     /// <summary>
-    /// Creates a new actor of the given name, adds it to the current cast instance and returns it.
+    /// Creates a new actor of the given name and adds it to the current cast instance.
+    /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
-    /// <returns>The created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual void Add(string name)
+    /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
+    public virtual void Add(string name, Guid scenarioIdentity)
     {
       lock(syncRoot)
       {
-        CreateAndAddLocked(name);
+        CreateAndAddLocked(name, scenarioIdentity);
       }
     }
 
@@ -179,9 +139,10 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The actor.</returns>
     /// <param name="name">The actor's name.</param>
-    protected virtual IActor CreateActor(string name)
+    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
+    protected virtual IActor CreateActor(string name, Guid scenarioIdentity)
     {
-      var actor = new Actor(name);
+      var actor = new Actor(name, scenarioIdentity);
       OnActorCreated(actor);
       return actor;
     }
@@ -196,9 +157,9 @@ namespace CSF.Screenplay.Actors
       return null;
     }
 
-    IActor CreateAndAddLocked(string name)
+    IActor CreateAndAddLocked(string name, Guid scenarioIdentity)
     {
-      var actor = CreateActor(name);
+      var actor = CreateActor(name, scenarioIdentity);
       AddLocked(actor);
       return actor;
     }

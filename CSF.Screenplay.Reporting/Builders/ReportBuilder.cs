@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Reporting.Models;
@@ -11,10 +13,7 @@ namespace CSF.Screenplay.Reporting.Builders
   /// </summary>
   public class ReportBuilder
   {
-    List<Models.Scenario> scenarios;
-    Models.Scenario currentScenario;
-    PerformanceType currentPerformanceType;
-    Stack<PerformanceBuilder> builderStack;
+    readonly ConcurrentDictionary<Guid, ScenarioBuilder> scenarios;
 
     /// <summary>
     /// Begins reporting upon a new scenario.
@@ -23,27 +22,28 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    public void BeginNewScenario(string idName, string friendlyName = null, string featureName = null, string featureId = null)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void BeginNewScenario(string idName,
+                                 string friendlyName,
+                                 string featureName,
+                                 string featureId,
+                                 Guid scenarioId)
     {
-      currentScenario = new Models.Scenario(idName, friendlyName, featureName, featureId);
-      scenarios.Add(currentScenario);
-      currentPerformanceType = PerformanceType.Unspecified;
-      builderStack.Clear();
+      var success = scenarios.TryAdd(scenarioId, new ScenarioBuilder(idName, friendlyName, featureName, featureId));
+      if(!success)
+        throw new InvalidOperationException("The current scenario already exists in the current builder instance");
     }
 
     /// <summary>
     /// Reports the end of a scenario.
     /// </summary>
-    /// <param name="isSuccess">Optional.  If set to <c>false</c> then the scenario is marked as a failure.</param>
-    public void EndScenario(bool isSuccess = true)
+    /// <param name="outcome">If set to <c>false</c> then the scenario is marked as a failure.</param>
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void EndScenario(bool? outcome,
+                            Guid scenarioId)
     {
-      EnsureCurrentScenario();
-
-      if(!isSuccess)
-        currentScenario.IsFailure = true;
-      
-      currentScenario = null;
-      builderStack.Clear();
+      var scenario = GetScenario(scenarioId);
+      scenario.Finalise(outcome);
     }
 
     /// <summary>
@@ -51,28 +51,24 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="actor">Actor.</param>
     /// <param name="performable">Performable.</param>
-    public void BeginPerformance(INamed actor, Performables.IPerformable performable)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void BeginPerformance(INamed actor, Performables.IPerformable performable,
+                                 Guid scenarioId)
     {
-      EnsureCurrentScenario();
-
-      var builder = new PerformanceBuilder {
-        Performable = performable,
-        Actor = actor,
-        PerformanceType = currentPerformanceType,
-      };
-      AddPerformanceBuilder(builder);
+      var scenario = GetScenario(scenarioId);
+      scenario.BeginPerformance(actor, performable);
     }
 
     /// <summary>
     /// Begins reporting of a performance of a given type.
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
-    public void BeginPerformanceType(PerformanceType performanceType)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void BeginPerformanceType(PerformanceType performanceType,
+                                     Guid scenarioId)
     {
-      EnsureCurrentScenario();
-
-      performanceType.RequireDefinedValue(nameof(performanceType));
-      currentPerformanceType = performanceType;
+      var scenario = GetScenario(scenarioId);
+      scenario.BeginPerformanceType(performanceType);
     }
 
     /// <summary>
@@ -80,12 +76,12 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performable">Performable.</param>
     /// <param name="result">Result.</param>
-    public void RecordResult(Performables.IPerformable performable, object result)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void RecordResult(Performables.IPerformable performable, object result,
+                             Guid scenarioId)
     {
-      var builder = PeekCurrentBuilder(performable);
-
-      builder.HasResult = true;
-      builder.Result = result;
+      var scenario = GetScenario(scenarioId);
+      scenario.RecordResult(performable, result);
     }
 
     /// <summary>
@@ -93,31 +89,33 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performable">Performable.</param>
     /// <param name="exception">Exception.</param>
-    public void RecordFailure(Performables.IPerformable performable, Exception exception)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void RecordFailure(Performables.IPerformable performable, Exception exception,
+                              Guid scenarioId)
     {
-      var builder = PeekCurrentBuilder(performable);
-
-      builder.IsFailure = true;
-      builder.Exception = exception;
-
-      FinalisePerformance(performable);
+      var scenario = GetScenario(scenarioId);
+      scenario.RecordFailure(performable, exception);
     }
 
     /// <summary>
     /// Records that the current performable has completed successfully.
     /// </summary>
     /// <param name="performable">Performable.</param>
-    public void RecordSuccess(Performables.IPerformable performable)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void RecordSuccess(Performables.IPerformable performable,
+                              Guid scenarioId)
     {
-      FinalisePerformance(performable);
+      var scenario = GetScenario(scenarioId);
+      scenario.RecordSuccess(performable);
     }
 
     /// <summary>
     /// Ends the performance of the current type.
     /// </summary>
-    public void EndPerformanceType()
+    public void EndPerformanceType(Guid scenarioId)
     {
-      currentPerformanceType = PerformanceType.Unspecified;
+      var scenario = GetScenario(scenarioId);
+      scenario.EndPerformanceType();
     }
 
     /// <summary>
@@ -125,10 +123,12 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="actor">Actor.</param>
     /// <param name="ability">Ability.</param>
-    public void GainAbility(INamed actor, IAbility ability)
+    /// <param name="scenarioId">The screenplay scenario identity.</param>
+    public void GainAbility(INamed actor, IAbility ability,
+                            Guid scenarioId)
     {
-      var item = new GainAbility(actor, Outcome.Success, ability, currentPerformanceType);
-      AddReportable(item);
+      var scenario = GetScenario(scenarioId);
+      scenario.GainAbility(actor, ability);
     }
 
     /// <summary>
@@ -137,76 +137,16 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <returns>The report.</returns>
     public Report GetReport()
     {
-      return new Report(scenarios.ToArray());
+      return new Report(scenarios.Values.Select(x => x.GetScenario()).ToArray());
     }
 
-    void AddReportable(Reportable item)
+    ScenarioBuilder GetScenario(Guid identity)
     {
-      if(item == null)
-        throw new ArgumentNullException(nameof(item));
+      ScenarioBuilder scenario;
+      if(!scenarios.TryGetValue(identity, out scenario))
+        throw new InvalidOperationException("There is no matching scenario in the current builder.");
 
-      var list = GetCurrentReportables();
-      list.Add(item);
-    }
-
-    void FinalisePerformance(Performables.IPerformable performable)
-    {
-      var builder = PopCurrentBuilder(performable);
-      var performance = builder.GetPerformance();
-      AddReportable(performance);
-    }
-
-    void AddPerformanceBuilder(PerformanceBuilder builder)
-    {
-      if(builder == null)
-        throw new ArgumentNullException(nameof(builder));
-
-      builderStack.Push(builder);
-    }
-
-    PerformanceBuilder PopCurrentBuilder(Performables.IPerformable expectedPerformable)
-    {
-      PeekCurrentBuilder(expectedPerformable);
-      return builderStack.Pop();
-    }
-
-    PerformanceBuilder PeekCurrentBuilder(Performables.IPerformable expectedPerformable = null)
-    {
-      if(builderStack.Count == 0 && expectedPerformable == null)
-        return null;
-      else if(builderStack.Count == 0)
-        throw new InvalidOperationException("An expected performable was specified but the builder stack was empty, this is not permitted.");
-        
-      var current = builderStack.Peek();
-
-      if(expectedPerformable == null)
-        return current;
-
-      if(!ReferenceEquals(expectedPerformable, current.Performable))
-      {
-        throw new ArgumentException("The expected performable must be the same as the current builder.",
-                                    nameof(expectedPerformable));
-      }
-
-      return current;
-    }
-
-    IList<Reportable> GetCurrentReportables()
-    {
-      var currentBuilder = PeekCurrentBuilder();
-      if(currentBuilder != null)
-        return currentBuilder.Reportables;
-
-      if(currentScenario != null)
-        return currentScenario.Reportables;
-
-      throw new InvalidOperationException("Cannot get the current reportables, there must be either a current builder or a current scenario.");
-    }
-
-    void EnsureCurrentScenario()
-    {
-      if(ReferenceEquals(currentScenario, null))
-        throw new InvalidOperationException("There must be a current scenario in order to report upon performables.");
+      return scenario;
     }
 
     /// <summary>
@@ -214,9 +154,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     public ReportBuilder()
     {
-      scenarios = new List<Models.Scenario>();
-      builderStack = new Stack<PerformanceBuilder>();
-      currentPerformanceType = PerformanceType.Unspecified;
+      scenarios = new ConcurrentDictionary<Guid,ScenarioBuilder>();
     }
   }
 }

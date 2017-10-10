@@ -79,18 +79,18 @@ namespace CSF.Screenplay.Reporting.Builders
                              Reportables.ToArray());
     }
 
-    Outcome GetOutcome()
+    PerformanceOutcome GetOutcome()
     {
       if(IsFailure && Exception != null)
-        return Outcome.FailureWithException;
+        return PerformanceOutcome.FailureWithException;
 
       if(IsFailure)
-        return Outcome.Failure;
+        return PerformanceOutcome.Failure;
 
       if(HasResult)
-        return Outcome.SuccessWithResult;
+        return PerformanceOutcome.SuccessWithResult;
 
-      return Outcome.Success;
+      return PerformanceOutcome.Success;
     }
 
     /// <summary>

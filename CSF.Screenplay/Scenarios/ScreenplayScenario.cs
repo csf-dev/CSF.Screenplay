@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Scenarios
 {
@@ -9,6 +10,12 @@ namespace CSF.Screenplay.Scenarios
   public class ScreenplayScenario : ServiceResolver, IScreenplayScenario, IEquatable<ScreenplayScenario>, ICanBeginAndEndScenario
   {
     readonly Guid identity;
+
+    /// <summary>
+    /// Gets a value which indicates whether or not the scenario was a success.
+    /// </summary>
+    /// <value>The success.</value>
+    public bool? Success { get; set; }
 
     /// <summary>
     /// Gets a unique identity for the the current scenario instance.
@@ -39,10 +46,10 @@ namespace CSF.Screenplay.Scenarios
     /// <summary>
     /// Notifies subscribers that the scenario has ended.
     /// </summary>
-    /// <param name="success">If set to <c>true</c> then the scenario is a success.</param>
-    public void End(bool success)
+    /// <param name="outcome">If set to <c>true</c> then the scenario is a success.</param>
+    public void End(bool? outcome)
     {
-      OnEndScenario(success);
+      OnEndScenario(outcome);
     }
 
     /// <summary>
@@ -63,6 +70,7 @@ namespace CSF.Screenplay.Scenarios
       var args = new BeginScenarioEventArgs {
         FeatureId = FeatureId,
         ScenarioId = ScenarioId,
+        ScenarioIdentity = Identity,
       };
       BeginScenario?.Invoke(this, args);
     }
@@ -70,12 +78,13 @@ namespace CSF.Screenplay.Scenarios
     /// <summary>
     /// Event invoker for <see cref="EndScenario"/>.
     /// </summary>
-    protected virtual void OnEndScenario(bool success)
+    protected virtual void OnEndScenario(bool? outcome)
     {
       var args = new EndScenarioEventArgs {
         FeatureId = FeatureId,
         ScenarioId = ScenarioId,
-        ScenarioIsSuccess = success,
+        ScenarioOutcome = outcome,
+        ScenarioIdentity = Identity,
       };
       EndScenario?.Invoke(this, args);
     }
@@ -121,6 +130,13 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</returns>
     public override string ToString() => $"[Screenplay scenario:{identity.ToString()}]";
+
+    /// <summary>
+    /// Creates a new actor with the given name.
+    /// </summary>
+    /// <returns>The actor.</returns>
+    /// <param name="name">Name.</param>
+    public virtual IActor CreateActor(string name) => new Actor(name, Identity);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.ScreenplayScenario"/> class.

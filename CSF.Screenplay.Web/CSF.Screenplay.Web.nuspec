@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Web</id>
-    <version>0.6.0-alpha</version>
+    <version>0.7.0-alpha</version>
     <title>CSF.Screenplay.Web</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -14,7 +14,7 @@
       <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
       <dependency id="Selenium.WebDriver" version="[3.4.0,4.0.0)" />
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.6.0-alpha" />
+      <dependency id="CSF.Screenplay" version="0.7.0-alpha" />
     </dependencies>
   </metadata>
   <files>
