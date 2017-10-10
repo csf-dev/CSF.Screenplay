@@ -1,5 +1,8 @@
 ﻿using CSF.Screenplay.Integration;
 using CSF.Screenplay.Reporting;
+using CSF.Screenplay.SpecFlow;
+
+[assembly: ScreenplayAssembly(typeof(CSF.Screenplay.SpecFlow.Tests.ScreenplayConfig))]
 
 namespace CSF.Screenplay.SpecFlow.Tests
 {

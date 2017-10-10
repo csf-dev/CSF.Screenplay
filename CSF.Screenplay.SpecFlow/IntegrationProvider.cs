@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using CSF.Screenplay.Integration;
 
 namespace CSF.Screenplay.SpecFlow
@@ -19,18 +21,28 @@ namespace CSF.Screenplay.SpecFlow
 
     IScreenplayIntegration CreateIntegration()
     {
-      var screenplayConfig = GetScreenplayConfiguration();
-      if(screenplayConfig == null)
-        throw new InvalidOperationException("The SpecFlow/Screenplay configuration must be provided."); 
+      var integration = GetScreenplayAssemblyAttribute()?.Integration;
 
-      var integrationConfigType = screenplayConfig.GetIntegrationConfigType();
-      return new IntegrationFactory().Create(integrationConfigType);
+      if(integration == null)
+      {
+        var message = $"There must be an assembly with the {nameof(ScreenplayAssemblyAttribute)}, stating the location to the Screenplay integration configuration.";
+        throw new InvalidOperationException(message);
+      }
+
+      return integration;
     }
 
-    IScreenplayConfiguration GetScreenplayConfiguration()
+    ScreenplayAssemblyAttribute GetScreenplayAssemblyAttribute()
     {
-      var reader = new Configuration.ConfigurationReader();
-      return reader.ReadSection<SpecFlowScreenplayConfiguration>();
+      var appDomain = AppDomain.CurrentDomain;
+      var assemblies = appDomain.GetAssemblies();
+
+      return (from assembly in assemblies
+              where !assembly.IsDynamic
+              let attrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>()
+              where attrib != null
+              select attrib)
+        .FirstOrDefault();
     }
   }
 }
