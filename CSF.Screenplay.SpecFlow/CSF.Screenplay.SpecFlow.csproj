@@ -50,6 +50,8 @@
     <Compile Include="IScreenplayConfiguration.cs" />
     <Compile Include="ScenarioAdapter.cs" />
     <Compile Include="IntegrationProvider.cs" />
+    <Compile Include="ScreenplayPlugin.cs" />
+    <Compile Include="ScreenplayAssemblyAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
