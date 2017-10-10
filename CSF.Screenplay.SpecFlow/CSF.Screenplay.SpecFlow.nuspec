@@ -17,7 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/CSF.Screenplay.SpecFlow.dll" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.SpecFlow.xml" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.SpecFlowPlugin.dll" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.SpecFlowPlugin.xml" target="lib/net45" />
   </files>
 </package>
