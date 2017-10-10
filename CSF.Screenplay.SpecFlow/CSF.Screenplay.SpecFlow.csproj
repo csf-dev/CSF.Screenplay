@@ -46,8 +46,6 @@
     <Compile Include="ScreenplayBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioAndFeatureKey.cs" />
-    <Compile Include="SpecFlowScreenplayConfiguration.cs" />
-    <Compile Include="IScreenplayConfiguration.cs" />
     <Compile Include="ScenarioAdapter.cs" />
     <Compile Include="IntegrationProvider.cs" />
     <Compile Include="ScreenplayPlugin.cs" />
