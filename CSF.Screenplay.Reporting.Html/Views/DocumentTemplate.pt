@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>Screenplay report</title>
+<style tal:content="here/RenderedStyles"></style>
+<style tal:condition="nothing">
+@import url(reset.css);
+@import url(page.css);
+@import url(reports.css);
+</style>
+<script tal:content="here/RenderedScripts"></script>
+<script tal:condition="nothing" src=""></script>
+</head>
+<body tal:define="report here/Report">
+<header>
+  <h1>Screenplay report</h1>
+</header>
+<section class="report" tal:define="features here/Features">
+  <ul class="features">
+    <li tal:repeat="feature features" class="feature">
+      <header tal:define="failure feature/IsFailure;
+                          success feature/IsSuccess;
+                          outcome csharp:here.GetOutcomeClass(success, failure)"
+              tal:attributes="class outcome"
+              class="success">
+        <div class="identifier"
+             tal:condition="feature/Identifier | nothing"
+             tal:content="feature/Identifier">Feature.Identifier.Here</div>
+        <h2 class="name" tal:content="feature/Name">This is where the feature name goes</h2>
+      </header>
+      <ul class="scenarios" tal:define="scenarios feature/Scenarios">
+        <li tal:repeat="scenario scenarios" class="scenario">
+          <header tal:define="failure scenario/IsFailure;
+                              success scenario/IsSuccess;
+                              outcome csharp:here.GetOutcomeClass(success, failure)"
+                  tal:attributes="class outcome"
+                  class="success">
+            <div class="identifier"
+                 tal:condition="scenario/Id | nothing"
+                 tal:content="scenario/Id">Scenario.Identifier.Here</div>
+            <h3 class="name" tal:content="scenario/FriendlyName">My very interesting scenario</h3>
+          </header>
+          <ol class="reportables"
+              tal:define="reportables scenario/Reportables;
+                          rootReportable csharp:true">
+            <li tal:repeat="reportable reportables" class="reportable">
+              <tal:block define="macroName csharp:here.GetMacroName(reportable);
+                                 macro load:here/Documents/Reportables/macros/?macroName | nothing"
+                         replace="structure macro | nothing">
+                <p>Reportable content</p>
+              </tal:block>
+            </li>
+          </ol>
+        </li>
+        <li class="scenario" tal:condition="nothing">
+          <header class="success">
+            <div class="identifier">Feature1.Scenario2.Identifier.Here</div>
+            <h3 class="name">A second scenario in the feature</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <div>
+                <p>Reportable content</p>
+              </div>
+            </li>
+          </ol>
+        </li>
+        <li class="scenario" tal:condition="nothing">
+          <header class="success">
+            <div class="identifier">Feature1.Scenario3.Identifier.Here</div>
+            <h3 class="name">A third scenario in the feature</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <div>
+                <p>Reportable content</p>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+    <li tal:condition="nothing" class="feature">
+      <header class="success">
+        <div class="identifier">Another.Feature.Identifier</div>
+        <h2 class="name">Another feature name</h2>
+      </header>
+      <ul class="scenarios">
+        <li class="scenario">
+          <header class="success">
+            <div class="identifier">Feature2.Scenario1.Identifier.Here</div>
+            <h3 class="name">A scenario in a different feature</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <div>
+                <p>Reportable content</p>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<footer tal:define="timestamp csharp:report.Timestamp.ToString(&quot;g&quot;)">
+  <p>
+    This report was created at
+    <span tal:content="timestamp" class="timestamp">2011-03-01 12:40:33</span>
+    using <a href="https://github.com/csf-dev/CSF.Screenplay">CSF.Screenplay</a>.
+  </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Reportables</title>
+<style>
+@import url(reset.css);
+@import url(page.css);
+@import url(reports.css);
+</style>
+<script src=""></script>
+</head>
+<body>
+  <ul class="features">
+    <li class="feature">
+      <header class="success">
+        <div class="identifier">Feature.Identifier.Here</div>
+        <h2 class="name">Feature name</h2>
+      </header>
+      <ul class="scenarios">
+        <li class="scenario">
+          <header class="success">
+            <div class="identifier">Scenario.Identifier.Here</div>
+            <h3 class="name" >My very interesting scenario</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <!-- The base macro for a reportable, we never use this directly, only extend it -->
+              <div metal:define-macro="reportable"
+                   tal:define="outcomeClass csharp:here.GetOutcomeClass(reportable);
+                               reportableClass csharp:here.GetReportableClass(reportable);
+                               containerClass string:$outcomeClass $reportableClass"
+                   tal:attributes="class containerClass"
+                   class="performance success">
+                <p class="description"
+                   metal:define-slot="description"
+                   tal:define="actor reportable/Actor">
+                  <strong tal:condition="rootReportable"
+                          tal:content="reportable/PerformanceType"
+                          class="performance_type">Given</strong>
+                  <span metal:define-slot="body">the body of this reportable</span>
+                </p>
+                <div class="additional_content"
+                      metal:define-slot="additional_content"
+                      tal:condition="nothing">
+                  Additional content
+                </div>
+              </div>
+            </li>
+            <li class="reportable">
+              <!-- The macro for an ability -->
+              <div metal:extend-macro="reportable"
+                   metal:define-macro="ability"
+                   class="ability success">
+                <p class="description">
+                  <strong class="performance_type">Given</strong>
+                  <span metal:fill-slot="body"
+                        tal:define="ability reportable/Ability"
+                        tal:content="csharp:ability.GetReport(actor)">Joe is able to browse the web</span>
+                </p>
+              </div>
+            </li>
+            <li class="reportable">
+              <!-- The base macro for a performance, it can be used directly or extended -->
+              <div metal:extend-macro="reportable"
+                   metal:define-macro="performance"
+                   class="performance success">
+                <p class="description">
+                  <strong class="performance_type">When</strong>
+                  <span metal:fill-slot="body"
+                        tal:define="performable reportable/Performable"
+                        tal:content="csharp:performable.GetReport(actor)">Joe attempts to do a thing</span>
+                </p>
+                <div class="additional_content"
+                     metal:fill-slot="additional_content"
+                     tal:condition="nothing"
+                     tal:define="performable reportable/Performable">
+                  <div class="extended_content"
+                       metal:define-slot="extended_content"
+                       tal:condition="nothing">
+                    Extended content
+                  </div>
+                  <ol tal:define="reportables performable/Reportables;
+                                  rootReportable csharp:false"
+                      class="reportables"
+                      tal:condition="reportables"
+                      metal:define-slot="child_reportables">
+                    <li tal:repeat="reportable reportables" class="reportable">
+                      <tal:block define="macroName csharp:here.GetMacroName(reportable);
+                                         macro load:?macroName | nothing"
+                                 replace="structure macro | nothing">
+                        <p>Child reportable content</p>
+                      </tal:block>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </li>
+            <li class="reportable">
+              <!-- The macro for a performance which has a result -->
+              <div metal:extend-macro="performance"
+                   metal:define-macro="performance_success_result"
+                   class="performance success">
+                <p class="description">
+                  <strong class="performance_type">Then</strong>
+                  <span>Joe reads some kind of value</span>
+                </p>
+                <div class="additional_content">
+                  <div class="extended_content performance_result"
+                       metal:fill-slot="extended_content">
+                    <p>
+                      <strong>Result</strong>
+                      <span tal:replace="csharp:here.Format(performable.Result)">The performance result</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="reportable">
+              <!-- The macro for a performance which has failed with an exception -->
+              <div metal:extend-macro="performance"
+                   metal:define-macro="performance_failure_exception"
+                   class="performance failure">
+                <p class="description">
+                  <strong class="performance_type">Then</strong>
+                  <span>Joe does something that fails</span>
+                </p>
+                <div class="additional_content">
+                  <div class="extended_content performance_exception"
+                       metal:fill-slot="extended_content">
+                    <p>Failed with an <strong>exception</strong></p>
+                    <pre tal:content="performable/Exception">Exception
+  at My.Funky.Stack.Trace.Line1 &gt; Something
+  at My.Funky.Stack.Trace.Line2 &gt; Something else
+  at My.Funky.Stack.Trace.Line3 &gt; Something different</pre>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>

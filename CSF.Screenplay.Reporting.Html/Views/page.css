@@ -1,0 +1,93 @@
+body {
+  font-family: "DejaVu Sans", "Droid Sans", "Verdana", Arial, sans;
+  padding: 0.6em;
+}
+body>header {
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 1em;
+}
+body>header h1 {
+  font-size: 200%;
+  line-height: 140%;
+  color: #999;
+}
+body>footer {
+  border-top: 1px solid #CCC;
+  margin-top: 1em;
+  line-height: 140%;
+  font-size: 90%;
+  color: #999;
+}
+body>footer .timestamp {
+  color: #444;
+}
+body>footer a {
+  text-decoration: none;
+  color: #337;
+}
+body>footer a:hover {
+  border-bottom: 1px solid #337;
+}
+.features {
+  border-radius: 6px;
+  border: 1px solid #EB9;
+}
+.feature {
+  background-color: #E0E0E0;
+  border-bottom: 1px solid #A9A9A9;
+}
+.feature:first-child,
+.feature:first-child>header {
+  border-radius: 6px 6px 0 0;
+}
+.feature:last-child {
+  border-radius: 0 0 6px 6px;
+  border-bottom-width: 0;
+}
+
+.feature>header {
+  padding: 0.8em 0.4em 0.4em;
+  background: linear-gradient(to bottom, #FFF 0%,#E0E0E0 100%);
+  overflow: auto;
+}
+.feature>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.feature>header .name {
+  font-size: 140%;
+  float: left;
+}
+.scenario>header {
+  padding: 0.4em 0.4em 0.4em 1.4em;
+  background: linear-gradient(to bottom, #E0E0E0 0%,#D0D0D0 100%);
+  overflow: auto;
+}
+.scenario {
+  border-bottom: 1px solid #B9B9B9;
+  background-color: #D0D0D0;
+  padding-bottom: 0.4em;
+}
+.scenario:first-child {
+  border-top: 1px solid #B9B9B9;
+}
+.scenario:last-child {
+  border-bottom-width: 0;
+}
+.feature:last-child .scenario:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.scenario>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.scenario>header .name {
+  font-size: 110%;
+  float: left;
+  font-style: italic;
+}
+.scenario>.reportables {
+  padding-left: 1.4em;
+}
