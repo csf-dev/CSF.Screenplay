@@ -1,1 +1,111 @@
- 
+.features {
+  border-radius: 6px;
+  border: 1px solid #EB9;
+}
+.feature {
+  background-color: #E0E0E0;
+  border-bottom: 1px solid #A9A9A9;
+}
+.feature:first-child,
+.feature:first-child>header {
+  border-radius: 6px 6px 0 0;
+}
+.feature:last-child {
+  border-radius: 0 0 6px 6px;
+  border-bottom-width: 0;
+}
+
+.feature>header {
+  padding: 0.8em 0.4em 0.4em;
+  background: linear-gradient(to bottom, #FFF 0%,#E0E0E0 100%);
+  overflow: auto;
+}
+.feature>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.feature>header .name {
+  font-size: 140%;
+  float: left;
+}
+.scenario>header {
+  padding: 0.4em 0.4em 0.4em 1.4em;
+  background: linear-gradient(to bottom, #E0E0E0 0%,#D0D0D0 100%);
+  overflow: auto;
+}
+.scenario {
+  border-bottom: 1px solid #B9B9B9;
+  background-color: #D0D0D0;
+}
+.scenario:first-child {
+  border-top: 1px solid #B9B9B9;
+}
+.scenario:last-child {
+  border-bottom-width: 0;
+}
+.feature:last-child .scenario:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.scenario>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.scenario>header .name {
+  font-size: 110%;
+  float: left;
+  font-style: italic;
+}
+.scenario>.reportables {
+  font-size: 90%;
+}
+.scenario>.reportables>.reportable {
+  background: linear-gradient(to bottom, #D0D0D0 0%,#B9B9B9 100%);
+  padding-left: 2.8em;
+}
+.feature:last-child .scenario:last-child .reportable:last-child {
+  border-radius: 0 0 6px 6px;
+  padding-bottom: 0.4em;
+}
+.reportable {
+  padding-left: 1.4em;
+}
+.reportable .reportables {
+  padding-left: 2em;
+}
+.reportable .description {
+  overflow: auto;
+  padding: 0.4em 0;
+  line-height: 140%;
+}
+.reportable .description .performance_type {
+  display: block;
+  float: left;
+  min-width: 4em;
+  font-weight: bold;
+}
+.reportable .description .body {
+  display: block;
+  float: left;
+}
+.reportable .additional_content {
+  margin: 0.4em 0 0 4em;
+}
+.reportable .extended_content {
+  font-size: 90%;
+  line-height: 120%;
+  padding-bottom: 0.6em;
+}
+.reportable .extended_content strong {
+  font-weight: bold;
+}
+.reportable .extended_content pre {
+  font-family: "Droid Sans Mono", "DejaVu Sans Mono", "Lucida Console", monospace;
+  margin-right: 0.4em;
+  background: #D0D0D0;
+  border: 1px solid #B0B0B0;
+  padding: 0.2em;
+  max-height: 15em;
+  overflow: auto;
+}
