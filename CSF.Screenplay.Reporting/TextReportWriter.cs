@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="reportModel">Report model.</param>
     public void Write(Report reportModel)
     {
-      foreach(var scenario in reportModel.Scenarios)
+      foreach(var scenario in reportModel.Features.SelectMany(x => x.Scenarios))
       {
         WriteScenario(scenario);
       }

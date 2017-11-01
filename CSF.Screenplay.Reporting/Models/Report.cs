@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -8,14 +9,20 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Report
   {
-    readonly IReadOnlyList<Scenario> scenarios;
+    readonly IReadOnlyList<Feature> features;
     readonly DateTime timestamp;
 
     /// <summary>
     /// Gets a collection of the scenarios in this report.
     /// </summary>
     /// <value>The scenarios.</value>
-    public virtual IReadOnlyList<Scenario> Scenarios => scenarios;
+    public virtual IReadOnlyList<Feature> Features => features;
+
+    /// <summary>
+    /// Gets the scenarios in the current report instance.
+    /// </summary>
+    /// <value>The scenarios.</value>
+    public virtual IReadOnlyList<Scenario> Scenarios => Features.SelectMany(x => x.Scenarios).ToArray();
 
     /// <summary>
     /// Gets the timestamp for the creation of this report.
@@ -26,14 +33,28 @@ namespace CSF.Screenplay.Reporting.Models
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.Report"/> class.
     /// </summary>
+    /// <param name="features">Features.</param>
+    public Report(IReadOnlyList<Feature> features)
+    {
+      if(features == null)
+        throw new ArgumentNullException(nameof(features));
+      
+      this.features = features;
+      timestamp = DateTime.UtcNow;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.Report"/> class.
+    /// </summary>
     /// <param name="scenarios">Scenarios.</param>
     public Report(IReadOnlyList<Scenario> scenarios)
     {
       if(scenarios == null)
         throw new ArgumentNullException(nameof(scenarios));
-      
-      this.scenarios = scenarios;
-      timestamp = DateTime.Now;
+
+      var feature = new Feature("Unspecified", "Unspecified", scenarios);
+      this.features = new [] { feature };
+      timestamp = DateTime.UtcNow;
     }
   }
 }
