@@ -137,7 +137,8 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <returns>The report.</returns>
     public Report GetReport()
     {
-      return new Report(scenarios.Values.Select(x => x.GetScenario()).ToArray());
+      var factory = new ReportFactory();
+      return factory.GetReport(scenarios.Values.Select(x => x.GetScenario()).ToArray());
     }
 
     ScenarioBuilder GetScenario(Guid identity)
