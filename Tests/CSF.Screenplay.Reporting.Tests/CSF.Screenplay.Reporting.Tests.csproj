@@ -47,6 +47,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportFactoryTests.cs" />
     <Compile Include="ReportBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
     <Compile Include="TextReportWriterTests.cs" />

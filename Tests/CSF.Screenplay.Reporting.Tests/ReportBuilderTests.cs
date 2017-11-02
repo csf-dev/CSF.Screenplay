@@ -243,5 +243,7 @@ namespace CSF.Screenplay.Reporting.Tests
       var childPerformance = performance.Reportables.Single() as Performance;
       Assert.That(childPerformance.Performable, Is.SameAs(differentPerformable));
     }
+
+    // GetReport_uses_report_factory
   }
 }

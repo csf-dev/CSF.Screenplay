@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Reporting.Models
   /// <summary>
   /// Factory service which creates instances of <see cref="Report"/>.
   /// </summary>
-  public class ReportFactory
+  public class ReportFactory : IReportFactory
   {
     /// <summary>
     /// Creates and returns a <see cref="Report"/> instance.

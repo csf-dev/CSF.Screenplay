@@ -13,6 +13,7 @@ namespace CSF.Screenplay.Reporting.Builders
   /// </summary>
   public class ReportBuilder
   {
+      private readonly IReportFactory reportFactory;
     readonly ConcurrentDictionary<Guid, ScenarioBuilder> scenarios;
 
     /// <summary>
@@ -137,8 +138,8 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <returns>The report.</returns>
     public Report GetReport()
     {
-      var factory = new ReportFactory();
-      return factory.GetReport(scenarios.Values.Select(x => x.GetScenario()).ToArray());
+      var builtScenarios = scenarios.Values.Select(x => x.GetScenario());
+      return reportFactory.GetReport(builtScenarios.ToArray());
     }
 
     ScenarioBuilder GetScenario(Guid identity)
@@ -153,9 +154,19 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Initializes a new instance of the <see cref="ReportBuilder"/> class.
     /// </summary>
-    public ReportBuilder()
+    public ReportBuilder() : this(new ReportFactory()) { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ReportBuilder"/> class.
+    /// </summary>
+    /// <param name="reportFactory">Report factory</param>
+    public ReportBuilder(IReportFactory reportFactory)
     {
-      scenarios = new ConcurrentDictionary<Guid,ScenarioBuilder>();
+      if(reportFactory == null)
+        throw new ArgumentNullException(nameof(reportFactory));
+
+      this.reportFactory = reportFactory;
+      scenarios = new ConcurrentDictionary<Guid, ScenarioBuilder>();
     }
   }
 }
