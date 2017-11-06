@@ -37,6 +37,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Feature.cs" />
+    <Compile Include="Models\IReportFactory.cs" />
+    <Compile Include="Models\ReportFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IReporter.cs" />
     <Compile Include="NoOpReporter.cs" />

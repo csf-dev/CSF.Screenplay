@@ -47,9 +47,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportFactoryTests.cs" />
     <Compile Include="ReportBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
     <Compile Include="TextReportWriterTests.cs" />
+    <Compile Include="Autofixture\ScenarioAttribute.cs" />
+    <Compile Include="Autofixture\ScenarioCustomization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +67,9 @@
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Autofixture\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
