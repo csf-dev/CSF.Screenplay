@@ -5,34 +5,56 @@ namespace CSF.Screenplay.Reporting.Models
 {
   public class ReportDocument
   {
-    public Report Report { get; private set; }
+    const string
+      SuccessClass = "success",
+      FailureClass = "failure",
+      InconclusiveClass = "inconclusive",
+      AbilityClass = "ability",
+      PerformanceClass = "performance",
+      AbilityMacro = "ability",
+      PerformanceWithResultMacro = "performance_success_result",
+      PerformanceWithExceptionMacro = "performance_failure_exception",
+      PerformanceMacro = "performance";
 
-    public IReadOnlyList<Feature> Features { get; private set; }
+    public Report Report { get; private set; }
 
     public string Format(object result)
     {
-      // TODO: Write this implementation
-      throw new NotImplementedException();
+      // TODO: Implement this properly to format objects such as results
+      return result?.ToString();
     }
 
-    public string GetOutcomeClass(bool isSuccess, bool isFailure)
+    public string GetOutcomeClass(Scenario scenario)
     {
-      if(isSuccess) return "success";
-      if(isFailure) return "failure";
-      return "inconclusive";
+      if(scenario == null) return String.Empty;
+      return GetOutcomeClass(scenario.IsSuccess, scenario.IsFailure);
+    }
+
+    public string GetOutcomeClass(Feature feature)
+    {
+      if(feature == null) return String.Empty;
+      return GetOutcomeClass(feature.IsSuccess, feature.HasFailures);
     }
 
     public string GetOutcomeClass(Reportable reportable)
     {
+      
       switch(reportable.Outcome)
       {
       case PerformanceOutcome.Success:
       case PerformanceOutcome.SuccessWithResult:
-        return "success";
+        return GetOutcomeClass(true, false);
 
       default:
-        return "failure";
+        return GetOutcomeClass(false, true);
       }
+    }
+
+    string GetOutcomeClass(bool success, bool failure)
+    {
+      if(success) return SuccessClass;
+      if(failure) return FailureClass;
+      return InconclusiveClass;
     }
 
     public string GetReportableClass(Reportable reportable)
@@ -40,10 +62,10 @@ namespace CSF.Screenplay.Reporting.Models
       if(reportable == null) return String.Empty;
 
       if(reportable is GainAbility)
-        return "ability";
+        return AbilityClass;
 
       if(reportable is Performance)
-        return "performance";
+        return PerformanceClass;
 
       return String.Empty;
     }
@@ -61,21 +83,29 @@ namespace CSF.Screenplay.Reporting.Models
       return null;
     }
 
-    string GetMacroName(GainAbility reportable) => "ability";
+    string GetMacroName(GainAbility reportable) => AbilityMacro;
 
     string GetMacroName(Performance reportable)
     {
       switch(reportable.Outcome)
       {
       case PerformanceOutcome.SuccessWithResult:
-        return "performance_success_result";
+        return PerformanceWithResultMacro;
 
       case PerformanceOutcome.FailureWithException:
-        return "performance_failure_exception";
+        return PerformanceWithExceptionMacro;
 
       default:
-        return "performance";
+        return PerformanceMacro;
       }
+    }
+
+    public ReportDocument(Report report)
+    {
+      if(report == null)
+        throw new ArgumentNullException(nameof(report));
+
+      Report = report;
     }
   }
 }

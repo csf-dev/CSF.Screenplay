@@ -84,7 +84,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HtmlReportWriter.cs" />
     <Compile Include="Views\ViewProvider.cs" />
-    <Compile Include="Models\Feature.cs" />
     <Compile Include="Models\ReportDocument.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,9 +103,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\DocumentTemplate.pt">
       <LogicalName>DocumentTemplate.pt</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Reportables.pt">
-      <LogicalName>Reportables.pt</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

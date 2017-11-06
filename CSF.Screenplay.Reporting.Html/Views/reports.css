@@ -62,14 +62,15 @@
 }
 .scenario>.reportables>.reportable {
   background: linear-gradient(to bottom, #D0D0D0 0%,#B9B9B9 100%);
-  padding-left: 2.8em;
+  margin-left: 6.4em;
+  border-left: 1px solid #B0B0B0;
 }
 .feature:last-child .scenario:last-child .reportable:last-child {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 0;
   padding-bottom: 0.4em;
 }
 .reportable {
-  padding-left: 1.4em;
+  margin-left: 0;
 }
 .reportable .reportables {
   padding-left: 2em;
@@ -78,6 +79,9 @@
   overflow: auto;
   padding: 0.4em 0;
   line-height: 140%;
+}
+.scenario>.reportables>.reportable>* {
+  margin-left: -3.6em;
 }
 .reportable .description .performance_type {
   display: block;

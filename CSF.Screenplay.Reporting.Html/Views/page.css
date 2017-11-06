@@ -18,7 +18,8 @@ body>footer {
   font-size: 90%;
   color: #999;
 }
-body>footer .timestamp {
+body>footer .timestamp,
+body>footer .datestamp {
   color: #444;
 }
 body>footer a {

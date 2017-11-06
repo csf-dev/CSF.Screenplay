@@ -22,11 +22,7 @@ namespace CSF.Screenplay.Reporting
       }
     }
 
-    ReportDocument GetDocumentModel(Report reportModel)
-    {
-      // TODO: Write this implementation
-      throw new NotImplementedException();
-    }
+    ReportDocument GetDocumentModel(Report reportModel) => new ReportDocument(reportModel);
 
     Stream GetDocumentStream() => Views.ViewProvider.GetDocumentTemplate();
 
