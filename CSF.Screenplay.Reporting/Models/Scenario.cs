@@ -9,6 +9,8 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Scenario
   {
+    const string UnknownFeatureId = "Unknown feature";
+
     readonly string featureName, featureId, idName, friendlyName;
     readonly IList<Reportable> children;
 
@@ -113,7 +115,7 @@ namespace CSF.Screenplay.Reporting.Models
       this.idName = idName;
       this.friendlyName = friendlyName;
       this.featureName = featureName;
-      this.featureId = featureId;
+      this.featureId = featureId?? UnknownFeatureId;
       this.children = new List<Reportable>();
     }
   }

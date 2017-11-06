@@ -5,6 +5,8 @@ using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Reporting.Models;
+using Moq;
+using System.Collections.Generic;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
@@ -244,6 +246,31 @@ namespace CSF.Screenplay.Reporting.Tests
       Assert.That(childPerformance.Performable, Is.SameAs(differentPerformable));
     }
 
-    // GetReport_uses_report_factory
+    [Test,AutoMoqData]
+    public void GetReport_uses_report_factory(IReportFactory factory,
+                                              string id,
+                                              INamed actor,
+                                              IPerformable performable,
+                                              Guid scenarioIdentity,
+                                              Report report)
+    {
+      // Arrange
+      var sut = new ReportBuilder(factory);
+      sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
+      sut.RecordSuccess(performable, scenarioIdentity);
+
+      Mock.Get(factory)
+          .Setup(x => x.GetReport(It.IsAny<IReadOnlyCollection<Scenario>>()))
+          .Returns(report);
+
+      // Act
+      var result = sut.GetReport();
+
+      // Assert
+      Assert.AreSame(report, result, "Result is same instance returned by factory");
+      Mock.Get(factory)
+          .Verify(x => x.GetReport(It.IsAny<IReadOnlyCollection<Scenario>>()), Times.Once());
+    }
   }
 }

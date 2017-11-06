@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Reporting.Builders
   /// </summary>
   public class ReportBuilder
   {
-      private readonly IReportFactory reportFactory;
+    readonly IReportFactory reportFactory;
     readonly ConcurrentDictionary<Guid, ScenarioBuilder> scenarios;
 
     /// <summary>
