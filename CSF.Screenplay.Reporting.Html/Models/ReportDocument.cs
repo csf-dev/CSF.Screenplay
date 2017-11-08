@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.Zpt;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -17,8 +18,12 @@ namespace CSF.Screenplay.Reporting.Models
       PerformanceMacro = "performance";
 
     readonly IObjectFormattingService formattingService;
+    readonly IZptDocument document;
+    readonly Report report;
 
-    public Report Report { get; private set; }
+    public Report Report => report;
+
+    public IZptDocument Template => document;
 
     public string Format(object obj) => formattingService.Format(obj);
 
@@ -98,15 +103,18 @@ namespace CSF.Screenplay.Reporting.Models
       }
     }
 
-    public ReportDocument(Report report, IObjectFormattingService formattingService)
+    public ReportDocument(Report report, IObjectFormattingService formattingService, IZptDocument document)
     {
+      if(document == null)
+        throw new ArgumentNullException(nameof(document));
       if(formattingService == null)
         throw new ArgumentNullException(nameof(formattingService));
       if(report == null)
         throw new ArgumentNullException(nameof(report));
 
-      Report = report;
+      this.report = report;
       this.formattingService = formattingService;
+      this.document = document;
     }
   }
 }

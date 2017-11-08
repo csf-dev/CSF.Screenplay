@@ -4,6 +4,7 @@ using CSF.Screenplay.Reporting.Html.Tests.Autofixture;
 using System.Text;
 using System.IO;
 using System.Diagnostics;
+using System;
 
 namespace CSF.Screenplay.Reporting.Html.Tests
 {
@@ -24,8 +25,8 @@ namespace CSF.Screenplay.Reporting.Html.Tests
         Assert.DoesNotThrow(() => sut.Write(report));
       }
 
-      // Print the created document to the debug stream
-      Debug.WriteLine(sb.ToString());
+      // Let's see the report, just out of interest
+      TestContext.WriteLine(sb.ToString());
     }
   }
 }

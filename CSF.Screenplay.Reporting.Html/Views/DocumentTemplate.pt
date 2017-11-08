@@ -1,89 +1,24 @@
 <html>
 <head>
 <title>Screenplay report</title>
-<style tal:content="here/RenderedStyles"></style>
+<style tal:content="here/RenderedStyles | nothing"></style>
 <style tal:condition="nothing">
 @import url(reset.css);
 @import url(page.css);
 @import url(reports.css);
 </style>
-<script tal:content="here/RenderedScripts"></script>
+<script tal:content="here/RenderedScripts | nothing"></script>
 <script tal:condition="nothing" src=""></script>
 </head>
 <body tal:define="report here/Report">
 <header>
   <h1>Screenplay report</h1>
 </header>
-<section class="report" tal:define="features report/Features">
+<section class="report"
+         tal:define="features report/Features;
+                     template here/Template;
+                     myMacros csharp:template.GetMacros();">
   <ul class="features">
-    <li tal:repeat="feature features" class="feature">
-      <header tal:define="outcome csharp:here.GetOutcomeClass(feature)"
-              tal:attributes="class outcome"
-              class="success">
-        <div class="identifier"
-             tal:condition="feature/Identifier | nothing"
-             tal:content="feature/Identifier">Feature.Identifier.Here</div>
-        <h2 class="name" tal:content="feature/Name">This is where the feature name goes</h2>
-      </header>
-      <ul class="scenarios" tal:define="scenarios feature/Scenarios">
-        <li tal:repeat="scenario scenarios" class="scenario">
-          <header tal:define="outcome csharp:here.GetOutcomeClass(scenario)"
-                  tal:attributes="class outcome"
-                  class="success">
-            <div class="identifier"
-                 tal:condition="scenario/Id | nothing"
-                 tal:content="scenario/Id">Scenario.Identifier.Here</div>
-            <h3 class="name" tal:content="scenario/FriendlyName">My very interesting scenario</h3>
-          </header>
-          <ol class="reportables"
-              tal:define="reportables scenario/Reportables;
-                          rootReportable csharp:true">
-            <li tal:repeat="reportable reportables" class="reportable">
-              <div tal:define="macroName csharp:here.GetMacroName(reportable);
-                               macro load:?macroName | nothing"
-                   tal:replace="structure macro | nothing">
-                <p class="description">
-                  <strong class="performance_type">Given</strong>
-                  <span class="body">Reportable content</span>
-                </p>
-              </div>
-            </li>
-          </ol>
-        </li>
-        <li class="scenario" tal:condition="nothing">
-          <header class="success">
-            <div class="identifier">Feature1.Scenario2.Identifier.Here</div>
-            <h3 class="name">A second scenario in the feature</h3>
-          </header>
-          <ol class="reportables">
-            <li class="reportable">
-              <div>
-                <p class="description">
-                  <strong class="performance_type">Given</strong>
-                  <span class="body">Reportable content</span>
-                </p>
-              </div>
-            </li>
-          </ol>
-        </li>
-        <li class="scenario" tal:condition="nothing">
-          <header class="success">
-            <div class="identifier">Feature1.Scenario3.Identifier.Here</div>
-            <h3 class="name">A third scenario in the feature</h3>
-          </header>
-          <ol class="reportables">
-            <li class="reportable">
-              <div>
-                <p class="description">
-                  <strong class="performance_type">Given</strong>
-                  <span class="body">Reportable content</span>
-                </p>
-              </div>
-            </li>
-          </ol>
-        </li>
-      </ul>
-    </li>
     <li tal:condition="nothing" class="feature">
       <header class="success">
         <div class="identifier">Another.Feature.Identifier</div>
@@ -160,7 +95,7 @@
                       metal:define-slot="child_reportables">
                     <li tal:repeat="reportable reportables" class="reportable">
                       <tal:block define="macroName csharp:here.GetMacroName(reportable);
-                                         macro load:?macroName | nothing"
+                                         macro load:myMacros/?macroName"
                                  replace="structure macro | nothing">
                         <p>Child reportable content</p>
                       </tal:block>
@@ -208,6 +143,74 @@
   at My.Funky.Stack.Trace.Line3 &gt; Something different</pre>
                   </div>
                 </div>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+    <li tal:repeat="feature features" class="feature">
+      <header tal:define="outcome csharp:here.GetOutcomeClass(feature)"
+              tal:attributes="class outcome"
+              class="success">
+        <div class="identifier"
+             tal:condition="feature/Identifier | nothing"
+             tal:content="feature/Identifier">Feature.Identifier.Here</div>
+        <h2 class="name" tal:content="feature/FriendlyName">This is where the feature name goes</h2>
+      </header>
+      <ul class="scenarios" tal:define="scenarios feature/Scenarios">
+        <li tal:repeat="scenario scenarios" class="scenario">
+          <header tal:define="outcome csharp:here.GetOutcomeClass(scenario)"
+                  tal:attributes="class outcome"
+                  class="success">
+            <div class="identifier"
+                 tal:condition="scenario/Id | nothing"
+                 tal:content="scenario/Id">Scenario.Identifier.Here</div>
+            <h3 class="name" tal:content="scenario/FriendlyName">My very interesting scenario</h3>
+          </header>
+          <ol class="reportables"
+              tal:define="reportables scenario/Reportables;
+                          rootReportable csharp:true">
+            <li tal:repeat="reportable reportables" class="reportable">
+              <div tal:define="macroName csharp:here.GetMacroName(reportable);
+                               macro load:myMacros/?macroName"
+                   tal:replace="structure macro | nothing">
+                <p class="description">
+                  <strong class="performance_type">Given</strong>
+                  <span class="body">Reportable content</span>
+                </p>
+              </div>
+            </li>
+          </ol>
+        </li>
+        <li class="scenario" tal:condition="nothing">
+          <header class="success">
+            <div class="identifier">Feature1.Scenario2.Identifier.Here</div>
+            <h3 class="name">A second scenario in the feature</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <div>
+                <p class="description">
+                  <strong class="performance_type">Given</strong>
+                  <span class="body">Reportable content</span>
+                </p>
+              </div>
+            </li>
+          </ol>
+        </li>
+        <li class="scenario" tal:condition="nothing">
+          <header class="success">
+            <div class="identifier">Feature1.Scenario3.Identifier.Here</div>
+            <h3 class="name">A third scenario in the feature</h3>
+          </header>
+          <ol class="reportables">
+            <li class="reportable">
+              <div>
+                <p class="description">
+                  <strong class="performance_type">Given</strong>
+                  <span class="body">Reportable content</span>
+                </p>
               </div>
             </li>
           </ol>

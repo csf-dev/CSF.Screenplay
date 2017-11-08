@@ -14,16 +14,21 @@ namespace CSF.Screenplay.Reporting
 
     public void Write(Report report)
     {
-      var model = GetDocumentModel(report);
-
       using(var stream = GetDocumentStream())
       {
-        var document = documentFactory.CreateDocument(stream, RenderingMode.Html, new StreamSourceInfo("ReportDocument"));
+        var document = GetDocument(stream);
+        var model = GetDocumentModel(report, document);
         document.Render(model, writer);
       }
     }
 
-    ReportDocument GetDocumentModel(Report reportModel) => new ReportDocument(reportModel, formattingService);
+    ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
+      => new ReportDocument(reportModel, formattingService, document);
+
+    IZptDocument GetDocument(Stream stream)
+      => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+
+    ISourceInfo GetSourceInfo() => new StreamSourceInfo("ReportDocument");
 
     Stream GetDocumentStream() => Views.ViewProvider.GetDocumentTemplate();
 
@@ -36,7 +41,6 @@ namespace CSF.Screenplay.Reporting
 
       this.writer = writer;
       this.formattingService = formattingService;
-
       documentFactory = new ZptDocumentFactory();
     }
   }
