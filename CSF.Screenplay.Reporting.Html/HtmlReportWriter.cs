@@ -2,6 +2,7 @@
 using System.IO;
 using CSF.Screenplay.Reporting.Models;
 using CSF.Zpt;
+using CSF.Zpt.Rendering;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -17,12 +18,12 @@ namespace CSF.Screenplay.Reporting
 
       using(var stream = GetDocumentStream())
       {
-        var document = documentFactory.CreateDocument(stream, RenderingMode.Html);
+        var document = documentFactory.CreateDocument(stream, RenderingMode.Html, new StreamSourceInfo("ReportDocument"));
         document.Render(model, writer);
       }
     }
 
-    ReportDocument GetDocumentModel(Report reportModel) => new ReportDocument(reportModel);
+    ReportDocument GetDocumentModel(Report reportModel) => new ReportDocument(reportModel, formattingService);
 
     Stream GetDocumentStream() => Views.ViewProvider.GetDocumentTemplate();
 

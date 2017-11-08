@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.SpecFlow.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting.Html", "CSF.Screenplay.Reporting.Html\CSF.Screenplay.Reporting.Html.csproj", "{29AA4CCD-A7B7-414E-A57F-FDE74A04A19F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting.Html.Tests", "Tests\CSF.Screenplay.Reporting.Html.Tests\CSF.Screenplay.Reporting.Html.Tests.csproj", "{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{29AA4CCD-A7B7-414E-A57F-FDE74A04A19F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29AA4CCD-A7B7-414E-A57F-FDE74A04A19F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29AA4CCD-A7B7-414E-A57F-FDE74A04A19F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6273A66-8B2A-47C0-A982-F94E6BEA79F8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
@@ -95,6 +101,7 @@ Global
 		{7E16FEE8-2CEA-4581-B559-A399EF5A86A9} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 		{404C337E-3CC0-4168-86BA-3309515FB558} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 		{7D3FE30F-56FD-4A79-B05B-CE0251159D3A} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
+		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		version = 0.7.0

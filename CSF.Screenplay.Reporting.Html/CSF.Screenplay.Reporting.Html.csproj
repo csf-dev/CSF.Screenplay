@@ -85,6 +85,7 @@
     <Compile Include="HtmlReportWriter.cs" />
     <Compile Include="Views\ViewProvider.cs" />
     <Compile Include="Models\ReportDocument.cs" />
+    <Compile Include="StreamSourceInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

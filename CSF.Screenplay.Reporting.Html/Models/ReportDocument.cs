@@ -16,13 +16,11 @@ namespace CSF.Screenplay.Reporting.Models
       PerformanceWithExceptionMacro = "performance_failure_exception",
       PerformanceMacro = "performance";
 
+    readonly IObjectFormattingService formattingService;
+
     public Report Report { get; private set; }
 
-    public string Format(object result)
-    {
-      // TODO: Implement this properly to format objects such as results
-      return result?.ToString();
-    }
+    public string Format(object obj) => formattingService.Format(obj);
 
     public string GetOutcomeClass(Scenario scenario)
     {
@@ -100,12 +98,15 @@ namespace CSF.Screenplay.Reporting.Models
       }
     }
 
-    public ReportDocument(Report report)
+    public ReportDocument(Report report, IObjectFormattingService formattingService)
     {
+      if(formattingService == null)
+        throw new ArgumentNullException(nameof(formattingService));
       if(report == null)
         throw new ArgumentNullException(nameof(report));
 
       Report = report;
+      this.formattingService = formattingService;
     }
   }
 }
