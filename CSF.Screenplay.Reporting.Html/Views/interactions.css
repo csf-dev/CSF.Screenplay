@@ -1,6 +1,10 @@
-.feature.collapsed .scenarios,
-.scenario.collapsed .reportables {
+body.js .feature.collapsed .scenarios,
+body.js .scenario.collapsed .reportables {
   display: none;
+}
+body.js .feature>header,
+body.js .scenario>header {
+  cursor: pointer;
 }
 .feature>header:before,
 .scenario>header:before {
@@ -9,6 +13,10 @@
   font-size: 90%;
   vertical-align: middle;
   color: #999;
+  padding: 0 0.2em;
+  width: 1em;
+  display: block;
+  text-align: center;
 }
 .feature>header:before {
   line-height: 1.4em;
@@ -16,11 +24,11 @@
 .scenario>header:before {
   line-height: 1.1em;
 }
-.feature>header:before,
-.scenario>header:before {
+body.js .feature>header:before,
+body.js .scenario>header:before {
   content: '▼';
 }
-.feature.collapsed>header:before,
-.scenario.collapsed>header:before {
+body.js .feature.collapsed>header:before,
+body.js .scenario.collapsed>header:before {
   content: '▶';
 }
