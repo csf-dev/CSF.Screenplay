@@ -22,9 +22,6 @@ namespace CSF.Screenplay.Reporting.Html.Tests
         // Act & assert
         Assert.DoesNotThrow(() => sut.Write(report));
       }
-
-      File.WriteAllText($"{nameof(HtmlReportWriterTests)}.{nameof(Write_can_create_a_document_without_crashing)}.html",
-                        sb.ToString());
     }
   }
 }

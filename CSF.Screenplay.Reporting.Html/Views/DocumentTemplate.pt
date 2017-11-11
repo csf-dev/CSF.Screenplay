@@ -80,7 +80,8 @@
                         tal:content="reportBody | default">Joe attempts to do a thing</span>
                 </p>
                 <div class="additional_content"
-                     metal:fill-slot="additional_content">
+                     metal:fill-slot="additional_content"
+                     tal:condition="reportable/HasAdditionalContent">
                   <div class="extended_content"
                        metal:define-slot="extended_content"
                        tal:condition="nothing"
@@ -88,9 +89,10 @@
                     Extended content
                   </div>
                   <ol tal:define="reportables reportable/Reportables;
+                                  hasReportables reportable/HasReportables;
                                   rootReportable csharp:false"
                       class="reportables"
-                      tal:condition="reportables">
+                      tal:condition="hasReportables">
                     <li tal:repeat="reportable reportables" class="reportable">
                       <tal:block define="macroName csharp:here.GetMacroName(reportable);
                                          macro myMacros/?macroName;

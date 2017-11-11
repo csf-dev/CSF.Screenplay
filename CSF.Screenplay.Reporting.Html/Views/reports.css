@@ -61,7 +61,7 @@
   font-size: 90%;
 }
 .scenario>.reportables>.reportable {
-  background: linear-gradient(to bottom, #D0D0D0 0%,#B9B9B9 100%);
+  background: #E0E0E0;
   margin-left: 6.4em;
   border-left: 1px solid #B0B0B0;
 }
@@ -74,6 +74,7 @@
 }
 .reportable .reportables {
   padding-left: 2em;
+  margin-top: -0.4em;
 }
 .reportable .description {
   overflow: auto;
@@ -95,6 +96,9 @@
 }
 .reportable .additional_content {
   margin: 0.4em 0 0 4em;
+}
+.reportable .reportable .additional_content {
+  margin-left: 0;
 }
 .reportable .extended_content {
   font-size: 90%;
