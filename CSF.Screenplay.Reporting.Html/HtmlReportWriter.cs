@@ -14,19 +14,25 @@ namespace CSF.Screenplay.Reporting
 
     public void Write(Report report)
     {
-      using(var stream = GetDocumentStream())
-      {
-        var document = GetDocument(stream);
-        var model = GetDocumentModel(report, document);
-        document.Render(model, writer);
-      }
+      var doc = GetDocument();
+      var emptyDoc = GetDocument();
+      var model = GetDocumentModel(report, emptyDoc);
+      doc.Render(model, writer);
     }
 
     ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
       => new ReportDocument(reportModel, formattingService, document);
 
+    IZptDocument GetDocument()
+    {
+      using(var stream = GetDocumentStream())
+      {
+        return documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+      }
+    }
+
     IZptDocument GetDocument(Stream stream)
-      => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+    => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
 
     ISourceInfo GetSourceInfo() => new StreamSourceInfo("ReportDocument");
 

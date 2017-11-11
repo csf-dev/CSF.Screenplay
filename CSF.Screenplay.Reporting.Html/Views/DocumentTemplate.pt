@@ -16,8 +16,7 @@
 </header>
 <section class="report"
          tal:define="features report/Features;
-                     template here/Template;
-                     myMacros csharp:template.GetMacros();">
+                     myMacros here/GetMacros">
   <ul class="features">
     <li tal:condition="nothing" class="feature">
       <header class="success">
@@ -76,27 +75,28 @@
                 <p class="description">
                   <strong class="performance_type">When</strong>
                   <span metal:fill-slot="body" class="body"
-                        tal:define="performable reportable/Performable"
-                        tal:content="csharp:performable.GetReport(actor)">Joe attempts to do a thing</span>
+                        tal:define="performable reportable/Performable;
+                                    report csharp:performable.GetReport(actor)"
+                        tal:content="report">Joe attempts to do a thing</span>
                 </p>
                 <div class="additional_content"
-                     metal:fill-slot="additional_content"
-                     tal:define="performable reportable/Performable">
+                     metal:fill-slot="additional_content">
                   <div class="extended_content"
                        metal:define-slot="extended_content"
                        tal:condition="nothing"
                        style="display: none;">
                     Extended content
                   </div>
-                  <ol tal:define="reportables performable/Reportables;
+                  <ol tal:define="reportables reportable/Reportables;
                                   rootReportable csharp:false"
                       class="reportables"
                       tal:condition="reportables"
                       metal:define-slot="child_reportables">
                     <li tal:repeat="reportable reportables" class="reportable">
                       <tal:block define="macroName csharp:here.GetMacroName(reportable);
-                                         macro load:myMacros/?macroName"
-                                 replace="structure macro | nothing">
+                                         macro myMacros/?macroName;
+                                         macroMarkup load:macro"
+                                 replace="structure macroMarkup | nothing">
                         <p>Child reportable content</p>
                       </tal:block>
                     </li>
@@ -118,7 +118,7 @@
                        metal:fill-slot="extended_content">
                     <p>
                       <strong>Result</strong>
-                      <span tal:replace="csharp:here.Format(performable.Result)">The performance result</span>
+                      <span tal:replace="csharp:here.Format(reportable.Result)">The performance result</span>
                     </p>
                   </div>
                 </div>
@@ -135,9 +135,14 @@
                 </p>
                 <div class="additional_content">
                   <div class="extended_content performance_exception"
-                       metal:fill-slot="extended_content">
-                    <p>Failed with an <strong>exception</strong></p>
-                    <pre tal:content="performable/Exception">Exception
+                       metal:fill-slot="extended_content"
+                       tal:define="exception reportable/Exception | nothing">
+                    <p>
+                      Failed
+                      <span tal:omit-tag="string:Yes"
+                            tal:condition="exception">with an <strong>exception</strong></span>
+                    </p>
+                    <pre tal:condition="exception" tal:content="exception">Exception
   at My.Funky.Stack.Trace.Line1 &gt; Something
   at My.Funky.Stack.Trace.Line2 &gt; Something else
   at My.Funky.Stack.Trace.Line3 &gt; Something different</pre>
@@ -173,8 +178,9 @@
                           rootReportable csharp:true">
             <li tal:repeat="reportable reportables" class="reportable">
               <div tal:define="macroName csharp:here.GetMacroName(reportable);
-                               macro load:myMacros/?macroName"
-                   tal:replace="structure macro | nothing">
+                               macro myMacros/?macroName;
+                               macroMarkup load:macro"
+                   tal:replace="structure macroMarkup | nothing">
                 <p class="description">
                   <strong class="performance_type">Given</strong>
                   <span class="body">Reportable content</span>

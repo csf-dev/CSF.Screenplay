@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSF.Zpt;
+using CSF.Zpt.Metal;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -24,6 +25,12 @@ namespace CSF.Screenplay.Reporting.Models
     public Report Report => report;
 
     public IZptDocument Template => document;
+
+    public IMetalMacroContainer GetMacros()
+    {
+      var output = Template.GetMacros();
+      return output;
+    }
 
     public string Format(object obj) => formattingService.Format(obj);
 
