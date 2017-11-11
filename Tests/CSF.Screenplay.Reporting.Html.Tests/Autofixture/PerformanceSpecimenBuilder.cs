@@ -95,8 +95,8 @@ namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
     {
       var randomNumber = ScenarioCustomisation.Randomiser.Next(0, 10);
 
-      if(randomNumber < 4) return PerformanceCategory.Success;
-      if(randomNumber < 6) return PerformanceCategory.SuccessWithResult;
+      if(randomNumber < 5) return PerformanceCategory.Success;
+      if(randomNumber < 7) return PerformanceCategory.SuccessWithResult;
       if(randomNumber < 9) return PerformanceCategory.SuccessWithChildren;
       return PerformanceCategory.FailureWithException;
     }

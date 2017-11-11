@@ -15,6 +15,6 @@ namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
     }
 
     Feature CreateFeature(string id, string name, IList<Scenario> scenarios)
-      => new Feature(id, name, scenarios.ToArray());
+      => new Feature($"FeatureId {id}", $"Feature {name}", scenarios.ToArray());
   }
 }

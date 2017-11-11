@@ -19,12 +19,17 @@ namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
       new PerformanceCustomisation().Customize(fixture);
 
       fixture.Customize<Scenario>(builder => {
-        return builder.Do(s => {
-          ConfigureRandomOutcome(s);
-          AddSomeReportables(s, fixture);
-        });
+        return builder
+          .FromFactory<string,string>(CreateScenario)
+          .Do(s => {
+            ConfigureRandomOutcome(s);
+            AddSomeReportables(s, fixture);
+          });
       });
     }
+
+    Scenario CreateScenario(string id, string name)
+      => new Scenario($"ScenarioId {id}", $"Scenario {name}");
 
     void ConfigureRandomOutcome(Scenario scenario)
     {

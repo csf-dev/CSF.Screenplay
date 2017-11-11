@@ -3,8 +3,6 @@ using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Reporting.Html.Tests.Autofixture;
 using System.Text;
 using System.IO;
-using System.Diagnostics;
-using System;
 
 namespace CSF.Screenplay.Reporting.Html.Tests
 {
@@ -25,8 +23,8 @@ namespace CSF.Screenplay.Reporting.Html.Tests
         Assert.DoesNotThrow(() => sut.Write(report));
       }
 
-      // Let's see the report, just out of interest
-      TestContext.WriteLine(sb.ToString());
+      File.WriteAllText($"{nameof(HtmlReportWriterTests)}.{nameof(Write_can_create_a_document_without_crashing)}.html",
+                        sb.ToString());
     }
   }
 }

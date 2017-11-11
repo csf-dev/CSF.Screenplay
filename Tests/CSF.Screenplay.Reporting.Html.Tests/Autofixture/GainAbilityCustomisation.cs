@@ -11,15 +11,14 @@ namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
   {
     public void Customize(IFixture fixture)
     {
-      fixture.Customize<GainAbility>(builder => builder.FromFactory<PerformanceOutcome,PerformanceType,INamed,IAbility>(CreateGainAbility));
+      fixture.Customize<GainAbility>(builder => builder.FromFactory<PerformanceOutcome,INamed,IAbility>(CreateGainAbility));
     }
 
     GainAbility CreateGainAbility(PerformanceOutcome outcome,
-                                  PerformanceType performanceType,
                                   INamed actor,
                                   IAbility ability)
     {
-      return new GainAbility(actor, outcome, ability, performanceType);
+      return new GainAbility(actor, outcome, ability, PerformanceType.Given);
     }
   }
 }
