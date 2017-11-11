@@ -6,6 +6,7 @@
 @import url(reset.css);
 @import url(page.css);
 @import url(reports.css);
+@import url(interactions.css);
 </style>
 <script tal:content="here/RenderedScripts | nothing"></script>
 <script tal:condition="nothing" src=""></script>
@@ -155,7 +156,7 @@
         </li>
       </ul>
     </li>
-    <li tal:repeat="feature features" class="feature">
+    <li tal:repeat="feature features" class="feature collapsed">
       <header tal:define="outcome csharp:here.GetOutcomeClass(feature)"
               tal:attributes="class outcome"
               class="success">
@@ -165,7 +166,7 @@
         <h2 class="name" tal:content="feature/FriendlyName">This is where the feature name goes</h2>
       </header>
       <ul class="scenarios" tal:define="scenarios feature/Scenarios">
-        <li tal:repeat="scenario scenarios" class="scenario">
+        <li tal:repeat="scenario scenarios" class="scenario collapsed">
           <header tal:define="outcome csharp:here.GetOutcomeClass(scenario)"
                   tal:attributes="class outcome"
                   class="success">

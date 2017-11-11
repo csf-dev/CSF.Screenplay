@@ -1,0 +1,26 @@
+.feature.collapsed .scenarios,
+.scenario.collapsed .reportables {
+  display: none;
+}
+.feature>header:before,
+.scenario>header:before {
+  float: left;
+  margin-left: -1.2em;
+  font-size: 90%;
+  vertical-align: middle;
+  color: #999;
+}
+.feature>header:before {
+  line-height: 1.4em;
+}
+.scenario>header:before {
+  line-height: 1.1em;
+}
+.feature>header:before,
+.scenario>header:before {
+  content: '▼';
+}
+.feature.collapsed>header:before,
+.scenario.collapsed>header:before {
+  content: '▶';
+}

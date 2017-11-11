@@ -110,6 +110,7 @@
     <Content Include="Views\page.css" />
     <Content Include="Views\reports.css" />
     <Content Include="Views\reset.css" />
+    <Content Include="Views\interactions.css" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

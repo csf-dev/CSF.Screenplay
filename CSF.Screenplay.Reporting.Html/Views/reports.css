@@ -14,9 +14,8 @@
   border-radius: 0 0 6px 6px;
   border-bottom-width: 0;
 }
-
 .feature>header {
-  padding: 0.8em 0.4em 0.4em;
+  padding: 0.8em 0.4em 0.4em 1.4em;
   background: linear-gradient(to bottom, #FFF 0%,#E0E0E0 100%);
   overflow: auto;
 }
@@ -30,7 +29,7 @@
   float: left;
 }
 .scenario>header {
-  padding: 0.4em 0.4em 0.4em 1.4em;
+  padding: 1.4em 0.4em 0.4em 2em;
   background: linear-gradient(to bottom, #E0E0E0 0%,#D0D0D0 100%);
   overflow: auto;
 }
