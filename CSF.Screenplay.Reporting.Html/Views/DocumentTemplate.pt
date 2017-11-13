@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Screenplay report</title>
+<meta charset="UTF-8" />
 <style tal:content="here/RenderedStyles | nothing"></style>
 <style tal:condition="nothing">
 @import url(reset.css);
@@ -9,24 +10,61 @@
 @import url(interactions.css);
 </style>
 <script tal:content="here/RenderedScripts | nothing"></script>
-<script tal:condition="nothing" src=""></script>
+<script tal:condition="nothing" src="jquery-3.2.1.slim.min.js"></script>
+<script tal:condition="nothing" src="PageInteractions.js"></script>
+<script tal:condition="nothing" src="Filter.js"></script>
+<script tal:condition="nothing" src="Folding.js"></script>
+<script tal:condition="nothing" src="report-interactions.js"></script>
 </head>
 <body tal:define="report here/Report">
 <header>
   <h1>Screenplay report</h1>
+  <div class="summary">
+    <p class="help_text">Click on the totals to filter the report</p>
+    <table id="summary_table">
+      <colgroup>
+        <col class="performance_type" />
+        <col class="success" />
+        <col class="failing" />
+        <col class="total" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Success</th>
+          <th>Failure</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="features">
+          <th>Features</th>
+          <td class="success" tal:content="report/SuccessfulFeatureCount">5</td>
+          <td class="failing" tal:content="report/FailingFeatureCount">3</td>
+          <td class="total" tal:content="report/TotalFeatureCount">8</td>
+        </tr>
+        <tr class="scenarios">
+          <th>Scenarios</th>
+          <td class="success" tal:content="report/SuccessfulScenarioCount">10</td>
+          <td class="failing" tal:content="report/FailingScenarioCount">20</td>
+          <td class="total" tal:content="report/TotalScenarioCount">30</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </header>
 <section class="report"
          tal:define="features report/Features;
                      myMacros here/GetMacros">
   <ul class="features">
-    <li tal:condition="nothing" class="feature">
-      <header class="success">
+    <li tal:condition="nothing" class="feature success">
+      <header>
         <div class="identifier">Another.Feature.Identifier</div>
         <h2 class="name">Another feature name</h2>
       </header>
       <ul class="scenarios">
-        <li class="scenario">
-          <header class="success">
+        <li class="scenario success">
+          <header>
             <div class="identifier">Feature2.Scenario1.Identifier.Here</div>
             <h3 class="name">A scenario in a different feature</h3>
           </header>
@@ -60,7 +98,7 @@
                    metal:define-macro="ability"
                    class="ability success inner_macro">
                 <p class="description">
-                  <strong class="performance_type">Ability</strong>
+                  <strong class="performance_type">Given</strong>
                   <span metal:fill-slot="body" class="body"
                         tal:define="ability reportable/Ability;
                                     reportBody csharp:ability.GetReport(actor)"
@@ -156,20 +194,20 @@
         </li>
       </ul>
     </li>
-    <li tal:repeat="feature features" class="feature collapsed">
-      <header tal:define="outcome csharp:here.GetOutcomeClass(feature)"
-              tal:attributes="class outcome"
-              class="success">
+    <li tal:repeat="feature features"
+        class="feature failure"
+        tal:attributes="class csharp:here.GetOutcomeClass(feature)">
+      <header>
         <div class="identifier"
              tal:condition="feature/Id | nothing"
              tal:content="feature/Id">Feature.Identifier.Here</div>
         <h2 class="name" tal:content="feature/FriendlyName">This is where the feature name goes</h2>
       </header>
       <ul class="scenarios" tal:define="scenarios feature/Scenarios">
-        <li tal:repeat="scenario scenarios" class="scenario collapsed">
-          <header tal:define="outcome csharp:here.GetOutcomeClass(scenario)"
-                  tal:attributes="class outcome"
-                  class="success">
+        <li tal:repeat="scenario scenarios"
+            class="scenario success"
+            tal:attributes="class csharp:here.GetOutcomeClass(scenario)">
+          <header>
             <div class="identifier"
                  tal:condition="scenario/Id | nothing"
                  tal:content="scenario/Id">Scenario.Identifier.Here</div>
@@ -191,8 +229,8 @@
             </li>
           </ol>
         </li>
-        <li class="scenario" tal:condition="nothing">
-          <header class="success">
+        <li class="scenario failure" tal:condition="nothing">
+          <header>
             <div class="identifier">Feature1.Scenario2.Identifier.Here</div>
             <h3 class="name">A second scenario in the feature</h3>
           </header>
@@ -207,8 +245,8 @@
             </li>
           </ol>
         </li>
-        <li class="scenario" tal:condition="nothing">
-          <header class="success">
+        <li class="scenario success" tal:condition="nothing">
+          <header>
             <div class="identifier">Feature1.Scenario3.Identifier.Here</div>
             <h3 class="name">A third scenario in the feature</h3>
           </header>

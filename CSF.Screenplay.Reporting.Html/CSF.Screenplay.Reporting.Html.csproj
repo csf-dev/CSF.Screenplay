@@ -111,6 +111,11 @@
     <Content Include="Views\reports.css" />
     <Content Include="Views\reset.css" />
     <Content Include="Views\interactions.css" />
+    <Content Include="Views\Filter.js" />
+    <Content Include="Views\Folding.js" />
+    <Content Include="Views\jquery-3.2.1.slim.min.js" />
+    <Content Include="Views\PageInteractions.js" />
+    <Content Include="Views\report-interactions.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

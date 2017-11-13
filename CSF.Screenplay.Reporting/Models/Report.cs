@@ -19,10 +19,46 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual IReadOnlyList<Feature> Features => features;
 
     /// <summary>
+    /// Gets the count of features (total) in this report.
+    /// </summary>
+    /// <value>The feature count.</value>
+    public virtual int TotalFeatureCount => Features.Count;
+
+    /// <summary>
+    /// Gets the count of successful features in this report.
+    /// </summary>
+    /// <value>The successful feature count.</value>
+    public virtual int SuccessfulFeatureCount => Features.Count(x => x.IsSuccess);
+
+    /// <summary>
+    /// Gets the count of failing features in this report.
+    /// </summary>
+    /// <value>The failing feature count.</value>
+    public virtual int FailingFeatureCount => Features.Count(x => x.HasFailures);
+
+    /// <summary>
     /// Gets the scenarios in the current report instance.
     /// </summary>
     /// <value>The scenarios.</value>
     public virtual IReadOnlyList<Scenario> Scenarios => Features.SelectMany(x => x.Scenarios).ToArray();
+
+    /// <summary>
+    /// Gets the count of scenarios (total) in this report.
+    /// </summary>
+    /// <value>The scenario count.</value>
+    public virtual int TotalScenarioCount => Scenarios.Count;
+
+    /// <summary>
+    /// Gets the count of successful scenarios in this report.
+    /// </summary>
+    /// <value>The successful scenario count.</value>
+    public virtual int SuccessfulScenarioCount => Scenarios.Count(x => x.IsSuccess);
+
+    /// <summary>
+    /// Gets the count of failing scenarios in this report.
+    /// </summary>
+    /// <value>The failing scenario count.</value>
+    public virtual int FailingScenarioCount => Scenarios.Count(x => x.IsFailure);
 
     /// <summary>
     /// Gets the timestamp for the creation of this report.

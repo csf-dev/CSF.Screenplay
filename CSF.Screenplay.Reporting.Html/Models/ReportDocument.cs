@@ -37,13 +37,15 @@ namespace CSF.Screenplay.Reporting.Models
     public string GetOutcomeClass(Scenario scenario)
     {
       if(scenario == null) return String.Empty;
-      return GetOutcomeClass(scenario.IsSuccess, scenario.IsFailure);
+      var outcome = GetOutcomeClass(scenario.IsSuccess, scenario.IsFailure);
+      return $"scenario {outcome}";
     }
 
     public string GetOutcomeClass(Feature feature)
     {
       if(feature == null) return String.Empty;
-      return GetOutcomeClass(feature.IsSuccess, feature.HasFailures);
+      var outcome = GetOutcomeClass(feature.IsSuccess, feature.HasFailures);
+      return $"feature {outcome}";
     }
 
     public string GetOutcomeClass(Reportable reportable)
