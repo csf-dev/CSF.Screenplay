@@ -17,28 +17,23 @@ namespace CSF.Screenplay.Reporting
       var doc = GetDocument();
       var emptyDoc = GetDocument();
       var model = GetDocumentModel(report, emptyDoc);
-      doc.Render(model, writer);
-    }
 
-    ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
-    {
-      return new ReportDocument(reportModel, formattingService, document);
+      doc.Render(model, writer);
     }
 
     IZptDocument GetDocument()
     {
       using(var stream = GetDocumentStream())
       {
-        return documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+        return documentFactory.CreateDocument(stream, RenderingMode.Html);
       }
     }
 
-    IZptDocument GetDocument(Stream stream)
-      => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+    ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
+      => new ReportDocument(reportModel, formattingService, document);
 
-    ISourceInfo GetSourceInfo() => new StreamSourceInfo("ReportDocument");
-
-    Stream GetDocumentStream() => Views.ViewProvider.GetDocumentTemplate();
+    Stream GetDocumentStream()
+      => Views.ViewProvider.GetDocumentTemplate();
 
     public HtmlReportWriter(TextWriter writer, IObjectFormattingService formattingService)
     {
