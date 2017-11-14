@@ -47,4 +47,4 @@
   
   report.Folding = FoldingCtor;
   
-}(window, jQuery, report = window.report || {}));
+}(window, window.jQuery || null, report = window.report || {}));

@@ -2,25 +2,586 @@
 <head>
 <title>Screenplay report</title>
 <meta charset="UTF-8" />
-<style tal:content="here/RenderedStyles | nothing"></style>
-<style tal:condition="nothing">
-@import url(reset.css);
-@import url(page.css);
-@import url(reports.css);
-@import url(interactions.css);
+<style>
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "DejaVu Sans", "Droid Sans", "Verdana", Arial, sans;
+  padding: 0.6em;
+}
+body>header {
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 1em;
+  padding-bottom: 0.1em;
+  padding-right: 0.1em;
+  overflow: auto;
+}
+body>header h1 {
+  font-size: 200%;
+  line-height: 140%;
+  color: #999;
+  float: left;
+}
+body>header .summary {
+  float: right;
+  font-size: 85%;
+}
+.hidden {
+  display: none;
+}
+body>header .summary .help_text {
+  float: left;
+  color: #666;
+  max-width: 10em;
+  line-height: 140%;
+  margin-top: 1em;
+  margin-right: 1em;
+  display: none;
+}
+#summary_table {
+  float: right;
+}
+#summary_table col.success,
+#summary_table col.failing,
+#summary_table col.total {
+  width: 5em;
+}
+#summary_table tbody td,
+#summary_table tbody th {
+  padding: 0.4em 0;
+}
+#summary_table td {
+  text-align: center;
+  border: 1px solid #CCC;
+}
+#summary_table th {
+  font-weight: bold;
+  color: #666;
+}
+#summary_table thead th {
+  padding-bottom: 0.2em;
+}
+#summary_table tbody th {
+  text-align: right;
+  padding-right: 0.2em;
+}
+
+
+body>footer {
+  border-top: 1px solid #CCC;
+  margin-top: 1em;
+  line-height: 140%;
+  font-size: 90%;
+  color: #999;
+}
+body>footer .timestamp,
+body>footer .datestamp {
+  color: #444;
+}
+body>footer a {
+  text-decoration: none;
+  color: #337;
+}
+body>footer a:hover {
+  border-bottom: 1px solid #337;
+}
+
+.report .features {
+  border-radius: 6px;
+  border: 1px solid #EB9;
+}
+.feature {
+  background-color: #E0E0E0;
+}
+.feature:first-child,
+.feature:first-child>header {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.feature:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-width: 0;
+}
+.feature>header {
+  padding: 0.8em 0.4em 0.4em 1.4em;
+  background: linear-gradient(to bottom, #FFF 0%,#E0E0E0 100%);
+  overflow: auto;
+  border-bottom: 1px solid #B9B9B9;
+}
+.feature.failure>header {
+  background: linear-gradient(to bottom, #FAA 0%,#E0E0E0 100%);
+}
+.feature>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.feature>header .name {
+  font-size: 140%;
+  float: left;
+}
+.scenario>header {
+  padding: 1.4em 0.4em 0.4em 2em;
+  background: linear-gradient(to bottom, #E0E0E0 0%,#D0D0D0 100%);
+  overflow: auto;
+}
+.scenario.failure>header {
+  background: linear-gradient(to bottom, #F99 0%,#D0D0D0 100%);
+}
+.scenario {
+  border-bottom: 1px solid #B9B9B9;
+  background-color: #D0D0D0;
+}
+.feature:last-child .scenario:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.scenario>header .identifier {
+  font-size: 80%;
+  color: #777;
+  float: right;
+}
+.scenario>header .name {
+  font-size: 110%;
+  float: left;
+  font-style: italic;
+}
+.scenario>.reportables {
+  font-size: 90%;
+}
+.scenario>.reportables>.reportable {
+  background: #E0E0E0;
+  margin-left: 6.4em;
+  border-left: 1px solid #B0B0B0;
+}
+.scenario>.reportables>.reportable .failure {
+    color: #900;
+    font-style: italic;
+}
+.scenario>.reportables>.reportable .performance:before,
+.scenario>.reportables>.reportable .ability:before {
+    float: right;
+    font-size: 110%;
+    margin: 0.1em 0.6em 0 0.2em;
+    padding-top: 0.2em;
+    line-height: 140%;
+    vertical-align: middle;
+}
+.scenario>.reportables>.reportable .failure:before {
+    content: "✘";
+    color: #900;
+}
+.scenario>.reportables>.reportable .success:before {
+    content: "✔";
+    color: #999;
+}
+.scenario>.reportables>.reportable .failure .additional_content {
+    color: #000;
+    font-style: normal;
+}
+.feature:last-child .scenario:last-child .reportable:last-child {
+  border-bottom-right-radius: 6px;
+  padding-bottom: 0.4em;
+}
+.reportable {
+  margin-left: 0;
+}
+.reportable .reportables {
+  padding-left: 2em;
+  margin-top: -0.4em;
+}
+.reportable .description {
+  overflow: auto;
+  padding: 0.4em 0;
+  line-height: 140%;
+}
+.scenario>.reportables>.reportable>* {
+  margin-left: -3.6em;
+}
+.reportable .description .performance_type {
+  display: block;
+  float: left;
+  min-width: 4em;
+  font-weight: bold;
+}
+.reportable .description .body {
+  display: block;
+  float: left;
+}
+.reportable .additional_content {
+  margin: 0.4em 0 0 4em;
+}
+.reportable .reportable .additional_content {
+  margin-left: 0;
+}
+.reportable .extended_content {
+  font-size: 90%;
+  line-height: 120%;
+  padding-bottom: 0.6em;
+}
+.reportable .extended_content strong {
+  font-weight: bold;
+}
+.reportable .extended_content pre {
+  font-family: "Droid Sans Mono", "DejaVu Sans Mono", "Lucida Console", monospace;
+  margin-right: 0.4em;
+  background: #D0D0D0;
+  border: 1px solid #B0B0B0;
+  padding: 0.2em;
+  max-height: 15em;
+  overflow: auto;
+}
+
+html.js body>header .summary .help_text {
+  display: block;
+}
+html.js #summary_table td {
+  cursor: pointer;
+}
+html.js #summary_table td.active {
+  background: #FFD;
+}
+
+html.js .feature.collapsed .scenarios,
+html.js .scenario.collapsed .reportables {
+  display: none;
+}
+html.js .feature.collapsed {
+  border-bottom: 1px solid #A9A9A9;
+}
+html.js .feature.collapsed.last_visible {
+  border-bottom-width: 0;
+}
+html.js .feature.collapsed header,
+html.js .scenario.collapsed header {
+  border-bottom: 0 none;
+}
+html.js .feature:last-child.collapsed header {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+html.js .feature>header,
+html.js .scenario>header {
+  cursor: pointer;
+}
+.feature>header:before,
+.scenario>header:before {
+  float: left;
+  margin-left: -1.2em;
+  font-size: 90%;
+  vertical-align: middle;
+  color: #999;
+  padding: 0 0.2em;
+  width: 1em;
+  display: block;
+  text-align: center;
+}
+.feature>header:before {
+  line-height: 1.4em;
+}
+.scenario>header:before {
+  line-height: 1.1em;
+}
+html.js .feature>header:before,
+html.js .scenario>header:before {
+  content: '▼';
+}
+html.js .feature.collapsed>header:before,
+html.js .scenario.collapsed>header:before {
+  content: '▶';
+}
+
+html.js section.report.filter_features_success .feature.failure,
+html.js section.report.filter_features_failing .feature.success,
+html.js section.report.filter_scenarios_success .scenario.failure,
+html.js section.report.filter_scenarios_failing .scenario.success {
+  display: none;
+}
+html.js .feature.first_visible,
+html.js .feature.first_visible>header {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+html.js .feature.last_visible {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-width: 0;
+}
+html.js .feature.last_visible .scenario.last_visible {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-width: 0;
+}
+html.js .scenario.last_visible,
+html.js .scenario.last_visible>header {
+}
+.feature.last_visible .scenario.last_visible .reportable:last-child {
+  border-bottom-right-radius: 6px;
+  padding-bottom: 0.4em;
+}
 </style>
-<script tal:content="here/RenderedScripts | nothing"></script>
-<script tal:condition="nothing" src="jquery-3.2.1.slim.min.js"></script>
-<script tal:condition="nothing" src="PageInteractions.js"></script>
-<script tal:condition="nothing" src="Filter.js"></script>
-<script tal:condition="nothing" src="Folding.js"></script>
-<script tal:condition="nothing" src="report-interactions.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+<script>
+(function(report, undefined) {
+  'use strict';
+  
+  function PageInteractionsCtor()
+  {
+    var self = this;
+    
+    self.filter = new report.Filter();
+    self.folding = new report.Folding();
+  }
+  
+  PageInteractionsCtor.prototype.init = function()
+  {
+    this.filter.init();
+    this.folding.init();
+  }
+  
+  report.PageInteractions = PageInteractionsCtor;
+  
+}(report = window.report || {}));
+
+(function(window, $, report, undefined) {
+  'use strict';
+  
+  function getFilterClassName(level, type)
+  {
+    return 'filter_' + level + '_' + type;
+  }
+  
+  function setSummaryTableStyle(level, type, active)
+  {
+    var
+      selector = 'tr.' + level + ' .' + type,
+      element = $(selector, this.summaryTable);
+    if(active)
+      element.addClass('active');
+    else
+      element.removeClass('active');
+  }
+  
+  function clearFilter(level)
+  {
+    var types = [ 'success', 'failing', 'total' ];
+    for(var i = 0; i < types.length; i++)
+    {
+      var type = types[i];
+      this.reportBody.removeClass(getFilterClassName(level, type));
+      setSummaryTableStyle.apply(this, [ level, type, false ])
+    }
+  }
+  
+  function markFirstAndLastFeatures()
+  {
+    $('.feature', this.reportBody)
+      .removeClass('first_visible')
+      .removeClass('last_visible');
+    
+    $('.feature:visible:first', this.reportBody)
+      .addClass('first_visible');
+    
+    $('.feature:visible:last', this.reportBody)
+      .addClass('last_visible');
+  }
+  
+  function markFirstAndLastScenarios()
+  {
+    $('.feature .scenario', this.reportBody)
+      .removeClass('first_visible')
+      .removeClass('last_visible');
+      
+    $('.feature', this.reportBody)
+      .each(function(id, feature) {
+        var $feature = $(feature);
+        $('.scenario:visible:first', $feature)
+          .addClass('first_visible');
+        
+        $('.scenario:visible:last', $feature)
+          .addClass('last_visible');
+      });
+  }
+  
+  function applyFilter(level, type)
+  {
+    clearFilter.apply(this, [ level ]);
+    this.reportBody.addClass(getFilterClassName(level, type));
+    setSummaryTableStyle.apply(this, [ level, type, true ])
+    if(level === 'features')
+    {
+      markFirstAndLastFeatures.apply(this);
+    }
+    if(level === 'scenarios')
+    {
+      markFirstAndLastScenarios.apply(this);
+    }
+  }
+  
+  function bindEvents()
+  {
+    var self = this;
+    
+    self.summaryTable.on('click', 'td', function() {
+      var
+        $this = $(this),
+        cellClass = $this.attr('class'),
+        rowClass = $this.parent().attr('class');
+      
+      if($this.hasClass('active')) return;
+      
+      applyFilter.apply(self, [ rowClass, cellClass ]);
+    });
+  }
+  
+  function activateTotals()
+  {
+    applyFilter.apply(this, [ 'features', 'total' ]);
+    applyFilter.apply(this, [ 'scenarios', 'total' ]);
+  }
+  
+  function addHelpText()
+  {
+    this.summaryTable.before('<p class="help_text">Click on the totals to filter the report</p>');
+  }
+  
+  function FilterCtor()
+  {
+    this.summaryTable = $('#summary_table');
+    this.reportBody = $('section.report');
+  }
+  
+  FilterCtor.prototype.init = function()
+  {
+    bindEvents.apply(this);
+    activateTotals.apply(this);
+    addHelpText.apply(this);
+  }
+  
+  report.Filter = FilterCtor;
+  
+}(window, window.jQuery || null, report = window.report || {}));
+
+(function(window, $, report, undefined) {
+  'use strict';
+  
+  var collapsed = 'collapsed';
+  
+  function bindEvents()
+  {
+    var self = this;
+    
+    self.reportBody.on('click', self.selectors.featureHeaders, function() {
+      var $this = $(this);
+      $this.parent().toggleClass(collapsed);
+    })
+    
+    self.reportBody.on('click', self.selectors.scenarioHeaders, function() {
+      var $this = $(this);
+      $this.parent().toggleClass(collapsed);
+    })
+  }
+  
+  function collapseAll()
+  {
+    var self = this;
+    
+    $(self.selectors.features, self.reportBody)
+      .add(self.selectors.scenarios, self.reportBody)
+      .addClass(collapsed);
+  }
+  
+  function FoldingCtor()
+  {
+    this.reportBody = $('section.report');
+      
+    this.selectors = {
+      featureHeaders: '.feature>header',
+      scenarioHeaders: '.scenario>header',
+      features: '.feature',
+      scenarios: '.scenario',
+    };
+  }
+  
+  FoldingCtor.prototype.init = function()
+  {
+    bindEvents.apply(this);
+    collapseAll.apply(this);
+  }
+  
+  report.Folding = FoldingCtor;
+  
+}(window, window.jQuery || null, report = window.report || {}));
+
+(function($, report, undefined) {
+  'use strict';
+  
+  if(!$) return;
+  
+  $(function() {
+    $('html').addClass('js');
+    var page = new report.PageInteractions();
+    page.init();
+  })
+  
+}(window.jQuery || null, report = window.report || {}));
+</script>
 </head>
 <body tal:define="report here/Report">
 <header>
   <h1>Screenplay report</h1>
   <div class="summary">
-    <p class="help_text">Click on the totals to filter the report</p>
+    <h2 class="hidden">Count of passing, failing and total features/scenarios</h2>
     <table id="summary_table">
       <colgroup>
         <col class="performance_type" />
@@ -56,17 +617,30 @@
 <section class="report"
          tal:define="features report/Features;
                      myMacros here/GetMacros">
+  <h2 class="hidden">Features, scenarios and reportables in this report</h2>
   <ul class="features">
     <li tal:condition="nothing" class="feature success">
       <header>
-        <div class="identifier">Another.Feature.Identifier</div>
-        <h2 class="name">Another feature name</h2>
+        <div class="identifier">
+          <span class="hidden">Feature ID:</span>
+          Another.Feature.Identifier
+        </div>
+        <h2 class="name">
+          <span class="hidden">Feature name:</span>
+          Another feature name
+        </h2>
       </header>
       <ul class="scenarios">
         <li class="scenario success">
           <header>
-            <div class="identifier">Feature2.Scenario1.Identifier.Here</div>
-            <h3 class="name">A scenario in a different feature</h3>
+            <div class="identifier">
+              <span class="hidden">Scenario ID:</span>
+              Feature2.Scenario1.Identifier.Here
+            </div>
+            <h3 class="name">
+              <span class="hidden">Scenario name:</span>
+              A scenario in a different feature
+            </h3>
           </header>
           <ol class="reportables">
             <li class="reportable">
@@ -199,9 +773,14 @@
         tal:attributes="class csharp:here.GetOutcomeClass(feature)">
       <header>
         <div class="identifier"
-             tal:condition="feature/Id | nothing"
-             tal:content="feature/Id">Feature.Identifier.Here</div>
-        <h2 class="name" tal:content="feature/FriendlyName">This is where the feature name goes</h2>
+             tal:condition="feature/Id | nothing">
+          <span class="hidden">Feature ID:</span>
+          <span tal:replace="feature/Id">Feature.Identifier.Here</span>
+        </div>
+        <h2 class="name">
+          <span class="hidden">Feature name:</span>
+          <span tal:replace="feature/FriendlyName">This is where the feature name goes</span>
+        </h2>
       </header>
       <ul class="scenarios" tal:define="scenarios feature/Scenarios">
         <li tal:repeat="scenario scenarios"
@@ -209,9 +788,14 @@
             tal:attributes="class csharp:here.GetOutcomeClass(scenario)">
           <header>
             <div class="identifier"
-                 tal:condition="scenario/Id | nothing"
-                 tal:content="scenario/Id">Scenario.Identifier.Here</div>
-            <h3 class="name" tal:content="scenario/FriendlyName">My very interesting scenario</h3>
+                 tal:condition="scenario/Id | nothing">
+              <span class="hidden">Scenario ID:</span>
+              <span tal:replace="scenario/Id">Scenario.Identifier.Here</span>
+            </div>
+            <h3 class="name">
+              <span class="hidden">Scenario name:</span>
+              <span tal:replace="scenario/FriendlyName">My very interesting scenario</span>
+            </h3>
           </header>
           <ol class="reportables"
               tal:define="reportables scenario/Reportables;
@@ -231,8 +815,14 @@
         </li>
         <li class="scenario failure" tal:condition="nothing">
           <header>
-            <div class="identifier">Feature1.Scenario2.Identifier.Here</div>
-            <h3 class="name">A second scenario in the feature</h3>
+            <div class="identifier">
+              <span class="hidden">Scenario ID:</span>
+              Feature1.Scenario2.Identifier.Here
+            </div>
+            <h3 class="name">
+              <span class="hidden">Scenario name:</span>
+              A second scenario in the feature
+            </h3>
           </header>
           <ol class="reportables">
             <li class="reportable">
@@ -247,8 +837,14 @@
         </li>
         <li class="scenario success" tal:condition="nothing">
           <header>
-            <div class="identifier">Feature1.Scenario3.Identifier.Here</div>
-            <h3 class="name">A third scenario in the feature</h3>
+            <div class="identifier">
+              <span class="hidden">Scenario ID:</span>
+              Feature1.Scenario3.Identifier.Here
+            </div>
+            <h3 class="name">
+              <span class="hidden">Scenario name:</span>
+              A third scenario in the feature
+            </h3>
           </header>
           <ol class="reportables">
             <li class="reportable">

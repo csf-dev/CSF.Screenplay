@@ -105,17 +105,33 @@
     <EmbeddedResource Include="Views\DocumentTemplate.pt">
       <LogicalName>DocumentTemplate.pt</LogicalName>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\page.css" />
-    <Content Include="Views\reports.css" />
-    <Content Include="Views\reset.css" />
-    <Content Include="Views\interactions.css" />
-    <Content Include="Views\Filter.js" />
-    <Content Include="Views\Folding.js" />
-    <Content Include="Views\jquery-3.2.1.slim.min.js" />
-    <Content Include="Views\PageInteractions.js" />
-    <Content Include="Views\report-interactions.js" />
+    <EmbeddedResource Include="Views\Filter.js">
+      <LogicalName>Filter.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Folding.js">
+      <LogicalName>Folding.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\interactions.css">
+      <LogicalName>interactions.css</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\jquery-3.2.1.slim.min.js">
+      <LogicalName>jquery-3.2.1.slim.min.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\page.css">
+      <LogicalName>page.css</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PageInteractions.js">
+      <LogicalName>PageInteractions.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\report-interactions.js">
+      <LogicalName>report-interactions.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\reports.css">
+      <LogicalName>reports.css</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\reset.css">
+      <LogicalName>reset.css</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using System.IO;
+using System.Linq;
+using CSF.Reflection;
 
 namespace CSF.Screenplay.Reporting.Views
 {

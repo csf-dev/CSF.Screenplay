@@ -112,7 +112,9 @@ namespace CSF.Screenplay.Reporting.Models
       }
     }
 
-    public ReportDocument(Report report, IObjectFormattingService formattingService, IZptDocument document)
+    public ReportDocument(Report report,
+                          IObjectFormattingService formattingService,
+                          IZptDocument document)
     {
       if(document == null)
         throw new ArgumentNullException(nameof(document));

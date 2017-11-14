@@ -21,7 +21,9 @@ namespace CSF.Screenplay.Reporting
     }
 
     ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
-      => new ReportDocument(reportModel, formattingService, document);
+    {
+      return new ReportDocument(reportModel, formattingService, document);
+    }
 
     IZptDocument GetDocument()
     {
@@ -32,7 +34,7 @@ namespace CSF.Screenplay.Reporting
     }
 
     IZptDocument GetDocument(Stream stream)
-    => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
+      => documentFactory.CreateDocument(stream, RenderingMode.Html, GetSourceInfo());
 
     ISourceInfo GetSourceInfo() => new StreamSourceInfo("ReportDocument");
 

@@ -1,10 +1,12 @@
 (function($, report, undefined) {
   'use strict';
   
+  if(!$) return;
+  
   $(function() {
     $('html').addClass('js');
     var page = new report.PageInteractions();
     page.init();
   })
   
-}(jQuery, report = window.report || {}));
+}(window.jQuery || null, report = window.report || {}));

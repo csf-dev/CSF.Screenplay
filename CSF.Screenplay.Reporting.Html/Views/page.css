@@ -19,6 +19,9 @@ body>header .summary {
   float: right;
   font-size: 85%;
 }
+.hidden {
+  display: none;
+}
 body>header .summary .help_text {
   float: left;
   color: #666;

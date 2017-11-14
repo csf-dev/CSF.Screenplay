@@ -95,6 +95,11 @@
     applyFilter.apply(this, [ 'scenarios', 'total' ]);
   }
   
+  function addHelpText()
+  {
+    this.summaryTable.before('<p class="help_text">Click on the totals to filter the report</p>');
+  }
+  
   function FilterCtor()
   {
     this.summaryTable = $('#summary_table');
@@ -105,8 +110,9 @@
   {
     bindEvents.apply(this);
     activateTotals.apply(this);
+    addHelpText.apply(this);
   }
   
   report.Filter = FilterCtor;
   
-}(window, jQuery, report = window.report || {}));
+}(window, window.jQuery || null, report = window.report || {}));
