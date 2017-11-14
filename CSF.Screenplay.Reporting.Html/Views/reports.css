@@ -21,6 +21,9 @@
   overflow: auto;
   border-bottom: 1px solid #B9B9B9;
 }
+.feature.failure>header {
+  background: linear-gradient(to bottom, #FAA 0%,#E0E0E0 100%);
+}
 .feature>header .identifier {
   font-size: 80%;
   color: #777;
@@ -34,6 +37,9 @@
   padding: 1.4em 0.4em 0.4em 2em;
   background: linear-gradient(to bottom, #E0E0E0 0%,#D0D0D0 100%);
   overflow: auto;
+}
+.scenario.failure>header {
+  background: linear-gradient(to bottom, #F99 0%,#D0D0D0 100%);
 }
 .scenario {
   border-bottom: 1px solid #B9B9B9;
@@ -60,6 +66,31 @@
   background: #E0E0E0;
   margin-left: 6.4em;
   border-left: 1px solid #B0B0B0;
+}
+.scenario>.reportables>.reportable .failure {
+    color: #900;
+    font-style: italic;
+}
+.scenario>.reportables>.reportable .performance:before,
+.scenario>.reportables>.reportable .ability:before {
+    float: right;
+    font-size: 110%;
+    margin: 0.1em 0.6em 0 0.2em;
+    padding-top: 0.2em;
+    line-height: 140%;
+    vertical-align: middle;
+}
+.scenario>.reportables>.reportable .failure:before {
+    content: "✘";
+    color: #900;
+}
+.scenario>.reportables>.reportable .success:before {
+    content: "✔";
+    color: #999;
+}
+.scenario>.reportables>.reportable .failure .additional_content {
+    color: #000;
+    font-style: normal;
 }
 .feature:last-child .scenario:last-child .reportable:last-child {
   border-bottom-right-radius: 6px;
