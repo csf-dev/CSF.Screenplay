@@ -23,6 +23,31 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual IList<Reportable> Reportables => children;
 
     /// <summary>
+    /// Gets a value indicating whether this performance has any child reportables or not.
+    /// </summary>
+    /// <value><c>true</c> if this performance has child reportables; otherwise, <c>false</c>.</value>
+    public virtual bool HasReportables => Reportables != null && Reportables.Any();
+
+    /// <summary>
+    /// Gets a value indicating whether this performance has a result.
+    /// </summary>
+    /// <value><c>true</c> if this performance has a result; otherwise, <c>false</c>.</value>
+    public virtual bool HasResult => Result != null;
+
+    /// <summary>
+    /// Gets a value indicating whether this performance has an exception.
+    /// </summary>
+    /// <value><c>true</c> if this performance has an exception; otherwise, <c>false</c>.</value>
+    public virtual bool HasException => Exception != null;
+
+    /// <summary>
+    /// Gets a value indicating whether this performance has additional content (child reportables, a result or an
+    /// exception).
+    /// </summary>
+    /// <value><c>true</c> if this performance has additional content; otherwise, <c>false</c>.</value>
+    public virtual bool HasAdditionalContent => HasReportables || HasResult || HasException;
+
+    /// <summary>
     /// Gets the performable associated with the current instance.
     /// </summary>
     /// <value>The performable.</value>
