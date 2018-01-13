@@ -7,13 +7,19 @@ namespace CSF.Screenplay
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public interface IScreenplayScenario : IServiceResolver,IScenarioName
+  public interface IScreenplayScenario : IScenarioName, IDisposable
   {
     /// <summary>
     /// Gets a value which indicates whether or not the scenario was a success.
     /// </summary>
     /// <value>The success.</value>
     bool? Success { get; set; }
+
+    /// <summary>
+    /// Gets a MicroDi dependency resolver.
+    /// </summary>
+    /// <value>The resolver.</value>
+    MicroDi.IResolvesServices Resolver { get; }
 
     /// <summary>
     /// Creates a new actor with the given name.

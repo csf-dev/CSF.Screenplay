@@ -36,6 +36,9 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.MicroDi">
+      <HintPath>..\..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Test.feature">

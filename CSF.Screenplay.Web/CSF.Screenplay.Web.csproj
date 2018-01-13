@@ -42,6 +42,9 @@
     <Reference Include="CSF.Utils">
       <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.MicroDi">
+      <HintPath>..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,7 +144,6 @@
     <Compile Include="Models\GeneralWaitBuilder.cs" />
     <Compile Include="Builders\TheVisibility.cs" />
     <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
-    <Compile Include="WebBrowsingRegistryExtensions.cs" />
     <Compile Include="WebBrowsingResolverExtensions.cs" />
     <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
     <Compile Include="Actions\ClearTheContents.cs" />

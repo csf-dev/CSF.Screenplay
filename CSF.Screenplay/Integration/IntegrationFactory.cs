@@ -17,9 +17,8 @@ namespace CSF.Screenplay.Integration
     {
       var config = GetConfig(configType);
       var builder = GetBuilder(config);
-      var registry = GetServiceRegistry(builder);
 
-      return new ScreenplayIntegration(builder, registry);
+      return new ScreenplayIntegration(builder);
     }
 
     IIntegrationConfig GetConfig(Type configType)
@@ -42,15 +41,5 @@ namespace CSF.Screenplay.Integration
       config.Configure(output);
       return output;
     }
-
-    Lazy<IServiceRegistry> GetServiceRegistry(IIntegrationConfigBuilder configBuilder)
-    {
-      if(configBuilder == null)
-        throw new ArgumentNullException(nameof(configBuilder));
-
-      var registryFactory = new ServiceRegistryFactory(configBuilder);
-      return new Lazy<IServiceRegistry>(registryFactory.GetServiceRegistry);
-    }
-
   }
 }

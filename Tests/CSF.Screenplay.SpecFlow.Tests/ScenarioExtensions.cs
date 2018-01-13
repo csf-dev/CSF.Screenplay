@@ -9,7 +9,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
   {
     public static IActor GetMathsWhiz(this IScreenplayScenario context, string name)
     {
-      var cast = context.GetCast();
+      var cast = context.Resolver.GetCast();
       if(cast == null)
       {
         var actor = new Actor(name, context.Identity);

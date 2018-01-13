@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.MicroDi;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration
@@ -12,13 +13,17 @@ namespace CSF.Screenplay.Integration
 
     readonly IIntegrationConfigBuilder builder;
     readonly TestRunEvents testRunEvents;
-    readonly Lazy<IServiceRegistry> serviceRegistry;
+    readonly Lazy<IContainer> rootContainer;
 
     #endregion
 
-    #region properties
+    #region protected properties
 
-    IServiceRegistry ServiceRegistry => serviceRegistry.Value;
+    /// <summary>
+    /// Gets the root dependency injection container which carries .
+    /// </summary>
+    /// <value>The root container.</value>
+    protected IContainer RootContainer => rootContainer.Value;
 
     #endregion
 
@@ -30,10 +35,8 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     public void BeforeExecutingFirstScenario()
     {
-      var resolver = ServiceRegistry.GetSingletonResolver();
-
       foreach(var callback in builder.BeforeFirstScenario)
-        callback(testRunEvents, resolver);
+        callback(testRunEvents, RootContainer);
       
       testRunEvents.NotifyBeginTestRun();
     }
@@ -66,7 +69,7 @@ namespace CSF.Screenplay.Integration
       foreach(var callback in builder.AfterScenario)
         callback(scenario);
 
-      scenario.ReleasePerScenarioServices();
+      scenario.Dispose();
     }
 
     /// <summary>
@@ -76,12 +79,10 @@ namespace CSF.Screenplay.Integration
     {
       testRunEvents.NotifyCompleteTestRun();
 
-      var resolver = ServiceRegistry.GetSingletonResolver();
-
       foreach(var callback in builder.AfterLastScenario)
-        callback(resolver);
+        callback(RootContainer);
 
-      ServiceRegistry.GetSingletonResolver().ReleaseLazySingletonServices();
+      RootContainer.Dispose();
     }
 
     /// <summary>
@@ -89,7 +90,32 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <returns>The scenario factory.</returns>
     public IScenarioFactory GetScenarioFactory()
-      => new ScenarioFactory(ServiceRegistry.Registrations);
+      => new ScenarioFactory(RootContainer, builder.ServiceRegistrations.PerTestRun);
+
+    #endregion
+
+    #region private methods
+
+    IContainer CreateRootContainer()
+    {
+      return Container
+        .CreateBuilder()
+        .DoNotMakeAllResolutionOptional()
+        .DoNotResolveUnregisteredTypes()
+        .SelfRegisterAResolver()
+        .DoNotSelfRegisterTheRegistry()
+        .SupportResolvingLazyInstances()
+        .DoNotSupportResolvingNamedInstanceDictionaries()
+        .ThrowOnCircularDependencies()
+        .UseInstanceCache()
+        .DoNotUseNonPublicConstructors()
+        .Build();
+    }
+
+    void AddRootContainerRegistrations(IReceivesRegistrations container)
+    {
+      container.AddRegistrations(builder.ServiceRegistrations.PerTestRun);
+    }
 
     #endregion
 
@@ -99,16 +125,19 @@ namespace CSF.Screenplay.Integration
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Integration.ScreenplayIntegration"/> class.
     /// </summary>
     /// <param name="configBuilder">Config builder.</param>
-    /// <param name="registry">Service registry.</param>
-    public ScreenplayIntegration(IIntegrationConfigBuilder configBuilder, Lazy<IServiceRegistry> registry)
+    /// <param name="rootContainer">The root DI container.</param>
+    public ScreenplayIntegration(IIntegrationConfigBuilder configBuilder,
+                                 IContainer rootContainer = null)
     {
       if(configBuilder == null)
         throw new ArgumentNullException(nameof(configBuilder));
-      if(registry == null)
-        throw new ArgumentNullException(nameof(registry));
 
       builder = configBuilder;
-      serviceRegistry = registry;
+      this.rootContainer = new Lazy<IContainer>(() => {
+        var output = rootContainer ?? CreateRootContainer();
+        AddRootContainerRegistrations(output);
+        return output;
+      });
       testRunEvents = new TestRunEvents();
     }
 

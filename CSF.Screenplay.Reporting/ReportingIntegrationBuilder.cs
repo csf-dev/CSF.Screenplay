@@ -151,30 +151,32 @@ namespace CSF.Screenplay.Reporting
 
     void RegisterObjectFormatters(IIntegrationConfigBuilder integration)
     {
-      integration.RegisterServices.Add((builder) => {
-        builder.RegisterSingleton(formatterRegistry);
-
-        IObjectFormattingService formatService = new ObjectFormattingService(formatterRegistry);
-        builder.RegisterSingleton(formatService);
+      integration.ServiceRegistrations.PerTestRun.Add(h => {
+        h.RegisterInstance(formatterRegistry).As<IObjectFormatterRegistry>();
+        var formatService = new ObjectFormattingService(formatterRegistry);
+        h.RegisterInstance(formatService).As<IObjectFormattingService>();
       });
     }
 
     void RegisterReporter(IIntegrationConfigBuilder integration)
     {
-      integration.RegisterServices.Add((builder) => {
-        builder.RegisterReporter(reporterToUse, name);
+      var reporter = new ReportBuildingReporter();
+
+      integration.ServiceRegistrations.PerTestRun.Add(h => {
+        h.RegisterInstance(reporter).As<IReporter>();
+        h.RegisterInstance(reporter).As<IModelBuildingReporter>();
       });
     }
 
     void SubscribeToCast(IIntegrationConfigBuilder integration)
     {
-      integration.BeforeScenario.Add((resolver) => {
+      integration.BeforeScenario.Add((scenario) => {
 
         if(!subscribeToCastActorCreation && !subscribeToCastActorAddition)
           return;
 
-        var cast = resolver.GetCast(castName);
-        var reporter = resolver.GetReporter(name);
+        var cast = scenario.Resolver.GetCast(castName);
+        var reporter = scenario.Resolver.GetReporter(name);
 
         if(subscribeToCastActorCreation)
         {
@@ -202,12 +204,12 @@ namespace CSF.Screenplay.Reporting
     void SubscribeToScenario(IIntegrationConfigBuilder integration)
     {
       integration.BeforeScenario.Add((scenario) => {
-        var reporter = scenario.GetReporter(name);
+        var reporter = scenario.Resolver.GetReporter(name);
         reporter.Subscribe(scenario);
       });
 
       integration.AfterScenario.Add((scenario) => {
-        var reporter = scenario.GetReporter(name);
+        var reporter = scenario.Resolver.GetReporter(name);
         reporter.Unsubscribe(scenario);
       });
     }
