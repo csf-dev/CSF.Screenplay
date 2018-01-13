@@ -198,7 +198,7 @@ namespace CSF.Screenplay.Tests.Integration
     }
 
     IScreenplayIntegration GetSut(IIntegrationConfigBuilder builder = null, IContainer container = null)
-      => new ScreenplayIntegration(builder ?? GetBuilder());
+      => new ScreenplayIntegration(builder ?? GetBuilder(), container);
 
     IIntegrationConfigBuilder GetBuilder()
     {
@@ -219,6 +219,11 @@ namespace CSF.Screenplay.Tests.Integration
       builder
         .SetupGet(x => x.AfterScenario)
         .Returns(Enumerable.Empty<Action<IScreenplayScenario>>().ToArray());
+
+      var registrations = new ServiceRegistrations();
+      builder
+        .SetupGet(x => x.ServiceRegistrations)
+        .Returns(registrations);
 
       return builder.Object;
     }
