@@ -5,6 +5,7 @@ using Moq;
 using CSF.Screenplay.Scenarios;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.MicroDi;
 
 namespace CSF.Screenplay.Tests.Integration
 {
@@ -16,7 +17,7 @@ namespace CSF.Screenplay.Tests.Integration
     {
       // Arrange
       var called = false;
-      Action<IProvidesTestRunEvents,IServiceResolver> callback = (arg1, arg2) => called = true;
+      Action<IProvidesTestRunEvents,IResolvesServices> callback = (arg1, arg2) => called = true;
 
       var builder = GetBuilder();
       Mock.Get(builder)
@@ -35,7 +36,7 @@ namespace CSF.Screenplay.Tests.Integration
     public void BeforeExecutingFirstScenario_raises_begin_test_run_event()
     {
       var eventReceived = false;
-      Action<IProvidesTestRunEvents,IServiceResolver> callback = (arg1, arg2) => {
+      Action<IProvidesTestRunEvents,IResolvesServices> callback = (arg1, arg2) => {
         arg1.BeginTestRun += (sender, e) => eventReceived = true;
       };
 
@@ -111,7 +112,7 @@ namespace CSF.Screenplay.Tests.Integration
     }
 
     [Test]
-    public void AfterScenario_releases_scenario_services()
+    public void AfterScenario_disposes_the_scenario()
     {
       // Arrange
       var sut = GetSut();
@@ -121,7 +122,7 @@ namespace CSF.Screenplay.Tests.Integration
       sut.AfterScenario(scenario, true);
 
       // Assert
-      Mock.Get(scenario).Verify(x => x.ReleasePerScenarioServices(), Times.Once());
+      Mock.Get(scenario).Verify(x => x.Dispose(), Times.Once());
     }
 
     [Theory]
@@ -145,7 +146,7 @@ namespace CSF.Screenplay.Tests.Integration
     {
       // Arrange
       var called = false;
-      Action<IServiceResolver> callback = (arg1) => called = true;
+      Action<IResolvesServices> callback = (arg1) => called = true;
 
       var builder = GetBuilder();
       Mock.Get(builder)
@@ -164,7 +165,7 @@ namespace CSF.Screenplay.Tests.Integration
     public void AfterExecutedLastScenario_raises_end_test_run_event()
     {
       var eventReceived = false;
-      Action<IProvidesTestRunEvents,IServiceResolver> callback = (arg1, arg2) => {
+      Action<IProvidesTestRunEvents,IResolvesServices> callback = (arg1, arg2) => {
         arg1.CompleteTestRun += (sender, e) => eventReceived = true;
       };
 
@@ -186,24 +187,18 @@ namespace CSF.Screenplay.Tests.Integration
     public void AfterExecutedLastScenario_releases_singleton_services()
     {
       // Arrange
-      var resolver = Mock.Of<IServiceResolver>();
-      var registry = GetRegistry(singletonResolver: resolver);
-      var sut = GetSut(registry: registry);
+      var container = Mock.Of<IContainer>();
+      var sut = GetSut(container: container);
 
       // Act
       sut.AfterExecutedLastScenario();
 
       // Assert
-      Mock.Get(resolver).Verify(x => x.ReleaseLazySingletonServices(), Times.Once());
+      Mock.Get(container).Verify(x => x.Dispose(), Times.Once());
     }
 
-    IScreenplayIntegration GetSut(IIntegrationConfigBuilder builder = null, IServiceRegistry registry = null)
-    {
-      builder = builder?? GetBuilder();
-      registry = registry?? GetRegistry();
-
-      return new ScreenplayIntegration(builder, new Lazy<IServiceRegistry>(() => registry));
-    }
+    IScreenplayIntegration GetSut(IIntegrationConfigBuilder builder = null, IContainer container = null)
+      => new ScreenplayIntegration(builder ?? GetBuilder(), container);
 
     IIntegrationConfigBuilder GetBuilder()
     {
@@ -211,7 +206,7 @@ namespace CSF.Screenplay.Tests.Integration
 
       builder
         .SetupGet(x => x.BeforeFirstScenario)
-        .Returns(Enumerable.Empty<Action<IProvidesTestRunEvents,IServiceResolver>>().ToArray());
+        .Returns(Enumerable.Empty<Action<IProvidesTestRunEvents,IResolvesServices>>().ToArray());
 
       builder
         .SetupGet(x => x.BeforeScenario)
@@ -219,29 +214,18 @@ namespace CSF.Screenplay.Tests.Integration
 
       builder
         .SetupGet(x => x.AfterLastScenario)
-        .Returns(Enumerable.Empty<Action<IServiceResolver>>().ToArray());
+        .Returns(Enumerable.Empty<Action<IResolvesServices>>().ToArray());
 
       builder
         .SetupGet(x => x.AfterScenario)
         .Returns(Enumerable.Empty<Action<IScreenplayScenario>>().ToArray());
 
+      var registrations = new ServiceRegistrations();
+      builder
+        .SetupGet(x => x.ServiceRegistrations)
+        .Returns(registrations);
+
       return builder.Object;
-    }
-
-    IServiceRegistry GetRegistry(IEnumerable<IServiceRegistration> registrations = null,
-                                 IServiceResolver singletonResolver = null)
-    {
-      singletonResolver = singletonResolver?? Mock.Of<IServiceResolver>();
-
-      var registry = new Mock<IServiceRegistry>();
-      registry
-        .Setup(x => x.GetSingletonResolver())
-        .Returns(singletonResolver);
-
-      var reg = registrations?? Enumerable.Empty<IServiceRegistration>();
-      registry.SetupGet(x => x.Registrations).Returns(() => reg.ToArray());
-
-      return registry.Object;
     }
 
     IScreenplayScenario GetScenario()

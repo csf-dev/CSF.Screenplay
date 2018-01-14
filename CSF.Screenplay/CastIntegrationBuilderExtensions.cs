@@ -21,8 +21,11 @@ namespace CSF.Screenplay
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));
 
-      helper.RegisterServices.Add((builder) => {
-        builder.RegisterCast(cast, name);
+      helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
+        regBuilder
+          .RegisterFactory(() => cast?? new Cast())
+          .As<ICast>()
+          .WithName(name);
       });
     }
   }

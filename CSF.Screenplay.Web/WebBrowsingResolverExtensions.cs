@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.MicroDi;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
 using OpenQA.Selenium;
@@ -16,12 +17,12 @@ namespace CSF.Screenplay
     /// <returns>The web browser.</returns>
     /// <param name="resolver">Resolver.</param>
     /// <param name="name">Name.</param>
-    public static BrowseTheWeb GetWebBrowser(this IServiceResolver resolver, string name = null)
+    public static BrowseTheWeb GetWebBrowser(this IResolvesServices resolver, string name = null)
     {
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
-      return resolver.GetService<BrowseTheWeb>(name);
+      return resolver.Resolve<BrowseTheWeb>(name);
     }
   }
 }

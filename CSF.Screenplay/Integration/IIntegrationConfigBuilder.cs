@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.MicroDi;
+using CSF.MicroDi.Builders;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration
@@ -11,22 +13,22 @@ namespace CSF.Screenplay.Integration
   public interface IIntegrationConfigBuilder
   {
     /// <summary>
-    /// Gets a collection of callbacks which are used to register Screenplay-related services.
+    /// Gets the callbacks which are used to register Screenplay-related services.
     /// </summary>
     /// <value>The service registrations.</value>
-    IList<Action<IServiceRegistryBuilder>> RegisterServices { get; }
+    ServiceRegistrations ServiceRegistrations { get; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed before the first scenario in a test run.
     /// </summary>
     /// <value>The before first scenario.</value>
-    IList<Action<IProvidesTestRunEvents,IServiceResolver>> BeforeFirstScenario { get; }
+    IList<Action<IProvidesTestRunEvents,IResolvesServices>> BeforeFirstScenario { get; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed after the last scenario in a test run.
     /// </summary>
     /// <value>The after last scenario.</value>
-    IList<Action<IServiceResolver>> AfterLastScenario { get; }
+    IList<Action<IResolvesServices>> AfterLastScenario { get; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed before each scenario.

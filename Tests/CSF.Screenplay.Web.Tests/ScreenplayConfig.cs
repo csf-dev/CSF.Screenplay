@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CSF.MicroDi;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -27,35 +28,41 @@ namespace CSF.Screenplay.Web.Tests
           .WithFormatter<OptionCollectionFormatter>()
           .WithFormatter<ElementCollectionFormatter>();
       });
-      builder.UseUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
+      builder.UseSharedUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       builder.UseWebDriverFactory();
       builder.UseWebDriver(GetWebDriver);
       builder.UseWebBrowser(GetWebBrowser);
     }
 
-    IWebDriver GetWebDriver(IServiceResolver scenario)
+    IWebDriver GetWebDriver(IResolvesServices resolver)
     {
-      var factory = scenario.GetService<IWebDriverFactory>();
+      var factory = resolver.Resolve<IWebDriverFactory>();
 
       var caps = new Dictionary<string,object>();
       if(factory is SauceConnectWebDriverFactory)
       {
-        var testName = GetTestName(scenario);
+        var testName = GetTestName(resolver);
         caps.Add(WebDriverFactory.Impl.SauceConnectWebDriverFactory.TestNameCapability, testName);
       }
 
       return factory.GetWebDriver(caps);
     }
 
-    BrowseTheWeb GetWebBrowser(IServiceResolver scenario)
+    BrowseTheWeb GetWebBrowser(IResolvesServices resolver)
     {
-      var factory = scenario.GetOptionalService<IWebDriverFactory>();
-      var driver = scenario.GetService<IWebDriver>();
-      var transformer = scenario.GetOptionalService<IUriTransformer>();
+      var driver = resolver.Resolve<IWebDriver>();
 
-      var ability = new BrowseTheWeb(driver, transformer?? NoOpUriTransformer.Default);
+      IWebDriverFactory webDriverFactory;
+      if(!resolver.TryResolve(out webDriverFactory))
+        webDriverFactory = null;
 
-      ConfigureBrowserCapabilities(ability, factory);
+      IUriTransformer uriTransformer;
+      if(!resolver.TryResolve(out uriTransformer))
+        uriTransformer = null;
+
+      var ability = new BrowseTheWeb(driver, uriTransformer?? NoOpUriTransformer.Default);
+
+      ConfigureBrowserCapabilities(ability, webDriverFactory);
 
       return ability;
     }
@@ -76,9 +83,9 @@ namespace CSF.Screenplay.Web.Tests
                                                   BrowserName.Edge);
     }
 
-    string GetTestName(IServiceResolver resolver)
+    string GetTestName(IResolvesServices resolver)
     {
-      var scenarioName = resolver.GetService<IScenarioName>();
+      var scenarioName = resolver.Resolve<IScenarioName>();
       return $"{scenarioName.FeatureId.Name} -> {scenarioName.ScenarioId.Name}";
     }
 
