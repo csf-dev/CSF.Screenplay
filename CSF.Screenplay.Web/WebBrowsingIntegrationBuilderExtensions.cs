@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Web
         throw new ArgumentNullException(nameof(builder));
 
       builder.ServiceRegistrations.PerTestRun.Add(b => {
-        b.RegisterType<ConfigurationWebDriverFactoryProvider>();
+        b.RegisterFactory(() => new ConfigurationWebDriverFactoryProvider());
 
         b.RegisterFactory((Func<ConfigurationWebDriverFactoryProvider,IWebDriverFactory>) GetWebDriverFactory,
                           typeof(IWebDriverFactory))
