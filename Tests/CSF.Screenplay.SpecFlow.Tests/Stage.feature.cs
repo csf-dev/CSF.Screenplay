@@ -1,0 +1,1 @@
+#error Generation error: Could not find a part of the path '/home/craig/.local/share/MonoDevelop-6.0/LocalInstall/Addins/MonoDevelop.TechTalk.SpecFlow.1.9.1.1/..\..'.

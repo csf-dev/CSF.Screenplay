@@ -37,5 +37,33 @@ namespace CSF.Screenplay
 
       return resolver.Resolve<ICast>(name);
     }
+
+    /// <summary>
+    /// Gets the stage from the scenario.
+    /// </summary>
+    /// <returns>The stage.</returns>
+    /// <param name="scenario">Screenplay scenario.</param>
+    /// <param name="name">An optional identifying name for the stage instance.</param>
+    public static IStage GetStage(this IScreenplayScenario scenario, string name = null)
+    {
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
+
+      return scenario.Resolver.GetStage(name);
+    }
+
+    /// <summary>
+    /// Gets the stage from the service resolver.
+    /// </summary>
+    /// <returns>The stage.</returns>
+    /// <param name="resolver">Resolver.</param>
+    /// <param name="name">An optional identifying name for the stage instance.</param>
+    public static IStage GetStage(this IResolvesServices resolver, string name = null)
+    {
+      if(resolver == null)
+        throw new ArgumentNullException(nameof(resolver));
+
+      return resolver.Resolve<IStage>(name);
+    }
   }
 }

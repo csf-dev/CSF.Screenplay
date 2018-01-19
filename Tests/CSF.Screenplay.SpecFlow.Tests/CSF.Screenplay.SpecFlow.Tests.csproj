@@ -47,6 +47,10 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Stage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Stage.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -59,6 +63,10 @@
     <Compile Include="Actions\GetTheNumber.cs" />
     <Compile Include="ScenarioExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
+    <Compile Include="Stage.feature.cs">
+      <DependentUpon>Stage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">
