@@ -102,6 +102,8 @@
     <Compile Include="Reporting\DefaultObjectFormatter.cs" />
     <Compile Include="Integration\ServiceRegistrations.cs" />
     <Compile Include="Scenarios\ContainerExtensions.cs" />
+    <Compile Include="Actors\IStage.cs" />
+    <Compile Include="Actors\Stage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
