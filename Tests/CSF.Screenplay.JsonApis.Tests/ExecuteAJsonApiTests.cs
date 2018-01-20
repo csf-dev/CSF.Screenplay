@@ -29,7 +29,7 @@ namespace CSF.Screenplay.JsonApis.Tests
       // Arrange
       var theNumber = 42;
       var joe = scenario.GetJoe();
-      Given(joe).WasAbleTo(Execute.AJsonApi(SetNumberService.WithTheNumber(5)));
+      Given(joe).WasAbleTo(Execute.AJsonApi(Set.TheNumberTo(theNumber)));
 
       // Act
       var result = When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheNumber()));
@@ -89,11 +89,11 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetDataSlowly_raises_exception_if_timeout_is_5_seconds(IScreenplayScenario scenario)
+    public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(IScreenplayScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
-      var timeout = TimeSpan.FromSeconds(5);
+      var timeout = TimeSpan.FromSeconds(1);
 
       // Act & assert
       Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheSampleDataSlowlyFor(joe.Name, timeout))),

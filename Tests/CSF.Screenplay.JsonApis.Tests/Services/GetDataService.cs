@@ -10,7 +10,7 @@ namespace CSF.Screenplay.JsonApis.Tests.Services
 
     protected override HttpMethod GetHttpMethod() => HttpMethod.Get;
 
-    protected override string GetUriString() => $"sample-data/{name}";
+    protected override string GetUriString() => $"Data/sample-data/{name}";
 
     public GetDataService(string name) : base()
     {

@@ -8,10 +8,11 @@ namespace CSF.Screenplay.JsonApis.Tests
   {
     public static IActor GetJoe(this IScreenplayScenario scenario)
     {
-      var joe = scenario.CreateActor("Joe");
-      var consumeWebServices = new ConsumeJsonWebServices("http://localhost:8080/api");
-      joe.IsAbleTo(consumeWebServices);
-      return joe;
+      var cast = scenario.GetCast();
+      return cast.Get("Joe", (actor, s) => {
+        var consumeWebServices = new ConsumeJsonWebServices("http://localhost:8080/api/");
+        actor.IsAbleTo(consumeWebServices);
+      }, scenario);
     }
   }
 }

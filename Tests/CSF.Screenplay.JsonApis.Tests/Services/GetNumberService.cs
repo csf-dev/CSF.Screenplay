@@ -7,6 +7,6 @@ namespace CSF.Screenplay.JsonApis.Tests.Services
   {
     protected override HttpMethod GetHttpMethod() => HttpMethod.Get;
 
-    protected override string GetUriString() => $"GetMyNumber";
+    protected override string GetUriString() => $"Execution/GetMyNumber";
   }
 }
