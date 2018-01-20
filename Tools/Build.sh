@@ -5,6 +5,7 @@ NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nuni
 TEST_PATTERN="CSF.*.Tests.dll"
 WEB_TESTS="CSF.Screenplay.Web.Tests.dll"
 WEB_TESTS_PATH="Tests/CSF.Screenplay.Web.Tests/bin/Debug/CSF.Screenplay.Web.Tests.dll"
+JSON_TESTS_PATH="Tests/CSF.Screenplay.JsonApis.Tests/bin/Debug/CSF.Screenplay.JsonApis.Tests.dll"
 
 test_outcome=1
 
@@ -44,7 +45,7 @@ start_webserver()
 run_integration_tests()
 {
   echo "Running integration tests ..."
-  mono "$NUNIT_PATH" --labels=All "$WEB_TESTS_PATH"
+  mono "$NUNIT_PATH" --labels=All "$WEB_TESTS_PATH" "$JSON_TESTS_PATH"
   test_outcome=$?
 }
 

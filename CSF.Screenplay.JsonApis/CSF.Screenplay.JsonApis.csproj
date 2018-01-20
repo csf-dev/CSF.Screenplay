@@ -42,7 +42,7 @@
     <Compile Include="Actions\ExecuteApi.cs" />
     <Compile Include="Actions\GetApiResult.cs" />
     <Compile Include="Builders\Execute.cs" />
-    <Compile Include="JsonServiceDescription1.cs" />
+    <Compile Include="JsonServiceDescription`1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />

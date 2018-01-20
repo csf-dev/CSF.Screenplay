@@ -111,6 +111,9 @@ namespace CSF.Screenplay.JsonApis.Abilities
 
     #region constructor
 
+    public ConsumeJsonWebServices(string baseUriString, TimeSpan? defaultTimeout = null)
+      : this(new Uri(baseUriString), defaultTimeout) {}
+
     public ConsumeJsonWebServices(Uri baseUri = null, TimeSpan? defaultTimeout = null)
     {
       httpClient = new HttpClient { BaseAddress = baseUri };

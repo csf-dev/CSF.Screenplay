@@ -32,7 +32,9 @@ namespace CSF.Screenplay.JsonApis
 
     public TimeSpan? GetTimeout() => timeout;
 
-    protected abstract Uri GetUri();
+    protected virtual Uri GetUri() => new Uri(GetUriString(), UriKind.Relative);
+
+    protected abstract string GetUriString();
 
     protected virtual HttpMethod GetHttpMethod() => HttpMethod.Post;
 
@@ -45,11 +47,18 @@ namespace CSF.Screenplay.JsonApis
       var headers = GetHeaders();
       if(headers == null)
         return;
-      
+
+      AddAcceptsJsonHeader(request);
+
       foreach(var header in headers.Keys)
       {
         request.Headers.Add(header, headers[header]);
       }
+    }
+
+    protected virtual void AddAcceptsJsonHeader(HttpRequestMessage request)
+    {
+      request.Headers.Add("Accept", JsonContentType.MediaType);
     }
 
     HttpContent GetContent()
