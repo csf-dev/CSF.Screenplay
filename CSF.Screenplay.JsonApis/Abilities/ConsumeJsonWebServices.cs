@@ -23,30 +23,20 @@ namespace CSF.Screenplay.JsonApis.Abilities
 
     public virtual void Execute(IProvidesInvocationDetails invocationDetails)
     {
-      var task = GetResponse(invocationDetails);
-
-      var timeout = GetTimeout(invocationDetails);
-      if(!task.Wait(timeout))
-        throw new TimeoutException($"Timeout waiting for a response from a JSON API.  Waited for {timeout.ToString("g")}");
+      GetResponse(invocationDetails);
     }
 
     public virtual T GetResult<T>(IProvidesInvocationDetails invocationDetails)
     {
       var response = GetResponse(invocationDetails);
-      var task = ConvertResponse<T>(response);
-
-      var timeout = GetTimeout(invocationDetails);
-      if(!task.Wait(timeout))
-        throw new TimeoutException($"Timeout waiting for a response from a JSON API.  Waited for {timeout.ToString("g")}");
-
-      return task.Result;
+      return ConvertResponse<T>(response);
     }
 
     #endregion
 
     #region private methods
 
-    async Task<HttpResponseMessage> GetResponse(IProvidesInvocationDetails invocationDetails)
+    HttpResponseMessage GetResponse(IProvidesInvocationDetails invocationDetails)
     {
       if(invocationDetails == null)
         throw new ArgumentNullException(nameof(invocationDetails));
@@ -54,22 +44,26 @@ namespace CSF.Screenplay.JsonApis.Abilities
       var requestMessage = invocationDetails.GetRequestMessage();
       var timeout = GetTimeout(invocationDetails);
 
-      var response = await httpClient.SendAsync(requestMessage);
+      var response = httpClient.SendAsync(requestMessage);
 
-      AssertThatResultIsSuccess(response, timeout);
+      var waitSuccess = response.Wait(timeout);
+      if(!waitSuccess)
+        throw new TimeoutException($"Timeout waiting for a response from a JSON API.  Waited for {timeout.ToString("g")}");
 
-      return response;
+      AssertThatResultIsSuccess(response.Result, timeout);
+
+      return response.Result;
     }
 
-    void AssertThatResultIsSuccess(HttpResponseMessage message, TimeSpan timeout)
+    void AssertThatResultIsSuccess(HttpResponseMessage result, TimeSpan timeout)
     {
       try
       {
-        message.EnsureSuccessStatusCode();
+        result.EnsureSuccessStatusCode();
       }
       catch(HttpRequestException ex)
       {
-        var content = message.Content.ReadAsStringAsync();
+        var content = result.Content.ReadAsStringAsync();
         content.Wait(timeout);
         var response = content.Result;
 
@@ -78,14 +72,19 @@ namespace CSF.Screenplay.JsonApis.Abilities
       }
     }
 
-    protected virtual async Task<T> ConvertResponse<T>(Task<HttpResponseMessage> response)
+    protected virtual T ConvertResponse<T>(HttpResponseMessage response)
     {
-      var buffer = new MemoryStream();
-      await response.Result.Content.CopyToAsync(buffer);
-
-      using(var reader = new StreamReader(buffer))
+      using(var buffer = new MemoryStream())
       {
-        return (T) serializer.Deserialize(reader, typeof(T));
+        var copyTask = response.Content.CopyToAsync(buffer);
+        copyTask.Wait(TimeSpan.FromSeconds(5));
+
+        buffer.Position = 0;
+
+        using(var reader = new StreamReader(buffer))
+        {
+          return (T) serializer.Deserialize(reader, typeof(T));
+        }
       }
     }
 
@@ -112,7 +111,7 @@ namespace CSF.Screenplay.JsonApis.Abilities
     #region constructor
 
     public ConsumeJsonWebServices(string baseUriString, TimeSpan? defaultTimeout = null)
-      : this(new Uri(baseUriString), defaultTimeout) {}
+      : this(new Uri(baseUriString, UriKind.Absolute), defaultTimeout) {}
 
     public ConsumeJsonWebServices(Uri baseUri = null, TimeSpan? defaultTimeout = null)
     {
