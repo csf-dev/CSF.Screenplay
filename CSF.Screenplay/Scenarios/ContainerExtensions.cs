@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.MicroDi;
-using CSF.MicroDi.Builders;
+using CSF.FlexDi;
+using CSF.FlexDi.Builders;
 
 namespace CSF.Screenplay.Scenarios
 {

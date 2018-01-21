@@ -19,7 +19,7 @@ namespace CSF.Screenplay
     /// Gets a MicroDi dependency resolver.
     /// </summary>
     /// <value>The resolver.</value>
-    MicroDi.IResolvesServices Resolver { get; }
+    FlexDi.IResolvesServices Resolver { get; }
 
     /// <summary>
     /// Creates a new actor with the given name.

@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Scenarios
     #region fields
 
     readonly Guid identity;
-    readonly MicroDi.IContainer container;
+    readonly FlexDi.IContainer container;
 
     #endregion
 
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Scenarios
     /// Gets a MicroDi dependency resolver.
     /// </summary>
     /// <value>The resolver.</value>
-    public MicroDi.IResolvesServices Resolver => container;
+    public FlexDi.IResolvesServices Resolver => container;
 
     /// <summary>
     /// Gets a unique identity for the the current scenario instance.
@@ -211,7 +211,7 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="container">A MicroDi container instance.</param>
     public ScreenplayScenario(IdAndName featureId,
                               IdAndName scenarioId,
-                              MicroDi.IContainer container)
+                              FlexDi.IContainer container)
     {
       if(container == null)
         throw new ArgumentNullException(nameof(container));

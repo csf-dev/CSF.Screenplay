@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.MicroDi;
+using CSF.FlexDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Scenarios;
 
