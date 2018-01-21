@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -34,20 +35,13 @@ namespace CSF.Screenplay.JsonApis.Abilities
 
     HttpResponseMessage GetResponseMessage(HttpRequestMessage request, TimeSpan timeout)
     {
-      var response = httpClient.SendAsync(request);
-      AssertTimeoutNotExceeded(response, timeout);
+      var tokenSource = new CancellationTokenSource(timeout);
+      var response = httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, tokenSource.Token);
 
       var result = response.Result;
       AssertThatResultIsSuccess(result);
 
       return result;
-    }
-
-    void AssertTimeoutNotExceeded(Task<HttpResponseMessage> response, TimeSpan timeout)
-    {
-      var waitSuccess = response.Wait(timeout);
-      if(!waitSuccess)
-        throw new TimeoutException($"Timeout waiting for a response from a JSON API.  Waited for {timeout.ToString("g")}");
     }
 
     void AssertThatResultIsSuccess(HttpResponseMessage result)
@@ -107,7 +101,10 @@ namespace CSF.Screenplay.JsonApis.Abilities
     {
       disposedValue = false;
 
-      httpClient = new HttpClient { BaseAddress = httpClientBaseUri };
+      httpClient = new HttpClient {
+        BaseAddress = httpClientBaseUri,
+        Timeout = Timeout.InfiniteTimeSpan,
+      };
       serializer = JsonSerializer.CreateDefault();
     }
 
