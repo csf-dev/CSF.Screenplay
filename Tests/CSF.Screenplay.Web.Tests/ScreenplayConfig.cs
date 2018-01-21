@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CSF.MicroDi;
+using CSF.FlexDi;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;

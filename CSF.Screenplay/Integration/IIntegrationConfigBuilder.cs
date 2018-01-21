@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.MicroDi;
-using CSF.MicroDi.Builders;
+using CSF.FlexDi;
+using CSF.FlexDi.Builders;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration

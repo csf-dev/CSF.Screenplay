@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.MicroDi.Builders;
+using CSF.FlexDi.Builders;
 
 namespace CSF.Screenplay.Integration
 {
