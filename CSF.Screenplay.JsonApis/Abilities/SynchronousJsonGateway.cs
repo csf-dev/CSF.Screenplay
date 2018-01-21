@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,13 +36,27 @@ namespace CSF.Screenplay.JsonApis.Abilities
 
     HttpResponseMessage GetResponseMessage(HttpRequestMessage request, TimeSpan timeout)
     {
+      var response = GetResponseRespectingTimeout(request, timeout);
+      AssertThatResultIsSuccess(response);
+      return response;
+    }
+
+    HttpResponseMessage GetResponseRespectingTimeout(HttpRequestMessage request, TimeSpan timeout)
+    {
       var tokenSource = new CancellationTokenSource(timeout);
-      var response = httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, tokenSource.Token);
+      var token = tokenSource.Token;
 
-      var result = response.Result;
-      AssertThatResultIsSuccess(result);
+      try
+      {
+        return httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, token).Result;
+      }
+      catch(AggregateException ex)
+      {
+        if(ex.InnerExceptions.OfType<TimeoutException>().Any())
+          throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.");
 
-      return result;
+        throw;
+      }
     }
 
     void AssertThatResultIsSuccess(HttpResponseMessage result)
