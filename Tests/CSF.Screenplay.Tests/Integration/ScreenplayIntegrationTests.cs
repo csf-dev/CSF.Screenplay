@@ -5,7 +5,7 @@ using Moq;
 using CSF.Screenplay.Scenarios;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.MicroDi;
+using CSF.FlexDi;
 
 namespace CSF.Screenplay.Tests.Integration
 {

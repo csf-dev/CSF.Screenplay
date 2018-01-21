@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.MicroDi;
+using CSF.FlexDi;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
