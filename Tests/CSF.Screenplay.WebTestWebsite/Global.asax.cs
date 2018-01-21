@@ -19,11 +19,6 @@ namespace CSF.Screenplay.WebTestWebsite
     void ConfigureWebApi()
     {
       GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
-      GlobalConfiguration.Configuration.Routes.MapHttpRoute(
-        name: "DefaultApi",
-        routeTemplate: "api/{controller}/{id}",
-        defaults: new { id = System.Web.Http.RouteParameter.Optional }
-      );
     }
 
     protected void Application_Start()
