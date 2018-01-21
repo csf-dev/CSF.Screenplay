@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.MicroDi;
 using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Integration
@@ -10,22 +11,22 @@ namespace CSF.Screenplay.Integration
   public class IntegrationConfigurationBuilder : IIntegrationConfigBuilder
   {
     /// <summary>
-    /// Gets a collection of callbacks which are used to register Screenplay-related services.
+    /// Gets the callbacks which are used to register Screenplay-related services.
     /// </summary>
     /// <value>The service registrations.</value>
-    public IList<Action<IServiceRegistryBuilder>> RegisterServices { get; private set; }
+    public ServiceRegistrations ServiceRegistrations { get; private set; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed before the first scenario in a test run.
     /// </summary>
     /// <value>The before first scenario.</value>
-    public IList<Action<IProvidesTestRunEvents,IServiceResolver>> BeforeFirstScenario { get; private set; }
+    public IList<Action<IProvidesTestRunEvents,IResolvesServices>> BeforeFirstScenario { get; private set; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed after the last scenario in a test run.
     /// </summary>
     /// <value>The after last scenario.</value>
-    public IList<Action<IServiceResolver>> AfterLastScenario { get; private set; }
+    public IList<Action<IResolvesServices>> AfterLastScenario { get; private set; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed before each scenario.
@@ -44,9 +45,9 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     public IntegrationConfigurationBuilder()
     {
-      RegisterServices = new List<Action<IServiceRegistryBuilder>>();
-      BeforeFirstScenario = new List<Action<IProvidesTestRunEvents,IServiceResolver>>();
-      AfterLastScenario = new List<Action<IServiceResolver>>();
+      ServiceRegistrations = new ServiceRegistrations();
+      BeforeFirstScenario = new List<Action<IProvidesTestRunEvents,IResolvesServices>>();
+      AfterLastScenario = new List<Action<IResolvesServices>>();
       BeforeScenario = new List<Action<IScreenplayScenario>>();
       AfterScenario = new List<Action<IScreenplayScenario>>();
     }

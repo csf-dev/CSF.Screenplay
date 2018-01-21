@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <AssemblyName>CSF.Screenplay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.7.0</ReleaseVersion>
+    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +34,9 @@
     <Reference Include="System" />
     <Reference Include="CSF.Utils">
       <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.MicroDi">
+      <HintPath>..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -73,36 +76,19 @@
     <Compile Include="Actors\PerformanceEventArgsBase.cs" />
     <Compile Include="Actors\ActorEventArgs.cs" />
     <Compile Include="Reporting\IReportable.cs" />
-    <Compile Include="CastRegistryExtensions.cs" />
-    <Compile Include="Scenarios\ServiceMetadata.cs" />
-    <Compile Include="Scenarios\ServiceNotRegisteredException.cs" />
     <Compile Include="Scenarios\IScenarioFactory.cs" />
     <Compile Include="Scenarios\IdAndName.cs" />
     <Compile Include="Scenarios\ScenarioFactory.cs" />
-    <Compile Include="Scenarios\SingletonRegistration.cs" />
-    <Compile Include="Scenarios\IServiceRegistration.cs" />
-    <Compile Include="Scenarios\PerScenarioRegistration.cs" />
-    <Compile Include="Scenarios\ServiceRegistryBuilder.cs" />
-    <Compile Include="Scenarios\ServiceRegistry.cs" />
-    <Compile Include="Scenarios\IServiceRegistryBuilder.cs" />
     <Compile Include="CastResolverExtensions.cs" />
-    <Compile Include="Scenarios\ServiceResolver.cs" />
-    <Compile Include="Scenarios\IServiceResolver.cs" />
     <Compile Include="Scenarios\BeginScenarioEventArgs.cs" />
     <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
     <Compile Include="Integration\ScreenplayIntegration.cs" />
-    <Compile Include="Scenarios\ServiceLifetime.cs" />
-    <Compile Include="Scenarios\ISingletonServiceResolverFactory.cs" />
     <Compile Include="Integration\IScreenplayIntegration.cs" />
-    <Compile Include="Scenarios\LazySingletonRegistration.cs" />
     <Compile Include="Integration\IIntegrationConfigBuilder.cs" />
     <Compile Include="Integration\IntegrationConfigurationBuilder.cs" />
     <Compile Include="CastIntegrationBuilderExtensions.cs" />
-    <Compile Include="Scenarios\IServiceRegistry.cs" />
     <Compile Include="Integration\IIntegrationConfig.cs" />
-    <Compile Include="Scenarios\IServiceRegistryFactory.cs" />
-    <Compile Include="Integration\ServiceRegistryFactory.cs" />
     <Compile Include="Integration\TestRunEvents.cs" />
     <Compile Include="Integration\IntegrationFactory.cs" />
     <Compile Include="Scenarios\IScenarioName.cs" />
@@ -114,6 +100,10 @@
     <Compile Include="Reporting\IObjectFormatter.cs" />
     <Compile Include="Reporting\StringArrayFormatter.cs" />
     <Compile Include="Reporting\DefaultObjectFormatter.cs" />
+    <Compile Include="Integration\ServiceRegistrations.cs" />
+    <Compile Include="Scenarios\ContainerExtensions.cs" />
+    <Compile Include="Actors\IStage.cs" />
+    <Compile Include="Actors\Stage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

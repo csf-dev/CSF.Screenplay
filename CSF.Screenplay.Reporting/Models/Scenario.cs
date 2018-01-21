@@ -5,11 +5,13 @@ using System.Linq;
 namespace CSF.Screenplay.Reporting.Models
 {
   /// <summary>
-  /// Represents a single scenrio within a report (equivalent to a single test case, if not using Cucumber terminology).
+  /// Represents a single scenrio within a report (equivalent to a single test case, if not using Gherkin terminology).
   /// </summary>
   public class Scenario
   {
-    readonly string idName, friendlyName, featureName, featureId;
+    const string UnknownFeatureId = "Unknown feature";
+
+    readonly string featureName, featureId, idName, friendlyName;
     readonly IList<Reportable> children;
 
     /// <summary>
@@ -17,6 +19,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The identifier.</value>
     public virtual string Id => idName;
+
+    /// <summary>
+    /// Gets the name of the scenario.
+    /// </summary>
+    /// <value>The scenario name.</value>
+    public virtual string FriendlyName => friendlyName;
 
     /// <summary>
     /// Gets the name of the feature.
@@ -29,12 +37,6 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The feature identifier.</value>
     public virtual string FeatureId => featureId;
-
-    /// <summary>
-    /// Gets the name of the scenario.
-    /// </summary>
-    /// <value>The scenario name.</value>
-    public virtual string FriendlyName => friendlyName;
 
     /// <summary>
     /// Gets the contained reportables.
@@ -68,22 +70,31 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value><c>true</c> if is success; otherwise, <c>false</c>.</value>
     public virtual bool IsSuccess => Outcome.HasValue && Outcome.Value;
 
-    IEnumerable<Reportable> FindReportables()
+    /// <summary>
+    /// Gets a collection of the reportables contained within the current scenario.
+    /// </summary>
+    /// <returns>The reportables.</returns>
+    protected virtual IEnumerable<Reportable> FindReportables()
     {
-      return children.ToArray()
-        .Union(children.SelectMany(x => FindReportables(x)))
-        .ToArray();
+      return Reportables.ToArray()
+                        .Union(children.SelectMany(x => FindReportables(x)))
+                        .ToArray();
     }
 
-    IEnumerable<Reportable> FindReportables(Reportable current)
+    /// <summary>
+    /// Gets a collection of the reportables contained within the given reportable.
+    /// </summary>
+    /// <returns>The reportables.</returns>
+    /// <param name="current">Current.</param>
+    protected virtual IEnumerable<Reportable> FindReportables(Reportable current)
     {
       var performance = current as Performance;
       if(performance == null)
         return Enumerable.Empty<Reportable>();
 
       return performance.Reportables.ToArray()
-        .Union(performance.Reportables.SelectMany(x => FindReportables(x)))
-        .ToArray();
+                        .Union(performance.Reportables.SelectMany(x => FindReportables(x)))
+                        .ToArray();
     }
 
     /// <summary>
@@ -93,7 +104,10 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="featureName">The feature name.</param>
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
-    public Scenario(string idName, string friendlyName = null, string featureName = null, string featureId = null)
+    public Scenario(string idName,
+                    string friendlyName = null,
+                    string featureName = null,
+                    string featureId = null)
     {
       if(idName == null)
         throw new ArgumentNullException(nameof(idName));
@@ -101,9 +115,8 @@ namespace CSF.Screenplay.Reporting.Models
       this.idName = idName;
       this.friendlyName = friendlyName;
       this.featureName = featureName;
-      this.featureId = featureId;
-
-      children = new List<Reportable>();
+      this.featureId = featureId?? UnknownFeatureId;
+      this.children = new List<Reportable>();
     }
   }
 }

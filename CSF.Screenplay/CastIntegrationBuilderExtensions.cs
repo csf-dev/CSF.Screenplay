@@ -21,8 +21,30 @@ namespace CSF.Screenplay
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));
 
-      helper.RegisterServices.Add((builder) => {
-        builder.RegisterCast(cast, name);
+      helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
+        regBuilder
+          .RegisterFactory(() => cast?? new Cast())
+          .As<ICast>()
+          .WithName(name);
+      });
+    }
+
+    /// <summary>
+    /// Configures the current integration to make use of an <see cref="IStage"/> instance.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="stage">Stage.</param>
+    /// <param name="name">Name.</param>
+    public static void UseStage(this IIntegrationConfigBuilder helper, IStage stage = null, string name = null)
+    {
+      if(helper == null)
+        throw new ArgumentNullException(nameof(helper));
+
+      helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
+        regBuilder
+          .RegisterFactory(() => stage?? new Stage())
+          .As<IStage>()
+          .WithName(name);
       });
     }
   }

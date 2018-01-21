@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.MicroDi;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Scenarios;
 
@@ -15,12 +16,12 @@ namespace CSF.Screenplay
     /// <returns>The reporter.</returns>
     /// <param name="resolver">Resolver.</param>
     /// <param name="name">Name.</param>
-    public static IReporter GetReporter(this IServiceResolver resolver, string name = null)
+    public static IReporter GetReporter(this IResolvesServices resolver, string name = null)
     {
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
-      return resolver.GetService<IReporter>(name);
+      return resolver.Resolve<IReporter>(name);
     }
 
     /// <summary>
@@ -30,12 +31,12 @@ namespace CSF.Screenplay
     /// <returns>The reporter.</returns>
     /// <param name="resolver">Resolver.</param>
     /// <param name="name">Name.</param>
-    public static IModelBuildingReporter GetReportBuildingReporter(this IServiceResolver resolver, string name = null)
+    public static IModelBuildingReporter GetReportBuildingReporter(this IResolvesServices resolver, string name = null)
     {
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
-      return resolver.GetService<IModelBuildingReporter>(name);
+      return resolver.Resolve<IModelBuildingReporter>(name);
     }
 
     /// <summary>
@@ -44,12 +45,12 @@ namespace CSF.Screenplay
     /// <returns>The object formatting service.</returns>
     /// <param name="resolver">Resolver.</param>
     /// <param name="name">Name.</param>
-    public static IObjectFormattingService GetObjectFormattingService(this IServiceResolver resolver, string name = null)
+    public static IObjectFormattingService GetObjectFormattingService(this IResolvesServices resolver, string name = null)
     {
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
-      return resolver.GetService<IObjectFormattingService>(name);
+      return resolver.Resolve<IObjectFormattingService>(name);
     }
   }
 }

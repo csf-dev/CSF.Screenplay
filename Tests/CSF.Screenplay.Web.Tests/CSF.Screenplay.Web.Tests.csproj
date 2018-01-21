@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Web.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Web.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.7.0</ReleaseVersion>
+    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +50,9 @@
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\packages\Moq.4.7.99\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.MicroDi">
+      <HintPath>..\..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

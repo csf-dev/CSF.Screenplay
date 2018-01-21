@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Web.Tests
 
     static void CustomiseJoe(IActor joe, IScreenplayScenario scenario)
     {
-      var browseTheWeb = scenario.GetWebBrowser();
+      var browseTheWeb = scenario.Resolver.GetWebBrowser();
       joe.IsAbleTo(browseTheWeb);
     }
   }

@@ -9,7 +9,7 @@
     <RootNamespace>CSF.Screenplay.WebTestWebsite</RootNamespace>
     <AssemblyName>CSF.Screenplay.WebTestWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.7.0</ReleaseVersion>
+    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -106,6 +106,19 @@
     <Reference Include="CSF.Zpt.MVC5">
       <HintPath>..\..\packages\CSF.Zpt.MVC5.1.0.0\lib\net45\CSF.Zpt.MVC5.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -114,6 +127,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Views\PageTwo\" />
     <Folder Include="Views\PageThree\" />
+    <Folder Include="ApiControllers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -125,6 +139,9 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Controllers\PageTwoController.cs" />
     <Compile Include="Controllers\PageThreeController.cs" />
+    <Compile Include="ApiControllers\ExecutionController.cs" />
+    <Compile Include="ApiControllers\DataController.cs" />
+    <Compile Include="Models\SampleApiData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.7.0</ReleaseVersion>
+    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +36,9 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.MicroDi">
+      <HintPath>..\..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Test.feature">
@@ -44,6 +47,10 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Stage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Stage.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -56,6 +63,10 @@
     <Compile Include="Actions\GetTheNumber.cs" />
     <Compile Include="ScenarioExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
+    <Compile Include="Stage.feature.cs">
+      <DependentUpon>Stage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">
