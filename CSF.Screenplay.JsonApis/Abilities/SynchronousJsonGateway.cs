@@ -50,10 +50,14 @@ namespace CSF.Screenplay.JsonApis.Abilities
       {
         return httpClient.SendAsync(request, HttpCompletionOption.ResponseContentRead, token).Result;
       }
+      catch(TaskCanceledException ex)
+      {
+        throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.", ex);
+      }
       catch(AggregateException ex)
       {
-        if(ex.InnerExceptions.OfType<TimeoutException>().Any())
-          throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.");
+        if(ex.InnerExceptions.OfType<TaskCanceledException>().Any())
+          throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.", ex);
 
         throw;
       }
