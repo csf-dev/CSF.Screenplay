@@ -29,7 +29,7 @@ namespace CSF.Screenplay.WebTestWebsite.ApiControllers
       return myNumber;
     }
 
-    [HttpPut]
+    [HttpPost]
     [Route("CheckData")]
     public void CheckData(SampleApiData data)
     {
