@@ -63,13 +63,27 @@ namespace CSF.Screenplay.JsonApis.Abilities
       }
       catch(HttpRequestException ex)
       {
-        var content = result.Content.ReadAsStringAsync();
-        content.Wait(timeout);
-        var response = content.Result;
-
-        throw new JsonApiException($@"The API request failed
+        var response = GetResultString(result, timeout);
+        throw new JsonApiException($@"The API request failed: HTTP {result.StatusCode.ToString()}
 {response}", ex);
       }
+    }
+
+    string GetResultString(HttpResponseMessage result, TimeSpan timeout)
+    {
+      Task<string> contentTask = null;
+
+      try
+      {
+        contentTask = result.Content.ReadAsStringAsync();
+      }
+      catch(Exception ex)
+      {
+        throw new JsonApiException($"The API request failed with no content: HTTP {result.StatusCode.ToString()}", ex);
+      }
+
+      contentTask.Wait(timeout);
+      return contentTask.Result;
     }
 
     protected virtual T ConvertResponse<T>(HttpResponseMessage response)
