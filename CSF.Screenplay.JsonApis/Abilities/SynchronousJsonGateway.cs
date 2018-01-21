@@ -63,7 +63,10 @@ namespace CSF.Screenplay.JsonApis.Abilities
     {
       using(var buffer = new MemoryStream())
       {
-        response.Content.CopyToAsync(buffer).RunSynchronously();
+        var copyTask = response.Content.CopyToAsync(buffer);
+        var waitSuccess = copyTask.Wait(TimeSpan.FromSeconds(1));
+        if(!waitSuccess)
+          throw new JsonApiException("Timeout whilst converting JSON response to string. This should probably never happen?!");
 
         buffer.Position = 0;
 
