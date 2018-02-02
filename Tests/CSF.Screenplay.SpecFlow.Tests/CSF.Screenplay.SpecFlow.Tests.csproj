@@ -61,7 +61,7 @@
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
-    <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CastExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
     <Compile Include="Stage.feature.cs">
       <DependentUpon>Stage.feature</DependentUpon>

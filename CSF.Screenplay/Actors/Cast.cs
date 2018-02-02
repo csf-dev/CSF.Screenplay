@@ -106,7 +106,6 @@ namespace CSF.Screenplay.Actors
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <param name="name">The actor name.</param>
-    /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
     public virtual void Add(string name)
     {
       lock(syncRoot)
@@ -143,7 +142,6 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The actor.</returns>
     /// <param name="name">The actor's name.</param>
-    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected virtual IActor CreateActor(string name)
     {
       var actor = new Actor(name, scenarioIdentity);

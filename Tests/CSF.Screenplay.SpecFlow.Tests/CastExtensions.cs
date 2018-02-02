@@ -5,18 +5,10 @@ using CSF.Screenplay.SpecFlow.Tests.Abilities;
 
 namespace CSF.Screenplay.SpecFlow.Tests
 {
-  public static class ScenarioExtensions
+  public static class CastExtensions
   {
-    public static IActor GetMathsWhiz(this IScenario context, string name)
+    public static IActor GetMathsWhiz(this ICast cast, string name)
     {
-      var cast = context.Resolver.GetCast();
-      if(cast == null)
-      {
-        var actor = new Actor(name, context.Identity);
-        CustomiseActor(actor);
-        return actor;
-      }
-
       return cast.Get(name, CustomiseActor);
     }
 

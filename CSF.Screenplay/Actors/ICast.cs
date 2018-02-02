@@ -75,7 +75,6 @@ namespace CSF.Screenplay.Actors
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <param name="name">The actor name.</param>
-    /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
     void Add(string name);
 
     /// <summary>

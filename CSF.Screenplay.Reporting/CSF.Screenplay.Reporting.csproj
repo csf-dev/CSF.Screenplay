@@ -73,7 +73,6 @@
     <Compile Include="Trace\TracableEvent.cs" />
     <Compile Include="Trace\BeginScenarioReport.cs" />
     <Compile Include="Trace\CompleteScenarioReport.cs" />
-    <Compile Include="ReportingResolverExtensions.cs" />
     <Compile Include="ReportingIntegrationBuilderExtensions.cs" />
     <Compile Include="ReportingIntegrationBuilder.cs" />
     <Compile Include="IObjectFormatterRegistry.cs" />

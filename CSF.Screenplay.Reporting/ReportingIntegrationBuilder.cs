@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Reporting.Models;
 
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.Reporting
       if(reporter == null)
         throw new ArgumentNullException(nameof(reporter));
 
-      this.reporterToUse = reporter;
+      reporterToUse = reporter;
       return this;
     }
 
@@ -152,19 +153,21 @@ namespace CSF.Screenplay.Reporting
     void RegisterObjectFormatters(IIntegrationConfigBuilder integration)
     {
       integration.ServiceRegistrations.PerTestRun.Add(h => {
-        h.RegisterInstance(formatterRegistry).As<IObjectFormatterRegistry>();
+        h.RegisterInstance(formatterRegistry).As<IObjectFormatterRegistry>().WithName(name);
         var formatService = new ObjectFormattingService(formatterRegistry);
-        h.RegisterInstance(formatService).As<IObjectFormattingService>();
+        h.RegisterInstance(formatService).As<IObjectFormattingService>().WithName(name);
       });
     }
 
     void RegisterReporter(IIntegrationConfigBuilder integration)
     {
-      var reporter = new ReportBuildingReporter();
+      var reporter = reporterToUse ?? new ReportBuildingReporter();
 
       integration.ServiceRegistrations.PerTestRun.Add(h => {
-        h.RegisterInstance(reporter).As<IReporter>();
-        h.RegisterInstance(reporter).As<IModelBuildingReporter>();
+        h.RegisterInstance(reporter).As<IReporter>().WithName(name);
+
+        if(reporter is IModelBuildingReporter)
+          h.RegisterInstance(reporter).As<IModelBuildingReporter>().WithName(name);
       });
     }
 
@@ -175,8 +178,8 @@ namespace CSF.Screenplay.Reporting
         if(!subscribeToCastActorCreation && !subscribeToCastActorAddition)
           return;
 
-        var cast = scenario.Resolver.GetCast(castName);
-        var reporter = scenario.Resolver.GetReporter(name);
+        var cast = scenario.Resolver.Resolve<ICast>(castName);
+        var reporter = scenario.Resolver.Resolve<IReporter>(name);
 
         if(subscribeToCastActorCreation)
         {
@@ -196,7 +199,7 @@ namespace CSF.Screenplay.Reporting
     void SubscribeToBeginAndEndTestRun(IIntegrationConfigBuilder integration)
     {
       integration.BeforeFirstScenario.Add((events, resolver) => {
-        var reporter = resolver.GetReporter(name);
+        var reporter = resolver.Resolve<IReporter>(name);
         reporter.Subscribe(events);
       });
     }
@@ -204,12 +207,12 @@ namespace CSF.Screenplay.Reporting
     void SubscribeToScenario(IIntegrationConfigBuilder integration)
     {
       integration.BeforeScenario.Add((scenario) => {
-        var reporter = scenario.Resolver.GetReporter(name);
+        var reporter = scenario.Resolver.Resolve<IReporter>(name);
         reporter.Subscribe(scenario);
       });
 
       integration.AfterScenario.Add((scenario) => {
-        var reporter = scenario.Resolver.GetReporter(name);
+        var reporter = scenario.Resolver.Resolve<IReporter>(name);
         reporter.Unsubscribe(scenario);
       });
     }
@@ -218,9 +221,9 @@ namespace CSF.Screenplay.Reporting
     {
       integration.AfterLastScenario.Add((resolver) => {
 
-        var reporter = resolver.GetReporter(name);
+        var reporter = resolver.Resolve<IReporter>(name);
         var modelReporter = reporter as IModelBuildingReporter;
-        var formatter = resolver.GetObjectFormattingService();
+        var formatter = resolver.Resolve<IObjectFormattingService>(name);
 
         if(modelReporter != null && writeReportCallback != null)
         {

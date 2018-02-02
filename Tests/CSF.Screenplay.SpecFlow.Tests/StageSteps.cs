@@ -8,40 +8,42 @@ namespace CSF.Screenplay.SpecFlow.Tests
   [Binding]
   public class StageSteps
   {
-    readonly IScenario ctx;
+    readonly ICast cast;
+    readonly IStage stage;
+
     IActor retrievedActor;
 
     [Given("Joe is an actor in the spotlight")]
     public void GivenJoeIsAnActorInTheSpotlight()
     {
-      var joe = ctx.CreateActor("Joe");
-      var cast = ctx.GetCast();
+      var joe = cast.Get("Joe");
       cast.Add(joe);
 
-      var stage = ctx.GetStage();
       stage.ShineTheSpotlightOn(joe);
     }
 
     [When("I get the actor in the spotlight")]
     public void WhenIGetTheActorInTheSpotlight()
     {
-      var stage = ctx.GetStage();
       retrievedActor = stage.GetTheActorInTheSpotlight();
     }
 
     [Then("that actor should be the same as Joe")]
     public void ThenThatActorShouldBeJoe()
     {
-      var joe = ctx.GetCast().GetExisting("Joe");
+      var joe = cast.GetExisting("Joe");
       Assert.That(retrievedActor, Is.SameAs(joe));
     }
 
-    public StageSteps(IScenario ctx)
+    public StageSteps(ICast cast, IStage stage)
     {
-      if(ctx == null)
-        throw new ArgumentNullException(nameof(ctx));
+      if(stage == null)
+        throw new ArgumentNullException(nameof(stage));
+      if(cast == null)
+        throw new ArgumentNullException(nameof(cast));
 
-      this.ctx = ctx;
+      this.cast = cast;
+      this.stage = stage;
     }
   }
 }
