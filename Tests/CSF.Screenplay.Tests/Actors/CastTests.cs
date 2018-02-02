@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.Add(name, Guid.NewGuid());
+      cast.Add(name);
       var joe = cast.GetExisting(name);
 
       // Assert
@@ -28,12 +28,12 @@ namespace CSF.Screenplay.Tests.Actors
     public void Add_using_guid_sets_scenario_identity()
     {
       // Arrange
-      var cast = GetSut();
-      var name = "joe";
       var identity = Guid.NewGuid();
+      var cast = GetSut(identity);
+      var name = "joe";
 
       // Act
-      cast.Add(name, identity);
+      cast.Add(name);
       var joe = cast.GetExisting(name);
 
       // Assert
@@ -48,10 +48,10 @@ namespace CSF.Screenplay.Tests.Actors
       var name = "joe";
 
       // Act
-      cast.Add(name, Guid.NewGuid());
+      cast.Add(name);
 
       // Act and assert
-      Assert.Throws<DuplicateActorException>(() => cast.Add(name, Guid.NewGuid()));
+      Assert.Throws<DuplicateActorException>(() => cast.Add(name));
     }
 
     [Test]
@@ -61,8 +61,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      cast.Add("joe", Guid.NewGuid());
-      cast.Add("davina", Guid.NewGuid());
+      cast.Add("joe");
+      cast.Add("davina");
 
       // Act and assert
       Assert.Pass();
@@ -87,7 +87,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = GetSut();
       var name = "joe";
-      cast.Add(name, Guid.NewGuid());
+      cast.Add(name);
 
       // Act
       var joe = cast.GetExisting(name);
@@ -103,7 +103,7 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
+      var joe = cast.Get("joe", (actor) => {});
 
       // Assert
       Assert.That(joe, Is.Not.Null);
@@ -113,12 +113,11 @@ namespace CSF.Screenplay.Tests.Actors
     public void Get_assigns_scenario_identity_to_created_actor()
     {
       // Arrange
-      var cast = GetSut();
       var identity = Guid.NewGuid();
-      var scenario = Mock.Of<IScenario>(x => x.Identity == identity);
+      var cast = GetSut(identity);
 
       // Act
-      var joe = cast.Get("joe", (a, s) => {}, scenario);
+      var joe = cast.Get("joe", (a) => {});
 
       // Assert
       Assert.That(joe.ScenarioIdentity, Is.EqualTo(identity));
@@ -131,8 +130,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
-      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
+      var joe = cast.Get("joe", (actor) => {});
+      var joeAgain = cast.Get("joe", (actor) => {});
 
       // Assert
       Assert.That(joe, Is.SameAs(joeAgain));
@@ -143,11 +142,11 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe", Guid.NewGuid());
+      cast.Add("joe");
       var joe = cast.GetExisting("joe");
 
       // Act
-      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>());
+      var joeAgain = cast.Get("joe", (actor) => {});
 
       // Assert
       Assert.That(joeAgain, Is.SameAs(joe));
@@ -161,7 +160,7 @@ namespace CSF.Screenplay.Tests.Actors
       var customisationCallCount = 0;
 
       // Act
-      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
+      cast.Get("joe", (a) => customisationCallCount++);
 
       // Assert
       Assert.That(customisationCallCount, Is.EqualTo(1));
@@ -172,11 +171,11 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe", Guid.NewGuid());
+      cast.Add("joe");
       var customisationCallCount = 0;
 
       // Act
-      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScenario>());
+      cast.Get("joe", (a) => customisationCallCount++);
 
       // Assert
       Assert.That(customisationCallCount, Is.EqualTo(0));
@@ -187,8 +186,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe", Guid.NewGuid());
-      cast.Add("davina", Guid.NewGuid());
+      cast.Add("joe");
+      cast.Add("davina");
 
       var joe = cast.GetExisting("joe");
       var davina = cast.GetExisting("davina");
@@ -205,8 +204,8 @@ namespace CSF.Screenplay.Tests.Actors
     {
       // Arrange
       var cast = GetSut();
-      cast.Add("joe", Guid.NewGuid());
-      cast.Add("davina", Guid.NewGuid());
+      cast.Add("joe");
+      cast.Add("davina");
 
       // Act
       cast.Dismiss();
@@ -261,6 +260,6 @@ namespace CSF.Screenplay.Tests.Actors
       Assert.That(() => cast.Add(davina), Throws.Nothing);
     }
 
-    ICast GetSut() => new Cast();
+    ICast GetSut(Guid? scenarioGuid = null) => new Cast(scenarioGuid.GetValueOrDefault(Guid.NewGuid()));
   }
 }

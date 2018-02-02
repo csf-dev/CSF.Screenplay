@@ -13,14 +13,14 @@ namespace CSF.Screenplay.SpecFlow.Tests
       if(cast == null)
       {
         var actor = new Actor(name, context.Identity);
-        CustomiseActor(actor, context);
+        CustomiseActor(actor);
         return actor;
       }
 
-      return cast.Get(name, CustomiseActor, context);
+      return cast.Get(name, CustomiseActor);
     }
 
-    static void CustomiseActor(IActor actor, IScenario context)
+    static void CustomiseActor(IActor actor)
     {
       actor.IsAbleTo<AddNumbers>();
     }

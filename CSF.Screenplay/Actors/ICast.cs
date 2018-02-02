@@ -58,9 +58,17 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
+    IActor Get(string name);
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
-    /// <param name="scenario">The current screenplay scenario.</param>
-    IActor Get(string name, Action<IActor,IScenario> createCustomisation, IScenario scenario);
+    IActor Get(string name, Action<IActor> createCustomisation);
 
     /// <summary>
     /// Creates a new actor of the given name and adds it to the current cast instance.
@@ -68,7 +76,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <param name="name">The actor name.</param>
     /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
-    void Add(string name, Guid scenarioIdentity);
+    void Add(string name);
 
     /// <summary>
     /// Adds the given actor to the current cast instance.
