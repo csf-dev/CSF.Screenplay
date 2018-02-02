@@ -5,11 +5,9 @@
 @SET /A PUSHARTIFACT_ERROR=2
 @SET /A READREPORT_ERROR=4
 
-nunit3-console.exe Tests\CSF.Screenplay.Web.Tests\bin\Debug\CSF.Screenplay.Web.Tests.dll Tests\CSF.Screenplay.JsonApis.Tests\bin\Debug\CSF.Screenplay.JsonApis.Tests.dll
+nunit3-console.exe Tests\CSF.Screenplay.JsonApis.Tests\bin\Debug\CSF.Screenplay.JsonApis.Tests.dll
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%TESTFAILURE_ERROR%
 
-appveyor PushArtifact NUnit.report.txt
-@IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%PUSHARTIFACT_ERROR%
 appveyor PushArtifact SpecFlow.report.txt
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%PUSHARTIFACT_ERROR%
 appveyor PushArtifact JsonApis.report.txt
@@ -19,8 +17,6 @@ appveyor PushArtifact JsonApis.report.txt
 @echo Screenplay reports
 @echo ******************
 
-@type NUnit.report.txt
-@IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
 @type SpecFlow.report.txt
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
 @type JsonApis.report.txt

@@ -1,25 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
-using CSF.Screenplay.WebTestWebsite.Models;
 
-namespace CSF.Screenplay.WebTestWebsite.Controllers.Controllers
+namespace CSF.Screenplay.WebTestWebsite.Controllers
 {
-  public class HomeController : ControllerBase
+  public class HomeController : Controller
   {
-    public ActionResult Index(int? delay)
+    public ActionResult Index()
     {
-      if(delay.GetValueOrDefault() > 0)
-        Thread.Sleep(TimeSpan.FromSeconds(delay.GetValueOrDefault()));
-      
-      var model = new ModelBase();
-      PopulateModel(model);
-      model.LoadingPause = delay.GetValueOrDefault();
-      return View(model);
+      return new HttpStatusCodeResult(HttpStatusCode.OK);
     }
   }
 }

@@ -60,52 +60,7 @@
     <Reference Include="System.Web.Mvc">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Caches">
-      <HintPath>..\..\packages\CSF.Caches.1.0.0\lib\net45\CSF.Caches.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Configuration">
-      <HintPath>..\..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Reflection">
-      <HintPath>..\..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Utils">
-      <HintPath>..\..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.Abstractions">
-      <HintPath>..\..\packages\CSF.Zpt.Abstractions.1.0.0\lib\net45\CSF.Zpt.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt">
-      <HintPath>..\..\packages\CSF.Zpt.1.0.0\lib\net45\CSF.Zpt.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.DocumentProviders.XmlLinq">
-      <HintPath>..\..\packages\CSF.Zpt.DocumentProviders.XmlLinq.1.0.0\lib\net45\CSF.Zpt.DocumentProviders.XmlLinq.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.ExpressionEvaluators.CSharpExpressions">
-      <HintPath>..\..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.0.0\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.ExpressionEvaluators.CSharpFramework">
-      <HintPath>..\..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.0.0\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Dynamic" />
-    <Reference Include="CSF.Zpt.ExpressionEvaluators.NotExpressions">
-      <HintPath>..\..\packages\CSF.Zpt.ExpressionEvaluators.NotExpressions.1.0.0\lib\net45\CSF.Zpt.ExpressionEvaluators.NotExpressions.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.ExpressionEvaluators.PathExpressions">
-      <HintPath>..\..\packages\CSF.Zpt.ExpressionEvaluators.PathExpressions.1.0.0\lib\net45\CSF.Zpt.ExpressionEvaluators.PathExpressions.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.ExpressionEvaluators.StringExpressions">
-      <HintPath>..\..\packages\CSF.Zpt.ExpressionEvaluators.StringExpressions.1.0.0\lib\net45\CSF.Zpt.ExpressionEvaluators.StringExpressions.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.DocumentProviders.HtmlHAP">
-      <HintPath>..\..\packages\CSF.Zpt.DocumentProviders.HtmlHAP.1.0.0\lib\net45\CSF.Zpt.DocumentProviders.HtmlHAP.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Zpt.MVC5">
-      <HintPath>..\..\packages\CSF.Zpt.MVC5.1.0.0\lib\net45\CSF.Zpt.MVC5.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -123,42 +78,26 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\PageTwo\" />
-    <Folder Include="Views\PageThree\" />
     <Folder Include="ApiControllers\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ControllerBase.cs" />
-    <Compile Include="Models\ModelBase.cs" />
-    <Compile Include="Controllers\PageTwoController.cs" />
-    <Compile Include="Controllers\PageThreeController.cs" />
     <Compile Include="ApiControllers\ExecutionController.cs" />
     <Compile Include="ApiControllers\DataController.cs" />
     <Compile Include="Models\SampleApiData.cs" />
+    <Compile Include="App_Start\MvcConfiguration.cs" />
+    <Compile Include="App_Start\WebApiConfiguration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\PageTwo.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\PageThree.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Views\Shared\Page.pt" />
-    <None Include="Views\Shared\Footer.pt" />
-    <None Include="Views\Shared\Header.pt" />
-    <None Include="Views\Home\Index.pt" />
-    <None Include="Views\PageTwo\Index.pt" />
-    <None Include="Views\PageThree\Index.pt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

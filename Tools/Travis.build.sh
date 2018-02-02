@@ -2,7 +2,6 @@
 
 echo_integration_test_results_to_console()
 {
-  cat NUnit.report.txt
   cat JsonApis.report.txt
 }
 
