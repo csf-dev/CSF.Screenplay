@@ -23,7 +23,25 @@ namespace CSF.Screenplay.SpecFlow
     /// <param name="configType">Integration type.</param>
     public ScreenplayAssemblyAttribute(Type configType)
     {
-      integration = integration?? new Lazy<IScreenplayIntegration>(() => new IntegrationFactory().Create(configType));
+      integration = integration?? new Lazy<IScreenplayIntegration>(() => CreateIntegration(configType));
+    }
+
+    IScreenplayIntegration CreateIntegration(Type configType)
+    {
+      var rootContainer = FlexDi.Container
+        .CreateBuilder()
+        .DoNotMakeAllResolutionOptional()
+        .ResolveUnregisteredTypes()
+        .SelfRegisterAResolver()
+        .SelfRegisterTheRegistry()
+        .SupportResolvingLazyInstances()
+        .DoNotSupportResolvingNamedInstanceDictionaries()
+        .ThrowOnCircularDependencies()
+        .UseInstanceCache()
+        .DoNotUseNonPublicConstructors()
+        .Build();
+
+      return new IntegrationFactory().Create(configType, rootContainer);
     }
   }
 }

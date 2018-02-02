@@ -68,7 +68,7 @@
     <Compile Include="Services\SetNumberService.cs" />
     <Compile Include="Services\GetNumberService.cs" />
     <Compile Include="Services\CheckDataService.cs" />
-    <Compile Include="ScenarioExtensions.cs" />
+    <Compile Include="CastExtensions.cs" />
     <Compile Include="Builders\Get.cs" />
     <Compile Include="Builders\Set.cs" />
     <Compile Include="Builders\Validate.cs" />

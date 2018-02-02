@@ -79,7 +79,6 @@
     <Compile Include="Scenarios\IScenarioFactory.cs" />
     <Compile Include="Scenarios\IdAndName.cs" />
     <Compile Include="Scenarios\ScenarioFactory.cs" />
-    <Compile Include="CastResolverExtensions.cs" />
     <Compile Include="Scenarios\BeginScenarioEventArgs.cs" />
     <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />

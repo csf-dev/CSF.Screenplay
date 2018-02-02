@@ -4,15 +4,14 @@ using CSF.Screenplay.JsonApis.Abilities;
 
 namespace CSF.Screenplay.JsonApis.Tests
 {
-  public static class ScenarioExtensions
+  public static class CastExtensions
   {
-    public static IActor GetJoe(this IScenario scenario)
+    public static IActor GetJoe(this ICast cast)
     {
-      var cast = scenario.GetCast();
-      return cast.Get("Joe", (actor, s) => {
+      return cast.Get("Joe", (actor) => {
         var consumeWebServices = new ConsumeJsonWebServices("http://localhost:8080/api/");
         actor.IsAbleTo(consumeWebServices);
-      }, scenario);
+      });
     }
   }
 }

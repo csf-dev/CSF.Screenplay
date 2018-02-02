@@ -24,10 +24,10 @@ namespace CSF.Screenplay.Scenarios
     public bool? Success { get; set; }
 
     /// <summary>
-    /// Gets a MicroDi dependency resolver.
+    /// Gets a FlexDi container.
     /// </summary>
-    /// <value>The resolver.</value>
-    public FlexDi.IResolvesServices Resolver => container;
+    /// <value>The container.</value>
+    public FlexDi.IContainer DiContainer => container;
 
     /// <summary>
     /// Gets a unique identity for the the current scenario instance.

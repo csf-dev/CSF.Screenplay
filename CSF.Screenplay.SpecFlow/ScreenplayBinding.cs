@@ -12,9 +12,14 @@ namespace CSF.Screenplay.SpecFlow
   public class ScreenplayBinding
   {
     static Lazy<IScreenplayIntegration> integration;
-    static IScreenplayIntegration Integration => integration.Value;
 
-    readonly IObjectContainer container;
+    internal static IScreenplayIntegration Integration
+      => integration.Value;
+
+    internal static ScenarioAdapter GetScenarioAdapter(ScenarioContext sContext, FeatureContext fContext)
+      => new ScenarioAdapter(sContext, fContext, Integration);
+
+    readonly FlexDi.IContainer container;
 
     /// <summary>
     /// Executed before each scenario.
@@ -22,13 +27,7 @@ namespace CSF.Screenplay.SpecFlow
     [Before]
     public void BeforeScenario()
     {
-      var scenarioContext = container.Resolve<ScenarioContext>();
-      var featureContext = container.Resolve<FeatureContext>();
-
-      var adapter = new ScenarioAdapter(scenarioContext, featureContext, Integration);
-      var scenario = adapter.CreateScenario();
-      container.RegisterInstanceAs(scenario);
-
+      var scenario = container.Resolve<IScenario>();
       Integration.BeforeScenario(scenario);
     }
 
@@ -65,7 +64,7 @@ namespace CSF.Screenplay.SpecFlow
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayBinding"/> class.
     /// </summary>
     /// <param name="container">Container.</param>
-    public ScreenplayBinding(IObjectContainer container)
+    public ScreenplayBinding(FlexDi.IContainer container)
     {
       this.container = container;
     }

@@ -23,6 +23,7 @@ namespace CSF.Screenplay.Actors
 
     readonly IDictionary<string,IActor> actors;
     readonly object syncRoot;
+    readonly Guid scenarioIdentity;
 
     #endregion
 
@@ -71,17 +72,18 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
-    /// <param name="scenario">The current screenplay scenario.</param>
-    public virtual IActor Get(string name,
-                              Action<IActor,IScenario> createCustomisation,
-                              IScenario scenario)
-    {
-      if(createCustomisation == null)
-        throw new ArgumentNullException(nameof(createCustomisation));
-      if(scenario == null)
-        throw new ArgumentNullException(nameof(scenario));
+    public virtual IActor Get(string name) => Get(name, null);
 
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
+    public virtual IActor Get(string name, Action<IActor> createCustomisation)
+    {
       IActor actor;
 
       lock(syncRoot)
@@ -90,10 +92,12 @@ namespace CSF.Screenplay.Actors
         if(actor != null)
           return actor;
 
-        actor = CreateAndAddLocked(name, scenario.Identity);
+        actor = CreateAndAddLocked(name);
       }
 
-      createCustomisation(actor, scenario);
+      if(createCustomisation != null)
+        createCustomisation(actor);
+      
       return actor;
     }
 
@@ -102,12 +106,11 @@ namespace CSF.Screenplay.Actors
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
     /// <param name="name">The actor name.</param>
-    /// <param name="scenarioIdentity">The identity of the scenario to which the actor belongs.</param>
-    public virtual void Add(string name, Guid scenarioIdentity)
+    public virtual void Add(string name)
     {
       lock(syncRoot)
       {
-        CreateAndAddLocked(name, scenarioIdentity);
+        CreateAndAddLocked(name);
       }
     }
 
@@ -139,8 +142,7 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The actor.</returns>
     /// <param name="name">The actor's name.</param>
-    /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected virtual IActor CreateActor(string name, Guid scenarioIdentity)
+    protected virtual IActor CreateActor(string name)
     {
       var actor = new Actor(name, scenarioIdentity);
       OnActorCreated(actor);
@@ -157,9 +159,9 @@ namespace CSF.Screenplay.Actors
       return null;
     }
 
-    IActor CreateAndAddLocked(string name, Guid scenarioIdentity)
+    IActor CreateAndAddLocked(string name)
     {
-      var actor = CreateActor(name, scenarioIdentity);
+      var actor = CreateActor(name);
       AddLocked(actor);
       return actor;
     }
@@ -223,8 +225,13 @@ namespace CSF.Screenplay.Actors
     /// <summary>
     /// Initializes a new instance of the <see cref="Cast"/> class.
     /// </summary>
-    public Cast()
+    /// <param name="scenarioIdentity">The identity of the current scenario.</param>
+    public Cast(Guid scenarioIdentity)
     {
+      if(scenarioIdentity == Guid.Empty)
+        throw new ArgumentException("The scenario identity must be populated", nameof(scenarioIdentity));
+
+      this.scenarioIdentity = scenarioIdentity;
       syncRoot = new Object();
       actors = new Dictionary<string,IActor>();
     }

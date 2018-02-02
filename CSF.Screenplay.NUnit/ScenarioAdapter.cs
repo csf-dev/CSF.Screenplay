@@ -144,12 +144,7 @@ namespace CSF.Screenplay.NUnit
       if(scenario != null)
         return scenario;
 
-      scenario = GetScenario(test.Arguments);
-      if(scenario != null)
-        return scenario;
-
-      var message = $"The test must contain an instance of `{nameof(IScenario)}' in " +
-        $"its {nameof(ITest.Properties)} or its {nameof(ITest.Arguments)}.";
+      var message = $"The test must contain an instance of `{nameof(IScenario)}' in its {nameof(ITest.Properties)}.";
       throw new ArgumentException(message, nameof(test));
     }
 
