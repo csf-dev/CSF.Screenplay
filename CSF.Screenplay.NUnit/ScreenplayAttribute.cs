@@ -74,7 +74,7 @@ namespace CSF.Screenplay.NUnit
       return null;
     }
 
-    IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, IScreenplayScenario scenario)
+    IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, IScenario scenario)
     {
       var builder = new NUnitTestCaseBuilder();
       var tcParams = new TestCaseParameters(new [] { scenario });
@@ -84,7 +84,7 @@ namespace CSF.Screenplay.NUnit
       return new [] { testMethod };
     }
 
-    IScreenplayScenario CreateScenario(IMethodInfo method, Test suite)
+    IScenario CreateScenario(IMethodInfo method, Test suite)
     {
       var integration = integrationReader.GetIntegration(method);
       var adapter = new ScenarioAdapter(suite, method, integration);

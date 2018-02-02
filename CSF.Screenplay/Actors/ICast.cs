@@ -60,7 +60,7 @@ namespace CSF.Screenplay.Actors
     /// <param name="name">The actor name.</param>
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
     /// <param name="scenario">The current screenplay scenario.</param>
-    IActor Get(string name, Action<IActor,IScreenplayScenario> createCustomisation, IScreenplayScenario scenario);
+    IActor Get(string name, Action<IActor,IScenario> createCustomisation, IScenario scenario);
 
     /// <summary>
     /// Creates a new actor of the given name and adds it to the current cast instance.

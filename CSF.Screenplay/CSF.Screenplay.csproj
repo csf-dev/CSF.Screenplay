@@ -92,8 +92,8 @@
     <Compile Include="Integration\TestRunEvents.cs" />
     <Compile Include="Integration\IntegrationFactory.cs" />
     <Compile Include="Scenarios\IScenarioName.cs" />
-    <Compile Include="Scenarios\ScreenplayScenario.cs" />
-    <Compile Include="IScreenplayScenario.cs" />
+    <Compile Include="Scenarios\Scenario.cs" />
+    <Compile Include="IScenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
     <Compile Include="Actors\Actor.cs" />
     <Compile Include="Reporting\GenericObjectFormatter.cs" />

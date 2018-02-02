@@ -4,7 +4,7 @@ namespace CSF.Screenplay.Scenarios
   /// <summary>
   /// A type which can begin and end a screenplay scenario.
   /// </summary>
-  public interface ICanBeginAndEndScenario : IScreenplayScenario
+  public interface ICanBeginAndEndScenario : IScenario
   {
     /// <summary>
     /// Marks the scenario as having begun (which may trigger event listeners).

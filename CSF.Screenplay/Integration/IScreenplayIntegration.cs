@@ -20,14 +20,14 @@ namespace CSF.Screenplay.Integration
     /// Executed before each scenario in a test run.
     /// </summary>
     /// <param name="scenario">Scenario.</param>
-    void BeforeScenario(IScreenplayScenario scenario);
+    void BeforeScenario(IScenario scenario);
 
     /// <summary>
     /// Executed after each scenario in a test run.
     /// </summary>
     /// <param name="scenario">Scenario.</param>
     /// <param name="success">If set to <c>true</c> success.</param>
-    void AfterScenario(IScreenplayScenario scenario, bool? success);
+    void AfterScenario(IScenario scenario, bool? success);
 
     /// <summary>
     /// Executed after the last scenario in a test run.

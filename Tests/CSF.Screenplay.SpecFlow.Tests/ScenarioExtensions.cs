@@ -7,7 +7,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
 {
   public static class ScenarioExtensions
   {
-    public static IActor GetMathsWhiz(this IScreenplayScenario context, string name)
+    public static IActor GetMathsWhiz(this IScenario context, string name)
     {
       var cast = context.Resolver.GetCast();
       if(cast == null)
@@ -20,7 +20,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
       return cast.Get(name, CustomiseActor, context);
     }
 
-    static void CustomiseActor(IActor actor, IScreenplayScenario context)
+    static void CustomiseActor(IActor actor, IScenario context)
     {
       actor.IsAbleTo<AddNumbers>();
     }

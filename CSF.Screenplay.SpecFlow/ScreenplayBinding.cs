@@ -38,7 +38,7 @@ namespace CSF.Screenplay.SpecFlow
     [After]
     public void AfterScenario()
     {
-      var scenario = container.Resolve<IScreenplayScenario>();
+      var scenario = container.Resolve<IScenario>();
       var success = ScenarioAdapter.GetScenarioSuccess(container.Resolve<ScenarioContext>());
       Integration.AfterScenario(scenario, success);
     }

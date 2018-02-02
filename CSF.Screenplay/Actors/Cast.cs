@@ -74,8 +74,8 @@ namespace CSF.Screenplay.Actors
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
     /// <param name="scenario">The current screenplay scenario.</param>
     public virtual IActor Get(string name,
-                              Action<IActor,IScreenplayScenario> createCustomisation,
-                              IScreenplayScenario scenario)
+                              Action<IActor,IScenario> createCustomisation,
+                              IScenario scenario)
     {
       if(createCustomisation == null)
         throw new ArgumentNullException(nameof(createCustomisation));

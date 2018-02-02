@@ -16,7 +16,7 @@ namespace CSF.Screenplay
     /// <returns>The cast.</returns>
     /// <param name="scenario">Screenplay scenario.</param>
     /// <param name="name">An optional identifying name for the cast instance.</param>
-    public static ICast GetCast(this IScreenplayScenario scenario, string name = null)
+    public static ICast GetCast(this IScenario scenario, string name = null)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
@@ -44,7 +44,7 @@ namespace CSF.Screenplay
     /// <returns>The stage.</returns>
     /// <param name="scenario">Screenplay scenario.</param>
     /// <param name="name">An optional identifying name for the stage instance.</param>
-    public static IStage GetStage(this IScreenplayScenario scenario, string name = null)
+    public static IStage GetStage(this IScenario scenario, string name = null)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));

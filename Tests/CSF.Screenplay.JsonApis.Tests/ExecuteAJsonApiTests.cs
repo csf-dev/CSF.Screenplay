@@ -14,7 +14,7 @@ namespace CSF.Screenplay.JsonApis.Tests
   public class ExecuteAJsonApiTests
   {
     [Test,Screenplay]
-    public void Using_SetTheNumber_does_not_raise_exception(IScreenplayScenario scenario)
+    public void Using_SetTheNumber_does_not_raise_exception(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
@@ -24,7 +24,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_SetTheNumber_then_GetTheNumber_returns_the_correct_number(IScreenplayScenario scenario)
+    public void Using_SetTheNumber_then_GetTheNumber_returns_the_correct_number(IScenario scenario)
     {
       // Arrange
       var theNumber = 42;
@@ -39,7 +39,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_CheckData_does_not_raise_exception_for_valid_data(IScreenplayScenario scenario)
+    public void Using_CheckData_does_not_raise_exception_for_valid_data(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
@@ -50,7 +50,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_CheckData_raises_exception_for_invalid_data(IScreenplayScenario scenario)
+    public void Using_CheckData_raises_exception_for_invalid_data(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
@@ -62,7 +62,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetData_returns_expected_result(IScreenplayScenario scenario)
+    public void Using_GetData_returns_expected_result(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
@@ -77,7 +77,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetDataSlowly_does_not_raise_exception_if_timeout_is_30_seconds(IScreenplayScenario scenario)
+    public void Using_GetDataSlowly_does_not_raise_exception_if_timeout_is_30_seconds(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();
@@ -89,7 +89,7 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(IScreenplayScenario scenario)
+    public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(IScenario scenario)
     {
       // Arrange
       var joe = scenario.GetJoe();

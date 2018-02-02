@@ -103,7 +103,7 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
+      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(joe, Is.Not.Null);
@@ -115,7 +115,7 @@ namespace CSF.Screenplay.Tests.Actors
       // Arrange
       var cast = GetSut();
       var identity = Guid.NewGuid();
-      var scenario = Mock.Of<IScreenplayScenario>(x => x.Identity == identity);
+      var scenario = Mock.Of<IScenario>(x => x.Identity == identity);
 
       // Act
       var joe = cast.Get("joe", (a, s) => {}, scenario);
@@ -131,8 +131,8 @@ namespace CSF.Screenplay.Tests.Actors
       var cast = GetSut();
 
       // Act
-      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
-      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
+      var joe = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
+      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(joe, Is.SameAs(joeAgain));
@@ -147,7 +147,7 @@ namespace CSF.Screenplay.Tests.Actors
       var joe = cast.GetExisting("joe");
 
       // Act
-      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScreenplayScenario>());
+      var joeAgain = cast.Get("joe", (actor, scenario) => {}, Mock.Of<IScenario>());
 
       // Assert
       Assert.That(joeAgain, Is.SameAs(joe));
@@ -161,7 +161,7 @@ namespace CSF.Screenplay.Tests.Actors
       var customisationCallCount = 0;
 
       // Act
-      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScreenplayScenario>(x => x.Identity == Guid.NewGuid()));
+      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScenario>(x => x.Identity == Guid.NewGuid()));
 
       // Assert
       Assert.That(customisationCallCount, Is.EqualTo(1));
@@ -176,7 +176,7 @@ namespace CSF.Screenplay.Tests.Actors
       var customisationCallCount = 0;
 
       // Act
-      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScreenplayScenario>());
+      cast.Get("joe", (a, s) => customisationCallCount++, Mock.Of<IScenario>());
 
       // Assert
       Assert.That(customisationCallCount, Is.EqualTo(0));

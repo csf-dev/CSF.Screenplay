@@ -8,7 +8,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
   [Binding]
   public class StageSteps
   {
-    readonly IScreenplayScenario ctx;
+    readonly IScenario ctx;
     IActor retrievedActor;
 
     [Given("Joe is an actor in the spotlight")]
@@ -36,7 +36,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
       Assert.That(retrievedActor, Is.SameAs(joe));
     }
 
-    public StageSteps(IScreenplayScenario ctx)
+    public StageSteps(IScenario ctx)
     {
       if(ctx == null)
         throw new ArgumentNullException(nameof(ctx));

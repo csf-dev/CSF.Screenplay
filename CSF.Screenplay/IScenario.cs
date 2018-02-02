@@ -7,7 +7,7 @@ namespace CSF.Screenplay
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public interface IScreenplayScenario : IScenarioName, IDisposable
+  public interface IScenario : IScenarioName, IDisposable
   {
     /// <summary>
     /// Gets a value which indicates whether or not the scenario was a success.

@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Scenarios
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
   /// </summary>
-  public class ScreenplayScenario : IScreenplayScenario, IEquatable<ScreenplayScenario>, ICanBeginAndEndScenario
+  public class Scenario : IScenario, IEquatable<Scenario>, ICanBeginAndEndScenario
   {
     #region fields
 
@@ -90,12 +90,12 @@ namespace CSF.Screenplay.Scenarios
     #region public API
 
     /// <summary>
-    /// Determines whether the specified <see cref="ScreenplayScenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
+    /// Determines whether the specified <see cref="Scenario"/> is equal to the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.
     /// </summary>
-    /// <param name="other">The <see cref="ScreenplayScenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
-    /// <returns><c>true</c> if the specified <see cref="ScreenplayScenario"/> is equal to the current
+    /// <param name="other">The <see cref="Scenario"/> to compare with the current <see cref="T:CSF.Screenplay.ScreenplayScenario"/>.</param>
+    /// <returns><c>true</c> if the specified <see cref="Scenario"/> is equal to the current
     /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
-    public bool Equals(ScreenplayScenario other)
+    public bool Equals(Scenario other)
     {
       if(ReferenceEquals(other, null))
         return false;
@@ -113,7 +113,7 @@ namespace CSF.Screenplay.Scenarios
     /// <see cref="T:CSF.Screenplay.ScreenplayScenario"/>; otherwise, <c>false</c>.</returns>
     public override bool Equals(object obj)
     {
-      return Equals(obj as ScreenplayScenario);
+      return Equals(obj as Scenario);
     }
 
     /// <summary>
@@ -209,7 +209,7 @@ namespace CSF.Screenplay.Scenarios
     /// <param name="featureId">Feature identifier.</param>
     /// <param name="scenarioId">Scenario identifier.</param>
     /// <param name="container">A MicroDi container instance.</param>
-    public ScreenplayScenario(IdAndName featureId,
+    public Scenario(IdAndName featureId,
                               IdAndName scenarioId,
                               FlexDi.IContainer container)
     {

@@ -32,13 +32,13 @@ namespace CSF.Screenplay.Integration
     /// Gets a collection of callbacks which are executed before each scenario.
     /// </summary>
     /// <value>The before scenario.</value>
-    public IList<Action<IScreenplayScenario>> BeforeScenario { get; private set; }
+    public IList<Action<IScenario>> BeforeScenario { get; private set; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed after each scenario.
     /// </summary>
     /// <value>The after scenario.</value>
-    public IList<Action<IScreenplayScenario>> AfterScenario { get; private set; }
+    public IList<Action<IScenario>> AfterScenario { get; private set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IntegrationConfigurationBuilder"/> class.
@@ -48,8 +48,8 @@ namespace CSF.Screenplay.Integration
       ServiceRegistrations = new ServiceRegistrations();
       BeforeFirstScenario = new List<Action<IProvidesTestRunEvents,IResolvesServices>>();
       AfterLastScenario = new List<Action<IResolvesServices>>();
-      BeforeScenario = new List<Action<IScreenplayScenario>>();
-      AfterScenario = new List<Action<IScreenplayScenario>>();
+      BeforeScenario = new List<Action<IScenario>>();
+      AfterScenario = new List<Action<IScenario>>();
     }
   }
 }

@@ -6,7 +6,7 @@ namespace CSF.Screenplay.JsonApis.Tests
 {
   public static class ScenarioExtensions
   {
-    public static IActor GetJoe(this IScreenplayScenario scenario)
+    public static IActor GetJoe(this IScenario scenario)
     {
       var cast = scenario.GetCast();
       return cast.Get("Joe", (actor, s) => {

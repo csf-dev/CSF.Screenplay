@@ -58,7 +58,7 @@ namespace CSF.Screenplay.Tests.Integration
     {
       // Arrange
       var called = false;
-      Action<IScreenplayScenario> callback = (arg1) => called = true;
+      Action<IScenario> callback = (arg1) => called = true;
 
       var builder = GetBuilder();
       Mock.Get(builder)
@@ -95,7 +95,7 @@ namespace CSF.Screenplay.Tests.Integration
     {
       // Arrange
       var called = false;
-      Action<IScreenplayScenario> callback = (arg1) => called = true;
+      Action<IScenario> callback = (arg1) => called = true;
 
       var builder = GetBuilder();
       Mock.Get(builder)
@@ -210,7 +210,7 @@ namespace CSF.Screenplay.Tests.Integration
 
       builder
         .SetupGet(x => x.BeforeScenario)
-        .Returns(Enumerable.Empty<Action<IScreenplayScenario>>().ToArray());
+        .Returns(Enumerable.Empty<Action<IScenario>>().ToArray());
 
       builder
         .SetupGet(x => x.AfterLastScenario)
@@ -218,7 +218,7 @@ namespace CSF.Screenplay.Tests.Integration
 
       builder
         .SetupGet(x => x.AfterScenario)
-        .Returns(Enumerable.Empty<Action<IScreenplayScenario>>().ToArray());
+        .Returns(Enumerable.Empty<Action<IScenario>>().ToArray());
 
       var registrations = new ServiceRegistrations();
       builder
@@ -228,9 +228,9 @@ namespace CSF.Screenplay.Tests.Integration
       return builder.Object;
     }
 
-    IScreenplayScenario GetScenario()
+    IScenario GetScenario()
     {
-      var scenario = new Mock<IScreenplayScenario>();
+      var scenario = new Mock<IScenario>();
       scenario.As<ICanBeginAndEndScenario>();
       return scenario.Object;
     }

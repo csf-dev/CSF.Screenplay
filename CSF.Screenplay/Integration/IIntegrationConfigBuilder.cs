@@ -34,12 +34,12 @@ namespace CSF.Screenplay.Integration
     /// Gets a collection of callbacks which are executed before each scenario.
     /// </summary>
     /// <value>The before scenario.</value>
-    IList<Action<IScreenplayScenario>> BeforeScenario { get; }
+    IList<Action<IScenario>> BeforeScenario { get; }
 
     /// <summary>
     /// Gets a collection of callbacks which are executed after each scenario.
     /// </summary>
     /// <value>The after scenario.</value>
-    IList<Action<IScreenplayScenario>> AfterScenario { get; }
+    IList<Action<IScenario>> AfterScenario { get; }
   }
 }
