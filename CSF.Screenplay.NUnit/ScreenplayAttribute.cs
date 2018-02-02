@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using CSF.Screenplay.Integration;
-using CSF.Screenplay.Scenarios;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Builders;
-using NUnit.Framework.Internal.Commands;
 
 namespace CSF.Screenplay.NUnit
 {
@@ -34,6 +30,7 @@ namespace CSF.Screenplay.NUnit
     public void BeforeTest(ITest test)
     {
       var scenario = ScenarioAdapter.GetScenario(test);
+      test.Properties.Add(ScenarioAdapter.ScreenplayScenarioKey, scenario);
       var integration = integrationReader.GetIntegration(test);
       integration.BeforeScenario(scenario);
     }
@@ -77,11 +74,15 @@ namespace CSF.Screenplay.NUnit
     IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite, IScenario scenario)
     {
       var builder = new NUnitTestCaseBuilder();
-      var tcParams = new TestCaseParameters(new [] { scenario });
+      var resolvedParameters = method.GetParameters()
+                                     .Select(p => scenario.DiContainer.TryResolve(p.ParameterType))
+                                     .ToArray();
 
+      var tcParams = new TestCaseParameters(resolvedParameters);
       var testMethod = builder.BuildTestMethod(method, suite, tcParams);
+      testMethod.Properties.Add(ScenarioAdapter.ScreenplayScenarioKey, scenario);
 
-      return new [] { testMethod };
+      return new[] { testMethod };
     }
 
     IScenario CreateScenario(IMethodInfo method, Test suite)

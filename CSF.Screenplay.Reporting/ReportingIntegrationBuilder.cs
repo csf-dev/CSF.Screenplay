@@ -178,8 +178,8 @@ namespace CSF.Screenplay.Reporting
         if(!subscribeToCastActorCreation && !subscribeToCastActorAddition)
           return;
 
-        var cast = scenario.Resolver.Resolve<ICast>(castName);
-        var reporter = scenario.Resolver.Resolve<IReporter>(name);
+        var cast = scenario.DiContainer.Resolve<ICast>(castName);
+        var reporter = scenario.DiContainer.Resolve<IReporter>(name);
 
         if(subscribeToCastActorCreation)
         {
@@ -207,12 +207,12 @@ namespace CSF.Screenplay.Reporting
     void SubscribeToScenario(IIntegrationConfigBuilder integration)
     {
       integration.BeforeScenario.Add((scenario) => {
-        var reporter = scenario.Resolver.Resolve<IReporter>(name);
+        var reporter = scenario.DiContainer.Resolve<IReporter>(name);
         reporter.Subscribe(scenario);
       });
 
       integration.AfterScenario.Add((scenario) => {
-        var reporter = scenario.Resolver.Resolve<IReporter>(name);
+        var reporter = scenario.DiContainer.Resolve<IReporter>(name);
         reporter.Unsubscribe(scenario);
       });
     }

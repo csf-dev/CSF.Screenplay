@@ -37,6 +37,9 @@
     <Reference Include="CSF.Reflection">
       <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.FlexDi">
+      <HintPath>..\packages\CSF.FlexDi.0.5.0-beta\lib\net45\CSF.FlexDi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

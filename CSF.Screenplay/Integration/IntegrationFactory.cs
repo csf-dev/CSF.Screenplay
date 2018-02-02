@@ -13,12 +13,12 @@ namespace CSF.Screenplay.Integration
     /// from a given configuration type.
     /// </summary>
     /// <param name="configType">Config type.</param>
-    public IScreenplayIntegration Create(Type configType)
+    public IScreenplayIntegration Create(Type configType, FlexDi.IContainer rootContainer = null)
     {
       var config = GetConfig(configType);
       var builder = GetBuilder(config);
 
-      return new ScreenplayIntegration(builder);
+      return new ScreenplayIntegration(builder, rootContainer);
     }
 
     IIntegrationConfig GetConfig(Type configType)

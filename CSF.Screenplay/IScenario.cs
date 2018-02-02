@@ -16,10 +16,10 @@ namespace CSF.Screenplay
     bool? Success { get; set; }
 
     /// <summary>
-    /// Gets a MicroDi dependency resolver.
+    /// Gets the FlexDi container.
     /// </summary>
-    /// <value>The resolver.</value>
-    FlexDi.IResolvesServices Resolver { get; }
+    /// <value>The container.</value>
+    FlexDi.IContainer DiContainer { get; }
 
     /// <summary>
     /// Creates a new actor with the given name.

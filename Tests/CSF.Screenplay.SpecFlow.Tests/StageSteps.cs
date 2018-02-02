@@ -17,8 +17,6 @@ namespace CSF.Screenplay.SpecFlow.Tests
     public void GivenJoeIsAnActorInTheSpotlight()
     {
       var joe = cast.Get("Joe");
-      cast.Add(joe);
-
       stage.ShineTheSpotlightOn(joe);
     }
 
@@ -31,7 +29,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [Then("that actor should be the same as Joe")]
     public void ThenThatActorShouldBeJoe()
     {
-      var joe = cast.GetExisting("Joe");
+      var joe = cast.Get("Joe");
       Assert.That(retrievedActor, Is.SameAs(joe));
     }
 
