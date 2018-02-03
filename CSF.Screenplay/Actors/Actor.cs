@@ -172,7 +172,10 @@ namespace CSF.Screenplay.Actors
       var ability = abilityStore.GetAbility<TAbility>();
 
       if(ReferenceEquals(ability, null))
-        throw new MissingAbilityException($"{Name} does not have the ability {typeof(TAbility).Name}.");
+      {
+        var message = String.Format(Resources.ExceptionFormats.ActorIsMissingAnAbility, Name, typeof(TAbility).Name);
+        throw new MissingAbilityException(message);
+      }
 
       return ability;
     }
@@ -476,7 +479,7 @@ namespace CSF.Screenplay.Actors
       if(name == null)
         throw new ArgumentNullException(nameof(name));
       if(scenarioIdentity == Guid.Empty)
-        throw new ArgumentException("The scenario identity must be populated", nameof(scenarioIdentity));
+        throw new ArgumentException(Resources.ExceptionFormats.ActorMustHaveAScenarioId, nameof(scenarioIdentity));
 
       this.name = name;
       this.scenarioIdentity = scenarioIdentity;

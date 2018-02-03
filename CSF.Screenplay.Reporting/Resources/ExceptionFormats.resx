@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DuplicateScenarioInReportBuilder" xml:space="preserve">
+    <value>The given scenario to begin is already present in the current report builder.  It may not be begun twice.</value>
+  </data>
+  <data name="NoMatchingScenarioInReportBuilder" xml:space="preserve">
+    <value>There is no matching scenario (using the given identity) present in the current report builder.</value>
+  </data>
+  <data name="ScenarioAlreadyFinalised" xml:space="preserve">
+    <value>The scenario has already been finalised; no further actions may be taken against it.</value>
+  </data>
+  <data name="PerformableWasRequiredInBuilderStack" xml:space="preserve">
+    <value>Whilst building a report about a specific `{0}', an attempt to get the corresponding `{1}' failed to find any performances.  This scenario is invalid.</value>
+  </data>
+  <data name="PerformableDoesNotMatchExpectedPerformance" xml:space="preserve">
+    <value>Whilst building a report about a specific `{0}', an attempt to get the corresponding `{1}' failed because the {1} was for a different {0}.</value>
+  </data>
+</root>

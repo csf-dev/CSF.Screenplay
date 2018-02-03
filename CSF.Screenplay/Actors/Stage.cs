@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Actors
     public IActor GetTheActorInTheSpotlight()
     {
       if(currentActor == null)
-        throw new InvalidOperationException("There is no actor currently in the spotlight.");
+        throw new InvalidOperationException(Resources.ExceptionFormats.MustBeAnActorInTheSpotlight);
       return currentActor;
     }
 

@@ -124,7 +124,7 @@ namespace CSF.Screenplay.Reporting.Builders
     void EnsureNotFinalised()
     {
       if(finalised)
-        throw new InvalidOperationException("The scenario has already been finalised");
+        throw new InvalidOperationException(Resources.ExceptionFormats.ScenarioAlreadyFinalised);
     }
 
     void AddReportable(Reportable item)
@@ -162,7 +162,13 @@ namespace CSF.Screenplay.Reporting.Builders
       if(builderStack.Count == 0 && expectedPerformable == null)
         return null;
       else if(builderStack.Count == 0)
-        throw new InvalidOperationException("An expected performable was specified but the builder stack was empty, this is not permitted.");
+      {
+        var message = String.Format(Resources.ExceptionFormats.PerformableWasRequiredInBuilderStack,
+                                    nameof(Performables.IPerformable),
+                                    nameof(PerformanceBuilder));
+        throw new InvalidOperationException(message);
+      }
+        
 
       var current = builderStack.Peek();
 
@@ -171,8 +177,10 @@ namespace CSF.Screenplay.Reporting.Builders
 
       if(!ReferenceEquals(expectedPerformable, current.Performable))
       {
-        throw new ArgumentException("The expected performable must be the same as the current builder.",
-                                    nameof(expectedPerformable));
+        var message = String.Format(Resources.ExceptionFormats.PerformableDoesNotMatchExpectedPerformance,
+                                    nameof(Performables.IPerformable),
+                                    nameof(PerformanceBuilder));
+        throw new ArgumentException(message, nameof(expectedPerformable));
       }
 
       return current;

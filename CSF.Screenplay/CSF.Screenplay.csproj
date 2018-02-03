@@ -111,6 +111,9 @@
     <Compile Include="Stopwatch\UseAStopwatch.cs" />
     <Compile Include="Stopwatch\TimeSpanFormatter.cs" />
     <Compile Include="Stopwatch\IDurationFormatter.cs" />
+    <Compile Include="Resources\ExceptionFormats.Designer.cs">
+      <DependentUpon>ExceptionFormats.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
@@ -120,10 +123,18 @@
     <Folder Include="Scenarios\" />
     <Folder Include="Integration\" />
     <Folder Include="Stopwatch\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionFormats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>ExceptionFormats.resources</LogicalName>
+      <LastGenOutput>ExceptionFormats.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

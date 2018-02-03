@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Reporting.Builders
     {
       var success = scenarios.TryAdd(scenarioId, new ScenarioBuilder(idName, friendlyName, featureName, featureId));
       if(!success)
-        throw new InvalidOperationException("The current scenario already exists in the current builder instance");
+        throw new InvalidOperationException(Resources.ExceptionFormats.DuplicateScenarioInReportBuilder);
     }
 
     /// <summary>
@@ -146,7 +146,7 @@ namespace CSF.Screenplay.Reporting.Builders
     {
       ScenarioBuilder scenario;
       if(!scenarios.TryGetValue(identity, out scenario))
-        throw new InvalidOperationException("There is no matching scenario in the current builder.");
+        throw new InvalidOperationException(Resources.ExceptionFormats.NoMatchingScenarioInReportBuilder);
 
       return scenario;
     }

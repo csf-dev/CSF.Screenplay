@@ -29,8 +29,9 @@ namespace CSF.Screenplay.Integration
 
       if(!typeof(IIntegrationConfig).IsAssignableFrom(configType))
       {
-        throw new ArgumentException($"Configuration type must implement `{typeof(IIntegrationConfig).Name}'.",
-                                    nameof(configType));
+        var message = String.Format(Resources.ExceptionFormats.IntegrationConfigTypeMustImplementCorrectInterface,
+                                    typeof(IIntegrationConfig).Name);
+        throw new ArgumentException(message, nameof(configType));
       }
 
       return (IIntegrationConfig) Activator.CreateInstance(configType);
