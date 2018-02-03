@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>CSF.Screenplay.Stopwatch</id>
+    <version>0.9.0-alpha</version>
+    <title>CSF.Screenplay.Stopwatch</title>
+    <authors>CSF Software Ltd</authors>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A 'stopwatch' ability and actions for Screenplay-based tests.  This allows tests to record how long other actions/tasks take to complete.</description>
+    <copyright>Copyright 2018</copyright>
+    <dependencies>
+      <dependency id="CSF.Screenplay" version="0.9.0-alpha" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/CSF.Screenplay.Stopwatch.dll" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.Stopwatch.xml" target="lib/net45" />
+  </files>
+</package>
