@@ -74,8 +74,11 @@ namespace CSF.Screenplay.JsonApis.Abilities
       if(result.IsSuccessStatusCode) return;
 
       var responseBody = result.Content.ReadAsStringAsync().Result;
-      throw new JsonApiException($@"The JSON API request failed: HTTP {result.StatusCode.ToString()}
-{responseBody}");
+
+      var message = $"The JSON API request failed: HTTP {(int) result.StatusCode}";
+      throw new JsonApiException(message) {
+        ErrorResponseBody = responseBody
+      };
     }
 
     protected virtual T ConvertResponse<T>(HttpResponseMessage response)

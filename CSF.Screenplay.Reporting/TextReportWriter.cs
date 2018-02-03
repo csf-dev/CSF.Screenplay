@@ -182,7 +182,7 @@ namespace CSF.Screenplay.Reporting
       }
 
       var formattedException = formattingService.Format(reportable.Exception);
-      writer.WriteLine("FAILED: {0}", reportable.Exception);
+      writer.WriteLine("FAILED: {0}", formattedException);
     }
 
     string Format(object obj) => formattingService.Format(obj);
