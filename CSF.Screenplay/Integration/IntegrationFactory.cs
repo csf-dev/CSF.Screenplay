@@ -12,7 +12,8 @@ namespace CSF.Screenplay.Integration
     /// Factory method which creates a new implementation of <see cref="IScreenplayIntegration"/>
     /// from a given configuration type.
     /// </summary>
-    /// <param name="configType">Config type.</param>
+    /// <param name="configType">The <c>System.Type</c> of the implementation of <see cref="IIntegrationConfig"/> to use.</param>
+    /// <param name="rootContainer">An optional mechanism by which to pass the root FlexDi container to the integration.</param>
     public IScreenplayIntegration Create(Type configType, FlexDi.IContainer rootContainer = null)
     {
       var config = GetConfig(configType);
