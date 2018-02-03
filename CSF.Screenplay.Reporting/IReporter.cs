@@ -39,12 +39,12 @@ namespace CSF.Screenplay.Reporting
     /// Subscribe to the specified scenario.
     /// </summary>
     /// <param name="scenario">Test run.</param>
-    void Subscribe(IScreenplayScenario scenario);
+    void Subscribe(IScenario scenario);
 
     /// <summary>
     /// Unsubscribe to the specified scenario.
     /// </summary>
     /// <param name="scenario">Test run.</param>
-    void Unsubscribe(IScreenplayScenario scenario);
+    void Unsubscribe(IScenario scenario);
   }
 }

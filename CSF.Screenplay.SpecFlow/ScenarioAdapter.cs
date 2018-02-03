@@ -24,7 +24,7 @@ namespace CSF.Screenplay.SpecFlow
     /// Creates a Screenplay scenario.
     /// </summary>
     /// <returns>The scenario.</returns>
-    public IScreenplayScenario CreateScenario()
+    public IScenario CreateScenario()
     {
       var factory = integration.GetScenarioFactory();
       return factory.GetScenario(FeatureIdAndName, ScenarioIdAndName);

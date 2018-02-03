@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.MicroDi;
-using CSF.MicroDi.Builders;
+using CSF.FlexDi;
+using CSF.FlexDi.Builders;
 
 namespace CSF.Screenplay.Scenarios
 {
@@ -20,10 +20,10 @@ namespace CSF.Screenplay.Scenarios
     /// <returns>The scenario.</returns>
     /// <param name="featureId">Feature identifier.</param>
     /// <param name="scenarioId">Scenario identifier.</param>
-    public IScreenplayScenario GetScenario(IdAndName featureId, IdAndName scenarioId)
+    public IScenario GetScenario(IdAndName featureId, IdAndName scenarioId)
     {
       var scenarioContainer = CreateScenarioContainer();
-      return new ScreenplayScenario(featureId, scenarioId, scenarioContainer);
+      return new Scenario(featureId, scenarioId, scenarioContainer);
     }
 
     IContainer CreateScenarioContainer()

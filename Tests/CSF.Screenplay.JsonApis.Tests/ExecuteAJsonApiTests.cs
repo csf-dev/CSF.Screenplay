@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.Screenplay.Actors;
 using CSF.Screenplay.JsonApis.Builders;
 using CSF.Screenplay.JsonApis.Tests.Builders;
 using CSF.Screenplay.JsonApis.Tests.Services;
@@ -14,21 +15,21 @@ namespace CSF.Screenplay.JsonApis.Tests
   public class ExecuteAJsonApiTests
   {
     [Test,Screenplay]
-    public void Using_SetTheNumber_does_not_raise_exception(IScreenplayScenario scenario)
+    public void Using_SetTheNumber_does_not_raise_exception(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
 
       // Act & assert
       Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApi(Set.TheNumberTo(5))), Throws.Nothing);
     }
 
     [Test,Screenplay]
-    public void Using_SetTheNumber_then_GetTheNumber_returns_the_correct_number(IScreenplayScenario scenario)
+    public void Using_SetTheNumber_then_GetTheNumber_returns_the_correct_number(ICast cast)
     {
       // Arrange
       var theNumber = 42;
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
       Given(joe).WasAbleTo(Execute.AJsonApi(Set.TheNumberTo(theNumber)));
 
       // Act
@@ -39,10 +40,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_CheckData_does_not_raise_exception_for_valid_data(IScreenplayScenario scenario)
+    public void Using_CheckData_does_not_raise_exception_for_valid_data(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
       var theData = new SampleApiData { Name = ExecutionController.ValidName, DateAndTime = DateTime.Today };
 
       // Act & assert
@@ -50,10 +51,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_CheckData_raises_exception_for_invalid_data(IScreenplayScenario scenario)
+    public void Using_CheckData_raises_exception_for_invalid_data(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
       var theData = new SampleApiData { Name = "Invalid, crash expected", DateAndTime = DateTime.Today };
 
       // Act & assert
@@ -62,10 +63,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetData_returns_expected_result(IScreenplayScenario scenario)
+    public void Using_GetData_returns_expected_result(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
 
       // Act
       var result = When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheSampleDataFor(joe.Name)));
@@ -77,10 +78,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetDataSlowly_does_not_raise_exception_if_timeout_is_30_seconds(IScreenplayScenario scenario)
+    public void Using_GetDataSlowly_does_not_raise_exception_if_timeout_is_30_seconds(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
       var timeout = TimeSpan.FromSeconds(30);
 
       // Act & assert
@@ -89,10 +90,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     }
 
     [Test,Screenplay]
-    public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(IScreenplayScenario scenario)
+    public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(ICast cast)
     {
       // Arrange
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe();
       var timeout = TimeSpan.FromSeconds(1);
 
       // Act & assert

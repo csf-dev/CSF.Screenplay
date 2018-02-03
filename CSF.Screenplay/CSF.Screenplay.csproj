@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <AssemblyName>CSF.Screenplay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,8 +35,8 @@
     <Reference Include="CSF.Utils">
       <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.MicroDi">
-      <HintPath>..\packages\CSF.MicroDi.0.4.0-beta\lib\net45\CSF.MicroDi.dll</HintPath>
+    <Reference Include="CSF.FlexDi">
+      <HintPath>..\packages\CSF.FlexDi.0.5.0-beta\lib\net45\CSF.FlexDi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +79,6 @@
     <Compile Include="Scenarios\IScenarioFactory.cs" />
     <Compile Include="Scenarios\IdAndName.cs" />
     <Compile Include="Scenarios\ScenarioFactory.cs" />
-    <Compile Include="CastResolverExtensions.cs" />
     <Compile Include="Scenarios\BeginScenarioEventArgs.cs" />
     <Compile Include="Scenarios\EndScenarioEventArgs.cs" />
     <Compile Include="Scenarios\IProvidesTestRunEvents.cs" />
@@ -92,8 +91,8 @@
     <Compile Include="Integration\TestRunEvents.cs" />
     <Compile Include="Integration\IntegrationFactory.cs" />
     <Compile Include="Scenarios\IScenarioName.cs" />
-    <Compile Include="Scenarios\ScreenplayScenario.cs" />
-    <Compile Include="IScreenplayScenario.cs" />
+    <Compile Include="Scenarios\Scenario.cs" />
+    <Compile Include="IScenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
     <Compile Include="Actors\Actor.cs" />
     <Compile Include="Reporting\GenericObjectFormatter.cs" />

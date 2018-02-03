@@ -67,7 +67,7 @@ namespace CSF.Screenplay.NUnit
     /// Creates a new Screenplay scenario using the state of the current instance, and the given integration.
     /// </summary>
     /// <returns>The scenario.</returns>
-    public IScreenplayScenario CreateScenario()
+    public IScenario CreateScenario()
     {
       var factory = integration.GetScenarioFactory();
       return factory.GetScenario(FeatureIdAndName, ScenarioIdAndName);
@@ -134,46 +134,41 @@ namespace CSF.Screenplay.NUnit
     }
 
     /// <summary>
-    /// Gets an <see cref="IScreenplayScenario"/> from a given NUnit test instance.
+    /// Gets an <see cref="IScenario"/> from a given NUnit test instance.
     /// </summary>
     /// <returns>The scenario.</returns>
     /// <param name="test">Test.</param>
-    public static IScreenplayScenario GetScenario(ITest test)
+    public static IScenario GetScenario(ITest test)
     {
       var scenario = GetScenario(test.Properties);
       if(scenario != null)
         return scenario;
 
-      scenario = GetScenario(test.Arguments);
-      if(scenario != null)
-        return scenario;
-
-      var message = $"The test must contain an instance of `{nameof(IScreenplayScenario)}' in " +
-        $"its {nameof(ITest.Properties)} or its {nameof(ITest.Arguments)}.";
+      var message = $"The test must contain an instance of `{nameof(IScenario)}' in its {nameof(ITest.Properties)}.";
       throw new ArgumentException(message, nameof(test));
     }
 
     /// <summary>
-    /// Gets an <see cref="IScreenplayScenario"/> from a given NUnit property bad.
+    /// Gets an <see cref="IScenario"/> from a given NUnit property bad.
     /// </summary>
     /// <returns>The scenario.</returns>
     /// <param name="properties">Properties.</param>
-    public static IScreenplayScenario GetScenario(IPropertyBag properties)
+    public static IScenario GetScenario(IPropertyBag properties)
     {
       if(properties.ContainsKey(ScreenplayScenarioKey))
-        return (IScreenplayScenario) properties.Get(ScreenplayScenarioKey);
+        return (IScenario) properties.Get(ScreenplayScenarioKey);
 
       return null;
     }
 
     /// <summary>
-    /// Gets an <see cref="IScreenplayScenario"/> from the arguments to an NUnit test method.
+    /// Gets an <see cref="IScenario"/> from the arguments to an NUnit test method.
     /// </summary>
     /// <returns>The scenario.</returns>
     /// <param name="methodArguments">Method arguments.</param>
-    public static IScreenplayScenario GetScenario(object[] methodArguments)
+    public static IScenario GetScenario(object[] methodArguments)
     {
-      return (IScreenplayScenario) methodArguments.FirstOrDefault(x => x is IScreenplayScenario);
+      return (IScenario) methodArguments.FirstOrDefault(x => x is IScenario);
     }
   }
 }

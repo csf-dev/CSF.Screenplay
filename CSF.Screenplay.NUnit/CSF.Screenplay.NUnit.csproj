@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.NUnit</RootNamespace>
     <AssemblyName>CSF.Screenplay.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +36,9 @@
     </Reference>
     <Reference Include="CSF.Reflection">
       <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.FlexDi">
+      <HintPath>..\packages\CSF.FlexDi.0.5.0-beta\lib\net45\CSF.FlexDi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

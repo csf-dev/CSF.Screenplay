@@ -4,18 +4,19 @@ using static CSF.Screenplay.StepComposer;
 using TechTalk.SpecFlow;
 using CSF.Screenplay.SpecFlow.Tests.Actions;
 using NUnit.Framework;
+using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.SpecFlow.Tests
 {
   [Binding]
   public class TestSteps
   {
-    readonly IScreenplayScenario ctx;
+    readonly ICast cast;
 
     [Given(@"([^ ]+) has the number (-?\d+)")]
     public void GivenJoeStartsWithTheNumber(string actorName, int number)
     {
-      var joe = ctx.GetMathsWhiz(actorName);
+      var joe = cast.GetMathsWhiz(actorName);
 
       Given(joe).WasAbleTo(StartWith.TheNumber(number));
     }
@@ -23,7 +24,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [Given(@"([^ ]+) adds (-?\d+)")]
     public void GivenJoeAdded(string actorName, int number)
     {
-      var joe = ctx.GetMathsWhiz(actorName);
+      var joe = cast.GetMathsWhiz(actorName);
 
       Given(joe).WasAbleTo(Add.TheNumber(number));
     }
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [When(@"([^ ]+) adds (-?\d+)")]
     public void WhenJoeAdds(string actorName, int number)
     {
-      var joe = ctx.GetMathsWhiz(actorName);
+      var joe = cast.GetMathsWhiz(actorName);
 
       When(joe).AttemptsTo(Add.TheNumber(number));
     }
@@ -39,18 +40,18 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [Then(@"([^ ]+) should see the total (-?\d+)")]
     public void ThenJoeShouldSeeTheResult(string actorName, int number)
     {
-      var joe = ctx.GetMathsWhiz(actorName);
+      var joe = cast.GetMathsWhiz(actorName);
 
       var result = Then(joe).ShouldSee(Get.TheNumber());
       Assert.That(result, Is.EqualTo(number));
     }
 
-    public TestSteps(IScreenplayScenario context)
+    public TestSteps(ICast cast)
     {
-      if(context == null)
-        throw new ArgumentNullException(nameof(context));
+      if(cast == null)
+        throw new ArgumentNullException(nameof(cast));
 
-      ctx = context;
+      this.cast = cast;
     }
   }
 }

@@ -207,7 +207,7 @@ namespace CSF.Screenplay.Reporting
     /// Subscribe to the specified scenario.
     /// </summary>
     /// <param name="scenario">Test run.</param>
-    public void Subscribe(IScreenplayScenario scenario)
+    public void Subscribe(IScenario scenario)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
@@ -220,7 +220,7 @@ namespace CSF.Screenplay.Reporting
     /// Unsubscribe to the specified scenario.
     /// </summary>
     /// <param name="scenario">Test run.</param>
-    public void Unsubscribe(IScreenplayScenario scenario)
+    public void Unsubscribe(IScenario scenario)
     {
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));

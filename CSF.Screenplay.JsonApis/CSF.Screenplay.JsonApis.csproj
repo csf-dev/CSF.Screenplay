@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.JsonApis</RootNamespace>
     <AssemblyName>CSF.Screenplay.JsonApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +44,7 @@
     <Compile Include="Actions\GetApiResult.cs" />
     <Compile Include="Builders\Execute.cs" />
     <Compile Include="JsonServiceDescription`1.cs" />
+    <Compile Include="Abilities\SynchronousJsonGateway.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
