@@ -8,6 +8,20 @@ namespace CSF.Screenplay.JsonApis
   public class JsonApiException : Exception
   {
     /// <summary>
+    /// Gets or sets the HTTP response body related to a request which raised an error.
+    /// </summary>
+    /// <value>The error response body.</value>
+    public string ErrorResponseBody
+    {
+      get {
+        return this.Data.Contains("ErrorResponseBody") ? (string) this.Data["ErrorResponseBody"] : default(string);
+      }
+      set {
+        this.Data["ErrorResponseBody"] = value;
+      }
+    }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="T:JsonApiException"/> class
     /// </summary>
     public JsonApiException()
