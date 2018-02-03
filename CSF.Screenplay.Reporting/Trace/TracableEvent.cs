@@ -13,7 +13,9 @@ namespace CSF.Screenplay.Reporting.Trace
     {
       eventType.RequireDefinedValue(nameof(eventType));
       if(eventId < 1)
-        throw new ArgumentOutOfRangeException(nameof(eventId), eventId, "Event ID must be a positive integer");
+        throw new ArgumentOutOfRangeException(nameof(eventId),
+                                              eventId,
+                                              Resources.ExceptionFormats.TracableEventIdMustBePositiveInteger);
 
       EventType = eventType;
       EventId = eventId;

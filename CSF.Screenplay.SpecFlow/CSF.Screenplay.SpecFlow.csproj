@@ -54,6 +54,9 @@
     <Compile Include="ScreenplayPlugin.cs" />
     <Compile Include="ScreenplayAssemblyAttribute.cs" />
     <Compile Include="FlexDiTestObjectResolver.cs" />
+    <Compile Include="Resources\ExceptionFormats.Designer.cs">
+      <DependentUpon>ExceptionFormats.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +67,16 @@
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionFormats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>ExceptionFormats.resources</LogicalName>
+      <LastGenOutput>ExceptionFormats.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

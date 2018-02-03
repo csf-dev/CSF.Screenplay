@@ -173,10 +173,15 @@ namespace CSF.Screenplay.Actors
 
       var name = actor.Name;
       if(name == null)
-        throw new ArgumentException("Actors must have a name", nameof(actor));
+        throw new ArgumentException(Resources.ExceptionFormats.ActorMustHaveAName, nameof(actor));
 
       if(Actors.ContainsKey(name))
-        throw new DuplicateActorException($"There is already an actor named '{name}' contained within the current {typeof(Cast).Name}. Duplicates are not permitted.");
+      {
+        var message = String.Format(Resources.ExceptionFormats.DuplicateActorsNotAllowedInCast,
+                                    name,
+                                    typeof(Cast).Name);
+        throw new DuplicateActorException(message);
+      }
 
       Actors.Add(name, actor);
       OnActorAdded(actor);
@@ -229,7 +234,7 @@ namespace CSF.Screenplay.Actors
     public Cast(Guid scenarioIdentity)
     {
       if(scenarioIdentity == Guid.Empty)
-        throw new ArgumentException("The scenario identity must be populated", nameof(scenarioIdentity));
+        throw new ArgumentException(Resources.ExceptionFormats.ActorMustHaveAScenarioId, nameof(scenarioIdentity));
 
       this.scenarioIdentity = scenarioIdentity;
       syncRoot = new Object();

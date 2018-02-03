@@ -79,7 +79,7 @@ namespace CSF.Screenplay.Reporting
       else if(reportable is Performance)
         WritePerformance((Performance) reportable, currentIndentLevel);
       else
-        throw new ArgumentException($"The reportable must be either a {typeof(GainAbility).Name} or a {typeof(Performance).Name}.");
+        throw new ArgumentException(Resources.ExceptionFormats.ReportableMustBeGainAbilityOrPerformance);
     }
 
     void WriteGainAbility(GainAbility reportable, int currentIndentLevel)

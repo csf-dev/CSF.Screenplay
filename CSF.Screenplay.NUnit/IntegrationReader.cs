@@ -27,15 +27,16 @@ namespace CSF.Screenplay.NUnit
           var assembly = method?.MethodInfo?.DeclaringType?.Assembly;
           if(assembly == null)
           {
-            throw new ArgumentException($"The method must have an associated {nameof(Assembly)}.",
-                                      nameof(method));
+            throw new ArgumentException(Resources.ExceptionFormats.MethodMustHaveAnAssembly,
+                                        nameof(method));
           }
 
           var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>();
           if(assemblyAttrib == null)
           {
-            var message = $"All test methods must be contained within assemblies which are " +
-              $"decorated with `{nameof(ScreenplayAssemblyAttribute)}'.";
+            var message = String.Format(Resources.ExceptionFormats.AssemblyMustBeDecoratedWithScreenplay,
+                                        nameof(ScreenplayAttribute),
+                                        nameof(ScreenplayAssemblyAttribute));
             throw new InvalidOperationException(message);
           }
 
@@ -54,7 +55,7 @@ namespace CSF.Screenplay.NUnit
     public IScreenplayIntegration GetIntegration(ITest test)
     {
       if(test.Method == null)
-        throw new ArgumentException("The test must specify a method.", nameof(test));
+        throw new ArgumentException(Resources.ExceptionFormats.TestMustHaveAMethod, nameof(test));
 
       return GetIntegration(test.Method);
     }
