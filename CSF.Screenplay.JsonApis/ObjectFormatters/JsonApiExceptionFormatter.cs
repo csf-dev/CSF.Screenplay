@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay.JsonApis.Tests.ObjectFormatters
+namespace CSF.Screenplay.JsonApis.ObjectFormatters
 {
   public class JsonApiExceptionFormatter : ObjectFormatter<JsonApiException>
   {

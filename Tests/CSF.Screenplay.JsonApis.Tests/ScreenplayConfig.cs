@@ -1,6 +1,6 @@
 ﻿using CSF.Screenplay.Integration;
+using CSF.Screenplay.JsonApis.ObjectFormatters;
 using CSF.Screenplay.JsonApis.Tests;
-using CSF.Screenplay.JsonApis.Tests.ObjectFormatters;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;

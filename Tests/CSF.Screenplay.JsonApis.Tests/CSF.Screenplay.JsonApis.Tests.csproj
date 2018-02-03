@@ -72,13 +72,10 @@
     <Compile Include="Builders\Get.cs" />
     <Compile Include="Builders\Set.cs" />
     <Compile Include="Builders\Validate.cs" />
-    <Compile Include="ObjectFormatters\TimeoutExceptionFormatter.cs" />
-    <Compile Include="ObjectFormatters\JsonApiExceptionFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Builders\" />
-    <Folder Include="ObjectFormatters\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

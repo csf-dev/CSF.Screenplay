@@ -45,11 +45,14 @@
     <Compile Include="Builders\Execute.cs" />
     <Compile Include="JsonServiceDescription`1.cs" />
     <Compile Include="Abilities\SynchronousJsonGateway.cs" />
+    <Compile Include="ObjectFormatters\JsonApiExceptionFormatter.cs" />
+    <Compile Include="ObjectFormatters\TimeoutExceptionFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
     <Folder Include="Actions\" />
     <Folder Include="Builders\" />
+    <Folder Include="ObjectFormatters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

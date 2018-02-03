@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay.JsonApis.Tests.ObjectFormatters
+namespace CSF.Screenplay.JsonApis.ObjectFormatters
 {
   /// <summary>
   /// Object formatter for a <c>System.TimeoutException</c>, which just emits the exception message with no other details.
