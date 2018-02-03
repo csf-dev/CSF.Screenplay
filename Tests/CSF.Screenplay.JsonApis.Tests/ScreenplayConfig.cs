@@ -1,4 +1,5 @@
 ﻿using CSF.Screenplay.Integration;
+using CSF.Screenplay.JsonApis.ObjectFormatters;
 using CSF.Screenplay.JsonApis.Tests;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -16,6 +17,8 @@ namespace CSF.Screenplay.JsonApis.Tests
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
+          .WithFormatter<TimeoutExceptionFormatter>()
+          .WithFormatter<JsonApiExceptionFormatter>()
           .WriteReport(WriteReport);
       });
     }

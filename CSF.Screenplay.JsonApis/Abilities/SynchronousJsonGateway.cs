@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Stopwatch;
 using Newtonsoft.Json;
 
 namespace CSF.Screenplay.JsonApis.Abilities
@@ -52,18 +53,24 @@ namespace CSF.Screenplay.JsonApis.Abilities
       }
       catch(TaskCanceledException ex)
       {
-        throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.", ex);
+        var timeFormatter = new TimeSpanFormatter();
+        var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, timeFormatter.Format(timeout));
+        throw new TimeoutException(message, ex);
       }
       catch(HttpRequestException ex)
       {
-        throw new JsonApiException("The JSON API request failed.", ex);
+        throw new JsonApiException(Resources.ExceptionFormats.UnexpectedApiRequestFailure, ex);
       }
       catch(AggregateException ex)
       {
         if(ex.InnerExceptions.OfType<TaskCanceledException>().Any())
-          throw new TimeoutException($"The JSON API request timed out after {timeout.ToString("g")}.", ex);
+        {
+          var timeFormatter = new TimeSpanFormatter();
+          var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, timeFormatter.Format(timeout));
+          throw new TimeoutException(message, ex);
+        }
         else if(ex.InnerExceptions.OfType<HttpRequestException>().Any())
-          throw new JsonApiException("The JSON API request failed.", ex);
+          throw new JsonApiException(Resources.ExceptionFormats.UnexpectedApiRequestFailure, ex);
 
         throw;
       }
@@ -74,8 +81,11 @@ namespace CSF.Screenplay.JsonApis.Abilities
       if(result.IsSuccessStatusCode) return;
 
       var responseBody = result.Content.ReadAsStringAsync().Result;
-      throw new JsonApiException($@"The JSON API request failed: HTTP {result.StatusCode.ToString()}
-{responseBody}");
+
+      var message = String.Format(Resources.ExceptionFormats.ApiRequestFailedWithStatusCode, (int) result.StatusCode);
+      throw new JsonApiException(message) {
+        ErrorResponseBody = responseBody
+      };
     }
 
     protected virtual T ConvertResponse<T>(HttpResponseMessage response)
@@ -85,7 +95,7 @@ namespace CSF.Screenplay.JsonApis.Abilities
         var copyTask = response.Content.CopyToAsync(buffer);
         var waitSuccess = copyTask.Wait(TimeSpan.FromSeconds(1));
         if(!waitSuccess)
-          throw new JsonApiException("Timeout whilst converting JSON response to string. This should probably never happen?!");
+          throw new JsonApiException(Resources.ExceptionFormats.TimeoutConvertingResponseBody);
 
         buffer.Position = 0;
 

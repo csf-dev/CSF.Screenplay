@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,12 +53,14 @@
     <Folder Include="Actors\" />
     <Folder Include="Abilities\" />
     <Folder Include="Integration\" />
+    <Folder Include="Stopwatch\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
     <Compile Include="Abilities\AbilityStoreTests.cs" />
     <Compile Include="Integration\ScreenplayIntegrationTests.cs" />
     <Compile Include="Actors\ActorTests.cs" />
+    <Compile Include="Stopwatch\TimeSpanFormatterTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

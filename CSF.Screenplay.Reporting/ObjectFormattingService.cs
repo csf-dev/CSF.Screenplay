@@ -25,6 +25,25 @@ namespace CSF.Screenplay.Reporting
       return formatter.GetFormattedName(obj);
     }
 
+    /// <summary>
+    /// Gets a value which indicates whether or not the current formatting service has explicit support
+    /// for the given object or not.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// If this method returns <c>false</c> then chances are that the output from <see cref="M:CSF.Screenplay.Reporting.IObjectFormattingService.Format(System.Object)" /> will be the
+    /// built-in <c>Object.ToString</c>.
+    /// </para>
+    /// </remarks>
+    /// <returns>
+    /// <c>true</c>, if the formatter has explicit support for the given object, <c>false</c> otherwise.</returns>
+    /// <param name="obj">Object.</param>
+    public bool HasExplicitSupport(object obj)
+    {
+      var formatter = SelectBestFormatter(obj);
+      return (formatter != null && formatter.GetType() != typeof(DefaultObjectFormatter));
+    }
+
     IObjectFormatter SelectBestFormatter(object obj)
       => registry.GetAllFormatters()
                  .OrderByDescending(x => x.GetFormattingPriority(obj))

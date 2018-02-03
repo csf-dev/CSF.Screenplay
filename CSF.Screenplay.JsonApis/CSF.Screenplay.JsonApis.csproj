@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.JsonApis</RootNamespace>
     <AssemblyName>CSF.Screenplay.JsonApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,11 +45,18 @@
     <Compile Include="Builders\Execute.cs" />
     <Compile Include="JsonServiceDescription`1.cs" />
     <Compile Include="Abilities\SynchronousJsonGateway.cs" />
+    <Compile Include="ObjectFormatters\JsonApiExceptionFormatter.cs" />
+    <Compile Include="ObjectFormatters\TimeoutExceptionFormatter.cs" />
+    <Compile Include="Resources\ExceptionFormats.Designer.cs">
+      <DependentUpon>ExceptionFormats.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
     <Folder Include="Actions\" />
     <Folder Include="Builders\" />
+    <Folder Include="ObjectFormatters\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -60,6 +67,13 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.JsonApis.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionFormats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>ExceptionFormats.resources</LogicalName>
+      <LastGenOutput>ExceptionFormats.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

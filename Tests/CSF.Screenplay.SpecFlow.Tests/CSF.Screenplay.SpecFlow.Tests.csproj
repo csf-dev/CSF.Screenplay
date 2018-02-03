@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +51,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Stage.feature.cs</LastGenOutput>
     </None>
+    <None Include="Stopwatch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Stopwatch.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -67,6 +71,10 @@
       <DependentUpon>Stage.feature</DependentUpon>
     </Compile>
     <Compile Include="StageSteps.cs" />
+    <Compile Include="Stopwatch.feature.cs">
+      <DependentUpon>Stopwatch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StopwatchSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

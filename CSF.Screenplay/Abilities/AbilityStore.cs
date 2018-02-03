@@ -50,8 +50,11 @@ namespace CSF.Screenplay.Abilities
     public virtual IAbility Add(Type abilityType)
     {
       if(!typeof(IAbility).IsAssignableFrom(abilityType))
-        throw new ArgumentException($"Ability type must implement `{typeof(IAbility).Name}'.", nameof(abilityType));
-      
+      {
+        var message = String.Format(Resources.ExceptionFormats.AbilityMustImplementType, typeof(IAbility).Name);
+        throw new ArgumentException(message, nameof(abilityType));
+      }
+
       var ability = (IAbility) Activator.CreateInstance(abilityType);
       Add(ability);
       return ability;

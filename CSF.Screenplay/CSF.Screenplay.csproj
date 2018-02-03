@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <AssemblyName>CSF.Screenplay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.9.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,7 +95,7 @@
     <Compile Include="IScenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
     <Compile Include="Actors\Actor.cs" />
-    <Compile Include="Reporting\GenericObjectFormatter.cs" />
+    <Compile Include="Reporting\ObjectFormatter.cs" />
     <Compile Include="Reporting\IObjectFormatter.cs" />
     <Compile Include="Reporting\StringArrayFormatter.cs" />
     <Compile Include="Reporting\DefaultObjectFormatter.cs" />
@@ -103,6 +103,17 @@
     <Compile Include="Scenarios\ContainerExtensions.cs" />
     <Compile Include="Actors\IStage.cs" />
     <Compile Include="Actors\Stage.cs" />
+    <Compile Include="Stopwatch\Read.cs" />
+    <Compile Include="Stopwatch\ReadTheStopwatch.cs" />
+    <Compile Include="Stopwatch\ResetTheStopwatch.cs" />
+    <Compile Include="Stopwatch\StartTheStopwatch.cs" />
+    <Compile Include="Stopwatch\StopTheStopwatch.cs" />
+    <Compile Include="Stopwatch\UseAStopwatch.cs" />
+    <Compile Include="Stopwatch\TimeSpanFormatter.cs" />
+    <Compile Include="Stopwatch\IDurationFormatter.cs" />
+    <Compile Include="Resources\ExceptionFormats.Designer.cs">
+      <DependentUpon>ExceptionFormats.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
@@ -111,10 +122,19 @@
     <Folder Include="Performables\" />
     <Folder Include="Scenarios\" />
     <Folder Include="Integration\" />
+    <Folder Include="Stopwatch\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionFormats.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LogicalName>ExceptionFormats.resources</LogicalName>
+      <LastGenOutput>ExceptionFormats.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
