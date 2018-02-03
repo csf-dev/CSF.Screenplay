@@ -53,12 +53,14 @@
     <Folder Include="Actors\" />
     <Folder Include="Abilities\" />
     <Folder Include="Integration\" />
+    <Folder Include="Stopwatch\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
     <Compile Include="Abilities\AbilityStoreTests.cs" />
     <Compile Include="Integration\ScreenplayIntegrationTests.cs" />
     <Compile Include="Actors\ActorTests.cs" />
+    <Compile Include="Stopwatch\TimeSpanFormatterTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

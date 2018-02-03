@@ -4,13 +4,13 @@ namespace CSF.Screenplay.Reporting
   /// <summary>
   /// Base class for implementations of <see cref="IObjectFormatter"/>.
   /// </summary>
-  public abstract class GenericObjectFormatter<T> : IObjectFormatter
+  public abstract class ObjectFormatter<T> : IObjectFormatter
   {
     /// <summary>
     /// Gets a formatted name for the given input.
     /// </summary>
     /// <param name="obj">Object.</param>
-    protected abstract string GetFormattedName(T obj);
+    public abstract string Format(T obj);
 
     /// <summary>
     /// Gets a priority for formatting an object which matches the generic type of this class.
@@ -49,6 +49,6 @@ namespace CSF.Screenplay.Reporting
       return GetFormattingPriority((T) obj);
     }
 
-    string IObjectFormatter.GetFormattedName(object obj) => GetFormattedName((T) obj);
+    string IObjectFormatter.GetFormattedName(object obj) => Format((T) obj);
   }
 }
