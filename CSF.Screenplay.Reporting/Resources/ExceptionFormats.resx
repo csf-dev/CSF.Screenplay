@@ -27,4 +27,10 @@
   <data name="PerformableDoesNotMatchExpectedPerformance" xml:space="preserve">
     <value>Whilst building a report about a specific `{0}', an attempt to get the corresponding `{1}' failed because the {1} was for a different {0}.</value>
   </data>
+  <data name="ReportableMustBeGainAbilityOrPerformance" xml:space="preserve">
+    <value>The reportable item to write must represent either an actor gaining an ability or a performance.</value>
+  </data>
+  <data name="TracableEventIdMustBePositiveInteger" xml:space="preserve">
+    <value>The trace event ID must be a positive integer.</value>
+  </data>
 </root>

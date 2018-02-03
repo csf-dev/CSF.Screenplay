@@ -25,7 +25,8 @@ namespace CSF.Screenplay.SpecFlow
 
       if(integration == null)
       {
-        var message = $"There must be an assembly with the {nameof(ScreenplayAssemblyAttribute)}, stating the location to the Screenplay integration configuration.";
+        var message = String.Format(Resources.ExceptionFormats.ScreenplayAssemblyAttributeRequired,
+                                    nameof(ScreenplayAssemblyAttribute));
         throw new InvalidOperationException(message);
       }
 

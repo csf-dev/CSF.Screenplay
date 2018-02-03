@@ -25,7 +25,7 @@
     <value>All actors must have a name.</value>
   </data>
   <data name="DuplicateActorsNotAllowedInCast" xml:space="preserve">
-    <value>There is already an actor named '{name}' contained within the current {1}. Duplicates are not permitted.</value>
+    <value>There is already an actor named '{0}' contained within the current {1}. Duplicates are not permitted.</value>
   </data>
   <data name="IntegrationConfigTypeMustImplementCorrectInterface" xml:space="preserve">
     <value>The integration configuration type must implement `{0}'.</value>
