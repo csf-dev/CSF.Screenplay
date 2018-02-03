@@ -34,6 +34,8 @@ namespace CSF.Screenplay.Reporting.Models
 
     public string Format(object obj) => formattingService.Format(obj);
 
+    public bool HasFormat(object obj) => formattingService.HasExplicitSupport(obj);
+
     public string GetOutcomeClass(Scenario scenario)
     {
       if(scenario == null) return String.Empty;

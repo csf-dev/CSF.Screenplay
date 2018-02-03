@@ -155,7 +155,7 @@ namespace CSF.Screenplay.Reporting
     void WriteResult(Performance reportable, int currentIndentLevel)
     {
       WriteResultOrFailureIndent(currentIndentLevel);
-      writer.WriteLine("Result:{0}", Format(reportable.Result));
+      writer.WriteLine("Result: {0}", Format(reportable.Result));
     }
 
     void WriteFailure(Performance reportable, int currentIndentLevel)
@@ -165,15 +165,24 @@ namespace CSF.Screenplay.Reporting
       var reportableException = reportable.Exception as IReportable;
       if(reportableException != null)
       {
-        writer.WriteLine("FAILED {0}", reportableException.GetReport(reportable.Actor));
+        writer.WriteLine("FAILED: {0}", reportableException.GetReport(reportable.Actor));
         return;
       }
 
-      var exception = reportable.Exception?.ToString();
-      if(exception != null)
-        writer.WriteLine("FAILED with an exception:{1}{0}", exception, Environment.NewLine);
-      else
+      if(reportable.Exception == null)
+      {
         writer.WriteLine("FAILED");
+        return;
+      }
+
+      if(!formattingService.HasExplicitSupport(reportable.Exception))
+      {
+        writer.WriteLine("FAILED with an exception:{1}{0}", reportable.Exception, Environment.NewLine);
+        return;
+      }
+
+      var formattedException = formattingService.Format(reportable.Exception);
+      writer.WriteLine("FAILED: {0}", reportable.Exception);
     }
 
     string Format(object obj) => formattingService.Format(obj);

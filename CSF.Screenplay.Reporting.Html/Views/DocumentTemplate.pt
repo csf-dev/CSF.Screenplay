@@ -750,16 +750,22 @@ html.js .scenario.last_visible>header {
                 <div class="additional_content">
                   <div class="extended_content performance_exception"
                        metal:fill-slot="extended_content"
-                       tal:define="exception reportable/Exception | nothing">
-                    <p>
-                      Failed
-                      <span tal:omit-tag="string:Yes"
-                            tal:condition="exception">with an <strong>exception</strong></span>
+                       tal:define="exception reportable/Exception | nothing;
+                                   canFormatException csharp:here.HasFormat(exception)">
+                    <p tal:condition="csharp:exception != null &amp;&amp; canFormatException">
+                      <strong>Failed</strong>
+                      <span tal:replace="csharp:here.Format(exception)">The formatted exception</span>
                     </p>
-                    <pre tal:condition="exception" tal:content="exception">Exception
+                    <p tal:condition="csharp:exception != null &amp;&amp; !canFormatException">
+                      <strong>Failed</strong> with an exception
+                      <pre tal:content="exception">Exception
   at My.Funky.Stack.Trace.Line1 &gt; Something
   at My.Funky.Stack.Trace.Line2 &gt; Something else
   at My.Funky.Stack.Trace.Line3 &gt; Something different</pre>
+                    </p>
+                    <p>
+                      <strong>Failed</strong>
+                    </p>
                   </div>
                 </div>
               </div>
