@@ -4,6 +4,9 @@ using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Waits
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
   {
     [Test,Screenplay]
     [Description("When waiting for only half a second, the page event has not yet occurred")]
-    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(IScreenplayScenario scenario)
+    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 
@@ -27,9 +30,9 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
 
     [Test,Screenplay]
     [Description("When waiting for 6 seconds, the page event fires")]
-    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(IScreenplayScenario scenario)
+    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 

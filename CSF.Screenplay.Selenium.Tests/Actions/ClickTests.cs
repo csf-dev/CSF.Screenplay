@@ -4,6 +4,9 @@ using CSF.Screenplay.NUnit;
 using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Clicking on the link to page two navigates to the second page.")]
-    public void Click_OnLinkToPageTwo_navigates_to_second_page(IScreenplayScenario scenario)
+    public void Click_OnLinkToPageTwo_navigates_to_second_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

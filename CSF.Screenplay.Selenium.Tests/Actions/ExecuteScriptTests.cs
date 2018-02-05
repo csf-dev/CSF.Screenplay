@@ -5,6 +5,9 @@ using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 using CSF.Screenplay.Selenium.Tests.Tasks;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -14,9 +17,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Executing some JavaScript affects the page in the expected manner")]
-    public void ExecuteTheJavaScript_results_in_changed_page_content(IScreenplayScenario scenario)
+    public void ExecuteTheJavaScript_results_in_changed_page_content(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -29,9 +32,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Executing some JavaScript and getting the result returns the expected value")]
-    public void ExecuteTheJavaScriptAndGetTheResult_returns_correct_value(IScreenplayScenario scenario)
+    public void ExecuteTheJavaScriptAndGetTheResult_returns_correct_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -42,9 +45,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Executing some JavaScript with a parameter and getting the result returns the expected value")]
-    public void ExecuteTheJavaScriptAndGetTheResult_with_params_returns_correct_value(IScreenplayScenario scenario)
+    public void ExecuteTheJavaScriptAndGetTheResult_with_params_returns_correct_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

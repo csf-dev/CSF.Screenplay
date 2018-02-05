@@ -4,6 +4,9 @@ using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Questions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Finding child elements of the item list detects the correct count of children.")]
-    public void FindElements_In_gets_expected_count_of_elements(IScreenplayScenario scenario)
+    public void FindElements_In_gets_expected_count_of_elements(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -26,9 +29,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Finding elements on the page detects the correct count of children.")]
-    public void FindElements_OnThePage_gets_expected_count_of_elements(IScreenplayScenario scenario)
+    public void FindElements_OnThePage_gets_expected_count_of_elements(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

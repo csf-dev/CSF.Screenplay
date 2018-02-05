@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Selenium.Actions
     {
       var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
 
-      browseTheWeb.DemandCapability(Capabilities.ClearDomainCookies);
+      browseTheWeb.FlagsDriver.RequireFlag(Flags.Browser.CanClearDomainCookies);
 
       var cookies = browseTheWeb.WebDriver.Manage().Cookies;
       cookies.DeleteAllCookies();

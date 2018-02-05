@@ -1,11 +1,11 @@
-﻿using CSF.Screenplay.Selenium.Builders;
-using CSF.Screenplay.Selenium.Tests.Pages;
+﻿using System;
 using CSF.Screenplay.NUnit;
-using FluentAssertions;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Tasks;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Selenium.Tests.Tasks;
-using CSF.Screenplay.Selenium.Abilities;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -15,13 +15,12 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Clearing all cookies does not raise an exception.")]
-    public void Clear_all_cookies_does_not_raise_an_exception(IScreenplayScenario scenario)
+    public void Clear_all_cookies_does_not_raise_an_exception(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       var ability = joe.GetAbility<BrowseTheWeb>();
-      var isCapable = ability.GetCapability(Capabilities.ClearDomainCookies);
-      if(!isCapable)
+      if(!ability.FlagsDriver.HasFlag(Flags.Browser.CanClearDomainCookies))
         Assert.Ignore("Joe is using a web browser which is not capable of clearing domain cookies");
 
       Given(joe).WasAbleTo(new EnterTextIntoThePageTwoInputField("Some text"));

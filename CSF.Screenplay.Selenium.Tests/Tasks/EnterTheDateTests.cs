@@ -1,12 +1,12 @@
-﻿using CSF.Screenplay.Selenium.Builders;
+﻿using System;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
-using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Selenium.Models;
-using CSF.Screenplay.Actors;
-using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
@@ -16,12 +16,13 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
   {
     [Test,Screenplay]
     [Description("Entering a date into an HTML 5 input field should work cross-browser")]
-    public void Enter_TheDate_puts_the_correct_value_into_the_control(IScreenplayScenario scenario)
+    public void Enter_TheDate_puts_the_correct_value_into_the_control(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
+      var joe = cast.GetJoe(webBrowserFactory);
+
       IgnoreOn.Browsers("Clearing dates is now broken in Firefox.  https://github.com/csf-dev/CSF.Screenplay/issues/109",
                         BrowserName.Firefox);
 
-      var joe = scenario.GetJoe();
       var date = new DateTime(2012, 5, 6);
       var expectedString = date.ToString("yyyy-MM-dd");
 

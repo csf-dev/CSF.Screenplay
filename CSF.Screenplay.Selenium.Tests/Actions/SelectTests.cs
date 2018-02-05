@@ -4,6 +4,9 @@ using CSF.Screenplay.NUnit;
 using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page(IScreenplayScenario scenario)
+    public void SelectByText_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -26,9 +29,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page(IScreenplayScenario scenario)
+    public void SelectByIndex_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -39,9 +42,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page(IScreenplayScenario scenario)
+    public void SelectByValue_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

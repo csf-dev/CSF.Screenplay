@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Abilities;
+using CSF.WebDriverExtras;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Abilities
@@ -13,7 +14,6 @@ namespace CSF.Screenplay.Selenium.Abilities
   {
     readonly IWebDriver webDriver;
     readonly IUriTransformer uriTransformer;
-    readonly ISet<string> webBrowserCapabilities;
 
     /// <summary>
     /// Gets the Selenium WebDriver instance.
@@ -22,67 +22,23 @@ namespace CSF.Screenplay.Selenium.Abilities
     public IWebDriver WebDriver => webDriver;
 
     /// <summary>
+    /// Gets the <c>WebDriver</c> as an instance of <c>IHasFlags</c>.
+    /// </summary>
+    /// <value>A service which exposes the browser flags.</value>
+    public IHasFlags FlagsDriver
+    {
+      get {
+        var output = WebDriver as IHasFlags;
+        return output ?? EmptyFlagsDriver.Singleton;
+      }
+    }
+
+    /// <summary>
     /// Gets the URI transformer which should be used by the current instance.  If not specified in the constructor,
     /// this will be a <see cref="NoOpUriTransformer"/>.
     /// </summary>
     /// <value>The URI transformer.</value>
     public IUriTransformer UriTransformer => uriTransformer;
-
-    /// <summary>
-    /// Marks the current ability as being capable of an operation.
-    /// </summary>
-    /// <param name="capabilityName">Capability name.</param>
-    public void AddCapability(string capabilityName) => webBrowserCapabilities.Add(capabilityName);
-
-    /// <summary>
-    /// Gets a value indicating whether the current web-browsing ability if capable of an operation.
-    /// </summary>
-    /// <returns><c>true</c>, the browser is capable of the listed operation, <c>false</c> otherwise.</returns>
-    /// <param name="capabilityName">Capability name.</param>
-    public bool GetCapability(string capabilityName) => webBrowserCapabilities.Contains(capabilityName);
-
-    /// <summary>
-    /// Checks that the current instance contains the 
-    /// </summary>
-    /// <param name="capabilityName">Capability name.</param>
-    public void DemandCapability(string capabilityName)
-    {
-      var isCapable = GetCapability(capabilityName);
-      if(!isCapable)
-        throw new MissingCapabilityException($"The capability '{capabilityName}' is required but was not provided.");
-    }
-    /// <summary>
-    /// Adds a capability to the browse the web class, except for browsers where it is unsupported.
-    /// </summary>
-    /// <param name="capabilityName">Capability name.</param>
-    /// <param name="actualBrowser">Actual browser.</param>
-    /// <param name="unsupportedBrowsers">Unsupported browsers.</param>
-    public void AddCapabilityExceptWhereUnsupported(string capabilityName,
-                                                    string actualBrowser,
-                                                    params string[] unsupportedBrowsers)
-    {
-      if(!IsInListOfBrowserNames(actualBrowser, unsupportedBrowsers))
-        AddCapability(capabilityName);
-    }
-
-    /// <summary>
-    /// Adds a capability to the browse the web class for browsers where it is supported.
-    /// </summary>
-    /// <param name="capabilityName">Capability name.</param>
-    /// <param name="actualBrowser">Actual browser.</param>
-    /// <param name="supportedBrowsers">Supported browsers.</param>
-    public void AddCapabilityWhereSupported(string capabilityName,
-                                            string actualBrowser,
-                                            params string[] supportedBrowsers)
-    {
-      if(IsInListOfBrowserNames(actualBrowser, supportedBrowsers))
-        AddCapability(capabilityName);
-    }
-
-    static bool IsInListOfBrowserNames(string name, IEnumerable<string> names)
-    {
-      return names.Any(x => String.Equals(name, x, StringComparison.InvariantCultureIgnoreCase));
-    }
 
     /// <summary>
     /// Gets the report text for the current ability.
@@ -107,8 +63,22 @@ namespace CSF.Screenplay.Selenium.Abilities
 
       this.webDriver = webDriver;
       this.uriTransformer = transformer?? NoOpUriTransformer.Default;
+    }
 
-      webBrowserCapabilities = new HashSet<string>();
+    class EmptyFlagsDriver : IHasFlags
+    {
+      static readonly string[] flags = new string[0];
+      static readonly EmptyFlagsDriver singleton = new EmptyFlagsDriver();
+
+      public string GetFirstFlagPresent(IList<string> flags) => null;
+
+      public string GetFirstFlagPresent(params string[] flags) => null;
+
+      public IReadOnlyCollection<string> GetFlags() => flags;
+
+      public bool HasFlag(string flag) => false;
+
+      internal static IHasFlags Singleton => singleton;
     }
   }
 }

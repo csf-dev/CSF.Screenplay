@@ -4,6 +4,9 @@ using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Questions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of an element detects the expected value.")]
-    public void GetValue_returns_expected_value(IScreenplayScenario scenario)
+    public void GetValue_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -24,9 +27,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedValue_returns_expected_value(IScreenplayScenario scenario)
+    public void GetConvertedValue_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
       Given(joe).WasAbleTo(Enter.TheText("55").Into(PageTwo.SpecialInputField));

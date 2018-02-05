@@ -29,14 +29,12 @@ namespace CSF.Screenplay.Selenium.Tasks
     protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
-      var useLocaleFormat = ability.GetCapability(Capabilities.EnterDatesInLocaleFormat);
-      var useIsoFormat = ability.GetCapability(Capabilities.EnterDatesAsIsoStrings);
 
-      if(useLocaleFormat)
+      if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.CanEnterUsingLocaleFormat))
       {
         actor.Perform(EnterTheDateInLocaleFormat());
       }
-      else if(useIsoFormat)
+      else if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.CanEnterUsingIsoFormat))
       {
         actor.Perform(EnterTheDateInIsoFormat());
       }

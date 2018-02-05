@@ -4,6 +4,9 @@ using CSF.Screenplay.NUnit;
 using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -13,12 +16,12 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Deselecting everything leaves nothing selected.")]
-    public void DeselectAll_leaves_nothing_selected(IScreenplayScenario scenario)
+    public void DeselectAll_leaves_nothing_selected(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
+      var joe = cast.GetJoe(webBrowserFactory);
+
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
-
-      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -29,12 +32,12 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by index leaves one item selected.")]
-    public void DeselectByIndex_leaves_one_item_selected(IScreenplayScenario scenario)
+    public void DeselectByIndex_leaves_one_item_selected(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
+      var joe = cast.GetJoe(webBrowserFactory);
+
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
-
-      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -45,12 +48,12 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by text leaves one item selected.")]
-    public void DeselectByText_leaves_one_item_selected(IScreenplayScenario scenario)
+    public void DeselectByText_leaves_one_item_selected(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
+      var joe = cast.GetJoe(webBrowserFactory);
+
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
-
-      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -61,12 +64,12 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by value leaves one item selected.")]
-    public void DeselectByValue_leaves_one_item_selected(IScreenplayScenario scenario)
+    public void DeselectByValue_leaves_one_item_selected(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
+      var joe = cast.GetJoe(webBrowserFactory);
+
       IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
                         BrowserName.Edge);
-
-      var joe = scenario.GetJoe();
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

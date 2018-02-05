@@ -1,11 +1,12 @@
-﻿using CSF.Screenplay.Selenium.Builders;
+﻿using System;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
-using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Selenium.Models;
-using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
@@ -15,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
   {
     [Test,Screenplay]
     [Description("Using the navigate task to a slow-loading page produces the expected output on the page")]
-    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(IScreenplayScenario scenario)
+    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

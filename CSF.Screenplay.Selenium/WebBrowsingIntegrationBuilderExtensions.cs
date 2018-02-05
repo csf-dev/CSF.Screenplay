@@ -4,6 +4,7 @@ using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.WebDriverExtras;
+using CSF.WebDriverExtras.Flags;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium
@@ -32,8 +33,13 @@ namespace CSF.Screenplay.Selenium
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterFactory((ICreatesWebDriver factory, IScenario scenario) => {
-          return factory.CreateWebDriver(scenarioName: GetHumanReadableName(scenario));
+        b.RegisterDynamicFactory(resolver => {
+          var factory = resolver.Resolve<ICreatesWebDriver>(name);
+          var scenario = resolver.Resolve<IScenario>();
+          var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
+
+          return factory.CreateWebDriver(flagsProvider: flagsProvider,
+                                         scenarioName: GetHumanReadableName(scenario));
         });
       });
 

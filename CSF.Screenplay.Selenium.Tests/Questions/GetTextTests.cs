@@ -4,6 +4,9 @@ using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Questions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the text of an element detects the expected value.")]
-    public void GetText_returns_expected_value(IScreenplayScenario scenario)
+    public void GetText_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -24,9 +27,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedText_returns_expected_value(IScreenplayScenario scenario)
+    public void GetConvertedText_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -35,9 +38,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of multiple elements returns the correct collection of values.")]
-    public void GetText_for_multiple_elements_returns_expected_values(IScreenplayScenario scenario)
+    public void GetText_for_multiple_elements_returns_expected_values(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       var expected = new [] { "One", "Two", "Three", "Four", "Five" };
 

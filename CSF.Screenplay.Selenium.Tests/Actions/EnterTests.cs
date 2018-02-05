@@ -4,6 +4,9 @@ using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Selenium.Abilities;
+using System;
 
 namespace CSF.Screenplay.Selenium.Tests.Actions
 {
@@ -13,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Typing text into an input box produces the expected result on the page.")]
-    public void Type_text_into_an_input_box_produces_expected_result_on_page(IScreenplayScenario scenario)
+    public void Type_text_into_an_input_box_produces_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -26,9 +29,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Typing different text into an input box produces the expected result on the page.")]
-    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(IScreenplayScenario scenario)
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
     {
-      var joe = scenario.GetJoe();
+      var joe = cast.GetJoe(webBrowserFactory);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.Web</RootNamespace>
-    <AssemblyName>CSF.Screenplay.Web</AssemblyName>
+    <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
+    <AssemblyName>CSF.Screenplay.Selenium</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>0.8.0-alpha</ReleaseVersion>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\CSF.Screenplay.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.Selenium.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\CSF.Screenplay.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\CSF.Screenplay.Selenium.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
@@ -173,7 +173,6 @@
     <Compile Include="Questions\GetElement.cs" />
     <Compile Include="Builders\Get.cs" />
     <Compile Include="Abilities\Capabilities.cs" />
-    <Compile Include="Abilities\MissingCapabilityException.cs" />
     <Compile Include="Reporting\OptionCollectionFormatter.cs" />
     <Compile Include="Reporting\ElementCollectionFormatter.cs" />
     <Compile Include="Tasks\EnterTheDateIntoAnHtml5InputTypeDate.cs" />
@@ -182,6 +181,11 @@
     <Compile Include="Tasks\EnterTheDate.cs" />
     <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
     <Compile Include="Models\InvalidTargetException.cs" />
+    <Compile Include="Flags.cs" />
+    <Compile Include="FlagsPartials\Flags.Browser.cs" />
+    <Compile Include="FlagsExtensions.cs" />
+    <Compile Include="FlagRequiredException.cs" />
+    <Compile Include="FlagsPartials\Flags.HtmlElements.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -199,6 +203,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
+    <Folder Include="FlagsPartials\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
