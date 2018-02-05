@@ -7,16 +7,15 @@ namespace CSF.Screenplay.Selenium.Tests
 {
   public static class CastExtensions
   {
-    public static IActor GetJoe(this ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public static IActor GetJoe(this ICast cast, Lazy<BrowseTheWeb> webBrowser)
     {
       if(cast == null)
         throw new ArgumentNullException(nameof(cast));
-      if(webBrowserFactory == null)
-        throw new ArgumentNullException(nameof(webBrowserFactory));
+      if(webBrowser == null)
+        throw new ArgumentNullException(nameof(webBrowser));
 
       return cast.Get("Joe", a => {
-        var browseTheWeb = webBrowserFactory();
-        a.IsAbleTo(browseTheWeb);
+        a.IsAbleTo(webBrowser.Value);
       });
     }
   }

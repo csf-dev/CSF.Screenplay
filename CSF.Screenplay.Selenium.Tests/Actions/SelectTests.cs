@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void SelectByText_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void SelectByIndex_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void SelectByValue_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

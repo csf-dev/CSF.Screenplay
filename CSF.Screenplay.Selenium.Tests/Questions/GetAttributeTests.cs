@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of a 'title' attribute detects the expected value.")]
-    public void GetAttribute_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void GetAttribute_returns_expected_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

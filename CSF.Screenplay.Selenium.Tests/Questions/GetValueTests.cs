@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the value of an element detects the expected value.")]
-    public void GetValue_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void GetValue_returns_expected_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedValue_returns_expected_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void GetConvertedValue_returns_expected_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

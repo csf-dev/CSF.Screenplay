@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the available options reveals the expected collection of items.")]
-    public void GetAllOptions_returns_expected_collection(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void GetAllOptions_returns_expected_collection(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the selected options reveals the expected collection of items.")]
-    public void GetSelectedOptions_returns_expected_collection(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void GetSelectedOptions_returns_expected_collection(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

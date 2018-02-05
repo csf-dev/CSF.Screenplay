@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Executing some JavaScript affects the page in the expected manner")]
-    public void ExecuteTheJavaScript_results_in_changed_page_content(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void ExecuteTheJavaScript_results_in_changed_page_content(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Executing some JavaScript and getting the result returns the expected value")]
-    public void ExecuteTheJavaScriptAndGetTheResult_returns_correct_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void ExecuteTheJavaScriptAndGetTheResult_returns_correct_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Executing some JavaScript with a parameter and getting the result returns the expected value")]
-    public void ExecuteTheJavaScriptAndGetTheResult_with_params_returns_correct_value(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void ExecuteTheJavaScriptAndGetTheResult_with_params_returns_correct_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

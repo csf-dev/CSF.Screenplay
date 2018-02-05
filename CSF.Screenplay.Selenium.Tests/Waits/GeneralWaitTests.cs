@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
   {
     [Test,Screenplay]
     [Description("When waiting for only half a second, the page event has not yet occurred")]
-    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void Wait_for_500_milliseconds_means_that_the_delayed_link_has_not_appeared(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
 
     [Test,Screenplay]
     [Description("When waiting for 6 seconds, the page event fires")]
-    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ICast cast, Func<BrowseTheWeb> webBrowserFactory)
+    public void Wait_for_6_seconds_means_that_the_delayed_link_appears(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
