@@ -8,7 +8,7 @@ using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
 using CSF.Screenplay.Web.Reporting;
 using CSF.Screenplay.Web.Tests;
-using CSF.WebDriverFactory;
+using CSF.WebDriverExtras;
 using OpenQA.Selenium;
 
 [assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
@@ -29,8 +29,7 @@ namespace CSF.Screenplay.Web.Tests
           .WithFormatter<ElementCollectionFormatter>();
       });
       builder.UseSharedUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
-      builder.UseWebDriverFactory();
-      builder.UseWebDriver(GetWebDriver);
+      builder.UseWebDriverFromConfiguration();
       builder.UseWebBrowser(GetWebBrowser);
     }
 
@@ -81,12 +80,6 @@ namespace CSF.Screenplay.Web.Tests
                                                   browserName,
                                                   BrowserName.Chrome,
                                                   BrowserName.Edge);
-    }
-
-    string GetTestName(IResolvesServices resolver)
-    {
-      var scenarioName = resolver.Resolve<IScenarioName>();
-      return $"{scenarioName.FeatureId.Name} -> {scenarioName.ScenarioId.Name}";
     }
 
     void WriteReport(IObjectFormattingService formatter, Report report)

@@ -9,13 +9,13 @@ namespace CSF.Screenplay.Web.Reporting
   /// <summary>
   /// Formatter for collections of HTML elements.
   /// </summary>
-  public class ElementCollectionFormatter : GenericObjectFormatter<ElementCollection>
+  public class ElementCollectionFormatter : ObjectFormatter<ElementCollection>
   {
     /// <summary>
-    /// Gets a formatted name for the given input.
+    /// Formats the given object.
     /// </summary>
     /// <param name="obj">Object.</param>
-    protected override string GetFormattedName(ElementCollection obj)
+    public override string Format(ElementCollection obj)
       => $"a collection of elements representing '{obj.GetName()}'";
   }
 }

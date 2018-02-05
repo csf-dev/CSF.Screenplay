@@ -9,13 +9,13 @@ namespace CSF.Screenplay.Web.Reporting
   /// <summary>
   /// Formatter for collections of options (as would appear in an HTML <c>select</c> element).
   /// </summary>
-  public class OptionCollectionFormatter : GenericObjectFormatter<IEnumerable<Option>>
+  public class OptionCollectionFormatter : ObjectFormatter<IEnumerable<Option>>
   {
     /// <summary>
-    /// Gets a formatted name for the given input.
+    /// Formats the given object.
     /// </summary>
     /// <param name="obj">Object.</param>
-    protected override string GetFormattedName(IEnumerable<Option> obj)
+    public override string Format(IEnumerable<Option> obj)
     {
       var options = obj.Select(x => x.Text);
       return $"The options {String.Join(", ", options)}";

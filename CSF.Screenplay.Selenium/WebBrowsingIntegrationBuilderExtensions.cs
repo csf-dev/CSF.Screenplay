@@ -3,7 +3,7 @@ using CSF.FlexDi;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Web.Abilities;
-using CSF.WebDriverFactory;
+using CSF.WebDriverExtras;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Web
@@ -14,46 +14,53 @@ namespace CSF.Screenplay.Web
   public static class WebBrowsingIntegrationBuilderExtensions
   {
     /// <summary>
-    /// Registers a <see cref="IWebDriverFactory"/> for the creation of web drivers.
+    /// Registers a <c>ICreatesWebDriver</c> for the creation of web drivers, using WebDriverExtras
+    /// configuration-based factory system.
     /// </summary>
     /// <param name="builder">Builder.</param>
     /// <param name="name">Name.</param>
-    public static void UseWebDriverFactory(this IIntegrationConfigBuilder builder,
-                                           string name = null)
+    public static void UseWebDriverFromConfiguration(this IIntegrationConfigBuilder builder,
+                                                     string name = null)
     {
       if(builder == null)
         throw new ArgumentNullException(nameof(builder));
 
       builder.ServiceRegistrations.PerTestRun.Add(b => {
-        b.RegisterFactory(() => new ConfigurationWebDriverFactoryProvider());
-
-        b.RegisterFactory((Func<ConfigurationWebDriverFactoryProvider,IWebDriverFactory>) GetWebDriverFactory,
-                          typeof(IWebDriverFactory))
+        b.RegisterFactory(() => GetWebDriverFactory.FromConfiguration())
+         .AsOwnType()
          .WithName(name);
       });
+
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterFactory((ICreatesWebDriver factory, IScenario scenario) => {
+          return factory.CreateWebDriver(scenarioName: GetHumanReadableName(scenario));
+        });
+      });
+
+      builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
     }
 
     /// <summary>
     /// Registers a Selenium IWebDriver into Screenplay, making use of a given factory.  This Web Driver
     /// will be created afresh and disposed with each scenario.
     /// </summary>
-    /// <param name="helper">Helper.</param>
+    /// <param name="builder">Builder.</param>
     /// <param name="factory">Factory.</param>
     /// <param name="name">Name.</param>
-    public static void UseWebDriver(this IIntegrationConfigBuilder helper,
+    public static void UseWebDriver(this IIntegrationConfigBuilder builder,
                                     Func<IResolvesServices,IWebDriver> factory,
                                     string name = null)
     {
-      if(helper == null)
-        throw new ArgumentNullException(nameof(helper));
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
       if(factory == null)
         throw new ArgumentNullException(nameof(factory));
 
-      helper.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterFactory(factory).AsOwnType().WithName(name);
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
       });
 
-      helper.AfterScenario.Add(MarkWebDriverWithOutcome(name));
+      builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
     }
 
     /// <summary>
@@ -94,7 +101,7 @@ namespace CSF.Screenplay.Web
         throw new ArgumentNullException(nameof(factory));
 
       helper.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterFactory(factory).AsOwnType().WithName(name);
+        b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
       });
     }
 
@@ -146,39 +153,29 @@ namespace CSF.Screenplay.Web
         throw new ArgumentNullException(nameof(resolver));
 
       var driver = resolver.Resolve<IWebDriver>();
+      var transformer = resolver.TryResolve<IUriTransformer>() ?? NoOpUriTransformer.Default;
 
-      IUriTransformer transformer;
-      if(!resolver.TryResolve(out transformer))
-        transformer = NoOpUriTransformer.Default;
-      
       return new BrowseTheWeb(driver, transformer);
     }
 
-    static IWebDriverFactory GetWebDriverFactory(ConfigurationWebDriverFactoryProvider provider)
-    {
-      if(provider == null)
-        throw new ArgumentNullException(nameof(provider));
-      
-      return provider.GetFactory();
-    }
+    static string GetHumanReadableName(IScenario scenario) => $"{scenario.FeatureId.Name}: {scenario.ScenarioId.Name}";
 
-    static Action<IScreenplayScenario> MarkWebDriverWithOutcome(string name)
+    static Action<IScenario> MarkWebDriverWithOutcome(string name)
     {
       return scenario => {
-        var resolver = scenario.Resolver;
-        IWebDriverFactory webDriverFactory;
-
         if(!scenario.Success.HasValue) return;
-        if(!resolver.TryResolve(name, out webDriverFactory))
-          return;
-
-        var driver = resolver.Resolve<IWebDriver>(name);
-
         var success = scenario.Success.Value;
+
+        var webDriver = scenario.DiContainer.TryResolve<IWebDriver>(name);
+        if(webDriver == null) return;
+
+        var receivesStatus = webDriver as ICanReceiveScenarioStatus;
+        if(receivesStatus == null) return;
+
         if(success)
-          webDriverFactory.MarkTestAsPassed(driver);
+          receivesStatus.MarkScenarioAsSuccess();
         else
-          webDriverFactory.MarkTestAsFailed(driver);
+          receivesStatus.MarkScenarioAsFailure();
       };
     }
   }
