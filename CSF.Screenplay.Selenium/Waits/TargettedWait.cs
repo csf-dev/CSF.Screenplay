@@ -7,6 +7,7 @@ using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Selenium.Queries;
+using CSF.Screenplay.Stopwatch;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -152,7 +153,7 @@ namespace CSF.Screenplay.Selenium.Waits
       this.timeout = timeout;
 
       ignoredExceptionTypes = new HashSet<Type>();
-      durationFormatter = new DurationFormatter();
+      durationFormatter = new TimeSpanFormatter();
     }
   }
 }

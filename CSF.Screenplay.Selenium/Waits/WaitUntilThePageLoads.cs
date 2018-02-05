@@ -6,6 +6,7 @@ using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Selenium.Resources;
+using CSF.Screenplay.Stopwatch;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -65,7 +66,7 @@ namespace CSF.Screenplay.Selenium.Waits
     public WaitUntilThePageLoads(TimeSpan timeout)
     {
       this.timeout = timeout;
-      durationFormatter = new DurationFormatter();
+      durationFormatter = new TimeSpanFormatter();
     }
   }
 }

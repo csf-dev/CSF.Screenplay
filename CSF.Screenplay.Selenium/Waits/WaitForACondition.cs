@@ -3,6 +3,7 @@ using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Stopwatch;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -65,7 +66,7 @@ namespace CSF.Screenplay.Selenium.Waits
       this.condition = condition;
       this.timeout = timeout;
 
-      durationFormatter = new DurationFormatter();
+      durationFormatter = new TimeSpanFormatter();
     }
   }
 }
