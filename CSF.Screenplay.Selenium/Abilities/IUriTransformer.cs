@@ -1,7 +1,7 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay.Selenium.Abilities
 {
   /// <summary>
   /// A service which is able to transform a URI provided by a <see cref="IUriProvider"/> into a different

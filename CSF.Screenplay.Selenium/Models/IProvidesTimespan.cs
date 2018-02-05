@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Type which provides a <c>System.TimeSpan</c>.

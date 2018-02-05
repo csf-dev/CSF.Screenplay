@@ -1,9 +1,9 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.ElementMatching
+namespace CSF.Screenplay.Selenium.ElementMatching
 {
   /// <summary>
   /// Implementation of <see cref="IMatcher"/> which uses a query and a predicate delegate.

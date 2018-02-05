@@ -1,12 +1,12 @@
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Tests.Pages;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Waits
+namespace CSF.Screenplay.Selenium.Tests.Waits
 {
   [TestFixture]
   [Description("Waiting for elements to be available")]

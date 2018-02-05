@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.ElementMatching;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.ElementMatching;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Questions
+namespace CSF.Screenplay.Selenium.Questions
 {
   /// <summary>
   /// Finds all of the elements which match a set of criteria, from the entire current page.

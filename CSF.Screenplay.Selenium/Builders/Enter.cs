@@ -1,8 +1,8 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds an action representing an actor entering text into a page element.

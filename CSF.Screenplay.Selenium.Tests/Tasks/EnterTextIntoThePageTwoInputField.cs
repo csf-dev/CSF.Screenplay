@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Tests.Pages;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
 
-namespace CSF.Screenplay.Web.Tests.Tasks
+namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
   public class EnterTextIntoThePageTwoInputField : Performable
   {

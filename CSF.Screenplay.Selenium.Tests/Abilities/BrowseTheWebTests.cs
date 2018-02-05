@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
 using System;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using Moq;
 using OpenQA.Selenium;
 using CSF.Screenplay.Abilities;
 
-namespace CSF.Screenplay.Web.Tests.Abilities
+namespace CSF.Screenplay.Selenium.Tests.Abilities
 {
   [TestFixture]
   public class BrowseTheWebTests

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay.Selenium.Abilities
 {
   /// <summary>
   /// Exception raised when a capability is demanded of a <see cref="BrowseTheWeb"/> ability but it is not available.

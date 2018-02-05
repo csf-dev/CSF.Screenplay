@@ -1,8 +1,8 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Selenium.Queries
 {
   /// <summary>
   /// Gets the HTML text content of the target.

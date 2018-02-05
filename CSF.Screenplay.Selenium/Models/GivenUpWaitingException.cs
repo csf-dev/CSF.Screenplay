@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Exception raised when an actor gives up on a wait performance.

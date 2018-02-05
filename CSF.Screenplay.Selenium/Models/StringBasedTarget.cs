@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Base type for <see cref="ITarget"/> implementations which use a <c>System.String</c> to identify the

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("CSF.Screenplay.Web")]
+[assembly: AssemblyTitle("CSF.Screenplay.Selenium")]
 [assembly: AssemblyDescription("Selenium WebDriver 3.x bindings for Screenplay")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CSF Software Limited")]

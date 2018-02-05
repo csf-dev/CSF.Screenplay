@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// An action driver representing a user clicking upon an element.

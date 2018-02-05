@@ -1,15 +1,15 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Resources;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Resources;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace CSF.Screenplay.Web.Waits
+namespace CSF.Screenplay.Selenium.Waits
 {
   /// <summary>
   /// A wait operation which waits until the page 'ready state' indicates that the page is loaded.
@@ -59,7 +59,7 @@ namespace CSF.Screenplay.Web.Waits
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Waits.WaitUntilThePageLoads"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Waits.WaitUntilThePageLoads"/> class.
     /// </summary>
     /// <param name="timeout">Timeout.</param>
     public WaitUntilThePageLoads(TimeSpan timeout)

@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Questions
+namespace CSF.Screenplay.Selenium.Questions
 {
   /// <summary>
   /// An action which gets a reference to a single element in the document.

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay.Selenium.Abilities
 {
   /// <summary>
   /// Enumerates the various capabilities which a web browser may or may not have.

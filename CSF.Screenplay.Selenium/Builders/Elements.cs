@@ -1,7 +1,7 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds a question which gets a collection of elements which match some criteria.

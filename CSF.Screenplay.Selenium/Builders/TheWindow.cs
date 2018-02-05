@@ -1,7 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds a question in which the actor gets information about the browsing window.

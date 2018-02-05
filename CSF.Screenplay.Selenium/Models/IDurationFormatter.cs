@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Formats a <c>System.TimeSpan</c> as a human-readable string.

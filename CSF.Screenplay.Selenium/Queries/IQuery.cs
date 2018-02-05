@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Selenium.Queries
 {
   /// <summary>
   /// Provides information from a Selenium web element (or a wrapper around an element).

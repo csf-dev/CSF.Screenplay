@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using CSF.Screenplay.NUnit;
 
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   [TestFixture]
   [Description("The NUnit/Screenplay integration")]

@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Selenium.Queries
 {
   /// <summary>
   /// Base type for simple query implementations, which get data from elements.

@@ -1,11 +1,11 @@
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Tests.Pages;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Questions
+namespace CSF.Screenplay.Selenium.Tests.Questions
 {
   [TestFixture]
   [Description("Reading element attributes")]

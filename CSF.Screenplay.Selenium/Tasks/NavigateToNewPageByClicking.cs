@@ -1,13 +1,13 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace CSF.Screenplay.Web.Tasks
+namespace CSF.Screenplay.Selenium.Tasks
 {
   /// <summary>
   /// A task which navigates to a new page via a click (typically on a hyperlink element).
@@ -67,7 +67,7 @@ namespace CSF.Screenplay.Web.Tasks
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.NavigateToNewPageByClicking"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.NavigateToNewPageByClicking"/> class.
     /// </summary>
     /// <param name="clickTarget">Click target.</param>
     public NavigateToNewPageByClicking(ITarget clickTarget)
@@ -81,7 +81,7 @@ namespace CSF.Screenplay.Web.Tasks
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.NavigateToNewPageByClicking"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.NavigateToNewPageByClicking"/> class.
     /// </summary>
     /// <param name="clickTarget">Click target.</param>
     /// <param name="pageStalenessTimeout">Page staleness timeout.</param>

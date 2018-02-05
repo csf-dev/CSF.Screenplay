@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using OpenQA.Selenium.Html5;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// An action in which the actor clears the HTML5 LocalStorage in their browser.

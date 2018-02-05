@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Tasks;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Tasks;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds actions relating to navigating to another page.

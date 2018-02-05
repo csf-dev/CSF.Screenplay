@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// An action in which the actor deletes a single named browser cookie.
@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Web.Actions
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Actions.DeleteCookie"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Actions.DeleteCookie"/> class.
     /// </summary>
     /// <param name="cookieName">Cookie name.</param>
     public DeleteCookie(string cookieName)

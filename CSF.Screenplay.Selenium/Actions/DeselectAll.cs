@@ -1,12 +1,12 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// An action driver in which the user deselects all of the contained options from inside the target element.

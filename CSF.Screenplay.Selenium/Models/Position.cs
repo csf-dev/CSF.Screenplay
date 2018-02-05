@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// A two-dimenstional set of pixel coordinates representing a position on the screen.

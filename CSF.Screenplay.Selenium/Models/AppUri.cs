@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// A type which represents a URI within a web application.

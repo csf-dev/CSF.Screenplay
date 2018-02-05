@@ -1,7 +1,7 @@
 ﻿using System;
-using CSF.Screenplay.Web.Waits;
+using CSF.Screenplay.Selenium.Waits;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Builder type for a general-purpose wait.
@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Web.Models
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Models.GeneralWaitBuilder"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Models.GeneralWaitBuilder"/> class.
     /// </summary>
     /// <param name="value">Value.</param>
     public GeneralWaitBuilder(int value)

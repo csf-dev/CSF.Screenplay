@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds an action representing an actor clicking on an element on the page.

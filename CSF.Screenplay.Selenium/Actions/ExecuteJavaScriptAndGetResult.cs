@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// Executes some JavaScript and returns the result.
@@ -73,7 +73,7 @@ namespace CSF.Screenplay.Web.Actions
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Actions.ExecuteJavaScriptAndGetResult"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Actions.ExecuteJavaScriptAndGetResult"/> class.
     /// </summary>
     /// <param name="script">Script.</param>
     /// <param name="parameters">Parameters.</param>

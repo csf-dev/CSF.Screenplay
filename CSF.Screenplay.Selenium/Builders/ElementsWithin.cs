@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.ElementMatching;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Questions;
+using CSF.Screenplay.Selenium.ElementMatching;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Questions;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// A builder type which returns a collection of matching elements from within a parent.
@@ -58,7 +58,7 @@ namespace CSF.Screenplay.Web.Builders
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Builders.ElementsWithin"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Builders.ElementsWithin"/> class.
     /// </summary>
     /// <param name="target">Target.</param>
     public ElementsWithin(ITarget target)

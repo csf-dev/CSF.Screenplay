@@ -4,7 +4,7 @@ using System.Linq;
 using CSF.Screenplay.Abilities;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay.Selenium.Abilities
 {
   /// <summary>
   /// A Screenplay ability which represents an actor's ability to use a web browser, via Selenium a WebDriver.
@@ -95,7 +95,7 @@ namespace CSF.Screenplay.Web.Abilities
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Abilities.BrowseTheWeb"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.BrowseTheWeb"/> class.
     /// </summary>
     /// <param name="webDriver">The Selenium WebDriver instance.</param>
     /// <param name="transformer">An optoinal URI transformer.</param>

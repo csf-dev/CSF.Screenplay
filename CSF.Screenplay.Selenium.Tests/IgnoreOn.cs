@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   public class IgnoreOn
   {

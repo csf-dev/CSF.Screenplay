@@ -1,13 +1,13 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Questions
+namespace CSF.Screenplay.Selenium.Questions
 {
   /// <summary>
   /// A <see cref="T:Question{T}"/> which gets a piece of information from either an <see cref="ITarget"/> or a

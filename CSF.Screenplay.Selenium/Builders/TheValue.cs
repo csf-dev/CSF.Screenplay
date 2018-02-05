@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Questions;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Questions;
+using CSF.Screenplay.Selenium.Queries;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds a question which gets the value (for example of an <c>input</c> element) from a target.

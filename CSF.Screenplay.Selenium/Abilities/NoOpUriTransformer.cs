@@ -1,7 +1,7 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Abilities
+namespace CSF.Screenplay.Selenium.Abilities
 {
   /// <summary>
   /// Implementation of <see cref="IUriTransformer"/> which performs a no-op transformation upon the URI.
@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Web.Abilities
     public Uri Transform(IUriProvider uriProvider) => uriProvider.Uri;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Abilities.NoOpUriTransformer"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.NoOpUriTransformer"/> class.
     /// </summary>
     NoOpUriTransformer() {}
 
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Web.Abilities
     public static IUriTransformer Default { get; private set; }
 
     /// <summary>
-    /// Initializes the <see cref="T:CSF.Screenplay.Web.Abilities.NoOpUriTransformer"/> class.
+    /// Initializes the <see cref="T:CSF.Screenplay.Selenium.Abilities.NoOpUriTransformer"/> class.
     /// </summary>
     static NoOpUriTransformer()
     {

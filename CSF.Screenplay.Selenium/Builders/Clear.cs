@@ -1,9 +1,9 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds an action which clears contents from editable areas of the page.

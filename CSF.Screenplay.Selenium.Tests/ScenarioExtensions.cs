@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Scenarios;
 
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   public static class ScenarioExtensions
   {

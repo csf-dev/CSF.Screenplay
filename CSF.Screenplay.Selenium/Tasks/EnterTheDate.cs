@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Tasks
+namespace CSF.Screenplay.Selenium.Tasks
 {
   /// <summary>
   /// A task which enters a date value into an input element (of type "date") in a cross-browser manner.
@@ -62,7 +62,7 @@ namespace CSF.Screenplay.Web.Tasks
       => new EnterADateBySettingTheValue(date, id);
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterTheDate"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterTheDate"/> class.
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>

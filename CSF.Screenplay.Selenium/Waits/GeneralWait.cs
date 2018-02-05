@@ -2,9 +2,9 @@
 using System.Threading;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Waits
+namespace CSF.Screenplay.Selenium.Waits
 {
   /// <summary>
   /// A simple wait which has no resume condition except for the duration passing.
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Web.Waits
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Waits.GeneralWait"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Waits.GeneralWait"/> class.
     /// </summary>
     /// <param name="timespan">Timespan.</param>
     public GeneralWait(TimeSpan timespan)

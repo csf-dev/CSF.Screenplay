@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Questions
+namespace CSF.Screenplay.Selenium.Questions
 {
   /// <summary>
   /// A helper type for composing screenplay questions.

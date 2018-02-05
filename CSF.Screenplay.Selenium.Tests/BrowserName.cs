@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   public static class BrowserName
   {

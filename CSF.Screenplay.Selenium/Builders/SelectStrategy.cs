@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Enumerates the mechanisms by which an actor may pick an HTML <c>option</c> element from within a

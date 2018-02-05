@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Simple duration formatter which supports (at most) minutes, seconds and milliseconds.

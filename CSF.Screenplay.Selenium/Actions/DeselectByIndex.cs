@@ -1,12 +1,12 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 
-namespace CSF.Screenplay.Web.Actions
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
   /// An action driver whereby a user deselects an option element by its zero-based index.
@@ -39,7 +39,7 @@ namespace CSF.Screenplay.Web.Actions
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Actions.DeselectByIndex"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Actions.DeselectByIndex"/> class.
     /// </summary>
     /// <param name="index">Index.</param>
     public DeselectByIndex(int index)

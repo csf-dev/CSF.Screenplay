@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// An object which is capable of identifying one or more elements upon a web page.  In essence this is a form of

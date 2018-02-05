@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Basic timespan provider which wraps a given value.
@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Web.Models
     TimeSpan IProvidesTimespan.GetTimespan() => timespan;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Models.TimespanWrapper"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Models.TimespanWrapper"/> class.
     /// </summary>
     /// <param name="timespan">Timespan.</param>
     public TimespanWrapper(TimeSpan timespan)

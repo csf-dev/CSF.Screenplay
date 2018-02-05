@@ -2,11 +2,11 @@
 using CSF.FlexDi;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Abilities;
 using CSF.WebDriverExtras;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web
+namespace CSF.Screenplay.Selenium
 {
   /// <summary>
   /// Extension methods relating to the registration of web-browsing-related services into Screenplay.

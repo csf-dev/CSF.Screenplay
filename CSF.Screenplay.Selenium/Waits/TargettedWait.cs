@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Actions;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace CSF.Screenplay.Web.Waits
+namespace CSF.Screenplay.Selenium.Waits
 {
   /// <summary>
   /// A performable which represents the actor waiting for a condition to become true.

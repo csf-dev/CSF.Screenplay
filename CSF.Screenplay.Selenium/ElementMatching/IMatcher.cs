@@ -1,8 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.ElementMatching
+namespace CSF.Screenplay.Selenium.ElementMatching
 {
   /// <summary>
   /// Contains a predicate for matching Selenium web elements.

@@ -1,8 +1,8 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Actions;
+using CSF.Screenplay.Selenium.Actions;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds an action which executes JavaScript on the page.

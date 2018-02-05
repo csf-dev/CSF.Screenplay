@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Waits
+namespace CSF.Screenplay.Selenium.Waits
 {
   /// <summary>
   /// Represents a wait which operates upon the state of an <see cref="ITarget"/> .

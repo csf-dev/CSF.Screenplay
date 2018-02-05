@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Tasks
+namespace CSF.Screenplay.Selenium.Tasks
 {
   /// <summary>
   /// A class which sets a date value by directly manipulating the value attribute via JavaScript.
@@ -39,7 +39,7 @@ namespace CSF.Screenplay.Web.Tasks
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterADateBySettingTheValue"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterADateBySettingTheValue"/> class.
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>

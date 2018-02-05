@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// Builder for <c>System.TimeSpan</c> instances.

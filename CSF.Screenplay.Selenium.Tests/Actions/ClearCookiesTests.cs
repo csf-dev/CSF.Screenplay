@@ -1,13 +1,13 @@
-﻿using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Tests.Pages;
+﻿using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
 using CSF.Screenplay.NUnit;
 using FluentAssertions;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Web.Tests.Tasks;
-using CSF.Screenplay.Web.Abilities;
+using CSF.Screenplay.Selenium.Tests.Tasks;
+using CSF.Screenplay.Selenium.Abilities;
 
-namespace CSF.Screenplay.Web.Tests.Actions
+namespace CSF.Screenplay.Selenium.Tests.Actions
 {
   [TestFixture]
   [Description("The 'clear cookies' action")]

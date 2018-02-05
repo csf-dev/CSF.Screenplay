@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Queries
+namespace CSF.Screenplay.Selenium.Queries
 {
   /// <summary>
   /// Gets a collection of all of the selected HTML option elements within the target.

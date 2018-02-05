@@ -1,8 +1,8 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Actions;
+using CSF.Screenplay.Selenium.Actions;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builds actions which relate to clearing state held by the browser itself.

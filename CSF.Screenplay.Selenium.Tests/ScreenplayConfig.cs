@@ -5,15 +5,15 @@ using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Scenarios;
-using CSF.Screenplay.Web.Abilities;
-using CSF.Screenplay.Web.Reporting;
-using CSF.Screenplay.Web.Tests;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Reporting;
+using CSF.Screenplay.Selenium.Tests;
 using CSF.WebDriverExtras;
 using OpenQA.Selenium;
 
 [assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
 
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   public class ScreenplayConfig : IIntegrationConfig
   {

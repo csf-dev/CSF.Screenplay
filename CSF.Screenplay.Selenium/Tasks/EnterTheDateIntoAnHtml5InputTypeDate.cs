@@ -2,10 +2,10 @@
 using System.Text.RegularExpressions;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Tasks
+namespace CSF.Screenplay.Selenium.Tasks
 {
   /// <summary>
   /// A task which manages the inputting of a date value into an HTML 5 <c>&lt;input type="date" /&gt;</c> element
@@ -62,7 +62,7 @@ namespace CSF.Screenplay.Web.Tasks
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterTheDateIntoAnHtml5InputTypeDate"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterTheDateIntoAnHtml5InputTypeDate"/> class.
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>

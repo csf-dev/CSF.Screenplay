@@ -2,7 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Reporting;
 
-namespace CSF.Screenplay.Web.Models
+namespace CSF.Screenplay.Selenium.Models
 {
   /// <summary>
   /// An exception which is raised when an action is attempted, but it cannot be performed because

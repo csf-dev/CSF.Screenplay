@@ -1,11 +1,11 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
-using CSF.Screenplay.Web.Waits;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
+using CSF.Screenplay.Selenium.Waits;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// Builder type which creates targetted waits.

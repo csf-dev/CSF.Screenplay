@@ -1,8 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Queries;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Queries;
 
-namespace CSF.Screenplay.Web.Questions
+namespace CSF.Screenplay.Selenium.Questions
 {
   /// <summary>
   /// Specialisation of a targetted question.  This is a question which includes visibility amongst its queries.
@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Web.Questions
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Questions.TargettedVisibilityQuestion"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Questions.TargettedVisibilityQuestion"/> class.
     /// </summary>
     /// <param name="target">Target.</param>
     /// <param name="query">Query.</param>

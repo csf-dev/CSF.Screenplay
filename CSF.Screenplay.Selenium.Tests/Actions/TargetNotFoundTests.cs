@@ -1,12 +1,12 @@
 ﻿using System;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
-using CSF.Screenplay.Web.Tests.Pages;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.Tests.Pages;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Web.Tests.Actions
+namespace CSF.Screenplay.Selenium.Tests.Actions
 {
   [TestFixture]
   [Description("Behaviours when a target is not found for a desired action")]

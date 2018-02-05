@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSF.Screenplay.Web.Tests
+namespace CSF.Screenplay.Selenium.Tests
 {
   public class SauceConnectWebDriverFactory : CSF.WebDriverFactory.Impl.SauceConnectWebDriverFactory
   {

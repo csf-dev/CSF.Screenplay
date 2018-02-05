@@ -1,8 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Web.ElementMatching
+namespace CSF.Screenplay.Selenium.ElementMatching
 {
   /// <summary>
   /// A matcher which combines two others together with a logical AND operation.
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Web.ElementMatching
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.ElementMatching.AndMatcher"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ElementMatching.AndMatcher"/> class.
     /// </summary>
     /// <param name="first">First.</param>
     /// <param name="second">Second.</param>

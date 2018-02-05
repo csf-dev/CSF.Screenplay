@@ -1,10 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Tasks
+namespace CSF.Screenplay.Selenium.Tasks
 {
   /// <summary>
   /// A task which enters a date as a plain ISO-formatted <c>yyyy-MM-dd</c> string into a plain
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Web.Tasks
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Web.Tasks.EnterTheDateAsAnIsoFormattedString"/> class.
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterTheDateAsAnIsoFormattedString"/> class.
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>

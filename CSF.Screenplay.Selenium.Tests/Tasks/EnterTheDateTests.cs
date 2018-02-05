@@ -1,14 +1,14 @@
-﻿using CSF.Screenplay.Web.Builders;
-using CSF.Screenplay.Web.Tests.Pages;
+﻿using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
 using FluentAssertions;
 using CSF.Screenplay.NUnit;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Actors;
 using System;
 
-namespace CSF.Screenplay.Web.Tests.Tasks
+namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
   [TestFixture]
   [Description("Entering dates")]

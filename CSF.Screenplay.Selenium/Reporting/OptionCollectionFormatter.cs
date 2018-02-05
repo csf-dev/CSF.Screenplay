@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Reporting;
-using CSF.Screenplay.Web.Models;
+using CSF.Screenplay.Selenium.Models;
 
-namespace CSF.Screenplay.Web.Reporting
+namespace CSF.Screenplay.Selenium.Reporting
 {
   /// <summary>
   /// Formatter for collections of options (as would appear in an HTML <c>select</c> element).

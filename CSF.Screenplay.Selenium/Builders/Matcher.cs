@@ -1,8 +1,8 @@
 ﻿using System;
-using CSF.Screenplay.Web.Queries;
-using CSF.Screenplay.Web.ElementMatching;
+using CSF.Screenplay.Selenium.Queries;
+using CSF.Screenplay.Selenium.ElementMatching;
 
-namespace CSF.Screenplay.Web.Builders
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
   /// A helper type for composing <see cref="IMatcher"/> instances.
