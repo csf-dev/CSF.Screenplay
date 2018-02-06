@@ -2,10 +2,10 @@
 
 SERVER_PORT="8080"
 SERVER_ADDR="127.0.0.1"
-SERVER_WEB_APP="/:Tests/CSF.Screenplay.WebTestWebsite/"
+SERVER_WEB_APP="/:CSF.Screenplay.WebTestWebsite/"
 SERVER_PID=".xsp4.pid"
 APP_HOMEPAGE="http://localhost:8080/Home"
-SECONDS_BETWEEN_CONNECT_ATTEMPTS="2"
+SECONDS_BETWEEN_CONNECT_ATTEMPTS="1"
 MAX_ATTEMPTS="10"
 
 app_available=1
