@@ -2,7 +2,7 @@
 
 NUGET_LATEST_DIST="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 TRAVIS_TEST_CONFIG_SOURCE="CSF.Screenplay.Selenium.Tests/App.Travis.config"
-TEST_CONFIG_DESTINATION="CSF.Screenplay.Selenium.Tests/App.config"
+TEST_CONFIG_DESTINATION="CSF.Screenplay.Selenium.Tests/app.config"
 NUNIT_CONSOLE_VERSION="3.7.0"
 NUGET_PATH=".nuget/nuget.exe"
 
@@ -39,22 +39,12 @@ setup_travis_test_config()
   stop_if_failure $? "Setup Travis configuration"
 }
 
-setup_webdriver_environment_variables()
-{
-  WebDriver_SauceLabsBuildName="$TRAVIS_JOB_NUMBER"
-  WebDriver_TunnelIdentifier="$TRAVIS_JOB_NUMBER"
-  
-}
-
 install_latest_nuget
 echo_nuget_version_to_console
 setup_travis_test_config
-setup_webdriver_environment_variables
 
 export NUGET_PATH
 export NUNIT_CONSOLE_VERSION
-export WebDriver_SauceLabsBuildName
-export WebDriver_TunnelIdentifier
 
 Tools/Install.sh
 
