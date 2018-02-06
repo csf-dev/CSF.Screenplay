@@ -6,17 +6,11 @@ before_build:
 services:
   - iis
 build:
-  project: CSF.Screenplay.sln
+  project: CSF.Screenplay.Selenium.sln
   verbosity: normal
-test:
-  assemblies:
-    except:
-    - '**\CSF.Screenplay.Web.Tests.dll'
-    - '**\CSF.Screenplay.JsonApis.Tests.dll'
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
-    - '**\CSF.Screenplay.NUnit.dll'
+test: off
 artifacts:
-  - path: Tests\CSF.Screenplay.WebTestWebsite
+  - path: CSF.Screenplay.WebTestWebsite
     name: TestWebsite
     type: WebDeployPackage
 deploy:

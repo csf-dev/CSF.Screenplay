@@ -3,8 +3,18 @@
 echo_integration_test_results_to_console()
 {
   cat NUnit.report.txt
-  cat JsonApis.report.txt
 }
+
+setup_webdriver_environment_variables()
+{
+  WebDriver_SauceLabsBuildName="Travis job ${TRAVIS_JOB_NUMBER}; ${WebDriver_BrowserName}"
+  WebDriver_TunnelIdentifier="$TRAVIS_JOB_NUMBER"
+}
+
+setup_webdriver_environment_variables
+
+export WebDriver_SauceLabsBuildName
+export WebDriver_TunnelIdentifier
 
 Tools/Build.sh
 result="$?"

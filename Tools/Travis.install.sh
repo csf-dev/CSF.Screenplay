@@ -1,8 +1,8 @@
 #!/bin/bash
 
 NUGET_LATEST_DIST="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-TRAVIS_TEST_CONFIG_SOURCE="Tests/CSF.Screenplay.Web.Tests/App.Travis.config"
-TEST_CONFIG_DESTINATION="Tests/CSF.Screenplay.Web.Tests/App.config"
+TRAVIS_TEST_CONFIG_SOURCE="CSF.Screenplay.Selenium.Tests/App.Travis.config"
+TEST_CONFIG_DESTINATION="CSF.Screenplay.Selenium.Tests/app.config"
 NUNIT_CONSOLE_VERSION="3.7.0"
 NUGET_PATH=".nuget/nuget.exe"
 
@@ -45,6 +45,7 @@ setup_travis_test_config
 
 export NUGET_PATH
 export NUNIT_CONSOLE_VERSION
+
 Tools/Install.sh
 
 exit $?
