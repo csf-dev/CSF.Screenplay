@@ -12,28 +12,18 @@ addons:
 matrix:
   include:
     - env:
-      - WebDriver_SauceConnectUsername="craigfowler_screenplay"
-      - secure: "KEM9C9xfSGn4ogbmZPNGzGulrl1nGeR7eSaFFvHb1g9Zq8z6J52sf4f3ze372nAHdWI3dp+H//0QgHWYGECGSWS+GSUmQiE0OGQNGLKCHqA2b2rNT5AhrmNFKHVZoOEPZQ4rNvcQ3VOyW4yDb4X7KRTE0nCh0U6BBP3Jo04G0T2YIWP91ZvaGMpyCcFtmjyQlZ/MTMxBdqJ7RtcFs+aUlc2bXh5FGsQA8rnRs7HQccqZF0bUPdCbWpwixCpIT/bB9HSXaihMsnGBQngkq9GCZ0pK/ULJs+IDkPkQpEfFY2ULTUbW32J/59pnR3ggxkjeLAZAjklxIItAPSdPyNGuv5chpSLQ7IfsM0Ee0rfRd1GbsLWHO53gw23b9dMj+UUWj/r675hjLopljXnu3V8UaFf0+MXXGiAAAIGUHN2dnhRGDcsDI7ADpr4nttGRMegxGwYiELsLQO5A1JD7CUGgo0hdsiZSDWeYyySVNR9Cn48lfsIRIDYF4dzBrMNdLNg9Ta+WgsfX64sNJx9OsEGlEIMdadFKPCKQ/g4xBi7k5XHfTTtYntVDhCniASDDgUN5qMYE6EIPL93mpAtufVRa2FrosB6PgU9qmKtWLRh2ECkmlVJ3hwHA9+pPPeyH43/Qa9JElP/YvR1KJ+6jXHPxpxd+T8jiaXYqgDM4kym8y0M="
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Chrome"
     - env:
-      - WebDriver_SauceConnectUsername="craigfowler_screenplay"
-      - secure: "KEM9C9xfSGn4ogbmZPNGzGulrl1nGeR7eSaFFvHb1g9Zq8z6J52sf4f3ze372nAHdWI3dp+H//0QgHWYGECGSWS+GSUmQiE0OGQNGLKCHqA2b2rNT5AhrmNFKHVZoOEPZQ4rNvcQ3VOyW4yDb4X7KRTE0nCh0U6BBP3Jo04G0T2YIWP91ZvaGMpyCcFtmjyQlZ/MTMxBdqJ7RtcFs+aUlc2bXh5FGsQA8rnRs7HQccqZF0bUPdCbWpwixCpIT/bB9HSXaihMsnGBQngkq9GCZ0pK/ULJs+IDkPkQpEfFY2ULTUbW32J/59pnR3ggxkjeLAZAjklxIItAPSdPyNGuv5chpSLQ7IfsM0Ee0rfRd1GbsLWHO53gw23b9dMj+UUWj/r675hjLopljXnu3V8UaFf0+MXXGiAAAIGUHN2dnhRGDcsDI7ADpr4nttGRMegxGwYiELsLQO5A1JD7CUGgo0hdsiZSDWeYyySVNR9Cn48lfsIRIDYF4dzBrMNdLNg9Ta+WgsfX64sNJx9OsEGlEIMdadFKPCKQ/g4xBi7k5XHfTTtYntVDhCniASDDgUN5qMYE6EIPL93mpAtufVRa2FrosB6PgU9qmKtWLRh2ECkmlVJ3hwHA9+pPPeyH43/Qa9JElP/YvR1KJ+6jXHPxpxd+T8jiaXYqgDM4kym8y0M="
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Firefox"
     - env:
-      - WebDriver_SauceConnectUsername="craigfowler_screenplay"
-      - secure: "KEM9C9xfSGn4ogbmZPNGzGulrl1nGeR7eSaFFvHb1g9Zq8z6J52sf4f3ze372nAHdWI3dp+H//0QgHWYGECGSWS+GSUmQiE0OGQNGLKCHqA2b2rNT5AhrmNFKHVZoOEPZQ4rNvcQ3VOyW4yDb4X7KRTE0nCh0U6BBP3Jo04G0T2YIWP91ZvaGMpyCcFtmjyQlZ/MTMxBdqJ7RtcFs+aUlc2bXh5FGsQA8rnRs7HQccqZF0bUPdCbWpwixCpIT/bB9HSXaihMsnGBQngkq9GCZ0pK/ULJs+IDkPkQpEfFY2ULTUbW32J/59pnR3ggxkjeLAZAjklxIItAPSdPyNGuv5chpSLQ7IfsM0Ee0rfRd1GbsLWHO53gw23b9dMj+UUWj/r675hjLopljXnu3V8UaFf0+MXXGiAAAIGUHN2dnhRGDcsDI7ADpr4nttGRMegxGwYiELsLQO5A1JD7CUGgo0hdsiZSDWeYyySVNR9Cn48lfsIRIDYF4dzBrMNdLNg9Ta+WgsfX64sNJx9OsEGlEIMdadFKPCKQ/g4xBi7k5XHfTTtYntVDhCniASDDgUN5qMYE6EIPL93mpAtufVRa2FrosB6PgU9qmKtWLRh2ECkmlVJ3hwHA9+pPPeyH43/Qa9JElP/YvR1KJ+6jXHPxpxd+T8jiaXYqgDM4kym8y0M="
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Internet Explorer"
     - env:
-      - WebDriver_SauceConnectUsername="craigfowler_screenplay"
-      - secure: "KEM9C9xfSGn4ogbmZPNGzGulrl1nGeR7eSaFFvHb1g9Zq8z6J52sf4f3ze372nAHdWI3dp+H//0QgHWYGECGSWS+GSUmQiE0OGQNGLKCHqA2b2rNT5AhrmNFKHVZoOEPZQ4rNvcQ3VOyW4yDb4X7KRTE0nCh0U6BBP3Jo04G0T2YIWP91ZvaGMpyCcFtmjyQlZ/MTMxBdqJ7RtcFs+aUlc2bXh5FGsQA8rnRs7HQccqZF0bUPdCbWpwixCpIT/bB9HSXaihMsnGBQngkq9GCZ0pK/ULJs+IDkPkQpEfFY2ULTUbW32J/59pnR3ggxkjeLAZAjklxIItAPSdPyNGuv5chpSLQ7IfsM0Ee0rfRd1GbsLWHO53gw23b9dMj+UUWj/r675hjLopljXnu3V8UaFf0+MXXGiAAAIGUHN2dnhRGDcsDI7ADpr4nttGRMegxGwYiELsLQO5A1JD7CUGgo0hdsiZSDWeYyySVNR9Cn48lfsIRIDYF4dzBrMNdLNg9Ta+WgsfX64sNJx9OsEGlEIMdadFKPCKQ/g4xBi7k5XHfTTtYntVDhCniASDDgUN5qMYE6EIPL93mpAtufVRa2FrosB6PgU9qmKtWLRh2ECkmlVJ3hwHA9+pPPeyH43/Qa9JElP/YvR1KJ+6jXHPxpxd+T8jiaXYqgDM4kym8y0M="
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="MicrosoftEdge"
     - env:
-      - WebDriver_SauceConnectUsername="craigfowler_screenplay"
-      - secure: "KEM9C9xfSGn4ogbmZPNGzGulrl1nGeR7eSaFFvHb1g9Zq8z6J52sf4f3ze372nAHdWI3dp+H//0QgHWYGECGSWS+GSUmQiE0OGQNGLKCHqA2b2rNT5AhrmNFKHVZoOEPZQ4rNvcQ3VOyW4yDb4X7KRTE0nCh0U6BBP3Jo04G0T2YIWP91ZvaGMpyCcFtmjyQlZ/MTMxBdqJ7RtcFs+aUlc2bXh5FGsQA8rnRs7HQccqZF0bUPdCbWpwixCpIT/bB9HSXaihMsnGBQngkq9GCZ0pK/ULJs+IDkPkQpEfFY2ULTUbW32J/59pnR3ggxkjeLAZAjklxIItAPSdPyNGuv5chpSLQ7IfsM0Ee0rfRd1GbsLWHO53gw23b9dMj+UUWj/r675hjLopljXnu3V8UaFf0+MXXGiAAAIGUHN2dnhRGDcsDI7ADpr4nttGRMegxGwYiELsLQO5A1JD7CUGgo0hdsiZSDWeYyySVNR9Cn48lfsIRIDYF4dzBrMNdLNg9Ta+WgsfX64sNJx9OsEGlEIMdadFKPCKQ/g4xBi7k5XHfTTtYntVDhCniASDDgUN5qMYE6EIPL93mpAtufVRa2FrosB6PgU9qmKtWLRh2ECkmlVJ3hwHA9+pPPeyH43/Qa9JElP/YvR1KJ+6jXHPxpxd+T8jiaXYqgDM4kym8y0M="
       - WebDriver_Platform="OS X 10.11"
       - WebDriver_BrowserName="Safari"
       - WebDriver_BrowserVersion="10.0"
