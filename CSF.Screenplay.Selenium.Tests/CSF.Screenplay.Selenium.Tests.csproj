@@ -82,7 +82,6 @@
     <None Include="app.config" />
     <None Include="App.AppVeyor.config" />
     <None Include="App.Travis.config" />
-    <None Include="SauceConnectWebDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
