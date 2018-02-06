@@ -16,6 +16,7 @@
       <dependency id="Selenium.WebDriver" version="[3.4.0,4.0.0)" />
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
       <dependency id="CSF.Screenplay" version="0.8.0-alpha" />
+      <dependency id="CSF.WebDriverExtras" version="0.3.1-beta" />
     </dependencies>
   </metadata>
   <files>
