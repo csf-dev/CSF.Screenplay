@@ -74,7 +74,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.3.0-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.0.3.1-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +82,6 @@
     <None Include="app.config" />
     <None Include="App.AppVeyor.config" />
     <None Include="App.Travis.config" />
-    <None Include="SauceConnectWebDriverFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
