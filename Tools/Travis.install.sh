@@ -39,12 +39,23 @@ setup_travis_test_config()
   stop_if_failure $? "Setup Travis configuration"
 }
 
+setup_webdriver_environment_variables()
+{
+  WebDriver_SauceLabsBuildName="$TRAVIS_JOB_NUMBER"
+  WebDriver_TunnelIdentifier="$TRAVIS_JOB_NUMBER"
+  
+}
+
 install_latest_nuget
 echo_nuget_version_to_console
 setup_travis_test_config
+setup_webdriver_environment_variables
 
 export NUGET_PATH
 export NUNIT_CONSOLE_VERSION
+export WebDriver_SauceLabsBuildName
+export WebDriver_TunnelIdentifier
+
 Tools/Install.sh
 
 exit $?
