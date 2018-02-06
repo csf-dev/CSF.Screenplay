@@ -1,6 +1,6 @@
 sudo: false
 language: csharp
-solution: CSF.Screenplay.sln
+solution: CSF.Screenplay.Selenium.sln
 
 addons:
   sauce_connect:

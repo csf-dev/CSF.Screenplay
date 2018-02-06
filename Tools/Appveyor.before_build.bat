@@ -2,8 +2,8 @@
 
 git submodule update --init --recursive
 
-nuget restore CSF.Screenplay.sln
+nuget restore CSF.Screenplay.Selenium.sln
 
-copy /y Tests\CSF.Screenplay.Web.Tests\App.AppVeyor.config Tests\CSF.Screenplay.Web.Tests\App.config
+copy /y CSF.Screenplay.Selenium.Tests\App.AppVeyor.config CSF.Screenplay.Selenium.Tests\App.config
 
 @echo off

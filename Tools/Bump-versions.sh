@@ -18,11 +18,6 @@ function bump_nuspec_version()
     \! -path "*/.git/*" \
     -name "*.nuspec" \
     -exec sed -ri "s/<version>[^<]+<\\/version>/<version>${NEW_VERSION}<\\/version>/g" '{}' \;
-  
-  find "$SOLUTION_ROOT" \
-    \! -path "*/.git/*" \
-    -name "*.nuspec" \
-    -exec sed -ri "s/<dependency id=\"CSF\\.(Screenplay\\.?[^\"]*)\" version=\"[^\"]+\" \\/>/<dependency id=\"CSF.\\1\" version=\"${NEW_VERSION}\" \\/>/g" '{}' \;
 }
 
 function bump_solution_version()
