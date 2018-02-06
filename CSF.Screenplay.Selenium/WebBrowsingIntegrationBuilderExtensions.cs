@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Selenium
       builder.ServiceRegistrations.PerScenario.Add(b => {
         b.RegisterDynamicFactory(resolver => {
           var factory = resolver.Resolve<ICreatesWebDriver>(name);
-          var scenario = resolver.Resolve<IScenario>();
+          var scenario = resolver.Resolve<IScenarioName>();
           var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
 
           return factory.CreateWebDriver(flagsProvider: flagsProvider,
@@ -164,7 +164,7 @@ namespace CSF.Screenplay.Selenium
       return new BrowseTheWeb(driver, transformer);
     }
 
-    static string GetHumanReadableName(IScenario scenario) => $"{scenario.FeatureId.Name}: {scenario.ScenarioId.Name}";
+    static string GetHumanReadableName(IScenarioName scenario) => $"{scenario.FeatureId.Name}: {scenario.ScenarioId.Name}";
 
     static Action<IScenario> MarkWebDriverWithOutcome(string name)
     {
