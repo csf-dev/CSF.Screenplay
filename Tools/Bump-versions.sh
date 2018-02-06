@@ -22,7 +22,7 @@ function bump_nuspec_version()
 
 function bump_solution_version()
 {
-  sed -ri "s/version *= *.+/version = ${NEW_VERSION}/g" "$SOLUTION_ROOT/CSF.Screenplay.sln"
+  sed -ri "s/version *= *.+/version = ${NEW_VERSION}/g" "$SOLUTION_ROOT/CSF.Screenplay.Selenium.sln"
   
   find "$SOLUTION_ROOT" \
     \! -path "*/.git/*" \

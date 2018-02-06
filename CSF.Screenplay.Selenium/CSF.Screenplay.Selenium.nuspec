@@ -20,7 +20,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/CSF.Screenplay.Web.dll" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Web.xml" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.Selenium.dll" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.Selenium.xml" target="lib/net45" />
   </files>
 </package>
