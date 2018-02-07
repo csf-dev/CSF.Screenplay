@@ -3,6 +3,7 @@
     "browserName": "Edge",
     "flags": [
       "Browser.CannotClearDomainCookies",
+      "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection",
     ],
   },
 ]
