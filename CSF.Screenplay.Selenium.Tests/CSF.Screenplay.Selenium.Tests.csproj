@@ -74,7 +74,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.3.1-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.0.3.2-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +128,10 @@
     <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
       <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
       <Name>CSF.Screenplay.Selenium</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
+      <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
+      <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

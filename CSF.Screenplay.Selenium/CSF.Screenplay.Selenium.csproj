@@ -55,7 +55,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.3.1-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.0.3.2-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +154,7 @@
     <Compile Include="Models\GeneralWaitBuilder.cs" />
     <Compile Include="Builders\TheVisibility.cs" />
     <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
-    <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
+    <Compile Include="WebDriverIntegrationBuilderExtensions.cs" />
     <Compile Include="Actions\ClearTheContents.cs" />
     <Compile Include="Builders\Clear.cs" />
     <Compile Include="Actions\ExecuteJavaScript.cs" />
@@ -179,11 +179,13 @@
     <Compile Include="Tasks\EnterTheDate.cs" />
     <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
     <Compile Include="Models\InvalidTargetException.cs" />
-    <Compile Include="Flags.cs" />
-    <Compile Include="FlagsPartials\Flags.Browser.cs" />
     <Compile Include="FlagsExtensions.cs" />
-    <Compile Include="FlagRequiredException.cs" />
-    <Compile Include="FlagsPartials\Flags.HtmlElements.cs" />
+    <Compile Include="BrowserFlagException.cs" />
+    <Compile Include="IProvidesFlagsDefinitions.cs" />
+    <Compile Include="FlagsDefinitionProvider.cs" />
+    <Compile Include="UriTransformerIntegrationBuilderExtensions.cs" />
+    <Compile Include="BrowseTheWebIntegrationBuilderExtensions.cs" />
+    <Compile Include="BrowserFlagsIntegrationBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -201,7 +203,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
-    <Folder Include="FlagsPartials\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
@@ -209,6 +210,12 @@
       <LogicalName>Javascripts.resources</LogicalName>
       <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
+      <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
+      <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

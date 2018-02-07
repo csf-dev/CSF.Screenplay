@@ -10,9 +10,9 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium
 {
   /// <summary>
-  /// Extension methods relating to the registration of web-browsing-related services into Screenplay.
+  /// Extension methods relating to the registration of Selenium web drivers for Screenplay.
   /// </summary>
-  public static class WebBrowsingIntegrationBuilderExtensions
+  public static class WebDriverIntegrationBuilderExtensions
   {
     /// <summary>
     /// Registers a <c>ICreatesWebDriver</c> for the creation of web drivers, using WebDriverExtras
@@ -88,80 +88,6 @@ namespace CSF.Screenplay.Selenium
       helper.ServiceRegistrations.PerTestRun.Add(b => {
         b.RegisterFactory(initialiser).AsOwnType().WithName(name);
       });
-    }
-
-    /// <summary>
-    /// Registers a URI transformer into Screenplay. The transformer will be created afresh for every scenario
-    /// in the test run.
-    /// </summary>
-    /// <param name="helper">Helper.</param>
-    /// <param name="factory">Factory.</param>
-    /// <param name="name">Name.</param>
-    public static void UseUriTransformer(this IIntegrationConfigBuilder helper,
-                                         Func<IResolvesServices,IUriTransformer> factory,
-                                              string name = null)
-    {
-      if(helper == null)
-        throw new ArgumentNullException(nameof(helper));
-      if(factory == null)
-        throw new ArgumentNullException(nameof(factory));
-
-      helper.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
-      });
-    }
-
-    /// <summary>
-    /// Registers a URI transformer into Screenplay. The single transformer instance will be shared/reused throughout
-    /// all scenarios in the test run.
-    /// </summary>
-    /// <param name="helper">Helper.</param>
-    /// <param name="transformer">Transformer.</param>
-    /// <param name="name">Name.</param>
-    public static void UseSharedUriTransformer(this IIntegrationConfigBuilder helper,
-                                              IUriTransformer transformer,
-                                              string name = null)
-    {
-      if(helper == null)
-        throw new ArgumentNullException(nameof(helper));
-      if(transformer == null)
-        throw new ArgumentNullException(nameof(transformer));
-
-      helper.ServiceRegistrations.PerTestRun.Add(b => {
-        b.RegisterInstance(transformer).As<IUriTransformer>().WithName(name);
-      });
-    }
-
-    /// <summary>
-    /// Registers the ability to use a web browser with Screenplay.  A fresh ability instance will be created with each
-    /// scenario throughout the test run.
-    /// </summary>
-    /// <param name="helper">Helper.</param>
-    /// <param name="factory">Factory.</param>
-    /// <param name="name">Name.</param>
-    public static void UseWebBrowser(this IIntegrationConfigBuilder helper,
-                                     Func<IResolvesServices,BrowseTheWeb> factory = null,
-                                     string name = null)
-    {
-      if(helper == null)
-        throw new ArgumentNullException(nameof(helper));
-
-      var fac = factory?? CreateWebBrowser;
-
-      helper.ServiceRegistrations.PerScenario.Add(h => {
-        h.RegisterFactory(fac).AsOwnType().WithName(name);
-      });
-    }
-
-    static BrowseTheWeb CreateWebBrowser(IResolvesServices resolver)
-    {
-      if(resolver == null)
-        throw new ArgumentNullException(nameof(resolver));
-
-      var driver = resolver.Resolve<IWebDriver>();
-      var transformer = resolver.TryResolve<IUriTransformer>() ?? NoOpUriTransformer.Default;
-
-      return new BrowseTheWeb(driver, transformer);
     }
 
     static string GetHumanReadableName(IScenarioName scenario) => $"{scenario.FeatureId.Name}: {scenario.ScenarioId.Name}";
