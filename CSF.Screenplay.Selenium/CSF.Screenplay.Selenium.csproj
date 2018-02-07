@@ -181,6 +181,11 @@
     <Compile Include="Models\InvalidTargetException.cs" />
     <Compile Include="FlagsExtensions.cs" />
     <Compile Include="BrowserFlagException.cs" />
+    <Compile Include="IProvidesFlagsDefinitions.cs" />
+    <Compile Include="FlagsDefinitionProvider.cs" />
+    <Compile Include="UriTransformerIntegrationBuilderExtensions.cs" />
+    <Compile Include="BrowseTheWebIntegrationBuilderExtensions.cs" />
+    <Compile Include="BrowserFlagsIntegrationBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

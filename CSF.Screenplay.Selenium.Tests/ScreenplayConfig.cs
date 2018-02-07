@@ -29,6 +29,7 @@ namespace CSF.Screenplay.Selenium.Tests
       builder.UseSharedUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       builder.UseWebDriverFromConfiguration();
       builder.UseWebBrowser();
+      builder.UseBrowserFlags();
     }
 
     void WriteReport(IObjectFormattingService formatter, Report report)
