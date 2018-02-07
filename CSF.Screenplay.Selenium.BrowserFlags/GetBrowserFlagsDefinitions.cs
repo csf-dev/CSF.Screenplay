@@ -79,8 +79,11 @@ namespace CSF.Screenplay.Selenium
 
     #region constructor
 
-    public GetBrowserFlagsDefinitions(IReadsFlagsDefinitions definitionReader = null)
+    public GetBrowserFlagsDefinitions() : this(null) {}
+
+    public GetBrowserFlagsDefinitions(IReadsFlagsDefinitions definitionReader)
     {
+      syncRoot = new object();
       this.definitionReader = definitionReader ?? new DefinitionReader();
     }
 

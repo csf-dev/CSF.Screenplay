@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</ProjectGuid>
+    <ProjectGuid>{87454F03-FBB3-4506-9055-551297445891}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
-    <AssemblyName>CSF.Screenplay.Selenium.BrowserFlags</AssemblyName>
+    <RootNamespace>CSF.Screenplay.Selenium.Tests</RootNamespace>
+    <AssemblyName>CSF.Screenplay.Selenium.BrowserFlags.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>0.1.0-alpha</ReleaseVersion>
   </PropertyGroup>
@@ -18,19 +18,33 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\CSF.Screenplay.Selenium.BrowserFlags.xml</DocumentationFile>
-    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\CSF.Screenplay.Selenium.BrowserFlags.xml</DocumentationFile>
-    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\packages\AutoFixture.3.50.3\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.AutoMoq">
+      <HintPath>..\packages\AutoFixture.AutoMoq.3.50.3\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.NUnit3">
+      <HintPath>..\packages\AutoFixture.NUnit3.3.50.3\lib\net40\Ploeh.AutoFixture.NUnit3.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="CSF.Configuration">
       <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
     </Reference>
@@ -46,35 +60,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Flags.cs" />
-    <Compile Include="Flags.Browser.cs" />
-    <Compile Include="Flags.HtmlElements.cs" />
-    <Compile Include="GetBrowserFlagsDefinitions.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
-    <None Include="CSF.Screenplay.Selenium.BrowserFlags.nuspec" />
+    <None Include="InvalidFlagsDefinition.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Definitions\" />
+    <EmbeddedResource Include="FooBrowser.flags.json">
+      <LogicalName>FooBrowser.flags.json</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Definitions\AppleSafari.flags.json">
-      <LogicalName>AppleSafari.flags.json</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Definitions\GoogleChrome.flags.json">
-      <LogicalName>GoogleChrome.flags.json</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Definitions\InternetExplorer.flags.json">
-      <LogicalName>InternetExplorer.flags.json</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Definitions\MicrosoftEdge.flags.json">
-      <LogicalName>MicrosoftEdge.flags.json</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Definitions\MozillaFirefox.flags.json">
-      <LogicalName>MozillaFirefox.flags.json</LogicalName>
-    </EmbeddedResource>
+    <Compile Include="AutoMoqDataAttribute.cs" />
+    <Compile Include="GetBrowserFlagsDefinitionsTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
+      <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
+      <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,12 +17,11 @@
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
       <dependency id="CSF.Screenplay" version="0.10.0-alpha" />
       <dependency id="CSF.WebDriverExtras" version="0.3.1-beta" />
+      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.1.0-alpha" />
     </dependencies>
   </metadata>
   <files>
     <file src="bin/Release/CSF.Screenplay.Selenium.dll" target="lib/net45" />
     <file src="bin/Release/CSF.Screenplay.Selenium.xml" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Selenium.BrowserFlags.dll" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Selenium.BrowserFlags.xml" target="lib/net45" />
   </files>
 </package>
