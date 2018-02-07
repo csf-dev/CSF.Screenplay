@@ -7,12 +7,21 @@ using CSF.WebDriverExtras.Flags;
 
 namespace CSF.Screenplay.Selenium
 {
+  /// <summary>
+  /// Implementation of <see cref="IProvidesFlagsDefinitions"/> which provides flags definitions from two sources:
+  /// The definitions compiled into the <c>CSF.Screenplay.Selenium.BrowserFlags</c> assembly and also any
+  /// optionally definitions found in a collection of definitions file paths passed in the constructor.
+  /// </summary>
   public class FlagsDefinitionProvider : IProvidesFlagsDefinitions
   {
     readonly IReadsFlagsDefinitions definitionReader;
     readonly IReadOnlyCollection<string> extraDefinitionFilePaths;
     readonly Encoding fileEncoding;
 
+    /// <summary>
+    /// Gets the flags definitions.
+    /// </summary>
+    /// <returns>The flags definitions.</returns>
     public IReadOnlyCollection<FlagsDefinition> GetFlagsDefinitions()
     {
       var baseDefinitions = GetBrowserFlagsDefinitions.FromDefinitionsAssembly();
@@ -72,9 +81,18 @@ namespace CSF.Screenplay.Selenium
       return new FlagsDefinition[0];
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.FlagsDefinitionProvider"/> class.
+    /// </summary>
+    /// <param name="extraDefinitionFilePaths">An optional collection of file paths, each of which contains one or more JSON flags definitions.</param>
     public FlagsDefinitionProvider(params string[] extraDefinitionFilePaths)
       : this(Encoding.UTF8, extraDefinitionFilePaths) { }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.FlagsDefinitionProvider"/> class.
+    /// </summary>
+    /// <param name="fileEncoding">The file encoding for externally-provided definitions files.</param>
+    /// <param name="extraDefinitionFilePaths">An optional collection of file paths, each of which contains one or more JSON flags definitions.</param>
     public FlagsDefinitionProvider(Encoding fileEncoding, params string[] extraDefinitionFilePaths)
     {
       if(fileEncoding == null)

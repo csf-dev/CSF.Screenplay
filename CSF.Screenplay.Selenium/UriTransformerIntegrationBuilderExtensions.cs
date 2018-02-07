@@ -5,6 +5,9 @@ using CSF.Screenplay.Selenium.Abilities;
 
 namespace CSF.Screenplay.Selenium
 {
+  /// <summary>
+  /// Extension methods relating to the registration of URI transformers for Screenplay.
+  /// </summary>
   public static class UriTransformerIntegrationBuilderExtensions
   {
 

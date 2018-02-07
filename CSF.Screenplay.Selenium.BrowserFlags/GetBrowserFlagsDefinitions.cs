@@ -6,6 +6,10 @@ using CSF.WebDriverExtras.Flags;
 
 namespace CSF.Screenplay.Selenium
 {
+  /// <summary>
+  /// Helper type which gets browser flags definitions stored inside an assembly as embedded resources,
+  /// using the resource suffix <c>.flags.json</c>.
+  /// </summary>
   public sealed class GetBrowserFlagsDefinitions
   {
     #region constants
@@ -30,8 +34,17 @@ namespace CSF.Screenplay.Selenium
 
     #region public methods
 
+    /// <summary>
+    /// Gets the browser flags definitions contained within the <c>CSF.Screenplay.Selenium.BrowserFlags</c> assembly.
+    /// </summary>
+    /// <returns>The browser flags definitions.</returns>
     public IReadOnlyCollection<FlagsDefinition> GetDefinitions() => GetDefinitions(ThisAssembly);
 
+    /// <summary>
+    /// Gets the browser flags definitions contained within the given assembly.
+    /// </summary>
+    /// <returns>The browser flags definitions.</returns>
+    /// <param name="assembly">An assembly to search for flags definitions.</param>
     public IReadOnlyCollection<FlagsDefinition> GetDefinitions(Assembly assembly)
     {
       if(assembly == null)
@@ -79,8 +92,15 @@ namespace CSF.Screenplay.Selenium
 
     #region constructor
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.GetBrowserFlagsDefinitions"/> class.
+    /// </summary>
     public GetBrowserFlagsDefinitions() : this(null) {}
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.GetBrowserFlagsDefinitions"/> class.
+    /// </summary>
+    /// <param name="definitionReader">Definition reader.</param>
     public GetBrowserFlagsDefinitions(IReadsFlagsDefinitions definitionReader)
     {
       syncRoot = new object();
@@ -91,6 +111,10 @@ namespace CSF.Screenplay.Selenium
 
     #region static methods
 
+    /// <summary>
+    /// Helper method which gets the flags definitions from the <c>CSF.Screenplay.Selenium.BrowserFlags</c> assembly.
+    /// </summary>
+    /// <returns>The dlags definitions.</returns>
     public static IReadOnlyCollection<FlagsDefinition> FromDefinitionsAssembly()
       => new GetBrowserFlagsDefinitions().GetDefinitions();
 

@@ -5,8 +5,17 @@ using CSF.WebDriverExtras.Flags;
 
 namespace CSF.Screenplay.Selenium
 {
+  /// <summary>
+  /// Extension methods relating to the registration of an implementation <see cref="IGetsBrowserFlags"/> for Screenplay.
+  /// </summary>
   public static class BrowserFlagsIntegrationBuilderExtensions
   {
+    /// <summary>
+    /// Indicates that browser flags are to be taken from the hard-coded default flags, as well as from a collection of
+    /// file paths containing JSON-formatted definitions.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="extraFlagsDefinitionFilePaths">Extra flags definition file paths.</param>
     public static void UseBrowserFlags(this IIntegrationConfigBuilder helper,
                                        params string[] extraFlagsDefinitionFilePaths)
     {
@@ -25,6 +34,11 @@ namespace CSF.Screenplay.Selenium
       });
     }
 
+    /// <summary>
+    /// Uses a given implementation of <see cref="IGetsBrowserFlags"/> for all tests.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="flagsProvider">Flags provider.</param>
     public static void UseBrowserFlags(this IIntegrationConfigBuilder helper,
                                        IGetsBrowserFlags flagsProvider)
     {
@@ -36,6 +50,11 @@ namespace CSF.Screenplay.Selenium
       });
     }
 
+    /// <summary>
+    /// Uses a factory per scenario to get an implementation of <see cref="IGetsBrowserFlags"/>.
+    /// </summary>
+    /// <param name="helper">Helper.</param>
+    /// <param name="flagsProviderFactory">Flags provider factory.</param>
     public static void UseBrowserFlags(this IIntegrationConfigBuilder helper,
                                        Func<IResolvesServices,IGetsBrowserFlags> flagsProviderFactory)
     {

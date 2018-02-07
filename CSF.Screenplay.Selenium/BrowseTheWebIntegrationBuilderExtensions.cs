@@ -6,6 +6,9 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium
 {
+  /// <summary>
+  /// Extension methods relating to the registration of the <see cref="BrowseTheWeb"/> ability for Screenplay.
+  /// </summary>
   public static class BrowseTheWebIntegrationBuilderExtensions
   {
 
