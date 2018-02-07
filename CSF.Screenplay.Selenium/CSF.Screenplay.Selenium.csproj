@@ -154,7 +154,7 @@
     <Compile Include="Models\GeneralWaitBuilder.cs" />
     <Compile Include="Builders\TheVisibility.cs" />
     <Compile Include="Questions\TargettedVisibilityQuestion.cs" />
-    <Compile Include="WebBrowsingIntegrationBuilderExtensions.cs" />
+    <Compile Include="WebDriverIntegrationBuilderExtensions.cs" />
     <Compile Include="Actions\ClearTheContents.cs" />
     <Compile Include="Builders\Clear.cs" />
     <Compile Include="Actions\ExecuteJavaScript.cs" />

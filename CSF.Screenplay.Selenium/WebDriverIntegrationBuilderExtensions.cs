@@ -10,9 +10,9 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium
 {
   /// <summary>
-  /// Extension methods relating to the registration of web-browsing-related services into Screenplay.
+  /// Extension methods relating to the registration of Selenium web drivers for Screenplay.
   /// </summary>
-  public static class WebBrowsingIntegrationBuilderExtensions
+  public static class WebDriverIntegrationBuilderExtensions
   {
     /// <summary>
     /// Registers a <c>ICreatesWebDriver</c> for the creation of web drivers, using WebDriverExtras
