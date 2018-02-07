@@ -179,11 +179,8 @@
     <Compile Include="Tasks\EnterTheDate.cs" />
     <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
     <Compile Include="Models\InvalidTargetException.cs" />
-    <Compile Include="Flags.cs" />
-    <Compile Include="FlagsPartials\Flags.Browser.cs" />
     <Compile Include="FlagsExtensions.cs" />
     <Compile Include="FlagRequiredException.cs" />
-    <Compile Include="FlagsPartials\Flags.HtmlElements.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -201,7 +198,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
-    <Folder Include="FlagsPartials\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
@@ -209,6 +205,12 @@
       <LogicalName>Javascripts.resources</LogicalName>
       <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
+      <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
+      <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

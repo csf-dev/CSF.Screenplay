@@ -1,0 +1,8 @@
+﻿[
+  {
+    "browserName": "Firefox",
+    "flags": [
+      "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
+    ],
+  },
+]

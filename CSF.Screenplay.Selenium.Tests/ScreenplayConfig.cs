@@ -31,23 +31,6 @@ namespace CSF.Screenplay.Selenium.Tests
       builder.UseWebBrowser();
     }
 
-    // TODO: #3 - Extend the below into flags
-    //void ConfigureBrowserCapabilities(BrowseTheWeb ability, IWebDriverFactory factory)
-    //{
-    //  var browserName = factory.GetBrowserName();
-
-    //  ability.AddCapabilityExceptWhereUnsupported(Capabilities.ClearDomainCookies,
-    //                                              browserName,
-    //                                              BrowserName.Edge);
-    //  ability.AddCapabilityWhereSupported(Capabilities.EnterDatesInLocaleFormat,
-    //                                      browserName,
-    //                                      BrowserName.Chrome);
-    //  ability.AddCapabilityExceptWhereUnsupported(Capabilities.EnterDatesAsIsoStrings,
-    //                                              browserName,
-    //                                              BrowserName.Chrome,
-    //                                              BrowserName.Edge);
-    //}
-
     void WriteReport(IObjectFormattingService formatter, Report report)
     {
       var path = "NUnit.report.txt";

@@ -1,0 +1,8 @@
+﻿[
+  {
+    "browserName": "Safari",
+    "flags": [
+      "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
+    ],
+  },
+]
