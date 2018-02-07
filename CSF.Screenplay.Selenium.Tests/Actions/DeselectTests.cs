@@ -20,8 +20,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
-                        BrowserName.Edge);
+      // https://github.com/SeleniumHQ/selenium/issues/4490
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
+                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -36,8 +37,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
-                        BrowserName.Edge);
+      // https://github.com/SeleniumHQ/selenium/issues/4490
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
+                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -52,8 +54,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
-                        BrowserName.Edge);
+      // https://github.com/SeleniumHQ/selenium/issues/4490
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
+                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -68,8 +71,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      IgnoreOn.Browsers("Deselecting items from a multi-select is broken in Edge.  https://github.com/SeleniumHQ/selenium/issues/4490",
-                        BrowserName.Edge);
+      // https://github.com/SeleniumHQ/selenium/issues/4490
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
+                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

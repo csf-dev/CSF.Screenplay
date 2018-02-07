@@ -20,8 +20,8 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      IgnoreOn.Browsers("Clearing dates is now broken in Firefox.  https://github.com/csf-dev/CSF.Screenplay/issues/109",
-                        BrowserName.Firefox);
+      // https://github.com/csf-dev/CSF.Screenplay/issues/109
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.InputTypeDate.CannotClearDateInteractively);
 
       var date = new DateTime(2012, 5, 6);
       var expectedString = date.ToString("yyyy-MM-dd");

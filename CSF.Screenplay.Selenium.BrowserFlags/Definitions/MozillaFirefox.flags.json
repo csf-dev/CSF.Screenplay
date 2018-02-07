@@ -3,6 +3,7 @@
     "browserName": "Firefox",
     "flags": [
       "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
+      "HtmlElements.InputTypeDate.CannotClearDateInteractively",
     ],
   },
 ]
