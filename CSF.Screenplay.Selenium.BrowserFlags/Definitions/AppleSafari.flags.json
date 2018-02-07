@@ -3,6 +3,7 @@
     "browserName": "Safari",
     "flags": [
       "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
+      "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection",
     ],
   },
 ]

@@ -23,6 +23,32 @@ namespace CSF.Screenplay.Selenium
         /// Indicates that the web driver may be used to enter a date using an ISO date string: <c>yyyy-MM-dd</c>.
         /// </summary>
         public static readonly string CanEnterUsingIsoFormat = "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat";
+
+        /// <summary>
+        /// Indicates that the web driver may not perform a 'clear' action upon HTML5 date elements.
+        /// Instead the web driver would have to use an alternative mechanism of clearing the value.
+        /// </summary>
+        public static readonly string CannotClearDateInteractively = "HtmlElements.InputTypeDate.CannotClearDateInteractively";
+      }
+
+      /// <summary>
+      /// Flags relating to HTML <c>&lt;select multiple&gt;</c> elements.
+      /// </summary>
+      public static class SelectMultiple
+      {
+        /// <summary>
+        /// Indicates that the web driver must send <c>Ctrl+Click</c> in order to toggle the selection of a single
+        /// option within the select element.  Without Ctrl, the click is interpreted as "change entire selection to just
+        /// the one option clicked".
+        /// </summary>
+        public static readonly string RequiresCtrlClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection";
+
+        /// <summary>
+        /// Indicates that the web driver must send <c>Command+Click</c> (Command key = Mac) in order to
+        /// toggle the selection of a single option within the select element.  Without Command, the click
+        /// is interpreted as "change entire selection to just the one option clicked".
+        /// </summary>
+        public static readonly string RequiresCommandClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection";
       }
     }
   }

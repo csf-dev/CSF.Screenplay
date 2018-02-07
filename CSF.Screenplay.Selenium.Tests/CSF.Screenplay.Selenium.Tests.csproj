@@ -103,7 +103,6 @@
     <Compile Include="Waits\WaitUntilVisibleTests.cs" />
     <Compile Include="Actions\TargetNotFoundTests.cs" />
     <Compile Include="NUnitIntegrationTests.cs" />
-    <Compile Include="IgnoreOn.cs" />
     <Compile Include="BrowserName.cs" />
     <Compile Include="Waits\GeneralWaitTests.cs" />
     <Compile Include="CastExtensions.cs" />
@@ -115,6 +114,7 @@
     <Compile Include="Tasks\NavigateToNewPageByClickingTests.cs" />
     <Compile Include="Actions\ClearCookiesTests.cs" />
     <Compile Include="Tasks\EnterTheDateTests.cs" />
+    <Compile Include="Ignore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
