@@ -180,7 +180,7 @@
     <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
     <Compile Include="Models\InvalidTargetException.cs" />
     <Compile Include="FlagsExtensions.cs" />
-    <Compile Include="FlagRequiredException.cs" />
+    <Compile Include="BrowserFlagException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

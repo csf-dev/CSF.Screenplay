@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Selenium
         throw new ArgumentNullException(nameof(flagName));
 
       if(!webDriver.HasFlag(flagName))
-        throw new FlagRequiredException($"The flag '{flagName}' is required but the current web driver does not possess it.");
+        throw new BrowserFlagException($"The flag '{flagName}' is required but the current web driver does not possess it.");
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Selenium
         throw new ArgumentNullException(nameof(flagName));
 
       if(webDriver.HasFlag(flagName))
-        throw new FlagRequiredException($"The flag '{flagName}' must not be present but the current web driver possesses it.");
+        throw new BrowserFlagException($"The flag '{flagName}' must not be present but the current web driver possesses it.");
     }
   }
 }
