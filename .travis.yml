@@ -14,19 +14,63 @@ matrix:
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Chrome"
+      - WebDriver_BrowserVersion="56.0"
+    - env:
+      - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="Chrome"
+      - WebDriver_BrowserVersion="latest"
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Firefox"
+      - WebDriver_BrowserVersion="51.0"
     - env:
       - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="Firefox"
+      - WebDriver_BrowserVersion="latest"
+    - env:
+      - WebDriver_Platform="Windows 7"
       - WebDriver_BrowserName="Internet Explorer"
+      - WebDriver_BrowserVersion="8.0"
+    - env:
+      - WebDriver_Platform="Windows 7"
+      - WebDriver_BrowserName="Internet Explorer"
+      - WebDriver_BrowserVersion="9.0"
+    - env:
+      - WebDriver_Platform="Windows 7"
+      - WebDriver_BrowserName="Internet Explorer"
+      - WebDriver_BrowserVersion="10.0"
+    - env:
+      - WebDriver_Platform="Windows 7"
+      - WebDriver_BrowserName="Internet Explorer"
+      - WebDriver_BrowserVersion="11.0"
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="MicrosoftEdge"
+      - WebDriver_BrowserVersion="13.10586"
+    - env:
+      - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="MicrosoftEdge"
+      - WebDriver_BrowserVersion="14.14393"
+    - env:
+      - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="MicrosoftEdge"
+      - WebDriver_BrowserVersion="15.15063"
+    - env:
+      - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="MicrosoftEdge"
+      - WebDriver_BrowserVersion="16.16299"
     - env:
       - WebDriver_Platform="OS X 10.11"
       - WebDriver_BrowserName="Safari"
       - WebDriver_BrowserVersion="10.0"
+    - env:
+      - WebDriver_Platform="macOS 10.12"
+      - WebDriver_BrowserName="Safari"
+      - WebDriver_BrowserVersion="10.1"
+    - env:
+      - WebDriver_Platform="macOS 10.13"
+      - WebDriver_BrowserName="Safari"
+      - WebDriver_BrowserVersion="11.0"
 
 install: Tools/Travis.install.sh
 
