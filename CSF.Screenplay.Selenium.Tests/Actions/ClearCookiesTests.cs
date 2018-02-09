@@ -19,9 +19,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      var ability = joe.GetAbility<BrowseTheWeb>();
-      if(ability.FlagsDriver.HasFlag(Flags.Browser.CannotClearDomainCookies))
-        Assert.Ignore("Joe is using a web browser which is not capable of clearing domain cookies");
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.Browser.CannotClearDomainCookies);
 
       Given(joe).WasAbleTo(new EnterTextIntoThePageTwoInputField("Some text"));
 
