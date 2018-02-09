@@ -44,32 +44,13 @@ namespace CSF.Selenium.Support.UI
   /// </summary>
   public class SelectElement : IWrapsElement
   {
-    private readonly IWebElement element;
+    #region fields
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="SelectElement"/> class.
-    /// </summary>
-    /// <param name="element">The element to be wrapped</param>
-    /// <exception cref="ArgumentNullException">Thrown when the <see cref="IWebElement"/> object is <see langword="null"/></exception>
-    /// <exception cref="UnexpectedTagNameException">Thrown when the element wrapped is not a &lt;select&gt; element.</exception>
-    public SelectElement(IWebElement element)
-    {
-      if (element == null)
-      {
-        throw new ArgumentNullException("element", "element cannot be null");
-      }
+    readonly IWebElement element;
 
-      if (string.IsNullOrEmpty(element.TagName) || string.Compare(element.TagName, "select", StringComparison.OrdinalIgnoreCase) != 0)
-      {
-        throw new UnexpectedTagNameException("select", element.TagName);
-      }
+    #endregion
 
-      this.element = element;
-
-      // let check if it's a multiple
-      string attribute = element.GetAttribute("multiple");
-      this.IsMultiple = attribute != null && attribute.ToLowerInvariant() != "false";
-    }
+    #region properties
 
     /// <summary>
     /// Gets the <see cref="IWebElement"/> wrapped by this object.
@@ -135,6 +116,10 @@ namespace CSF.Selenium.Support.UI
         return returnValue;
       }
     }
+
+    #endregion
+
+    #region methods
 
     /// <summary>
     /// Select all options by the text displayed.
@@ -378,7 +363,69 @@ namespace CSF.Selenium.Support.UI
       throw new NoSuchElementException("Cannot locate option with index: " + index);
     }
 
-    private static string EscapeQuotes(string toEscape)
+    /// <summary>
+    /// Sets the selected state of the given option.
+    /// </summary>
+    /// <param name="option">The option element for which to set selection state.</param>
+    /// <param name="select">If set to <c>true</c> then the state will be set to 'selected'; if <c>false</c> then deselected.</param>
+    protected virtual void SetSelected(IWebElement option, bool select)
+    {
+      if(option == null)
+        throw new ArgumentNullException(nameof(option));
+
+      bool isSelected = option.Selected;
+      if ((!isSelected && select) || (isSelected && !select))
+      {
+        ToggleSelectedState(option);
+      }
+    }
+
+    /// <summary>
+    /// Toggles the selected/deselected state of the given option element.
+    /// </summary>
+    /// <param name="option">The option element for which to toggle the selection state.</param>
+    protected virtual void ToggleSelectedState(IWebElement option)
+    {
+      if(option == null)
+        throw new ArgumentNullException(nameof(option));
+
+      option.Click();
+    }
+
+    #endregion
+
+    #region constructor
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SelectElement"/> class.
+    /// </summary>
+    /// <param name="element">The element to be wrapped</param>
+    /// <exception cref="ArgumentNullException">Thrown when the <see cref="IWebElement"/> object is <see langword="null"/></exception>
+    /// <exception cref="UnexpectedTagNameException">Thrown when the element wrapped is not a &lt;select&gt; element.</exception>
+    public SelectElement(IWebElement element)
+    {
+      if (element == null)
+      {
+        throw new ArgumentNullException("element", "element cannot be null");
+      }
+
+      if (string.IsNullOrEmpty(element.TagName) || string.Compare(element.TagName, "select", StringComparison.OrdinalIgnoreCase) != 0)
+      {
+        throw new UnexpectedTagNameException("select", element.TagName);
+      }
+
+      this.element = element;
+
+      // let check if it's a multiple
+      string attribute = element.GetAttribute("multiple");
+      this.IsMultiple = attribute != null && attribute.ToLowerInvariant() != "false";
+    }
+
+    #endregion
+
+    #region static methods
+
+    static string EscapeQuotes(string toEscape)
     {
       // Convert strings with both quotes and ticks into: foo'"bar -> concat("foo'", '"', "bar")
       if (toEscape.IndexOf("\"", StringComparison.OrdinalIgnoreCase) > -1 && toEscape.IndexOf("'", StringComparison.OrdinalIgnoreCase) > -1)
@@ -433,7 +480,7 @@ namespace CSF.Selenium.Support.UI
       return string.Format(CultureInfo.InvariantCulture, "\"{0}\"", toEscape);
     }
 
-    private static string GetLongestSubstringWithoutSpace(string s)
+    static string GetLongestSubstringWithoutSpace(string s)
     {
       string result = string.Empty;
       string[] substrings = s.Split(' ');
@@ -448,13 +495,7 @@ namespace CSF.Selenium.Support.UI
       return result;
     }
 
-    private static void SetSelected(IWebElement option, bool select)
-    {
-      bool isSelected = option.Selected;
-      if ((!isSelected && select) || (isSelected && !select))
-      {
-        option.Click();
-      }
-    }
+    #endregion
+
   }
 }
