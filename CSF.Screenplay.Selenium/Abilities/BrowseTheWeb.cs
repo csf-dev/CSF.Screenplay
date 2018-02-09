@@ -47,7 +47,7 @@ namespace CSF.Screenplay.Selenium.Abilities
     /// <param name="actor">Actor.</param>
     protected override string GetReport(Actors.INamed actor)
     {
-      return $"{actor.Name} is able to browse the web.";
+      return $"{actor.Name} is able to browse the web using {WebDriver.GetIdentification().ToString()}";
     }
 
     /// <summary>
