@@ -56,7 +56,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.3.2-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.0.3.3-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
