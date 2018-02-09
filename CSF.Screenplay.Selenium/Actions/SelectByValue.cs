@@ -2,9 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Models;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Extensions;
-using OpenQA.Selenium.Support.UI;
+using CSF.Selenium.Support.UI;
 
 namespace CSF.Screenplay.Selenium.Actions
 {

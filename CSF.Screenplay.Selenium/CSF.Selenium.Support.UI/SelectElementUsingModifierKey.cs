@@ -31,8 +31,8 @@ namespace CSF.Selenium.Support.UI
 {
   /// <summary>
   /// Specialisation of <see cref="SelectElement"/> which makes use of a modifier key in order to
-  /// toggle the selection state of an option inside the select element.  Thus, the web driver will
-  /// send a modifier-key-click instead of just a plain click.
+  /// toggle the selection state of an option inside the select element when that select element
+  /// allows multiple options to be selected.
   /// </summary>
   /// <remarks>
   /// <para>
@@ -54,6 +54,12 @@ namespace CSF.Selenium.Support.UI
     /// <param name="option">The option element for which to toggle the selection state.</param>
     protected override void ToggleSelectedState(IWebElement option)
     {
+      if(!IsMultiple)
+      {
+        base.ToggleSelectedState(option);
+        return;
+      }
+
       new Actions(driver)
         .KeyDown(modifierKey)
         .Click(option)
