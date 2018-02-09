@@ -60,6 +60,10 @@ matrix:
       - WebDriver_BrowserName="MicrosoftEdge"
       - WebDriver_BrowserVersion="16.16299"
     - env:
+      - WebDriver_Platform="Windows 10"
+      - WebDriver_BrowserName="MicrosoftEdge"
+      - WebDriver_BrowserVersion="latest"
+    - env:
       - WebDriver_Platform="OS X 10.11"
       - WebDriver_BrowserName="Safari"
       - WebDriver_BrowserVersion="10.0"
@@ -71,6 +75,9 @@ matrix:
       - WebDriver_Platform="macOS 10.13"
       - WebDriver_BrowserName="Safari"
       - WebDriver_BrowserVersion="11.0"
+    - env:
+      - WebDriver_BrowserName="Safari"
+      - WebDriver_BrowserVersion="latest"
 
 install: Tools/Travis.install.sh
 
