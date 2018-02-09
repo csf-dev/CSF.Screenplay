@@ -20,10 +20,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      // https://github.com/SeleniumHQ/selenium/issues/4490
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
-                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
-
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       When(joe).AttemptsTo(Deselect.EverythingFrom(PageTwo.MultiSelectionList));
@@ -36,10 +32,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     public void DeselectByIndex_leaves_one_item_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
-
-      // https://github.com/SeleniumHQ/selenium/issues/4490
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
-                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -54,10 +46,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      // https://github.com/SeleniumHQ/selenium/issues/4490
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
-                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
-
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       When(joe).AttemptsTo(Deselect.Item("Steak").From(PageTwo.MultiSelectionList));
@@ -70,10 +58,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     public void DeselectByValue_leaves_one_item_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
     {
       var joe = cast.GetJoe(webBrowserFactory);
-
-      // https://github.com/SeleniumHQ/selenium/issues/4490
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
-                                                             Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
