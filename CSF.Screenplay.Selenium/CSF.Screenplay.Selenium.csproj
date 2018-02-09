@@ -187,6 +187,7 @@
     <Compile Include="BrowseTheWebIntegrationBuilderExtensions.cs" />
     <Compile Include="BrowserFlagsIntegrationBuilderExtensions.cs" />
     <Compile Include="CSF.Selenium.Support.UI\SelectElement.cs" />
+    <Compile Include="CSF.Selenium.Support.UI\SelectElementUsingModifierKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
