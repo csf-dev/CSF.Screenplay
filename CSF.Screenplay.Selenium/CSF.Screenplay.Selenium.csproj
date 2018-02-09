@@ -186,10 +186,13 @@
     <Compile Include="UriTransformerIntegrationBuilderExtensions.cs" />
     <Compile Include="BrowseTheWebIntegrationBuilderExtensions.cs" />
     <Compile Include="BrowserFlagsIntegrationBuilderExtensions.cs" />
+    <Compile Include="CSF.Selenium.Support.UI\SelectElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.Selenium.nuspec" />
+    <None Include="CSF.Selenium.Support.UI\NOTICE" />
+    <None Include="CSF.Selenium.Support.UI\CHANGELOG" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actions\" />
@@ -203,6 +206,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
+    <Folder Include="CSF.Selenium.Support.UI\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
