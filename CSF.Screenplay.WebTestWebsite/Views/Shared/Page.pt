@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html metal:define-macro="page">
 <head metal:define-slot="head">
 <title metal:define-slot="pageTitle">Page title</title>

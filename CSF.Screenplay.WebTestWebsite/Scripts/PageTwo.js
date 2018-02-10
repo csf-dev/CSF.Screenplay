@@ -1,29 +1,52 @@
 (function(window, $, undefined) {
   'use strict';
-  
+
   var
-    specialInputField = $('.special_text input'),
+    specialInputField,
+    scriptOutput,
+    singleSelection,
+    singleSelectionValue,
+    multiSelection,
+    multiSelectionValue,
+    dateInput,
+    dateOutput;
+
+  function setupElements()
+  {
+    specialInputField = $('.special_text input');
     scriptOutput = $('#ScriptOutput');
-  
-  specialInputField.on('keyup', function() {
-    if(specialInputField.val() === 'The right value')
-    {
-      $('#dynamic_value').text('different value');
-    }
-    else
-    {
-      $('#dynamic_value').text('dynamic value');
-    }
-  });
-  
-  var
-    singleSelection = $('#single_selection'),
-    singleSelectionValue = $('#single_selected_value'),
-    multiSelection = $('#multiple_selection'),
-    multiSelectionValue = $('#multiple_selected_value'),
-    dateInput = $('#DateInput'),
+    
+    specialInputField.on('keyup', function() {
+      if(specialInputField.val() === 'The right value')
+      {
+        $('#dynamic_value').text('different value');
+      }
+      else
+      {
+        $('#dynamic_value').text('dynamic value');
+      }
+    });
+    
+    singleSelection = $('#single_selection');
+    singleSelectionValue = $('#single_selected_value');
+    multiSelection = $('#multiple_selection');
+    multiSelectionValue = $('#multiple_selected_value');
+    dateInput = $('#DateInput');
     dateOutput = $('#DateOutput');
-  
+
+    singleSelection.on('change click', function() {
+      recalculateSelections(singleSelection, singleSelectionValue);
+    });
+      
+    multiSelection.on('change click', function() {
+      recalculateSelections(multiSelection, multiSelectionValue);
+    });
+
+    dateInput.on('change click keyup', function() {
+      dateOutput.text(dateInput.val());
+    });
+  }
+
   function recalculateSelections(selection, value)
   {
     var val = selection.val();
@@ -33,19 +56,7 @@
     else
       value.text(val);
   }
-  
-  singleSelection.on('change click', function() {
-    recalculateSelections(singleSelection, singleSelectionValue);
-  });
-    
-  multiSelection.on('change click', function() {
-    recalculateSelections(multiSelection, multiSelectionValue);
-  });
 
-  dateInput.on('change click keyup', function() {
-    dateOutput.text(dateInput.val());
-  })
-  
   function addCallableScripts()
   {
     window.myCallableScript = function()
@@ -71,6 +82,8 @@
   
   function init()
   {
+    setupElements();
+
     recalculateSelections(singleSelection, singleSelectionValue);
     recalculateSelections(multiSelection, multiSelectionValue);
     addCallableScripts();
