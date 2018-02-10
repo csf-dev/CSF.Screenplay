@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html metal:use-macro="Views/Shared/Page.pt/macros/page">
 <head>
 <title metal:fill-slot="pageTitle">App home page</title>
