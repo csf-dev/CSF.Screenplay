@@ -44,9 +44,10 @@ namespace CSF.Screenplay.Selenium
         public static readonly string RequiresCtrlClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection";
 
         /// <summary>
-        /// Indicates that the web driver must send <c>Command+Click</c> (Command key = Mac) in order to
-        /// toggle the selection of a single option within the select element.  Without Command, the click
-        /// is interpreted as "change entire selection to just the one option clicked".
+        /// Indicates that the web driver must send <c>Command+Click</c> in order to toggle the selection of a single
+        /// option within the select element.  The Command key is the Mac command/logo key, equivalent to the
+        /// Windows logo key.  It is sometimes called "Meta" or "Super" as well.
+        /// Without Command, the click is interpreted as "change entire selection to just the one option clicked".
         /// </summary>
         public static readonly string RequiresCommandClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection";
       }
