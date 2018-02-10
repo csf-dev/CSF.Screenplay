@@ -43,10 +43,12 @@ matrix:
       - WebDriver_Platform="Windows 7"
       - WebDriver_BrowserName="Internet Explorer"
       - WebDriver_BrowserVersion="11.0"
-    - env:
-      - WebDriver_Platform="Windows 10"
-      - WebDriver_BrowserName="MicrosoftEdge"
-      - WebDriver_BrowserVersion="13.10586"
+# Build & test on Edge 13 disabled due to issue #23
+# This means that currently Screenplay.Selenium does not support this browser.
+#    - env:
+#      - WebDriver_Platform="Windows 10"
+#      - WebDriver_BrowserName="MicrosoftEdge"
+#      - WebDriver_BrowserVersion="13.10586"
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="MicrosoftEdge"
