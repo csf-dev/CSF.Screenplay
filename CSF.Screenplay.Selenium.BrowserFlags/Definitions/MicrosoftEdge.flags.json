@@ -1,14 +1,6 @@
 ﻿[
   {
     "browserName": "MicrosoftEdge",
-    "maxVersion": "14",
-    "flags": [
-      "Browser.CannotClearDomainCookies",
-    ],
-  },
-  {
-    "browserName": "MicrosoftEdge",
-    "minVersion": "14",
     "flags": [
       "Browser.CannotClearDomainCookies",
       "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection",
