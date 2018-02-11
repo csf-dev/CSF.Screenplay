@@ -13,6 +13,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Selenium.Bro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Selenium.BrowserFlags.Tests", "CSF.Screenplay.Selenium.BrowserFlags.Tests\CSF.Screenplay.Selenium.BrowserFlags.Tests.csproj", "{87454F03-FBB3-4506-9055-551297445891}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{FAAE73BB-A33C-4A8D-8B86-99E0482D8667}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\Appveyor.after_deploy.bat = Tools\Appveyor.after_deploy.bat
+		Tools\Appveyor.before_build.bat = Tools\Appveyor.before_build.bat
+		Tools\Build.sh = Tools\Build.sh
+		Tools\Bump-versions.sh = Tools\Bump-versions.sh
+		Tools\Create-NuGet-packages.sh = Tools\Create-NuGet-packages.sh
+		Tools\Install.sh = Tools\Install.sh
+		Tools\Start-webserver.sh = Tools\Start-webserver.sh
+		Tools\Stop-webserver.sh = Tools\Stop-webserver.sh
+		Tools\Travis.build.sh = Tools\Travis.build.sh
+		Tools\Travis.install.sh = Tools\Travis.install.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

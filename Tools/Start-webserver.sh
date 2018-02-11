@@ -6,7 +6,7 @@ SERVER_WEB_APP="/:CSF.Screenplay.WebTestWebsite/"
 SERVER_PID=".xsp4.pid"
 APP_HOMEPAGE="http://localhost:8080/Home"
 SECONDS_BETWEEN_CONNECT_ATTEMPTS="1"
-MAX_ATTEMPTS="10"
+MAX_ATTEMPTS="4"
 
 app_available=1
 
@@ -63,5 +63,12 @@ try_web_app_connection()
 stop_if_already_started
 start_webserver
 wait_for_app_to_become_available
+
+if [ "$app_available" -ne "0" ]
+then
+  echo "ERROR: Web application did not come up after $MAX_ATTEMPTS attempt(s)"
+  echo "The webserver is still running, you may attempt to diagnose the problem at:"
+  echo "  $APP_HOMEPAGE"
+fi
 
 exit "$app_available"
