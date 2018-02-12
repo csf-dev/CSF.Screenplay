@@ -6,4 +6,11 @@
       "HtmlElements.InputTypeDate.CannotClearDateInteractively",
     ],
   },
+  {
+    "browserName": "Firefox",
+    "maxVersion": "53.0",
+    "flags": [
+      "HtmlElements.Select.CannotReadOptionIndexes",
+    ],
+  },
 ]

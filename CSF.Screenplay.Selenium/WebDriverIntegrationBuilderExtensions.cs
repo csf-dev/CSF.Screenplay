@@ -101,13 +101,10 @@ namespace CSF.Screenplay.Selenium
         var webDriver = scenario.DiContainer.TryResolve<IWebDriver>(name);
         if(webDriver == null) return;
 
-        var receivesStatus = webDriver as ICanReceiveScenarioStatus;
+        var receivesStatus = webDriver as ICanReceiveScenarioOutcome;
         if(receivesStatus == null) return;
 
-        if(success)
-          receivesStatus.MarkScenarioAsSuccess();
-        else
-          receivesStatus.MarkScenarioAsFailure();
+        receivesStatus.MarkScenarioWithOutcome(success);
       };
     }
   }

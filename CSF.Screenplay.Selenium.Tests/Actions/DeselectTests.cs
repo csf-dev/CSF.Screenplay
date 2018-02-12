@@ -35,7 +35,10 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection);
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(
+        Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection,
+        Flags.HtmlElements.Select.CannotReadOptionIndexes
+      );
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 

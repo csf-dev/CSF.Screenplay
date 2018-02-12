@@ -51,6 +51,17 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         public static readonly string RequiresCommandClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection";
       }
+
+      /// <summary>
+      /// Flags relating to HTML <c>&lt;select&gt;</c> elements.
+      /// </summary>
+      public static class Select
+      {
+        /// <summary>
+        /// Indicates that the browser cannot read the zero-based index of individual options.
+        /// </summary>
+        public static readonly string CannotReadOptionIndexes = "HtmlElements.Select.CannotReadOptionIndexes";
+      }
     }
   }
 }

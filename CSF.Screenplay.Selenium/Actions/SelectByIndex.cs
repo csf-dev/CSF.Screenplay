@@ -33,6 +33,8 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <param name="select">The select element</param>
     protected override void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element, SelectElement select)
     {
+      ability.FlagsDriver.ThrowOnFlag(Flags.HtmlElements.Select.CannotReadOptionIndexes);
+
       select.SelectByIndex(index);
     }
 
