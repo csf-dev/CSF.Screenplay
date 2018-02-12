@@ -54,9 +54,6 @@ namespace CSF.Screenplay.Selenium.Actions
     {
       var webElement = element.GetUnderlyingElement();
 
-      if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection))
-        return new SelectElementUsingModifierKey(webElement, Keys.Command, ability.WebDriver);
-
       if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection))
         return new SelectElementUsingModifierKey(webElement, Keys.Control, ability.WebDriver);
 
