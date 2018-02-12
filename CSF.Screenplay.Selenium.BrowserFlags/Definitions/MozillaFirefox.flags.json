@@ -10,7 +10,7 @@
     "browserName": "Firefox",
     "maxVersion": "53.0",
     "flags": [
-      "HtmlElements.Select.CannotSelectOrDeselectByIndex",
+      "HtmlElements.Select.CannotReadOptionIndexes",
     ],
   },
 ]
