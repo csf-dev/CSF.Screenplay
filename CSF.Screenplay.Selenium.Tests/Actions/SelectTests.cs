@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotSelectOrDeselectByIndex);
+      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotReadOptionIndexes);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
