@@ -42,14 +42,6 @@ namespace CSF.Screenplay.Selenium
         /// the one option clicked".
         /// </summary>
         public static readonly string RequiresCtrlClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection";
-
-        /// <summary>
-        /// Indicates that the web driver must send <c>Command+Click</c> in order to toggle the selection of a single
-        /// option within the select element.  The Command key is the Mac command/logo key, equivalent to the
-        /// Windows logo key.  It is sometimes called "Meta" or "Super" as well.
-        /// Without Command, the click is interpreted as "change entire selection to just the one option clicked".
-        /// </summary>
-        public static readonly string RequiresCommandClickToToggleOptionSelection = "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection";
       }
 
       /// <summary>
@@ -61,6 +53,12 @@ namespace CSF.Screenplay.Selenium
         /// Indicates that the browser cannot read the zero-based index of individual options.
         /// </summary>
         public static readonly string CannotReadOptionIndexes = "HtmlElements.Select.CannotReadOptionIndexes";
+
+        /// <summary>
+        /// Indicates that the browser is completely unable to change the selection state of an HTML <c>&lt;select&gt;</c>
+        /// element.
+        /// </summary>
+        public static readonly string CannotChangeState = "HtmlElements.Select.CannotChangeState";
       }
     }
   }

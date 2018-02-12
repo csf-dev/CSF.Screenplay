@@ -9,7 +9,7 @@
     "browserName": "Safari",
     "minVersion": "11",
     "flags": [
-      "HtmlElements.SelectMultiple.RequiresCommandClickToToggleOptionSelection",
+      "HtmlElements.Select.CannotChangeState",
     ],
   },
 ]

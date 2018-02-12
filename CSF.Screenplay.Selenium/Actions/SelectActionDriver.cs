@@ -28,6 +28,8 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <param name="element">Element.</param>
     public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
     {
+      ability.FlagsDriver.ThrowOnFlag(Flags.HtmlElements.Select.CannotChangeState);
+
       var selectElement = GetSelectElement(ability, element);
       PerformAs(actor, ability, element, selectElement);
     }
