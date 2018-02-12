@@ -58,9 +58,9 @@ namespace CSF.Screenplay.Selenium
       public static class Select
       {
         /// <summary>
-        /// Indicates that the browser cannot select or deselect options within a select element by their zero-based index.
+        /// Indicates that the browser cannot read the zero-based index of individual options.
         /// </summary>
-        public static readonly string CannotSelectOrDeselectByIndex = "HtmlElements.Select.CannotSelectOrDeselectByIndex";
+        public static readonly string CannotReadOptionIndexes = "HtmlElements.Select.CannotReadOptionIndexes";
       }
     }
   }
