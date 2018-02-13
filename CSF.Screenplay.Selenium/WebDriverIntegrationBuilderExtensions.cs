@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Selenium
   public static class WebDriverIntegrationBuilderExtensions
   {
     /// <summary>
-    /// Registers a <c>ICreatesWebDriver</c> for the creation of web drivers, using WebDriverExtras
+    /// Registers an <c>ICreatesWebDriver</c> for the creation of web drivers, using WebDriverExtras
     /// configuration-based factory system.
     /// </summary>
     /// <param name="builder">Builder.</param>
@@ -33,14 +33,65 @@ namespace CSF.Screenplay.Selenium
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(resolver => {
-          var factory = resolver.Resolve<ICreatesWebDriver>(name);
-          var scenario = resolver.Resolve<IScenarioName>();
-          var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
+        b.RegisterDynamicFactory(GetWebDriverResolver(name))
+         .AsOwnType()
+         .WithName(name);
+      });
 
-          return factory.CreateWebDriver(flagsProvider: flagsProvider,
-                                         scenarioName: GetHumanReadableName(scenario));
-        });
+      builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
+    }
+
+    /// <summary>
+    /// Registers an <c>ICreatesWebDriver</c> for the creation of web drivers which resolves the web driver from a
+    /// factory for each scenario.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
+    public static void UseWebDriver(this IIntegrationConfigBuilder builder,
+                                    Func<IResolvesServices,ICreatesWebDriver> factory,
+                                    string name = null)
+    {
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+      if(factory == null)
+        throw new ArgumentNullException(nameof(factory));
+
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
+
+        b.RegisterDynamicFactory(GetWebDriverResolver(name))
+         .AsOwnType()
+         .WithName(name);
+      });
+
+      builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
+    }
+
+    /// <summary>
+    /// Registers an <c>ICreatesWebDriver</c> for the creation of web drivers which resolves the web driver from a
+    /// factory for each scenario.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
+    public static void UseWebDriver(this IIntegrationConfigBuilder builder,
+                                    ICreatesWebDriver factory,
+                                    string name = null)
+    {
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+      if(factory == null)
+        throw new ArgumentNullException(nameof(factory));
+
+      builder.ServiceRegistrations.PerTestRun.Add(b => {
+        b.RegisterInstance(factory).AsOwnType().WithName(name);
+      });
+
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterDynamicFactory(GetWebDriverResolver(name))
+         .AsOwnType()
+         .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -63,7 +114,9 @@ namespace CSF.Screenplay.Selenium
         throw new ArgumentNullException(nameof(factory));
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
+        b.RegisterDynamicFactory(factory)
+         .AsOwnType()
+         .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -74,20 +127,61 @@ namespace CSF.Screenplay.Selenium
     /// created will be used/shared throughout the entire test run.
     /// </summary>
     /// <param name="helper">Helper.</param>
-    /// <param name="initialiser">Initialiser.</param>
+    /// <param name="lazyWebDriver">Initialiser.</param>
     /// <param name="name">Name.</param>
     public static void UseSharedWebDriver(this IIntegrationConfigBuilder helper,
-                                          Func<IWebDriver> initialiser,
+                                          Lazy<IWebDriver> lazyWebDriver,
                                           string name = null)
     {
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));
-      if(initialiser == null)
-        throw new ArgumentNullException(nameof(initialiser));
+      if(lazyWebDriver == null)
+        throw new ArgumentNullException(nameof(lazyWebDriver));
 
       helper.ServiceRegistrations.PerTestRun.Add(b => {
-        b.RegisterFactory(initialiser).AsOwnType().WithName(name);
+        b.RegisterDynamicFactory(r => lazyWebDriver.Value).AsOwnType().WithName(name);
       });
+    }
+
+    /// <summary>
+    /// Registers an <c>ICreatesWebDriver</c> which will create a single web driver, shared between all test scenarios.
+    /// </summary>
+    /// <param name="builder">Builder.</param>
+    /// <param name="factory">Factory.</param>
+    /// <param name="name">Name.</param>
+    public static void UseSharedWebDriver(this IIntegrationConfigBuilder builder,
+                                          ICreatesWebDriver factory,
+                                          string name = null)
+    {
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+      if(factory == null)
+        throw new ArgumentNullException(nameof(factory));
+
+      builder.ServiceRegistrations.PerTestRun.Add(b => {
+        b.RegisterInstance(factory).AsOwnType().WithName(name);
+
+        b.RegisterDynamicFactory(resolver => {
+           var fac = resolver.Resolve<ICreatesWebDriver>(name);
+           var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
+
+           return factory.CreateWebDriver(flagsProvider: flagsProvider);
+         })
+         .AsOwnType()
+         .WithName(name);
+      });
+    }
+
+    static Func<IResolvesServices,IWebDriver> GetWebDriverResolver(string name)
+    {
+      return resolver => {
+        var factory = resolver.Resolve<ICreatesWebDriver>(name);
+        var scenario = resolver.Resolve<IScenarioName>();
+        var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
+
+        return factory.CreateWebDriver(flagsProvider: flagsProvider,
+                                       scenarioName: GetHumanReadableName(scenario));
+      };
     }
 
     static string GetHumanReadableName(IScenarioName scenario) => $"{scenario.FeatureId.Name}: {scenario.ScenarioId.Name}";
