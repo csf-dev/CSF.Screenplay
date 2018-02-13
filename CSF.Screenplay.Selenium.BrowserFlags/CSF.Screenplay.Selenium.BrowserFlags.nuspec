@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Selenium.BrowserFlags</id>
-    <version>0.1.0-alpha</version>
+    <version>0.2.0-alpha</version>
     <title>CSF.Screenplay.Selenium.BrowserFlags</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
