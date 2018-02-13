@@ -36,8 +36,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
       var joe = cast.GetJoe(webBrowserFactory);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(
-        Flags.HtmlElements.Select.CannotChangeState,
-        Flags.HtmlElements.Select.CannotReadOptionIndexes
+        Flags.HtmlElements.Select.CannotChangeState
       );
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());

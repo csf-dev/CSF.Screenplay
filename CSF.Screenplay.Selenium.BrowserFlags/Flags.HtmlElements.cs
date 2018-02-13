@@ -50,11 +50,6 @@ namespace CSF.Screenplay.Selenium
       public static class Select
       {
         /// <summary>
-        /// Indicates that the browser cannot read the zero-based index of individual options.
-        /// </summary>
-        public static readonly string CannotReadOptionIndexes = "HtmlElements.Select.CannotReadOptionIndexes";
-
-        /// <summary>
         /// Indicates that the browser is completely unable to change the selection state of an HTML <c>&lt;select&gt;</c>
         /// element.
         /// </summary>
