@@ -22,7 +22,7 @@ matrix:
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Firefox"
-      - WebDriver_BrowserVersion="51.0"
+      - WebDriver_BrowserVersion="53.0"
     - env:
       - WebDriver_Platform="Windows 10"
       - WebDriver_BrowserName="Firefox"
