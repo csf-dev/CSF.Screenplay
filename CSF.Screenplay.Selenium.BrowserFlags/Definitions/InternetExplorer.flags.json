@@ -1,0 +1,8 @@
+﻿[
+  {
+    "browserName": "InternetExplorer",
+    "flags": [
+      "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
+    ],
+  },
+]

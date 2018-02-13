@@ -10,14 +10,14 @@ namespace CSF.Screenplay.Selenium
     public static class Browser
     {
       /// <summary>
-      /// Indicates that the web driver is capable of clearing all cookies for the current domain.
+      /// Indicates that the web driver is incapable of clearing the cookies for the current domain.
       /// </summary>
       /// <remarks>
       /// <para>
       /// The current domain is the domain for the page upon which the web driver is currently viewing.
       /// </para>
       /// </remarks>
-      public static readonly string CanClearDomainCookies = "Browser.CanClearDomainCookies";
+      public static readonly string CannotClearDomainCookies = "Browser.CannotClearDomainCookies";
     }
   }
 }

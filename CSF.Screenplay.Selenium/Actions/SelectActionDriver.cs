@@ -3,7 +3,7 @@ using CSF.Screenplay.Actors;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Models;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using CSF.Selenium.Support.UI;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
@@ -28,7 +28,9 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <param name="element">Element.</param>
     public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
     {
-      var selectElement = new SelectElement(element.GetUnderlyingElement());
+      ability.FlagsDriver.ThrowOnFlag(Flags.HtmlElements.Select.CannotChangeState);
+
+      var selectElement = GetSelectElement(ability, element);
       PerformAs(actor, ability, element, selectElement);
     }
 
@@ -40,5 +42,22 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <param name="element">Element.</param>
     /// <param name="select">The select element</param>
     protected abstract void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element, SelectElement select);
+
+    /// <summary>
+    /// Gets an implementation of <see cref="SelectElement"/> which is appropriate for the web-browsing
+    /// ability.
+    /// </summary>
+    /// <returns>The select element implementation.</returns>
+    /// <param name="ability">The web-browsing ability.</param>
+    /// <param name="element">The HTML select element.</param>
+    protected virtual SelectElement GetSelectElement(BrowseTheWeb ability, IWebElementAdapter element)
+    {
+      var webElement = element.GetUnderlyingElement();
+
+      if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection))
+        return new SelectElementUsingModifierKey(webElement, Keys.Control, ability.WebDriver);
+
+      return new SelectElement(webElement);
+    }
   }
 }

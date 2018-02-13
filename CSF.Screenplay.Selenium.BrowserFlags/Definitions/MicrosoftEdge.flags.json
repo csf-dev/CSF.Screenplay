@@ -1,0 +1,9 @@
+﻿[
+  {
+    "browserName": "MicrosoftEdge",
+    "flags": [
+      "Browser.CannotClearDomainCookies",
+      "HtmlElements.SelectMultiple.RequiresCtrlClickToToggleOptionSelection",
+    ],
+  },
+]
