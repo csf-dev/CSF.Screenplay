@@ -1,12 +1,11 @@
 ﻿using System;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
 using CSF.Screenplay.Abilities;
-using Newtonsoft.Json;
 
 namespace CSF.Screenplay.JsonApis.Abilities
 {
+  /// <summary>
+  /// A Screenplay <see cref="Ability"/> by which actors may consume JSON web APIs (RESTful or otherwise).
+  /// </summary>
   public class ConsumeJsonWebServices : Ability
   {
     #region fields
@@ -14,17 +13,27 @@ namespace CSF.Screenplay.JsonApis.Abilities
     static readonly TimeSpan SystemDefaultTimeout = new TimeSpan(0, 0, 30);
 
     readonly TimeSpan defaultTimeout;
-    readonly SynchronousJsonGateway jsonGateway;
+    readonly SynchronousJsonAdapter jsonAdapter;
 
     #endregion
 
     #region public API
 
+    /// <summary>
+    /// Executes a web API using the specified invocation details.
+    /// </summary>
+    /// <param name="invocationDetails">Invocation details which describe how the API should be called.</param>
     public virtual void Execute(IProvidesInvocationDetails invocationDetails)
-      => jsonGateway.GetResponse(invocationDetails.GetRequestMessage(), GetTimeout(invocationDetails));
+      => jsonAdapter.GetResponse(invocationDetails.GetRequestMessage(), GetTimeout(invocationDetails));
 
+    /// <summary>
+    /// Executes a web API using the specified invocation details and returns the result.
+    /// </summary>
+    /// <returns>The API result.</returns>
+    /// <param name="invocationDetails">Invocation details which describe how the API should be called.</param>
+    /// <typeparam name="T">The expected type of the result object.</typeparam>
     public virtual T GetResult<T>(IProvidesInvocationDetails invocationDetails)
-      => jsonGateway.GetResponse<T>(invocationDetails.GetRequestMessage(), GetTimeout(invocationDetails));
+      => jsonAdapter.GetResponse<T>(invocationDetails.GetRequestMessage(), GetTimeout(invocationDetails));
 
     #endregion
 
@@ -37,28 +46,59 @@ namespace CSF.Screenplay.JsonApis.Abilities
 
     #region boilerplate Ability overrides
 
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(Actors.INamed actor)
       => $"{actor.Name} can consume JSON web services.";
 
+    /// <summary>
+    /// Performs disposal of the current instance.
+    /// </summary>
+    /// <param name="disposing">If set to <c>true</c> then we are explicitly disposing.</param>
     protected override void Dispose(bool disposing)
     {
       base.Dispose(disposing);
 
       if(disposing)
-        jsonGateway.Dispose();
+        jsonAdapter.Dispose();
     }
 
     #endregion
 
     #region constructor
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.JsonApis.Abilities.ConsumeJsonWebServices"/> class.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The <paramref name="baseUriString"/> parameter is used to qualify any API invocations in which the API
+    /// endpoint URI is a relative URI.  This allows for injection of the 'web API root URL'.
+    /// </para>
+    /// </remarks>
+    /// <param name="baseUriString">A string which indicates a base URI.</param>
+    /// <param name="defaultTimeout">The default service timeout.</param>
     public ConsumeJsonWebServices(string baseUriString, TimeSpan? defaultTimeout = null)
       : this(new Uri(baseUriString, UriKind.Absolute), defaultTimeout) {}
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.JsonApis.Abilities.ConsumeJsonWebServices"/> class.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The <paramref name="baseUri"/> parameter is used to qualify any API invocations in which the API
+    /// endpoint URI is a relative URI.  This allows for injection of the 'web API root URL'.
+    /// </para>
+    /// </remarks>
+    /// <param name="baseUri">A base URI.</param>
+    /// <param name="defaultTimeout">The default service timeout.</param>
     public ConsumeJsonWebServices(Uri baseUri = null, TimeSpan? defaultTimeout = null)
     {
       this.defaultTimeout = defaultTimeout.GetValueOrDefault(SystemDefaultTimeout);
-      jsonGateway = new SynchronousJsonGateway(baseUri);
+      jsonAdapter = new SynchronousJsonAdapter(baseUri);
     }
 
     #endregion
