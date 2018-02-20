@@ -23,7 +23,7 @@ The CSF.Screenplay library was inspired by the screenplay implementation in [Ser
 public class UsersCanBuyGroceries
 {
   [Test,Screenplay]
-  [Description("Joe should be see a thankyou message when he uses the web application to buy eggs.")]
+  [Description("Joe should see a thankyou message when he uses the web application to buy eggs.")]
   public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(Actor joe, BrowseTheWeb browseTheWeb)
   {
     joe.IsAbleTo(browseTheWeb);
