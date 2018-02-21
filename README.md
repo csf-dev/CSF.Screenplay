@@ -1,21 +1,25 @@
 # CSF.Screenplay
-**[Screenplay]** is a *design pattern* for writing [BDD tests]; it has formerly been known as the **Journey** pattern.  Screenplay helps developers write high-value tests:
+**[Screenplay]** is a *design pattern* for writing [BDD tests]; it has formerly been known as the **Journey** pattern.  Screenplay helps developers write high-value test logic:
 
 * It encourages *human-readable test code*
-* Screenplay test logic conforms to [SOLID design principles], making it highly reusable
-* Test logic is focussed upon *actors* using the software under test
-* The Screenplay framework produces detailled human-readable reports
-* It is an ideal framework for controlling technologies such as **[Selenium] Web Driver**
+* Screenplay follows the [SOLID design principles], aiding reusability
+* Screenplay keeps tests focussed upon *actors* how they use the software under test
+* Detailled human-readable reports are produced at the end of every test run
+* It is an ideal framework for controlling technologies such as [Selenium] Web Driver
+
+The CSF.Screenplay library is inspired by [Serenity], a testing framework which includes a Java implementation of the Screenplay pattern.
 
 [Screenplay]: https://www.infoq.com/articles/Beyond-Page-Objects-Test-Automation-Serenity-Screenplay
 [BDD tests]: https://en.wikipedia.org/wiki/Behavior-driven_development
 [SOLID design principles]: https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
 [Selenium]: http://www.seleniumhq.org/
-
-The CSF.Screenplay library was inspired by the screenplay implementation in [Serenity BDD](https://github.com/serenity-bdd).  Serenity is a Java implementation of the Screenplay pattern.
+[Serenity]: https://github.com/serenity-bdd
 
 ## Example test
-*The preferred integration for Screenplay is [SpecFlow BDD]*.  This example uses the **NUnit** integration though; NUnit is more concise and more widely recognised.
+*The preferred integration* for Screenplay is **[SpecFlow]**.  This example uses **[NUnit]** instead though, as it is more concise and more widely recognised.
+
+[SpecFlow]: http://specflow.org/
+[NUnit]: http://nunit.org/
 
 ```csharp
 [TestFixture]
@@ -24,8 +28,9 @@ public class UsersCanBuyGroceries
 {
   [Test,Screenplay]
   [Description("Joe should see a thankyou message when he uses the web application to buy eggs.")]
-  public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(Actor joe, BrowseTheWeb browseTheWeb)
+  public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(ICast cast, BrowseTheWeb browseTheWeb)
   {
+    var joe = cast.Get("Joe")
     joe.IsAbleTo(browseTheWeb);
 
     Given(joe).WasAbleTo(SearchTheShop.ForGroceries());
@@ -36,8 +41,6 @@ public class UsersCanBuyGroceries
   }
 }
 ```
-
-[SpecFlow BDD]: http://specflow.org/
 
 ## Continuous integration status
 CI builds are configured via both **Travis** (for build & test on Linux/Mono) and **AppVeyor** (Windows/.NET).
