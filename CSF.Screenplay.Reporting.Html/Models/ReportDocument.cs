@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CSF.Zpt;
 using CSF.Zpt.Metal;
 
@@ -37,6 +36,18 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The template.</value>
     public IZptDocument Template => document;
+
+    /// <summary>
+    /// Provides access to the styles used by the report.
+    /// </summary>
+    /// <value>The bundled styles.</value>
+    public string BundledStyles => Views.ViewProvider.GetBundledStyles();
+
+    /// <summary>
+    /// Provides access to the scripts used by the report.
+    /// </summary>
+    /// <value>The bundled scripts.</value>
+    public string BundledScripts => Views.ViewProvider.GetBundledScripts();
 
     /// <summary>
     /// Gets a collection of the ZPT METAL macros present in the template.
