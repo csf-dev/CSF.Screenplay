@@ -6,7 +6,7 @@ namespace CSF.Screenplay.JsonApis.Tests.Services
 {
   public class CheckDataService : JsonServiceDescription
   {
-    protected override string GetUriString() => "Execution/CheckData";
+    protected override string GetRelativeUriString() => "Execution/CheckData";
 
     public CheckDataService(SampleApiData data) : base(requestPayload: data) {}
   }

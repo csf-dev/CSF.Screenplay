@@ -7,7 +7,7 @@ namespace CSF.Screenplay.JsonApis.Tests.Services
   {
     readonly string name;
 
-    protected override string GetUriString() => $"Data/slow-sample-data/{name}";
+    protected override string GetRelativeUriString() => $"Data/slow-sample-data/{name}";
 
     public SlowlyGetDataService(string name, TimeSpan? timeout = null) : base(timeout: timeout)
     {

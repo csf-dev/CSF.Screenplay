@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.JsonApis</id>
-    <version>0.10.0-alpha</version>
+    <version>0.11.0-beta</version>
     <title>CSF.Screenplay.JsonApis</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -12,7 +12,7 @@
     <copyright>Copyright 2018</copyright>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="[10.0.3,11.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.10.0-alpha" />
+      <dependency id="CSF.Screenplay" version="0.11.0-beta" />
     </dependencies>
   </metadata>
   <files>

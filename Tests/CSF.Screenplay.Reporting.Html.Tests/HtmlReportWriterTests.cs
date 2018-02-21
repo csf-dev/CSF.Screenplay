@@ -14,14 +14,22 @@ namespace CSF.Screenplay.Reporting.Html.Tests
                                                              [StringFormat] IObjectFormattingService formatService)
     {
       // Arrange
-      var sb = new StringBuilder();
-      using(var writer = new StringWriter(sb))
+      using(var writer = GetReportOutput())
       {
         var sut = new HtmlReportWriter(writer, formatService);
 
         // Act & assert
         Assert.DoesNotThrow(() => sut.Write(report));
       }
+    }
+
+    TextWriter GetReportOutput()
+    {
+      // Uncomment this line to write the report to a file instead of a throwaway string
+      //return new StreamWriter("HtmlReportWriterTests.html");
+
+      var sb = new StringBuilder();
+      return new StringWriter(sb);
     }
   }
 }

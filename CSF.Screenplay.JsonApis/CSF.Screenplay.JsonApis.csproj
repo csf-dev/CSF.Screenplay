@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.JsonApis</RootNamespace>
     <AssemblyName>CSF.Screenplay.JsonApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,6 +18,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.JsonApis.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -25,6 +26,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CSF.Screenplay.JsonApis.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
@@ -44,7 +46,7 @@
     <Compile Include="Actions\GetApiResult.cs" />
     <Compile Include="Builders\Execute.cs" />
     <Compile Include="JsonServiceDescription`1.cs" />
-    <Compile Include="Abilities\SynchronousJsonGateway.cs" />
+    <Compile Include="Abilities\SynchronousJsonAdapter.cs" />
     <Compile Include="ObjectFormatters\JsonApiExceptionFormatter.cs" />
     <Compile Include="ObjectFormatters\TimeoutExceptionFormatter.cs" />
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
