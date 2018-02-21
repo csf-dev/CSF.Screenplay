@@ -88,6 +88,7 @@
     <Compile Include="Views\ViewProvider.cs" />
     <Compile Include="Models\ReportDocument.cs" />
     <Compile Include="StreamSourceInfo.cs" />
+    <Compile Include="Views\ResourceBundler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -126,8 +127,8 @@
     <EmbeddedResource Include="Views\PageInteractions.js">
       <LogicalName>PageInteractions.js</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\report-interactions.js">
-      <LogicalName>report-interactions.js</LogicalName>
+    <EmbeddedResource Include="Views\Interactions.js">
+      <LogicalName>Interactions.js</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\reports.css">
       <LogicalName>reports.css</LogicalName>
