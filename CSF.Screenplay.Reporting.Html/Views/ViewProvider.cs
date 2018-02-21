@@ -10,13 +10,19 @@ namespace CSF.Screenplay.Reporting.Views
   /// A helper service which provides access to the ZPT document template which provides the 'view' for rendering
   /// Screenplay reports.
   /// </summary>
-  public static class ViewProvider
+  static class ViewProvider
   {
-    const string DocumentTemplateName = "DocumentTemplate.pt";
+    static readonly ResourceBundler bundler = new ResourceBundler();
 
     internal static Stream GetDocumentTemplate()
-      => ThisAssembly.GetManifestResourceStream(DocumentTemplateName);
+      => ThisAssembly.GetManifestResourceStream("DocumentTemplate.pt");
 
     static Assembly ThisAssembly => Assembly.GetExecutingAssembly();
+
+    internal static string GetBundledStyles()
+      => bundler.GetBundle("reset.css", "page.css", "reports.css", "interactions.css");
+
+    internal static string GetBundledScripts()
+      => bundler.GetBundle("jquery-3.2.1.slim.min.js", "PageInteractions.js", "Filter.js", "Folding.js", "Interactions.js");
   }
 }
