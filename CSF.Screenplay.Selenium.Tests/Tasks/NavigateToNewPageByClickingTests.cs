@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
   {
     [Test,Screenplay]
     [Description("Using the navigate task to a slow-loading page produces the expected output on the page")]
-    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Navigate_to_a_slow_loading_page_finds_the_correct_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

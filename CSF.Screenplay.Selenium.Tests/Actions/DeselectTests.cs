@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Deselecting everything leaves nothing selected.")]
-    public void DeselectAll_leaves_nothing_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void DeselectAll_leaves_nothing_selected(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 
@@ -31,9 +31,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by index leaves one item selected.")]
-    public void DeselectByIndex_leaves_one_item_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void DeselectByIndex_leaves_one_item_selected(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(
         Flags.HtmlElements.Select.CannotChangeState
@@ -48,9 +48,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by text leaves one item selected.")]
-    public void DeselectByText_leaves_one_item_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void DeselectByText_leaves_one_item_selected(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 
@@ -63,9 +63,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Deselecting by value leaves one item selected.")]
-    public void DeselectByValue_leaves_one_item_selected(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void DeselectByValue_leaves_one_item_selected(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 

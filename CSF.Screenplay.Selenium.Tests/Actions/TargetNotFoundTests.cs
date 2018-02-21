@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Attempting to click on a link which does not exist raises an appropriate 'target not found' exception.")]
-    public void Click_on_non_existent_element_raises_TargetNotFoundException(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Click_on_non_existent_element_raises_TargetNotFoundException(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -28,9 +28,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("When a 'target not found' exception is raised, it should have a name which matches the missing target.")]
-    public void TargetNotFoundException_raised_has_correct_target_name(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void TargetNotFoundException_raised_has_correct_target_name(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -55,9 +55,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
-    public void TargetNotFoundException_includes_target_name_in_report(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void TargetNotFoundException_includes_target_name_in_report(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
       var ex = new TargetNotFoundException() { Target = PageTwo.ListOfItems };
 
       var result = ex.GetReport(joe);
@@ -67,9 +67,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("A 'target not found' exception should include the target name in its report when the target is provided.")]
-    public void TargetNotFoundException_can_create_a_report_without_target(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void TargetNotFoundException_can_create_a_report_without_target(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
       var ex = new TargetNotFoundException();
 
       var result = ex.GetReport(joe);

@@ -12,14 +12,14 @@ namespace CSF.Screenplay.Selenium.Abilities
   /// </summary>
   public class BrowseTheWeb : Ability
   {
-    readonly IWebDriver webDriver;
+    readonly Lazy<IWebDriver> webDriver;
     readonly IUriTransformer uriTransformer;
 
     /// <summary>
     /// Gets the Selenium WebDriver instance.
     /// </summary>
     /// <value>The web driver.</value>
-    public IWebDriver WebDriver => webDriver;
+    public IWebDriver WebDriver => webDriver.Value;
 
     /// <summary>
     /// Gets the <c>WebDriver</c> as an instance of <c>IHasFlags</c>.
@@ -54,8 +54,23 @@ namespace CSF.Screenplay.Selenium.Abilities
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.BrowseTheWeb"/> class.
     /// </summary>
     /// <param name="webDriver">The Selenium WebDriver instance.</param>
-    /// <param name="transformer">An optoinal URI transformer.</param>
+    /// <param name="transformer">An optional URI transformer.</param>
     public BrowseTheWeb(IWebDriver webDriver,
+                        IUriTransformer transformer = null)
+    {
+      if(webDriver == null)
+        throw new ArgumentNullException(nameof(webDriver));
+
+      this.webDriver = new Lazy<IWebDriver>(() => webDriver);
+      this.uriTransformer = transformer?? NoOpUriTransformer.Default;
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.BrowseTheWeb"/> class.
+    /// </summary>
+    /// <param name="webDriver">A lazy Selenium WebDriver instance.</param>
+    /// <param name="transformer">An optional URI transformer.</param>
+    public BrowseTheWeb(Lazy<IWebDriver> webDriver,
                         IUriTransformer transformer = null)
     {
       if(webDriver == null)

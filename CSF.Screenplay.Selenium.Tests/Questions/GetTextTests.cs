@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the text of an element detects the expected value.")]
-    public void GetText_returns_expected_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void GetText_returns_expected_value(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -27,9 +27,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of an element and converting it to a number detects the expected value.")]
-    public void GetConvertedText_returns_expected_value(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void GetConvertedText_returns_expected_value(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
@@ -38,9 +38,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
     [Test,Screenplay]
     [Description("Reading the text of multiple elements returns the correct collection of values.")]
-    public void GetText_for_multiple_elements_returns_expected_values(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void GetText_for_multiple_elements_returns_expected_values(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       var expected = new [] { "One", "Two", "Three", "Four", "Five" };
 

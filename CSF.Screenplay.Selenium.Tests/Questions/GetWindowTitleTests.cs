@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
   {
     [Test,Screenplay]
     [Description("Reading the title of the browser window, whilst on the App home page, gets the expected title.")]
-    public void GetWindowTitle_returns_correct_result(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void GetWindowTitle_returns_correct_result(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

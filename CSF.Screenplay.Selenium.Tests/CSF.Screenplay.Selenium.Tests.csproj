@@ -105,7 +105,6 @@
     <Compile Include="NUnitIntegrationTests.cs" />
     <Compile Include="BrowserName.cs" />
     <Compile Include="Waits\GeneralWaitTests.cs" />
-    <Compile Include="CastExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
     <Compile Include="Abilities\BrowseTheWebTests.cs" />
     <Compile Include="Actions\ClearTests.cs" />
