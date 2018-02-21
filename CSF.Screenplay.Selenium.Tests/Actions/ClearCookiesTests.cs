@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Clearing all cookies does not raise an exception.")]
-    public void Clear_all_cookies_does_not_raise_an_exception(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Clear_all_cookies_does_not_raise_an_exception(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

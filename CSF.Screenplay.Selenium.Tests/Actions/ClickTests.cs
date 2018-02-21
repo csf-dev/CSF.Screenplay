@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Clicking on the link to page two navigates to the second page.")]
-    public void Click_OnLinkToPageTwo_navigates_to_second_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Click_OnLinkToPageTwo_navigates_to_second_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

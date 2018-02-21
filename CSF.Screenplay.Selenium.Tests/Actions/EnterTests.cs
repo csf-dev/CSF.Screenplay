@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Typing text into an input box produces the expected result on the page.")]
-    public void Type_text_into_an_input_box_produces_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Type_text_into_an_input_box_produces_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Typing different text into an input box produces the expected result on the page.")]
-    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Type_different_text_into_an_input_box_produces_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 

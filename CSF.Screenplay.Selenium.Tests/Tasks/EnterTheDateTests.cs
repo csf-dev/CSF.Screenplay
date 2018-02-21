@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
   {
     [Test,Screenplay]
     [Description("Entering a date into an HTML 5 input field should work cross-browser")]
-    public void Enter_TheDate_puts_the_correct_value_into_the_control(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void Enter_TheDate_puts_the_correct_value_into_the_control(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.GetJoe(webBrowserFactory);
 
