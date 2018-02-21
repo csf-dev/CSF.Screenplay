@@ -16,4 +16,4 @@ Screenshots/
 .xsp4.pid
 Backup/
 UpgradeLog.htm
-*.nupkg
+nuget-packages/
