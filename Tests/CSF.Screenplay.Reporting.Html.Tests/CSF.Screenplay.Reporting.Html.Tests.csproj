@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Reporting.Html.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Reporting.Html.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.10.0-alpha</ReleaseVersion>
+    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

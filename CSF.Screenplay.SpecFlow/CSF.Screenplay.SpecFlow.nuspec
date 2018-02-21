@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.SpecFlow</id>
-    <version>0.10.0-alpha</version>
+    <version>0.11.0-beta</version>
     <title>CSF.Screenplay.SpecFlow</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -13,7 +13,7 @@
     <dependencies>
       <dependency id="CSF.Reflection" version="[1.0.1,2.0.0)" />
       <dependency id="SpecFlow" version="[2.2.0,3.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.10.0-alpha" />
+      <dependency id="CSF.Screenplay" version="0.11.0-beta" />
     </dependencies>
   </metadata>
   <files>
