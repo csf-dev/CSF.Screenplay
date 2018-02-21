@@ -9,6 +9,7 @@ then
   exit 1
 fi
 
+rm -rf "$OUTPUT_DIR"
 mkdir -p "$OUTPUT_DIR"
 
 find . \
