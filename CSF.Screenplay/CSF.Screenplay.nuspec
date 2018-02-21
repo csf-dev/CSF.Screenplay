@@ -12,7 +12,7 @@
     <copyright>Copyright 2017</copyright>
     <dependencies>
       <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
-      <dependency id="CSF.FlexDi" version="0.5.0-beta" />
+      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
     </dependencies>
   </metadata>
   <files>
