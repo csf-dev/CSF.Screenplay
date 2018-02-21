@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     [Description("Reading the available options reveals the expected collection of items.")]
     public void GetAllOptions_returns_expected_collection(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       var expected = new Models.Option[] {
         new Models.Option("One", "1"),
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     [Description("Reading the selected options reveals the expected collection of items.")]
     public void GetSelectedOptions_returns_expected_collection(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       var expected = new Models.Option[] {
         new Models.Option("Carrot", "veg"),

@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     [Description("Reading the value of an element detects the expected value.")]
     public void GetValue_returns_expected_value(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     [Description("Reading the value of an element and converting it to a number detects the expected value.")]
     public void GetConvertedValue_returns_expected_value(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
       Given(joe).WasAbleTo(Enter.TheText("55").Into(PageTwo.SpecialInputField));

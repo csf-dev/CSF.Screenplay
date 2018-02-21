@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     [Description("Reading the value of the 'color' property detects the expected value.")]
     public void GetCssValue_for_red_string_gets_correct_colour(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 

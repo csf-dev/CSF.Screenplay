@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
     [Description("Waiting for an element to become visible eventually detects that element, with the appropriate text.")]
     public void Wait_UntilVisible_returns_element_with_correct_text(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 
@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
     [Description("If the actor does not wait long enough for the element to appear then an exception is raised.")]
     public void Wait_UntilVisible_raises_exception_if_we_dont_wait_long_enough(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
 

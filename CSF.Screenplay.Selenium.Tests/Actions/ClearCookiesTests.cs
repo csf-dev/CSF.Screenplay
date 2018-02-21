@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     [Description("Clearing all cookies does not raise an exception.")]
     public void Clear_all_cookies_does_not_raise_an_exception(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.Browser.CannotClearDomainCookies);
 

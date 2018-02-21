@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     [Description("Clearing an element after entering some text results in an empty string.")]
     public void Clear_an_element_after_entering_some_text_results_in_an_empty_string(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       Given(joe).WasAbleTo(new EnterTextIntoThePageTwoInputField("Some text"));
 
