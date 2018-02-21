@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Selenium
       if(resolver == null)
         throw new ArgumentNullException(nameof(resolver));
 
-      var driver = resolver.Resolve<IWebDriver>();
+      var driver = resolver.Resolve<Lazy<IWebDriver>>();
       var transformer = resolver.TryResolve<IUriTransformer>() ?? NoOpUriTransformer.Default;
 
       return new BrowseTheWeb(driver, transformer);

@@ -16,9 +16,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
   {
     [Test,Screenplay]
     [Description("Selecting by text generates the expected result on the page.")]
-    public void SelectByText_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void SelectByText_generates_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 
@@ -31,9 +31,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by index generates the expected result on the page.")]
-    public void SelectByIndex_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void SelectByIndex_generates_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(
         Flags.HtmlElements.Select.CannotChangeState
@@ -48,9 +48,9 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
     [Test,Screenplay]
     [Description("Selecting by value generates the expected result on the page.")]
-    public void SelectByValue_generates_expected_result_on_page(ICast cast, Lazy<BrowseTheWeb> webBrowserFactory)
+    public void SelectByValue_generates_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
-      var joe = cast.GetJoe(webBrowserFactory);
+      var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
       joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 
