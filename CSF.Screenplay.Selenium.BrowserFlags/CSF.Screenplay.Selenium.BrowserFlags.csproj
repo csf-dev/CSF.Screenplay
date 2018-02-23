@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
     <AssemblyName>CSF.Screenplay.Selenium.BrowserFlags</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.2.1-alpha</ReleaseVersion>
+    <ReleaseVersion>0.2.2-alpha</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
