@@ -11,13 +11,13 @@
     <description>Extension to CSF.Screenplay, providing an ability, actions and tasks for Selenium WebDriver for web UI testing using the Screenplay pattern</description>
     <copyright>Copyright 2018</copyright>
     <dependencies>
-      <dependency id="CSF.FlexDi" version="0.5.0-beta" />
+      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
       <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
       <dependency id="Selenium.WebDriver" version="[3.4.0,4.0.0)" />
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.10.0-alpha" />
-      <dependency id="CSF.WebDriverExtras" version="0.5.0-beta" />
-      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.2.0-alpha" />
+      <dependency id="CSF.Screenplay" version="0.11.0-beta" />
+      <dependency id="CSF.WebDriverExtras" version="[1.0.0,2.0.0)" />
+      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.2.2-alpha" />
     </dependencies>
   </metadata>
   <files>
