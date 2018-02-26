@@ -35,6 +35,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.FlexDi">
+      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +55,7 @@
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
+    <Compile Include="JsonApisBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
