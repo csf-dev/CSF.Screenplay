@@ -89,10 +89,10 @@
     <Compile Include="Models\ReportDocument.cs" />
     <Compile Include="StreamSourceInfo.cs" />
     <Compile Include="Views\ResourceBundler.cs" />
+    <Compile Include="HardCodedZptSharpConfigurationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="app.config" />
     <None Include="CSF.Screenplay.Reporting.Html.nuspec" />
   </ItemGroup>
   <ItemGroup>

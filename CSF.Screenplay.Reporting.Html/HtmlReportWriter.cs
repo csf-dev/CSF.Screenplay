@@ -72,7 +72,8 @@ namespace CSF.Screenplay.Reporting
 
       this.writer = writer;
       this.formattingService = formattingService;
-      documentFactory = new ZptDocumentFactory();
+      var pluginConfig = new HardCodedZptSharpConfigurationProvider();
+      documentFactory = new ZptDocumentFactory(new ZptDocumentProviderService(pluginConfig));
     }
 
     /// <summary>
