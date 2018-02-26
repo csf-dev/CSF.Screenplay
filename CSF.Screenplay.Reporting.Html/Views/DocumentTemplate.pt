@@ -114,6 +114,8 @@
                   <strong class="performance_type">Given</strong>
                   <span metal:fill-slot="body" class="body"
                         tal:define="ability reportable/Ability;
+                                    reportableAssembly csassembly:CSF.Screenplay;
+                                    abilityType cstype:ability CSF.Screenplay.Reporting.IReportable;
                                     reportBody csharp:ability.GetReport(actor)"
                         tal:content="reportBody | default">Joe is able to browse the web</span>
                 </p>
@@ -128,6 +130,8 @@
                   <strong class="performance_type">When</strong>
                   <span metal:fill-slot="body" class="body"
                         tal:define="performable reportable/Performable;
+                                    reportableAssembly csassembly:CSF.Screenplay;
+                                    performableType cstype:performable CSF.Screenplay.Reporting.IReportable;
                                     reportBody csharp:performable.GetReport(actor)"
                         tal:content="reportBody | default">Joe attempts to do a thing</span>
                 </p>
