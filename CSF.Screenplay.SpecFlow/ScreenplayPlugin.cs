@@ -65,6 +65,9 @@ namespace CSF.Screenplay.SpecFlow
           r.RegisterInstance(featureContext);
           r.RegisterInstance(scenario).As<IScenario>();
         });
+
+        var diBuilder = new ScreenplayDependencyInjectionBuilder(e.ObjectContainer, scenario.DiContainer);
+        diBuilder.ReRegisterSpecFlowDependencies();
       };
     }
 

@@ -57,6 +57,8 @@
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
+    <Compile Include="BoDiContainerProxy.cs" />
+    <Compile Include="ScreenplayDependencyInjectionBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

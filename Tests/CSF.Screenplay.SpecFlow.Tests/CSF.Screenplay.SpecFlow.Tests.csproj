@@ -55,6 +55,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Stopwatch.feature.cs</LastGenOutput>
     </None>
+    <None Include="ResolveAnITestRunner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ResolveAnITestRunner.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -75,6 +79,11 @@
       <DependentUpon>Stopwatch.feature</DependentUpon>
     </Compile>
     <Compile Include="StopwatchSteps.cs" />
+    <Compile Include="ResolveAnITestRunner.feature.cs">
+      <DependentUpon>ResolveAnITestRunner.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ResolvingATestRunnerSteps.cs" />
+    <Compile Include="BindingWhichDerivesFromSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">
