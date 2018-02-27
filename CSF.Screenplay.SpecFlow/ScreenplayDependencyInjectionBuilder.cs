@@ -115,6 +115,11 @@ namespace CSF.Screenplay.SpecFlow
       };
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.SpecFlow.ScreenplayDependencyInjectionBuilder"/> class.
+    /// </summary>
+    /// <param name="specflowContainer">Specflow container.</param>
+    /// <param name="screenplayContainer">Screenplay container.</param>
     public ScreenplayDependencyInjectionBuilder(IObjectContainer specflowContainer,
                                                 FlexDi.IContainer screenplayContainer)
     {
