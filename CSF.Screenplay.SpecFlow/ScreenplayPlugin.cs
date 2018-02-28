@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using CSF.Screenplay.Scenarios;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
 using TechTalk.SpecFlow.Infrastructure;

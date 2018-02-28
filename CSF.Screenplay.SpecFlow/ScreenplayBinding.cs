@@ -1,6 +1,7 @@
 ﻿using System;
 using BoDi;
 using CSF.Screenplay.Integration;
+using CSF.Screenplay.Scenarios;
 using TechTalk.SpecFlow;
 
 namespace CSF.Screenplay.SpecFlow

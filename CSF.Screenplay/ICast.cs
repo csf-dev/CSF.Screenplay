@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Scenarios;
+using CSF.Screenplay.Actors;
 
-namespace CSF.Screenplay.Actors
+namespace CSF.Screenplay
 {
   /// <summary>
   /// A cast is a container for many actors.  It may be useful in scenarios in which many actors are involved.

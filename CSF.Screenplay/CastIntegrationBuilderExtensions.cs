@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Integration;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay
 {

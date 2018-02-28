@@ -1,5 +1,7 @@
 ﻿using System;
-namespace CSF.Screenplay.Actors
+using CSF.Screenplay.Actors;
+
+namespace CSF.Screenplay
 {
   /// <summary>
   /// The stage is a concept which enables the use of "passive voice" in tests, such as
