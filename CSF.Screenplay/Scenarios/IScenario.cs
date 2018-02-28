@@ -1,8 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.Scenarios;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Scenarios
 {
   /// <summary>
   /// Represents a single scenario within Screenplay-based test.
