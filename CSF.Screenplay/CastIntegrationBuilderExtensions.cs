@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.FlexDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.Scenarios;
@@ -23,7 +24,7 @@ namespace CSF.Screenplay
 
       helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
         regBuilder
-          .RegisterFactory((IScenario s) => new Cast(s.Identity))
+          .RegisterFactory((IScenario s, IResolvesServices resolver) => new Cast(s.Identity, resolver))
           .As<ICast>()
           .WithName(name);
       });

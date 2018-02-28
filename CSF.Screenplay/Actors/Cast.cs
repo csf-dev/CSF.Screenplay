@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.FlexDi;
 
 namespace CSF.Screenplay.Actors
 {
@@ -24,6 +25,7 @@ namespace CSF.Screenplay.Actors
     readonly IDictionary<string,IActor> actors;
     readonly object syncRoot;
     readonly Guid scenarioIdentity;
+    readonly IResolvesServices resolver;
 
     #endregion
 
@@ -72,7 +74,11 @@ namespace CSF.Screenplay.Actors
     /// </summary>
     /// <returns>The named actor, which might be a newly-created actor.</returns>
     /// <param name="name">The actor name.</param>
-    public virtual IActor Get(string name) => Get(name, null);
+    public virtual IActor Get(string name)
+    {
+      bool created;
+      return Get(name, out created);
+    }
 
     /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
@@ -84,20 +90,31 @@ namespace CSF.Screenplay.Actors
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
     public virtual IActor Get(string name, Action<IActor> createCustomisation)
     {
-      IActor actor;
-
-      lock(syncRoot)
-      {
-        actor = GetActorLocked(name);
-        if(actor != null)
-          return actor;
-
-        actor = CreateAndAddLocked(name);
-      }
-
-      if(createCustomisation != null)
-        createCustomisation(actor);
+      if(createCustomisation == null)
+        throw new ArgumentNullException(nameof(createCustomisation));
       
+      bool created;
+      var actor = Get(name, out created);
+      if(created) createCustomisation(actor);
+      return actor;
+    }
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
+    public virtual IActor Get(string name, Action<IResolvesServices,IActor> createCustomisation)
+    {
+      if(createCustomisation == null)
+        throw new ArgumentNullException(nameof(createCustomisation));
+
+      bool created;
+      var actor = Get(name, out created);
+      if(created) createCustomisation(resolver, actor);
       return actor;
     }
 
@@ -147,6 +164,20 @@ namespace CSF.Screenplay.Actors
       var actor = new Actor(name, scenarioIdentity);
       OnActorCreated(actor);
       return actor;
+    }
+
+    IActor Get(string name, out bool created)
+    {
+      created = false;
+
+      lock(syncRoot)
+      {
+        var actor = GetActorLocked(name);
+        if(actor != null) return actor;
+
+        created = true;
+        return CreateAndAddLocked(name);
+      }
     }
 
     IActor GetActorLocked(string name)
@@ -231,12 +262,16 @@ namespace CSF.Screenplay.Actors
     /// Initializes a new instance of the <see cref="Cast"/> class.
     /// </summary>
     /// <param name="scenarioIdentity">The identity of the current scenario.</param>
-    public Cast(Guid scenarioIdentity)
+    /// <param name="resolver">A service resolver instance.</param>
+    public Cast(Guid scenarioIdentity, IResolvesServices resolver)
     {
       if(scenarioIdentity == Guid.Empty)
         throw new ArgumentException(Resources.ExceptionFormats.ActorMustHaveAScenarioId, nameof(scenarioIdentity));
+      if(resolver == null)
+        throw new ArgumentNullException(nameof(resolver));
 
       this.scenarioIdentity = scenarioIdentity;
+      this.resolver = resolver;
       syncRoot = new Object();
       actors = new Dictionary<string,IActor>();
     }

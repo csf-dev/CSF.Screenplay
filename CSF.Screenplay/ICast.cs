@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSF.FlexDi;
 using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
@@ -69,6 +70,16 @@ namespace CSF.Screenplay
     /// <param name="name">The actor name.</param>
     /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
     IActor Get(string name, Action<IActor> createCustomisation);
+
+    /// <summary>
+    /// Gets a single actor by their name, creating them if they do not already exist in the cast.
+    /// If this operation leads to the creation of a new actor then it will fire both
+    /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
+    /// </summary>
+    /// <returns>The named actor, which might be a newly-created actor.</returns>
+    /// <param name="name">The actor name.</param>
+    /// <param name="createCustomisation">If the actor does not yet exist, then this action will be executed to customise the newly-created actor.</param>
+    IActor Get(string name, Action<IResolvesServices,IActor> createCustomisation);
 
     /// <summary>
     /// Creates a new actor of the given name and adds it to the current cast instance.

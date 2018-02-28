@@ -3,6 +3,7 @@ using NUnit.Framework;
 using CSF.Screenplay.Actors;
 using Moq;
 using CSF.Screenplay.Scenarios;
+using CSF.FlexDi;
 
 namespace CSF.Screenplay.Tests.Actors
 {
@@ -182,6 +183,35 @@ namespace CSF.Screenplay.Tests.Actors
     }
 
     [Test]
+    public void Get_applies_scenario_customisation_with_resolver_if_creating_a_new_actor()
+    {
+      // Arrange
+      var resolver = Mock.Of<IResolvesServices>();
+      var cast = GetSut(resolver: resolver);
+
+      // Act
+      cast.Get("joe", (r,a) => r.Resolve<string>());
+
+      // Assert
+      Mock.Get(resolver).Verify(x => x.Resolve<string>(), Times.Once());
+    }
+
+    [Test]
+    public void Get_does_not_apply_scenario_customisation_with_resolver_if_actor_already_exists()
+    {
+      // Arrange
+      var resolver = Mock.Of<IResolvesServices>();
+      var cast = GetSut(resolver: resolver);
+      cast.Add("joe");
+
+      // Act
+      cast.Get("joe", (r,a) => r.Resolve<string>());
+
+      // Assert
+      Mock.Get(resolver).Verify(x => x.Resolve<string>(), Times.Never());
+    }
+
+    [Test]
     public void GetAll_returns_all_created_actors()
     {
       // Arrange
@@ -260,6 +290,7 @@ namespace CSF.Screenplay.Tests.Actors
       Assert.That(() => cast.Add(davina), Throws.Nothing);
     }
 
-    ICast GetSut(Guid? scenarioGuid = null) => new Cast(scenarioGuid.GetValueOrDefault(Guid.NewGuid()));
+    ICast GetSut(Guid? scenarioGuid = null, IResolvesServices resolver = null)
+      => new Cast(scenarioGuid.GetValueOrDefault(Guid.NewGuid()), resolver ?? Mock.Of<IResolvesServices>());
   }
 }
