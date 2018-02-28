@@ -416,7 +416,7 @@ namespace CSF.Screenplay.Actors
       return result;
     }
 
-    TResult IGivenActor.Saw<TResult>(IQuestion<TResult> question)
+    TResult Got<TResult>(IQuestion<TResult> question)
     {
       InvokeBeginGiven();
       var result = Perform(question);
@@ -424,7 +424,7 @@ namespace CSF.Screenplay.Actors
       return result;
     }
 
-    TResult IWhenActor.Sees<TResult>(IQuestion<TResult> question)
+    TResult Gets<TResult>(IQuestion<TResult> question)
     {
       InvokeBeginWhen();
       var result = Perform(question);
@@ -432,13 +432,25 @@ namespace CSF.Screenplay.Actors
       return result;
     }
 
-    TResult IThenActor.ShouldSee<TResult>(IQuestion<TResult> question)
+    TResult ShouldGet<TResult>(IQuestion<TResult> question)
     {
       InvokeBeginThen();
       var result = Perform(question);
       InvokeEndThen();
       return result;
     }
+
+    TResult IGivenActor.Saw<TResult>(IQuestion<TResult> question) => Got(question);
+    TResult IGivenActor.Got<TResult>(IQuestion<TResult> question) => Got(question);
+    TResult IGivenActor.Read<TResult>(IQuestion<TResult> question) => Got(question);
+
+    TResult IWhenActor.Sees<TResult>(IQuestion<TResult> question) => Gets(question);
+    TResult IWhenActor.Gets<TResult>(IQuestion<TResult> question) => Gets(question);
+    TResult IWhenActor.Reads<TResult>(IQuestion<TResult> question) => Gets(question);
+
+    TResult IThenActor.ShouldSee<TResult>(IQuestion<TResult> question) => ShouldGet(question);
+    TResult IThenActor.ShouldGet<TResult>(IQuestion<TResult> question) => ShouldGet(question);
+    TResult IThenActor.ShouldRead<TResult>(IQuestion<TResult> question) => ShouldGet(question);
 
     bool IPerformer.HasAbility<TAbility>()
     {
