@@ -114,6 +114,10 @@
     <Compile Include="ICast.cs" />
     <Compile Include="IStage.cs" />
     <Compile Include="Scenarios\IScenario.cs" />
+    <Compile Include="Actors\IPersona.cs" />
+    <Compile Include="Persona.cs" />
+    <Compile Include="CastPersonaExtensions.cs" />
+    <Compile Include="Actors\IGrantsResolvedAbilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />

@@ -59,6 +59,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ResolveAnITestRunner.feature.cs</LastGenOutput>
     </None>
+    <None Include="Personas.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Personas.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -84,6 +88,10 @@
     </Compile>
     <Compile Include="ResolvingATestRunnerSteps.cs" />
     <Compile Include="BindingWhichDerivesFromSteps.cs" />
+    <Compile Include="Personas.feature.cs">
+      <DependentUpon>Personas.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\Sarah.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">
@@ -102,6 +110,7 @@
   <ItemGroup>
     <Folder Include="Abilities\" />
     <Folder Include="Actions\" />
+    <Folder Include="Personas\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

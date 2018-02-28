@@ -18,20 +18,20 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Addition")]
-    public partial class AdditionFeature
+    [NUnit.Framework.DescriptionAttribute("Personas")]
+    public partial class PersonasFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Test.feature"
+#line 1 "Personas.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Addition", "    In order to avoid silly mistakes\n    As a math idiot\n    I want to keep a running count of numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Personas", "  As a developer, I would like to encapsulate reusable attributes related\n  to actors within a single class.  This includes their name and their\n  standard abilities.\n  This will make test logic more reusable.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,37 +64,20 @@ namespace CSF.Screenplay.SpecFlow.Tests
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("A persona may be used to create an actor who has the correct abilities")]
+        public virtual void APersonaMayBeUsedToCreateAnActorWhoHasTheCorrectAbilities()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A persona may be used to create an actor who has the correct abilities", ((string[])(null)));
 #line 7
-  testRunner.Given("Joe has the number 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
-   testRunner.When("he adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 9
-   testRunner.Then("he should see the total 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add three numbers")]
-        public virtual void AddThreeNumbers()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add three numbers", ((string[])(null)));
-#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 12
-  testRunner.Given("Joe has the number 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
-    testRunner.And("he adds 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
-   testRunner.When("he adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
-   testRunner.Then("he should see the total 140", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 8
+  testRunner.Given("Sarah is an actor created from a persona", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+    testRunner.And("she has the number 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+   testRunner.When("she adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+   testRunner.Then("she should see the total 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
