@@ -1,11 +1,11 @@
 ﻿using System;
-namespace CSF.Screenplay.JsonApis
+namespace CSF.Screenplay.WebApis
 {
   /// <summary>
   /// Exception raised when there is a problem executing a JSON web API call.
   /// </summary>
   [System.Serializable]
-  public class JsonApiException : Exception
+  public class WebApiException : Exception
   {
     /// <summary>
     /// Gets or sets the HTTP response body related to a request which raised an error.
@@ -24,7 +24,7 @@ namespace CSF.Screenplay.JsonApis
     /// <summary>
     /// Initializes a new instance of the <see cref="T:JsonApiException"/> class
     /// </summary>
-    public JsonApiException()
+    public WebApiException()
     {
     }
 
@@ -32,7 +32,7 @@ namespace CSF.Screenplay.JsonApis
     /// Initializes a new instance of the <see cref="T:JsonApiException"/> class
     /// </summary>
     /// <param name="message">A <see cref="T:System.String"/> that describes the exception. </param>
-    public JsonApiException(string message) : base(message)
+    public WebApiException(string message) : base(message)
     {
     }
 
@@ -41,7 +41,7 @@ namespace CSF.Screenplay.JsonApis
     /// </summary>
     /// <param name="message">A <see cref="T:System.String"/> that describes the exception. </param>
     /// <param name="inner">The exception that is the cause of the current exception. </param>
-    public JsonApiException(string message, Exception inner) : base(message, inner)
+    public WebApiException(string message, Exception inner) : base(message, inner)
     {
     }
 
@@ -50,7 +50,7 @@ namespace CSF.Screenplay.JsonApis
     /// </summary>
     /// <param name="context">The contextual information about the source or destination.</param>
     /// <param name="info">The object that holds the serialized object data.</param>
-    protected JsonApiException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+    protected WebApiException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
     {
     }
   }

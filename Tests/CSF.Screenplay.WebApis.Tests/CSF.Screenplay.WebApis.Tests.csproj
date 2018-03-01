@@ -63,19 +63,15 @@
   <ItemGroup>
     <Compile Include="ExecuteAJsonApiTests.cs" />
     <Compile Include="ScreenplayConfig.cs" />
-    <Compile Include="Services\GetDataService.cs" />
-    <Compile Include="Services\SlowlyGetDataService.cs" />
-    <Compile Include="Services\SetNumberService.cs" />
-    <Compile Include="Services\GetNumberService.cs" />
-    <Compile Include="Services\CheckDataService.cs" />
-    <Compile Include="CastExtensions.cs" />
-    <Compile Include="Builders\Get.cs" />
-    <Compile Include="Builders\Set.cs" />
-    <Compile Include="Builders\Validate.cs" />
+    <Compile Include="Endpoints\GetData.cs" />
+    <Compile Include="Endpoints\SlowlyGetData.cs" />
+    <Compile Include="Endpoints\SetNumber.cs" />
+    <Compile Include="Endpoints\GetNumber.cs" />
+    <Compile Include="Endpoints\CheckData.cs" />
+    <Compile Include="Joe.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Builders\" />
+    <Folder Include="Endpoints\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

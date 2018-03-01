@@ -1,24 +1,23 @@
 ﻿using CSF.Screenplay.Integration;
-using CSF.Screenplay.JsonApis.ObjectFormatters;
-using CSF.Screenplay.JsonApis.Tests;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.WebApis.ObjectFormatters;
 
-[assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
+[assembly: ScreenplayAssembly(typeof(CSF.Screenplay.WebApis.Tests.ScreenplayConfig))]
 
-namespace CSF.Screenplay.JsonApis.Tests
+namespace CSF.Screenplay.WebApis.Tests
 {
   public class ScreenplayConfig : IIntegrationConfig
   {
     public void Configure(IIntegrationConfigBuilder builder)
     {
-      builder.UseCast();
+      builder.UseWebApis("http://localhost:8080/api/");
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
           .WithFormatter<TimeoutExceptionFormatter>()
-          .WithFormatter<JsonApiExceptionFormatter>()
+          .WithFormatter<WebApiExceptionFormatter>()
           .WriteReport(WriteReport);
       });
     }

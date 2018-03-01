@@ -25,53 +25,53 @@
 // THE SOFTWARE.
 using System;
 using CSF.Screenplay.Integration;
-using CSF.Screenplay.JsonApis.Abilities;
+using CSF.Screenplay.WebApis.Abilities;
 
-namespace CSF.Screenplay.JsonApis
+namespace CSF.Screenplay.WebApis
 {
   /// <summary>
-  /// Convenience extension methods for registering the ability to use JSON APIs.
+  /// Convenience extension methods for registering the ability to consume web APIs.
   /// </summary>
-  public static class JsonApisBuilderExtensions
+  public static class WebApisBuilderExtensions
   {
     /// <summary>
-    /// Configures the current integration to make the <see cref="ConsumeJsonWebServices"/> ability available via
+    /// Configures the current integration to make the <see cref="ConsumeWebServices"/> ability available via
     /// dependency injection.
     /// </summary>
     /// <param name="helper">The integration helper.</param>
     /// <param name="baseUri">A base URI for all API requests which have relative URIs.</param>
     /// <param name="defaultTimeout">A default timeout for API requests which do not specify an explicit timeout.</param>
     /// <param name="name">The registered name of this ability.</param>
-    public static void UseJsonApis(this IIntegrationConfigBuilder helper,
-                                   string baseUri,
-                                   TimeSpan? defaultTimeout = null,
-                                   string name = null)
+    public static void UseWebApis(this IIntegrationConfigBuilder helper,
+                                  string baseUri,
+                                  TimeSpan? defaultTimeout = null,
+                                  string name = null)
     {
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));
 
-      helper.UseJsonApis(new Uri(baseUri), defaultTimeout, name);
+      helper.UseWebApis(new Uri(baseUri), defaultTimeout, name);
     }
 
     /// <summary>
-    /// Configures the current integration to make the <see cref="ConsumeJsonWebServices"/> ability available via
+    /// Configures the current integration to make the <see cref="ConsumeWebServices"/> ability available via
     /// dependency injection.
     /// </summary>
     /// <param name="helper">The integration helper.</param>
     /// <param name="baseUri">A base URI for all API requests which have relative URIs.</param>
     /// <param name="defaultTimeout">A default timeout for API requests which do not specify an explicit timeout.</param>
     /// <param name="name">The registered name of this ability.</param>
-    public static void UseJsonApis(this IIntegrationConfigBuilder helper,
-                                   Uri baseUri = null,
-                                   TimeSpan? defaultTimeout = null,
-                                   string name = null)
+    public static void UseWebApis(this IIntegrationConfigBuilder helper,
+                                  Uri baseUri = null,
+                                  TimeSpan? defaultTimeout = null,
+                                  string name = null)
     {
       if(helper == null)
         throw new ArgumentNullException(nameof(helper));
 
       helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
         regBuilder
-          .RegisterFactory(() => new ConsumeJsonWebServices(baseUri, defaultTimeout))
+          .RegisterFactory(() => new ConsumeWebServices(baseUri: baseUri, defaultTimeout: defaultTimeout))
           .AsOwnType()
           .WithName(name);
       });

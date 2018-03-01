@@ -118,6 +118,10 @@
     <Compile Include="Persona.cs" />
     <Compile Include="CastPersonaExtensions.cs" />
     <Compile Include="Actors\IGrantsResolvedAbilities.cs" />
+    <Compile Include="Builders\IProvidesTimespan.cs" />
+    <Compile Include="Builders\TimespanBuilder.cs" />
+    <Compile Include="Builders\TimespanBuilder`1.cs" />
+    <Compile Include="Builders\TimespanWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
@@ -128,6 +132,7 @@
     <Folder Include="Integration\" />
     <Folder Include="Stopwatch\" />
     <Folder Include="Resources\" />
+    <Folder Include="Builders\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

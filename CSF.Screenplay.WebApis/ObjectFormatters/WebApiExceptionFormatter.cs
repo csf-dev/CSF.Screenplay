@@ -4,14 +4,14 @@ using CSF.Screenplay.Reporting;
 namespace CSF.Screenplay.WebApis.ObjectFormatters
 {
   /// <summary>
-  /// Object formatter for a <c>System.TimeoutException</c>, which just emits the exception message with no other details.
+  /// A Screenplay object formatter which transforms a Web API exception into a human-readable report string.
   /// </summary>
-  public class TimeoutExceptionFormatter : ObjectFormatter<TimeoutException>
+  public class WebApiExceptionFormatter : ObjectFormatter<WebApiException>
   {
     /// <summary>
     /// Gets a formatted name for the given input.
     /// </summary>
     /// <param name="obj">Object.</param>
-    public override string Format(TimeoutException obj) => obj.Message;
+    public override string Format(WebApiException obj) => obj.Message;
   }
 }

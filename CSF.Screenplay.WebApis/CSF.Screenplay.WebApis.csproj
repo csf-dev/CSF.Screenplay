@@ -41,21 +41,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IProvidesInvocationDetails.cs" />
-    <Compile Include="Abilities\ConsumeJsonWebServices.cs" />
-    <Compile Include="JsonApiException.cs" />
-    <Compile Include="JsonServiceDescription.cs" />
-    <Compile Include="Actions\ExecuteApi.cs" />
-    <Compile Include="Actions\GetApiResult.cs" />
-    <Compile Include="Builders\Execute.cs" />
-    <Compile Include="JsonServiceDescription`1.cs" />
-    <Compile Include="Abilities\SynchronousJsonAdapter.cs" />
-    <Compile Include="ObjectFormatters\JsonApiExceptionFormatter.cs" />
+    <Compile Include="WebApiException.cs" />
+    <Compile Include="ObjectFormatters\WebApiExceptionFormatter.cs" />
     <Compile Include="ObjectFormatters\TimeoutExceptionFormatter.cs" />
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
-    <Compile Include="JsonApisBuilderExtensions.cs" />
+    <Compile Include="WebApisBuilderExtensions.cs" />
+    <Compile Include="IEndpoint.cs" />
+    <Compile Include="Endpoint.cs" />
+    <Compile Include="RelativeEndpoint.cs" />
+    <Compile Include="Abilities\ConsumeWebServices.cs" />
+    <Compile Include="Services\IMakesSynchronousHttpRequests.cs" />
+    <Compile Include="Services\SynchronousHttpClientAdapter.cs" />
+    <Compile Include="Services\IVerifiesSuccessfulResponse.cs" />
+    <Compile Include="Services\HttpResponseSuccessVerifier.cs" />
+    <Compile Include="Services\ICreatesHttpRequests.cs" />
+    <Compile Include="Services\HttpRequestFactory.cs" />
+    <Compile Include="Services\ICreatesRequestBodies.cs" />
+    <Compile Include="Services\IReadsResponseBodies.cs" />
+    <Compile Include="Services\JsonHttpContentReaderWriter.cs" />
+    <Compile Include="Actions\InvokeJsonApi.cs" />
+    <Compile Include="Actions\GetJsonApiResult.cs" />
+    <Compile Include="Services\JsonHttpRequestFactory.cs" />
+    <Compile Include="Builders\Invoke.cs" />
+    <Compile Include="Builders\JsonApiBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abilities\" />
@@ -63,6 +73,7 @@
     <Folder Include="Builders\" />
     <Folder Include="ObjectFormatters\" />
     <Folder Include="Resources\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -72,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="CSF.Screenplay.JsonApis.nuspec" />
+    <None Include="CSF.Screenplay.WebApis.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ExceptionFormats.resx">

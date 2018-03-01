@@ -1,15 +1,14 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
-using CSF.Screenplay.JsonApis.Builders;
-using CSF.Screenplay.JsonApis.Tests.Builders;
-using CSF.Screenplay.JsonApis.Tests.Services;
 using CSF.Screenplay.NUnit;
+using CSF.Screenplay.WebApis.Builders;
+using CSF.Screenplay.WebApis.Tests.Endpoints;
 using CSF.Screenplay.WebTestWebsite.ApiControllers;
 using CSF.Screenplay.WebTestWebsite.Models;
 using NUnit.Framework;
 using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.JsonApis.Tests
+namespace CSF.Screenplay.WebApis.Tests
 {
   [TestFixture]
   public class ExecuteAJsonApiTests
@@ -18,10 +17,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     public void Using_SetTheNumber_does_not_raise_exception(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
+      var joe = cast.Get<Joe>();
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApi(Set.TheNumberTo(5))), Throws.Nothing);
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(5).AndVerifyItSucceeds()), Throws.Nothing);
     }
 
     [Test,Screenplay]
@@ -29,11 +28,11 @@ namespace CSF.Screenplay.JsonApis.Tests
     {
       // Arrange
       var theNumber = 42;
-      var joe = cast.GetJoe();
-      Given(joe).WasAbleTo(Execute.AJsonApi(Set.TheNumberTo(theNumber)));
+      var joe = cast.Get<Joe>();
+      Given(joe).WasAbleTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(theNumber).AndVerifyItSucceeds());
 
       // Act
-      var result = When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheNumber()));
+      var result = When(joe).AttemptsTo(Invoke.TheJsonWebService<GetNumber>().AndReadTheResultAs<int>());
 
       // Assert
       Assert.That(result, Is.EqualTo(theNumber));
@@ -43,33 +42,33 @@ namespace CSF.Screenplay.JsonApis.Tests
     public void Using_CheckData_does_not_raise_exception_for_valid_data(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
+      var joe = cast.Get<Joe>();
       var theData = new SampleApiData { Name = ExecutionController.ValidName, DateAndTime = DateTime.Today };
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApi(Validate.TheData(theData))), Throws.Nothing);
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService<CheckData>().WithTheData(theData).AndVerifyItSucceeds()), Throws.Nothing);
     }
 
     [Test,Screenplay]
     public void Using_CheckData_raises_exception_for_invalid_data(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
+      var joe = cast.Get<Joe>();
       var theData = new SampleApiData { Name = "Invalid, crash expected", DateAndTime = DateTime.Today };
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApi(Validate.TheData(theData))),
-                  Throws.InstanceOf<JsonApiException>());
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService<CheckData>().WithTheData(theData).AndVerifyItSucceeds()),
+                  Throws.InstanceOf<WebApiException>());
     }
 
     [Test,Screenplay]
     public void Using_GetData_returns_expected_result(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
+      var joe = cast.Get<Joe>();
 
       // Act
-      var result = When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheSampleDataFor(joe.Name)));
+      var result = When(joe).AttemptsTo(Invoke.TheJsonWebService(GetData.For(joe.Name)).AndReadTheResultAs<SampleApiData>());
 
       // Assert
       Assert.That(result, Is.Not.Null, "Result should not be null");
@@ -81,11 +80,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     public void Using_GetDataSlowly_does_not_raise_exception_if_timeout_is_30_seconds(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
-      var timeout = TimeSpan.FromSeconds(30);
+      var joe = cast.Get<Joe>();
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheSampleDataSlowlyFor(joe.Name, timeout))),
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService(SlowlyGetData.For(joe.Name)).WithATimeoutOf(30).Seconds().AndReadTheResultAs<SampleApiData>()),
                   Throws.Nothing);
     }
 
@@ -93,11 +91,10 @@ namespace CSF.Screenplay.JsonApis.Tests
     public void Using_GetDataSlowly_raises_exception_if_timeout_is_1_second(ICast cast)
     {
       // Arrange
-      var joe = cast.GetJoe();
-      var timeout = TimeSpan.FromSeconds(1);
+      var joe = cast.Get<Joe>();
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Execute.AJsonApiAndGetTheResult(Get.TheSampleDataSlowlyFor(joe.Name, timeout))),
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService(SlowlyGetData.For(joe.Name)).WithATimeoutOf(1).Seconds().AndReadTheResultAs<SampleApiData>()),
                   Throws.InstanceOf<TimeoutException>());
     }
   }
