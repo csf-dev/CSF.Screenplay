@@ -61,7 +61,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExecuteAJsonApiTests.cs" />
+    <Compile Include="InvokeWebApiTests.cs" />
     <Compile Include="ScreenplayConfig.cs" />
     <Compile Include="Endpoints\GetData.cs" />
     <Compile Include="Endpoints\SlowlyGetData.cs" />

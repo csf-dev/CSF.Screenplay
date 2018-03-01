@@ -9,7 +9,7 @@ namespace CSF.Screenplay.WebApis.Tests.Endpoints
 
     public override string Name => $"the data-retrieval service for {name} which operates slowly";
 
-    public override HttpMethod HttpMethod => HttpMethod.Get;
+    public override HttpMethod HttpMethod => HttpMethod.Post;
 
     protected override string GetRelativeUriString() => $"Data/slow-sample-data/{name}";
 

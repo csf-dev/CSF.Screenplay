@@ -11,16 +11,17 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.WebApis.Tests
 {
   [TestFixture]
-  public class ExecuteAJsonApiTests
+  public class InvokeWebApiTests
   {
     [Test,Screenplay]
     public void Using_SetTheNumber_does_not_raise_exception(ICast cast)
     {
       // Arrange
       var joe = cast.Get<Joe>();
+      var theData = new SampleApiData() { NewNumber = 5 };
 
       // Act & assert
-      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(5).AndVerifyItSucceeds()), Throws.Nothing);
+      Assert.That(() => When(joe).AttemptsTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(theData).AndVerifyItSucceeds()), Throws.Nothing);
     }
 
     [Test,Screenplay]
@@ -28,8 +29,9 @@ namespace CSF.Screenplay.WebApis.Tests
     {
       // Arrange
       var theNumber = 42;
+      var theData = new SampleApiData() { NewNumber = theNumber };
       var joe = cast.Get<Joe>();
-      Given(joe).WasAbleTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(theNumber).AndVerifyItSucceeds());
+      Given(joe).WasAbleTo(Invoke.TheJsonWebService<SetNumber>().WithTheData(theData).AndVerifyItSucceeds());
 
       // Act
       var result = When(joe).AttemptsTo(Invoke.TheJsonWebService<GetNumber>().AndReadTheResultAs<int>());

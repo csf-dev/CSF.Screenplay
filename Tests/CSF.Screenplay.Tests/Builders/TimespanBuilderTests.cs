@@ -54,7 +54,7 @@ namespace CSF.Screenplay.Tests.Builders
       var timespanProvider = (IProvidesTimespan) builder;
 
       // Act
-      builder.Milliseconds();
+      builder.Seconds();
 
       // Assert
       Assert.That(timespanProvider.GetTimespan(), Is.EqualTo(TimeSpan.FromSeconds(value)));

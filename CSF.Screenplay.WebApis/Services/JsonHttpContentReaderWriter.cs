@@ -38,6 +38,8 @@ namespace CSF.Screenplay.WebApis.Services
   /// </summary>
   public class JsonHttpContentReaderWriter : ICreatesRequestBodies, IReadsResponseBodies
   {
+    static readonly TimeSpan ReadResponseTimeout = TimeSpan.FromSeconds(5);
+
     public static readonly ContentType JsonContentType = new ContentType("application/json");
 
     readonly JsonSerializer serializer;
@@ -92,7 +94,10 @@ namespace CSF.Screenplay.WebApis.Services
     void PrepareBufferForReading(Stream buffer, HttpResponseMessage response)
     {
       var copyTask = response.Content.CopyToAsync(buffer);
-      copyTask.RunSynchronously();
+
+      var copySuccess = copyTask.Wait(ReadResponseTimeout);
+      if(!copySuccess)
+        throw new WebApiException(Resources.ExceptionFormats.ReadResponseTimeout);
 
       // Reset the buffer to the start
       buffer.Position = 0;

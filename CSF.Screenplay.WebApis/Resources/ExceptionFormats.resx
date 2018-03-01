@@ -30,4 +30,7 @@
   <data name="CannotSetTimeoutTwice" xml:space="preserve">
     <value>You may not set the timeout upon a web API request twice.</value>
   </data>
+  <data name="ReadResponseTimeout" xml:space="preserve">
+    <value>The timeout was exceeded whilst reading the HTTP response.</value>
+  </data>
 </root>

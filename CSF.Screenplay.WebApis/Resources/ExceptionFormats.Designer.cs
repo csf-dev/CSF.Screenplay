@@ -82,5 +82,11 @@ namespace CSF.Screenplay.WebApis.Resources {
                 return ResourceManager.GetString("CannotSetTimeoutTwice", resourceCulture);
             }
         }
+        
+        internal static string ReadResponseTimeout {
+            get {
+                return ResourceManager.GetString("ReadResponseTimeout", resourceCulture);
+            }
+        }
     }
 }

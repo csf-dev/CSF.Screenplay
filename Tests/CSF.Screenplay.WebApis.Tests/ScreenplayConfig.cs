@@ -1,4 +1,5 @@
-﻿using CSF.Screenplay.Integration;
+﻿using System;
+using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.Reporting.Models;
@@ -24,8 +25,16 @@ namespace CSF.Screenplay.WebApis.Tests
 
     void WriteReport(IObjectFormattingService formatter, Report report)
     {
-      var path = "JsonApis.report.txt";
-      TextReportWriter.WriteToFile(report, path, formatter);
+      try
+      {
+        var path = "JsonApis.report.txt";
+        TextReportWriter.WriteToFile(report, path, formatter);
+      }
+      catch(Exception ex)
+      {
+        System.Console.WriteLine("Error writing the report");
+        Console.WriteLine(ex);
+      }
     }
   }
 }

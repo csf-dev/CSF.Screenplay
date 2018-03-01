@@ -56,6 +56,7 @@ namespace CSF.Screenplay.WebApis.Actions
       if(endpoint == null)
         throw new ArgumentNullException(nameof(endpoint));
 
+      this.endpoint = endpoint;
       this.payload = payload;
       this.timeout = timeout;
 

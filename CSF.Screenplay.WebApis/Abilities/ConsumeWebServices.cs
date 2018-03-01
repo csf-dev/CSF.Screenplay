@@ -97,9 +97,6 @@ namespace CSF.Screenplay.WebApis.Abilities
                               IMakesSynchronousHttpRequests synchronousClientAdapter = null,
                               TimeSpan? defaultTimeout = null)
     {
-      if(httpClient == null)
-        throw new ArgumentNullException(nameof(httpClient));
-
       this.httpClient = new HttpClient() {
         BaseAddress = baseUri
       };
