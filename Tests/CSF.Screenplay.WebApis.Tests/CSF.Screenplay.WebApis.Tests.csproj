@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AD2EA460-8F07-4068-90DF-0EB373836D86}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.JsonApis.Tests</RootNamespace>
-    <AssemblyName>CSF.Screenplay.JsonApis.Tests</AssemblyName>
+    <RootNamespace>CSF.Screenplay.WebApis.Tests</RootNamespace>
+    <AssemblyName>CSF.Screenplay.WebApis.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>0.11.0-beta</ReleaseVersion>
   </PropertyGroup>
@@ -43,10 +43,6 @@
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CSF.Screenplay.JsonApis\CSF.Screenplay.JsonApis.csproj">
-      <Project>{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}</Project>
-      <Name>CSF.Screenplay.JsonApis</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CSF.Screenplay.WebTestWebsite\CSF.Screenplay.WebTestWebsite.csproj">
       <Project>{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}</Project>
       <Name>CSF.Screenplay.WebTestWebsite</Name>
@@ -58,6 +54,10 @@
     <ProjectReference Include="..\..\CSF.Screenplay.NUnit\CSF.Screenplay.NUnit.csproj">
       <Project>{78571AD2-4C55-4459-A4D9-2CD63A9AACC7}</Project>
       <Name>CSF.Screenplay.NUnit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.WebApis\CSF.Screenplay.WebApis.csproj">
+      <Project>{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}</Project>
+      <Name>CSF.Screenplay.WebApis</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

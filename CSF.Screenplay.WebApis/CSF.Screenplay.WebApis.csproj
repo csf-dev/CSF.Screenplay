@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.JsonApis</RootNamespace>
-    <AssemblyName>CSF.Screenplay.JsonApis</AssemblyName>
+    <RootNamespace>CSF.Screenplay.WebApis</RootNamespace>
+    <AssemblyName>CSF.Screenplay.WebApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>0.11.0-beta</ReleaseVersion>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\CSF.Screenplay.JsonApis.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.WebApis.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -26,7 +26,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\CSF.Screenplay.JsonApis.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\CSF.Screenplay.WebApis.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
