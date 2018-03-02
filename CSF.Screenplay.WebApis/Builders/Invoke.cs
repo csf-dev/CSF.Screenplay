@@ -26,14 +26,27 @@
 
 namespace CSF.Screenplay.WebApis.Builders
 {
+  /// <summary>
+  /// Static builder class for creating Web API actions.
+  /// </summary>
   public class Invoke
   {
+    /// <summary>
+    /// Creates and returns a builder for invoking a JSON web API.
+    /// </summary>
+    /// <returns>The JSON API action builder.</returns>
+    /// <typeparam name="TEndpoint">The endpoint type.</typeparam>
     public static JsonApiBuilder TheJsonWebService<TEndpoint>() where TEndpoint : IEndpoint,new()
     {
       var endpoint = new TEndpoint();
       return TheJsonWebService(endpoint);
     }
 
+    /// <summary>
+    /// Creates and returns a builder for invoking a JSON web API.
+    /// </summary>
+    /// <returns>The JSON API action builder.</returns>
+    /// <param name="endpoint">An endpoint instance.</param>
     public static JsonApiBuilder TheJsonWebService(IEndpoint endpoint)
     {
       return new JsonApiBuilder(endpoint);

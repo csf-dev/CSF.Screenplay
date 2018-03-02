@@ -31,6 +31,10 @@ using CSF.Screenplay.WebApis.Services;
 
 namespace CSF.Screenplay.WebApis.Actions
 {
+  /// <summary>
+  /// A Screenplay action type for invoking a JSON web API.  This action only executes the API call and verifies that the
+  /// response was a success.  It does not read the content of the response.
+  /// </summary>
   public class InvokeJsonApi : Performable
   {
     readonly JsonHttpRequestFactory requestFactory;
@@ -39,8 +43,17 @@ namespace CSF.Screenplay.WebApis.Actions
     readonly object payload;
     readonly TimeSpan? timeout;
 
+    /// <summary>
+    /// Gets the report of the current instance, for the given actor.
+    /// </summary>
+    /// <returns>The human-readable report text.</returns>
+    /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor) => $"{actor.Name} invokes {endpoint.Name}.";
 
+    /// <summary>
+    /// Performs this operation, as the given actor.
+    /// </summary>
+    /// <param name="actor">The actor performing this task.</param>
     protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<ConsumeWebServices>();
@@ -49,6 +62,12 @@ namespace CSF.Screenplay.WebApis.Actions
       responseVerifier.AssertThatResponseIsSuccessful(response);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.WebApis.Actions.InvokeJsonApi"/> class.
+    /// </summary>
+    /// <param name="endpoint">Endpoint.</param>
+    /// <param name="payload">Payload.</param>
+    /// <param name="timeout">Timeout.</param>
     public InvokeJsonApi(IEndpoint endpoint, object payload = null, TimeSpan? timeout = null)
     {
       if(endpoint == null)

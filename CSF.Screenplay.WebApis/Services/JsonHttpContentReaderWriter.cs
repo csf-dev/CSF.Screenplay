@@ -40,6 +40,9 @@ namespace CSF.Screenplay.WebApis.Services
   {
     static readonly TimeSpan ReadResponseTimeout = TimeSpan.FromSeconds(5);
 
+    /// <summary>
+    /// Gets a <see cref="ContentType"/> instance representing the JSON MIME type <c>application/json</c>.
+    /// </summary>
     public static readonly ContentType JsonContentType = new ContentType("application/json");
 
     readonly JsonSerializer serializer;
