@@ -1,6 +1,7 @@
 ﻿using CSF.Screenplay.Integration;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.SpecFlow;
+using CSF.Screenplay.SpecFlow.Tests.Abilities;
 
 [assembly: ScreenplayAssembly(typeof(CSF.Screenplay.SpecFlow.Tests.ScreenplayConfig))]
 
@@ -10,8 +11,6 @@ namespace CSF.Screenplay.SpecFlow.Tests
   {
     public void Configure(IIntegrationConfigBuilder builder)
     {
-      builder.UseCast();
-      builder.UseStage();
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
@@ -20,6 +19,10 @@ namespace CSF.Screenplay.SpecFlow.Tests
           var path = "SpecFlow.report.txt";
           TextReportWriter.WriteToFile(report, path, formatter);
         });
+      });
+
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterType<AddNumbers>();
       });
     }
   }

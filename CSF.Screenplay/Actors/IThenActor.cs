@@ -30,11 +30,27 @@ namespace CSF.Screenplay.Actors
     TResult Should<TResult>(IPerformable<TResult> performable);
 
     /// <summary>
-    /// Asks the given question and gets the answer.
+    /// Asks the given question and gets the answer.  This is a synonym of <see cref="ShouldGet"/>.
     /// </summary>
     /// <returns>The answer returned from the question.</returns>
     /// <param name="question">A question.</param>
     /// <typeparam name="TResult">The result type, returned from the question.</typeparam>
     TResult ShouldSee<TResult>(IQuestion<TResult> question);
+
+    /// <summary>
+    /// Asks the given question and gets the answer.
+    /// </summary>
+    /// <returns>The answer returned from the question.</returns>
+    /// <param name="question">A question.</param>
+    /// <typeparam name="TResult">The result type, returned from the question.</typeparam>
+    TResult ShouldGet<TResult>(IQuestion<TResult> question);
+
+    /// <summary>
+    /// Asks the given question and gets the answer.  This is a synonym of <see cref="ShouldGet"/>.
+    /// </summary>
+    /// <returns>The answer returned from the question.</returns>
+    /// <param name="question">A question.</param>
+    /// <typeparam name="TResult">The result type, returned from the question.</typeparam>
+    TResult ShouldRead<TResult>(IQuestion<TResult> question);
   }
 }

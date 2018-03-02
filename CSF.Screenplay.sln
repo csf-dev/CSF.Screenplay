@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting.Ht
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting.Html.Tests", "Tests\CSF.Screenplay.Reporting.Html.Tests\CSF.Screenplay.Reporting.Html.Tests.csproj", "{C3A68C7D-848E-434C-8004-9BC3B99CF2B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.JsonApis", "CSF.Screenplay.JsonApis\CSF.Screenplay.JsonApis.csproj", "{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebApis", "CSF.Screenplay.WebApis\CSF.Screenplay.WebApis.csproj", "{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.JsonApis.Tests", "Tests\CSF.Screenplay.JsonApis.Tests\CSF.Screenplay.JsonApis.Tests.csproj", "{AD2EA460-8F07-4068-90DF-0EB373836D86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebApis.Tests", "Tests\CSF.Screenplay.WebApis.Tests\CSF.Screenplay.WebApis.Tests.csproj", "{AD2EA460-8F07-4068-90DF-0EB373836D86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +91,6 @@ Global
 		{AD2EA460-8F07-4068-90DF-0EB373836D86} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 0.11.0-beta
+		version = 0.12.0-beta
 	EndGlobalSection
 EndGlobal

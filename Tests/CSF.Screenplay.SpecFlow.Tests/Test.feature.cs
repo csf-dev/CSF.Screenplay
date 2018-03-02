@@ -73,9 +73,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
   testRunner.Given("Joe has the number 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-   testRunner.When("Joe adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("he adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
-   testRunner.Then("Joe should see the total 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("he should see the total 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -90,11 +90,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
   testRunner.Given("Joe has the number 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
-    testRunner.And("Joe adds 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("he adds 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
-   testRunner.When("Joe adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("he adds 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-   testRunner.Then("Joe should see the total 140", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("he should see the total 140", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

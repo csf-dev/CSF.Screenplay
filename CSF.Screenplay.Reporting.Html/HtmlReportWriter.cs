@@ -72,7 +72,24 @@ namespace CSF.Screenplay.Reporting
 
       this.writer = writer;
       this.formattingService = formattingService;
-      documentFactory = new ZptDocumentFactory();
+      var pluginConfig = new HardCodedZptSharpConfigurationProvider();
+      documentFactory = new ZptDocumentFactory(new ZptDocumentProviderService(pluginConfig));
+    }
+
+    /// <summary>
+    /// Write the report to a file path.
+    /// </summary>
+    /// <param name="report">The report.</param>
+    /// <param name="path">Destination file path.</param>
+    /// <param name="formattingService">Object formatting service.</param>
+    public static void WriteToFile(Report report, string path, IObjectFormattingService formattingService = null)
+    {
+      using(var writer = new StreamWriter(path))
+      {
+        var reportWriter = new HtmlReportWriter(writer, formattingService);
+        reportWriter.Write(report);
+        writer.Flush();
+      }
     }
   }
 }

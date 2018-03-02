@@ -12,7 +12,7 @@ test:
   assemblies:
     except:
     - '**\CSF.Screenplay.Web.Tests.dll'
-    - '**\CSF.Screenplay.JsonApis.Tests.dll'
+    - '**\CSF.Screenplay.WebApis.Tests.dll'
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
 artifacts:

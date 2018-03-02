@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using CSF.Screenplay.Scenarios;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Bindings;
 using TechTalk.SpecFlow.Infrastructure;
@@ -65,6 +66,9 @@ namespace CSF.Screenplay.SpecFlow
           r.RegisterInstance(featureContext);
           r.RegisterInstance(scenario).As<IScenario>();
         });
+
+        var diBuilder = new ScreenplayDependencyInjectionBuilder(e.ObjectContainer, scenario.DiContainer);
+        diBuilder.ReRegisterSpecFlowDependencies();
       };
     }
 

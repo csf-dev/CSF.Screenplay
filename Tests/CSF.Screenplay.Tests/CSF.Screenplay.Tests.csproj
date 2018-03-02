@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,9 +39,19 @@
     <Reference Include="CSF.FlexDi">
       <HintPath>..\..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
     </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\..\packages\AutoFixture.3.50.3\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.AutoMoq">
+      <HintPath>..\..\packages\AutoFixture.AutoMoq.3.50.3\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture.NUnit3">
+      <HintPath>..\..\packages\AutoFixture.NUnit3.3.50.3\lib\net40\Ploeh.AutoFixture.NUnit3.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -54,6 +64,7 @@
     <Folder Include="Abilities\" />
     <Folder Include="Integration\" />
     <Folder Include="Stopwatch\" />
+    <Folder Include="Builders\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\CastTests.cs" />
@@ -61,6 +72,8 @@
     <Compile Include="Integration\ScreenplayIntegrationTests.cs" />
     <Compile Include="Actors\ActorTests.cs" />
     <Compile Include="Stopwatch\TimeSpanFormatterTests.cs" />
+    <Compile Include="Builders\TimespanBuilderTests.cs" />
+    <Compile Include="AutoMoqDataAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

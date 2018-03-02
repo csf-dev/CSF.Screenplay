@@ -40,8 +40,15 @@ namespace CSF.Screenplay.Integration
     IIntegrationConfigBuilder GetBuilder(IIntegrationConfig config)
     {
       var output = new IntegrationConfigurationBuilder();
+      AddBaselineIntegrationConfiguration(output);
       config.Configure(output);
       return output;
+    }
+
+    void AddBaselineIntegrationConfiguration(IIntegrationConfigBuilder builder)
+    {
+      builder.UseCast();
+      builder.UseStage();
     }
   }
 }

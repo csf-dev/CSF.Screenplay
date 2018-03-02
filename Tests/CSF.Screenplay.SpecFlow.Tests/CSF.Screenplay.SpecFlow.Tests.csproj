@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +55,14 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Stopwatch.feature.cs</LastGenOutput>
     </None>
+    <None Include="ResolveAnITestRunner.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ResolveAnITestRunner.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Personas.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Personas.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.feature.cs">
@@ -75,6 +83,15 @@
       <DependentUpon>Stopwatch.feature</DependentUpon>
     </Compile>
     <Compile Include="StopwatchSteps.cs" />
+    <Compile Include="ResolveAnITestRunner.feature.cs">
+      <DependentUpon>ResolveAnITestRunner.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ResolvingATestRunnerSteps.cs" />
+    <Compile Include="BindingWhichDerivesFromSteps.cs" />
+    <Compile Include="Personas.feature.cs">
+      <DependentUpon>Personas.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\Sarah.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">
@@ -93,6 +110,7 @@
   <ItemGroup>
     <Folder Include="Abilities\" />
     <Folder Include="Actions\" />
+    <Folder Include="Personas\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
