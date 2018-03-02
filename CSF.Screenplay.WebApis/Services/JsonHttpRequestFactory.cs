@@ -29,20 +29,39 @@ using System.Net.Http.Headers;
 
 namespace CSF.Screenplay.WebApis.Services
 {
-  class JsonHttpRequestFactory
+  /// <summary>
+  /// A proxy for an implementation of <see cref="ICreatesHttpRequests"/> which will transform <c>System.Object</c>
+  /// payloads into JSON data in order to create the HTTP request message.
+  /// </summary>
+  public class JsonHttpRequestFactory : ICreatesHttpRequests
   {
     readonly ICreatesRequestBodies requestBodyFactory;
-    readonly ICreatesHttpRequests requestFactory;
+    readonly ICreatesHttpRequests proxiedFactory;
 
-    internal HttpRequestMessage GetRequest(IEndpoint endpoint, object payload)
+    /// <summary>
+    /// Creates the request from a given endpoint and request body.
+    /// </summary>
+    /// <returns>The HTTP request.</returns>
+    /// <param name="endpoint">Endpoint.</param>
+    /// <param name="payload">The request payload.</param>
+    public HttpRequestMessage CreateRequest(IEndpoint endpoint, object payload)
     {
-      var requestBody = GetRequestBody(payload);
-      var request = requestFactory.CreateRequest(endpoint, requestBody);
+      var httpContent = GetRequestContent(payload);
+      var request = proxiedFactory.CreateRequest(endpoint, httpContent);
       AddAcceptsJsonHeader(request);
       return request;
     }
 
-    HttpContent GetRequestBody(object payload)
+    /// <summary>
+    /// Creates the request from a given endpoint and request body.
+    /// </summary>
+    /// <returns>The HTTP request.</returns>
+    /// <param name="endpoint">Endpoint.</param>
+    /// <param name="requestBody">Request body.</param>
+    public HttpRequestMessage CreateRequest(IEndpoint endpoint, HttpContent requestBody)
+      => proxiedFactory.CreateRequest(endpoint, requestBody);
+
+    HttpContent GetRequestContent(object payload)
     {
       if(payload == null) return null;
       return requestBodyFactory.CreateRequestBody(payload);
@@ -54,10 +73,16 @@ namespace CSF.Screenplay.WebApis.Services
       request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(jsonMimeType, 1));
     }
 
-    public JsonHttpRequestFactory()
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.WebApis.Services.JsonHttpRequestFactoryProxy"/> class.
+    /// </summary>
+    /// <param name="requestBodyFactory">Request body factory.</param>
+    /// <param name="proxiedFactory">The proxied request factory.</param>
+    public JsonHttpRequestFactory(ICreatesRequestBodies requestBodyFactory = null,
+                                  ICreatesHttpRequests proxiedFactory = null)
     {
-      requestBodyFactory = new JsonHttpContentReaderWriter();
-      requestFactory = new HttpRequestFactory();
+      this.requestBodyFactory = requestBodyFactory ?? new JsonHttpContentReaderWriter();
+      this.proxiedFactory = proxiedFactory ?? new HttpRequestFactory();
     }
   }
 }

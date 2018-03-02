@@ -38,6 +38,14 @@ namespace CSF.Screenplay.WebApis.Services
     /// </summary>
     /// <returns>The HTTP request.</returns>
     /// <param name="endpoint">Endpoint.</param>
+    /// <param name="payload">The request payload.</param>
+    HttpRequestMessage CreateRequest(IEndpoint endpoint, object payload);
+
+    /// <summary>
+    /// Creates the request from a given endpoint and request body.
+    /// </summary>
+    /// <returns>The HTTP request.</returns>
+    /// <param name="endpoint">Endpoint.</param>
     /// <param name="requestBody">Request body.</param>
     HttpRequestMessage CreateRequest(IEndpoint endpoint, HttpContent requestBody);
   }

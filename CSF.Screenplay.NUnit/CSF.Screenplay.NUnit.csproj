@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.NUnit</RootNamespace>
     <AssemblyName>CSF.Screenplay.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

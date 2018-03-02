@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.WebApis</RootNamespace>
     <AssemblyName>CSF.Screenplay.WebApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.11.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,8 +61,8 @@
     <Compile Include="Services\ICreatesRequestBodies.cs" />
     <Compile Include="Services\IReadsResponseBodies.cs" />
     <Compile Include="Services\JsonHttpContentReaderWriter.cs" />
-    <Compile Include="Actions\InvokeJsonApi.cs" />
-    <Compile Include="Actions\GetJsonApiResult.cs" />
+    <Compile Include="Actions\InvokeApi.cs" />
+    <Compile Include="Actions\GetApiResult`1.cs" />
     <Compile Include="Services\JsonHttpRequestFactory.cs" />
     <Compile Include="Builders\Invoke.cs" />
     <Compile Include="Builders\JsonApiBuilder.cs" />
