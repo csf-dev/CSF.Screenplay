@@ -3,7 +3,7 @@
 NUNIT_CONSOLE_VERSION="3.7.0"
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
-JSON_TESTS="CSF.Screenplay.JsonApis.Tests"
+JSON_TESTS="CSF.Screenplay.WebApis.Tests"
 JSON_TESTS_PATH="Tests/${JSON_TESTS}/bin/Debug/${JSON_TESTS}.dll"
 
 test_outcome=1

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6273A66-8B2A-47C0-A982-F94E6BEA79F8}</ProjectGuid>
+    <ProjectGuid>{AD2EA460-8F07-4068-90DF-0EB373836D86}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSF.Screenplay.Tests</RootNamespace>
-    <AssemblyName>CSF.Screenplay.Tests</AssemblyName>
+    <RootNamespace>CSF.Screenplay.WebApis.Tests</RootNamespace>
+    <AssemblyName>CSF.Screenplay.WebApis.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ReleaseVersion>0.11.0-beta</ReleaseVersion>
   </PropertyGroup>
@@ -27,26 +27,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Castle.Core">
-      <HintPath>..\..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="CSF.FlexDi">
       <HintPath>..\..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
-    </Reference>
-    <Reference Include="Ploeh.AutoFixture">
-      <HintPath>..\..\packages\AutoFixture.3.50.3\lib\net40\Ploeh.AutoFixture.dll</HintPath>
-    </Reference>
-    <Reference Include="Ploeh.AutoFixture.AutoMoq">
-      <HintPath>..\..\packages\AutoFixture.AutoMoq.3.50.3\lib\net40\Ploeh.AutoFixture.AutoMoq.dll</HintPath>
-    </Reference>
-    <Reference Include="Ploeh.AutoFixture.NUnit3">
-      <HintPath>..\..\packages\AutoFixture.NUnit3.3.50.3\lib\net40\Ploeh.AutoFixture.NUnit3.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -58,22 +44,35 @@
       <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
       <Name>CSF.Screenplay</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay.WebTestWebsite\CSF.Screenplay.WebTestWebsite.csproj">
+      <Project>{7E16FEE8-2CEA-4581-B559-A399EF5A86A9}</Project>
+      <Name>CSF.Screenplay.WebTestWebsite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
+      <Project>{18010B4E-22A7-4462-B057-7199B3386D48}</Project>
+      <Name>CSF.Screenplay.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.NUnit\CSF.Screenplay.NUnit.csproj">
+      <Project>{78571AD2-4C55-4459-A4D9-2CD63A9AACC7}</Project>
+      <Name>CSF.Screenplay.NUnit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CSF.Screenplay.WebApis\CSF.Screenplay.WebApis.csproj">
+      <Project>{9AA1246E-B5BC-499E-B0D9-EFA5F62F2E2C}</Project>
+      <Name>CSF.Screenplay.WebApis</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Actors\" />
-    <Folder Include="Abilities\" />
-    <Folder Include="Integration\" />
-    <Folder Include="Stopwatch\" />
-    <Folder Include="Builders\" />
+    <Compile Include="InvokeWebApiTests.cs" />
+    <Compile Include="ScreenplayConfig.cs" />
+    <Compile Include="Endpoints\GetData.cs" />
+    <Compile Include="Endpoints\SlowlyGetData.cs" />
+    <Compile Include="Endpoints\SetNumber.cs" />
+    <Compile Include="Endpoints\GetNumber.cs" />
+    <Compile Include="Endpoints\CheckData.cs" />
+    <Compile Include="Joe.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actors\CastTests.cs" />
-    <Compile Include="Abilities\AbilityStoreTests.cs" />
-    <Compile Include="Integration\ScreenplayIntegrationTests.cs" />
-    <Compile Include="Actors\ActorTests.cs" />
-    <Compile Include="Stopwatch\TimeSpanFormatterTests.cs" />
-    <Compile Include="Builders\TimespanBuilderTests.cs" />
-    <Compile Include="AutoMoqDataAttribute.cs" />
+    <Folder Include="Endpoints\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
