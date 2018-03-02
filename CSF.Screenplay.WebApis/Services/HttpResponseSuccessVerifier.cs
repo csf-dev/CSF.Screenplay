@@ -42,14 +42,10 @@ namespace CSF.Screenplay.WebApis.Services
       if(response == null)
         throw new ArgumentNullException(nameof(response));
 
-      try
-      {
-        response.EnsureSuccessStatusCode();
-      }
-      catch(Exception ex)
+      if(!response.IsSuccessStatusCode)
       {
         var message = String.Format(Resources.ExceptionFormats.ApiRequestFailedWithStatusCode, (int) response.StatusCode);
-        throw new WebApiException(message, ex) {
+        throw new WebApiException(message) {
           ErrorResponseBody = response.Content.ReadAsStringAsync().Result
         };
       }
