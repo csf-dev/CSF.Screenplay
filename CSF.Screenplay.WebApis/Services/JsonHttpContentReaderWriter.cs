@@ -45,7 +45,7 @@ namespace CSF.Screenplay.WebApis.Services
     /// </summary>
     public static readonly ContentType JsonContentType = new ContentType("application/json");
 
-    readonly JsonSerializer serializer;
+    static readonly JsonSerializer serializer;
     readonly Encoding encoding;
 
     /// <summary>
@@ -112,9 +112,15 @@ namespace CSF.Screenplay.WebApis.Services
     /// <param name="encoding">Encoding.</param>
     public JsonHttpContentReaderWriter(Encoding encoding = null)
     {
-      serializer = new JsonSerializer();
-
       this.encoding = encoding ?? Encoding.UTF8;
+    }
+
+    /// <summary>
+    /// Initializes the <see cref="T:CSF.Screenplay.WebApis.Services.JsonHttpContentReaderWriter"/> class.
+    /// </summary>
+    static JsonHttpContentReaderWriter()
+    {
+      serializer = new JsonSerializer();
     }
   }
 }

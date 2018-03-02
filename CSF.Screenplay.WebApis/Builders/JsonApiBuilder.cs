@@ -27,6 +27,7 @@ using System;
 using CSF.Screenplay.Builders;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.WebApis.Actions;
+using CSF.Screenplay.WebApis.Services;
 
 namespace CSF.Screenplay.WebApis.Builders
 {
@@ -72,7 +73,11 @@ namespace CSF.Screenplay.WebApis.Builders
     /// <returns>A Screenplay Action instance.</returns>
     public IPerformable AndVerifyItSucceeds()
     {
-      return new InvokeJsonApi(endpoint, payload, timeoutProvider?.GetTimespan());
+      return new InvokeApi(GetRequestFactory(),
+                           endpoint,
+                           GetResponseVerifier(),
+                           payload,
+                           timeoutProvider?.GetTimespan());
     }
 
     /// <summary>
@@ -83,8 +88,22 @@ namespace CSF.Screenplay.WebApis.Builders
     /// <typeparam name="T">The type into which the response body is to be converted.</typeparam>
     public IPerformable<T> AndReadTheResultAs<T>()
     {
-      return new GetJsonApiResult<T>(endpoint, payload, timeoutProvider?.GetTimespan());
+      return new GetApiResult<T>(GetRequestFactory(),
+                                 GetResponseReader(),
+                                 endpoint,
+                                 GetResponseVerifier(),
+                                 payload,
+                                 timeoutProvider?.GetTimespan());
     }
+
+    ICreatesHttpRequests GetRequestFactory()
+      => new JsonHttpRequestFactory();
+
+    IVerifiesSuccessfulResponse GetResponseVerifier()
+      => new HttpResponseSuccessVerifier();
+
+    IReadsResponseBodies GetResponseReader()
+      => new JsonHttpContentReaderWriter();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.WebApis.Builders.JsonApiBuilder"/> class.

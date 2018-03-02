@@ -1,5 +1,5 @@
 ﻿//
-// GetJsonApiResult.cs
+// InvokeJsonApi.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -32,14 +32,13 @@ using CSF.Screenplay.WebApis.Services;
 namespace CSF.Screenplay.WebApis.Actions
 {
   /// <summary>
-  /// A Screenplay action type for invoking a JSON web API.  This action executes the API call, verifies that the
-  /// response was a success and then reads the response, converting it to a given type.
+  /// A Screenplay action type for invoking an HTTP web API.  This action only executes the API call and verifies that the
+  /// response was a success.  It does not read the content of the response.
   /// </summary>
-  public class GetJsonApiResult<T> : Question<T>
+  public class InvokeApi : Performable
   {
-    readonly JsonHttpRequestFactory requestFactory;
+    readonly ICreatesHttpRequests requestFactory;
     readonly IVerifiesSuccessfulResponse responseVerifier;
-    readonly IReadsResponseBodies responseReader;
     readonly IEndpoint endpoint;
     readonly object payload;
     readonly TimeSpan? timeout;
@@ -49,40 +48,43 @@ namespace CSF.Screenplay.WebApis.Actions
     /// </summary>
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
-    protected override string GetReport(INamed actor) => $"{actor.Name} invokes {endpoint.Name} and reads the result.";
+    protected override string GetReport(INamed actor) => $"{actor.Name} invokes {endpoint.Name}.";
 
     /// <summary>
     /// Performs this operation, as the given actor.
     /// </summary>
-    /// <returns>The response or result.</returns>
     /// <param name="actor">The actor performing this task.</param>
-    protected override T PerformAs(IPerformer actor)
+    protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<ConsumeWebServices>();
-      var request = requestFactory.GetRequest(endpoint, payload);
+      var request = requestFactory.CreateRequest(endpoint, payload);
       var response = ability.SynchronousHttpClient.Send(request, timeout ?? endpoint.Timeout);
       responseVerifier.AssertThatResponseIsSuccessful(response);
-      return responseReader.ReadResponseBody<T>(response);
     }
-
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.WebApis.Actions.GetJsonApiResult`1"/> class.
+    /// Initializes a new instance of the <see cref="InvokeApi"/> class.
     /// </summary>
-    /// <param name="endpoint">Endpoint.</param>
-    /// <param name="payload">Payload.</param>
-    /// <param name="timeout">Timeout.</param>
-    public GetJsonApiResult(IEndpoint endpoint, object payload = null, TimeSpan? timeout = null)
+    /// <param name="requestFactory">A factory for HTTP requests.</param>
+    /// <param name="endpoint">The endpoint.</param>
+    /// <param name="responseVerifier">An optional response verifier.</param>
+    /// <param name="payload">An optional request payload.</param>
+    /// <param name="timeout">An optional timeout.</param>
+    public InvokeApi(ICreatesHttpRequests requestFactory,
+                     IEndpoint endpoint,
+                     IVerifiesSuccessfulResponse responseVerifier = null,
+                     object payload = null,
+                     TimeSpan? timeout = null)
     {
+      if(requestFactory == null)
+        throw new ArgumentNullException(nameof(requestFactory));
       if(endpoint == null)
         throw new ArgumentNullException(nameof(endpoint));
 
+      this.requestFactory = requestFactory;
+      this.responseVerifier = responseVerifier ?? new HttpResponseSuccessVerifier();
       this.endpoint = endpoint;
       this.payload = payload;
       this.timeout = timeout;
-
-      requestFactory = new JsonHttpRequestFactory();
-      responseVerifier = new HttpResponseSuccessVerifier();
-      responseReader = new JsonHttpContentReaderWriter();
     }
   }
 }

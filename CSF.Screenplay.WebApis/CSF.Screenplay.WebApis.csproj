@@ -61,8 +61,8 @@
     <Compile Include="Services\ICreatesRequestBodies.cs" />
     <Compile Include="Services\IReadsResponseBodies.cs" />
     <Compile Include="Services\JsonHttpContentReaderWriter.cs" />
-    <Compile Include="Actions\InvokeJsonApi.cs" />
-    <Compile Include="Actions\GetJsonApiResult.cs" />
+    <Compile Include="Actions\InvokeApi.cs" />
+    <Compile Include="Actions\GetApiResult`1.cs" />
     <Compile Include="Services\JsonHttpRequestFactory.cs" />
     <Compile Include="Builders\Invoke.cs" />
     <Compile Include="Builders\JsonApiBuilder.cs" />
