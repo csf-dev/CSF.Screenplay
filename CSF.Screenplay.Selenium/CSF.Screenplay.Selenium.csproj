@@ -166,7 +166,6 @@
     <Compile Include="Builders\Navigate.cs" />
     <Compile Include="Questions\GetElement.cs" />
     <Compile Include="Builders\Get.cs" />
-    <Compile Include="Abilities\Capabilities.cs" />
     <Compile Include="Reporting\OptionCollectionFormatter.cs" />
     <Compile Include="Reporting\ElementCollectionFormatter.cs" />
     <Compile Include="Tasks\EnterTheDateIntoAnHtml5InputTypeDate.cs" />
