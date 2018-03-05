@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.Screenplay.Builders;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Selenium.Queries;
@@ -25,7 +26,7 @@ namespace CSF.Screenplay.Selenium.Builders
     public static TimespanBuilder<Wait> ForAtMost(int timeValue)
     {
       var builder = new Wait();
-      var wrapper = new TimespanBuilder<Wait>(timeValue, builder);
+      var wrapper = TimespanBuilder.Create(timeValue, builder);
       builder.timespanProvider = wrapper;
       return wrapper;
     }
