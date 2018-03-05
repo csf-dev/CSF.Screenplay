@@ -52,20 +52,8 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.7.99\lib\net45\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.FlexDi">
-      <HintPath>..\packages\CSF.FlexDi.0.5.0-beta\lib\net45\CSF.FlexDi.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Screenplay">
-      <HintPath>..\packages\CSF.Screenplay.0.10.0-alpha\lib\net45\CSF.Screenplay.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Screenplay.Reporting">
-      <HintPath>..\packages\CSF.Screenplay.Reporting.0.10.0-alpha\lib\net45\CSF.Screenplay.Reporting.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.Reflection">
       <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Screenplay.NUnit">
-      <HintPath>..\packages\CSF.Screenplay.NUnit.0.10.0-alpha\lib\net45\CSF.Screenplay.NUnit.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Configuration">
       <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
@@ -73,8 +61,20 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.FlexDi">
+      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay">
+      <HintPath>..\packages\CSF.Screenplay.0.12.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay.NUnit">
+      <HintPath>..\packages\CSF.Screenplay.NUnit.0.12.0-beta\lib\net45\CSF.Screenplay.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay.Reporting">
+      <HintPath>..\packages\CSF.Screenplay.Reporting.0.12.0-beta\lib\net45\CSF.Screenplay.Reporting.dll</HintPath>
+    </Reference>
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.5.0-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.1.0.0\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
