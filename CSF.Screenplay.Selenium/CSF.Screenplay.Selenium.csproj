@@ -188,6 +188,8 @@
     <Compile Include="CSF.Selenium.Support.UI\SelectElementUsingModifierKey.cs" />
     <Compile Include="StoredScripts\IProvidesScript.cs" />
     <Compile Include="StoredScripts\ScriptResource.cs" />
+    <Compile Include="StoredScripts\IRunsScripts.cs" />
+    <Compile Include="StoredScripts\ScriptRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

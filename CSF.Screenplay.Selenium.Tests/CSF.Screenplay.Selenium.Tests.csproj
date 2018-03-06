@@ -116,6 +116,7 @@
     <Compile Include="Ignore.cs" />
     <Compile Include="StoredScripts\SampleScript.cs" />
     <Compile Include="StoredScripts\ScriptResourceTests.cs" />
+    <Compile Include="StoredScripts\ScriptRunnerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
