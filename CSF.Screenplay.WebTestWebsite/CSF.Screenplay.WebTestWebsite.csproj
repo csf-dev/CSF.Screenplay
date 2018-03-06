@@ -128,6 +128,8 @@
     <Folder Include="Views\PageTwo\" />
     <Folder Include="Views\PageThree\" />
     <Folder Include="ActionFilters\" />
+    <Folder Include="Scripts\script-tests\" />
+    <Folder Include="Views\StoredScriptTest\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -138,7 +140,9 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Controllers\PageTwoController.cs" />
     <Compile Include="Controllers\PageThreeController.cs" />
+    <Compile Include="Controllers\StoredScriptTestController.cs" />
     <Compile Include="ActionFilters\BaseUriAttribute.cs" />
+    <Compile Include="Models\JavaScriptTestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -154,6 +158,7 @@
     <Content Include="Scripts\jasmine\boot.js" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
     <Content Include="Content\jasmine\jasmine.css" />
+    <Content Include="Scripts\script-tests\GetDocumentReadyState.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
@@ -162,6 +167,13 @@
     <None Include="Views\Home\Index.pt" />
     <None Include="Views\PageTwo\Index.pt" />
     <None Include="Views\PageThree\Index.pt" />
+    <None Include="Views\StoredScriptTest\Index.pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
+      <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
+      <Name>CSF.Screenplay.Selenium</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

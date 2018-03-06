@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html tal:define="provider here/ScriptProvider;
+                  scriptName provider/Name">
+<head>
+<title tal:define="title string:JavaScript tests: $scriptName"
+       tal:content="title">JavaScript tests: SampleScript</title>
+<meta charset="utf-8">
+<base href="."
+      tal:define="defaultBase string:.;
+                  baseUrl here/BaseUrl | defaultBase"
+      tal:attributes="href baseUrl">
+<link rel="shortcut icon" type="image/png" href="../../../Content/jasmine/jasmine_favicon.png">
+<link rel="stylesheet" type="text/css" href="../../../Content/jasmine/jasmine.css">
+<script type="text/javascript" src="../../../Scripts/jasmine/jasmine.js"></script>
+<script type="text/javascript" src="../../../Scripts/jasmine/jasmine-html.js"></script>
+<script type="text/javascript" src="../../../Scripts/jasmine/boot.js"></script>
+<script type="text/javascript" tal:content="provider/GetScript"></script>
+<script type="text/javascript"
+        src="../../../Scripts/script-tests/SampleScript.tests.js"
+        tal:define="testFilename here/TestFilename;
+                    testSrc string:../../../Scripts/script-tests/$testFilename;"
+        tal:attributes="src testSrc"></script>
+</head>
+<body>
+<div class="test_scratch_area"></div>
+</body>
+</html>
