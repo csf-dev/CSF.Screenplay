@@ -127,6 +127,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Views\PageTwo\" />
     <Folder Include="Views\PageThree\" />
+    <Folder Include="ActionFilters\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -134,10 +135,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Controllers\PageTwoController.cs" />
     <Compile Include="Controllers\PageThreeController.cs" />
+    <Compile Include="ActionFilters\BaseUriAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
