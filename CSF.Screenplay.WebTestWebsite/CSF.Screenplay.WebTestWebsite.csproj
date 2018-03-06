@@ -148,6 +148,12 @@
     <Content Include="Scripts\PageTwo.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\PageThree.js" />
+    <Content Include="Scripts\jasmine\jasmine.js" />
+    <Content Include="Scripts\jasmine\jasmine-html.js" />
+    <Content Include="Scripts\jasmine\console.js" />
+    <Content Include="Scripts\jasmine\boot.js" />
+    <Content Include="Content\jasmine\jasmine_favicon.png" />
+    <Content Include="Content\jasmine\jasmine.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
