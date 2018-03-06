@@ -38,9 +38,27 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     /// </summary>
     /// <returns>The script result.</returns>
     /// <param name="script">A JavaScript.</param>
-    /// <param name="webDriver">A web driver that runs scripts.</param>
+    /// <param name="webDriver">A web driver.</param>
     /// <param name="arguments">The script arguments.</param>
-    public object ExecuteScript(IProvidesScript script, IJavaScriptExecutor webDriver, params object[] arguments)
+    public object ExecuteScript(string script, IWebDriver webDriver, params object[] arguments)
+    {
+      if(script == null)
+        throw new ArgumentNullException(nameof(script));
+      if(webDriver == null)
+        throw new ArgumentNullException(nameof(webDriver));
+
+      var javaScriptRunner = GetJavaScriptExecutor(webDriver);
+      return javaScriptRunner.ExecuteScript(script, arguments);
+    }
+
+    /// <summary>
+    /// Executes the script exposed by the given script provider and returns the result.
+    /// </summary>
+    /// <returns>The script result.</returns>
+    /// <param name="script">A JavaScript provider.</param>
+    /// <param name="webDriver">A web driver.</param>
+    /// <param name="arguments">The script arguments.</param>
+    public object ExecuteScript(IProvidesScript script, IWebDriver webDriver, params object[] arguments)
     {
       if(script == null)
         throw new ArgumentNullException(nameof(script));
@@ -48,10 +66,20 @@ namespace CSF.Screenplay.Selenium.StoredScripts
         throw new ArgumentNullException(nameof(webDriver));
 
       var runnableScript = GetRunnableScript(script);
-      return webDriver.ExecuteScript(runnableScript, arguments);
+      return ExecuteScript(runnableScript, webDriver, arguments);
     }
 
     string GetRunnableScript(IProvidesScript script)
       => String.Concat(script.GetScript(), Environment.NewLine, $"{script.GetEntryPointName()}(arguments);");
+
+    IJavaScriptExecutor GetJavaScriptExecutor(IWebDriver driver)
+    {
+      var jsDriver = driver as IJavaScriptExecutor;
+
+      if(jsDriver == null)
+        throw new ArgumentException($"The {nameof(IWebDriver)} must support the execution of JavaScript.", nameof(driver));
+
+      return jsDriver;
+    }
   }
 }

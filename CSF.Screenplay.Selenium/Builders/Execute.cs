@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.StoredScripts;
 
 namespace CSF.Screenplay.Selenium.Builders
 {
@@ -10,14 +11,30 @@ namespace CSF.Screenplay.Selenium.Builders
   public class Execute
   {
     readonly string script;
+    readonly IProvidesScript scriptProvider;
     object[] parameters;
 
     /// <summary>
     /// Gets a builder instance for a given piece of script.
     /// </summary>
-    /// <returns>The java script.</returns>
+    /// <returns>A JavaScript execution builder.</returns>
     /// <param name="script">Script.</param>
     public static Execute TheJavaScript(string script) => new Execute(script);
+
+    /// <summary>
+    /// Gets a builder instance for a given script provider type.
+    /// </summary>
+    /// <returns>A JavaScript execution builder.</returns>
+    /// <typeparam name="TProvider">The JavaScript provider type.</typeparam>
+    public static Execute TheJavaScript<TProvider>() where TProvider : IProvidesScript,new()
+      => new Execute(new TProvider());
+
+    /// <summary>
+    /// Gets a builder instance for a given script provider.
+    /// </summary>
+    /// <param name="provider">A script provider.</param>
+    /// <returns>A JavaScript execution builder.</returns>
+    public static Execute TheJavaScript(IProvidesScript provider) => new Execute(provider);
 
     /// <summary>
     /// Indicates that the given parameters are to be passed to the script, via the <c>arguments</c> biult-in
@@ -35,13 +52,25 @@ namespace CSF.Screenplay.Selenium.Builders
     /// Gets the action; a result from the script will be returned.
     /// </summary>
     /// <returns>The action.</returns>
-    public ExecuteJavaScriptAndGetResult AndGetTheResult() => new ExecuteJavaScriptAndGetResult(script, parameters);
+    public IPerformableJavaScriptWithResult AndGetTheResult()
+    {
+      if(scriptProvider != null)
+        return new ExecuteJavaScriptProviderAndGetResult(scriptProvider, parameters);
+      
+      return new ExecuteJavaScriptAndGetResult(script, parameters);
+    }
 
     /// <summary>
     /// Gets the action; any result from the script will be discarded.
     /// </summary>
     /// <returns>The action.</returns>
-    public ExecuteJavaScript AndIgnoreTheResult() => new ExecuteJavaScript(script, parameters);
+    public IPerformableJavaScript AndIgnoreTheResult()
+    {
+      if(scriptProvider != null)
+        return new ExecuteJavaScriptProvider(scriptProvider, parameters);
+
+      return new ExecuteJavaScript(script, parameters);
+    }
 
     Execute(string script)
     {
@@ -49,6 +78,15 @@ namespace CSF.Screenplay.Selenium.Builders
         throw new ArgumentNullException(nameof(script));
 
       this.script = script;
+      parameters = new object[0];
+    }
+
+    Execute(IProvidesScript scriptProvider)
+    {
+      if(scriptProvider == null)
+        throw new ArgumentNullException(nameof(scriptProvider));
+      
+      this.scriptProvider = scriptProvider;
       parameters = new object[0];
     }
   }

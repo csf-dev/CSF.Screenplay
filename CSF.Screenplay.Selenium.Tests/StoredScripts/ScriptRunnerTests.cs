@@ -39,7 +39,8 @@ namespace CSF.Screenplay.Selenium.Tests.StoredScripts
     {
       // Arrange
       var script = Mock.Of<IProvidesScript>();
-      var driver = Mock.Of<IJavaScriptExecutor>();
+      var driver = new Mock<IWebDriver>();
+      driver.As<IJavaScriptExecutor>();
       var sut = new ScriptRunner();
 
       Mock.Get(script).Setup(x => x.GetScript()).Returns("function fooBar(argsArray) {}");
@@ -49,10 +50,12 @@ namespace CSF.Screenplay.Selenium.Tests.StoredScripts
 fooBar(arguments);";
 
       // Act
-      sut.ExecuteScript(script, driver);
+      sut.ExecuteScript(script, driver.Object);
 
       // Assert
-      Mock.Get(driver).Verify(x => x.ExecuteScript(expectedExecutedScript), Times.Once);
+      driver
+          .As<IJavaScriptExecutor>()
+          .Verify(x => x.ExecuteScript(expectedExecutedScript), Times.Once);
     }
 
     [Test]
@@ -60,17 +63,20 @@ fooBar(arguments);";
     {
       // Arrange
       var script = Mock.Of<IProvidesScript>();
-      var driver = Mock.Of<IJavaScriptExecutor>();
+      var driver = new Mock<IWebDriver>();
+      driver.As<IJavaScriptExecutor>();
       var sut = new ScriptRunner();
 
       Mock.Get(script).Setup(x => x.GetScript()).Returns("function fooBar(argsArray) {}");
       Mock.Get(script).Setup(x => x.GetEntryPointName()).Returns("fooBar");
 
       // Act
-      sut.ExecuteScript(script, driver, 1, 2, "three");
+      sut.ExecuteScript(script, driver.Object, 1, 2, "three");
 
       // Assert
-      Mock.Get(driver).Verify(x => x.ExecuteScript(It.IsAny<string>(), 1, 2, "three"), Times.Once);
+     driver
+          .As<IJavaScriptExecutor>()
+          .Verify(x => x.ExecuteScript(It.IsAny<string>(), 1, 2, "three"), Times.Once);
     }
   }
 }

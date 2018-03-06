@@ -32,6 +32,12 @@ namespace CSF.Screenplay.Selenium.StoredScripts
   public interface IProvidesScript
   {
     /// <summary>
+    /// Gets the name of this script.
+    /// </summary>
+    /// <value>The name.</value>
+    string Name { get; }
+
+    /// <summary>
     /// Gets the script fragment as a named function.  The name of that function is exposed via
     /// <see cref="GetEntryPointName"/>.
     /// </summary>

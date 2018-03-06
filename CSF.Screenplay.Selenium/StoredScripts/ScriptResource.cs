@@ -38,6 +38,12 @@ namespace CSF.Screenplay.Selenium.StoredScripts
       DefaultEntryPointName = "executeScript";
 
     /// <summary>
+    /// Gets the name of this script.
+    /// </summary>
+    /// <value>The name.</value>
+    public virtual string Name => GetType().Name;
+
+    /// <summary>
     /// Gets the name of the entry point to the script - this is the function exposed by
     /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetScript" />.
     /// </summary>

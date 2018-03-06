@@ -190,6 +190,10 @@
     <Compile Include="StoredScripts\ScriptResource.cs" />
     <Compile Include="StoredScripts\IRunsScripts.cs" />
     <Compile Include="StoredScripts\ScriptRunner.cs" />
+    <Compile Include="Actions\ExecuteJavaScriptProviderAndGetResult.cs" />
+    <Compile Include="Actions\ExecuteJavaScriptProvider.cs" />
+    <Compile Include="Actions\IPerformableJavaScript.cs" />
+    <Compile Include="Actions\IPerformableJavaScriptWithResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

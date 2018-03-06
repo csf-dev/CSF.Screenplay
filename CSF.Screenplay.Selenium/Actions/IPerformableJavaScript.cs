@@ -1,5 +1,5 @@
 ﻿//
-// IRunsStoredScripts.cs
+// IExecutesJavaScript.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,31 +24,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using CSF.Screenplay.Performables;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.StoredScripts
+namespace CSF.Screenplay.Selenium.Actions
 {
   /// <summary>
-  /// A service which executes JavaScripts using given parameters.
+  /// A specialisation of <see cref="IPerformable"/> which relates to the execution of JavaScript.
   /// </summary>
-  public interface IRunsScripts
+  public interface IPerformableJavaScript : IPerformable
   {
     /// <summary>
-    /// Executes the script exposed by the given script provider and returns the result.
+    /// Performs the current action using a given <c>IWebDriver</c>.
     /// </summary>
-    /// <returns>The script result.</returns>
-    /// <param name="script">A JavaScript provider.</param>
-    /// <param name="webDriver">A web driver.</param>
-    /// <param name="arguments">The script arguments.</param>
-    object ExecuteScript(IProvidesScript script, IWebDriver webDriver, params object[] arguments);
-
-    /// <summary>
-    /// Executes the script and returns the result.
-    /// </summary>
-    /// <returns>The script result.</returns>
-    /// <param name="script">A JavaScript.</param>
-    /// <param name="webDriver">A web driver.</param>
-    /// <param name="arguments">The script arguments.</param>
-    object ExecuteScript(string script, IWebDriver webDriver, params object[] arguments);
+    /// <param name="driver">The web driver.</param>
+    void PerformWith(IWebDriver driver);
   }
 }

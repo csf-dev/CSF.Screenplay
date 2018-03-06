@@ -53,7 +53,7 @@ namespace CSF.Screenplay.Selenium.Waits
       }
     }
 
-    ExecuteJavaScriptAndGetResult GetAction()
+    IPerformableJavaScriptWithResult GetAction()
     {
       var script = Javascripts.GetDocumentReadyState;
       return Execute.TheJavaScript(script).AndGetTheResult();

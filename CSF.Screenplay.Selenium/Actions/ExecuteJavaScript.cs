@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Selenium.Actions
   /// the result.
   /// </para>
   /// </remarks>
-  public class ExecuteJavaScript : Performable
+  public class ExecuteJavaScript : Performable, IPerformableJavaScript
   {
     readonly ExecuteJavaScriptAndGetResult innerScriptAction;
 
