@@ -1,0 +1,1 @@
+﻿function executeScript(argsArray) { return document.readyState; }

@@ -194,6 +194,7 @@
     <Compile Include="Actions\ExecuteJavaScriptProvider.cs" />
     <Compile Include="Actions\IPerformableJavaScript.cs" />
     <Compile Include="Actions\IPerformableJavaScriptWithResult.cs" />
+    <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -215,6 +216,7 @@
     <Folder Include="Reporting\" />
     <Folder Include="CSF.Selenium.Support.UI\" />
     <Folder Include="StoredScripts\" />
+    <Folder Include="ScriptResources\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Javascripts.resx">
@@ -222,6 +224,7 @@
       <LogicalName>Javascripts.resources</LogicalName>
       <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
