@@ -2,6 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.ScriptResources;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {
@@ -31,7 +32,7 @@ namespace CSF.Screenplay.Selenium.Tasks
       // Months in JavaScript start with zero, because reasons
       var month = date.Month - 1;
 
-      return (string) actor.Perform(Execute.TheJavaScript(Resources.Javascripts.GetLocalisedDate)
+      return (string) actor.Perform(Execute.TheJavaScript<GetALocalisedDate>()
                                     .WithTheParameters(date.Year, month, date.Day)
                                     .AndGetTheResult());
     }

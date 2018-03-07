@@ -195,6 +195,7 @@
     <Compile Include="Actions\IPerformableJavaScript.cs" />
     <Compile Include="Actions\IPerformableJavaScriptWithResult.cs" />
     <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
+    <Compile Include="ScriptResources\GetALocalisedDate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -225,6 +226,7 @@
       <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
+    <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">

@@ -47,18 +47,6 @@ namespace CSF.Screenplay.Selenium.Resources {
             }
         }
         
-        internal static string GetDocumentReadyState {
-            get {
-                return ResourceManager.GetString("GetDocumentReadyState", resourceCulture);
-            }
-        }
-        
-        internal static string GetLocalisedDate {
-            get {
-                return ResourceManager.GetString("GetLocalisedDate", resourceCulture);
-            }
-        }
-        
         internal static string SetValueById {
             get {
                 return ResourceManager.GetString("SetValueById", resourceCulture);

@@ -159,6 +159,7 @@
     <Content Include="Content\jasmine\jasmine_favicon.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Scripts\script-tests\GetDocumentReadyState.tests.js" />
+    <Content Include="Scripts\script-tests\GetALocalisedDate.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />

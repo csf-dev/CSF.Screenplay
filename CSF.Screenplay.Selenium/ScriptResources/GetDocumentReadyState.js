@@ -1,1 +1,4 @@
-﻿function executeScript(argsArray) { return document.readyState; }
+﻿function executeScript(argsArray) {
+  'use strict';
+  return document.readyState;
+}
