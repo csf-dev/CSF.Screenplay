@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
-    <Compile Include="Pages\GoogleHomePage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Questions\GetWindowTitleTests.cs" />
     <Compile Include="Questions\GetTextTests.cs" />
