@@ -116,6 +116,13 @@
     <Compile Include="StoredScripts\SampleScript.cs" />
     <Compile Include="StoredScripts\ScriptResourceTests.cs" />
     <Compile Include="StoredScripts\ScriptRunnerTests.cs" />
+    <Compile Include="Pages\ScriptTestingHarness.cs" />
+    <Compile Include="StoredScripts\TestAllScriptsViaTestingHarness.cs" />
+    <Compile Include="Personas\Joe.cs" />
+    <Compile Include="Tasks\AllOfTheScriptTypes.cs" />
+    <Compile Include="Tasks\AllOfTheScriptTestResults.cs" />
+    <Compile Include="Tasks\ScriptTestResult.cs" />
+    <Compile Include="Tasks\VerifyThatAllOfTheScriptTestsPassed.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -125,6 +132,7 @@
     <Folder Include="Abilities\" />
     <Folder Include="Tasks\" />
     <Folder Include="StoredScripts\" />
+    <Folder Include="Personas\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">

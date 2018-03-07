@@ -17,7 +17,6 @@ namespace CSF.Screenplay.Selenium.Tests
   {
     public void Configure(IIntegrationConfigBuilder builder)
     {
-      builder.UseCast();
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
