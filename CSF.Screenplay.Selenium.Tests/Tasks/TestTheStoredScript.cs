@@ -1,5 +1,5 @@
 ﻿//
-// GetAllOfTheScriptTestResults.cs
+// TestTheStoredScript.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,8 +24,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
@@ -35,30 +33,41 @@ using CSF.Screenplay.Selenium.Tests.Pages;
 
 namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
-  public class AllOfTheScriptTestResults : Question<IReadOnlyCollection<ScriptTestResult>>
+  public class TestTheStoredScript : Question<ScriptTestResult>
   {
-    readonly IReadOnlyCollection<Type> types;
+    const string JasminePassedClassPattern = @"\bjasmine-passed\b";
+    static readonly Regex PassMatcher = new Regex(JasminePassedClassPattern, RegexOptions.Compiled);
 
-    protected override string GetReport(INamed actor) => $"{actor.Name} runs all of the Jasmine script tests and gets their results";
+    readonly IProvidesScript script;
 
-    protected override IReadOnlyCollection<ScriptTestResult> PerformAs(IPerformer actor)
-      => GetResults(actor).ToArray();
+    protected override string GetReport(INamed actor)
+      => $"{actor.Name} gets the result for the script \"{script.Name}\"";
 
-    IEnumerable<ScriptTestResult> GetResults(IPerformer actor)
+    protected override ScriptTestResult PerformAs(IPerformer actor)
     {
-      foreach(var type in types)
-        yield return actor.Perform(TestTheStoredScript.OfType(type));
+      var theTestPage = ScriptTestingHarness.For(script);
+      actor.Perform(OpenTheirBrowserOn.ThePage(theTestPage));
+
+      actor.Perform(Wait.ForAtMost(5).Seconds().OrUntil(ScriptTestingHarness.TheResultsBar).IsVisible());
+
+      var classAttribute = actor.Perform(TheAttribute.Named("class").From(ScriptTestingHarness.TheResultsBar));
+      var testsPassed = PassMatcher.IsMatch(classAttribute);
+
+      return new ScriptTestResult(script, testsPassed);
     }
 
-    public AllOfTheScriptTestResults(IReadOnlyCollection<Type> types)
+    public TestTheStoredScript(IProvidesScript script)
     {
-      if(types == null)
-        throw new ArgumentNullException(nameof(types));
+      if(script == null)
+        throw new ArgumentNullException(nameof(script));
 
-      this.types = types;
+      this.script = script;
     }
 
-    public static IQuestion<IReadOnlyCollection<ScriptTestResult>> ForTheScriptTypes(IReadOnlyCollection<Type> types)
-      => new AllOfTheScriptTestResults(types);
+    public static IQuestion<ScriptTestResult> OfType(Type scriptType)
+      => new TestTheStoredScript(GetTheScript(scriptType));
+
+    static IProvidesScript GetTheScript(Type theScriptType)
+      => (IProvidesScript) Activator.CreateInstance(theScriptType);
   }
 }

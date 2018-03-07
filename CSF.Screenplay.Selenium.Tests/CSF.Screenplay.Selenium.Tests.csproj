@@ -123,6 +123,7 @@
     <Compile Include="Tasks\AllOfTheScriptTestResults.cs" />
     <Compile Include="Tasks\ScriptTestResult.cs" />
     <Compile Include="Tasks\VerifyThatAllOfTheScriptTestsPassed.cs" />
+    <Compile Include="Tasks\TestTheStoredScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
