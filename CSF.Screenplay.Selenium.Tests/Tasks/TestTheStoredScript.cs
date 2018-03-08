@@ -41,7 +41,7 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
     readonly IProvidesScript script;
 
     protected override string GetReport(INamed actor)
-      => $"{actor.Name} gets the result for the script \"{script.Name}\"";
+      => $"{actor.Name} gets the result for {script.Name}";
 
     protected override ScriptTestResult PerformAs(IPerformer actor)
     {

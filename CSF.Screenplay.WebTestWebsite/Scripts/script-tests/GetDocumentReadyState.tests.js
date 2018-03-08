@@ -1,4 +1,4 @@
-﻿describe('The script which gets the document ready-state', function() {
+﻿describe('The GetDocumentReadyState service', function() {
   it('should return a string', function() {
     var result = executeScript();
     expect(typeof result).toBe('string');

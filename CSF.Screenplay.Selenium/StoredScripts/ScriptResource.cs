@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
   /// </summary>
   public abstract class ScriptResource : IProvidesScript
   {
-    const string
+    internal const string
       DefaultEntryPointName = "executeScript";
 
     /// <summary>
@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetEntryPointName" />.
     /// </summary>
     /// <returns>The script.</returns>
-    public string GetScript()
+    public virtual string GetScript()
     {
       var thisType = GetType();
       var scriptAssembly = thisType.Assembly;

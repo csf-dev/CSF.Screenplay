@@ -33,10 +33,22 @@ namespace CSF.Screenplay.Selenium.ScriptResources
   /// </summary>
   public class GetALocalisedDate : ScriptResource
   {
+    readonly IProvidesScript argsValidator;
+
     /// <summary>
     /// Gets the name of this script.
     /// </summary>
     /// <value>The name.</value>
-    public override string Name => "get a localised date string";
+    public override string Name => "a service to get a formatted date using the current browser's locale";
+
+    public override string GetScript()
+      => String.Concat(argsValidator.GetScript(), Environment.NewLine, base.GetScript());
+
+    public GetALocalisedDate() : this(null) {}
+
+    public GetALocalisedDate(IProvidesScript argsValidator)
+    {
+      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
+    }
   }
 }

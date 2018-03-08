@@ -196,6 +196,9 @@
     <Compile Include="Actions\IPerformableJavaScriptWithResult.cs" />
     <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
     <Compile Include="ScriptResources\GetALocalisedDate.cs" />
+    <Compile Include="ScriptResources\ScriptInvoker.cs" />
+    <Compile Include="ScriptResources\ArgumentsArrayValidator.cs" />
+    <Compile Include="StoredScripts\IInvokesScripts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -227,6 +230,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
     <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
+    <EmbeddedResource Include="ScriptResources\ScriptInvoker.js" />
+    <EmbeddedResource Include="ScriptResources\ArgumentsArrayValidator.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">

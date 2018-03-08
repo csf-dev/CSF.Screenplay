@@ -41,13 +41,13 @@ namespace CSF.Screenplay.Selenium.Tests.StoredScripts
       var script = Mock.Of<IProvidesScript>();
       var driver = new Mock<IWebDriver>();
       driver.As<IJavaScriptExecutor>();
-      var sut = new ScriptRunner();
+      var invoker = Mock.Of<IInvokesScripts>(x => x.GetScript(It.IsAny<string>()) == "return fooBar(argsArray);");
+      var sut = new ScriptRunner(invoker);
 
       Mock.Get(script).Setup(x => x.GetScript()).Returns("function fooBar(argsArray) {}");
       Mock.Get(script).Setup(x => x.GetEntryPointName()).Returns("fooBar");
 
       var expectedExecutedScript = @"function fooBar(argsArray) {}
-var argsArray = Array.prototype.slice.call(arguments);
 return fooBar(argsArray);";
 
       // Act
@@ -66,10 +66,11 @@ return fooBar(argsArray);";
       var script = Mock.Of<IProvidesScript>();
       var driver = new Mock<IWebDriver>();
       driver.As<IJavaScriptExecutor>();
-      var sut = new ScriptRunner();
+      var invoker = Mock.Of<IInvokesScripts>(x => x.GetScript(It.IsAny<string>()) == String.Empty);
+      var sut = new ScriptRunner(invoker);
 
-      Mock.Get(script).Setup(x => x.GetScript()).Returns("function fooBar(argsArray) {}");
-      Mock.Get(script).Setup(x => x.GetEntryPointName()).Returns("fooBar");
+      Mock.Get(script).Setup(x => x.GetScript()).Returns(String.Empty);
+      Mock.Get(script).Setup(x => x.GetEntryPointName()).Returns(String.Empty);
 
       // Act
       sut.ExecuteScript(script, driver.Object, 1, 2, "three");

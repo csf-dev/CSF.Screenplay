@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using CSF.Screenplay.Selenium.ScriptResources;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.StoredScripts
@@ -33,6 +34,8 @@ namespace CSF.Screenplay.Selenium.StoredScripts
   /// </summary>
   public class ScriptRunner : IRunsScripts
   {
+    readonly IInvokesScripts invoker;
+    
     /// <summary>
     /// Executes the script and returns the result.
     /// </summary>
@@ -70,11 +73,9 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     }
 
     string GetRunnableScript(IProvidesScript script)
-      => String.Concat(script.GetScript(),
-                       Environment.NewLine,
-                       $"var argsArray = Array.prototype.slice.call(arguments);",
-                       Environment.NewLine,
-                       $"return {script.GetEntryPointName()}(argsArray);");
+    {
+      return String.Concat(script.GetScript(), Environment.NewLine, invoker.GetScript(script.GetEntryPointName()));
+    }
 
     IJavaScriptExecutor GetJavaScriptExecutor(IWebDriver driver)
     {
@@ -84,6 +85,13 @@ namespace CSF.Screenplay.Selenium.StoredScripts
         throw new ArgumentException($"The {nameof(IWebDriver)} must support the execution of JavaScript.", nameof(driver));
 
       return jsDriver;
+    }
+
+    public ScriptRunner() : this(null) {}
+
+    public ScriptRunner(IInvokesScripts invoker)
+    {
+      this.invoker = invoker ?? new ScriptInvoker();
     }
   }
 }

@@ -1,5 +1,5 @@
 ﻿//
-// TestAllScriptsViaTestingHarness.cs
+// ArgumentsArrayConverter.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,30 +24,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Linq;
-using CSF.Screenplay.NUnit;
-using CSF.Screenplay.Selenium.Builders;
-using CSF.Screenplay.Selenium.Tests.Pages;
-using CSF.Screenplay.Selenium.Tests.Personas;
-using CSF.Screenplay.Selenium.Tests.Tasks;
-using NUnit.Framework;
-using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Selenium.StoredScripts;
 
-namespace CSF.Screenplay.Selenium.Tests.StoredScripts
+namespace CSF.Screenplay.Selenium.ScriptResources
 {
-  [TestFixture]
-  [Description("A test for every stored script included in the main assembly, via the Jasmine testing harness.")]
-  public class TestAllScriptsViaTestingHarness
+  public class ScriptInvoker : ScriptResource, IInvokesScripts
   {
-    [Test,Screenplay]
-    [Description("Run every script in the main assembly through the Jasmine test harness and verify that they all pass")]
-    public void Every_script_in_the_main_assembly_must_pass_its_Jasmine_test_suite(ICast cast)
-    {
-      var joe = cast.Get<Joe>();
+    readonly string entryPointName;
 
-      var scriptTypes = Given(joe).Got(AllOfTheExecutableScriptTypes.FromTheMainAssembly());
-      var results = When(joe).Gets(AllOfTheScriptTestResults.ForTheScriptTypes(scriptTypes));
-      Then(joe).Should(VerifyThatAllOfTheScriptTestsPassed.ForTheResults(results));
+    public override string Name => "invoker for named entry-points";
+
+    public override string GetEntryPointName() => null;
+
+    public override string GetScript() => GetScript(entryPointName);
+
+    string IInvokesScripts.GetScript(string entryPoint) => GetScript(entryPoint);
+
+    string GetScript(string entryPoint)
+    {
+      var invocationScript = GetInvocationScript(entryPoint);
+      return String.Concat(base.GetScript(), Environment.NewLine, invocationScript);
+    }
+
+    string GetInvocationScript(string entryPoint)
+      => $"return invoker.invoke({entryPoint}, arguments);";
+
+    public ScriptInvoker() : this(null) {}
+
+    public ScriptInvoker(string entryPointName)
+    {
+      this.entryPointName = entryPointName ?? DefaultEntryPointName;
     }
   }
 }

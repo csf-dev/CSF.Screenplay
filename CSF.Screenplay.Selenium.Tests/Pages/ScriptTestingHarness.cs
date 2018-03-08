@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Tests.Pages
   {
     readonly IProvidesScript scriptProvider;
 
-    public override string GetName() => $"the JavaScript testing harness for \"{scriptProvider.Name}\"";
+    public override string GetName() => $"the Jasmine test harness for {scriptProvider.Name}";
 
     public override IUriProvider GetUriProvider()
       => new AppUri($"StoredScriptTest/Index/{scriptProvider.GetType().Name}");

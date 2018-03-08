@@ -1,5 +1,5 @@
 ﻿//
-// TestAllScriptsViaTestingHarness.cs
+// GetAllOfTheScriptTypes.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,30 +24,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.NUnit;
-using CSF.Screenplay.Selenium.Builders;
-using CSF.Screenplay.Selenium.Tests.Pages;
-using CSF.Screenplay.Selenium.Tests.Personas;
-using CSF.Screenplay.Selenium.Tests.Tasks;
-using NUnit.Framework;
-using static CSF.Screenplay.StepComposer;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performables;
+using CSF.Screenplay.Selenium.ScriptResources;
+using CSF.Screenplay.Selenium.StoredScripts;
 
-namespace CSF.Screenplay.Selenium.Tests.StoredScripts
+namespace CSF.Screenplay.Selenium.Tests.Tasks
 {
-  [TestFixture]
-  [Description("A test for every stored script included in the main assembly, via the Jasmine testing harness.")]
-  public class TestAllScriptsViaTestingHarness
+  public class AllOfTheExecutableScriptTypes : Question<IReadOnlyCollection<Type>>
   {
-    [Test,Screenplay]
-    [Description("Run every script in the main assembly through the Jasmine test harness and verify that they all pass")]
-    public void Every_script_in_the_main_assembly_must_pass_its_Jasmine_test_suite(ICast cast)
-    {
-      var joe = cast.Get<Joe>();
+    protected override string GetReport(INamed actor)
+      => $"{actor.Name} gets all of the executable script provider types from the main assembly.";
 
-      var scriptTypes = Given(joe).Got(AllOfTheExecutableScriptTypes.FromTheMainAssembly());
-      var results = When(joe).Gets(AllOfTheScriptTestResults.ForTheScriptTypes(scriptTypes));
-      Then(joe).Should(VerifyThatAllOfTheScriptTestsPassed.ForTheResults(results));
+    protected override IReadOnlyCollection<Type> PerformAs(IPerformer actor)
+    {
+      var assembly = typeof(IProvidesScript).Assembly;
+      return assembly.GetExportedTypes().Where(IsExecutableScriptType).ToArray();
     }
+
+    bool IsExecutableScriptType(Type type)
+    {
+      if(!typeof(IProvidesScript).IsAssignableFrom(type)) return false;
+      if(!type.IsClass || type.IsAbstract) return false;
+      if(typeof(IInvokesScripts).IsAssignableFrom(type)) return false;
+      return true;
+    }
+
+    public static IQuestion<IReadOnlyCollection<Type>> FromTheMainAssembly()
+      => new AllOfTheExecutableScriptTypes();
   }
 }

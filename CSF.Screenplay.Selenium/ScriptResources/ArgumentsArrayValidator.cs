@@ -1,5 +1,5 @@
 ﻿//
-// GetAllOfTheScriptTypes.cs
+// ArgumentsArrayValidator.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,30 +24,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.StoredScripts;
 
-namespace CSF.Screenplay.Selenium.Tests.Tasks
+namespace CSF.Screenplay.Selenium.ScriptResources
 {
-  public class AllOfTheScriptTypes : Question<IReadOnlyCollection<Type>>
+  public class ArgumentsArrayValidator : ScriptResource
   {
-    protected override string GetReport(INamed actor)
-      => $"{actor.Name} gets all of the script providers from the main assembly.";
+    const string EntryPointNameConst = "validateArgumentsArray";
 
-    protected override IReadOnlyCollection<Type> PerformAs(IPerformer actor)
-    {
-      var assembly = typeof(IProvidesScript).Assembly;
+    public static string EntryPointName => EntryPointNameConst;
 
-      return assembly
-        .GetExportedTypes()
-        .Where(x => typeof(IProvidesScript).IsAssignableFrom(x) && x.IsClass && !x.IsAbstract)
-        .ToArray();
-    }
+    public override string Name => "the arguments-array validator";
 
-    public static IQuestion<IReadOnlyCollection<Type>> FromTheMainAssembly()
-      => new AllOfTheScriptTypes();
+    public override string GetEntryPointName() => EntryPointName;
   }
 }
