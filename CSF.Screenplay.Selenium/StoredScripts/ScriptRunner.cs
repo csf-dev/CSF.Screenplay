@@ -74,7 +74,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
                        Environment.NewLine,
                        $"var argsArray = Array.prototype.slice.call(arguments);",
                        Environment.NewLine,
-                       $"return {script.GetEntryPointName()}(arguments);");
+                       $"return {script.GetEntryPointName()}(argsArray);");
 
     IJavaScriptExecutor GetJavaScriptExecutor(IWebDriver driver)
     {
