@@ -70,7 +70,11 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     }
 
     string GetRunnableScript(IProvidesScript script)
-      => String.Concat(script.GetScript(), Environment.NewLine, $"{script.GetEntryPointName()}(arguments);");
+      => String.Concat(script.GetScript(),
+                       Environment.NewLine,
+                       $"var argsArray = Array.prototype.slice.call(arguments);",
+                       Environment.NewLine,
+                       $"return {script.GetEntryPointName()}(arguments);");
 
     IJavaScriptExecutor GetJavaScriptExecutor(IWebDriver driver)
     {
