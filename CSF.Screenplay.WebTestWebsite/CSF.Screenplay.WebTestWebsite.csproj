@@ -161,6 +161,7 @@
     <Content Include="Scripts\script-tests\GetDocumentReadyState.tests.js" />
     <Content Include="Scripts\script-tests\GetALocalisedDate.tests.js" />
     <Content Include="Scripts\script-tests\ArgumentsArrayValidator.tests.js" />
+    <Content Include="Scripts\script-tests\SetAnElementValue.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />

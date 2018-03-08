@@ -160,9 +160,6 @@
     <Compile Include="Actions\ExecuteJavaScript.cs" />
     <Compile Include="Actions\ExecuteJavaScriptAndGetResult.cs" />
     <Compile Include="Waits\WaitUntilThePageLoads.cs" />
-    <Compile Include="Resources\Javascripts.Designer.cs">
-      <DependentUpon>Javascripts.resx</DependentUpon>
-    </Compile>
     <Compile Include="Builders\Execute.cs" />
     <Compile Include="Tasks\NavigateToNewPageByClicking.cs" />
     <Compile Include="Waits\WaitForACondition.cs" />
@@ -199,6 +196,7 @@
     <Compile Include="ScriptResources\ScriptInvoker.cs" />
     <Compile Include="ScriptResources\ArgumentsArrayValidator.cs" />
     <Compile Include="StoredScripts\IInvokesScripts.cs" />
+    <Compile Include="ScriptResources\SetAnElementValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -215,7 +213,6 @@
     <Folder Include="ElementMatching\" />
     <Folder Include="Queries\" />
     <Folder Include="Waits\" />
-    <Folder Include="Resources\" />
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
     <Folder Include="CSF.Selenium.Support.UI\" />
@@ -223,15 +220,11 @@
     <Folder Include="ScriptResources\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Javascripts.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LogicalName>Javascripts.resources</LogicalName>
-      <LastGenOutput>Javascripts.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
     <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
     <EmbeddedResource Include="ScriptResources\ScriptInvoker.js" />
     <EmbeddedResource Include="ScriptResources\ArgumentsArrayValidator.js" />
+    <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">

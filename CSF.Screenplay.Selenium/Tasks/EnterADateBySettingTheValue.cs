@@ -1,8 +1,10 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.Selenium.ScriptResources;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {
@@ -13,9 +15,7 @@ namespace CSF.Screenplay.Selenium.Tasks
   public class EnterADateBySettingTheValue : Performable
   {
     readonly DateTime date;
-    readonly ElementId target;
-
-    ITarget Target => target;
+    readonly ITarget target;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
-      => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {Target.GetName()} by setting the value directly via JavaScript";
+    => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()} by setting the value directly via JavaScript";
 
     /// <summary>
     /// Performs this operation, as the given actor.
@@ -31,11 +31,15 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <param name="actor">The actor performing this task.</param>
     protected override void PerformAs(IPerformer actor)
     {
-      var result = (bool) actor.Perform(Execute.TheJavaScript(Resources.Javascripts.SetValueById)
-                                        .WithTheParameters(target.IdentifierValue, date.ToString("yyyy-MM-dd"))
+      var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
+      var webElement = target.GetWebElementAdapter(browseTheWeb);
+
+      if(webElement == null)
+        throw new TargetNotFoundException($"{target.GetName()} was not found");
+
+      var result = (bool) actor.Perform(Execute.TheJavaScript<SetAnElementValue>()
+                                        .WithTheParameters(webElement, date.ToString("yyyy-MM-dd"))
                                         .AndGetTheResult());
-      if(!result)
-        throw new TargetNotFoundException($"No element with the id '{target.IdentifierValue}' could be found by JavaScript");
     }
 
     /// <summary>
@@ -43,7 +47,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>
-    public EnterADateBySettingTheValue(DateTime date, ElementId target)
+    public EnterADateBySettingTheValue(DateTime date, ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));

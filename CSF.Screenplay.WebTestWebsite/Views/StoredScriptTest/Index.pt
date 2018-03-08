@@ -22,6 +22,6 @@
         tal:attributes="src testSrc"></script>
 </head>
 <body>
-<div class="test_scratch_area"></div>
+<div id="test_scratch_area"></div>
 </body>
 </html>

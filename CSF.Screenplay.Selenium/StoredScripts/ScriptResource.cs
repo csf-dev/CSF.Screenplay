@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Linq;
 using System.Reflection;
 using CSF.Reflection;
 
@@ -61,6 +62,22 @@ namespace CSF.Screenplay.Selenium.StoredScripts
       var scriptAssembly = thisType.Assembly;
 
       return scriptAssembly.GetManifestResourceText(thisType, $"{thisType.Name}.js");
+    }
+
+    protected string CombineScripts(string entryPointProvider, params IProvidesScript[] scripts)
+    {
+      if(entryPointProvider == null)
+        throw new ArgumentNullException(nameof(entryPointProvider));
+      if(scripts == null)
+        throw new ArgumentNullException(nameof(scripts));
+      if(scripts.Length == 0)
+        throw new ArgumentException("You must provide at least one script.", nameof(scripts));
+
+      var scriptsToCombine = scripts.Select(x => x.GetScript())
+        .Union(new [] { entryPointProvider })
+        .ToArray();
+
+      return String.Join(Environment.NewLine, scriptsToCombine);
     }
   }
 }

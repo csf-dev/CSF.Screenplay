@@ -1,5 +1,5 @@
 ﻿//
-// GetALocalisedDate.cs
+// SetAnElementValue.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -28,24 +28,17 @@ using CSF.Screenplay.Selenium.StoredScripts;
 
 namespace CSF.Screenplay.Selenium.ScriptResources
 {
-  /// <summary>
-  /// Script resource for getting a localised date string
-  /// </summary>
-  public class GetALocalisedDate : ScriptResource
+  public class SetAnElementValue : ScriptResource
   {
     readonly IProvidesScript argsValidator;
 
-    /// <summary>
-    /// Gets the name of this script.
-    /// </summary>
-    /// <value>The name.</value>
-    public override string Name => "a service to get a formatted date using the current browser's locale";
+    public override string Name => "a service which sets the value of an HTML element";
 
     public override string GetScript() => CombineScripts(base.GetScript(), argsValidator);
 
-    public GetALocalisedDate() : this(null) {}
+    public SetAnElementValue() : this(null) {}
 
-    public GetALocalisedDate(IProvidesScript argsValidator)
+    public SetAnElementValue(IProvidesScript argsValidator)
     {
       this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
     }

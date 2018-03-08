@@ -5,7 +5,6 @@ using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
-using CSF.Screenplay.Selenium.Resources;
 using CSF.Screenplay.Selenium.ScriptResources;
 using CSF.Screenplay.Stopwatch;
 using OpenQA.Selenium;
