@@ -47,7 +47,8 @@ namespace CSF.Screenplay.Selenium.Tests.StoredScripts
       Mock.Get(script).Setup(x => x.GetEntryPointName()).Returns("fooBar");
 
       var expectedExecutedScript = @"function fooBar(argsArray) {}
-fooBar(arguments);";
+var argsArray = Array.prototype.slice.call(arguments);
+return fooBar(argsArray);";
 
       // Act
       sut.ExecuteScript(script, driver.Object);
