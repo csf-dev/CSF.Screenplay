@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         throw new TargetNotFoundException($"{target.GetName()} was not found");
 
       var result = (bool) actor.Perform(Execute.TheJavaScript<SetAnElementValue>()
-                                        .WithTheParameters(webElement, date.ToString("yyyy-MM-dd"))
+                                        .WithTheParameters(webElement.GetUnderlyingElement(), date.ToString("yyyy-MM-dd"))
                                         .AndGetTheResult());
     }
 
