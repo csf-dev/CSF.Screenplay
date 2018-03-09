@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Selenium.ScriptResources
   {
     readonly IProvidesScript argsValidator;
 
-    public override string Name => "a service which sets the value of an HTML element";
+    public override string Name => "a JavaScript to set the value of an HTML element";
 
     public override string GetScript() => CombineScripts(base.GetScript(), argsValidator);
 

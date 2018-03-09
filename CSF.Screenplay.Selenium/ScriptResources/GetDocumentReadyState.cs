@@ -37,6 +37,6 @@ namespace CSF.Screenplay.Selenium.ScriptResources
     /// Gets the name of this script.
     /// </summary>
     /// <value>The name.</value>
-    public override string Name => "a service which gets the current web page's ready-state";
+    public override string Name => "a JavaScript which gets the current web page's ready-state";
   }
 }

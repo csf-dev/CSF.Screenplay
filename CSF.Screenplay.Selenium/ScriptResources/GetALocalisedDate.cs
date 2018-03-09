@@ -39,7 +39,7 @@ namespace CSF.Screenplay.Selenium.ScriptResources
     /// Gets the name of this script.
     /// </summary>
     /// <value>The name.</value>
-    public override string Name => "a service to get a formatted date using the current browser's locale";
+    public override string Name => "a JavaScript which converts a date to a locale-formatted string";
 
     public override string GetScript() => CombineScripts(base.GetScript(), argsValidator);
 

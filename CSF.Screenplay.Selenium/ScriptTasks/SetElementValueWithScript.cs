@@ -1,5 +1,5 @@
 ﻿//
-// ArgumentsArrayValidator.cs
+// SetElementValueWithScript.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,18 +24,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.StoredScripts;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performables;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.ScriptResources;
+using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.ScriptResources
+namespace CSF.Screenplay.Selenium.ScriptTasks
 {
-  public class ArgumentsArrayValidator : ScriptResource
+  public class SetElementValueWithScript : Performable
   {
-    const string EntryPointNameConst = "validateArgumentsArray";
+    readonly IWebElement element;
+    readonly string value;
 
-    public static string EntryPointName => EntryPointNameConst;
+    protected override string GetReport(INamed actor)
+      => $"{actor.Name} sets the value of a <{element.TagName}> tp '{value}'";
 
-    public override string Name => "a JavaScript which validates function arguments arrays";
+    protected override void PerformAs(IPerformer actor)
+    {
+      actor.Perform(Execute.TheJavaScript<SetAnElementValue>()
+                    .WithTheParameters(element, value)
+                    .AndIgnoreTheResult());
+    }
 
-    public override string GetEntryPointName() => EntryPointName;
+    public SetElementValueWithScript(IWebElement element, string value)
+    {
+      if(element == null)
+        throw new ArgumentNullException(nameof(element));
+
+      this.element = element;
+      this.value = value ?? String.Empty;
+    }
   }
 }
