@@ -26,9 +26,9 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
-      When(joe).AttemptsTo(Enter.TheDate(date).Into(PageTwo.DateInput));
+      When(joe).AttemptsTo(Enter.TheDate(date).Into(DateInputPage.DateInput));
 
-      Then(joe).ShouldSee(TheText.Of(PageTwo.DateOutput))
+      Then(joe).ShouldSee(TheText.Of(DateInputPage.DateOutput))
                .Should()
                .Be(expectedString, because: "the displayed date should match");
     }
