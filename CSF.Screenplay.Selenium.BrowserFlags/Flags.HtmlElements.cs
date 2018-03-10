@@ -24,11 +24,6 @@ namespace CSF.Screenplay.Selenium
         /// by typing keys.
         /// </summary>
         public static readonly string RequiresInputViaJavaScriptWorkaround = "HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround";
-
-        /// <summary>
-        /// Indicates that the date element must be clicked upon before any text can be entered.
-        /// </summary>
-        public static readonly string RequiresClickBeforeInput = "HtmlElements.InputTypeDate.RequiresClickBeforeInput";
       }
 
       /// <summary>

@@ -35,11 +35,6 @@ namespace CSF.Screenplay.Selenium.Tasks
         actor.Perform(EnterTheDateInLocaleFormat());
       else if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround))
         actor.Perform(EnterTheDateViaAJavaScriptWorkaround(browseTheWeb));
-      else if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresClickBeforeInput))
-      {
-        actor.Perform(Click.On(target));
-        actor.Perform(EnterTheDateInIsoFormat());
-      }
       else
         actor.Perform(EnterTheDateInIsoFormat());
     }
