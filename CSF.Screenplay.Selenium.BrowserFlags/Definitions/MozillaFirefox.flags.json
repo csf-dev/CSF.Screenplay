@@ -2,7 +2,7 @@
   {
     "browserName": "Firefox",
     "flags": [
-      "HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround"
+      "HtmlElements.InputTypeDate.RequiresClickBeforeInput"
     ],
   },
 ]

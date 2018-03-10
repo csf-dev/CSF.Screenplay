@@ -20,9 +20,15 @@ namespace CSF.Screenplay.Selenium
         public static readonly string RequiresEntryUsingLocaleFormat = "HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat";
 
         /// <summary>
-        /// Indicates that the web driver may be used to enter a date using an ISO date string: <c>yyyy-MM-dd</c>.
+        /// Indicates that the web driver must use a JavaScript workaround to set the date, because it is impossible to do so
+        /// by typing keys.
         /// </summary>
         public static readonly string RequiresInputViaJavaScriptWorkaround = "HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround";
+
+        /// <summary>
+        /// Indicates that the date element must be clicked upon before any text can be entered.
+        /// </summary>
+        public static readonly string RequiresClickBeforeInput = "HtmlElements.InputTypeDate.RequiresClickBeforeInput";
       }
 
       /// <summary>
