@@ -29,6 +29,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{FAAE73BB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Selenium.JavaScriptWorkarounds", "CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj", "{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B44702DB-988E-4DFA-80A6-B64BF7D6A383}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+		.appveyor.yml = .appveyor.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
