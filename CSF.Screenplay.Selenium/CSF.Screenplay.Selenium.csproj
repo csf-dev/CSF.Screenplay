@@ -231,7 +231,7 @@
     <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
     <EmbeddedResource Include="ScriptResources\ArgumentsArrayValidator.js" />
     <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
-    <EmbeddedResource Include="StoredScripts\ScriptInvoker.js" />
+    <EmbeddedResource Include="StoredScripts\ScriptInvokerFactory.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
