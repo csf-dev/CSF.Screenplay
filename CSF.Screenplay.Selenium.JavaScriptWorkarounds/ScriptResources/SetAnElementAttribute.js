@@ -15,7 +15,7 @@
   }
 
   validateElement(htmlElement);
-  if(newVal === null)
+  if(newValue === null)
     htmlElement.removeAttribute(attributeName);
   else
     htmlElement.setAttribute(attributeName, newValue);

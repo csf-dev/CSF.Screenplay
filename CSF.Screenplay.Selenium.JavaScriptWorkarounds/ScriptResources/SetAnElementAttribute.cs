@@ -38,5 +38,11 @@ namespace CSF.Screenplay.Selenium.ScriptResources
     /// </summary>
     /// <value>The name.</value>
     public override string Name => "a JavaScript which sets an attribute upon an element";
+
+    /// <summary>
+    /// Gets a collection of scripts which the current script instance depends upon.
+    /// </summary>
+    /// <returns>The dependencies.</returns>
+    protected override ScriptResource[] GetDependencies() => new [] { new ArgumentsArrayValidator() };
   }
 }

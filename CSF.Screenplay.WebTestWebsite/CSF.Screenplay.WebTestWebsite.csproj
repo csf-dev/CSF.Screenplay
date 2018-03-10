@@ -131,6 +131,7 @@
     <Folder Include="Scripts\script-tests\" />
     <Folder Include="Views\StoredScriptTest\" />
     <Folder Include="Views\DateInput\" />
+    <Folder Include="Views\ElementsWithAttributes\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="ActionFilters\BaseUriAttribute.cs" />
     <Compile Include="Models\JavaScriptTestModel.cs" />
     <Compile Include="Controllers\DateInputController.cs" />
+    <Compile Include="Controllers\ElementsWithAttributesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -165,6 +167,8 @@
     <Content Include="Scripts\script-tests\ArgumentsArrayValidator.tests.js" />
     <Content Include="Scripts\script-tests\SetAnElementValue.tests.js" />
     <Content Include="Scripts\DateInput.js" />
+    <Content Include="Scripts\ElementsWithAttributes.js" />
+    <Content Include="Scripts\script-tests\SetAnElementAttribute.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
@@ -175,6 +179,7 @@
     <None Include="Views\PageThree\Index.pt" />
     <None Include="Views\StoredScriptTest\Index.pt" />
     <None Include="Views\DateInput\Index.pt" />
+    <None Include="Views\ElementsWithAttributes\Index.pt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj">
