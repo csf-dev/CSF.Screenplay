@@ -56,7 +56,7 @@ namespace CSF.Screenplay.Selenium.Tasks
       var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
       var webElement = target.GetWebElementAdapter(browseTheWeb);
 
-      actor.Perform(Execute.JavaScript.WhichRemovesTheAttribute("readonly").From(webElement));
+      // actor.Perform(Execute.JavaScript.WhichRemovesTheAttribute("readonly").From(webElement));
       actor.Perform(Execute.JavaScript.WhichSetsTheValueOf(webElement).To(date.ToString("yyyy-MM-dd")));
     }
 
