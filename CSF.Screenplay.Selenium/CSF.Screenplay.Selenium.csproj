@@ -182,27 +182,16 @@
     <Compile Include="BrowserFlagsIntegrationBuilderExtensions.cs" />
     <Compile Include="CSF.Selenium.Support.UI\SelectElement.cs" />
     <Compile Include="CSF.Selenium.Support.UI\SelectElementUsingModifierKey.cs" />
-    <Compile Include="StoredScripts\IProvidesScript.cs" />
-    <Compile Include="StoredScripts\ScriptResource.cs" />
-    <Compile Include="StoredScripts\IRunsScripts.cs" />
-    <Compile Include="StoredScripts\ScriptRunner.cs" />
     <Compile Include="Actions\ExecuteJavaScriptProviderAndGetResult.cs" />
     <Compile Include="Actions\ExecuteJavaScriptProvider.cs" />
     <Compile Include="Actions\IPerformableJavaScript.cs" />
     <Compile Include="Actions\IPerformableJavaScriptWithResult.cs" />
-    <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
-    <Compile Include="ScriptResources\GetALocalisedDate.cs" />
-    <Compile Include="ScriptResources\ArgumentsArrayValidator.cs" />
-    <Compile Include="StoredScripts\ICreatesInvocationScript.cs" />
-    <Compile Include="ScriptResources\SetAnElementValue.cs" />
     <Compile Include="Builders\IBuildsJavaScriptPerformable.cs" />
     <Compile Include="Builders\ExecuteJavaScriptBuilder.cs" />
     <Compile Include="Builders\GetALocalisedDateScriptExtensions.cs" />
     <Compile Include="Builders\GetDocumentReadyStateExtensions.cs" />
     <Compile Include="Builders\CustomJavaScriptBuilder.cs" />
     <Compile Include="Builders\SetAnElementValueExtensions.cs" />
-    <Compile Include="StoredScripts\ScriptInvokerFactory.cs" />
-    <Compile Include="StoredScripts\ScriptResourceLoader.cs" />
     <Compile Include="Tasks\ClearTheDate.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,20 +212,15 @@
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
     <Folder Include="CSF.Selenium.Support.UI\" />
-    <Folder Include="StoredScripts\" />
-    <Folder Include="ScriptResources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
-    <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
-    <EmbeddedResource Include="ScriptResources\ArgumentsArrayValidator.js" />
-    <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
-    <EmbeddedResource Include="StoredScripts\ScriptInvokerFactory.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
       <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
       <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj">
+      <Project>{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}</Project>
+      <Name>CSF.Screenplay.Selenium.JavaScriptWorkarounds</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -23,5 +23,7 @@
   <files>
     <file src="bin/Release/CSF.Screenplay.Selenium.dll" target="lib/net45" />
     <file src="bin/Release/CSF.Screenplay.Selenium.xml" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.Selenium.JavaScriptWorkarounds.dll" target="lib/net45" />
+    <file src="bin/Release/CSF.Screenplay.Selenium.JavaScriptWorkarounds.xml" target="lib/net45" />
   </files>
 </package>

@@ -146,6 +146,10 @@
       <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
       <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj">
+      <Project>{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}</Project>
+      <Name>CSF.Screenplay.Selenium.JavaScriptWorkarounds</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StoredScripts\SampleScript.js" />

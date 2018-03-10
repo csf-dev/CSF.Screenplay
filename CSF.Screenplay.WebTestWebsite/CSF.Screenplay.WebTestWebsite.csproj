@@ -173,9 +173,9 @@
     <None Include="Views\StoredScriptTest\Index.pt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
-      <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
-      <Name>CSF.Screenplay.Selenium</Name>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj">
+      <Project>{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}</Project>
+      <Name>CSF.Screenplay.Selenium.JavaScriptWorkarounds</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
