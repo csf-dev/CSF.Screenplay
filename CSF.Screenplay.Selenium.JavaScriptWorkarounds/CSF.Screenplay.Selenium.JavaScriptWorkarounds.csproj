@@ -53,6 +53,7 @@
     <Compile Include="ScriptResources\GetALocalisedDate.cs" />
     <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
     <Compile Include="ScriptResources\SetAnElementValue.cs" />
+    <Compile Include="ScriptResources\SetAnElementAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StoredScripts\ScriptInvokerFactory.js" />
@@ -60,6 +61,7 @@
     <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
     <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
     <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
+    <EmbeddedResource Include="ScriptResources\SetAnElementAttribute.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StoredScripts\" />

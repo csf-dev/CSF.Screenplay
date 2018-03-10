@@ -193,6 +193,7 @@
     <Compile Include="Builders\CustomJavaScriptBuilder.cs" />
     <Compile Include="Builders\SetAnElementValueExtensions.cs" />
     <Compile Include="Tasks\ClearTheDate.cs" />
+    <Compile Include="Builders\SetAnElementAttributeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
