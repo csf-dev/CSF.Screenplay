@@ -24,11 +24,13 @@
 
     getOutputButton = $('#GetOutput');
 
-    getOutputButton.on('click', function() {
+    getOutputButton.on('click', function(ev) {
       classDisplay.text(divWithClass.attr('class'));
       dateDisplay.text(dateInput.attr('readonly'));
       textDisplay.text(textInput.attr('readonly'));
       textPlaceholder.text(textInput.attr('placeholder'));
+
+      ev.preventDefault();
     });
   }
 

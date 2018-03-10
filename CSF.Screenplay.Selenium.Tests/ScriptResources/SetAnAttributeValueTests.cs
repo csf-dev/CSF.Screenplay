@@ -76,7 +76,7 @@ namespace CSF.Screenplay.Selenium.Tests.ScriptResources
       When(joe).AttemptsTo(Execute.JavaScript.WhichSetsTheAttribute("placeholder").For(element).To("New placeholder"));
       When(joe).AttemptsTo(Click.On(ElementsWithAttributesPage.GetOutputButton));
 
-      Then(joe).ShouldSee(TheText.Of(ElementsWithAttributesPage.TextOutput)).Should().Be("New placeholder");
+      Then(joe).ShouldSee(TheText.Of(ElementsWithAttributesPage.TextPlaceholder)).Should().Be("New placeholder");
     }
   }
 }
