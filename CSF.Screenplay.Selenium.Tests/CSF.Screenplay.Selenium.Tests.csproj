@@ -126,6 +126,8 @@
     <Compile Include="Tasks\TestTheStoredScript.cs" />
     <Compile Include="ScriptResources\SetAnElementValueTests.cs" />
     <Compile Include="Pages\DateInputPage.cs" />
+    <Compile Include="Pages\ElementsWithAttributesPage.cs" />
+    <Compile Include="ScriptResources\SetAnAttributeValueTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

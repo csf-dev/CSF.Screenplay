@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Selenium.Tasks
       if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat))
         actor.Perform(EnterTheDateInLocaleFormat());
       else if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround))
-        actor.Perform(EnterTheDateViaAJavaScriptWorkaround(browseTheWeb));
+        actor.Perform(EnterTheDateViaAJavaScriptWorkaround());
       else
         actor.Perform(EnterTheDateInIsoFormat());
     }
@@ -45,11 +45,8 @@ namespace CSF.Screenplay.Selenium.Tasks
     IPerformable EnterTheDateInIsoFormat()
       => new EnterTheDateAsAnIsoFormattedString(date, target);
 
-    IPerformable EnterTheDateViaAJavaScriptWorkaround(BrowseTheWeb browseTheWeb)
-    {
-      var webElement = target.GetWebElementAdapter(browseTheWeb);
-      return Execute.JavaScript.WhichSetsTheValueOf(webElement).To(String.Empty);
-    }
+    IPerformable EnterTheDateViaAJavaScriptWorkaround()
+      => new SetTheDateUsingAJavaScriptWorkaround(date, target);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterTheDate"/> class.
