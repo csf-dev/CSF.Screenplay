@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\OpenTests.cs" />
-    <Compile Include="Pages\GoogleHomePage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Questions\GetWindowTitleTests.cs" />
     <Compile Include="Questions\GetTextTests.cs" />
@@ -114,6 +113,18 @@
     <Compile Include="Actions\ClearCookiesTests.cs" />
     <Compile Include="Tasks\EnterTheDateTests.cs" />
     <Compile Include="Ignore.cs" />
+    <Compile Include="StoredScripts\SampleScript.cs" />
+    <Compile Include="StoredScripts\ScriptResourceTests.cs" />
+    <Compile Include="StoredScripts\ScriptRunnerTests.cs" />
+    <Compile Include="Pages\ScriptTestingHarness.cs" />
+    <Compile Include="StoredScripts\TestAllScriptsViaTestingHarness.cs" />
+    <Compile Include="Personas\Joe.cs" />
+    <Compile Include="Tasks\AllOfTheExecutableScriptTypes.cs" />
+    <Compile Include="Tasks\AllOfTheScriptTestResults.cs" />
+    <Compile Include="Tasks\ScriptTestResult.cs" />
+    <Compile Include="Tasks\VerifyThatAllOfTheScriptTestsPassed.cs" />
+    <Compile Include="Tasks\TestTheStoredScript.cs" />
+    <Compile Include="ScriptResources\SetAnElementValueTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -122,6 +133,9 @@
     <Folder Include="Waits\" />
     <Folder Include="Abilities\" />
     <Folder Include="Tasks\" />
+    <Folder Include="StoredScripts\" />
+    <Folder Include="Personas\" />
+    <Folder Include="ScriptResources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
@@ -132,6 +146,9 @@
       <Project>{0665F99E-DB05-4208-BCF1-137EF914CBF5}</Project>
       <Name>CSF.Screenplay.Selenium.BrowserFlags</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StoredScripts\SampleScript.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.30.0.1\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.30.0.1\build\Selenium.WebDriver.ChromeDriver.targets')" />

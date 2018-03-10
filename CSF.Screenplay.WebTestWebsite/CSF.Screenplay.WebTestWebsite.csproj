@@ -73,9 +73,6 @@
       <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
     <Reference Include="System.Dynamic" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -119,6 +116,9 @@
     <Reference Include="CSF.Zpt.MVC5">
       <HintPath>..\packages\CSF.Zpt.MVC5.1.0.5\lib\net45\CSF.Zpt.MVC5.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -127,6 +127,9 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Views\PageTwo\" />
     <Folder Include="Views\PageThree\" />
+    <Folder Include="ActionFilters\" />
+    <Folder Include="Scripts\script-tests\" />
+    <Folder Include="Views\StoredScriptTest\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -134,10 +137,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Controllers\PageTwoController.cs" />
     <Compile Include="Controllers\PageThreeController.cs" />
+    <Compile Include="Controllers\StoredScriptTestController.cs" />
+    <Compile Include="ActionFilters\BaseUriAttribute.cs" />
+    <Compile Include="Models\JavaScriptTestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -147,6 +152,16 @@
     <Content Include="Scripts\PageTwo.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\PageThree.js" />
+    <Content Include="Scripts\jasmine\jasmine.js" />
+    <Content Include="Scripts\jasmine\jasmine-html.js" />
+    <Content Include="Scripts\jasmine\console.js" />
+    <Content Include="Scripts\jasmine\boot.js" />
+    <Content Include="Content\jasmine\jasmine_favicon.png" />
+    <Content Include="Content\jasmine\jasmine.css" />
+    <Content Include="Scripts\script-tests\GetDocumentReadyState.tests.js" />
+    <Content Include="Scripts\script-tests\GetALocalisedDate.tests.js" />
+    <Content Include="Scripts\script-tests\ArgumentsArrayValidator.tests.js" />
+    <Content Include="Scripts\script-tests\SetAnElementValue.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
@@ -155,6 +170,13 @@
     <None Include="Views\Home\Index.pt" />
     <None Include="Views\PageTwo\Index.pt" />
     <None Include="Views\PageThree\Index.pt" />
+    <None Include="Views\StoredScriptTest\Index.pt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
+      <Project>{13E2170A-AF71-40FF-8D8C-44FE3D0BDF3B}</Project>
+      <Name>CSF.Screenplay.Selenium</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

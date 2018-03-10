@@ -16,7 +16,7 @@
     specialInputField = $('.special_text input');
     scriptOutput = $('#ScriptOutput');
     
-    specialInputField.on('keyup', function() {
+    specialInputField.on('change keyup', function() {
       if(specialInputField.val() === 'The right value')
       {
         $('#dynamic_value').text('different value');

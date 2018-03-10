@@ -2,6 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.StoredScripts;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Actions
@@ -9,10 +10,11 @@ namespace CSF.Screenplay.Selenium.Actions
   /// <summary>
   /// Executes some JavaScript and returns the result.
   /// </summary>
-  public class ExecuteJavaScriptAndGetResult : Question<object>
+  public class ExecuteJavaScriptAndGetResult : Question<object>, IPerformableJavaScriptWithResult
   {
     readonly string script;
     readonly object[] parameters;
+    readonly IRunsScripts scriptRunner;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -31,8 +33,8 @@ namespace CSF.Screenplay.Selenium.Actions
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));
 
-      var ability = GetJavascriptAbility(actor);
-      return ability.ExecuteScript(script, parameters);
+      var ability = actor.GetAbility<BrowseTheWeb>();
+      return scriptRunner.ExecuteScript(script, ability.WebDriver, parameters);
     }
 
     /// <summary>
@@ -45,31 +47,7 @@ namespace CSF.Screenplay.Selenium.Actions
       if(driver == null)
         throw new ArgumentNullException(nameof(driver));
 
-      var jsDriver = GetJavascriptAbility(driver);
-      return jsDriver.ExecuteScript(script, parameters);
-    }
-
-    IJavaScriptExecutor GetJavascriptAbility(IPerformer actor)
-    {
-      var ability = actor.GetAbility<BrowseTheWeb>();
-      try
-      {
-        return GetJavascriptAbility(ability.WebDriver);
-      }
-      catch(ArgumentException ex)
-      {
-        throw new MissingAbilityException($"{actor.Name} must have a {nameof(BrowseTheWeb)} ability which supports the execution of JavaScript.", ex);
-      }
-    }
-
-    IJavaScriptExecutor GetJavascriptAbility(IWebDriver driver)
-    {
-      var jsDriver = driver as IJavaScriptExecutor;
-
-      if(jsDriver == null)
-        throw new ArgumentException($"The {nameof(IWebDriver)} must support the execution of JavaScript.", nameof(driver));
-
-      return jsDriver;
+      return scriptRunner.ExecuteScript(script, driver, parameters);
     }
 
     /// <summary>
@@ -84,6 +62,7 @@ namespace CSF.Screenplay.Selenium.Actions
 
       this.script = script;
       this.parameters = parameters;
+      scriptRunner = new ScriptRunner();
     }
   }
 }

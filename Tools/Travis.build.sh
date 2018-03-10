@@ -7,7 +7,7 @@ echo_integration_test_results_to_console()
 
 setup_webdriver_environment_variables()
 {
-  WebDriver_SauceLabsBuildName="Travis Screenplay.Selenium job ${TRAVIS_JOB_NUMBER}; ${WebDriver_BrowserName}"
+  WebDriver_SauceLabsBuildName="Travis Screenplay.Selenium job ${TRAVIS_JOB_NUMBER}; ${WebDriver_BrowserName} ${WebDriver_BrowserVersion}"
   WebDriver_TunnelIdentifier="$TRAVIS_JOB_NUMBER"
 }
 

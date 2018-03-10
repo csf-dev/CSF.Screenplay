@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
 
@@ -13,9 +14,7 @@ namespace CSF.Screenplay.Selenium.Tasks
   public class EnterADateBySettingTheValue : Performable
   {
     readonly DateTime date;
-    readonly ElementId target;
-
-    ITarget Target => target;
+    readonly ITarget target;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -23,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
-      => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {Target.GetName()} by setting the value directly via JavaScript";
+    => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()} using JavaScript.";
 
     /// <summary>
     /// Performs this operation, as the given actor.
@@ -31,19 +30,31 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <param name="actor">The actor performing this task.</param>
     protected override void PerformAs(IPerformer actor)
     {
-      var result = (bool) actor.Perform(Execute.TheJavaScript(Resources.Javascripts.SetValueById)
-                                        .WithTheParameters(target.IdentifierValue, date.ToString("yyyy-MM-dd"))
-                                        .AndGetTheResult());
-      if(!result)
-        throw new TargetNotFoundException($"No element with the id '{target.IdentifierValue}' could be found by JavaScript");
+      var webElement = GetTheWebElement(actor);
+      var dateValue = GetTheDateValue();
+
+      actor.Perform(Execute.JavaScript.WhichSetsTheValueOf(webElement).To(dateValue));
     }
+
+    IWebElementAdapter GetTheWebElement(IPerformer actor)
+    {
+      var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
+      var webElementAdapter = target.GetWebElementAdapter(browseTheWeb);
+
+      if(webElementAdapter == null)
+        throw new TargetNotFoundException($"{target.GetName()} was not found");
+
+      return webElementAdapter;
+    }
+
+    string GetTheDateValue() => date.ToString("yyyy-MM-dd");
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterADateBySettingTheValue"/> class.
     /// </summary>
     /// <param name="date">Date.</param>
     /// <param name="target">Target.</param>
-    public EnterADateBySettingTheValue(DateTime date, ElementId target)
+    public EnterADateBySettingTheValue(DateTime date, ITarget target)
     {
       if(target == null)
         throw new ArgumentNullException(nameof(target));
