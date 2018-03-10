@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Tests.Pages
 
     public override IUriProvider GetUriProvider() => new AppUri("PageTwo");
 
-    public static ITarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
+    public static ILocatorBasedTarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
 
     public static ITarget SecondTextbox => new CssSelector(".second_textbox input", "the second text box");
 

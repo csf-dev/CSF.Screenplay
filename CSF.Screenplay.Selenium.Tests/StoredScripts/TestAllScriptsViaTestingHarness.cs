@@ -23,11 +23,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
-using System.Linq;
 using CSF.Screenplay.NUnit;
-using CSF.Screenplay.Selenium.Builders;
-using CSF.Screenplay.Selenium.Tests.Pages;
 using CSF.Screenplay.Selenium.Tests.Personas;
 using CSF.Screenplay.Selenium.Tests.Tasks;
 using NUnit.Framework;
@@ -36,11 +32,11 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Selenium.Tests.StoredScripts
 {
   [TestFixture]
-  [Description("A test for every stored script included in the main assembly, via the Jasmine testing harness.")]
+  [Description("The JavaScript resources stored within the main assembly")]
   public class TestAllScriptsViaTestingHarness
   {
     [Test,Screenplay]
-    [Description("Run every script in the main assembly through the Jasmine test harness and verify that they all pass")]
+    [Description("Every script should pass a Jasmine test suite")]
     public void Every_script_in_the_main_assembly_must_pass_its_Jasmine_test_suite(ICast cast)
     {
       var joe = cast.Get<Joe>();

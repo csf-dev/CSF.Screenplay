@@ -1,5 +1,5 @@
 ﻿//
-// GetAllOfTheScriptTestResults.cs
+// SetAnElementValueTests.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,37 +24,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
+using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
+using CSF.Screenplay.Selenium.Tests.Personas;
+using FluentAssertions;
+using NUnit.Framework;
+using static CSF.Screenplay.StepComposer;
 
-namespace CSF.Screenplay.Selenium.Tests.Tasks
+namespace CSF.Screenplay.Selenium.Tests.ScriptResources
 {
-  public class AllOfTheScriptTestResults : Question<IReadOnlyCollection<ScriptTestResult>>
+  [TestFixture]
+  [Description("The SetAnElementValue stored JavaScript")]
+  public class SetAnElementValueTests
   {
-    readonly IReadOnlyCollection<Type> types;
-
-    protected override string GetReport(INamed actor) => $"{actor.Name} runs all of the Jasmine script tests and gets their results";
-
-    protected override IReadOnlyCollection<ScriptTestResult> PerformAs(IPerformer actor)
-      => GetResults(actor).ToArray();
-
-    IEnumerable<ScriptTestResult> GetResults(IPerformer actor)
+    [Test,Screenplay,Description("Executing the script successfully sets the value of the element")]
+    public void Executing_the_script_successfully_sets_the_value(ICast cast)
     {
-      foreach(var type in types)
-        yield return actor.Perform(TestTheStoredScript.OfType(type));
+      var joe = cast.Get<Joe>();
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      var theElement = Given(joe).WasAbleTo(Get.TheElement(PageTwo.SpecialInputField));
+
+      When(joe).AttemptsTo(Execute.JavaScript.WhichSetsTheValueOf(theElement).To("The right value"));
+
+      Then(joe).ShouldSee(TheText.Of(PageTwo.TheDynamicTextArea)).Should().Be("different value");
     }
-
-    public AllOfTheScriptTestResults(IReadOnlyCollection<Type> types)
-    {
-      if(types == null)
-        throw new ArgumentNullException(nameof(types));
-
-      this.types = types;
-    }
-
-    public static IQuestion<IReadOnlyCollection<ScriptTestResult>> ForTheScriptTypes(IReadOnlyCollection<Type> types)
-      => new AllOfTheScriptTestResults(types);
   }
 }

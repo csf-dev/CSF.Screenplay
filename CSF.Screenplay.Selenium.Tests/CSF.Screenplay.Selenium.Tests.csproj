@@ -124,6 +124,7 @@
     <Compile Include="Tasks\ScriptTestResult.cs" />
     <Compile Include="Tasks\VerifyThatAllOfTheScriptTestsPassed.cs" />
     <Compile Include="Tasks\TestTheStoredScript.cs" />
+    <Compile Include="ScriptResources\SetAnElementValueTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -134,6 +135,7 @@
     <Folder Include="Tasks\" />
     <Folder Include="StoredScripts\" />
     <Folder Include="Personas\" />
+    <Folder Include="ScriptResources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">
