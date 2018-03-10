@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
       var date = new DateTime(2012, 5, 6);
       var expectedString = date.ToString("yyyy-MM-dd");
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<DateInputPage>());
 
       When(joe).AttemptsTo(Enter.TheDate(date).Into(DateInputPage.DateInput));
 
