@@ -17,18 +17,12 @@ namespace CSF.Screenplay.Selenium
         /// Indicates that the web driver may be used to enter a date using a format that conforms to the web browser's
         /// current locale setting.
         /// </summary>
-        public static readonly string CanEnterUsingLocaleFormat = "HtmlElements.InputTypeDate.CanEnterUsingLocaleFormat";
+        public static readonly string RequiresEntryUsingLocaleFormat = "HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat";
 
         /// <summary>
         /// Indicates that the web driver may be used to enter a date using an ISO date string: <c>yyyy-MM-dd</c>.
         /// </summary>
-        public static readonly string CanEnterUsingIsoFormat = "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat";
-
-        /// <summary>
-        /// Indicates that the web driver may not perform a 'clear' action upon HTML5 date elements.
-        /// Instead the web driver would have to use an alternative mechanism of clearing the value.
-        /// </summary>
-        public static readonly string CannotClearDateInteractively = "HtmlElements.InputTypeDate.CannotClearDateInteractively";
+        public static readonly string RequiresInputViaJavaScriptWorkaround = "HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround";
       }
 
       /// <summary>

@@ -2,6 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
 
 namespace CSF.Screenplay.Selenium.Tasks
@@ -28,26 +29,14 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <param name="actor">The actor performing this task.</param>
     protected override void PerformAs(IPerformer actor)
     {
-      var ability = actor.GetAbility<BrowseTheWeb>();
+      var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
 
-      if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.CanEnterUsingLocaleFormat))
-      {
+      if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat))
         actor.Perform(EnterTheDateInLocaleFormat());
-      }
-      else if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.CanEnterUsingIsoFormat))
-      {
-        actor.Perform(EnterTheDateInIsoFormat());
-      }
+      else if(browseTheWeb.FlagsDriver.HasFlag(Flags.HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround))
+        actor.Perform(EnterTheDateViaAJavaScriptWorkaround(browseTheWeb));
       else
-      {
-        var idTarget = target as ElementId;
-        if(idTarget == null)
-        {
-          string message = $"In order to use the {nameof(EnterADateBySettingTheValue)} task, the target must be an {nameof(ElementId)}, but got {target.GetType().Name} instead.";
-          throw new InvalidTargetException(message);
-        }
-        actor.Perform(EnterTheDateBySettingTheValue(idTarget));
-      }
+        actor.Perform(EnterTheDateInIsoFormat());
     }
 
     IPerformable EnterTheDateInLocaleFormat()
@@ -56,8 +45,11 @@ namespace CSF.Screenplay.Selenium.Tasks
     IPerformable EnterTheDateInIsoFormat()
       => new EnterTheDateAsAnIsoFormattedString(date, target);
 
-    IPerformable EnterTheDateBySettingTheValue(ElementId id)
-      => new EnterADateBySettingTheValue(date, id);
+    IPerformable EnterTheDateViaAJavaScriptWorkaround(BrowseTheWeb browseTheWeb)
+    {
+      var webElement = target.GetWebElementAdapter(browseTheWeb);
+      return Execute.JavaScript.WhichSetsTheValueOf(webElement).To(String.Empty);
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Tasks.EnterTheDate"/> class.

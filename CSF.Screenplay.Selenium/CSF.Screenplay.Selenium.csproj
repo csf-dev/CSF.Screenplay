@@ -172,7 +172,6 @@
     <Compile Include="Tasks\GetTheLocaleFormattedDate.cs" />
     <Compile Include="Tasks\EnterTheDateAsAnIsoFormattedString.cs" />
     <Compile Include="Tasks\EnterTheDate.cs" />
-    <Compile Include="Tasks\EnterADateBySettingTheValue.cs" />
     <Compile Include="Models\InvalidTargetException.cs" />
     <Compile Include="FlagsExtensions.cs" />
     <Compile Include="BrowserFlagException.cs" />
@@ -204,6 +203,7 @@
     <Compile Include="Builders\SetAnElementValueExtensions.cs" />
     <Compile Include="StoredScripts\ScriptInvokerFactory.cs" />
     <Compile Include="StoredScripts\ScriptResourceLoader.cs" />
+    <Compile Include="Tasks\ClearTheDate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
