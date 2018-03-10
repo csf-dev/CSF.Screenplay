@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     string Name { get; }
 
     /// <summary>
-    /// Gets the script fragment as a named function.  The name of that function is exposed via
+    /// Gets a JavaScript which includes a named function.  The name of that function is exposed via
     /// <see cref="GetEntryPointName"/>.
     /// </summary>
     /// <returns>The script.</returns>

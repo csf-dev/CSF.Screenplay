@@ -1,5 +1,5 @@
 ﻿//
-// GetALocalisedDate.cs
+// StoredScriptBuilderExtensions.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,41 +24,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.StoredScripts;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.ScriptResources;
 
-namespace CSF.Screenplay.Selenium.ScriptResources
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
-  /// Script resource for getting a localised date string
+  /// Extension methods for a <see cref="ExecuteJavaScriptBuilder"/>, related to building performables which use the
+  /// <see cref="GetALocalisedDate"/> JavaScript.
   /// </summary>
-  public class GetALocalisedDate : ScriptResource
+  public static class GetALocalisedDateScriptExtensions
   {
-    readonly ScriptResource argsValidator;
-
     /// <summary>
-    /// Gets the name of this script.
+    /// Gets a performable which represents an invocation of the <see cref="GetALocalisedDate"/> JavaScript, using the
+    /// given parameters.
     /// </summary>
-    /// <value>The name.</value>
-    public override string Name => "a JavaScript which converts a date to a locale-formatted string";
-
-    /// <summary>
-    /// Gets a collection of scripts which the current script instance depends upon.
-    /// </summary>
-    /// <returns>The dependencies.</returns>
-    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    public GetALocalisedDate() : this(null) {}
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    /// <param name="argsValidator">Arguments validator.</param>
-    public GetALocalisedDate(ScriptResource argsValidator)
+    /// <returns>The JavaScript question performable.</returns>
+    /// <param name="builder">Builder.</param>
+    /// <param name="date">The date.</param>
+    public static IPerformableJavaScriptWithResult WhichGetsALocaleFormattedVersionOf(this ExecuteJavaScriptBuilder builder,
+                                                                                      DateTime date)
     {
-      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
+
+      int
+        year = date.Year,
+        // Months in JavaScript start with zero, because reasons
+        month = date.Month - 1,
+        day = date.Day;
+
+      return builder.AsPerformableBuilder.BuildQuestion<GetALocalisedDate>(year, month, day);
     }
   }
 }

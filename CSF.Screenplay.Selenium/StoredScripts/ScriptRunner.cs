@@ -24,7 +24,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.ScriptResources;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.StoredScripts
@@ -34,7 +33,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
   /// </summary>
   public class ScriptRunner : IRunsScripts
   {
-    readonly IInvokesScripts invoker;
+    readonly ICreatesInvocationScript invoker;
     
     /// <summary>
     /// Executes the script and returns the result.
@@ -68,13 +67,16 @@ namespace CSF.Screenplay.Selenium.StoredScripts
       if(webDriver == null)
         throw new ArgumentNullException(nameof(webDriver));
 
-      var runnableScript = GetRunnableScript(script);
-      return ExecuteScript(runnableScript, webDriver, arguments);
+      var scriptBody = GetScriptBodyWithInvoker(script);
+      return ExecuteScript(scriptBody, webDriver, arguments);
     }
 
-    string GetRunnableScript(IProvidesScript script)
+    string GetScriptBodyWithInvoker(IProvidesScript script)
     {
-      return String.Concat(script.GetScript(), Environment.NewLine, invoker.GetScript(script.GetEntryPointName()));
+      var scriptBody = script.GetScript();
+      var invokerBody = invoker.GetScript(script.GetEntryPointName());
+
+      return String.Concat(scriptBody, Environment.NewLine, invokerBody);
     }
 
     IJavaScriptExecutor GetJavaScriptExecutor(IWebDriver driver)
@@ -87,11 +89,18 @@ namespace CSF.Screenplay.Selenium.StoredScripts
       return jsDriver;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptRunner"/> class.
+    /// </summary>
     public ScriptRunner() : this(null) {}
 
-    public ScriptRunner(IInvokesScripts invoker)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptRunner"/> class.
+    /// </summary>
+    /// <param name="invoker">A JavaScript which invokes other scripts via their named entry points.</param>
+    public ScriptRunner(ICreatesInvocationScript invoker)
     {
-      this.invoker = invoker ?? new ScriptInvoker();
+      this.invoker = invoker ?? new ScriptInvokerFactory();
     }
   }
 }

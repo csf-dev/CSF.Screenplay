@@ -41,7 +41,7 @@ namespace CSF.Screenplay.Selenium.Tests.StoredScripts
       var script = Mock.Of<IProvidesScript>();
       var driver = new Mock<IWebDriver>();
       driver.As<IJavaScriptExecutor>();
-      var invoker = Mock.Of<IInvokesScripts>(x => x.GetScript(It.IsAny<string>()) == "return fooBar(argsArray);");
+      var invoker = Mock.Of<ICreatesInvocationScript>(x => x.GetScript(It.IsAny<string>()) == "return fooBar(argsArray);");
       var sut = new ScriptRunner(invoker);
 
       Mock.Get(script).Setup(x => x.GetScript()).Returns("function fooBar(argsArray) {}");
@@ -66,7 +66,7 @@ return fooBar(argsArray);";
       var script = Mock.Of<IProvidesScript>();
       var driver = new Mock<IWebDriver>();
       driver.As<IJavaScriptExecutor>();
-      var invoker = Mock.Of<IInvokesScripts>(x => x.GetScript(It.IsAny<string>()) == String.Empty);
+      var invoker = Mock.Of<ICreatesInvocationScript>(x => x.GetScript(It.IsAny<string>()) == String.Empty);
       var sut = new ScriptRunner(invoker);
 
       Mock.Get(script).Setup(x => x.GetScript()).Returns(String.Empty);

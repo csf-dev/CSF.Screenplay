@@ -48,7 +48,7 @@ namespace CSF.Screenplay.Selenium.Tests.Tasks
     {
       if(!typeof(IProvidesScript).IsAssignableFrom(type)) return false;
       if(!type.IsClass || type.IsAbstract) return false;
-      if(typeof(IInvokesScripts).IsAssignableFrom(type)) return false;
+      if(typeof(ICreatesInvocationScript).IsAssignableFrom(type)) return false;
       return true;
     }
 

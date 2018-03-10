@@ -1,5 +1,5 @@
 ﻿//
-// ArgumentsArrayConverter.cs
+// GetDocumentReadyStateExtensions.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,36 +24,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.StoredScripts;
+using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.ScriptResources;
 
-namespace CSF.Screenplay.Selenium.ScriptResources
+namespace CSF.Screenplay.Selenium.Builders
 {
-  public class ScriptInvoker : ScriptResource, IInvokesScripts
+  /// <summary>
+  /// Extension methods for a <see cref="ExecuteJavaScriptBuilder"/>, related to building performables which use the
+  /// <see cref="GetDocumentReadyState"/> JavaScript.
+  /// </summary>
+  public static class GetDocumentReadyStateExtensions
   {
-    readonly string entryPointName;
-
-    public override string Name => "invoker for named entry-points";
-
-    public override string GetEntryPointName() => null;
-
-    public override string GetScript() => GetScript(entryPointName);
-
-    string IInvokesScripts.GetScript(string entryPoint) => GetScript(entryPoint);
-
-    string GetScript(string entryPoint)
+    /// <summary>
+    /// Gets a performable which represents an invocation of the <see cref="GetDocumentReadyState"/> JavaScript.
+    /// </summary>
+    /// <returns>The JavaScript question performable.</returns>
+    /// <param name="builder">Builder.</param>
+    public static IPerformableJavaScriptWithResult WhichGetsTheDocumentReadyState(this ExecuteJavaScriptBuilder builder)
     {
-      var invocationScript = GetInvocationScript(entryPoint);
-      return String.Concat(base.GetScript(), Environment.NewLine, invocationScript);
-    }
+      if(builder == null)
+        throw new ArgumentNullException(nameof(builder));
 
-    string GetInvocationScript(string entryPoint)
-      => $"return invoker.invoke({entryPoint}, arguments);";
-
-    public ScriptInvoker() : this(null) {}
-
-    public ScriptInvoker(string entryPointName)
-    {
-      this.entryPointName = entryPointName ?? DefaultEntryPointName;
+      return builder.AsPerformableBuilder.BuildQuestion<GetDocumentReadyState>();
     }
   }
 }

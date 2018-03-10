@@ -1,5 +1,5 @@
 ﻿//
-// SetElementValueWithScript.cs
+// IInvokesScripts.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,36 +24,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
-using CSF.Screenplay.Selenium.Builders;
-using CSF.Screenplay.Selenium.ScriptResources;
-using OpenQA.Selenium;
-
-namespace CSF.Screenplay.Selenium.ScriptTasks
+namespace CSF.Screenplay.Selenium.StoredScripts
 {
-  public class SetElementValueWithScript : Performable
+  /// <summary>
+  /// A service which creates a JavaScript which is used for the purpose of invoking other JavaScripts.
+  /// </summary>
+  public interface ICreatesInvocationScript
   {
-    readonly IWebElement element;
-    readonly string value;
-
-    protected override string GetReport(INamed actor)
-      => $"{actor.Name} sets the value of a <{element.TagName}> tp '{value}'";
-
-    protected override void PerformAs(IPerformer actor)
-    {
-      actor.Perform(Execute.TheJavaScript<SetAnElementValue>()
-                    .WithTheParameters(element, value)
-                    .AndIgnoreTheResult());
-    }
-
-    public SetElementValueWithScript(IWebElement element, string value)
-    {
-      if(element == null)
-        throw new ArgumentNullException(nameof(element));
-
-      this.element = element;
-      this.value = value ?? String.Empty;
-    }
+    /// <summary>
+    /// Gets an invocation script for the given entry point name.
+    /// </summary>
+    /// <returns>The invocation script.</returns>
+    /// <param name="entryPoint">The name of the entry point which should be invoked.</param>
+    string GetScript(string entryPoint);
   }
 }

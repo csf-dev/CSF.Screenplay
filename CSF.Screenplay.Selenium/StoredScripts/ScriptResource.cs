@@ -25,8 +25,6 @@
 // THE SOFTWARE.
 using System;
 using System.Linq;
-using System.Reflection;
-using CSF.Reflection;
 
 namespace CSF.Screenplay.Selenium.StoredScripts
 {
@@ -37,6 +35,7 @@ namespace CSF.Screenplay.Selenium.StoredScripts
   {
     internal const string
       DefaultEntryPointName = "executeScript";
+    readonly ScriptResourceLoader scriptLoader;
 
     /// <summary>
     /// Gets the name of this script.
@@ -52,32 +51,53 @@ namespace CSF.Screenplay.Selenium.StoredScripts
     public virtual string GetEntryPointName() => DefaultEntryPointName;
 
     /// <summary>
-    /// Gets the script fragment as a named function.  The name of that function is exposed via
+    /// Gets a JavaScript which includes a named function.  The name of that function is exposed via
     /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetEntryPointName" />.
     /// </summary>
     /// <returns>The script.</returns>
-    public virtual string GetScript()
-    {
-      var thisType = GetType();
-      var scriptAssembly = thisType.Assembly;
+    public virtual string GetScript() => CombineScripts(this, GetDependencies());
 
-      return scriptAssembly.GetManifestResourceText(thisType, $"{thisType.Name}.js");
-    }
+    /// <summary>
+    /// Gets the script fragment as a named function (without any dependency scripts, if any).
+    /// The name of that function is exposed via
+    /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetEntryPointName" />.
+    /// </summary>
+    /// <returns>The current script.</returns>
+    protected virtual string GetScriptWithoutDependencies() => scriptLoader.GetScriptFor(GetType());
 
-    protected string CombineScripts(string entryPointProvider, params IProvidesScript[] scripts)
+    /// <summary>
+    /// Gets a collection of scripts which the current script instance depends upon.
+    /// </summary>
+    /// <returns>The dependencies.</returns>
+    protected virtual ScriptResource[] GetDependencies() => new ScriptResource[0];
+
+    /// <summary>
+    /// Combines the given script (which provides an entry point) with other scripts, creating one long script.
+    /// </summary>
+    /// <returns>The scripts.</returns>
+    /// <param name="entryPointProvider">Entry point provider.</param>
+    /// <param name="scripts">Scripts.</param>
+    protected string CombineScripts(ScriptResource entryPointProvider, params ScriptResource[] scripts)
     {
       if(entryPointProvider == null)
         throw new ArgumentNullException(nameof(entryPointProvider));
       if(scripts == null)
         throw new ArgumentNullException(nameof(scripts));
-      if(scripts.Length == 0)
-        throw new ArgumentException("You must provide at least one script.", nameof(scripts));
 
-      var scriptsToCombine = scripts.Select(x => x.GetScript())
-        .Union(new [] { entryPointProvider })
+      var scriptsToCombine = scripts
+        .Select(x => x.GetScript())
+        .Union(new [] { entryPointProvider.GetScriptWithoutDependencies() })
         .ToArray();
 
       return String.Join(Environment.NewLine, scriptsToCombine);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptResource"/> class.
+    /// </summary>
+    public ScriptResource()
+    {
+      scriptLoader = new ScriptResourceLoader();
     }
   }
 }

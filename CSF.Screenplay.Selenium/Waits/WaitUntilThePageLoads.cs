@@ -40,7 +40,7 @@ namespace CSF.Screenplay.Selenium.Waits
     protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
-      var action = GetAction();
+      var action = Execute.JavaScript.WhichGetsTheDocumentReadyState();
       var wait = new WebDriverWait(ability.WebDriver, timeout);
 
       try
@@ -51,11 +51,6 @@ namespace CSF.Screenplay.Selenium.Waits
       {
         throw new GivenUpWaitingException("Given up waiting", ex);
       }
-    }
-
-    IPerformableJavaScriptWithResult GetAction()
-    {
-      return Execute.TheJavaScript<GetDocumentReadyState>().AndGetTheResult();
     }
 
     /// <summary>

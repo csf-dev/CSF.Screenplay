@@ -4,9 +4,6 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
-using CSF.Screenplay.Selenium.ScriptResources;
-using CSF.Screenplay.Selenium.ScriptTasks;
-using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {
@@ -25,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <returns>The human-readable report text.</returns>
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
-    => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()} by setting the value directly via JavaScript";
+    => $"{actor.Name} enters the date {date.ToString("yyyy-MM-dd")} into {target.GetName()} using JavaScript.";
 
     /// <summary>
     /// Performs this operation, as the given actor.
@@ -36,12 +33,10 @@ namespace CSF.Screenplay.Selenium.Tasks
       var webElement = GetTheWebElement(actor);
       var dateValue = GetTheDateValue();
 
-      var setTheDateWithJavaScript = new SetElementValueWithScript(webElement, dateValue);
-
-      actor.Perform(setTheDateWithJavaScript);
+      actor.Perform(Execute.JavaScript.WhichSetsTheValueOf(webElement).To(dateValue));
     }
 
-    IWebElement GetTheWebElement(IPerformer actor)
+    IWebElementAdapter GetTheWebElement(IPerformer actor)
     {
       var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
       var webElementAdapter = target.GetWebElementAdapter(browseTheWeb);
@@ -49,7 +44,7 @@ namespace CSF.Screenplay.Selenium.Tasks
       if(webElementAdapter == null)
         throw new TargetNotFoundException($"{target.GetName()} was not found");
 
-      return webElementAdapter.GetUnderlyingElement();
+      return webElementAdapter;
     }
 
     string GetTheDateValue() => date.ToString("yyyy-MM-dd");

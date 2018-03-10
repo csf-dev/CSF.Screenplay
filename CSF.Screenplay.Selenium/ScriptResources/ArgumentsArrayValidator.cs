@@ -28,14 +28,30 @@ using CSF.Screenplay.Selenium.StoredScripts;
 
 namespace CSF.Screenplay.Selenium.ScriptResources
 {
+  /// <summary>
+  /// A stored JavaScript which validates a collection of arguments passed as an array.
+  /// </summary>
   public class ArgumentsArrayValidator : ScriptResource
   {
     const string EntryPointNameConst = "validateArgumentsArray";
 
+    /// <summary>
+    /// Gets the name of the entry point for this script (which differs from the default).
+    /// </summary>
+    /// <value>The name of the entry point.</value>
     public static string EntryPointName => EntryPointNameConst;
 
+    /// <summary>
+    /// Gets the name of this script.
+    /// </summary>
+    /// <value>The name.</value>
     public override string Name => "a JavaScript which validates function arguments arrays";
 
+    /// <summary>
+    /// Gets the name of the entry point to the script - this is the function exposed by
+    /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetScript" />.
+    /// </summary>
+    /// <returns>The name of the entry point function.</returns>
     public override string GetEntryPointName() => EntryPointName;
   }
 }

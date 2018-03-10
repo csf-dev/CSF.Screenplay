@@ -28,17 +28,35 @@ using CSF.Screenplay.Selenium.StoredScripts;
 
 namespace CSF.Screenplay.Selenium.ScriptResources
 {
+  /// <summary>
+  /// A stored JavaScript which sets the value of an HTML element and then triggers the 'change' event for that element.
+  /// </summary>
   public class SetAnElementValue : ScriptResource
   {
-    readonly IProvidesScript argsValidator;
+    readonly ScriptResource argsValidator;
 
+    /// <summary>
+    /// Gets the name of this script.
+    /// </summary>
+    /// <value>The name.</value>
     public override string Name => "a JavaScript to set the value of an HTML element";
 
-    public override string GetScript() => CombineScripts(base.GetScript(), argsValidator);
+    /// <summary>
+    /// Gets a collection of scripts which the current script instance depends upon.
+    /// </summary>
+    /// <returns>The dependencies.</returns>
+    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.SetAnElementValue"/> class.
+    /// </summary>
     public SetAnElementValue() : this(null) {}
 
-    public SetAnElementValue(IProvidesScript argsValidator)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.SetAnElementValue"/> class.
+    /// </summary>
+    /// <param name="argsValidator">Arguments validator.</param>
+    public SetAnElementValue(ScriptResource argsValidator)
     {
       this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
     }

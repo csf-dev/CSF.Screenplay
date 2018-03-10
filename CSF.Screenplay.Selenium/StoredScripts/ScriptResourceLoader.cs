@@ -1,5 +1,5 @@
 ﻿//
-// GetALocalisedDate.cs
+// ScriptResourceLoader.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,41 +24,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.StoredScripts;
+using CSF.Reflection;
 
-namespace CSF.Screenplay.Selenium.ScriptResources
+namespace CSF.Screenplay.Selenium.StoredScripts
 {
   /// <summary>
-  /// Script resource for getting a localised date string
+  /// Loads a <c>string</c> manifest resource representing a JavaScript which matches the name of a <c>System.Type</c>.
   /// </summary>
-  public class GetALocalisedDate : ScriptResource
+  public class ScriptResourceLoader
   {
-    readonly ScriptResource argsValidator;
+    /// <summary>
+    /// Gets the JavaScript for the given type.
+    /// </summary>
+    /// <returns>The JavaScript resource.</returns>
+    /// <typeparam name="T">The type for which to load script.</typeparam>
+    public string GetScriptFor<T>()
+      => GetScriptFor(typeof(T));
 
     /// <summary>
-    /// Gets the name of this script.
+    /// Gets the JavaScript for the given type.
     /// </summary>
-    /// <value>The name.</value>
-    public override string Name => "a JavaScript which converts a date to a locale-formatted string";
-
-    /// <summary>
-    /// Gets a collection of scripts which the current script instance depends upon.
-    /// </summary>
-    /// <returns>The dependencies.</returns>
-    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    public GetALocalisedDate() : this(null) {}
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    /// <param name="argsValidator">Arguments validator.</param>
-    public GetALocalisedDate(ScriptResource argsValidator)
+    /// <returns>The JavaScript resource.</returns>
+    /// <param name="type">The type for which to load script.</param>
+    public string GetScriptFor(Type type)
     {
-      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
+      if(type == null)
+        throw new ArgumentNullException(nameof(type));
+      
+      var scriptAssembly = type.Assembly;
+
+      return scriptAssembly.GetManifestResourceText(type, $"{type.Name}.js");
     }
   }
 }

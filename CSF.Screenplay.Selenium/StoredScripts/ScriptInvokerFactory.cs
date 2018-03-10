@@ -1,5 +1,5 @@
 ﻿//
-// IInvokesScripts.cs
+// ArgumentsArrayConverter.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -26,8 +26,35 @@
 using System;
 namespace CSF.Screenplay.Selenium.StoredScripts
 {
-  public interface IInvokesScripts
+  /// <summary>
+  /// A special stored JavaScript which is used to invoke other JavaScripts.
+  /// </summary>
+  public class ScriptInvokerFactory : ICreatesInvocationScript
   {
-    string GetScript(string entryPoint);
+    readonly ScriptResourceLoader loader;
+
+    /// <summary>
+    /// Gets an invocation script for the given entry point name.
+    /// </summary>
+    /// <returns>The invocation script.</returns>
+    /// <param name="entryPoint">The name of the entry point which should be invoked.</param>
+    public string GetScript(string entryPoint)
+    {
+      var invokerService = loader.GetScriptFor<ScriptInvokerFactory>();
+      var invocationLine = GetInvocationLine(entryPoint);
+
+      return String.Concat(invokerService, Environment.NewLine, invocationLine);
+    }
+
+    string GetInvocationLine(string entryPoint)
+      => $"return invoker.invoke({entryPoint}, arguments);";
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptInvoker"/> class.
+    /// </summary>
+    public ScriptInvokerFactory()
+    {
+      loader = new ScriptResourceLoader();
+    }
   }
 }
