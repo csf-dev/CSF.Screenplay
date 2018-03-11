@@ -35,63 +35,28 @@
       return null;
     }
     
-    function select(option)
-    {
-      option.selected = true;
-      option.setAttribute('selected', '');
-    }
-    
-    function deselect(option)
-    {
-      option.selected = false;
-      option.removeAttribute('selected');
-    }
-    
-    function selectByIndex(selectElement, index)
+    function setSelectedByIndex(selectElement, index, selected)
     {
       var option = getOptionByIndex(selectElement, index);
-      if(!option) return false;
-      select(option);
-      return true;
+      return setSelected(option, selected);
     }
     
-    function selectByValue(selectElement, value)
+    function setSelectedByValue(selectElement, value, selected)
     {
       var option = getOptionByValue(selectElement, value);
-      if(!option) return false;
-      select(option);
-      return true;
+      return setSelected(option, selected);
     }
     
-    function selectByText(selectElement, text)
+    function setSelectedByText(selectElement, text, selected)
     {
       var option = getOptionByText(selectElement, text);
-      if(!option) return false;
-      select(option);
-      return true;
+      return setSelected(option, selected);
     }
     
-    function deselectByIndex(selectElement, index)
+    function setSelected(option, selected)
     {
-      var option = getOptionByIndex(selectElement, index);
       if(!option) return false;
-      deselect(option);
-      return true;
-    }
-    
-    function deselectByValue(selectElement, value)
-    {
-      var option = getOptionByValue(selectElement, value);
-      if(!option) return false;
-      deselect(option);
-      return true;
-    }
-    
-    function deselectByText(selectElement, text)
-    {
-      var option = getOptionByText(selectElement, text);
-      if(!option) return false;
-      deselect(option);
+      option.selected = selected;
       return true;
     }
     
@@ -104,12 +69,12 @@
     }
     
     return {
-      selectByIndex: selectByIndex,
-      selectByValue: selectByValue,
-      selectByText: selectByText,
-      deselectByIndex: deselectByIndex,
-      deselectByValue: deselectByValue,
-      deselectByText: deselectByText,
+      selectByIndex: function(ele, idx) { return setSelectedByIndex(ele, idx, true); },
+      selectByValue: function(ele, val) { return setSelectedByValue(ele, val, true); },
+      selectByText: function(ele, txt) { return setSelectedByText(ele, txt, true); },
+      deselectByIndex: function(ele, idx) { return setSelectedByIndex(ele, idx, false); },
+      deselectByValue: function(ele, val) { return setSelectedByValue(ele, val, false); },
+      deselectByText: function(ele, txt) { return setSelectedByText(ele, txt, false); },
       deselectAll: deselectAll,
     };
     
