@@ -54,6 +54,7 @@
     <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
     <Compile Include="ScriptResources\SetAnElementValue.cs" />
     <Compile Include="ScriptResources\SetAnElementAttribute.cs" />
+    <Compile Include="ScriptResources\UpdateSelectElementSelection.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="StoredScripts\ScriptInvokerFactory.js" />
@@ -62,6 +63,7 @@
     <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
     <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
     <EmbeddedResource Include="ScriptResources\SetAnElementAttribute.js" />
+    <EmbeddedResource Include="ScriptResources\UpdateSelectElementSelection.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StoredScripts\" />

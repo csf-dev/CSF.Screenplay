@@ -20,8 +20,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
-
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       When(joe).AttemptsTo(Select.Item("Two").From(PageTwo.SingleSelectionList));
@@ -35,10 +33,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(
-        Flags.HtmlElements.Select.CannotChangeState
-      );
-
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
       When(joe).AttemptsTo(Select.ItemNumber(3).From(PageTwo.SingleSelectionList));
@@ -51,8 +45,6 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     public void SelectByValue_generates_expected_result_on_page(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
-
-      joe.ShouldIgnoreThisTestIfTheirBrowserHasAnyOfTheFlags(Flags.HtmlElements.Select.CannotChangeState);
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
 
