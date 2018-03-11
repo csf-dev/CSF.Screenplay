@@ -203,6 +203,7 @@
     <Compile Include="Screenshots\SaveOptions.cs" />
     <Compile Include="Screenshots\SavePathProvider.cs" />
     <Compile Include="Screenshots\ScreenshotSaver.cs" />
+    <Compile Include="SaveScreenshotsBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

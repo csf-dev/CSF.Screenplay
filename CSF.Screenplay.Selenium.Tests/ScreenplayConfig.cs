@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using CSF.FlexDi;
+﻿using System;
+using System.IO;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.NUnit;
 using CSF.Screenplay.Reporting;
@@ -7,7 +7,6 @@ using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Reporting;
 using CSF.Screenplay.Selenium.Tests;
-using OpenQA.Selenium;
 
 [assembly: ScreenplayAssembly(typeof(ScreenplayConfig))]
 
@@ -30,7 +29,10 @@ namespace CSF.Screenplay.Selenium.Tests
       builder.UseWebDriverFromConfiguration();
       builder.UseWebBrowser();
       builder.UseBrowserFlags();
+      builder.SaveScreenshotsInDirectoryPerScenario(GetScreenshotRoot());
     }
+
+    string GetScreenshotRoot() => Path.Combine(Environment.CurrentDirectory, "saved-screenshots");
 
     void WriteReport(IObjectFormattingService formatter, Report report)
     {
