@@ -48,7 +48,7 @@ namespace CSF.Screenplay.Selenium
         /// Indicates that the browser is completely unable to change the selection state of an HTML <c>&lt;select&gt;</c>
         /// element.
         /// </summary>
-        public static readonly string CannotChangeState = "HtmlElements.Select.CannotChangeState";
+        public static readonly string RequiresUpdatesViaJavaScriptWorkaround = "HtmlElements.Select.RequiresUpdatesViaJavaScriptWorkaround";
       }
     }
   }
