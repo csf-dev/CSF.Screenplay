@@ -45,8 +45,8 @@ namespace CSF.Screenplay.Selenium
       public static class Select
       {
         /// <summary>
-        /// Indicates that the browser is completely unable to change the selection state of an HTML <c>&lt;select&gt;</c>
-        /// element.
+        /// Indicates that the browser requires a JavaScript workaround in order to change the selection state
+        /// of an HTML <c>&lt;select&gt;</c> element.
         /// </summary>
         public static readonly string RequiresUpdatesViaJavaScriptWorkaround = "HtmlElements.Select.RequiresUpdatesViaJavaScriptWorkaround";
       }
