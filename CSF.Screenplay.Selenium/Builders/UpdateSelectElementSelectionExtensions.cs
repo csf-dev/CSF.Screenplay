@@ -71,7 +71,7 @@ namespace CSF.Screenplay.Selenium.Builders
                                                                       IWebElementAdapter element)
     {
       var jsBuilder = builder.AsPerformableBuilder;
-      return jsBuilder.BuildAction<UpdateSelectElementSelection>(element, DeselectAllActionName);
+      return jsBuilder.BuildAction<UpdateSelectElementSelection>(element.GetUnderlyingElement(), DeselectAllActionName);
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ namespace CSF.Screenplay.Selenium.Builders
       IPerformableJavaScript BuildAction(string actionName, object actionValue)
       {
         var jsBuilder = builder.AsPerformableBuilder;
-        return jsBuilder.BuildAction<UpdateSelectElementSelection>(element, actionName, actionValue);
+        return jsBuilder.BuildAction<UpdateSelectElementSelection>(element.GetUnderlyingElement(), actionName, actionValue);
       }
 
       internal OptionChoiceBuilder(ExecuteJavaScriptBuilder builder, IWebElementAdapter element, bool select)
