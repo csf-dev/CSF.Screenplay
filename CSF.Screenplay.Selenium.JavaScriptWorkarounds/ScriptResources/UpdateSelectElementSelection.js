@@ -16,27 +16,35 @@
   {
     function getOptionByIndex(selectElement, index)
     {
-      
+      return selectElement.item(index);
     }
     
     function getOptionByValue(selectElement, value)
     {
-      
+      var options = selectElement.options;
+      for(var i = 0, len = options.length; i < len; i++)
+        if(options[i].value === value) return options[i];
+      return null;
     }
     
     function getOptionByText(selectElement, text)
     {
-      
+      var options = selectElement.options;
+      for(var i = 0, len = options.length; i < len; i++)
+        if(options[i].text === text) return options[i];
+      return null;
     }
     
-    function deselect(optionElement)
+    function select(option)
     {
-      
+      option.selected = true;
+      option.setAttribute('selected', '');
     }
     
-    function select(optionElement)
+    function deselect(option)
     {
-      
+      option.selected = false;
+      option.removeAttribute('selected');
     }
     
     function selectByIndex(selectElement, index)
@@ -49,7 +57,7 @@
     
     function selectByValue(selectElement, value)
     {
-      var option = getOptionByValue(selectElement, index);
+      var option = getOptionByValue(selectElement, value);
       if(!option) return false;
       select(option);
       return true;
@@ -57,7 +65,7 @@
     
     function selectByText(selectElement, text)
     {
-      var option = getOptionByText(selectElement, index);
+      var option = getOptionByText(selectElement, text);
       if(!option) return false;
       select(option);
       return true;
@@ -73,7 +81,7 @@
     
     function deselectByValue(selectElement, value)
     {
-      var option = getOptionByValue(selectElement, index);
+      var option = getOptionByValue(selectElement, value);
       if(!option) return false;
       deselect(option);
       return true;
@@ -81,7 +89,7 @@
     
     function deselectByText(selectElement, text)
     {
-      var option = getOptionByText(selectElement, index);
+      var option = getOptionByText(selectElement, text);
       if(!option) return false;
       deselect(option);
       return true;
@@ -91,7 +99,7 @@
     {
       var options = selectElement.options;
       for(var i = 0, len = options.length; i < len; i++)
-        deselect(options.item(i));
+        options.item(i).selected = false;
       return options.length > 0;
     }
     

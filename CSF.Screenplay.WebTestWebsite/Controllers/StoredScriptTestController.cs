@@ -10,6 +10,7 @@ namespace CSF.Screenplay.WebTestWebsite.Controllers
 {
   public class StoredScriptTestController : Controller
   {
+    [ValidateInput(false)]
     public ActionResult Index(string id)
     {
       var provider = GetScriptProvider(id);
