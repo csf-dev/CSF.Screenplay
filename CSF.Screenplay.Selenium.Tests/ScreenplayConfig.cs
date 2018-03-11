@@ -23,7 +23,8 @@ namespace CSF.Screenplay.Selenium.Tests
           .WriteReport(WriteReport)
           .WithFormatter<StringArrayFormatter>()
           .WithFormatter<OptionCollectionFormatter>()
-          .WithFormatter<ElementCollectionFormatter>();
+          .WithFormatter<ElementCollectionFormatter>()
+          .WithFormatter<TargetNameFormatter>();
       });
       builder.UseSharedUriTransformer(new RootUriPrependingTransformer("http://localhost:8080/"));
       builder.UseWebDriverFromConfiguration();

@@ -247,7 +247,7 @@ namespace CSF.Screenplay.Selenium.Models
     /// Gets the human-readable target name.
     /// </summary>
     /// <returns>The name.</returns>
-    public string GetName() => name ?? $"the <{wrappedElement.TagName}> element";
+    public string GetName() => name ?? $"An HTML element";
 
     IReadOnlyList<Option> GetOptions(Func<IWebElement,bool> predicate = null)
     {

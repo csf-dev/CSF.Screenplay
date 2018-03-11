@@ -196,6 +196,7 @@
     <Compile Include="Builders\SetAnElementAttributeExtensions.cs" />
     <Compile Include="Tasks\SetTheDateUsingAJavaScriptWorkaround.cs" />
     <Compile Include="Builders\UpdateSelectElementSelectionExtensions.cs" />
+    <Compile Include="Reporting\TargetNameFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
