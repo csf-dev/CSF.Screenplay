@@ -14,6 +14,13 @@
   
   var optionUpdater = function()
   {
+    function triggerChangeEvent(element)
+    {
+      var ev = document.createEvent('Event');
+      ev.initEvent('change', true, true);
+      element.dispatchEvent(ev);
+    }
+
     function getOptionByIndex(selectElement, index)
     {
       return selectElement.item(index);
@@ -38,25 +45,26 @@
     function setSelectedByIndex(selectElement, index, selected)
     {
       var option = getOptionByIndex(selectElement, index);
-      return setSelected(option, selected);
+      return setSelected(selectElement, option, selected);
     }
     
     function setSelectedByValue(selectElement, value, selected)
     {
       var option = getOptionByValue(selectElement, value);
-      return setSelected(option, selected);
+      return setSelected(selectElement, option, selected);
     }
     
     function setSelectedByText(selectElement, text, selected)
     {
       var option = getOptionByText(selectElement, text);
-      return setSelected(option, selected);
+      return setSelected(selectElement, option, selected);
     }
     
-    function setSelected(option, selected)
+    function setSelected(selectElement, option, selected)
     {
       if(!option) return false;
       option.selected = selected;
+      triggerChangeEvent(selectElement);
       return true;
     }
     
@@ -65,6 +73,7 @@
       var options = selectElement.options;
       for(var i = 0, len = options.length; i < len; i++)
         options.item(i).selected = false;
+      triggerChangeEvent(selectElement);
       return options.length > 0;
     }
     

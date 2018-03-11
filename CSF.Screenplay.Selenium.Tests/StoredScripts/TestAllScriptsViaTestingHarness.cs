@@ -32,13 +32,24 @@ using static CSF.Screenplay.StepComposer;
 namespace CSF.Screenplay.Selenium.Tests.StoredScripts
 {
   [TestFixture]
-  [Description("The JavaScript resources stored within the main assembly")]
+  [Description("The JavaScripts in the CSF.Screenplay.Selenium.JavaScriptWorkarounds project")]
   public class TestAllScriptsViaTestingHarness
   {
     [Test,Screenplay]
     [Description("Every script should pass a Jasmine test suite")]
     public void Every_script_in_the_main_assembly_must_pass_its_Jasmine_test_suite(ICast cast)
     {
+      /* Please note that this single test scenario will test every available script using all of the
+       * available Jasmine test suites. Those Jasmine tests themselves are not held within this project.
+       * 
+       * They are all written using JavaScript and are found within the CSF.Screenplay.WebTestWebsite project,
+       * at the path:
+       *   Scripts/script-tests/
+       * Each class in the CSF.Screenplay.Selenium.JavaScriptWorkarounds project has its own test suite in that
+       * directory, named after the name of its class, with the suffix 'tests.js'.
+       * 
+       * If further JavaScript workarounds are added then each should have its own test suite in that path.
+       */
       var joe = cast.Get<Joe>();
 
       var scriptTypes = Given(joe).Got(AllOfTheExecutableScriptTypes.FromTheMainAssembly());

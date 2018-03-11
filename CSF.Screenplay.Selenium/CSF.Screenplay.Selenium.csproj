@@ -195,6 +195,7 @@
     <Compile Include="Tasks\ClearTheDate.cs" />
     <Compile Include="Builders\SetAnElementAttributeExtensions.cs" />
     <Compile Include="Tasks\SetTheDateUsingAJavaScriptWorkaround.cs" />
+    <Compile Include="Builders\UpdateSelectElementSelectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

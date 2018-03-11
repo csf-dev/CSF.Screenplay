@@ -181,4 +181,69 @@
       expect(element.options[2].selected).toEqual(false);
     });
   });
+  
+  describe('should always raise the change event', function() {
+    it('after selecting by index', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'selectByIndex', 0]);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after selecting by value', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'selectByValue', '1']);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after selecting by text', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'selectByText', 'Option one']);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after deselecting by index', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'deselectByIndex', 1]);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after deselecting by value', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'deselectByValue', '2']);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after deselecting by text', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'deselectByText', 'Option two']);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+    
+    it('after deselecting everything', function() {
+      var element = addStandardScratchElements().multiSelect, eventTriggered = false;
+      element.addEventListener('change', function() { eventTriggered = true; return true; })
+      
+      executeScript([element, 'deselectAll']);
+      
+      expect(eventTriggered).toEqual(true);
+    });
+  });
 });

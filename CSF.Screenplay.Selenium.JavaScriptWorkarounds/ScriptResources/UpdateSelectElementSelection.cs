@@ -34,6 +34,41 @@ namespace CSF.Screenplay.Selenium.ScriptResources
   public class UpdateSelectElementSelection : ScriptResource
   {
     /// <summary>
+    /// Gets the action name for deselecting every option.
+    /// </summary>
+    public static readonly string DeselectAllActionName = "deselectAll";
+
+    /// <summary>
+    /// Gets the action name for selecting an option by its zero-based index.
+    /// </summary>
+    public static readonly string SelectByIndexActionName = "selectByIndex";
+
+    /// <summary>
+    /// Gets the action name for selecting an option by its value.
+    /// </summary>
+    public static readonly string SelectByValueActionName = "selectByValue";
+
+    /// <summary>
+    /// Gets the action name for selecting an option by its displyed text.
+    /// </summary>
+    public static readonly string SelectByTextActionName = "selectByText";
+
+    /// <summary>
+    /// Gets the action name for deselecting an option by its zero-based index.
+    /// </summary>
+    public static readonly string DeselectByIndexActionName = "deselectByIndex";
+
+    /// <summary>
+    /// Gets the action name for deselecting an option by its value.
+    /// </summary>
+    public static readonly string DeselectByValueActionName = "deselectByValue";
+
+    /// <summary>
+    /// Gets the action name for deselecting an option by its displayed text.
+    /// </summary>
+    public static readonly string DeselectByTextActionName = "deselectByText";
+
+    /// <summary>
     /// Gets the name of this script.
     /// </summary>
     /// <value>The name.</value>

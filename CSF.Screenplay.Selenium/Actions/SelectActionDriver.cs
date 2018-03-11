@@ -28,11 +28,23 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <param name="element">Element.</param>
     public void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
     {
-      ability.FlagsDriver.ThrowOnFlag(Flags.HtmlElements.Select.CannotChangeState);
+      if(ability.FlagsDriver.HasFlag(Flags.HtmlElements.Select.CannotChangeState))
+      {
+        PerformUsingWorkaround(actor, ability, element);
+        return;
+      }
 
       var selectElement = GetSelectElement(ability, element);
       PerformAs(actor, ability, element, selectElement);
     }
+
+    /// <summary>
+    /// Performs the action using a JavaScript workaround instead of the normal mechanism.
+    /// </summary>
+    /// <param name="actor">Actor.</param>
+    /// <param name="ability">Ability.</param>
+    /// <param name="element">Element.</param>
+    protected abstract void PerformUsingWorkaround(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element);
 
     /// <summary>
     /// Performs the action using the given actor, web-browsing ability and target element.
