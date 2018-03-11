@@ -169,6 +169,7 @@
     <Content Include="Scripts\DateInput.js" />
     <Content Include="Scripts\ElementsWithAttributes.js" />
     <Content Include="Scripts\script-tests\SetAnElementAttribute.tests.js" />
+    <Content Include="Scripts\script-tests\UpdateSelectElementSelection.tests.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Shared\Page.pt" />
