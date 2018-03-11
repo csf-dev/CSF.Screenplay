@@ -26,6 +26,7 @@
 using System;
 using System.IO;
 using CSF.Screenplay.Integration;
+using CSF.Screenplay.Scenarios;
 using CSF.Screenplay.Selenium.Abilities;
 
 namespace CSF.Screenplay.Selenium
@@ -112,7 +113,7 @@ namespace CSF.Screenplay.Selenium
     static void SaveScreenshots(IIntegrationConfigBuilder helper, Screenshots.SaveOptions options)
     {
       helper.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterFactory(() => new SaveScreenshots(options));
+        b.RegisterFactory((Scenario s) => new SaveScreenshots(options, s));
       });
     }
   }

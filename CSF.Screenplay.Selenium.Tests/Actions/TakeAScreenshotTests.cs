@@ -24,22 +24,47 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Tests.Personas;
+using static CSF.Screenplay.StepComposer;
 using NUnit.Framework;
+using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.Tests.Pages;
 
-namespace CSF.Screenplay.Selenium.Tests.Abilities
+namespace CSF.Screenplay.Selenium.Tests.Actions
 {
   [TestFixture]
   public class TakeAScreenshotTests
   {
-    [Test]
-    public void Taking_a_screenshot_should_not_crash()
+    [Test,Screenplay]
+    public void Taking_and_saving_a_screenshot_should_not_crash(ICast cast, SaveScreenshots saveScreenshots)
     {
-      // Arrange
+      var joe = cast.Get<Joe>();
+      joe.IsAbleTo(saveScreenshots);
 
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      // Act
+      Assert.That(() => {
+        When(joe).AttemptsTo(TakeAScreenshot.AndSaveItWithTheName("test-screenshot"));
+      }, Throws.Nothing);
+    }
 
-      // Assert
+    [Test,Screenplay]
+    public void Taking_and_saving_a_screenshot_two_screenshots_should_not_crash(ICast cast,
+                                                                                SaveScreenshots saveScreenshots)
+    {
+      var joe = cast.Get<Joe>();
+      joe.IsAbleTo(saveScreenshots);
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+
+      Assert.That(() => {
+        
+        When(joe).AttemptsTo(TakeAScreenshot.AndSaveItWithTheName("first-screenshot"));
+        When(joe).AttemptsTo(TakeAScreenshot.AndSaveItWithTheName("second-screenshot"));
+
+      }, Throws.Nothing);
     }
   }
 }

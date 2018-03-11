@@ -40,20 +40,18 @@ namespace CSF.Screenplay.Selenium.Abilities
     readonly SaveOptions saveOptions;
     readonly IGetsSavePath pathProvider;
     readonly ISavesScreenshotsToFile fileSaver;
+    readonly Scenario scenario;
     int screenshotCounter;
 
     /// <summary>
     /// Saves the screenshot to a file, based upon the name of the current <see cref="Scenario"/> and a given name.
     /// </summary>
     /// <param name="screenshot">Screenshot.</param>
-    /// <param name="scenario">Scenario.</param>
     /// <param name="name">Name.</param>
-    public void Save(Screenshot screenshot, Scenario scenario, string name)
+    public void Save(Screenshot screenshot, string name)
     {
       if(screenshot == null)
         throw new ArgumentNullException(nameof(screenshot));
-      if(scenario == null)
-        throw new ArgumentNullException(nameof(scenario));
 
       var target = pathProvider.GetSaveFile(scenario, name, screenshotCounter++, saveOptions);
       fileSaver.Save(screenshot, target);
@@ -63,24 +61,30 @@ namespace CSF.Screenplay.Selenium.Abilities
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.SaveScreenshots"/> class.
     /// </summary>
     /// <param name="saveOptions">Save options.</param>
-    public SaveScreenshots(SaveOptions saveOptions) : this(saveOptions, null, null) {}
+    /// <param name="scenario">The current scenario.</param>
+    public SaveScreenshots(SaveOptions saveOptions, Scenario scenario) : this(saveOptions, scenario, null, null) {}
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Abilities.SaveScreenshots"/> class.
     /// </summary>
     /// <param name="saveOptions">Save options.</param>
+    /// <param name="scenario">The current scenario.</param>
     /// <param name="pathProvider">Path provider.</param>
     /// <param name="fileSaver">File saver.</param>
-    public SaveScreenshots(SaveOptions saveOptions, IGetsSavePath pathProvider, ISavesScreenshotsToFile fileSaver)
+    public SaveScreenshots(SaveOptions saveOptions,
+                           Scenario scenario,
+                           IGetsSavePath pathProvider,
+                           ISavesScreenshotsToFile fileSaver)
     {
-      if(fileSaver == null)
-        throw new ArgumentNullException(nameof(fileSaver));
+      if(scenario == null)
+        throw new ArgumentNullException(nameof(scenario));
       if(saveOptions == null)
         throw new ArgumentNullException(nameof(saveOptions));
 
       this.fileSaver = fileSaver ?? new ScreenshotSaver();
       this.pathProvider = pathProvider ?? new SavePathProvider();
       this.saveOptions = saveOptions;
+      this.scenario = scenario;
 
       screenshotCounter = 1;
     }
