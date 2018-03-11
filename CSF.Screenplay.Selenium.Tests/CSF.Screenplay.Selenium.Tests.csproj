@@ -128,6 +128,8 @@
     <Compile Include="Pages\DateInputPage.cs" />
     <Compile Include="Pages\ElementsWithAttributesPage.cs" />
     <Compile Include="ScriptResources\SetAnAttributeValueTests.cs" />
+    <Compile Include="Screenshots\SavePathProviderTests.cs" />
+    <Compile Include="Actions\TakeAScreenshotTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -139,6 +141,7 @@
     <Folder Include="StoredScripts\" />
     <Folder Include="Personas\" />
     <Folder Include="ScriptResources\" />
+    <Folder Include="Screenshots\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj">

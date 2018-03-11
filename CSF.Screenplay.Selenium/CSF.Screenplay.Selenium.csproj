@@ -197,6 +197,15 @@
     <Compile Include="Tasks\SetTheDateUsingAJavaScriptWorkaround.cs" />
     <Compile Include="Builders\UpdateSelectElementSelectionExtensions.cs" />
     <Compile Include="Reporting\TargetNameFormatter.cs" />
+    <Compile Include="Abilities\SaveScreenshots.cs" />
+    <Compile Include="Screenshots\ISavesScreenshotsToFile.cs" />
+    <Compile Include="Screenshots\IGetsSavePath.cs" />
+    <Compile Include="Screenshots\SaveOptions.cs" />
+    <Compile Include="Screenshots\SavePathProvider.cs" />
+    <Compile Include="Screenshots\ScreenshotSaver.cs" />
+    <Compile Include="SaveScreenshotsBuilderExtensions.cs" />
+    <Compile Include="Actions\SaveAScreenshot.cs" />
+    <Compile Include="Builders\TakeAScreenshot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -216,6 +225,7 @@
     <Folder Include="Tasks\" />
     <Folder Include="Reporting\" />
     <Folder Include="CSF.Selenium.Support.UI\" />
+    <Folder Include="Screenshots\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.BrowserFlags\CSF.Screenplay.Selenium.BrowserFlags.csproj">
