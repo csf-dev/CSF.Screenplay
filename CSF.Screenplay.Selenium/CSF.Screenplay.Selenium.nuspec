@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Selenium</id>
-    <version>0.3.1-beta</version>
+    <version>0.3.2-beta</version>
     <title>CSF.Screenplay.Selenium</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
