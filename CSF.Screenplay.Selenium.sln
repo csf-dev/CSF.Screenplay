@@ -27,6 +27,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{FAAE73BB
 		Tools\Travis.install.sh = Tools\Travis.install.sh
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Selenium.JavaScriptWorkarounds", "CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj", "{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B44702DB-988E-4DFA-80A6-B64BF7D6A383}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+		.appveyor.yml = .appveyor.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +61,10 @@ Global
 		{87454F03-FBB3-4506-9055-551297445891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87454F03-FBB3-4506-9055-551297445891}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87454F03-FBB3-4506-9055-551297445891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{09AA41BD-AD31-485F-8912-D687CBA5BD88} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
@@ -60,6 +72,6 @@ Global
 		{87454F03-FBB3-4506-9055-551297445891} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 0.2.2-alpha
+		version = 0.3.0-beta
 	EndGlobalSection
 EndGlobal

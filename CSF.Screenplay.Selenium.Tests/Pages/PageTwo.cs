@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Tests.Pages
 
     public override IUriProvider GetUriProvider() => new AppUri("PageTwo");
 
-    public static ITarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
+    public static ILocatorBasedTarget SpecialInputField => new CssSelector(".special_text input", "the special input field");
 
     public static ITarget SecondTextbox => new CssSelector(".second_textbox input", "the second text box");
 
@@ -28,9 +28,5 @@ namespace CSF.Screenplay.Selenium.Tests.Pages
     public static ILocatorBasedTarget ItemsInTheList => new CssSelector("#list_of_items li", "items in the list");
 
     public static ITarget JavaScriptResult => new ElementId("ScriptOutput", "the Javascript output");
-
-    public static ILocatorBasedTarget DateInput = new ElementId("DateInput", "the date input field");
-
-    public static ILocatorBasedTarget DateOutput = new ElementId("DateOutput", "the date display");
   }
 }

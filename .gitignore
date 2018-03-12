@@ -10,10 +10,10 @@ TestResult.xml
 TestResult.formatted.xml
 *.report.txt
 Tests/Temp/
-Screenshots/
 *.log
 *.orig
 .xsp4.pid
 Backup/
 UpgradeLog.htm
 *.nupkg
+saved-screenshots/

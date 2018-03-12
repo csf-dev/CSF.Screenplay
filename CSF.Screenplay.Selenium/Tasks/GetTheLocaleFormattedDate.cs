@@ -2,6 +2,7 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Builders;
+using CSF.Screenplay.Selenium.ScriptResources;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {
@@ -28,12 +29,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <param name="actor">The actor performing this task.</param>
     protected override string PerformAs(IPerformer actor)
     {
-      // Months in JavaScript start with zero, because reasons
-      var month = date.Month - 1;
-
-      return (string) actor.Perform(Execute.TheJavaScript(Resources.Javascripts.GetLocalisedDate)
-                                    .WithTheParameters(date.Year, month, date.Day)
-                                    .AndGetTheResult());
+      return (string) actor.Perform(Execute.JavaScript.WhichGetsALocaleFormattedVersionOf(date));
     }
 
     /// <summary>

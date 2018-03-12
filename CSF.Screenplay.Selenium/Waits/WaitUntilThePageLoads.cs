@@ -5,7 +5,7 @@ using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
-using CSF.Screenplay.Selenium.Resources;
+using CSF.Screenplay.Selenium.ScriptResources;
 using CSF.Screenplay.Stopwatch;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -40,7 +40,7 @@ namespace CSF.Screenplay.Selenium.Waits
     protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
-      var action = GetAction();
+      var action = Execute.JavaScript.WhichGetsTheDocumentReadyState();
       var wait = new WebDriverWait(ability.WebDriver, timeout);
 
       try
@@ -51,12 +51,6 @@ namespace CSF.Screenplay.Selenium.Waits
       {
         throw new GivenUpWaitingException("Given up waiting", ex);
       }
-    }
-
-    ExecuteJavaScriptAndGetResult GetAction()
-    {
-      var script = Javascripts.GetDocumentReadyState;
-      return Execute.TheJavaScript(script).AndGetTheResult();
     }
 
     /// <summary>

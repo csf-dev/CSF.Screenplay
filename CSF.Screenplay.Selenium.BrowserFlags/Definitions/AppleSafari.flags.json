@@ -2,14 +2,13 @@
   {
     "browserName": "Safari",
     "flags": [
-      "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat",
     ],
   },
   {
     "browserName": "Safari",
     "minVersion": "11",
     "flags": [
-      "HtmlElements.Select.CannotChangeState",
+      "HtmlElements.Select.RequiresUpdatesViaJavaScriptWorkaround",
     ],
   },
 ]

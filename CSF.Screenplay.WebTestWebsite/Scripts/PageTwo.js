@@ -7,16 +7,14 @@
     singleSelection,
     singleSelectionValue,
     multiSelection,
-    multiSelectionValue,
-    dateInput,
-    dateOutput;
+    multiSelectionValue;
 
   function setupElements()
   {
     specialInputField = $('.special_text input');
     scriptOutput = $('#ScriptOutput');
     
-    specialInputField.on('keyup', function() {
+    specialInputField.on('change keyup', function() {
       if(specialInputField.val() === 'The right value')
       {
         $('#dynamic_value').text('different value');
@@ -31,8 +29,6 @@
     singleSelectionValue = $('#single_selected_value');
     multiSelection = $('#multiple_selection');
     multiSelectionValue = $('#multiple_selected_value');
-    dateInput = $('#DateInput');
-    dateOutput = $('#DateOutput');
 
     singleSelection.on('change click', function() {
       recalculateSelections(singleSelection, singleSelectionValue);
@@ -40,10 +36,6 @@
       
     multiSelection.on('change click', function() {
       recalculateSelections(multiSelection, multiSelectionValue);
-    });
-
-    dateInput.on('change click keyup', function() {
-      dateOutput.text(dateInput.val());
     });
   }
 

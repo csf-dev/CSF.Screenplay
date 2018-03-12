@@ -17,18 +17,13 @@ namespace CSF.Screenplay.Selenium
         /// Indicates that the web driver may be used to enter a date using a format that conforms to the web browser's
         /// current locale setting.
         /// </summary>
-        public static readonly string CanEnterUsingLocaleFormat = "HtmlElements.InputTypeDate.CanEnterUsingLocaleFormat";
+        public static readonly string RequiresEntryUsingLocaleFormat = "HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat";
 
         /// <summary>
-        /// Indicates that the web driver may be used to enter a date using an ISO date string: <c>yyyy-MM-dd</c>.
+        /// Indicates that the web driver must use a JavaScript workaround to set the date, because it is impossible to do so
+        /// by typing keys.
         /// </summary>
-        public static readonly string CanEnterUsingIsoFormat = "HtmlElements.InputTypeDate.CanEnterUsingIsoFormat";
-
-        /// <summary>
-        /// Indicates that the web driver may not perform a 'clear' action upon HTML5 date elements.
-        /// Instead the web driver would have to use an alternative mechanism of clearing the value.
-        /// </summary>
-        public static readonly string CannotClearDateInteractively = "HtmlElements.InputTypeDate.CannotClearDateInteractively";
+        public static readonly string RequiresInputViaJavaScriptWorkaround = "HtmlElements.InputTypeDate.RequiresInputViaJavaScriptWorkaround";
       }
 
       /// <summary>
@@ -50,10 +45,10 @@ namespace CSF.Screenplay.Selenium
       public static class Select
       {
         /// <summary>
-        /// Indicates that the browser is completely unable to change the selection state of an HTML <c>&lt;select&gt;</c>
-        /// element.
+        /// Indicates that the browser requires a JavaScript workaround in order to change the selection state
+        /// of an HTML <c>&lt;select&gt;</c> element.
         /// </summary>
-        public static readonly string CannotChangeState = "HtmlElements.Select.CannotChangeState";
+        public static readonly string RequiresUpdatesViaJavaScriptWorkaround = "HtmlElements.Select.RequiresUpdatesViaJavaScriptWorkaround";
       }
     }
   }

@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using CSF.Screenplay.NUnit;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Selenium.Tests
 {

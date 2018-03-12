@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Selenium.Abilities;
+using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Selenium.Support.UI;
 
@@ -34,6 +35,17 @@ namespace CSF.Screenplay.Selenium.Actions
     protected override void PerformAs(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element, SelectElement select)
     {
       select.SelectByIndex(index);
+    }
+
+    /// <summary>
+    /// Performs the action using a JavaScript workaround instead of the normal mechanism.
+    /// </summary>
+    /// <param name="actor">Actor.</param>
+    /// <param name="ability">Ability.</param>
+    /// <param name="element">Element.</param>
+    protected override void PerformUsingWorkaround(IPerformer actor, BrowseTheWeb ability, IWebElementAdapter element)
+    {
+      actor.Perform(Execute.JavaScript.WhichSelectsTheOptionFrom(element).ByIndex(index));
     }
 
     /// <summary>

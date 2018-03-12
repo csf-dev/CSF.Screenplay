@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Selenium.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Selenium.BrowserFlags.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.2.2-alpha</ReleaseVersion>
+    <ReleaseVersion>0.3.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +56,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.0.5.0-beta\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.1.0.0\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

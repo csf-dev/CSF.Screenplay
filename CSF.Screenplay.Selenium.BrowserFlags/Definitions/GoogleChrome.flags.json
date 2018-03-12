@@ -2,7 +2,7 @@
   {
     "browserName": "Chrome",
     "flags": [
-      "HtmlElements.InputTypeDate.CanEnterUsingLocaleFormat",
+      "HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat",
     ],
   },
 ]
