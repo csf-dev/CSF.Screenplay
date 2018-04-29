@@ -90,6 +90,11 @@
     <Compile Include="StreamSourceInfo.cs" />
     <Compile Include="Views\ResourceBundler.cs" />
     <Compile Include="HardCodedZptSharpConfigurationProvider.cs" />
+    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\ScenarioModel.cs" />
+    <Compile Include="Models\FeatureModel.cs" />
+    <Compile Include="Models\ReportableModel.cs" />
+    <Compile Include="Models\ReportConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -99,6 +104,10 @@
     <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
       <Project>{18010B4E-22A7-4462-B057-7199B3386D48}</Project>
       <Name>CSF.Screenplay.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
+      <Project>{46E6DEAA-E6D5-4EE6-A552-17376BEA80DC}</Project>
+      <Name>CSF.Screenplay</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
