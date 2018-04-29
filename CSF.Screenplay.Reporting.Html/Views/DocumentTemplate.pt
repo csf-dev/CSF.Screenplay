@@ -55,7 +55,7 @@
 </header>
 <section class="report"
          tal:define="features report/Features;
-                     myMacros here/GetMacros">
+                     myMacros template/macros">
   <h2 class="hidden">Features, scenarios and reportables in this report</h2>
   <ul class="features">
     <li tal:condition="nothing" class="feature success">
@@ -85,8 +85,8 @@
             <li class="reportable">
               <!-- The base macro for a reportable, we never use this directly, only extend it -->
               <div metal:define-macro="reportable"
-                   tal:define="outcomeClass csharp:here.GetOutcomeClass(reportable);
-                               reportableClass csharp:here.GetReportableClass(reportable);
+                   tal:define="outcomeClass reportable/GetOutcomeClass;
+                               reportableClass reportable/GetReportableClass;
                                containerClass string:$outcomeClass $reportableClass"
                    tal:attributes="class containerClass"
                    class="performance success template">
@@ -113,10 +113,7 @@
                 <p class="description">
                   <strong class="performance_type">Given</strong>
                   <span metal:fill-slot="body" class="body"
-                        tal:define="ability reportable/Ability;
-                                    reportableAssembly csassembly:CSF.Screenplay;
-                                    abilityType cstype:ability CSF.Screenplay.Reporting.IReportable;
-                                    reportBody csharp:ability.GetReport(actor)"
+                        tal:define="reportBody reportable/GetAbilityReport"
                         tal:content="reportBody | default">Joe is able to browse the web</span>
                 </p>
               </div>
@@ -129,10 +126,7 @@
                 <p class="description">
                   <strong class="performance_type">When</strong>
                   <span metal:fill-slot="body" class="body"
-                        tal:define="performable reportable/Performable;
-                                    reportableAssembly csassembly:CSF.Screenplay;
-                                    performableType cstype:performable CSF.Screenplay.Reporting.IReportable;
-                                    reportBody csharp:performable.GetReport(actor)"
+                        tal:define="reportBody reportable/GetPerformanceReport"
                         tal:content="reportBody | default">Joe attempts to do a thing</span>
                 </p>
                 <div class="additional_content"
@@ -146,11 +140,11 @@
                   </div>
                   <ol tal:define="reportables reportable/Reportables;
                                   hasReportables reportable/HasReportables;
-                                  rootReportable csharp:false"
+                                  rootReportable nothing"
                       class="reportables"
                       tal:condition="hasReportables">
                     <li tal:repeat="reportable reportables" class="reportable">
-                      <tal:block define="macroName csharp:here.GetMacroName(reportable);
+                      <tal:block define="macroName reportable/GetMacroName;
                                          macro myMacros/?macroName;
                                          macroMarkup load:macro"
                                  replace="structure macroMarkup | nothing">
@@ -175,7 +169,7 @@
                        metal:fill-slot="extended_content">
                     <p>
                       <strong>Result</strong>
-                      <span tal:replace="csharp:here.Format(reportable.Result)">The performance result</span>
+                      <span tal:replace="reportable/GetFormattedResult">The performance result</span>
                     </p>
                   </div>
                 </div>
@@ -194,12 +188,12 @@
                   <div class="extended_content performance_exception"
                        metal:fill-slot="extended_content"
                        tal:define="exception reportable/Exception | nothing;
-                                   canFormatException csharp:here.HasFormat(exception)">
-                    <p tal:condition="csharp:exception != null &amp;&amp; canFormatException">
+                                   canFormatException reportable/CanFormatException">
+                    <p tal:condition="canFormatException">
                       <strong>Failed</strong>
-                      <span tal:replace="csharp:here.Format(exception)">The formatted exception</span>
+                      <span tal:replace="reportable/GetFormattedException">The formatted exception</span>
                     </p>
-                    <p tal:condition="csharp:exception != null &amp;&amp; !canFormatException">
+                    <p tal:condition="not:canFormatException">
                       <strong>Failed</strong> with an exception
                       <pre tal:content="exception">Exception
   at My.Funky.Stack.Trace.Line1 &gt; Something
@@ -219,7 +213,7 @@
     </li>
     <li tal:repeat="feature features"
         class="feature failure"
-        tal:attributes="class csharp:here.GetOutcomeClass(feature)">
+        tal:attributes="class feature/GetOutcomeClass">
       <header>
         <div class="identifier"
              tal:condition="feature/Id | nothing">
@@ -234,7 +228,7 @@
       <ul class="scenarios" tal:define="scenarios feature/Scenarios">
         <li tal:repeat="scenario scenarios"
             class="scenario success"
-            tal:attributes="class csharp:here.GetOutcomeClass(scenario)">
+            tal:attributes="class scenario/GetOutcomeClass">
           <header>
             <div class="identifier"
                  tal:condition="scenario/Id | nothing">
@@ -248,9 +242,9 @@
           </header>
           <ol class="reportables"
               tal:define="reportables scenario/Reportables;
-                          rootReportable csharp:true">
+                          rootReportable string:true">
             <li tal:repeat="reportable reportables" class="reportable">
-              <div tal:define="macroName csharp:here.GetMacroName(reportable);
+              <div tal:define="macroName reportable/GetMacroName;
                                macro myMacros/?macroName;
                                macroMarkup load:macro"
                    tal:replace="structure macroMarkup | nothing">
@@ -310,8 +304,8 @@
     </li>
   </ul>
 </section>
-<footer tal:define="timestamp csharp:report.Timestamp.ToString(&quot;T&quot;);
-                    datestamp csharp:report.Timestamp.ToString(&quot;D&quot;)">
+<footer tal:define="timestamp report/FormattedTime;
+                    datestamp report/FormattedDate">
   <p>
     This report was created at
     <span tal:content="timestamp" class="timestamp">12:40:33</span>

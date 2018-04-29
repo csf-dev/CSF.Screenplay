@@ -39,10 +39,10 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="CSF.Configuration">
-      <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
+      <HintPath>..\packages\CSF.Configuration.1.1.2\lib\net45\CSF.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="CSF.FlexDi">
-      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
+      <HintPath>..\packages\CSF.FlexDi.1.0.2\lib\net45\CSF.FlexDi.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
