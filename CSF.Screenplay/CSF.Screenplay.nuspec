@@ -11,8 +11,8 @@
     <description>An implementation of the Screenplay (formerly known as Journey) pattern for BDD-based testing.  Screenplay focusses on actors and the tasks/actions/questions they perform and ask.</description>
     <copyright>Copyright 2017</copyright>
     <dependencies>
-      <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
-      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
+      <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
+      <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
     </dependencies>
   </metadata>
   <files>

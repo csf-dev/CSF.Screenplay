@@ -11,8 +11,8 @@
     <description>Types related to the creation of reports from Screenplay performances</description>
     <copyright>Copyright 2017</copyright>
     <dependencies>
-      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
-      <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
+      <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
+      <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
       <dependency id="CSF.Screenplay" version="0.12.0-beta" />
     </dependencies>
   </metadata>
