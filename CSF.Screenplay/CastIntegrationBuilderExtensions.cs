@@ -42,7 +42,7 @@ namespace CSF.Screenplay
 
       helper.ServiceRegistrations.PerScenario.Add(regBuilder => {
         regBuilder
-          .RegisterFactory(() => new Stage())
+          .RegisterFactory((ICast cast) => new Stage(cast))
           .As<IStage>()
           .WithName(name);
       });

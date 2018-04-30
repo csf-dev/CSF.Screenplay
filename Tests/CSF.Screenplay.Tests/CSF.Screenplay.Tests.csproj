@@ -74,6 +74,7 @@
     <Compile Include="Stopwatch\TimeSpanFormatterTests.cs" />
     <Compile Include="Builders\TimespanBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
+    <Compile Include="Actors\StageTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -119,6 +119,30 @@ namespace CSF.Screenplay.Actors
     }
 
     /// <summary>
+    /// Gets an <see cref="IActor"/> from the given cast, making use of an <see cref="IPersona"/> type.
+    /// </summary>
+    /// <typeparam name="TPersona">The persona type.</typeparam>
+    public virtual IActor Get<TPersona>() where TPersona : class,IPersona,new()
+    {
+      return Get(new TPersona());
+    }
+
+    /// <summary>
+    /// Gets an <see cref="IActor"/> from the given cast, making use of an <see cref="IPersona"/> type.
+    /// </summary>
+    /// <param name="persona">A persona instance</param>
+    public virtual IActor Get(IPersona persona)
+    {
+      if(persona == null)
+        throw new ArgumentNullException(nameof(persona));
+      
+      if(persona is IGrantsResolvedAbilities)
+        return GetActorAndGrantAbilities(persona.Name, (IGrantsResolvedAbilities) persona);
+
+      return Get(persona.Name);
+    }
+
+    /// <summary>
     /// Creates a new actor of the given name and adds it to the current cast instance.
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>
@@ -164,6 +188,11 @@ namespace CSF.Screenplay.Actors
       var actor = new Actor(name, scenarioIdentity);
       OnActorCreated(actor);
       return actor;
+    }
+
+    IActor GetActorAndGrantAbilities(string name, IGrantsResolvedAbilities abilityGrantingService)
+    {
+      return Get(name, (r, a) => abilityGrantingService.GrantAbilities(a, r));
     }
 
     IActor Get(string name, out bool created)

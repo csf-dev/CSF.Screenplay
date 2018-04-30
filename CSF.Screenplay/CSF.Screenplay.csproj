@@ -116,7 +116,6 @@
     <Compile Include="Scenarios\IScenario.cs" />
     <Compile Include="Actors\IPersona.cs" />
     <Compile Include="Persona.cs" />
-    <Compile Include="CastPersonaExtensions.cs" />
     <Compile Include="Actors\IGrantsResolvedAbilities.cs" />
     <Compile Include="Builders\IProvidesTimespan.cs" />
     <Compile Include="Builders\TimespanBuilder.cs" />
