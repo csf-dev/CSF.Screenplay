@@ -71,5 +71,8 @@
       <LastGenOutput>ExceptionFormats.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ScreenplayIntegrationConfig.partial.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
