@@ -54,6 +54,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.NUnit.nuspec" />
+    <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
