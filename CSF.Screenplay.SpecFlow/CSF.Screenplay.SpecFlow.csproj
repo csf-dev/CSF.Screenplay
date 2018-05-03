@@ -62,7 +62,6 @@
     <Compile Include="BoDiContainerProxy.cs" />
     <Compile Include="ScreenplayDependencyInjectionBuilder.cs" />
     <Compile Include="ScreenplaySteps.cs" />
-    <Compile Include="IntegrationConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
