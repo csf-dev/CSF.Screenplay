@@ -18,6 +18,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="readme.txt" target="" />
     <file src="bin/Release/CSF.Screenplay.NUnit.dll" target="lib/net45" />
     <file src="bin/Release/CSF.Screenplay.NUnit.xml" target="lib/net45" />
   </files>
