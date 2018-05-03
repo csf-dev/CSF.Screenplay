@@ -23,6 +23,30 @@ namespace CSF.Screenplay
     void ShineTheSpotlightOn(IActor actor);
 
     /// <summary>
+    /// Shines the spotlight upon an actor, such that they will now be returned by <see cref="GetTheActorInTheSpotlight"/>.
+    /// This essentially marks them the subject of future test logic.
+    /// </summary>
+    /// <returns>The actor who has just been placed into the spotlight.</returns>
+    /// <typeparam name="TPersona">The persona type.</typeparam>
+    IActor ShineTheSpotlightOn<TPersona>() where TPersona : class,IPersona,new();
+
+    /// <summary>
+    /// Shines the spotlight upon an actor, such that they will now be returned by <see cref="GetTheActorInTheSpotlight"/>.
+    /// This essentially marks them the subject of future test logic.
+    /// </summary>
+    /// <returns>The actor who has just been placed into the spotlight.</returns>
+    /// <param name="persona">The persona.</param>
+    IActor ShineTheSpotlightOn(IPersona persona);
+
+    /// <summary>
+    /// Shines the spotlight upon an actor, such that they will now be returned by <see cref="GetTheActorInTheSpotlight"/>.
+    /// This essentially marks them the subject of future test logic.
+    /// </summary>
+    /// <returns>The actor who has just been placed into the spotlight.</returns>
+    /// <param name="actorName">The actor name.</param>
+    IActor ShineTheSpotlightOn(string actorName);
+
+    /// <summary>
     /// Removes the spotlight from the current actor and sets such that no actor has the spotlight.
     /// </summary>
     void RemoveTheSpotlight();

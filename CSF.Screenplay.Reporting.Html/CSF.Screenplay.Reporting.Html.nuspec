@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Reporting.Html</id>
-    <version>0.12.0-beta</version>
+    <version>0.13.0-beta</version>
     <title>CSF.Screenplay.Reporting.Html</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,10 +11,10 @@
     <description>Extension to Screenplay reporting which creates preety HTML from test runs, including filtering functionality.</description>
     <copyright>Copyright 2017</copyright>
     <dependencies>
-      <dependency id="Zpt-Sharp-API" version="[1.0.5,2.0.0)" />
-      <dependency id="CSF.Zpt.ExpressionEvaluators.LoadExpressions" version="[1.0.5,2.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.12.0-beta" />
-      <dependency id="CSF.Screenplay.Reporting" version="0.12.0-beta" />
+      <dependency id="Zpt-Sharp-API" version="[1.0.6,2.0.0)" />
+      <dependency id="CSF.Zpt.ExpressionEvaluators.LoadExpressions" version="[1.0.6,2.0.0)" />
+      <dependency id="CSF.Screenplay" version="0.13.0-beta" />
+      <dependency id="CSF.Screenplay.Reporting" version="0.13.0-beta" />
     </dependencies>
   </metadata>
   <files>

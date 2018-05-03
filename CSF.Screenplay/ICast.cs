@@ -82,6 +82,18 @@ namespace CSF.Screenplay
     IActor Get(string name, Action<IResolvesServices,IActor> createCustomisation);
 
     /// <summary>
+    /// Gets an <see cref="IActor"/> from the given cast, making use of an <see cref="IPersona"/> type.
+    /// </summary>
+    /// <typeparam name="TPersona">The persona type.</typeparam>
+    IActor Get<TPersona>() where TPersona : class,IPersona,new();
+
+    /// <summary>
+    /// Gets an <see cref="IActor"/> from the given cast, making use of an <see cref="IPersona"/> type.
+    /// </summary>
+    /// <param name="persona">A persona instance</param>
+    IActor Get(IPersona persona);
+
+    /// <summary>
     /// Creates a new actor of the given name and adds it to the current cast instance.
     /// This operation will fire both <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.
     /// </summary>

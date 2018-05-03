@@ -8,7 +8,9 @@
     <RootNamespace>CSF.Screenplay.NUnit</RootNamespace>
     <AssemblyName>CSF.Screenplay.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.13.0-beta</ReleaseVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,11 +36,11 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Reflection">
-      <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.FlexDi">
-      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
+      <HintPath>..\packages\CSF.FlexDi.1.0.2\lib\net45\CSF.FlexDi.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Reflection">
+      <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +56,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="CSF.Screenplay.NUnit.nuspec" />
+    <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

@@ -1,5 +1,5 @@
 ﻿//
-// CastPersonaExtensions.cs
+// ReportConstants.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,35 +24,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Actors;
-
-namespace CSF.Screenplay
+namespace CSF.Screenplay.Reporting.Models
 {
   /// <summary>
-  /// Extension methods for an <see cref="ICast"/> relating to the use of personas.
+  /// A number of constants used by HTML reports.
   /// </summary>
-  public static class CastPersonaExtensions
+  public static class ReportConstants
   {
-    /// <summary>
-    /// Gets an <see cref="IActor"/> from the given cast, making use of an <see cref="IPersona"/> type.
-    /// </summary>
-    /// <param name="cast">Cast.</param>
-    /// <typeparam name="TPersona">The 1st type parameter.</typeparam>
-    public static IActor Get<TPersona>(this ICast cast) where TPersona : class,IPersona,new()
-    {
-      if(cast == null)
-        throw new ArgumentNullException(nameof(cast));
-
-      var persona = new TPersona();
-      if(persona is IGrantsResolvedAbilities)
-        return GetActorAndGrantAbilities(cast, persona.Name, (IGrantsResolvedAbilities) persona);
-
-      return cast.Get(persona.Name);
-    }
-
-    static IActor GetActorAndGrantAbilities(ICast cast, string name, IGrantsResolvedAbilities abilityGrantingService)
-    {
-      return cast.Get(name, (r, a) => abilityGrantingService.GrantAbilities(a, r));
-    }
+    internal const string
+      SuccessClass = "success",
+      FailureClass = "failure",
+      InconclusiveClass = "inconclusive",
+      AbilityClass = "ability",
+      PerformanceClass = "performance",
+      AbilityMacro = "ability",
+      PerformanceWithResultMacro = "performance_success_result",
+      PerformanceWithExceptionMacro = "performance_failure_exception",
+      PerformanceMacro = "performance";
   }
 }

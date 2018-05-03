@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.SpecFlow</id>
-    <version>0.12.0-beta</version>
+    <version>0.13.0-beta</version>
     <title>CSF.Screenplay.SpecFlow</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,13 +11,14 @@
     <description>Bindings and types for making use of CSF.Screenplay with the SpecFlow BDD framework</description>
     <copyright>Copyright 2017</copyright>
     <dependencies>
-      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
-      <dependency id="CSF.Reflection" version="[1.0.1,2.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.12.0-beta" />
+      <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
+      <dependency id="CSF.Configuration" version="[1.1.2,2.0.0)" />
+      <dependency id="CSF.Screenplay" version="0.13.0-beta" />
       <dependency id="SpecFlow" version="[2.2.0,3.0.0)" />
     </dependencies>
   </metadata>
   <files>
+    <file src="readme.txt" target="" />
     <file src="bin/Release/CSF.Screenplay.SpecFlowPlugin.dll" target="lib/net45" />
     <file src="bin/Release/CSF.Screenplay.SpecFlowPlugin.xml" target="lib/net45" />
   </files>

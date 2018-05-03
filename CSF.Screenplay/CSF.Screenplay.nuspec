@@ -2,17 +2,18 @@
 <package>
   <metadata>
     <id>CSF.Screenplay</id>
-    <version>0.12.0-beta</version>
+    <version>0.13.0-beta</version>
     <title>CSF.Screenplay</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>An implementation of the Screenplay (formerly known as Journey) pattern for BDD-based testing.  Screenplay focusses on actors and the tasks/actions/questions they perform and ask.</description>
-    <copyright>Copyright 2017</copyright>
+    <description>Core framework to support the Screenplay (AKA Journey) pattern for BDD testing.</description>
+    <summary>Screenplay focusses on actors and the tasks/actions/questions they perform and ask.  This library is shared/core components for the Screenplay framework.  It is likely that you will want further libraries which implement that pattern for specific testing scenarios.  See the project website for more info.</summary>
+    <copyright>Copyright 2018</copyright>
     <dependencies>
-      <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
-      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
+      <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
+      <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
     </dependencies>
   </metadata>
   <files>

@@ -8,7 +8,9 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <AssemblyName>CSF.Screenplay</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.12.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.13.0-beta</ReleaseVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="CSF.Utils">
-      <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.FlexDi">
-      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
+      <HintPath>..\packages\CSF.FlexDi.1.0.2\lib\net45\CSF.FlexDi.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Utils">
+      <HintPath>..\packages\CSF.Utils.6.1.1\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +118,6 @@
     <Compile Include="Scenarios\IScenario.cs" />
     <Compile Include="Actors\IPersona.cs" />
     <Compile Include="Persona.cs" />
-    <Compile Include="CastPersonaExtensions.cs" />
     <Compile Include="Actors\IGrantsResolvedAbilities.cs" />
     <Compile Include="Builders\IProvidesTimespan.cs" />
     <Compile Include="Builders\TimespanBuilder.cs" />
