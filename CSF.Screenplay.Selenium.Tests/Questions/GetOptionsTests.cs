@@ -26,9 +26,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
         new Models.Option("Three", "3"),
       };
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      Then(joe).ShouldSee(TheOptions.In(PageTwo.SingleSelectionList)).ShouldBeEquivalentTo(expected);
+      Then(joe).ShouldSee(TheOptions.In(ListsPage.SingleSelectionList)).ShouldBeEquivalentTo(expected);
     }
 
     [Test,Screenplay]
@@ -42,9 +42,9 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
         new Models.Option("Steak", "meat"),
       };
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      Then(joe).ShouldSee(TheOptions.SelectedIn(PageTwo.MultiSelectionList)).ShouldBeEquivalentTo(expected);
+      Then(joe).ShouldSee(TheOptions.SelectedIn(ListsPage.MultiSelectionList)).ShouldBeEquivalentTo(expected);
     }
   }
 }

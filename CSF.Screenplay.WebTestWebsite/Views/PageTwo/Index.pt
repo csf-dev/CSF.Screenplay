@@ -30,36 +30,6 @@
       <div class="second_textbox">
         <input type="text" value="This is a text box" />
       </div>
-      <h2>List</h2>
-      <p>
-        This area contains a list of elements.
-      </p>
-      <ul id="list_of_items">
-        <li class="odd">One</li>
-        <li>Two</li>
-        <li class="odd">Three</li>
-        <li>Four</li>
-        <li class="odd">Five</li>
-      </ul>
-      <h2>Single selection list</h2>
-      <p>
-        This selection list outputs its <strong id="single_selected_value">currently selected value</strong>.
-      </p>
-      <select id="single_selection">
-        <option value="1">One</option>
-        <option value="2" selected>Two</option>
-        <option value="3">Three</option>
-      </select>
-      <h2>Multi-selection list</h2>
-      <p>
-        This selection list outputs its <strong id="multiple_selected_value">multiple selected values</strong>.
-      </p>
-      <select id="multiple_selection" multiple>
-        <option value="fruit">Banana</option>
-        <option value="veg" selected>Carrot</option>
-        <option value="meat" selected>Steak</option>
-        <option value="drink">Coffee</option>
-      </select>
     </fieldset>
   </form>
   <h2>Script output</h2>

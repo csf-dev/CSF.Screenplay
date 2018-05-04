@@ -20,11 +20,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Deselect.EverythingFrom(PageTwo.MultiSelectionList));
+      When(joe).AttemptsTo(Deselect.EverythingFrom(ListsPage.MultiSelectionList));
 
-      Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("Nothing!");
+      Then(joe).ShouldSee(TheText.Of(ListsPage.MultiSelectionValue)).Should().Be("Nothing!");
     }
 
     [Test,Screenplay]
@@ -33,11 +33,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Deselect.ItemNumber(2).From(PageTwo.MultiSelectionList));
+      When(joe).AttemptsTo(Deselect.ItemNumber(2).From(ListsPage.MultiSelectionList));
 
-      Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("meat");
+      Then(joe).ShouldSee(TheText.Of(ListsPage.MultiSelectionValue)).Should().Be("meat");
     }
 
     [Test,Screenplay]
@@ -46,11 +46,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Deselect.Item("Steak").From(PageTwo.MultiSelectionList));
+      When(joe).AttemptsTo(Deselect.Item("Steak").From(ListsPage.MultiSelectionList));
 
-      Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("veg");
+      Then(joe).ShouldSee(TheText.Of(ListsPage.MultiSelectionValue)).Should().Be("veg");
     }
 
     [Test,Screenplay]
@@ -59,11 +59,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Deselect.ItemValued("meat").From(PageTwo.MultiSelectionList));
+      When(joe).AttemptsTo(Deselect.ItemValued("meat").From(ListsPage.MultiSelectionList));
 
-      Then(joe).ShouldSee(TheText.Of(PageTwo.MultiSelectionValue)).Should().Be("veg");
+      Then(joe).ShouldSee(TheText.Of(ListsPage.MultiSelectionValue)).Should().Be("veg");
     }
   }
 }
