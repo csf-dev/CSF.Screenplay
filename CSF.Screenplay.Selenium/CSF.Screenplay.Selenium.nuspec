@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Selenium</id>
-    <version>0.3.2-beta</version>
+    <version>0.4.0-beta</version>
     <title>CSF.Screenplay.Selenium</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,13 +11,13 @@
     <description>Extension to CSF.Screenplay, providing an ability, actions and tasks for Selenium WebDriver for web UI testing using the Screenplay pattern</description>
     <copyright>Copyright 2018</copyright>
     <dependencies>
-      <dependency id="CSF.FlexDi" version="[1.0.0,2.0.0)" />
-      <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
+      <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
+      <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
       <dependency id="Selenium.WebDriver" version="[3.4.0,4.0.0)" />
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.12.0-beta" />
-      <dependency id="CSF.WebDriverExtras" version="[1.0.0,2.0.0)" />
-      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.3.2-beta" />
+      <dependency id="CSF.Screenplay" version="0.13.0-beta" />
+      <dependency id="CSF.WebDriverExtras" version="[1.0.3,2.0.0)" />
+      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.4.0-beta" />
     </dependencies>
   </metadata>
   <files>

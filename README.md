@@ -1,71 +1,35 @@
-# CSF.Screenplay
-**[Screenplay]**, formerly known as **Journey**, is a design pattern for writing BDD (Behaviour Driven Development) test code. Screenplay helps developers write high-value tests:
+# CSF.Screenplay.Selenium
+This is an add-in to [CSF.Screenplay] for controlling a [Selenium WebDriver] from within Screenplay-based [BDD] tests.
 
-* The test code tells a story
-* Tests are guided toward a focus on *the actors* who are using the software
-* It works very well alongside Gherkin/SpecFlow *although they are by no means required*
-* Screenplay test logic conforms to [SOLID design principles]
-* Screenplay is ideal for controlling technologies such as **[Selenium] Web Driver**
+[CSF.Screenplay]: https://github.com/csf-dev/CSF.Screenplay
+[Selenium WebDriver]: https://www.seleniumhq.org/
+[BDD]: https://en.wikipedia.org/wiki/Behavior-driven_development
 
-[Screenplay]: https://www.infoq.com/articles/Beyond-Page-Objects-Test-Automation-Serenity-Screenplay
-[SOLID design principles]: https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
-[Selenium]: http://www.seleniumhq.org/
+## Why Screenplay?
+The [Screenplay pattern], previously known as **Journey**, originally came about to address some of the limitations of the well-known [Page Object pattern]. In many ways, it is the result of aggressively refactoring Page Objects following the SOLID principles.
 
-## Example of a test using Screenplay
-This example is written using **NUnit** test markup but NUnit is not required to use screenplay.
+[Screenplay pattern]: https://www.infoq.com/articles/Beyond-Page-Objects-Test-Automation-Serenity-Screenplay
+[Page Object pattern]: https://martinfowler.com/bliki/PageObject.html
 
-```csharp
-[TestFixture]
-public class BuyGroceriesTests
-{
-  [Test,Screenplay]
-  public void JoeCanBuyEggs(IScreenplayScenario screenplay)
-  {
-    var joe = screenplay.GetJoe();
-    var browseTheWeb = screenplay.GetWebBrowser();
-    joe.IsAbleTo(browseTheWeb);
+Screenplay, applied to a Selenium WebDriver, describes individual user interactions as **Action** classes, but through the Screenplay architecture, makes it simple to compose those actions into reusable **Task** classes, representing higher-level interactions. In turn, there are no limits on the composition of task classes.
 
-    Given(joe).WasAbleTo(SearchTheShop.ForGroceries());
-    When(joe).AttemptsTo(Click.On(GroceriesForSale.BuyEggsButton));
-    var message = Then(joe).ShouldSee(TheText.Of(GroceriesForSale.FeedbackMessage));
+In order to perform test assertions, create **Question** types, which represent reading information from the browser.  Like tasks, questions may be composed of other tasks and questions, making both high and low-level questions available with code reuse between them.
 
-    Assert.That(message, Is.EqualTo("Thankyou for buying eggs."));
-  }
-}
-```
+## This package
 
-## Anatomy of a Screenplay test
-Screenplay tests start with **Actors**. Actors interact with the application via **Tasks** and query the state of the app with **Questions**.
+### Pre-created actions
+The CSF.Screenplay.Selenium library comes with a wide number of action classes built-in, which permit a wide range of low-level interactions between a 'testing user' and a web application.
 
-Tasks represent high-level operations performed by the actor, which may involve a number of steps carried out in order. Tasks may be composed of other tasks in order to create higher-level operations, but the building blocks which make them useful are **Actions**. Each action represents a single unit of interaction between an actor and the application, such as a mouse click.
+### JavaScript workarounds
+Browser support for Selenium WebDriver isn't perfect.  A number of web browsers have less-than-perfect support; for example, Apple **Safari** version 11.0 cannot make selections from HTML `<select>` elements, due a bug in their WebDriver implementation.  In order to work around known issues, this library ships with JavaScript workarounds built-in.
 
-Actions and questions interact with the application. They do so via APIs provided by **Abilities** which the actor has been granted.
-
-![Diagram of Screenplay architecture](screenplay-architecture-diagram.jpeg)
-
-### Applied to the example above
-In the example above, our **actor** is the variable `joe`.  Notice that we retrieved Joe directly from a screenplay scenario. It is useful in Screenplay to have named methods for retrieving/initialising specific actors; it helps to ensure that they are constructed in a consistent manner.
-
-For sake of demonstration, we then manually grant Joe the **ability** to use a web browser. If the actor Joe should always have that ability then we would typically include that logic in the `GetJoe` method.
-
-The line beginning `Given` demonstrates the use of a **task** named `SearchTheShop`, specifically for groceries. Note how this high-level operation would be recognisable and immediately understandable to a non-developer. The task class encapsulates the sequence of actions which would be required to search the shop for groceries.
-
-The `When` line demonstrates Joe directly using an **action** (in this case `Click`). This is unusual in Screenplay; usually you would wrap this within a task. For sake of demonstration though, it has been included to show how individual actions could be used just like tasks if desired.
-
-Finally the `Then` line demonstrates a **question**, named `TheText`, which reads some text which is visible on the web page. The result is returned as the variable `message`.
-
-The very last line doesn't really use screenplay at all. It is a standard NUnit assertion upon the result of the question.
-
-## Learn more
-* This project is inspired by [Serenity BDD] (for Java), which provides a screenplay implementation of its own
-
-[Serenity BDD]: https://github.com/serenity-bdd
+Using the action classes included, if it is detected that you are requesting an action which is unsupported in the current browser, a JavaScript-based workaround is automatically used instead.  This will be visible in the Screenplay Report generated at the end of the test run (assuming that you are using reporting).
 
 ## Continuous integration status
 CI builds are configured via both **Travis** (for build & test on Linux/Mono) and **AppVeyor** (Windows/.NET).
 Below are links to the most recent build statuses for these two CI platforms.
 
-The Travis build also includes browser-based testing on the "big 5" browsers. All of these are tested using Windows 10 and the latest available versions.  The obvious exception being Safari, which is tested on OSX 10.12.
+The Travis build also includes browser-based testing on the "big 5" browsers; AppVeyor tests only on the built-in installation of Firefox.
 
 * Edge
 * Internet Explorer
@@ -75,6 +39,5 @@ The Travis build also includes browser-based testing on the "big 5" browsers. Al
 
 Platform | Status
 -------- | ------
-Linux/Mono (Travis) | [![Travis Status](https://travis-ci.org/csf-dev/CSF.Screenplay.svg?branch=master)](https://travis-ci.org/csf-dev/CSF.Screenplay)
-Windows/.NET (AppVeyor) | [![AppVeyor status](https://ci.appveyor.com/api/projects/status/y9ejfko3kflosava?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay)
-
+Linux/Mono (Travis) | [![Travis Status](https://travis-ci.org/csf-dev/CSF.Screenplay.Selenium.svg?branch=master)](https://travis-ci.org/csf-dev/CSF.Screenplay.Selenium)
+Windows/.NET (AppVeyor) | [![AppVeyor status](https://ci.appveyor.com/api/projects/status/ffp7d1jpa4gtkf5n/branch/master?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay-selenium)

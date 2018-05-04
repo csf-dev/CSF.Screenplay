@@ -20,11 +20,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Select.Item("Two").From(PageTwo.SingleSelectionList));
+      When(joe).AttemptsTo(Select.Item("Two").From(ListsPage.SingleSelectionList));
 
-      Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(2);
+      Then(joe).ShouldSee(TheText.From(ListsPage.SingleSelectionValue).As<int>()).Should().Be(2);
     }
 
     [Test,Screenplay]
@@ -33,11 +33,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Select.ItemNumber(3).From(PageTwo.SingleSelectionList));
+      When(joe).AttemptsTo(Select.ItemNumber(3).From(ListsPage.SingleSelectionList));
 
-      Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(3);
+      Then(joe).ShouldSee(TheText.From(ListsPage.SingleSelectionValue).As<int>()).Should().Be(3);
     }
 
     [Test,Screenplay]
@@ -46,11 +46,11 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
-      When(joe).AttemptsTo(Select.ItemValued("1").From(PageTwo.SingleSelectionList));
+      When(joe).AttemptsTo(Select.ItemValued("1").From(ListsPage.SingleSelectionList));
 
-      Then(joe).ShouldSee(TheText.From(PageTwo.SingleSelectionValue).As<int>()).Should().Be(1);
+      Then(joe).ShouldSee(TheText.From(ListsPage.SingleSelectionValue).As<int>()).Should().Be(1);
     }
   }
 }

@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
     <AssemblyName>CSF.Screenplay.Selenium.JavaScriptWorkarounds</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.3.2-beta</ReleaseVersion>
+    <ReleaseVersion>0.4.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +37,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="CSF.Reflection">
-      <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
+      <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

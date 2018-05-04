@@ -20,10 +20,10 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
       Then(joe)
-        .ShouldSee(Elements.In(PageTwo.ListOfItems).Get())
+        .ShouldSee(Elements.In(ListsPage.ListOfItems).Get())
         .Elements.Count.Should().Be(5);
     }
 
@@ -33,10 +33,10 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageTwo>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ListsPage>());
 
       Then(joe)
-        .ShouldSee(Elements.InThePageBody().ThatAre(PageTwo.ItemsInTheList).Called("the listed items"))
+        .ShouldSee(Elements.InThePageBody().ThatAre(ListsPage.ItemsInTheList).Called("the listed items"))
         .Elements.Count.Should().Be(5);
     }
   }

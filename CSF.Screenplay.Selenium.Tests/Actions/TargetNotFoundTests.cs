@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Assert.That(() => When(joe).AttemptsTo(Click.On(PageTwo.ListOfItems)),
+      Assert.That(() => When(joe).AttemptsTo(Click.On(ListsPage.ListOfItems)),
                   Throws.TypeOf<TargetNotFoundException>());
     }
 
@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
       IHasTargetName target = null;
       try
       {
-        When(joe).AttemptsTo(Click.On(PageTwo.ListOfItems));
+        When(joe).AttemptsTo(Click.On(ListsPage.ListOfItems));
         Assert.Fail("The action should raise an exception.");
       }
       catch(TargetNotFoundException ex)
@@ -50,7 +50,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
       }
 
       Assert.That(target, Is.Not.Null, "Target should not be null.");
-      Assert.That(target.GetName(), Is.EqualTo(PageTwo.ListOfItems.GetName()), "Target has the correct name");
+      Assert.That(target.GetName(), Is.EqualTo(ListsPage.ListOfItems.GetName()), "Target has the correct name");
     }
 
     [Test,Screenplay]
@@ -58,7 +58,7 @@ namespace CSF.Screenplay.Selenium.Tests.Actions
     public void TargetNotFoundException_includes_target_name_in_report(ICast cast, BrowseTheWeb browseTheWeb)
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
-      var ex = new TargetNotFoundException() { Target = PageTwo.ListOfItems };
+      var ex = new TargetNotFoundException() { Target = ListsPage.ListOfItems };
 
       var result = ex.GetReport(joe);
 

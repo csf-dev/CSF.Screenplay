@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
     <AssemblyName>CSF.Screenplay.Selenium</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.3.2-beta</ReleaseVersion>
+    <ReleaseVersion>0.4.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,26 +39,26 @@
     <Reference Include="WebDriver.Support">
       <HintPath>..\packages\Selenium.Support.3.4.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Utils">
-      <HintPath>..\packages\CSF.Utils.6.0.0\lib\net45\CSF.Utils.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Configuration">
-      <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.Configuration">
+      <HintPath>..\packages\CSF.Configuration.1.1.2\lib\net45\CSF.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="CSF.FlexDi">
-      <HintPath>..\packages\CSF.FlexDi.1.0.0\lib\net45\CSF.FlexDi.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Screenplay">
-      <HintPath>..\packages\CSF.Screenplay.0.12.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.1.0.0\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.FlexDi.1.0.2\lib\net45\CSF.FlexDi.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Reflection">
-      <HintPath>..\packages\CSF.Reflection.1.0.1\lib\net45\CSF.Reflection.dll</HintPath>
+      <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Utils">
+      <HintPath>..\packages\CSF.Utils.6.1.1\lib\net45\CSF.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay">
+      <HintPath>..\packages\CSF.Screenplay.0.13.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.WebDriverExtras">
+      <HintPath>..\packages\CSF.WebDriverExtras.1.0.3\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

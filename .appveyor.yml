@@ -12,7 +12,6 @@ test: off
 artifacts:
   - path: CSF.Screenplay.WebTestWebsite
     name: TestWebsite
-    type: WebDeployPackage
 deploy:
   - provider: Local
     TestWebsite.deploy_website: true
