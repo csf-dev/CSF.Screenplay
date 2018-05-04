@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Selenium</id>
-    <version>0.3.2-beta</version>
+    <version>0.4.0-beta</version>
     <title>CSF.Screenplay.Selenium</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -17,7 +17,7 @@
       <dependency id="Selenium.Support" version="[3.4.0,4.0.0)" />
       <dependency id="CSF.Screenplay" version="0.13.0-beta" />
       <dependency id="CSF.WebDriverExtras" version="[1.0.3,2.0.0)" />
-      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.3.2-beta" />
+      <dependency id="CSF.Screenplay.Selenium.BrowserFlags" version="0.4.0-beta" />
     </dependencies>
   </metadata>
   <files>

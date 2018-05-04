@@ -40,4 +40,4 @@ The Travis build also includes browser-based testing on the "big 5" browsers; Ap
 Platform | Status
 -------- | ------
 Linux/Mono (Travis) | [![Travis Status](https://travis-ci.org/csf-dev/CSF.Screenplay.Selenium.svg?branch=master)](https://travis-ci.org/csf-dev/CSF.Screenplay.Selenium)
-Windows/.NET (AppVeyor) | [![AppVeyor status](https://ci.appveyor.com/api/projects/status/y9ejfko3kflosava/branch/master?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay-selenium)
+Windows/.NET (AppVeyor) | [![AppVeyor status](https://ci.appveyor.com/api/projects/status/ffp7d1jpa4gtkf5n/branch/master?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay-selenium)
