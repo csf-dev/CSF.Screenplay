@@ -132,6 +132,7 @@
     <Compile Include="Actions\TakeAScreenshotTests.cs" />
     <Compile Include="Pages\ReadElementsPage.cs" />
     <Compile Include="Pages\ListsPage.cs" />
+    <Compile Include="AssemblyWideTimeouts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
