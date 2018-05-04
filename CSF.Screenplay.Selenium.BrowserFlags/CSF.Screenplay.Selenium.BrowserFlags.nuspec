@@ -11,7 +11,7 @@
     <description>An assembly containing 'browser flags definitions' for CSF.Screenplay.Selenium. This indicates the quirks and behaviours of various popular web browsers which are compatible with Selenium WebDriver.</description>
     <copyright>Copyright 2018</copyright>
     <dependencies>
-      <dependency id="CSF.WebDriverExtras" version="[1.0.0,2.0.0)" />
+      <dependency id="CSF.WebDriverExtras" version="[1.0.3,2.0.0)" />
     </dependencies>
   </metadata>
   <files>

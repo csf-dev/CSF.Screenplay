@@ -45,9 +45,6 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.7.25\lib\net45\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Configuration">
-      <HintPath>..\packages\CSF.Configuration.1.1.0\lib\net45\CSF.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -55,8 +52,11 @@
       <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="CSF.Configuration">
+      <HintPath>..\packages\CSF.Configuration.1.1.2\lib\net45\CSF.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="CSF.WebDriverExtras">
-      <HintPath>..\packages\CSF.WebDriverExtras.1.0.0\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+      <HintPath>..\packages\CSF.WebDriverExtras.1.0.3\lib\net45\CSF.WebDriverExtras.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
