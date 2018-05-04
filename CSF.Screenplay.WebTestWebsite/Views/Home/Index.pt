@@ -15,16 +15,6 @@
     This is the content for the home page of the testing website.
     From here you could also <a class="second_page_link" href="PageTwo">navigate to the second page</a>.
   </p>
-  <h2>Important string</h2>
-  <p>
-    There is an important string on this page which may be read by the testing framework.<br>
-    That string is <strong id="important_string">banana!</strong>
-  </p>
-  <h2>Important number</h2>
-  <p>
-    There is an important number on this page as well, which is also read by the testing framework.<br>
-    That number is <strong id="important_number">42</strong>.
-  </p>
   <h2>Slow loading link</h2>
   <p>
     A delay of <strong tal:content="string:${here/LoadingPause} seconds"

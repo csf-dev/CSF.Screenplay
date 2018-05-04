@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
 
       Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
 
-      Then(joe).ShouldSee(TheCss.Property("color").From(HomePage.ImportantString))
+      Then(joe).ShouldSee(TheCss.Property("color").From(ReadElementsPage.ImportantString))
                .Should().MatchRegex(@"^rgba?\(255, *0, *0(, *1)?\)$");
     }
   }

@@ -132,6 +132,8 @@
     <Folder Include="Views\StoredScriptTest\" />
     <Folder Include="Views\DateInput\" />
     <Folder Include="Views\ElementsWithAttributes\" />
+    <Folder Include="Views\ReadElements\" />
+    <Folder Include="Views\Lists\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -147,6 +149,8 @@
     <Compile Include="Models\JavaScriptTestModel.cs" />
     <Compile Include="Controllers\DateInputController.cs" />
     <Compile Include="Controllers\ElementsWithAttributesController.cs" />
+    <Compile Include="Controllers\ReadElementsController.cs" />
+    <Compile Include="Controllers\ListsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -181,6 +185,8 @@
     <None Include="Views\StoredScriptTest\Index.pt" />
     <None Include="Views\DateInput\Index.pt" />
     <None Include="Views\ElementsWithAttributes\Index.pt" />
+    <None Include="Views\ReadElements\Index.pt" />
+    <None Include="Views\Lists\Index.pt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Selenium.JavaScriptWorkarounds\CSF.Screenplay.Selenium.JavaScriptWorkarounds.csproj">

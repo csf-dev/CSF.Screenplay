@@ -130,6 +130,8 @@
     <Compile Include="ScriptResources\SetAnAttributeValueTests.cs" />
     <Compile Include="Screenshots\SavePathProviderTests.cs" />
     <Compile Include="Actions\TakeAScreenshotTests.cs" />
+    <Compile Include="Pages\ReadElementsPage.cs" />
+    <Compile Include="Pages\ListsPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
