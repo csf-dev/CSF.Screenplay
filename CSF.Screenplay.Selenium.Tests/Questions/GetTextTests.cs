@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ReadElementsPage>());
 
       Then(joe).ShouldSee(TheText.Of(ReadElementsPage.ImportantString)).Should().Be("banana!");
     }
@@ -31,7 +31,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ReadElementsPage>());
 
       Then(joe).ShouldSee(TheText.From(ReadElementsPage.ImportantNumber).As<int>()).Should().Be(42);
     }

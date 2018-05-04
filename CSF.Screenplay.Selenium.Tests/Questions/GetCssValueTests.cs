@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium.Tests.Questions
     {
       var joe = cast.Get("Joe");joe.IsAbleTo(browseTheWeb);
 
-      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<HomePage>());
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<ReadElementsPage>());
 
       Then(joe).ShouldSee(TheCss.Property("color").From(ReadElementsPage.ImportantString))
                .Should().MatchRegex(@"^rgba?\(255, *0, *0(, *1)?\)$");
