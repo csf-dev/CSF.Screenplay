@@ -188,7 +188,8 @@
                   <div class="extended_content performance_exception"
                        metal:fill-slot="extended_content"
                        tal:define="exception reportable/Exception | nothing;
-                                   canFormatException reportable/CanFormatException">
+                                   canFormatException reportable/CanFormatException"
+                       tal:condition="reportable/HasExceptionAndNoChildren">
                     <p tal:condition="canFormatException">
                       <strong>Failed</strong>
                       <span tal:replace="reportable/GetFormattedException">The formatted exception</span>

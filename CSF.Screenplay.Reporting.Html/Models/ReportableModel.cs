@@ -106,6 +106,12 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual bool HasException => (Performance?.HasException).GetValueOrDefault();
 
     /// <summary>
+    /// Gets a value indicating whether this performance has an exception and has no children.
+    /// </summary>
+    /// <value><c>true</c> if has an exception but no children; otherwise, <c>false</c>.</value>
+    public virtual bool HasExceptionAndNoChildren => HasException && !HasReportables;
+
+    /// <summary>
     /// Gets a value indicating whether this performance has additional content (child reportables, a result or an
     /// exception).
     /// </summary>
