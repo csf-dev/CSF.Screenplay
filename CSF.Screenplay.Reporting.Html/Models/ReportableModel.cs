@@ -52,7 +52,15 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the type of the performance.
     /// </summary>
     /// <value>The type of the performance.</value>
-    public virtual PerformanceType PerformanceType => reportable.PerformanceType;
+    public virtual string PerformanceType
+    {
+      get {
+        if(reportable.PerformanceType != Models.PerformanceType.Unspecified)
+          return reportable.PerformanceType.ToString();
+
+        return String.Empty;
+      }
+    }
 
     /// <summary>
     /// Gets the outcome of the reported-upon action.
