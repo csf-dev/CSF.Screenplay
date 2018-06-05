@@ -30,8 +30,12 @@ html.js .feature>header,
 html.js .scenario>header {
   cursor: pointer;
 }
+html.js .reportable.collapsed .additional_content {
+  display: none;
+}
 .feature>header:before,
-.scenario>header:before {
+.scenario>header:before,
+html.js .reportable>.has_content>.description>.body:before {
   float: left;
   margin-left: -1.2em;
   font-size: 90%;
@@ -42,6 +46,10 @@ html.js .scenario>header {
   display: block;
   text-align: center;
 }
+html.js .reportable>.has_content>.description>.body {
+  padding-left: 0.9em;
+  cursor: pointer;
+}
 .feature>header:before {
   line-height: 1.4em;
 }
@@ -49,11 +57,13 @@ html.js .scenario>header {
   line-height: 1.1em;
 }
 html.js .feature>header:before,
-html.js .scenario>header:before {
+html.js .scenario>header:before,
+html.js .reportable>.has_content>.description>.body:before {
   content: '▼';
 }
 html.js .feature.collapsed>header:before,
-html.js .scenario.collapsed>header:before {
+html.js .scenario.collapsed>header:before,
+html.js .reportable.collapsed>.has_content>.description>.body:before {
   content: '▶';
 }
 

@@ -116,6 +116,7 @@
   float: left;
   min-width: 4em;
   font-weight: bold;
+  min-height: 1.2em;
 }
 .reportable .description .body {
   display: block;
