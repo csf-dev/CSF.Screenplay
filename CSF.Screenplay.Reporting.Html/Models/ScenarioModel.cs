@@ -44,6 +44,12 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual string Id => scenario.Id;
 
     /// <summary>
+    /// Gets a value indicating whether the <see cref="Id"/> should be displayed.
+    /// </summary>
+    /// <value><c>true</c> if the scenario identifier should be displayed; otherwise, <c>false</c>.</value>
+    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !scenario.IsScenarioIdGenerated;
+
+    /// <summary>
     /// Gets the name of the scenario.
     /// </summary>
     /// <value>The scenario name.</value>

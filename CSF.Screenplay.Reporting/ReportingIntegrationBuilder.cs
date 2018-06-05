@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Reporting
 
     IReporter reporterToUse;
     string name, castName;
-    bool subscribeToCastActorCreation, subscribeToCastActorAddition;
+    bool subscribeToCastActorCreation, subscribeToCastActorAddition, generatedScenarioIds, generatedFeatureIds;
     Action<IReporter> afterTestRunCallback;
     Action<IObjectFormattingService,Report> writeReportCallback;
     readonly IObjectFormatterRegistry formatterRegistry;
@@ -133,6 +133,28 @@ namespace CSF.Screenplay.Reporting
       return this;
     }
 
+    /// <summary>
+    /// Indicates that scenario IDs are auto-generated in this test environment and thus meaningless in reports.
+    /// </summary>
+    /// <returns>The integration builder.</returns>
+    /// <param name="areGenerated">Whether or not the IDs are auto-generated.</param>
+    public ReportingIntegrationBuilder WithGeneratedScenarioIds(bool areGenerated = true)
+    {
+      generatedScenarioIds = areGenerated;
+      return this;
+    }
+
+    /// <summary>
+    /// Indicates that feature IDs are auto-generated in this test environment and thus meaningless in reports.
+    /// </summary>
+    /// <returns>The integration builder.</returns>
+    /// <param name="areGenerated">Whether or not the IDs are auto-generated.</param>
+    public ReportingIntegrationBuilder WithGeneratedFeatureIds(bool areGenerated = true)
+    {
+      generatedFeatureIds = areGenerated;
+      return this;
+    }
+
     #endregion
 
     #region private methods
@@ -162,6 +184,14 @@ namespace CSF.Screenplay.Reporting
     void RegisterReporter(IIntegrationConfigBuilder integration)
     {
       var reporter = reporterToUse ?? new ReportBuildingReporter();
+
+      if(reporter is IModelBuildingReporter)
+      {
+        var modelReporter = (IModelBuildingReporter) reporter;
+
+        modelReporter.MarkScenarioIdsAsGenerated = generatedScenarioIds;
+        modelReporter.MarkFeatureIdsAsGenerated = generatedFeatureIds;
+      }
 
       integration.ServiceRegistrations.PerTestRun.Add(h => {
         h.RegisterInstance(reporter).As<IReporter>().WithName(name);

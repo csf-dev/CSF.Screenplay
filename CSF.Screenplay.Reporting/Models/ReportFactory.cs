@@ -25,8 +25,9 @@ namespace CSF.Screenplay.Reporting.Models
                         into featureGroups
                       let featureId = featureGroups.Key
                       select new Feature(featureId,
-                                               featureGroups.First().FeatureName,
-                                               featureGroups.OrderBy(x => x.FriendlyName).ToArray()))
+                                         featureGroups.First().FeatureName,
+                                         featureGroups.OrderBy(x => x.FriendlyName).ToArray(),
+                                         featureGroups.First().IsFeatureIdGenerated))
         .OrderBy(x => x.FriendlyName)
         .ToArray();
 

@@ -202,13 +202,22 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="friendlyName">Friendly name.</param>
     /// <param name="featureName">Feature name.</param>
     /// <param name="featureId">Feature identifier.</param>
+    /// <param name="scenarioIdIsGenerated">Indicates whether <paramref name="idName"/> is auto-generated or not</param>
+    /// <param name="featureIdIsGenerated">Indicates whether <paramref name="featureId"/> is auto-generated or not</param>
     public ScenarioBuilder(string idName,
                            string friendlyName,
                            string featureName,
-                           string featureId)
+                           string featureId,
+                           bool scenarioIdIsGenerated = false,
+                           bool featureIdIsGenerated = false)
     {
       builderStack = new Stack<PerformanceBuilder>();
-      scenario = new Scenario(idName, friendlyName, featureName, featureId);
+      scenario = new Scenario(idName,
+                              friendlyName,
+                              featureName,
+                              featureId,
+                              scenarioIdIsGenerated,
+                              featureIdIsGenerated);
     }
   }
 }
