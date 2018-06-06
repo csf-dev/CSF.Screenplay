@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Reporting.Builders;
 using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -19,20 +20,6 @@ namespace CSF.Screenplay.Reporting
     protected ReportBuilder ReportBuilder => builder;
 
     /// <summary>
-    /// Gets or sets a value indicating whether this reporter should mark scenario identifiers as auto-generated and
-    /// thus meaningless in reports.
-    /// </summary>
-    /// <value><c>true</c> if the reporter should mark scenario identifiers as generated; otherwise, <c>false</c>.</value>
-    public bool MarkScenarioIdsAsGenerated { get; set; }
-
-    /// <summary>
-    /// Gets or sets a value indicating whether this reporter should mark feature identifiers as auto-generated and
-    /// thus meaningless in reports.
-    /// </summary>
-    /// <value><c>true</c> if the reporter should mark feature identifiers as generated; otherwise, <c>false</c>.</value>
-    public bool MarkFeatureIdsAsGenerated { get; set; }
-
-    /// <summary>
     /// Indicates to the reporter that a new test-run has begun.
     /// </summary>
     protected override void BeginNewTestRun()
@@ -43,20 +30,20 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
-    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="scenarioName">The scenario name.</param>
     /// <param name="featureName">The feature name.</param>
-    /// <param name="idName">The uniquely identifying name for the test.</param>
-    /// <param name="featureId">The uniquely identifying name for the feature.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId, Guid scenarioIdentity)
+    protected override void BeginNewScenario(IdAndName scenarioName,
+                                             IdAndName featureName,
+                                             Guid scenarioIdentity)
     {
-      builder.BeginNewScenario(idName,
-                               friendlyName,
-                               featureName,
-                               featureId,
+      builder.BeginNewScenario(scenarioName?.Identity,
+                               scenarioName?.Name,
+                               featureName?.Name,
+                               featureName?.Identity,
                                scenarioIdentity,
-                               MarkScenarioIdsAsGenerated,
-                               MarkFeatureIdsAsGenerated);
+                               (scenarioName?.IsIdentityGenerated).GetValueOrDefault(),
+                               (featureName?.IsIdentityGenerated).GetValueOrDefault());
     }
 
     /// <summary>

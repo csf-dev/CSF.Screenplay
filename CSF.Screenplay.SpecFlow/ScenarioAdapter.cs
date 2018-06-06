@@ -31,10 +31,10 @@ namespace CSF.Screenplay.SpecFlow
     }
 
     IdAndName FeatureIdAndName
-      => new IdAndName(GetFeatureId(featureContext).ToString(), featureContext.FeatureInfo.Title);
+      => new IdAndName(GetFeatureId(featureContext).ToString(), featureContext.FeatureInfo.Title, true);
 
     IdAndName ScenarioIdAndName
-      => new IdAndName(GetScenarioId(scenarioContext, featureContext).ToString(), scenarioContext.ScenarioInfo.Title);
+      => new IdAndName(GetScenarioId(scenarioContext, featureContext).ToString(), scenarioContext.ScenarioInfo.Title, true);
 
     Guid GetFeatureId(FeatureContext feature)
     {
