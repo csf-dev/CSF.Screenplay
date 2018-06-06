@@ -9,6 +9,7 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Feature
   {
+    readonly bool isIdGenerated;
     readonly string id, friendlyName;
     readonly IReadOnlyCollection<Scenario> scenarios;
 
@@ -16,6 +17,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the identity of this feature.
     /// </summary>
     public string Id => id;
+
+    /// <summary>
+    /// Gets a value which indicates whether the <see cref="Id"/> is auto-generated and thus meaningless.
+    /// </summary>
+    /// <value><c>true</c> if the feature identifier is generated; otherwise, <c>false</c>.</value>
+    public bool IsIdGenerated => isIdGenerated;
 
     /// <summary>
     /// Gets the human-readable friendly-name of this feature.
@@ -45,14 +52,19 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="id"></param>
     /// <param name="friendlyName"></param>
     /// <param name="scenarios"></param>
-    public Feature(string id, string friendlyName, IReadOnlyCollection<Scenario> scenarios)
+    /// <param name="isIdGenerated">Indicates whether the <paramref name="id"/> is auto-generated or not</param>
+    public Feature(string id,
+                   string friendlyName,
+                   IReadOnlyCollection<Scenario> scenarios,
+                   bool isIdGenerated = false)
     {
-        if (id == null) throw new ArgumentNullException(nameof(id));
-        if(scenarios == null) throw new ArgumentNullException(nameof(scenarios));
+      if (id == null) throw new ArgumentNullException(nameof(id));
+      if(scenarios == null) throw new ArgumentNullException(nameof(scenarios));
 
-        this.id = id;
-        this.friendlyName = friendlyName;
-        this.scenarios = scenarios;
+      this.id = id;
+      this.friendlyName = friendlyName;
+      this.scenarios = scenarios;
+      this.isIdGenerated = isIdGenerated;
     }
   }
 }

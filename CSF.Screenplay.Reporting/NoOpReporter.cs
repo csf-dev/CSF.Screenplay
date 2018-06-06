@@ -231,10 +231,8 @@ namespace CSF.Screenplay.Reporting
 
     void OnNewScenario(object sender, BeginScenarioEventArgs ev)
     {
-      BeginNewScenario(ev.ScenarioId.Identity,
-                       ev.ScenarioId.Name,
-                       ev.FeatureId.Name,
-                       ev.FeatureId.Identity,
+      BeginNewScenario(ev.ScenarioId,
+                       ev.FeatureId,
                        ev.ScenarioIdentity);
     }
 
@@ -246,15 +244,11 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
-    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="scenarioName">The scenario name.</param>
     /// <param name="featureName">The feature name.</param>
-    /// <param name="idName">The uniquely identifying name for the test.</param>
-    /// <param name="featureId">The uniquely identifying name for the feature.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected virtual void BeginNewScenario(string idName,
-                                            string friendlyName,
-                                            string featureName,
-                                            string featureId,
+    protected virtual void BeginNewScenario(IdAndName scenarioName,
+                                            IdAndName featureName,
                                             Guid scenarioIdentity) {}
 
     /// <summary>

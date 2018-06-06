@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Reporting.Builders;
 using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -29,14 +30,20 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
-    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="scenarioName">The scenario name.</param>
     /// <param name="featureName">The feature name.</param>
-    /// <param name="idName">The uniquely identifying name for the test.</param>
-    /// <param name="featureId">The uniquely identifying name for the feature.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId, Guid scenarioIdentity)
+    protected override void BeginNewScenario(IdAndName scenarioName,
+                                             IdAndName featureName,
+                                             Guid scenarioIdentity)
     {
-      builder.BeginNewScenario(idName, friendlyName, featureName, featureId, scenarioIdentity);
+      builder.BeginNewScenario(scenarioName?.Identity,
+                               scenarioName?.Name,
+                               featureName?.Name,
+                               featureName?.Identity,
+                               scenarioIdentity,
+                               (scenarioName?.IsIdentityGenerated).GetValueOrDefault(),
+                               (featureName?.IsIdentityGenerated).GetValueOrDefault());
     }
 
     /// <summary>

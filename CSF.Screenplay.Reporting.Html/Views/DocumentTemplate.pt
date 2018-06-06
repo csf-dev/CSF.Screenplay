@@ -216,7 +216,7 @@
         tal:attributes="class feature/GetOutcomeClass">
       <header>
         <div class="identifier"
-             tal:condition="feature/Id | nothing">
+             tal:condition="feature/ShouldDisplayId">
           <span class="hidden">Feature ID:</span>
           <span tal:replace="feature/Id">Feature.Identifier.Here</span>
         </div>
@@ -231,7 +231,7 @@
             tal:attributes="class scenario/GetOutcomeClass">
           <header>
             <div class="identifier"
-                 tal:condition="scenario/Id | nothing">
+                 tal:condition="scenario/ShouldDisplayId">
               <span class="hidden">Scenario ID:</span>
               <span tal:replace="scenario/Id">Scenario.Identifier.Here</span>
             </div>

@@ -24,13 +24,24 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <param name="idName">The uniquely identifying name for the test.</param>
     /// <param name="featureId">The uniquely identifying name for the feature.</param>
     /// <param name="scenarioId">The screenplay scenario identity.</param>
+    /// <param name="scenarioIdIsGenerated">Indicates whether <paramref name="idName"/> is auto-generated or not</param>
+    /// <param name="featureIdIsGenerated">Indicates whether <paramref name="featureId"/> is auto-generated or not</param>
     public void BeginNewScenario(string idName,
                                  string friendlyName,
                                  string featureName,
                                  string featureId,
-                                 Guid scenarioId)
+                                 Guid scenarioId,
+                                 bool scenarioIdIsGenerated = false,
+                                 bool featureIdIsGenerated = false)
     {
-      var success = scenarios.TryAdd(scenarioId, new ScenarioBuilder(idName, friendlyName, featureName, featureId));
+      var builder = new ScenarioBuilder(idName,
+                                        friendlyName,
+                                        featureName,
+                                        featureId,
+                                        scenarioIdIsGenerated,
+                                        featureIdIsGenerated);
+      
+      var success = scenarios.TryAdd(scenarioId, builder);
       if(!success)
         throw new InvalidOperationException(Resources.ExceptionFormats.DuplicateScenarioInReportBuilder);
     }

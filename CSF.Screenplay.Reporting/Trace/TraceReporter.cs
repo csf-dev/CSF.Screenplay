@@ -3,6 +3,7 @@ using System.Diagnostics;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Scenarios;
 
 namespace CSF.Screenplay.Reporting.Trace
 {
@@ -161,14 +162,17 @@ namespace CSF.Screenplay.Reporting.Trace
     /// <summary>
     /// Indicates to the reporter that a new scenario has begun.
     /// </summary>
-    /// <param name="friendlyName">The friendly scenario name.</param>
+    /// <param name="scenarioName">The scenario name.</param>
     /// <param name="featureName">The feature name.</param>
-    /// <param name="idName">The uniquely identifying name for the test.</param>
-    /// <param name="featureId">The uniquely identifying name for the feature.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void BeginNewScenario(string idName, string friendlyName, string featureName, string featureId, Guid scenarioIdentity)
+    protected override void BeginNewScenario(IdAndName scenarioName,
+                                             IdAndName featureName,
+                                             Guid scenarioIdentity)
     {
-      var report = new BeginScenarioReport(idName, friendlyName, featureId, featureName);
+      var report = new BeginScenarioReport(scenarioName?.Identity,
+                                           scenarioName?.Name,
+                                           featureName?.Identity,
+                                           featureName?.Name);
       Trace(TraceConstants.BeginNewScenario, report);
     }
 

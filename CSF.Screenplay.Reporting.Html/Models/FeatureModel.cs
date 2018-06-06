@@ -43,6 +43,12 @@ namespace CSF.Screenplay.Reporting.Models
     public string Id => feature.Id;
 
     /// <summary>
+    /// Gets a value indicating whether the <see cref="Id"/> should be displayed.
+    /// </summary>
+    /// <value><c>true</c> if the feature identifier should be displayed; otherwise, <c>false</c>.</value>
+    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !feature.IsIdGenerated;
+
+    /// <summary>
     /// Gets the human-readable friendly-name of this feature.
     /// </summary>
     public string FriendlyName => feature.FriendlyName;
