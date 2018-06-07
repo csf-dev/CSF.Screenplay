@@ -2,7 +2,7 @@
 using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture;
 
-namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
   public class ScenarioCustomisation : ICustomization
   {

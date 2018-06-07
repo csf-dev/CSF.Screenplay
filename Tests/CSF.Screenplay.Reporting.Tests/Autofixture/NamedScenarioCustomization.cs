@@ -4,7 +4,7 @@ using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class ScenarioCustomization : ICustomization
+  public class NamedScenarioCustomization : ICustomization
   {
     readonly string featureId, scenarioId, featureName, scenarioName;
 
@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       });
     }
 
-    public ScenarioCustomization(string featureId, string scenarioId, string featureName, string scenarioName)
+    public NamedScenarioCustomization(string featureId, string scenarioId, string featureName, string scenarioName)
     {
       this.scenarioName = scenarioName;
       this.featureName = featureName;

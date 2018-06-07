@@ -6,7 +6,7 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture.Kernel;
 
-namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
   public class PerformanceSpecimenBuilder : ISpecimenBuilder
   {

@@ -6,7 +6,7 @@ using Ploeh.AutoFixture.NUnit3;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class ScenarioAttribute : CustomizeAttribute
+  public class NamedScenarioAttribute : CustomizeAttribute
   {
     public string FeatureId { get; set; }
 
@@ -20,10 +20,10 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
     {
       if(parameter.ParameterType != typeof(Scenario))
       {
-        throw new InvalidOperationException($"`{nameof(ScenarioAttribute)}' is only valid for `{nameof(Scenario)}' parameters.");
+        throw new InvalidOperationException($"`{nameof(NamedScenarioAttribute)}' is only valid for `{nameof(Scenario)}' parameters.");
       }
 
-      return new ScenarioCustomization(FeatureId, ScenarioId, FeatureName, ScenarioName);
+      return new NamedScenarioCustomization(FeatureId, ScenarioId, FeatureName, ScenarioName);
     }
   }
 }

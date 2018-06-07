@@ -4,7 +4,7 @@ using Ploeh.AutoFixture;
 using Moq;
 using CSF.Screenplay.Actors;
 
-namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
   public class PerformableCustomisation : ICustomization
   {
