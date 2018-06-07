@@ -164,11 +164,11 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void BeginPerformance_records_the_actor(ReportBuilder sut,
-                                                   string id,
-                                                   INamed actor,
-                                                   IPerformable performable,
-                                                   Guid scenarioIdentity)
+    public void BeginPerformance_records_the_actor_name(ReportBuilder sut,
+                                                        string id,
+                                                        INamed actor,
+                                                        IPerformable performable,
+                                                        Guid scenarioIdentity)
     {
       // Arrange
       sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
@@ -179,7 +179,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
       // Assert
       var report = sut.GetReport();
-      Assert.That(report.Scenarios.Single().Reportables.Single().Actor, Is.SameAs(actor));
+      Assert.That(report.Scenarios.Single().Reportables.Single().Actor.Name, Is.EqualTo(actor.Name));
     }
 
     [Test,AutoMoqData]
@@ -207,10 +207,12 @@ namespace CSF.Screenplay.Reporting.Tests
                                                          string id,
                                                          INamed actor,
                                                          IPerformable performable,
+                                                         string reportString,
                                                          Guid scenarioIdentity)
     {
       // Arrange
       sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
+      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns(reportString);
 
       // Act
       sut.BeginPerformance(actor, performable, scenarioIdentity);
@@ -219,7 +221,7 @@ namespace CSF.Screenplay.Reporting.Tests
       // Assert
       var report = sut.GetReport();
       var performance = report.Scenarios.Single().Reportables.Single() as Performance;
-      Assert.That(performance.Performable, Is.SameAs(performable));
+      Assert.That(performance.Report, Is.EqualTo(reportString));
     }
 
     [Test,AutoMoqData]
@@ -228,11 +230,13 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                INamed actor,
                                                                IPerformable performable,
                                                                IPerformable differentPerformable,
+                                                               string reportString,
                                                                Guid scenarioIdentity)
     {
       // Arrange
       sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
       sut.BeginPerformance(actor, performable, scenarioIdentity);
+      Mock.Get(differentPerformable).Setup(x => x.GetReport(actor)).Returns(reportString);
 
       // Act
       sut.BeginPerformance(actor, differentPerformable, scenarioIdentity);
@@ -243,7 +247,7 @@ namespace CSF.Screenplay.Reporting.Tests
       var report = sut.GetReport();
       var performance = report.Scenarios.Single().Reportables.Single() as Performance;
       var childPerformance = performance.Reportables.Single() as Performance;
-      Assert.That(childPerformance.Performable, Is.SameAs(differentPerformable));
+      Assert.That(childPerformance.Report, Is.EqualTo(reportString));
     }
 
     [Test,AutoMoqData]

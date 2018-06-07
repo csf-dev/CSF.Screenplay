@@ -11,9 +11,8 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class Performance : Reportable
   {
-    readonly IPerformable performable;
-    readonly object result;
-    readonly Exception exception;
+    readonly object result, error;
+    readonly string report;
     readonly IList<Reportable> children;
 
     /// <summary>
@@ -38,7 +37,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets a value indicating whether this performance has an exception.
     /// </summary>
     /// <value><c>true</c> if this performance has an exception; otherwise, <c>false</c>.</value>
-    public virtual bool HasException => Exception != null;
+    public virtual bool HasException => Error != null;
 
     /// <summary>
     /// Gets a value indicating whether this performance has additional content (child reportables, a result or an
@@ -51,7 +50,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the performable associated with the current instance.
     /// </summary>
     /// <value>The performable.</value>
-    public virtual IPerformable Performable => performable;
+    public virtual string Report => report;
 
     /// <summary>
     /// Gets the result received from the performable.
@@ -63,7 +62,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets an exception raised by the performable.
     /// </summary>
     /// <value>The exception.</value>
-    public virtual Exception Exception => exception;
+    public virtual object Error => error;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Performance"/> class.
@@ -73,23 +72,22 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="performable">Performable.</param>
     /// <param name="performanceType">Performance type.</param>
     /// <param name="result">Result.</param>
-    /// <param name="exception">Exception.</param>
+    /// <param name="error">Exception.</param>
     /// <param name="children">Children.</param>
     public Performance(INamed actor,
                        PerformanceOutcome outcome,
                        IPerformable performable,
                        PerformanceType performanceType = PerformanceType.Unspecified,
                        object result = null,
-                       Exception exception = null,
+                       object error = null,
                        IList<Reportable> children = null) : base(actor, outcome, performanceType)
     {
       if(performable == null)
         throw new ArgumentNullException(nameof(performable));
 
-      this.performable = performable;
+      this.report = performable.GetReport(actor);
       this.result = result;
-      this.exception = exception;
-
+      this.error = error;
       this.children = children?? new List<Reportable>();
     }
   }

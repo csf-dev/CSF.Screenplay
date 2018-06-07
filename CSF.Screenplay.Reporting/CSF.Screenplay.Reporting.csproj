@@ -85,6 +85,7 @@
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActorName.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

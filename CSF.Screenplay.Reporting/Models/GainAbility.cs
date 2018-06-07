@@ -9,13 +9,11 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class GainAbility : Reportable
   {
-    readonly IAbility ability;
-
     /// <summary>
-    /// Gets the ability.
+    /// Gets the report.
     /// </summary>
-    /// <value>The ability.</value>
-    public virtual IAbility Ability => ability;
+    /// <value>The report.</value>
+    public string Report { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GainAbility"/> class.
@@ -33,7 +31,7 @@ namespace CSF.Screenplay.Reporting.Models
       if(ability == null)
         throw new ArgumentNullException(nameof(ability));
 
-      this.ability = ability;
+      Report = ability.GetReport(actor);
     }
   }
 }

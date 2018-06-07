@@ -11,9 +11,9 @@ namespace CSF.Screenplay.Reporting.Tests
   {
     [Test,AutoMoqData]
     public void GetReport_returns_all_scenarios(ReportFactory sut,
-                                                [Scenario] Scenario scenarioOne,
-                                                [Scenario] Scenario scenarioTwo,
-                                                [Scenario] Scenario scenarioThree)
+                                                [NamedScenario] Scenario scenarioOne,
+                                                [NamedScenario] Scenario scenarioTwo,
+                                                [NamedScenario] Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
@@ -28,9 +28,9 @@ namespace CSF.Screenplay.Reporting.Tests
     [Test,AutoMoqData]
     public void GetReport_does_not_create_duplicate_features_when_multiple_scenarios_use_the_same_feature(
       ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioThree)
+      [NamedScenario(FeatureId = "TestFeature")] Scenario scenarioOne,
+      [NamedScenario(FeatureId = "TestFeature")] Scenario scenarioTwo,
+      [NamedScenario(FeatureId = "TestFeature")] Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
@@ -46,9 +46,9 @@ namespace CSF.Screenplay.Reporting.Tests
     [Test,AutoMoqData]
     public void GetReport_places_all_scenarios_in_the_correct_feature(
       ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature1")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature2")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature1")] Scenario scenarioThree)
+      [NamedScenario(FeatureId = "TestFeature1")] Scenario scenarioOne,
+      [NamedScenario(FeatureId = "TestFeature2")] Scenario scenarioTwo,
+      [NamedScenario(FeatureId = "TestFeature1")] Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
@@ -70,9 +70,9 @@ namespace CSF.Screenplay.Reporting.Tests
     [Test,AutoMoqData]
     public void GetReport_orders_features_alphabetically_by_name(
       ReportFactory sut,
-      [Scenario(FeatureId = "C feature", FeatureName = "CC this is the third feature")] Scenario scenarioOne,
-      [Scenario(FeatureId = "A feature", FeatureName = "AA this is the first feature")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "B feature", FeatureName = "BB this is the second feature")] Scenario scenarioThree)
+      [NamedScenario(FeatureId = "C feature", FeatureName = "CC this is the third feature")] Scenario scenarioOne,
+      [NamedScenario(FeatureId = "A feature", FeatureName = "AA this is the first feature")] Scenario scenarioTwo,
+      [NamedScenario(FeatureId = "B feature", FeatureName = "BB this is the second feature")] Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
@@ -89,9 +89,9 @@ namespace CSF.Screenplay.Reporting.Tests
     [Test,AutoMoqData]
     public void GetReport_orders_scenarios_alphabetically_by_name_within_features(
       ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S3", ScenarioName = "C third")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S1", ScenarioName = "A first")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S2", ScenarioName = "B second")] Scenario scenarioThree)
+      [NamedScenario(FeatureId = "TestFeature", ScenarioId = "S3", ScenarioName = "C third")] Scenario scenarioOne,
+      [NamedScenario(FeatureId = "TestFeature", ScenarioId = "S1", ScenarioName = "A first")] Scenario scenarioTwo,
+      [NamedScenario(FeatureId = "TestFeature", ScenarioId = "S2", ScenarioName = "B second")] Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };

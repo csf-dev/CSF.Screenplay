@@ -7,6 +7,8 @@ testrunner/
 *.csproj.user
 .vs/
 TestResult.xml
+UnitTests.xml
+IntegrationTests.xml
 TestResult.formatted.xml
 *.report.txt
 Tests/Temp/

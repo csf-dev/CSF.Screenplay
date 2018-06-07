@@ -4,7 +4,7 @@ using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.NUnit3;
 
-namespace CSF.Screenplay.Reporting.Html.Tests.Autofixture
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
   public class RandomReportAttribute : CustomizeAttribute
   {

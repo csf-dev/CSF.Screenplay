@@ -73,12 +73,6 @@ namespace CSF.Screenplay.Reporting.Models
     #region abilities
 
     /// <summary>
-    /// Gets the ability.
-    /// </summary>
-    /// <value>The ability.</value>
-    public virtual IAbility Ability => GainAbility?.Ability;
-
-    /// <summary>
     /// Gets reportable as a <see cref="GainAbility"/> instance.
     /// </summary>
     /// <value>The gain ability.</value>
@@ -127,12 +121,6 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual bool HasAdditionalContent => (Performance?.HasAdditionalContent).GetValueOrDefault();
 
     /// <summary>
-    /// Gets the performable associated with the current instance.
-    /// </summary>
-    /// <value>The performable.</value>
-    public virtual IPerformable Performable => Performance.Performable;
-
-    /// <summary>
     /// Gets the result received from the performable.
     /// </summary>
     /// <value>The result.</value>
@@ -142,7 +130,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets an exception raised by the performable.
     /// </summary>
     /// <value>The exception.</value>
-    public virtual Exception Exception => Performance.Exception;
+    public virtual object Error => Performance.Error;
 
     /// <summary>
     /// Gets the reportable as a <see cref="Performance"/> instance.
@@ -199,21 +187,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the string report for an ability.
     /// </summary>
     /// <returns>The ability report.</returns>
-    public string GetAbilityReport()
-    {
-      if(Ability == null) return String.Empty;
-      return Ability.GetReport(Actor);
-    }
+    public string GetAbilityReport() => GainAbility?.Report ?? String.Empty;
 
     /// <summary>
     /// Gets the string report for a performance.
     /// </summary>
     /// <returns>The performance report.</returns>
-    public string GetPerformanceReport()
-    {
-      if(Performable == null) return String.Empty;
-      return Performable.GetReport(Actor);
-    }
+    public string GetPerformanceReport() => Performance?.Report ?? String.Empty;
 
     /// <summary>
     /// Gets the name of the METAL macro to use for rendering the specified reportable.
@@ -240,14 +220,28 @@ namespace CSF.Screenplay.Reporting.Models
     /// <summary>
     /// Formats a given object using a formatting service.
     /// </summary>
-    public string GetFormattedException() => formattingService.Format(Exception);
+    public string GetFormattedException()
+    {
+      if(!CanFormatException()) return null;
+
+      var reportableError = Error as IReportable;
+      if(reportableError != null)
+        return reportableError.GetReport(Actor);
+
+      return formattingService.Format(Error);
+    }
 
     /// <summary>
     /// Gets a value indicating whether or not an exception can be formatted.
     /// </summary>
     /// <returns><c>true</c>, if exception can be formatted, <c>false</c> otherwise.</returns>
     public bool CanFormatException()
-      => Exception != null && formattingService.HasExplicitSupport(Exception);
+    {
+      if(Error == null) return false;
+      if(Error is IReportable) return true;
+      if(formattingService.HasExplicitSupport(Error)) return true;
+      return false;
+    }
 
     string GetMacroName(GainAbility ability) => ReportConstants.AbilityMacro;
 
