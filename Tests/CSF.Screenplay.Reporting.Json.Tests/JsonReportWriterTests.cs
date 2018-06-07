@@ -3,6 +3,7 @@ using CSF.Screenplay.Reporting.Models;
 using CSF.Screenplay.Reporting.Tests.Autofixture;
 using System.IO;
 using CSF.Screenplay.Reporting.Tests;
+using System.Text;
 
 namespace CSF.Screenplay.Reporting.Json.Tests
 {
@@ -25,10 +26,10 @@ namespace CSF.Screenplay.Reporting.Json.Tests
     TextWriter GetReportOutput()
     {
       // Uncomment this line to write the report to a file instead of a throwaway string
-      return new StreamWriter("JsonReportWriterTests.json");
+      // return new StreamWriter("JsonReportWriterTests.json");
 
-      //var sb = new StringBuilder();
-      //return new StringWriter(sb);
+      var sb = new StringBuilder();
+      return new StringWriter(sb);
     }
   }
 }

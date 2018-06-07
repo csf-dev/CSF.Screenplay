@@ -8,6 +8,7 @@ using CSF.Screenplay.Abilities;
 using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Reporting.Tests;
+using System.Text;
 
 namespace CSF.Screenplay.Reporting.Html.Tests
 {
