@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using CSF.Screenplay.Reporting.Models;
-using CSF.Screenplay.Reporting.Html.Tests.Autofixture;
-using System.Text;
+using CSF.Screenplay.Reporting.Tests.Autofixture;
 using System.IO;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Abilities;
 using System;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.Reporting.Tests;
 
 namespace CSF.Screenplay.Reporting.Html.Tests
 {
