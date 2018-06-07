@@ -132,8 +132,7 @@ Scenario: {name}
 **** Success ****
 Given Joe does a thing
           Joe does a different thing
-          FAILED with an exception:
-{error.ToString()}
+          FAILED: {error.ToString()}
 ";
 
       Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
@@ -144,12 +143,12 @@ Given Joe does a thing
                                               PerformanceOutcome.FailureWithException,
                                               performable,
                                               PerformanceType.Given,
-                                              exception: error);
+                                              error: error);
       var childPerformance = new Performance(actor,
                                              PerformanceOutcome.FailureWithException,
                                              childPerformable,
                                              PerformanceType.Given,
-                                             exception: error);
+                                             error: error);
       parentPerformance.Reportables.Add(childPerformance);
       scenario.Reportables.Add(parentPerformance);
       var report = new Report(new [] { scenario });

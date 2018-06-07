@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Reporting.Models
       outcome.RequireDefinedValue(nameof(outcome));
       performanceType.RequireDefinedValue(nameof(performanceType));
 
-      this.actor = actor;
+      this.actor = new ActorName(actor.Name);
       this.outcome = outcome;
       this.performanceType = performanceType;
     }

@@ -87,7 +87,7 @@ namespace CSF.Screenplay.Reporting
       WriteIndent(currentIndentLevel);
       WritePerformanceType(reportable, currentIndentLevel);
 
-      writer.Write(reportable.Ability.GetReport(reportable.Actor));
+      writer.Write(reportable.Report);
       writer.WriteLine();
     }
 
@@ -96,7 +96,7 @@ namespace CSF.Screenplay.Reporting
       WriteIndent(currentIndentLevel);
       WritePerformanceType(reportable, currentIndentLevel);
 
-      writer.Write(reportable.Performable.GetReport(reportable.Actor));
+      writer.Write(reportable.Report);
       writer.WriteLine();
 
       if(reportable.Outcome == PerformanceOutcome.SuccessWithResult)
@@ -162,26 +162,26 @@ namespace CSF.Screenplay.Reporting
     {
       WriteResultOrFailureIndent(currentIndentLevel);
 
-      var reportableException = reportable.Exception as IReportable;
-      if(reportableException != null)
+      var reportableError = reportable.Error as IReportable;
+      if(reportableError != null)
       {
-        writer.WriteLine("FAILED: {0}", reportableException.GetReport(reportable.Actor));
+        writer.WriteLine("FAILED: {0}", reportableError.GetReport(reportable.Actor));
         return;
       }
 
-      if(reportable.Exception == null)
+      if(reportable.Error == null)
       {
         writer.WriteLine("FAILED");
         return;
       }
 
-      if(!formattingService.HasExplicitSupport(reportable.Exception))
+      if(!formattingService.HasExplicitSupport(reportable.Error))
       {
-        writer.WriteLine("FAILED with an exception:{1}{0}", reportable.Exception, Environment.NewLine);
+        writer.WriteLine("FAILED: {0}", reportable.Error);
         return;
       }
 
-      var formattedException = formattingService.Format(reportable.Exception);
+      var formattedException = formattingService.Format(reportable.Error);
       writer.WriteLine("FAILED: {0}", formattedException);
     }
 
