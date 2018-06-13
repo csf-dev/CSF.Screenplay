@@ -8,7 +8,7 @@
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Extension to Screenplay reporting which creates preety HTML from test runs, including filtering functionality.</description>
+    <description>Extension to Screenplay reporting which creates pretty HTML from test runs, including filtering functionality.</description>
     <copyright>Copyright 2017</copyright>
     <dependencies>
       <dependency id="Zpt-Sharp-API" version="[1.0.6,2.0.0)" />
