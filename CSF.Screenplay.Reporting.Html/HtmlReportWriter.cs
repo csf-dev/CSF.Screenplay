@@ -84,6 +84,8 @@ namespace CSF.Screenplay.Reporting
     /// <param name="formattingService">Object formatting service.</param>
     public static void WriteToFile(Report report, string path, IObjectFormattingService formattingService = null)
     {
+      formattingService = formattingService ?? ObjectFormattingService.Default;
+
       using(var writer = new StreamWriter(path))
       {
         var reportWriter = new HtmlReportWriter(writer, formattingService);
