@@ -12,8 +12,8 @@ namespace CSF.Screenplay.Reporting.Builders
   public class ScenarioBuilder
   {
     readonly Scenario scenario;
-    readonly Stack<PerformanceBuilder> builderStack;
-    PerformanceType currentPerformanceType;
+    readonly Stack<ReportableBuilder> builderStack;
+    ReportableCategory currentPerformanceType;
     bool finalised;
 
     /// <summary>
@@ -41,7 +41,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void BeginPerformance(INamed actor, Performables.IPerformable performable)
     {
       EnsureNotFinalised();
-      var builder = new PerformanceBuilder {
+      var builder = new ReportableBuilder {
         Performable = performable,
         Actor = actor,
         PerformanceType = currentPerformanceType,
@@ -53,7 +53,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Begins reporting of a performance of a given type.
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
-    public void BeginPerformanceType(PerformanceType performanceType)
+    public void BeginPerformanceType(ReportableCategory performanceType)
     {
       EnsureNotFinalised();
       performanceType.RequireDefinedValue(nameof(performanceType));
@@ -106,7 +106,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void EndPerformanceType()
     {
       EnsureNotFinalised();
-      currentPerformanceType = PerformanceType.Unspecified;
+      currentPerformanceType = 0;
     }
 
     /// <summary>
@@ -117,8 +117,13 @@ namespace CSF.Screenplay.Reporting.Builders
     public void GainAbility(INamed actor, IAbility ability)
     {
       EnsureNotFinalised();
-      var item = new GainAbility(actor, PerformanceOutcome.Success, ability, currentPerformanceType);
-      AddReportable(item);
+
+      AddReportable(new Reportable {
+        ActorName = actor.Name,
+        Type = ReportableType.GainAbility,
+        Report = ability.GetReport(actor),
+        Category = currentPerformanceType,
+      });
     }
 
     void EnsureNotFinalised()
@@ -139,11 +144,11 @@ namespace CSF.Screenplay.Reporting.Builders
     void FinalisePerformance(Performables.IPerformable performable)
     {
       var builder = PopCurrentBuilder(performable);
-      var performance = builder.GetPerformance();
+      var performance = builder.GetReportable();
       AddReportable(performance);
     }
 
-    void AddPerformanceBuilder(PerformanceBuilder builder)
+    void AddPerformanceBuilder(ReportableBuilder builder)
     {
       if(builder == null)
         throw new ArgumentNullException(nameof(builder));
@@ -151,13 +156,13 @@ namespace CSF.Screenplay.Reporting.Builders
       builderStack.Push(builder);
     }
 
-    PerformanceBuilder PopCurrentBuilder(Performables.IPerformable expectedPerformable)
+    ReportableBuilder PopCurrentBuilder(Performables.IPerformable expectedPerformable)
     {
       PeekCurrentBuilder(expectedPerformable);
       return builderStack.Pop();
     }
 
-    PerformanceBuilder PeekCurrentBuilder(Performables.IPerformable expectedPerformable = null)
+    ReportableBuilder PeekCurrentBuilder(Performables.IPerformable expectedPerformable = null)
     {
       if(builderStack.Count == 0 && expectedPerformable == null)
         return null;
@@ -165,7 +170,7 @@ namespace CSF.Screenplay.Reporting.Builders
       {
         var message = String.Format(Resources.ExceptionFormats.PerformableWasRequiredInBuilderStack,
                                     nameof(Performables.IPerformable),
-                                    nameof(PerformanceBuilder));
+                                    nameof(ReportableBuilder));
         throw new InvalidOperationException(message);
       }
         
@@ -179,7 +184,7 @@ namespace CSF.Screenplay.Reporting.Builders
       {
         var message = String.Format(Resources.ExceptionFormats.PerformableDoesNotMatchExpectedPerformance,
                                     nameof(Performables.IPerformable),
-                                    nameof(PerformanceBuilder));
+                                    nameof(ReportableBuilder));
         throw new ArgumentException(message, nameof(expectedPerformable));
       }
 
@@ -211,13 +216,13 @@ namespace CSF.Screenplay.Reporting.Builders
                            bool scenarioIdIsGenerated = false,
                            bool featureIdIsGenerated = false)
     {
-      builderStack = new Stack<PerformanceBuilder>();
-      scenario = new Scenario(idName,
-                              friendlyName,
-                              featureName,
-                              featureId,
-                              scenarioIdIsGenerated,
-                              featureIdIsGenerated);
+      builderStack = new Stack<ReportableBuilder>();
+      scenario = new Scenario {
+        Name = new IdAndName { Id = idName, Name = friendlyName, IsIdGenerated = scenarioIdIsGenerated },
+        Feature = new Feature {
+          Name = new IdAndName { Id = featureId, Name = featureName, IsIdGenerated = featureIdIsGenerated },
+        },
+      };
     }
   }
 }

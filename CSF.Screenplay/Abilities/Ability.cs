@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Abilities
       return $"{actor.Name} is able to {GetType().Name}";
     }
 
-    string IReportable.GetReport(INamed actor)
+    string IProvidesReport.GetReport(INamed actor)
     {
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));

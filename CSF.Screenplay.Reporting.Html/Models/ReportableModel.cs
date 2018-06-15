@@ -55,8 +55,8 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual string PerformanceType
     {
       get {
-        if(reportable.PerformanceType != Models.PerformanceType.Unspecified)
-          return reportable.PerformanceType.ToString();
+        if(reportable.Category != Models.ReportableCategory.Unspecified)
+          return reportable.Category.ToString();
 
         return String.Empty;
       }
@@ -66,17 +66,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the outcome of the reported-upon action.
     /// </summary>
     /// <value>The outcome.</value>
-    public virtual PerformanceOutcome Outcome => reportable.Outcome;
-
-    #endregion
-
-    #region abilities
-
-    /// <summary>
-    /// Gets reportable as a <see cref="GainAbility"/> instance.
-    /// </summary>
-    /// <value>The gain ability.</value>
-    protected GainAbility GainAbility => reportable as GainAbility;
+    public virtual ReportableType Outcome => reportable.Type;
 
     #endregion
 
@@ -132,12 +122,6 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The exception.</value>
     public virtual object Error => Performance.Error;
 
-    /// <summary>
-    /// Gets the reportable as a <see cref="Performance"/> instance.
-    /// </summary>
-    /// <value>The performance.</value>
-    protected Performance Performance => reportable as Performance;
-
     #endregion
 
     #region additional functionality
@@ -148,10 +132,10 @@ namespace CSF.Screenplay.Reporting.Models
     /// <returns>The reportable's outcome class.</returns>
     public string GetOutcomeClass()
     {
-      switch(reportable.Outcome)
+      switch(reportable.Type)
       {
-      case PerformanceOutcome.Success:
-      case PerformanceOutcome.SuccessWithResult:
+      case ReportableType.Success:
+      case ReportableType.SuccessWithResult:
         return GetOutcomeClass(true, false);
 
       default:
@@ -165,13 +149,10 @@ namespace CSF.Screenplay.Reporting.Models
     /// <returns>The reportable class.</returns>
     public string GetReportableClass()
     {
-      if(reportable is GainAbility)
+      if(reportable.Type == ReportableType.GainAbility)
         return ReportConstants.AbilityClass;
 
-      if(reportable is Performance)
-        return ReportConstants.PerformanceClass;
-
-      return String.Empty;
+      return ReportConstants.PerformanceClass;
     }
 
     /// <summary>
@@ -187,30 +168,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the string report for an ability.
     /// </summary>
     /// <returns>The ability report.</returns>
-    public string GetAbilityReport() => GainAbility?.Report ?? String.Empty;
+    public string GetAbilityReport() => reportable.Report;
 
     /// <summary>
     /// Gets the string report for a performance.
     /// </summary>
     /// <returns>The performance report.</returns>
-    public string GetPerformanceReport() => Performance?.Report ?? String.Empty;
-
-    /// <summary>
-    /// Gets the name of the METAL macro to use for rendering the specified reportable.
-    /// </summary>
-    /// <returns>The macro name.</returns>
-    public string GetMacroName()
-    {
-      if(reportable == null) return null;
-
-      if(reportable is GainAbility)
-        return GetMacroName((GainAbility) reportable);
-
-      if(reportable is Performance)
-        return GetMacroName((Performance) reportable);
-
-      return null;
-    }
+    public string GetPerformanceReport() => reportable.Report;
 
     /// <summary>
     /// Formats a given object using a formatting service.
@@ -243,16 +207,21 @@ namespace CSF.Screenplay.Reporting.Models
       return false;
     }
 
-    string GetMacroName(GainAbility ability) => ReportConstants.AbilityMacro;
-
-    string GetMacroName(Performance performance)
+    /// <summary>
+    /// Gets the name of the METAL macro to use for rendering the specified reportable.
+    /// </summary>
+    /// <returns>The macro name.</returns>
+    public string GetMacroName()
     {
-      switch(performance.Outcome)
+      switch(reportable.Type)
       {
-      case PerformanceOutcome.SuccessWithResult:
+      case ReportableType.GainAbility:
+        return ReportConstants.AbilityMacro;
+
+      case ReportableType.SuccessWithResult:
         return ReportConstants.PerformanceWithResultMacro;
 
-      case PerformanceOutcome.FailureWithException:
+      case ReportableType.FailureWithError:
         return ReportConstants.PerformanceWithExceptionMacro;
 
       default:

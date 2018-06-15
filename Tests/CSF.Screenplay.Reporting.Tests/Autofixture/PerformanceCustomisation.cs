@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
 
     public PerformanceCustomisation()
     {
-      performanceBuilder = new PerformanceSpecimenBuilder();
+      performanceBuilder = new ReportableSpecimenBuilder();
     }
   }
 }

@@ -19,19 +19,11 @@ namespace CSF.Screenplay.Reporting.Models
     {
       if(scenarios == null)
         throw new ArgumentNullException(nameof(scenarios));
-      
-      var features = (from scenario in scenarios
-                      group scenario by scenario.FeatureId
-                        into featureGroups
-                      let featureId = featureGroups.Key
-                      select new Feature(featureId,
-                                         featureGroups.First().FeatureName,
-                                         featureGroups.OrderBy(x => x.FriendlyName).ToArray(),
-                                         featureGroups.First().IsFeatureIdGenerated))
-        .OrderBy(x => x.FriendlyName)
-        .ToArray();
 
-      return new Report(features);
+      return new Report {
+        Timestamp = DateTime.UtcNow,
+        Scenarios = scenarios.ToList(),
+      };
     }
   }
 }

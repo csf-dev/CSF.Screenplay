@@ -55,11 +55,10 @@
     <Compile Include="Autofixture\NamedScenarioCustomization.cs" />
     <Compile Include="Autofixture\AbilityCustomisation.cs" />
     <Compile Include="Autofixture\FeatureCustomisation.cs" />
-    <Compile Include="Autofixture\GainAbilityCustomisation.cs" />
     <Compile Include="Autofixture\NamedCustomisation.cs" />
     <Compile Include="Autofixture\PerformableCustomisation.cs" />
     <Compile Include="Autofixture\PerformanceCustomisation.cs" />
-    <Compile Include="Autofixture\PerformanceSpecimenBuilder.cs" />
+    <Compile Include="Autofixture\ReportableSpecimenBuilder.cs" />
     <Compile Include="Autofixture\RandomReportAttribute.cs" />
     <Compile Include="Autofixture\ReportCustomisation.cs" />
     <Compile Include="Autofixture\ScenarioCustomisation.cs" />

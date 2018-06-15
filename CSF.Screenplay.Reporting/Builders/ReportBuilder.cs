@@ -76,7 +76,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
     /// <param name="scenarioId">The screenplay scenario identity.</param>
-    public void BeginPerformanceType(PerformanceType performanceType,
+    public void BeginPerformanceType(ReportableCategory performanceType,
                                      Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);

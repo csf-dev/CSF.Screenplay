@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Reporting.Models
@@ -6,48 +8,65 @@ namespace CSF.Screenplay.Reporting.Models
   /// <summary>
   /// Base type of the report model.
   /// </summary>
-  public class Reportable
+  public class Reportable : IReportable
   {
-    readonly INamed actor;
-    readonly PerformanceOutcome outcome;
-    readonly PerformanceType performanceType;
+    IList<Reportable> reportables;
 
     /// <summary>
-    /// Gets the actor.
+    /// Gets or sets the name of the actor.
     /// </summary>
-    /// <value>The actor.</value>
-    public virtual INamed Actor => actor;
+    /// <value>The name of the actor.</value>
+    public string ActorName { get; set; }
 
     /// <summary>
-    /// Gets the type of the performance.
+    /// Gets or sets the report.
     /// </summary>
-    /// <value>The type of the performance.</value>
-    public virtual PerformanceType PerformanceType => performanceType;
+    /// <value>The report.</value>
+    public string Report { get; set; }
 
     /// <summary>
-    /// Gets the outcome of the reported-upon action.
+    /// Gets the category (given/when/then) of the reportable represented by the current instance.
     /// </summary>
-    /// <value>The outcome.</value>
-    public virtual PerformanceOutcome Outcome => outcome;
+    /// <value>The reportable category.</value>
+    public ReportableCategory Category { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Reportable"/> class.
+    /// Gets type of reportable represented by the current instance.
     /// </summary>
-    /// <param name="actor">Actor.</param>
-    /// <param name="outcome">Outcome.</param>
-    /// <param name="performanceType">Performance type.</param>
-    public Reportable(INamed actor,
-                      PerformanceOutcome outcome,
-                      PerformanceType performanceType = PerformanceType.Unspecified)
+    /// <value>The reportable type.</value>
+    public ReportableType Type { get; set; }
+
+    /// <summary>
+    /// Gets the contained reportables.
+    /// </summary>
+    /// <value>The reportables.</value>
+    public IList<Reportable> Reportables
     {
-      if(actor == null)
-        throw new ArgumentNullException(nameof(actor));
-      outcome.RequireDefinedValue(nameof(outcome));
-      performanceType.RequireDefinedValue(nameof(performanceType));
+      get => reportables;
+      set => reportables = value ?? new List<Reportable>();
+    }
 
-      this.actor = new ActorName(actor.Name);
-      this.outcome = outcome;
-      this.performanceType = performanceType;
+    IReadOnlyList<IReportable> IProvidesReportables.Reportables
+      => Reportables.Cast<IReportable>().ToArray();
+
+    /// <summary>
+    /// Gets or sets the result.
+    /// </summary>
+    /// <value>The result.</value>
+    public string Result { get; set; }
+
+    /// <summary>
+    /// Gets or sets the error.
+    /// </summary>
+    /// <value>The error.</value>
+    public string Error { get; set; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.Reportable"/> class.
+    /// </summary>
+    public Reportable()
+    {
+      reportables = new List<Reportable>();
     }
   }
 }

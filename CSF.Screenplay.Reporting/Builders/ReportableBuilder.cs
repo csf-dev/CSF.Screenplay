@@ -10,7 +10,7 @@ namespace CSF.Screenplay.Reporting.Builders
   /// <summary>
   /// Builder type which creates a <see cref="Performance"/> instance.
   /// </summary>
-  public class PerformanceBuilder
+  public class ReportableBuilder
   {
     readonly IList<Reportable> reportables;
 
@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Gets or sets the <see cref="PerformanceType"/>.
     /// </summary>
     /// <value>The type of the performance.</value>
-    public PerformanceType PerformanceType { get; set; }
+    public ReportableCategory PerformanceType { get; set; }
 
     /// <summary>
     /// Gets or sets the actor.
@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Reporting.Builders
 
     /// <summary>
     /// Gets or sets a value indicating whether this
-    /// <see cref="PerformanceBuilder"/> has a result.
+    /// <see cref="ReportableBuilder"/> has a result.
     /// </summary>
     /// <value><c>true</c> if has result; otherwise, <c>false</c>.</value>
     public bool HasResult { get; set; }
@@ -47,7 +47,7 @@ namespace CSF.Screenplay.Reporting.Builders
 
     /// <summary>
     /// Gets or sets a value indicating whether this
-    /// <see cref="PerformanceBuilder"/> is a failure.
+    /// <see cref="ReportableBuilder"/> is a failure.
     /// </summary>
     /// <value><c>true</c> if is failure; otherwise, <c>false</c>.</value>
     public bool IsFailure { get; set; }
@@ -68,35 +68,38 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Builds and returns a <see cref="Performance"/> from the state of the current instance.
     /// </summary>
     /// <returns>The performance.</returns>
-    public Performance GetPerformance()
+    public Reportable GetReportable()
     {
-      return new Performance(Actor,
-                             GetOutcome(),
-                             Performable,
-                             PerformanceType,
-                             Result,
-                             Exception,
-                             Reportables.ToArray());
+      // TODO: Write this implementation
+      throw new NotImplementedException();
+
+      //return new Performance(Actor,
+                             //GetOutcome(),
+                             //Performable,
+                             //PerformanceType,
+                             //Result,
+                             //Exception,
+                             //Reportables.ToArray());
     }
 
-    PerformanceOutcome GetOutcome()
+    ReportableType GetOutcome()
     {
       if(IsFailure && Exception != null)
-        return PerformanceOutcome.FailureWithException;
+        return ReportableType.FailureWithError;
 
       if(IsFailure)
-        return PerformanceOutcome.Failure;
+        return ReportableType.Failure;
 
       if(HasResult)
-        return PerformanceOutcome.SuccessWithResult;
+        return ReportableType.SuccessWithResult;
 
-      return PerformanceOutcome.Success;
+      return ReportableType.Success;
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PerformanceBuilder"/> class.
+    /// Initializes a new instance of the <see cref="ReportableBuilder"/> class.
     /// </summary>
-    public PerformanceBuilder()
+    public ReportableBuilder()
     {
       reportables = new List<Reportable>();
     }

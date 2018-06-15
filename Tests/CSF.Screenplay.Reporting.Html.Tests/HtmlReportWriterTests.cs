@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Reporting.Html.Tests
     public void Write_does_not_crash_when_using_ability_with_no_public_methods([RandomReport] Report report,
                                                                                [StringFormat] IObjectFormattingService formatService,
                                                                                IActor actor,
-                                                                               PerformanceOutcome outcome)
+                                                                               ReportableType outcome)
     {
       // Arrange
       var ability = new AbilityWithOnlyExplicitInterfaceImplementations();
@@ -52,7 +52,7 @@ namespace CSF.Screenplay.Reporting.Html.Tests
     public void Write_does_not_crash_when_using_performance_with_no_public_methods([RandomReport] Report report,
                                                                                    [StringFormat] IObjectFormattingService formatService,
                                                                                    IActor actor,
-                                                                                   PerformanceOutcome outcome)
+                                                                                   ReportableType outcome)
     {
       // Arrange
       var performable = new PerformableWithOnlyExplicitInterfaceImplementations();
@@ -80,12 +80,12 @@ namespace CSF.Screenplay.Reporting.Html.Tests
     {
       void IDisposable.Dispose() { /* Intentional no-op */ }
 
-      string IReportable.GetReport(INamed actor) => "Sample string";
+      string IProvidesReport.GetReport(INamed actor) => "Sample string";
     }
 
     public class PerformableWithOnlyExplicitInterfaceImplementations : IPerformable
     {
-      string IReportable.GetReport(INamed actor) => "Sample string";
+      string IProvidesReport.GetReport(INamed actor) => "Sample string";
 
       void IPerformable.PerformAs(IPerformer actor) { /* Intentional no-op */ }
     }

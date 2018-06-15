@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Write the specified report to the destination.
     /// </summary>
-    /// <param name="reportModel">Report model.</param>
-    void Write(Report reportModel);
+    /// <param name="report">Report model.</param>
+    void Write(IReport report);
   }
 }

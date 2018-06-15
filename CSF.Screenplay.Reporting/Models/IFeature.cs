@@ -1,5 +1,5 @@
 ﻿//
-// ActorName.cs
+// IFeature.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -26,24 +26,7 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
-  /// <summary>
-  /// A small DTO type which represents an actor name.
-  /// </summary>
-  public class ActorName : Actors.INamed
+  public interface IFeature : IProvidesIdAndName
   {
-    /// <summary>
-    /// Gets the name.
-    /// </summary>
-    /// <value>The name.</value>
-    public string Name { get; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ActorName"/> class.
-    /// </summary>
-    /// <param name="name">Name.</param>
-    public ActorName(string name)
-    {
-      Name = name;
-    }
   }
 }

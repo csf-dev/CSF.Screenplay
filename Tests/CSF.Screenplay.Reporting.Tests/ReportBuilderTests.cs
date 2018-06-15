@@ -119,7 +119,7 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void BeginPerformanceType_raises_exception_when_called_before_BeginScenario(PerformanceType type,
+    public void BeginPerformanceType_raises_exception_when_called_before_BeginScenario(ReportableCategory type,
                                                                                        ReportBuilder sut,
                                                                                        Guid scenarioIdentity)
     {
@@ -128,7 +128,7 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void BeginPerformanceType_raises_exception_when_called_after_EndScenario(PerformanceType type,
+    public void BeginPerformanceType_raises_exception_when_called_after_EndScenario(ReportableCategory type,
                                                                                     string id,
                                                                                     bool success,
                                                                                     ReportBuilder sut,
@@ -150,7 +150,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                                    Guid scenarioIdentity)
     {
       // Arrange
-      var type = PerformanceType.Then;
+      var type = ReportableCategory.Then;
       sut.BeginNewScenario(id, null, null, null, scenarioIdentity);
 
       // Act
@@ -160,7 +160,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
       // Assert
       var report = sut.GetReport();
-      Assert.That(report.Scenarios.Single().Reportables.Single().PerformanceType, Is.EqualTo(type));
+      Assert.That(report.Scenarios.Single().Reportables.Single().Category, Is.EqualTo(type));
     }
 
     [Test,AutoMoqData]

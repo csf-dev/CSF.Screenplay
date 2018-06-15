@@ -4,17 +4,12 @@ namespace CSF.Screenplay.Reporting.Models
   /// <summary>
   /// Enumerates the available types of performance.
   /// </summary>
-  public enum PerformanceType
+  public enum ReportableCategory
   {
-    /// <summary>
-    /// An unspecified type of performance.
-    /// </summary>
-    Unspecified = 0,
-
     /// <summary>
     /// A given (arrange) performance.
     /// </summary>
-    Given,
+    Given = 1,
 
     /// <summary>
     /// A when (act) performance.
