@@ -1,5 +1,5 @@
 ﻿//
-// HierarchicalFeature.cs
+// ReportBuilderCustomisation.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,44 +24,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using CSF.Screenplay.Reporting.Builders;
 using CSF.Screenplay.Reporting.Models;
+using Ploeh.AutoFixture;
 
-namespace CSF.Screenplay.Reporting.Adapters
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class HierarchicalFeature : IHierarchicalFeature
+  public class ReportBuilderDependenciesCustomisation : ICustomization
   {
-    readonly IProvidesIdAndName feature;
-    readonly IReport report;
-
-    public IdAndName Name => feature.Name;
-
-    public IReadOnlyCollection<IScenario> GetScenarios()
-      => report.Scenarios.Where(ScenarioIsInThisFeature).ToArray();
-
-    public bool IsSuccess
-      => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).All(x => x.IsSuccess);
-
-    public bool IsFailure
-      => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).Any(x => x.IsFailure);
-
-    bool ScenarioIsInThisFeature(IScenario scenario)
+    public void Customize(IFixture fixture)
     {
-      return (scenario.Feature?.Name?.Id != null
-              && scenario.Feature.Name.Id == feature.Name.Id);
+      fixture.Customize<ReportBuilder>(builder => builder.FromFactory<IBuildsScenario,IGetsReport>(CreateBuilder));
     }
 
-    IEnumerable<IScenario> IProvidesScenarios.Scenarios => GetScenarios();
-
-    public HierarchicalFeature(IProvidesIdAndName feature, IReport report)
+    ReportBuilder CreateBuilder(IBuildsScenario scenarioBuilder, IGetsReport reportFactory)
     {
-      if(report == null)
-        throw new ArgumentNullException(nameof(report));
-      if(feature == null)
-        throw new ArgumentNullException(nameof(feature));
-      this.feature = feature;
-      this.report = report;
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      return new ReportBuilder(reportFactory, scenarioBuilderFactory);
     }
   }
 }

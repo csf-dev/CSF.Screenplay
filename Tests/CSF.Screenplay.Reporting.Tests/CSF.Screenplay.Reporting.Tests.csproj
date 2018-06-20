@@ -51,18 +51,16 @@
     <Compile Include="ReportBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
     <Compile Include="TextReportWriterTests.cs" />
-    <Compile Include="Autofixture\NamedScenarioAttribute.cs" />
-    <Compile Include="Autofixture\NamedScenarioCustomization.cs" />
     <Compile Include="Autofixture\AbilityCustomisation.cs" />
-    <Compile Include="Autofixture\FeatureCustomisation.cs" />
     <Compile Include="Autofixture\NamedCustomisation.cs" />
     <Compile Include="Autofixture\PerformableCustomisation.cs" />
-    <Compile Include="Autofixture\PerformanceCustomisation.cs" />
+    <Compile Include="Autofixture\ReportableCustomisation.cs" />
     <Compile Include="Autofixture\ReportableSpecimenBuilder.cs" />
-    <Compile Include="Autofixture\RandomReportAttribute.cs" />
-    <Compile Include="Autofixture\ReportCustomisation.cs" />
     <Compile Include="Autofixture\ScenarioCustomisation.cs" />
     <Compile Include="Autofixture\StringFormatAttribute.cs" />
+    <Compile Include="Autofixture\ReportBuilderDependenciesCustomisation.cs" />
+    <Compile Include="Autofixture\RandomReportAttribute.cs" />
+    <Compile Include="Autofixture\RandomReportCustomization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

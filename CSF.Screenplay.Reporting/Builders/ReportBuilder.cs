@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Actors;
@@ -11,10 +10,11 @@ namespace CSF.Screenplay.Reporting.Builders
   /// <summary>
   /// Builder type which creates instances of <see cref="Report"/>.
   /// </summary>
-  public class ReportBuilder
+  public class ReportBuilder : IBuildsReports
   {
-    readonly IReportFactory reportFactory;
-    readonly ConcurrentDictionary<Guid, ScenarioBuilder> scenarios;
+    readonly IGetsReport reportFactory;
+    readonly Func<Guid,IBuildsScenario> scenarioBuilderFactory;
+    readonly ConcurrentDictionary<Guid, IBuildsScenario> scenarioBuilders;
 
     /// <summary>
     /// Begins reporting upon a new scenario.
@@ -31,17 +31,19 @@ namespace CSF.Screenplay.Reporting.Builders
                                  string featureName,
                                  string featureId,
                                  Guid scenarioId,
-                                 bool scenarioIdIsGenerated = false,
-                                 bool featureIdIsGenerated = false)
+                                 bool scenarioIdIsGenerated,
+                                 bool featureIdIsGenerated)
     {
-      var builder = new ScenarioBuilder(idName,
-                                        friendlyName,
-                                        featureName,
-                                        featureId,
-                                        scenarioIdIsGenerated,
-                                        featureIdIsGenerated);
-      
-      var success = scenarios.TryAdd(scenarioId, builder);
+      var builder = scenarioBuilderFactory(scenarioId);
+
+      builder.ScenarioIdName = idName;
+      builder.ScenarioFriendlyName = friendlyName;
+      builder.ScenarioIdIsGenerated = scenarioIdIsGenerated;
+      builder.FeatureIdName = featureId;
+      builder.FeatureFriendlyName = featureName;
+      builder.FeatureIdIsGenerated = featureIdIsGenerated;
+
+      var success = scenarioBuilders.TryAdd(scenarioId, builder);
       if(!success)
         throw new InvalidOperationException(Resources.ExceptionFormats.DuplicateScenarioInReportBuilder);
     }
@@ -149,14 +151,13 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <returns>The report.</returns>
     public Report GetReport()
     {
-      var builtScenarios = scenarios.Values.Select(x => x.GetScenario());
-      return reportFactory.GetReport(builtScenarios.ToArray());
+      return reportFactory.GetReport(scenarioBuilders.Values);
     }
 
-    ScenarioBuilder GetScenario(Guid identity)
+    IBuildsScenario GetScenario(Guid identity)
     {
-      ScenarioBuilder scenario;
-      if(!scenarios.TryGetValue(identity, out scenario))
+      IBuildsScenario scenario;
+      if(!scenarioBuilders.TryGetValue(identity, out scenario))
         throw new InvalidOperationException(Resources.ExceptionFormats.NoMatchingScenarioInReportBuilder);
 
       return scenario;
@@ -165,19 +166,19 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Initializes a new instance of the <see cref="ReportBuilder"/> class.
     /// </summary>
-    public ReportBuilder() : this(new ReportFactory()) { }
+    public ReportBuilder() : this(null, null) {}
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ReportBuilder"/> class.
     /// </summary>
     /// <param name="reportFactory">Report factory</param>
-    public ReportBuilder(IReportFactory reportFactory)
+    /// <param name="scenarioBuilderFactory">A factory function which creates scenario builders</param>
+    public ReportBuilder(IGetsReport reportFactory, Func<Guid,IBuildsScenario> scenarioBuilderFactory)
     {
-      if(reportFactory == null)
-        throw new ArgumentNullException(nameof(reportFactory));
+      this.reportFactory = reportFactory ?? new ReportFactory();
+      this.scenarioBuilderFactory = guid => new ScenarioBuilder();
 
-      this.reportFactory = reportFactory;
-      scenarios = new ConcurrentDictionary<Guid, ScenarioBuilder>();
+      scenarioBuilders = new ConcurrentDictionary<Guid, IBuildsScenario>();
     }
   }
 }

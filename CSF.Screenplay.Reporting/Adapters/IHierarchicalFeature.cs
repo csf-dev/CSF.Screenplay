@@ -30,5 +30,7 @@ namespace CSF.Screenplay.Reporting.Adapters
 {
   public interface IHierarchicalFeature : IFeature, IProvidesScenarios
   {
+    bool IsSuccess { get; }
+    bool IsFailure { get; }
   }
 }

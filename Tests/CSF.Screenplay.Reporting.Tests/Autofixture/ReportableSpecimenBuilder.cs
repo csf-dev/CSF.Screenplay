@@ -43,7 +43,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
 
     Reportable CreateSuccessPerformance(ISpecimenContext context)
     {
-      return CreatePerformance(context,
+      return CreateReportable(context,
                                ReportableType.Success);
     }
 
@@ -54,39 +54,51 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
                                .Select(x => context.Resolve(typeof(Reportable)))
                                .Cast<Reportable>()
                                .ToArray();
-      return CreatePerformance(context,
+      return CreateReportable(context,
                                ReportableType.Success,
                                children: children);
     }
 
     Reportable CreateSuccessPerformanceWithResult(ISpecimenContext context)
     {
-      return CreatePerformance(context,
+      return CreateReportable(context,
                                ReportableType.SuccessWithResult,
                                context.Resolve(typeof(Guid)));
     }
 
     Reportable CreateFailurePerformance(ISpecimenContext context)
     {
-      return CreatePerformance(context,
+      return CreateReportable(context,
                                ReportableType.FailureWithError,
                                exception: (Exception) context.Resolve(typeof(Exception)));
     }
 
-    Reportable CreatePerformance(ISpecimenContext context,
-                                  ReportableType outcome,
+    Reportable CreateGainAbility(ISpecimenContext context)
+    {
+      return CreateReportable(context, ReportableType.GainAbility);
+    }
+
+    Reportable CreateReportable(ISpecimenContext context,
+                                ReportableType reportableType,
                                   object result = null,
                                   Exception exception = null,
                                   IList<Reportable> children = null)
     {
       var actor = (INamed) context.Resolve(typeof(INamed));
-      var performable = (Reportable) context.Resolve(typeof(Reportable));
-      var performanceType = SelectPerformanceType();
+      var category = SelectReportableCategory();
 
-      return new Performance(actor, outcome, performable, performanceType, result, exception, children);
+      return new Reportable {
+        ActorName = actor.Name,
+        Category = category,
+        Error = exception.ToString(),
+        Type = reportableType,
+        Report = (string) context.Resolve(typeof(string)),
+        Reportables = children,
+        Result = result?.ToString(),
+      };
     }
 
-    ReportableCategory SelectPerformanceType()
+    ReportableCategory SelectReportableCategory()
     {
       var randomNumber = ScenarioCustomisation.Randomiser.Next(0, 3);
       if(randomNumber == 0) return ReportableCategory.Given;

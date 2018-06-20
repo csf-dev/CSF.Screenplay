@@ -9,12 +9,48 @@ namespace CSF.Screenplay.Reporting.Builders
   /// <summary>
   /// Builder type for the reporting on a single Screenplay Scenario.
   /// </summary>
-  public class ScenarioBuilder
+  public class ScenarioBuilder : IBuildsScenario
   {
     readonly Scenario scenario;
     readonly Stack<ReportableBuilder> builderStack;
     ReportableCategory currentPerformanceType;
     bool finalised;
+
+    public string ScenarioIdName
+    {
+      get => scenario.Name.Id;
+      set => scenario.Name.Id = value;
+    }
+
+    public string ScenarioFriendlyName
+    {
+      get => scenario.Name.Name;
+      set => scenario.Name.Name = value;
+    }
+
+    public bool ScenarioIdIsGenerated
+    {
+      get => scenario.Name.IsIdGenerated;
+      set => scenario.Name.IsIdGenerated = value;
+    }
+
+    public string FeatureIdName
+    {
+      get => scenario.Feature.Name.Id;
+      set => scenario.Feature.Name.Id = value;
+    }
+
+    public string FeatureFriendlyName
+    {
+      get => scenario.Feature.Name.Name;
+      set => scenario.Feature.Name.Name = value;
+    }
+
+    public bool FeatureIdIsGenerated
+    {
+      get => scenario.Name.IsIdGenerated;
+      set => scenario.Name.IsIdGenerated = value;
+    }
 
     /// <summary>
     /// Finalise the current scenario, recording whether or not it was a success.
@@ -203,26 +239,10 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Builders.ScenarioBuilder"/> class.
     /// </summary>
-    /// <param name="idName">Identifier name.</param>
-    /// <param name="friendlyName">Friendly name.</param>
-    /// <param name="featureName">Feature name.</param>
-    /// <param name="featureId">Feature identifier.</param>
-    /// <param name="scenarioIdIsGenerated">Indicates whether <paramref name="idName"/> is auto-generated or not</param>
-    /// <param name="featureIdIsGenerated">Indicates whether <paramref name="featureId"/> is auto-generated or not</param>
-    public ScenarioBuilder(string idName,
-                           string friendlyName,
-                           string featureName,
-                           string featureId,
-                           bool scenarioIdIsGenerated = false,
-                           bool featureIdIsGenerated = false)
+    public ScenarioBuilder()
     {
       builderStack = new Stack<ReportableBuilder>();
-      scenario = new Scenario {
-        Name = new IdAndName { Id = idName, Name = friendlyName, IsIdGenerated = scenarioIdIsGenerated },
-        Feature = new Feature {
-          Name = new IdAndName { Id = featureId, Name = featureName, IsIdGenerated = featureIdIsGenerated },
-        },
-      };
+      scenario = new Scenario();
     }
   }
 }

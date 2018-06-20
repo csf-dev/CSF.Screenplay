@@ -36,6 +36,10 @@ namespace CSF.Screenplay.Reporting.Adapters
     readonly IReport report;
     IReadOnlyCollection<IHierarchicalFeature> cachedFeatures;
 
+    public IEnumerable<IScenario> Scenarios => report.Scenarios;
+
+    public DateTime Timestamp => report.Timestamp;
+
     public IReadOnlyCollection<IHierarchicalFeature> GetFeatures()
     {
       lock(syncRoot)
@@ -58,6 +62,11 @@ namespace CSF.Screenplay.Reporting.Adapters
               let feature = report.Scenarios.First(x => x?.Feature?.Name?.Id == id).Feature
               select new HierarchicalFeature(feature, report))
         .ToArray();
+    }
+
+    IReadOnlyCollection<IHierarchicalFeature> IProvidesHierarchicalFeatures.GetFeatures()
+    {
+      throw new NotImplementedException();
     }
 
     public HierarchicalReportAdapter(IReport report)

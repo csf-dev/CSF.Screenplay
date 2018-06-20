@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.Screenplay.Reporting.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -34,24 +35,24 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class FeatureModel
   {
-    readonly Feature feature;
+    readonly IHierarchicalFeature feature;
     readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Gets the identity of this feature.
     /// </summary>
-    public string Id => feature.Id;
+    public string Id => feature.Name.Id;
 
     /// <summary>
     /// Gets a value indicating whether the <see cref="Id"/> should be displayed.
     /// </summary>
     /// <value><c>true</c> if the feature identifier should be displayed; otherwise, <c>false</c>.</value>
-    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !feature.IsIdGenerated;
+    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !feature.Name.IsIdGenerated;
 
     /// <summary>
     /// Gets the human-readable friendly-name of this feature.
     /// </summary>
-    public string FriendlyName => feature.FriendlyName;
+    public string FriendlyName => feature.Name.Name;
 
     /// <summary>
     /// Gets a collection of the scenarios in the current feature.
@@ -63,13 +64,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets or sets a value indicating whether this <see cref="Feature"/> contains any scenarios which are themselves failures.
     /// </summary>
     /// <value><c>true</c> if this feature contains any failures; otherwise, <c>false</c>.</value>
-    public bool HasFailures => feature.Scenarios.Any(x => x.IsFailure);
+    public bool HasFailures => feature.IsFailure;
 
     /// <summary>
     /// Gets or sets a value indicating whether every <see cref="Scenario"/> within this <see cref="Feature"/> is a success.
     /// </summary>
     /// <value><c>true</c> if the feature contains only successful scenarios; otherwise, <c>false</c>.</value>
-    public bool IsSuccess => feature.Scenarios.All(x => x.IsSuccess);
+    public bool IsSuccess => feature.IsSuccess;
 
     /// <summary>
     /// Gets the HTML class attribute value indicating the outcome of a given feature.
@@ -78,7 +79,7 @@ namespace CSF.Screenplay.Reporting.Models
     public string GetOutcomeClass()
     {
       if(feature == null) return String.Empty;
-      var outcome = GetOutcomeClass(feature.IsSuccess, feature.HasFailures);
+      var outcome = GetOutcomeClass(IsSuccess, HasFailures);
       return $"feature {outcome}";
     }
 
@@ -94,7 +95,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <param name="feature">Feature.</param>
     /// <param name="formattingService">Formatting service.</param>
-    public FeatureModel(Feature feature, IObjectFormattingService formattingService)
+    public FeatureModel(IHierarchicalFeature feature, IObjectFormattingService formattingService)
     {
       if(formattingService == null)
         throw new ArgumentNullException(nameof(formattingService));

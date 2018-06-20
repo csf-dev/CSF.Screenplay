@@ -91,8 +91,7 @@
                                containerClass string:$outcomeClass $reportableClass $hasContentClass"
                    tal:attributes="class containerClass"
                    class="empty performance success template">
-                <p class="description"
-                   tal:define="actor reportable/Actor">
+                <p class="description">
                   <strong tal:condition="rootReportable"
                           tal:content="reportable/PerformanceType"
                           class="performance_type">Given</strong>

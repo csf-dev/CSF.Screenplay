@@ -1,5 +1,5 @@
 ﻿//
-// HierarchicalFeature.cs
+// IBuildsScenario.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,44 +24,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using CSF.Screenplay.Abilities;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Reporting.Models;
 
-namespace CSF.Screenplay.Reporting.Adapters
+namespace CSF.Screenplay.Reporting.Builders
 {
-  public class HierarchicalFeature : IHierarchicalFeature
+  public interface IBuildsScenario
   {
-    readonly IProvidesIdAndName feature;
-    readonly IReport report;
+    string ScenarioIdName { get; set; }
 
-    public IdAndName Name => feature.Name;
+    string ScenarioFriendlyName { get; set; }
 
-    public IReadOnlyCollection<IScenario> GetScenarios()
-      => report.Scenarios.Where(ScenarioIsInThisFeature).ToArray();
+    string FeatureFriendlyName { get; set; }
 
-    public bool IsSuccess
-      => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).All(x => x.IsSuccess);
+    string FeatureIdName { get; set; }
 
-    public bool IsFailure
-      => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).Any(x => x.IsFailure);
+    bool ScenarioIdIsGenerated { get; set; }
 
-    bool ScenarioIsInThisFeature(IScenario scenario)
-    {
-      return (scenario.Feature?.Name?.Id != null
-              && scenario.Feature.Name.Id == feature.Name.Id);
-    }
+    bool FeatureIdIsGenerated { get; set; }
 
-    IEnumerable<IScenario> IProvidesScenarios.Scenarios => GetScenarios();
+    void Finalise(bool? outcome);
 
-    public HierarchicalFeature(IProvidesIdAndName feature, IReport report)
-    {
-      if(report == null)
-        throw new ArgumentNullException(nameof(report));
-      if(feature == null)
-        throw new ArgumentNullException(nameof(feature));
-      this.feature = feature;
-      this.report = report;
-    }
+    Scenario GetScenario();
+
+    void BeginPerformance(INamed actor, IPerformable performable);
+
+    void BeginPerformanceType(ReportableCategory performanceType);
+
+    void RecordResult(IPerformable performable, object result);
+
+    void RecordFailure(IPerformable performable, Exception exception);
+
+    void RecordSuccess(IPerformable performable);
+
+    void EndPerformanceType();
+
+    void GainAbility(INamed actor, IAbility ability);
   }
 }

@@ -1,5 +1,5 @@
 ﻿//
-// IProvidesHierarchicalFeatures.cs
+// RandomReportCustomization.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,13 +24,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Collections.Generic;
-using CSF.Screenplay.Reporting.Models;
+using Ploeh.AutoFixture;
 
-namespace CSF.Screenplay.Reporting.Adapters
+namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public interface IProvidesHierarchicalFeatures : IReport
+  public class RandomReportCustomization : ICustomization
   {
-    IReadOnlyCollection<IHierarchicalFeature> GetFeatures();
+    public void Customize(IFixture fixture)
+    {
+      new ScenarioCustomisation().Customize(fixture);
+    }
   }
 }

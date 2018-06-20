@@ -5,16 +5,16 @@ using Ploeh.AutoFixture.Kernel;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class PerformanceCustomisation : ICustomization
+  public class ReportableCustomisation : ICustomization
   {
     readonly ISpecimenBuilder performanceBuilder;
 
     public void Customize(IFixture fixture)
     {
-      fixture.Customize<Performance>(builder => builder.FromFactory(performanceBuilder));
+      fixture.Customize<Reportable>(builder => builder.FromFactory(performanceBuilder));
     }
 
-    public PerformanceCustomisation()
+    public ReportableCustomisation()
     {
       performanceBuilder = new ReportableSpecimenBuilder();
     }
