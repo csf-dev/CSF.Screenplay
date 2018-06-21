@@ -90,7 +90,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       return new Reportable {
         ActorName = actor.Name,
         Category = category,
-        Error = exception.ToString(),
+        Error = exception?.ToString(),
         Type = reportableType,
         Report = (string) context.Resolve(typeof(string)),
         Reportables = children,

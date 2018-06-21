@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Linq;
 using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
@@ -33,6 +34,10 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
     public void Customize(IFixture fixture)
     {
       new ScenarioCustomisation().Customize(fixture);
+
+      var behaviours = fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToArray();
+      foreach(var behaviour in behaviours)
+        fixture.Behaviors.Remove(behaviour);
     }
   }
 }

@@ -43,7 +43,9 @@ Given Joe does a thing
 
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
 
+      scenario.Reportables.Clear();
       scenario.Reportables.Add(reportable);
 
       var report = new Report();
@@ -72,7 +74,9 @@ Given Joe does a thing
 
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
 
+      scenario.Reportables.Clear();
       scenario.Reportables.Add(reportable);
 
       var report = new Report();
@@ -102,7 +106,9 @@ Given Joe does a thing
 
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
 
+      scenario.Reportables.Clear();
       scenario.Reportables.Add(reportable);
 
       var report = new Report();
@@ -125,13 +131,11 @@ Given Joe does a thing
       reportableOne.Type = ReportableType.FailureWithError;
       reportableOne.Report = "Joe does a thing";
       reportableOne.Error = "Error text";
-      reportableOne.Reportables.Clear();
 
       reportableTwo.Category = ReportableCategory.Given;
       reportableTwo.Type = ReportableType.FailureWithError;
       reportableTwo.Report = "Joe does a different thing";
       reportableTwo.Error = "Error text";
-      reportableTwo.Reportables.Clear();
 
       reportableOne.Reportables.Add(reportableTwo);
       scenario.Reportables.Clear();
@@ -160,6 +164,7 @@ Given Joe does a thing
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";
 
+      scenario.Reportables.Clear();
       scenario.Reportables.Add(reportable);
 
       var report = new Report();
@@ -180,11 +185,11 @@ Given Joe does a thing
       scenario.Name.Name = null;
       scenario.Name.Id = "ScenarioId";
       scenario.Outcome = true;
-      scenario.Feature.Name = new IdAndName();
 
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";
 
+      scenario.Reportables.Clear();
       scenario.Reportables.Add(reportable);
 
       var report = new Report();

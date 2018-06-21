@@ -64,11 +64,6 @@ namespace CSF.Screenplay.Reporting.Adapters
         .ToArray();
     }
 
-    IReadOnlyCollection<IHierarchicalFeature> IProvidesHierarchicalFeatures.GetFeatures()
-    {
-      throw new NotImplementedException();
-    }
-
     public HierarchicalReportAdapter(IReport report)
     {
       if(report == null)
