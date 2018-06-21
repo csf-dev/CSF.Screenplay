@@ -1,5 +1,5 @@
 ﻿//
-// ReportBuilderCustomisation.cs
+// NoRecursiveReportsCustomization.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,23 +24,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Reporting.Builders;
 using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class ReportBuilderDependenciesCustomisation : ICustomization
+  public class NoRecursiveReportsCustomization : ICustomization
   {
     public void Customize(IFixture fixture)
     {
-      fixture.Customize<ReportBuilder>(builder => builder.FromFactory<IBuildsScenario,IGetsReport>(CreateBuilder));
-    }
-
-    ReportBuilder CreateBuilder(IBuildsScenario scenarioBuilder, IGetsReport reportFactory)
-    {
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      return new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      fixture.Customize<Reportable>(c => c.Without(x => x.Reportables));
     }
   }
 }

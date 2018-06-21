@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Kernel;
@@ -11,7 +12,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
 
     public void Customize(IFixture fixture)
     {
-      fixture.Customize<Reportable>(builder => builder.FromFactory(performanceBuilder));
+      fixture.Customizations.Insert(0, performanceBuilder);
     }
 
     public ReportableCustomisation()

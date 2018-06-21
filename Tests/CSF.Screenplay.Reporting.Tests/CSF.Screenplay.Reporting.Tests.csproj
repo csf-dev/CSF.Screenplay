@@ -58,9 +58,9 @@
     <Compile Include="Autofixture\ReportableSpecimenBuilder.cs" />
     <Compile Include="Autofixture\ScenarioCustomisation.cs" />
     <Compile Include="Autofixture\StringFormatAttribute.cs" />
-    <Compile Include="Autofixture\ReportBuilderDependenciesCustomisation.cs" />
     <Compile Include="Autofixture\RandomReportAttribute.cs" />
     <Compile Include="Autofixture\RandomReportCustomization.cs" />
+    <Compile Include="Autofixture\NoRecursiveReportsCustomization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

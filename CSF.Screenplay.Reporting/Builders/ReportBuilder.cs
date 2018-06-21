@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Reporting.Builders
 
       var success = scenarioBuilders.TryAdd(scenarioId, builder);
       if(!success)
-        throw new InvalidOperationException(Resources.ExceptionFormats.DuplicateScenarioInReportBuilder);
+        throw new ScenarioHasBegunAlreadyException(Resources.ExceptionFormats.DuplicateScenarioInReportBuilder);
     }
 
     /// <summary>
@@ -70,6 +70,10 @@ namespace CSF.Screenplay.Reporting.Builders
                                  Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);
+
+      if(scenario.IsFinalised())
+        throw new ScenarioHasEndedAlreadyException(Resources.ExceptionFormats.ScenarioAlreadyFinalised);
+      
       scenario.BeginPerformance(actor, performable);
     }
 
@@ -82,6 +86,10 @@ namespace CSF.Screenplay.Reporting.Builders
                                      Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);
+
+      if(scenario.IsFinalised())
+        throw new ScenarioHasEndedAlreadyException(Resources.ExceptionFormats.ScenarioAlreadyFinalised);
+      
       scenario.BeginPerformanceType(performanceType);
     }
 
@@ -158,7 +166,7 @@ namespace CSF.Screenplay.Reporting.Builders
     {
       IBuildsScenario scenario;
       if(!scenarioBuilders.TryGetValue(identity, out scenario))
-        throw new InvalidOperationException(Resources.ExceptionFormats.NoMatchingScenarioInReportBuilder);
+        throw new ScenarioHasNotBegunException(Resources.ExceptionFormats.NoMatchingScenarioInReportBuilder);
 
       return scenario;
     }
@@ -176,7 +184,11 @@ namespace CSF.Screenplay.Reporting.Builders
     public ReportBuilder(IGetsReport reportFactory, Func<Guid,IBuildsScenario> scenarioBuilderFactory)
     {
       this.reportFactory = reportFactory ?? new ReportFactory();
-      this.scenarioBuilderFactory = guid => new ScenarioBuilder();
+
+      if(scenarioBuilderFactory != null)
+        this.scenarioBuilderFactory = scenarioBuilderFactory;
+      else
+        this.scenarioBuilderFactory = guid => new ScenarioBuilder();
 
       scenarioBuilders = new ConcurrentDictionary<Guid, IBuildsScenario>();
     }

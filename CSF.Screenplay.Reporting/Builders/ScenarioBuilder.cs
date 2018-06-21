@@ -63,6 +63,8 @@ namespace CSF.Screenplay.Reporting.Builders
       scenario.Outcome = outcome;
     }
 
+    public bool IsFinalised() => finalised;
+
     /// <summary>
     /// Gets the underlying scenario report model.
     /// </summary>

@@ -45,6 +45,8 @@ namespace CSF.Screenplay.Reporting.Builders
 
     bool FeatureIdIsGenerated { get; set; }
 
+    bool IsFinalised();
+
     void Finalise(bool? outcome);
 
     Scenario GetScenario();

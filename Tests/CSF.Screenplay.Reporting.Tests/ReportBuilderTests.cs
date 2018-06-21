@@ -71,12 +71,14 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void EndScenario_calls_finalise_for_the_appropriate_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                       ReportBuilder sut,
+    public void EndScenario_calls_finalise_for_the_appropriate_builder(IBuildsScenario scenarioBuilder,
+                                                                       IGetsReport reportFactory,
                                                                        bool success,
                                                                        Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -87,13 +89,15 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void BeginPerformance_calls_BeginPerformance_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                     ReportBuilder sut,
+    public void BeginPerformance_calls_BeginPerformance_from_builder(IBuildsScenario scenarioBuilder,
+                                                                     IGetsReport reportFactory,
                                                                      Guid scenarioIdentity,
                                                                      IActor actor,
                                                                      IPerformable performable)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -104,12 +108,14 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void BeginPerformanceType_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                             ReportBuilder sut,
+    public void BeginPerformanceType_calls_BeginPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
+                                                                             IGetsReport reportFactory,
                                                                              Guid scenarioIdentity,
                                                                              ReportableCategory category)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -120,14 +126,18 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void RecordResult_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                     ReportBuilder sut,
-                                                                     IPerformable performable,
-                                                                     object result,
-                                                                     Guid scenarioIdentity)
+    public void RecordResult_calls_RecordResult_from_builder(IBuildsScenario scenarioBuilder,
+                                                             IGetsReport reportFactory,
+                                                             IActor actor,
+                                                             IPerformable performable,
+                                                             object result,
+                                                             Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
 
       // Act
       sut.RecordResult(performable, result, scenarioIdentity);
@@ -137,14 +147,18 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void RecordFailure_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                      ReportBuilder sut,
-                                                                      IPerformable performable,
-                                                                      Exception exception,
-                                                                      Guid scenarioIdentity)
+    public void RecordFailure_calls_RecordFailure_from_builder(IBuildsScenario scenarioBuilder,
+                                                               IGetsReport reportFactory,
+                                                               IActor actor,
+                                                               IPerformable performable,
+                                                               Exception exception,
+                                                               Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
 
       // Act
       sut.RecordFailure(performable, exception, scenarioIdentity);
@@ -154,13 +168,17 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void RecordSuccess_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                      ReportBuilder sut,
-                                                                      IPerformable performable,
-                                                                      Guid scenarioIdentity)
+    public void RecordSuccess_calls_RecordSuccess_from_builder(IBuildsScenario scenarioBuilder,
+                                                               IGetsReport reportFactory,
+                                                               IActor actor,
+                                                               IPerformable performable,
+                                                               Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
+      sut.BeginPerformance(actor, performable, scenarioIdentity);
 
       // Act
       sut.RecordSuccess(performable, scenarioIdentity);
@@ -170,11 +188,13 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void EndPerformanceType_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                           ReportBuilder sut,
+    public void EndPerformanceType_calls_EndPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
+                                                                         IGetsReport reportFactory,
                                                                            Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -185,13 +205,15 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void GainAbility_calls_BeginPerformanceType_from_builder([Frozen] IBuildsScenario scenarioBuilder,
-                                                                    ReportBuilder sut,
+    public void GainAbility_calls_GainAbility_from_builder(IBuildsScenario scenarioBuilder,
+                                                           IGetsReport reportFactory,
                                                                     INamed actor,
                                                                     IAbility ability,
                                                                     Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -202,28 +224,31 @@ namespace CSF.Screenplay.Reporting.Tests
     }
 
     [Test,AutoMoqData]
-    public void GetReport_passes_builder_created_from_scenario_factory_to_report_factory([Frozen] IBuildsScenario scenarioFactory,
-                                                                                         [Frozen] IGetsReport factory,
-                                                                                         Guid scenarioIdentity,
-                                                                                         ReportBuilder sut)
+    public void GetReport_passes_builder_created_from_scenario_factory_to_report_factory(IBuildsScenario scenarioBuilder,
+                                                                                         IGetsReport reportFactory,
+                                                                                         Guid scenarioIdentity)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
       sut.GetReport();
 
       // Assert
-      Mock.Get(factory)
-          .Verify(x => x.GetReport(It.Is<IEnumerable<IBuildsScenario>>(b => b.Contains(scenarioFactory))), Times.Once());
+      Mock.Get(reportFactory)
+          .Verify(x => x.GetReport(It.Is<IEnumerable<IBuildsScenario>>(b => b.Contains(scenarioBuilder))), Times.Once());
     }
 
     [Test,AutoMoqData]
-    public void GetReport_passes_same_number_of_builders_as_scenarios([Frozen] IGetsReport factory,
-                                                                      ReportBuilder sut,
+    public void GetReport_passes_same_number_of_builders_as_scenarios(IBuildsScenario scenarioBuilder,
+                                                                      IGetsReport reportFactory,
                                                                       [Values(1, 2, 5, 10)] int howManyScenarios)
     {
       // Arrange
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
       foreach(var iterations in Enumerable.Range(0, howManyScenarios))
         sut.BeginNewScenario(null, null, null, null, Guid.NewGuid(), false, false);
 
@@ -231,17 +256,21 @@ namespace CSF.Screenplay.Reporting.Tests
       sut.GetReport();
 
       // Assert
-      Mock.Get(factory)
+      Mock.Get(reportFactory)
           .Verify(x => x.GetReport(It.Is<IEnumerable<IBuildsScenario>>(b => b.Count() == howManyScenarios)), Times.Once());
     }
 
     [Test,AutoMoqData]
-    public void GetReport_returns_result_from_factory([Frozen] IGetsReport factory,
-                                                      ReportBuilder sut,
+    public void GetReport_returns_result_from_factory(IBuildsScenario scenarioBuilder,
+                                                      IGetsReport reportFactory,
                                                       Report report)
     {
       // Arrange
-      Mock.Get(factory).Setup(x => x.GetReport(It.IsAny<IEnumerable<IBuildsScenario>>())).Returns(report);
+      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
+      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      Mock.Get(reportFactory)
+          .Setup(x => x.GetReport(It.IsAny<IEnumerable<IBuildsScenario>>()))
+          .Returns(report);
 
       // Act
       var result = sut.GetReport();

@@ -70,16 +70,15 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <returns>The performance.</returns>
     public Reportable GetReportable()
     {
-      // TODO: Write this implementation
-      throw new NotImplementedException();
-
-      //return new Performance(Actor,
-                             //GetOutcome(),
-                             //Performable,
-                             //PerformanceType,
-                             //Result,
-                             //Exception,
-                             //Reportables.ToArray());
+      return new Reportable {
+        ActorName = Actor.Name,
+        Category = PerformanceType,
+        Error = Exception?.ToString(),
+        Result = Result?.ToString(),
+        Report = Performable?.GetReport(Actor),
+        Reportables = Reportables,
+        Type = GetOutcome(),
+      };
     }
 
     ReportableType GetOutcome()

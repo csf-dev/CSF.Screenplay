@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Reporting.Tests
     {
       return new ICustomization[] {
         new AutoMoqCustomization(),
-        new ReportBuilderDependenciesCustomisation(),
+        new NoRecursiveReportsCustomization(),
       };
     }
 
