@@ -15,6 +15,8 @@ test:
     - '**\CSF.Screenplay.WebApis.Tests.dll'
     - '**\Ploeh.AutoFixture.NUnit3.dll'
     - '**\CSF.Screenplay.NUnit.dll'
+    - '**\CSF.Screenplay.Reporting.Html.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
+    - '**\CSF.Screenplay.Reporting.Json.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
 artifacts:
   - path: Tests\CSF.Screenplay.WebTestWebsite
     name: TestWebsite
