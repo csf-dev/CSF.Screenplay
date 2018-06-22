@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                                                IGetsReport reportFactory)
     {
       // Arrange
-      Guid capturedGuid;
+      Guid capturedGuid = Guid.Empty;
       Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => {
         capturedGuid = g;
         return scenarioBuilder;
