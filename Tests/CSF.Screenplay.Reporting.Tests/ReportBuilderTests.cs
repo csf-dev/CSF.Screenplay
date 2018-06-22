@@ -119,10 +119,10 @@ namespace CSF.Screenplay.Reporting.Tests
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
-      sut.BeginPerformanceType(category, scenarioIdentity);
+      sut.BeginPerformanceCategory(category, scenarioIdentity);
 
       // Assert
-      Mock.Get(scenarioBuilder).Verify(x => x.BeginPerformanceType(category), Times.Once);
+      Mock.Get(scenarioBuilder).Verify(x => x.BeginPerformanceCategory(category), Times.Once);
     }
 
     [Test,AutoMoqData]
@@ -198,10 +198,10 @@ namespace CSF.Screenplay.Reporting.Tests
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
-      sut.EndPerformanceType(scenarioIdentity);
+      sut.EndPerformanceCategory(scenarioIdentity);
 
       // Assert
-      Mock.Get(scenarioBuilder).Verify(x => x.EndPerformanceType(), Times.Once);
+      Mock.Get(scenarioBuilder).Verify(x => x.EndPerformanceCategory(), Times.Once);
     }
 
     [Test,AutoMoqData]
@@ -310,7 +310,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                                                      Guid scenarioIdentity)
     {
       // Act & assert
-      Assert.That(() => sut.BeginPerformanceType(category, scenarioIdentity),
+      Assert.That(() => sut.BeginPerformanceCategory(category, scenarioIdentity),
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
@@ -351,7 +351,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                                                    Guid scenarioIdentity)
     {
       // Act & assert
-      Assert.That(() => sut.EndPerformanceType(scenarioIdentity),
+      Assert.That(() => sut.EndPerformanceCategory(scenarioIdentity),
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
@@ -413,7 +413,7 @@ namespace CSF.Screenplay.Reporting.Tests
       sut.EndScenario(success, scenarioIdentity);
 
       // Act & assert
-      Assert.That(() => sut.BeginPerformanceType(type, scenarioIdentity),
+      Assert.That(() => sut.BeginPerformanceCategory(type, scenarioIdentity),
                   Throws.TypeOf<ScenarioHasEndedAlreadyException>());
     }
 

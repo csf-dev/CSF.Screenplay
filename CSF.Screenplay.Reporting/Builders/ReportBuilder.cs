@@ -82,7 +82,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
     /// <param name="scenarioId">The screenplay scenario identity.</param>
-    public void BeginPerformanceType(ReportableCategory performanceType,
+    public void BeginPerformanceCategory(ReportableCategory performanceType,
                                      Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);
@@ -90,7 +90,7 @@ namespace CSF.Screenplay.Reporting.Builders
       if(scenario.IsFinalised())
         throw new ScenarioHasEndedAlreadyException(Resources.ExceptionFormats.ScenarioAlreadyFinalised);
       
-      scenario.BeginPerformanceType(performanceType);
+      scenario.BeginPerformanceCategory(performanceType);
     }
 
     /// <summary>
@@ -134,10 +134,10 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Ends the performance of the current type.
     /// </summary>
-    public void EndPerformanceType(Guid scenarioId)
+    public void EndPerformanceCategory(Guid scenarioId)
     {
       var scenario = GetScenario(scenarioId);
-      scenario.EndPerformanceType();
+      scenario.EndPerformanceCategory();
     }
 
     /// <summary>

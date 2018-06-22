@@ -29,37 +29,85 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// A wrapper around an <see cref="IScenario"/> which extends its API with new/convenience functionality.
+  /// </summary>
   public class ScenarioMetadataAdapter : IProvidesScenarioMetadata
   {
     readonly IScenario scenario;
 
+    /// <summary>
+    /// Gets the feature with which the current scenario is associated.
+    /// </summary>
+    /// <value>The feature.</value>
     public IFeature Feature => scenario.Feature;
 
+    /// <summary>
+    /// Gets the scenario outcome.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Boolean <c>true</c> indicates that the scenario passed, <c>false</c> indicates a failure.  A <c>null</c>
+    /// outcome indicates that the scenario is inconclusive.
+    /// </para>
+    /// </remarks>
+    /// <value>The outcome.</value>
     public bool? Outcome => scenario.Outcome;
 
+    /// <summary>
+    /// Gets the identity and name information.
+    /// </summary>
+    /// <value>The name.</value>
     public IdAndName Name => scenario.Name;
 
+    /// <summary>
+    /// Gets the reportables.
+    /// </summary>
+    /// <value>The reportables.</value>
     public IReadOnlyList<Models.IReportable> Reportables => scenario.Reportables;
 
+    /// <summary>
+    /// Gets a value indicating whether this scenario is a success.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the scenario is a success; otherwise, <c>false</c>.</value>
     public bool IsSuccess => Outcome.HasValue && Outcome.Value;
 
+    /// <summary>
+    /// Gets a value indicating whether this scenario is a failure.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the scenario is a failure; otherwise, <c>false</c>.</value>
     public bool IsFailure => Outcome.HasValue && !Outcome.Value;
 
+    /// <summary>
+    /// Gets a value indicating whether this scenario is inconclusive.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the scenario is inconclusive; otherwise, <c>false</c>.</value>
     public bool IsInconclusive => !Outcome.HasValue;
 
+    /// <summary>
+    /// Gets the feature ID if it is meaningful, otherwise returns a <c>null</c> reference.
+    /// </summary>
+    /// <returns>The feature identifier if it is meaningful.</returns>
     public string GetFeatureIdIfMeaningful()
     {
       if((scenario.Feature?.Name?.IsIdGenerated).GetValueOrDefault(true))
         return null;
 
       var id = scenario.Feature?.Name?.Id;
-      if(String.IsNullOrEmpty(id) || id == GetFeatureName())
+      if(String.IsNullOrEmpty(id) || id == GetPrintableFeatureName())
         return null;
 
       return id;
     }
 
-    public string GetFeatureName()
+    /// <summary>
+    /// Gets the printable (human-readable) name of the feature.
+    /// </summary>
+    /// <returns>The feature name.</returns>
+    public string GetPrintableFeatureName()
     {
       var name = scenario.Feature?.Name?.Name;
       if(!String.IsNullOrEmpty(name)) return name;
@@ -67,19 +115,27 @@ namespace CSF.Screenplay.Reporting.Adapters
       return scenario.Feature?.Name?.Id;
     }
 
+    /// <summary>
+    /// Gets the scenario ID if it is meaningful, otherwise returns a <c>null</c> reference.
+    /// </summary>
+    /// <returns>The scenario identifier if it is meaningful.</returns>
     public string GetScenarioIdIfMeaningful()
     {
       if((scenario.Name?.IsIdGenerated).GetValueOrDefault(true))
         return null;
 
       var id = scenario.Name?.Id;
-      if(String.IsNullOrEmpty(id) || id == GetScenarioName())
+      if(String.IsNullOrEmpty(id) || id == GetPrintableScenarioName())
         return null;
 
       return id;
     }
 
-    public string GetScenarioName()
+    /// <summary>
+    /// Gets the printable (human-readable) name of the scenario.
+    /// </summary>
+    /// <returns>The scenario name.</returns>
+    public string GetPrintableScenarioName()
     {
       var name = scenario.Name?.Name;
       if(!String.IsNullOrEmpty(name)) return name;
@@ -87,6 +143,10 @@ namespace CSF.Screenplay.Reporting.Adapters
       return scenario.Name?.Id;
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Adapters.ScenarioMetadataAdapter"/> class.
+    /// </summary>
+    /// <param name="scenario">Scenario.</param>
     public ScenarioMetadataAdapter(IScenario scenario)
     {
       if(scenario == null)

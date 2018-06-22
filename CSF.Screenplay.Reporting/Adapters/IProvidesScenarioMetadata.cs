@@ -28,16 +28,51 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// An object which can provide detailled information about an <see cref="IScenario"/>.
+  /// </summary>
   public interface IProvidesScenarioMetadata : IScenario
   {
+    /// <summary>
+    /// Gets a value indicating whether this scenario is a success.
+    /// </summary>
+    /// <value><c>true</c> if the scenario is a success; otherwise, <c>false</c>.</value>
     bool IsSuccess { get; }
+
+    /// <summary>
+    /// Gets a value indicating whether this scenario is a failure.
+    /// </summary>
+    /// <value><c>true</c> if the scenario is a failure; otherwise, <c>false</c>.</value>
     bool IsFailure { get; }
+
+    /// <summary>
+    /// Gets a value indicating whether this scenario is inconclusive.
+    /// </summary>
+    /// <value><c>true</c> if the scenario is inconclusive; otherwise, <c>false</c>.</value>
     bool IsInconclusive { get; }
 
-    string GetScenarioName();
-    string GetFeatureName();
+    /// <summary>
+    /// Gets the printable (human-readable) name of the scenario.
+    /// </summary>
+    /// <returns>The scenario name.</returns>
+    string GetPrintableScenarioName();
 
+    /// <summary>
+    /// Gets the printable (human-readable) name of the feature.
+    /// </summary>
+    /// <returns>The feature name.</returns>
+    string GetPrintableFeatureName();
+
+    /// <summary>
+    /// Gets the scenario ID if it is meaningful, otherwise returns a <c>null</c> reference.
+    /// </summary>
+    /// <returns>The scenario identifier if it is meaningful.</returns>
     string GetScenarioIdIfMeaningful();
+
+    /// <summary>
+    /// Gets the feature ID if it is meaningful, otherwise returns a <c>null</c> reference.
+    /// </summary>
+    /// <returns>The feature identifier if it is meaningful.</returns>
     string GetFeatureIdIfMeaningful();
   }
 }

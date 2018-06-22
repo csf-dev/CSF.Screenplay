@@ -28,8 +28,15 @@ using System.Collections.Generic;
 
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object which has an ordered collection of <see cref="IReportable"/>.
+  /// </summary>
   public interface IProvidesReportables
   {
+    /// <summary>
+    /// Gets the reportables.
+    /// </summary>
+    /// <value>The reportables.</value>
     IReadOnlyList<IReportable> Reportables { get; }
   }
 }

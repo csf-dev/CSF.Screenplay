@@ -26,9 +26,27 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object which provides information about a screenplay scenario.
+  /// </summary>
   public interface IScenario : IProvidesIdAndName, IProvidesReportables
   {
+    /// <summary>
+    /// Gets the feature with which the current scenario is associated.
+    /// </summary>
+    /// <value>The feature.</value>
     IFeature Feature { get; }
+
+    /// <summary>
+    /// Gets the scenario outcome.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Boolean <c>true</c> indicates that the scenario passed, <c>false</c> indicates a failure.  A <c>null</c>
+    /// outcome indicates that the scenario is inconclusive.
+    /// </para>
+    /// </remarks>
+    /// <value>The outcome.</value>
     bool? Outcome { get; }
   }
 }

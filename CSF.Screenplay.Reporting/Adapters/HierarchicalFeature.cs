@@ -30,19 +30,41 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// A wrapper around a <see cref="IReport"/> for a given feature.  This provides a mechanism by which to filter
+  /// that report's scenarios for only those within the current feature.
+  /// </summary>
   public class HierarchicalFeature : IHierarchicalFeature
   {
     readonly IProvidesIdAndName feature;
     readonly IReport report;
 
+    /// <summary>
+    /// Gets the identity and name information.
+    /// </summary>
+    /// <value>The name.</value>
     public IdAndName Name => feature.Name;
 
+    /// <summary>
+    /// Gets the scenarios.
+    /// </summary>
+    /// <value>The scenarios.</value>
     public IReadOnlyCollection<IScenario> GetScenarios()
       => report.Scenarios.Where(ScenarioIsInThisFeature).ToArray();
 
+    /// <summary>
+    /// Gets a value indicating whether this feature is a success.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the feature is a success; otherwise, <c>false</c>.</value>
     public bool IsSuccess
       => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).All(x => x.IsSuccess);
 
+    /// <summary>
+    /// Gets a value indicating whether this feature is a failure.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the feature is a failure; otherwise, <c>false</c>.</value>
     public bool IsFailure
       => GetScenarios().Select(x => new ScenarioMetadataAdapter(x)).Any(x => x.IsFailure);
 
@@ -54,6 +76,11 @@ namespace CSF.Screenplay.Reporting.Adapters
 
     IEnumerable<IScenario> IProvidesScenarios.Scenarios => GetScenarios();
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Adapters.HierarchicalFeature"/> class.
+    /// </summary>
+    /// <param name="feature">Feature.</param>
+    /// <param name="report">Report.</param>
     public HierarchicalFeature(IProvidesIdAndName feature, IReport report)
     {
       if(report == null)

@@ -29,8 +29,15 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// An object which provides a hierarchy of <see cref="IHierarchicalFeature"/>.
+  /// </summary>
   public interface IProvidesHierarchicalFeatures : IReport
   {
+    /// <summary>
+    /// Gets the features.
+    /// </summary>
+    /// <returns>The features.</returns>
     IReadOnlyCollection<IHierarchicalFeature> GetFeatures();
   }
 }

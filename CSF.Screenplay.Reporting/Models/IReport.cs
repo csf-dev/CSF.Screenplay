@@ -26,8 +26,15 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object which represents a Screenplay report.
+  /// </summary>
   public interface IReport : IProvidesScenarios
   {
+    /// <summary>
+    /// Gets the timestamp at which this report was generated.
+    /// </summary>
+    /// <value>The timestamp.</value>
     DateTime Timestamp { get; }
   }
 }

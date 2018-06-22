@@ -51,11 +51,11 @@ namespace CSF.Screenplay.Reporting
     {
       writer.WriteLine();
 
-      var featureText = $"Feature:  {scenario.GetFeatureName()}";
+      var featureText = $"Feature:  {scenario.GetPrintableFeatureName()}";
       if(featureText != null)
         writer.WriteLine(featureText);
 
-      writer.WriteLine($"Scenario: {scenario.GetScenarioName()}");
+      writer.WriteLine($"Scenario: {scenario.GetPrintableScenarioName()}");
 
       WriteScenarioOutcome(scenario);
     }

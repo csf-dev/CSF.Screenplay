@@ -54,13 +54,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the name of the scenario.
     /// </summary>
     /// <value>The scenario name.</value>
-    public virtual string FriendlyName => scenario.GetScenarioName();
+    public virtual string FriendlyName => scenario.GetPrintableScenarioName();
 
     /// <summary>
     /// Gets the name of the feature.
     /// </summary>
     /// <value>The feature name.</value>
-    public virtual string FeatureName => scenario.GetFeatureName();
+    public virtual string FeatureName => scenario.GetPrintableFeatureName();
 
     /// <summary>
     /// Gets the identifier for the feature.

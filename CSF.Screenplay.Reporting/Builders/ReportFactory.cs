@@ -26,6 +26,11 @@ namespace CSF.Screenplay.Reporting.Builders
       };
     }
 
+    /// <summary>
+    /// Creates and returns a <see cref="T:CSF.Screenplay.Reporting.Models.Report" /> instance.
+    /// </summary>
+    /// <returns>The report.</returns>
+    /// <param name="scenarioBuilders">Scenario builders.</param>
     public Report GetReport(IEnumerable<IBuildsScenario> scenarioBuilders)
     {
       if(scenarioBuilders == null)

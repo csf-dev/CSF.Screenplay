@@ -28,8 +28,15 @@ using System.Collections.Generic;
 
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object which has a collection of <see cref="IScenario"/>.
+  /// </summary>
   public interface IProvidesScenarios
   {
+    /// <summary>
+    /// Gets the scenarios.
+    /// </summary>
+    /// <value>The scenarios.</value>
     IEnumerable<IScenario> Scenarios { get; }
   }
 }

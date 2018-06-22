@@ -8,7 +8,7 @@ using CSF.Screenplay.Reporting.Models;
 namespace CSF.Screenplay.Reporting.Builders
 {
   /// <summary>
-  /// Builder type which creates a <see cref="Performance"/> instance.
+  /// Builder type which creates a <see cref="Reportable"/> instance.
   /// </summary>
   public class ReportableBuilder
   {
@@ -65,7 +65,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public IList<Reportable> Reportables => reportables;
 
     /// <summary>
-    /// Builds and returns a <see cref="Performance"/> from the state of the current instance.
+    /// Builds and returns a <see cref="Reportable"/> from the state of the current instance.
     /// </summary>
     /// <returns>The performance.</returns>
     public Reportable GetReportable()

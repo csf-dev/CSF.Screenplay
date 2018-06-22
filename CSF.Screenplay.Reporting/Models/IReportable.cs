@@ -26,6 +26,9 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object representing a reportable item within a screenplay scenario.
+  /// </summary>
   public interface IReportable : IProvidesReportables
   {
     /// <summary>

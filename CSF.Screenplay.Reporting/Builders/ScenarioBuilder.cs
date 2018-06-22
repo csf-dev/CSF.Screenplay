@@ -16,40 +16,68 @@ namespace CSF.Screenplay.Reporting.Builders
     ReportableCategory currentPerformanceType;
     bool finalised;
 
+    /// <summary>
+    /// Gets or sets the scenario identifier.
+    /// </summary>
+    /// <value>The scenario identifier.</value>
     public string ScenarioIdName
     {
-      get => scenario.Name.Id;
-      set => scenario.Name.Id = value;
+      get { return scenario.Name.Id; }
+      set { scenario.Name.Id = value; }
     }
 
+    /// <summary>
+    /// Gets or sets the scenario friendly name.
+    /// </summary>
+    /// <value>The scenario friendly name.</value>
     public string ScenarioFriendlyName
     {
-      get => scenario.Name.Name;
-      set => scenario.Name.Name = value;
+      get { return scenario.Name.Name; }
+      set { scenario.Name.Name = value; }
     }
 
+    /// <summary>
+    /// Gets a value which indicates whether or not the <see cref="P:CSF.Screenplay.Reporting.Builders.IBuildsScenario.ScenarioIdName" /> was auto-generated (and therefore
+    /// meaningless).
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the scenario identifier is generated; otherwise, <c>false</c>.</value>
     public bool ScenarioIdIsGenerated
     {
-      get => scenario.Name.IsIdGenerated;
-      set => scenario.Name.IsIdGenerated = value;
+      get { return scenario.Name.IsIdGenerated; }
+      set { scenario.Name.IsIdGenerated = value; }
     }
 
+    /// <summary>
+    /// Gets or sets the feature identifier.
+    /// </summary>
+    /// <value>The feature identifier.</value>
     public string FeatureIdName
     {
-      get => scenario.Feature.Name.Id;
-      set => scenario.Feature.Name.Id = value;
+      get { return scenario.Feature.Name.Id; }
+      set { scenario.Feature.Name.Id = value; }
     }
 
+    /// <summary>
+    /// Gets or sets the feature friendly name.
+    /// </summary>
+    /// <value>The feature friendly name.</value>
     public string FeatureFriendlyName
     {
-      get => scenario.Feature.Name.Name;
-      set => scenario.Feature.Name.Name = value;
+      get { return scenario.Feature.Name.Name; }
+      set { scenario.Feature.Name.Name = value; }
     }
 
+    /// <summary>
+    /// Gets a value which indicates whether or not the <see cref="P:CSF.Screenplay.Reporting.Builders.IBuildsScenario.FeatureIdName" /> was auto-generated (and therefore
+    /// meaningless).
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the feature identifier is generated; otherwise, <c>false</c>.</value>
     public bool FeatureIdIsGenerated
     {
-      get => scenario.Name.IsIdGenerated;
-      set => scenario.Name.IsIdGenerated = value;
+      get { return scenario.Name.IsIdGenerated; }
+      set { scenario.Name.IsIdGenerated = value; }
     }
 
     /// <summary>
@@ -63,6 +91,11 @@ namespace CSF.Screenplay.Reporting.Builders
       scenario.Outcome = outcome;
     }
 
+    /// <summary>
+    /// Gets a value which indicates if the scenario is finalised or not.
+    /// </summary>
+    /// <returns>
+    /// <c>true</c>, if the scenario is finalised, <c>false</c> otherwise.</returns>
     public bool IsFinalised() => finalised;
 
     /// <summary>
@@ -91,7 +124,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Begins reporting of a performance of a given type.
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
-    public void BeginPerformanceType(ReportableCategory performanceType)
+    public void BeginPerformanceCategory(ReportableCategory performanceType)
     {
       EnsureNotFinalised();
       performanceType.RequireDefinedValue(nameof(performanceType));
@@ -141,7 +174,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Ends the performance of the current type.
     /// </summary>
-    public void EndPerformanceType()
+    public void EndPerformanceCategory()
     {
       EnsureNotFinalised();
       currentPerformanceType = 0;

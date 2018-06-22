@@ -26,8 +26,15 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object which has an <see cref="IdAndName"/>.
+  /// </summary>
   public interface IProvidesIdAndName
   {
+    /// <summary>
+    /// Gets the identity and name information.
+    /// </summary>
+    /// <value>The name.</value>
     IdAndName Name { get; }
   }
 }

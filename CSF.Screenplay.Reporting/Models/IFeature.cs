@@ -26,6 +26,9 @@
 using System;
 namespace CSF.Screenplay.Reporting.Models
 {
+  /// <summary>
+  /// An object representing a Screenplay feature.
+  /// </summary>
   public interface IFeature : IProvidesIdAndName
   {
   }

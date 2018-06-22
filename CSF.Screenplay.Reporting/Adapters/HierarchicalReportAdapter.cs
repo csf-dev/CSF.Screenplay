@@ -30,16 +30,32 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// A wrapper around an <see cref="IReport"/> instance which provides a hierarchy of features, which in turn provide
+  /// access to their scenarios.
+  /// </summary>
   public class HierarchicalReportAdapter : IProvidesHierarchicalFeatures
   {
     readonly object syncRoot = new object();
     readonly IReport report;
     IReadOnlyCollection<IHierarchicalFeature> cachedFeatures;
 
+    /// <summary>
+    /// Gets the scenarios.
+    /// </summary>
+    /// <value>The scenarios.</value>
     public IEnumerable<IScenario> Scenarios => report.Scenarios;
 
+    /// <summary>
+    /// Gets the timestamp at which this report was generated.
+    /// </summary>
+    /// <value>The timestamp.</value>
     public DateTime Timestamp => report.Timestamp;
 
+    /// <summary>
+    /// Gets the features.
+    /// </summary>
+    /// <returns>The features.</returns>
     public IReadOnlyCollection<IHierarchicalFeature> GetFeatures()
     {
       lock(syncRoot)
@@ -64,6 +80,10 @@ namespace CSF.Screenplay.Reporting.Adapters
         .ToArray();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Adapters.HierarchicalReportAdapter"/> class.
+    /// </summary>
+    /// <param name="report">Report.</param>
     public HierarchicalReportAdapter(IReport report)
     {
       if(report == null)

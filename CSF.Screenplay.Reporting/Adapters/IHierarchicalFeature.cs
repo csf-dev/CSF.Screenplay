@@ -28,9 +28,21 @@ using CSF.Screenplay.Reporting.Models;
 
 namespace CSF.Screenplay.Reporting.Adapters
 {
+  /// <summary>
+  /// An object which represents a hierarchical feature, which is able to provide access to its contained scenarios.
+  /// </summary>
   public interface IHierarchicalFeature : IFeature, IProvidesScenarios
   {
+    /// <summary>
+    /// Gets a value indicating whether this feature is a success.
+    /// </summary>
+    /// <value><c>true</c> if the feature is a success; otherwise, <c>false</c>.</value>
     bool IsSuccess { get; }
+
+    /// <summary>
+    /// Gets a value indicating whether this feature is a failure.
+    /// </summary>
+    /// <value><c>true</c> if the feature is a failure; otherwise, <c>false</c>.</value>
     bool IsFailure { get; }
   }
 }
