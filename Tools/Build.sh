@@ -34,7 +34,7 @@ run_unit_tests()
     -path "*/bin/Debug/*" \
     -name "$TEST_PATTERN" \
     \! -name "${JSON_TESTS}.dll" \
-    \! path "*/CSF.Screenplay.Reporting.*.Tests/bin/Debug/CSF.Screenplay.Reporting.Tests.dll" \
+    \! -path "*/CSF.Screenplay.Reporting.*.Tests/bin/Debug/CSF.Screenplay.Reporting.Tests.dll" \
     )
   mono "$NUNIT_PATH" --result="UnitTests.xml" $test_assemblies
   stop_if_failure $? "Run unit tests"
