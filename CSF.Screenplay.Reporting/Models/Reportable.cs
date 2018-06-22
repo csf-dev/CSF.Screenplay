@@ -42,8 +42,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The reportables.</value>
     public IList<Reportable> Reportables
     {
-      get => reportables;
-      set => reportables = value ?? new List<Reportable>();
+      get { return reportables; }
+      set { reportables = value ?? new List<Reportable>(); }
     }
 
     IReadOnlyList<IReportable> IProvidesReportables.Reportables

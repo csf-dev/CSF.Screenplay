@@ -17,8 +17,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The feature name.</value>
     public IdAndName Name
     {
-      get => name;
-      set => name = value ?? new IdAndName();
+      get { return name; }
+      set { name = value ?? new IdAndName(); }
     }
 
     /// <summary>

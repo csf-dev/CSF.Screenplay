@@ -19,8 +19,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The scenario name.</value>
     public IdAndName Name
     {
-      get => name;
-      set => name = value ?? new IdAndName();
+      get { return name; }
+      set { name = value ?? new IdAndName(); }
     }
 
     /// <summary>
@@ -29,8 +29,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The feature.</value>
     public Feature Feature
     {
-      get => feature;
-      set => feature = value ?? new Feature();
+      get { return feature; }
+      set { feature = value ?? new Feature(); }
     }
 
     IFeature IScenario.Feature => Feature;
@@ -41,8 +41,8 @@ namespace CSF.Screenplay.Reporting.Models
     /// <value>The reportables.</value>
     public IList<Reportable> Reportables
     {
-      get => reportables;
-      set => reportables = value ?? new List<Reportable>();
+      get { return reportables; }
+      set { reportables = value ?? new List<Reportable>(); }
     }
 
     IReadOnlyList<IReportable> IProvidesReportables.Reportables
