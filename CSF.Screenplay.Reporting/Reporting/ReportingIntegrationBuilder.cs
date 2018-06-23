@@ -12,7 +12,8 @@ namespace CSF.Screenplay.Reporting
   {
     #region fields
 
-    IHandlesReportableEvents reporterToUse;
+    Func<IFormatsObjectForReport,IHandlesReportableEvents> reporterToUse;
+    IObservesScenarioCompletion scenarioCompletionObserver;
     string name, castName;
     bool subscribeToCastActorCreation, subscribeToCastActorAddition;
     readonly IObjectFormatingStrategyRegistry formatterRegistry;
@@ -30,7 +31,32 @@ namespace CSF.Screenplay.Reporting
       if(reporter == null)
         throw new ArgumentNullException(nameof(reporter));
 
-      reporterToUse = reporter;
+      reporterToUse = formatter => reporter;
+      return this;
+    }
+
+    /// <summary>
+    /// Indicates that a given reporter should be used throughout the test run.
+    /// </summary>
+    /// <param name="reporterFactory">A factory method for a reporter.</param>
+    public ReportingIntegrationBuilder WithReporter(Func<IFormatsObjectForReport,IHandlesReportableEvents> reporterFactory)
+    {
+      if(reporterFactory == null)
+        throw new ArgumentNullException(nameof(reporterFactory));
+
+      reporterToUse = reporterFactory;
+      return this;
+    }
+
+    /// <summary>
+    /// Indicates that when scenarios complete and their reports become available, the given object should render
+    /// their results.
+    /// </summary>
+    /// <returns>The scenario renderer.</returns>
+    /// <param name="renderer">Renderer.</param>
+    public ReportingIntegrationBuilder WithScenarioRenderer(IObservesScenarioCompletion renderer)
+    {
+      scenarioCompletionObserver = renderer;
       return this;
     }
 
@@ -124,17 +150,23 @@ namespace CSF.Screenplay.Reporting
 
     void RegisterReporter(IIntegrationConfigBuilder integration)
     {
-      var reporter = reporterToUse ?? new NoOpReportableEventHandler();
+      var reporter = reporterToUse ?? (formatter => new NoOpReportableEventHandler());
 
       integration.ServiceRegistrations.PerTestRun.Add(h => {
-        h.RegisterInstance(reporter).As<IHandlesReportableEvents>().WithName(name);
-        var observer = new DelegatingReportableEventObserver(reporter);
-        h.RegisterInstance(observer).As<IObservesReportableEvents>().WithName(name);
+        h.RegisterFactory(reporter).As<IHandlesReportableEvents>().WithName(name);
+        h.RegisterFactory(GetReportableEventObserverFactory()).As<IObservesReportableEvents>().WithName(name);
+        h.RegisterFactory(GetScenarioCompletionProviderFactory()).As<IExposesCompletedScenarios>().WithName(name);
 
-        if(reporter is IGetsReportModel)
-          h.RegisterInstance(reporter).As<IGetsReportModel>().WithName(name);
+        if(scenarioCompletionObserver != null)
+          h.RegisterInstance(scenarioCompletionObserver).As<IObservesScenarioCompletion>().WithName(name);
       });
     }
+
+    Func<IHandlesReportableEvents, DelegatingReportableEventObserver> GetReportableEventObserverFactory()
+      => handler => new DelegatingReportableEventObserver(handler);
+
+    Func<FlexDi.IResolvesServices,IExposesCompletedScenarios> GetScenarioCompletionProviderFactory()
+      => resolver => resolver.TryResolve<IHandlesReportableEvents>() as IExposesCompletedScenarios;
 
     void SubscribeToCast(IIntegrationConfigBuilder integration)
     {
@@ -163,10 +195,27 @@ namespace CSF.Screenplay.Reporting
 
     void SubscribeToBeginAndEndTestRun(IIntegrationConfigBuilder integration)
     {
-      integration.BeforeFirstScenario.Add((events, resolver) => {
-        var reporter = resolver.Resolve<IObservesReportableEvents>(name);
-        reporter.Subscribe(events);
-      });
+      integration.BeforeFirstScenario.Add(SubscribeObserverToReportEvents);
+      integration.BeforeFirstScenario.Add(SubscribeRendererToCompletedScenrios);
+    }
+
+    void SubscribeObserverToReportEvents(Scenarios.IProvidesTestRunEvents events,
+                                         FlexDi.IResolvesServices resolver)
+    {
+      var reporter = resolver.Resolve<IObservesReportableEvents>(name);
+      reporter.Subscribe(events);
+    }
+
+    void SubscribeRendererToCompletedScenrios(Scenarios.IProvidesTestRunEvents events,
+                                              FlexDi.IResolvesServices resolver)
+    {
+      var reportableScenarioProvider = resolver.TryResolve<IExposesCompletedScenarios>(name);
+      var scenarioRenderer = resolver.TryResolve<IObservesScenarioCompletion>(name);
+
+      if(reportableScenarioProvider == null || scenarioRenderer == null)
+        return;
+
+      scenarioRenderer.Subscribe(reportableScenarioProvider);
     }
 
     void SubscribeToScenario(IIntegrationConfigBuilder integration)
@@ -192,6 +241,7 @@ namespace CSF.Screenplay.Reporting
     public ReportingIntegrationBuilder()
     {
       formatterRegistry = new ObjectFormattingStrategyRegistry();
+      reporterToUse = formatter => new ReportBuildingReportableEventHandler(formatter);
     }
 
     #endregion

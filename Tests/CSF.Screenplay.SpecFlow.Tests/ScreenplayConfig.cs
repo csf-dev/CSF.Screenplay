@@ -15,19 +15,13 @@ namespace CSF.Screenplay.SpecFlow.Tests
         config
           .SubscribeToActorsCreatedInCast()
           .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
-        //  .WriteReport((formatter, report) => {
-        //  var path = "SpecFlow.report.txt";
-        //  TextReportWriter.WriteToFile(report, path, formatter);
-        //});
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.txt"))
           ;
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
         b.RegisterType<AddNumbers>();
       });
-
-      // TODO: Write this implementation
-      throw new System.NotImplementedException();
     }
   }
 }

@@ -18,26 +18,9 @@ namespace CSF.Screenplay.WebApis.Tests
           .SubscribeToActorsCreatedInCast()
           .WithFormattingStrategy<TimeoutExceptionFormatter>()
           .WithFormattingStrategy<WebApiExceptionFormatter>()
-          //.WriteReport(WriteReport)
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("JsonApis.report.txt"))
           ;
       });
-
-      // TODO: Write this implementation
-      throw new NotImplementedException();
     }
-
-    //void WriteReport(Report report)
-    //{
-    //  try
-    //  {
-    //    var path = "JsonApis.report.txt";
-    //    TextReportWriter.WriteToFile(report, path, formatter);
-    //  }
-    //  catch(Exception ex)
-    //  {
-    //    System.Console.WriteLine("Error writing the report");
-    //    Console.WriteLine(ex);
-    //  }
-    //}
   }
 }

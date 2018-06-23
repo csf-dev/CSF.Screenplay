@@ -183,5 +183,15 @@ namespace CSF.Screenplay.Reporting
       serializer = new JsonSerializer();
       scenarioTasks = new HashSet<Task>();
     }
+
+    /// <summary>
+    /// Creates an instance of <see cref="JsonScenarioRenderer"/> for writing to a given file path.
+    /// </summary>
+    /// <param name="path">Destination file path.</param>
+    public static JsonScenarioRenderer CreateForFile(string path)
+    {
+      var writer = new StreamWriter(path);
+      return new JsonScenarioRenderer(writer);
+    }
   }
 }
