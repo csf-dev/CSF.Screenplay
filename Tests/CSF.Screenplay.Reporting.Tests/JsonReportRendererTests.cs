@@ -26,10 +26,10 @@ namespace CSF.Screenplay.Reporting.Tests
     TextWriter GetReportOutput()
     {
       // Uncomment this line to write the report to a file instead of a throwaway string
-      return new StreamWriter("JsonReportRendererTests.json");
+      //return new StreamWriter("JsonReportRendererTests.json");
 
-      //var sb = new StringBuilder();
-      //return new StringWriter(sb);
+      var sb = new StringBuilder();
+      return new StringWriter(sb);
     }
   }
 }
