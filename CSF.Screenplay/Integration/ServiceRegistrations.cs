@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Integration
     /// 'root' container.
     /// </summary>
     /// <value>The per-test-run service registrations.</value>
-    public IList<Action<IRegistrationHelper>> PerTestRun => perScenario;
+    public IList<Action<IRegistrationHelper>> PerTestRun => perTestRun;
 
     /// <summary>
     /// Service resgirations which only have a per-scenario lifetime (they are disposed and recreated

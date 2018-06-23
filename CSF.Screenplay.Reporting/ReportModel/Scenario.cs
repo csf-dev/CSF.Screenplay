@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace CSF.Screenplay.ReportModel
 {
@@ -52,6 +53,7 @@ namespace CSF.Screenplay.ReportModel
     /// Gets or sets the outcome for the test scenario.
     /// </summary>
     /// <value>The outcome.</value>
+    [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public ScenarioOutcome Outcome { get; set; }
 
     /// <summary>

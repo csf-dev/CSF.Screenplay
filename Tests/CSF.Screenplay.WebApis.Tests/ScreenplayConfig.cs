@@ -18,7 +18,7 @@ namespace CSF.Screenplay.WebApis.Tests
           .SubscribeToActorsCreatedInCast()
           .WithFormattingStrategy<TimeoutExceptionFormatter>()
           .WithFormattingStrategy<WebApiExceptionFormatter>()
-          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("JsonApis.report.txt"))
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("JsonApis.report.json"))
           ;
       });
     }

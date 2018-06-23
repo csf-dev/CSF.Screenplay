@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Actors;
+using Newtonsoft.Json;
 
 namespace CSF.Screenplay.ReportModel
 {
@@ -28,12 +29,14 @@ namespace CSF.Screenplay.ReportModel
     /// Gets the category (given/when/then) of the reportable represented by the current instance.
     /// </summary>
     /// <value>The reportable category.</value>
+    [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public ReportableCategory Category { get; set; }
 
     /// <summary>
     /// Gets type of reportable represented by the current instance.
     /// </summary>
     /// <value>The reportable type.</value>
+    [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public ReportableType Type { get; set; }
 
     /// <summary>

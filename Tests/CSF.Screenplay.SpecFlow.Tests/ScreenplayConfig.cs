@@ -15,7 +15,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
         config
           .SubscribeToActorsCreatedInCast()
           .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
-          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.txt"))
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.json"))
           ;
       });
 

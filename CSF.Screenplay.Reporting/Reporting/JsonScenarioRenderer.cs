@@ -116,19 +116,23 @@ namespace CSF.Screenplay.Reporting
 
     void WriteReportFooter()
     {
+      if(!hasWrittenHeader)
+        WriteReportHeader();
+
       jsonWriter.WriteEndArray();
       jsonWriter.WritePropertyName(nameof(Report.Timestamp));
       jsonWriter.WriteValue(DateTime.UtcNow);
       jsonWriter.WriteEndObject();
+
+      jsonWriter.Flush();
     }
 
     void WriteScenarioLocked(Scenario scenario)
     {
-      if(hasWrittenHeader)
+      if(!hasWrittenHeader)
         WriteReportHeader();
 
       serializer.Serialize(jsonWriter, scenario);
-      writer.Flush();
     }
 
     #region IDisposable Support
