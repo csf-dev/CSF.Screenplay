@@ -54,7 +54,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// <param name="report">The Screenplay report to render.</param>
     /// <param name="formattingService">A formatting service.</param>
     /// <param name="document">The ZPT document.</param>
-    public ReportDocument(Report report,
+    public ReportDocument(IReport report,
                           IObjectFormattingService formattingService,
                           IZptDocument document)
     {

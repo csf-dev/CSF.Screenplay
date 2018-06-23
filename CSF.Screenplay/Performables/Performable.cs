@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Performables
     /// <param name="actor">The actor performing this task.</param>
     protected abstract void PerformAs(IPerformer actor);
 
-    string IReportable.GetReport(INamed actor)
+    string IProvidesReport.GetReport(INamed actor)
     {
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));

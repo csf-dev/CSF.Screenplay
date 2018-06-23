@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.Screenplay.Reporting.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -34,38 +35,38 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class ScenarioModel
   {
-    readonly Scenario scenario;
+    readonly IProvidesScenarioMetadata scenario;
     readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Gets the unique identifier name of the scenario.
     /// </summary>
     /// <value>The identifier.</value>
-    public virtual string Id => scenario.Id;
+    public virtual string Id => scenario.Name.Id;
 
     /// <summary>
     /// Gets a value indicating whether the <see cref="Id"/> should be displayed.
     /// </summary>
     /// <value><c>true</c> if the scenario identifier should be displayed; otherwise, <c>false</c>.</value>
-    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !scenario.IsScenarioIdGenerated;
+    public bool ShouldDisplayId => scenario.GetScenarioIdIfMeaningful() != null;
 
     /// <summary>
     /// Gets the name of the scenario.
     /// </summary>
     /// <value>The scenario name.</value>
-    public virtual string FriendlyName => scenario.FriendlyName;
+    public virtual string FriendlyName => scenario.GetPrintableScenarioName();
 
     /// <summary>
     /// Gets the name of the feature.
     /// </summary>
     /// <value>The feature name.</value>
-    public virtual string FeatureName => scenario.FeatureName;
+    public virtual string FeatureName => scenario.GetPrintableFeatureName();
 
     /// <summary>
     /// Gets the identifier for the feature.
     /// </summary>
     /// <value>The feature identifier.</value>
-    public virtual string FeatureId => scenario.FeatureId;
+    public virtual string FeatureId => scenario.Feature.Name.Id;
 
     /// <summary>
     /// Gets the contained reportables.
@@ -123,14 +124,14 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <param name="scenario">Scenario.</param>
     /// <param name="formattingService">Formatting service.</param>
-    public ScenarioModel(Scenario scenario, IObjectFormattingService formattingService)
+    public ScenarioModel(IScenario scenario, IObjectFormattingService formattingService)
     {
       if(formattingService == null)
         throw new ArgumentNullException(nameof(formattingService));
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
 
-      this.scenario = scenario;
+      this.scenario = new ScenarioMetadataAdapter(scenario);
       this.formattingService = formattingService;
     }
   }

@@ -37,7 +37,7 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class ReportableModel
   {
-    readonly Reportable reportable;
+    readonly IReportable reportable;
     readonly IObjectFormattingService formattingService;
 
     #region common to all reportables
@@ -46,7 +46,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the actor.
     /// </summary>
     /// <value>The actor.</value>
-    public virtual INamed Actor => reportable.Actor;
+    public virtual string ActorName => reportable.ActorName;
 
     /// <summary>
     /// Gets the type of the performance.
@@ -55,8 +55,8 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual string PerformanceType
     {
       get {
-        if(reportable.PerformanceType != Models.PerformanceType.Unspecified)
-          return reportable.PerformanceType.ToString();
+        if(reportable.Category.IsDefinedValue())
+          return reportable.Category.ToString();
 
         return String.Empty;
       }
@@ -66,17 +66,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the outcome of the reported-upon action.
     /// </summary>
     /// <value>The outcome.</value>
-    public virtual PerformanceOutcome Outcome => reportable.Outcome;
-
-    #endregion
-
-    #region abilities
-
-    /// <summary>
-    /// Gets reportable as a <see cref="GainAbility"/> instance.
-    /// </summary>
-    /// <value>The gain ability.</value>
-    protected GainAbility GainAbility => reportable as GainAbility;
+    public virtual ReportableType Outcome => reportable.Type;
 
     #endregion
 
@@ -87,25 +77,26 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The reportables.</value>
     public virtual IReadOnlyList<ReportableModel> Reportables
-      => Performance?.Reportables.Select(x => new ReportableModel(x, formattingService)).ToArray();
+      => reportable.Reportables.Select(x => new ReportableModel(x, formattingService)).ToArray();
 
     /// <summary>
     /// Gets a value indicating whether this performance has any child reportables or not.
     /// </summary>
     /// <value><c>true</c> if this performance has child reportables; otherwise, <c>false</c>.</value>
-    public virtual bool HasReportables => (Performance?.HasReportables).GetValueOrDefault();
+    public virtual bool HasReportables => reportable.Reportables.Any();
 
     /// <summary>
     /// Gets a value indicating whether this performance has a result.
     /// </summary>
     /// <value><c>true</c> if this performance has a result; otherwise, <c>false</c>.</value>
-    public virtual bool HasResult => (Performance?.HasResult).GetValueOrDefault();
+    public virtual bool HasResult => reportable.Type == ReportableType.SuccessWithResult;
 
     /// <summary>
     /// Gets a value indicating whether this performance has an exception.
     /// </summary>
     /// <value><c>true</c> if this performance has an exception; otherwise, <c>false</c>.</value>
-    public virtual bool HasException => (Performance?.HasException).GetValueOrDefault();
+    public virtual bool HasException
+      => reportable.Type == ReportableType.FailureWithError && reportable.Error != null;
 
     /// <summary>
     /// Gets a value indicating whether this performance has an exception and has no children.
@@ -118,25 +109,20 @@ namespace CSF.Screenplay.Reporting.Models
     /// exception).
     /// </summary>
     /// <value><c>true</c> if this performance has additional content; otherwise, <c>false</c>.</value>
-    public virtual bool HasAdditionalContent => (Performance?.HasAdditionalContent).GetValueOrDefault();
+    public virtual bool HasAdditionalContent
+      => HasReportables || HasResult || HasException;
 
     /// <summary>
     /// Gets the result received from the performable.
     /// </summary>
     /// <value>The result.</value>
-    public virtual object Result => Performance.Result;
+    public virtual string Result => reportable.Result;
 
     /// <summary>
     /// Gets an exception raised by the performable.
     /// </summary>
     /// <value>The exception.</value>
-    public virtual object Error => Performance.Error;
-
-    /// <summary>
-    /// Gets the reportable as a <see cref="Performance"/> instance.
-    /// </summary>
-    /// <value>The performance.</value>
-    protected Performance Performance => reportable as Performance;
+    public virtual string Error => reportable.Error;
 
     #endregion
 
@@ -148,10 +134,10 @@ namespace CSF.Screenplay.Reporting.Models
     /// <returns>The reportable's outcome class.</returns>
     public string GetOutcomeClass()
     {
-      switch(reportable.Outcome)
+      switch(reportable.Type)
       {
-      case PerformanceOutcome.Success:
-      case PerformanceOutcome.SuccessWithResult:
+      case ReportableType.Success:
+      case ReportableType.SuccessWithResult:
         return GetOutcomeClass(true, false);
 
       default:
@@ -165,13 +151,10 @@ namespace CSF.Screenplay.Reporting.Models
     /// <returns>The reportable class.</returns>
     public string GetReportableClass()
     {
-      if(reportable is GainAbility)
+      if(reportable.Type == ReportableType.GainAbility)
         return ReportConstants.AbilityClass;
 
-      if(reportable is Performance)
-        return ReportConstants.PerformanceClass;
-
-      return String.Empty;
+      return ReportConstants.PerformanceClass;
     }
 
     /// <summary>
@@ -187,30 +170,13 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the string report for an ability.
     /// </summary>
     /// <returns>The ability report.</returns>
-    public string GetAbilityReport() => GainAbility?.Report ?? String.Empty;
+    public string GetAbilityReport() => reportable.Report;
 
     /// <summary>
     /// Gets the string report for a performance.
     /// </summary>
     /// <returns>The performance report.</returns>
-    public string GetPerformanceReport() => Performance?.Report ?? String.Empty;
-
-    /// <summary>
-    /// Gets the name of the METAL macro to use for rendering the specified reportable.
-    /// </summary>
-    /// <returns>The macro name.</returns>
-    public string GetMacroName()
-    {
-      if(reportable == null) return null;
-
-      if(reportable is GainAbility)
-        return GetMacroName((GainAbility) reportable);
-
-      if(reportable is Performance)
-        return GetMacroName((Performance) reportable);
-
-      return null;
-    }
+    public string GetPerformanceReport() => reportable.Report;
 
     /// <summary>
     /// Formats a given object using a formatting service.
@@ -220,39 +186,29 @@ namespace CSF.Screenplay.Reporting.Models
     /// <summary>
     /// Formats a given object using a formatting service.
     /// </summary>
-    public string GetFormattedException()
-    {
-      if(!CanFormatException()) return null;
-
-      var reportableError = Error as IReportable;
-      if(reportableError != null)
-        return reportableError.GetReport(Actor);
-
-      return formattingService.Format(Error);
-    }
+    public string GetFormattedException() => Error;
 
     /// <summary>
     /// Gets a value indicating whether or not an exception can be formatted.
     /// </summary>
     /// <returns><c>true</c>, if exception can be formatted, <c>false</c> otherwise.</returns>
-    public bool CanFormatException()
-    {
-      if(Error == null) return false;
-      if(Error is IReportable) return true;
-      if(formattingService.HasExplicitSupport(Error)) return true;
-      return false;
-    }
+    public bool CanFormatException() => false;
 
-    string GetMacroName(GainAbility ability) => ReportConstants.AbilityMacro;
-
-    string GetMacroName(Performance performance)
+    /// <summary>
+    /// Gets the name of the METAL macro to use for rendering the specified reportable.
+    /// </summary>
+    /// <returns>The macro name.</returns>
+    public string GetMacroName()
     {
-      switch(performance.Outcome)
+      switch(reportable.Type)
       {
-      case PerformanceOutcome.SuccessWithResult:
+      case ReportableType.GainAbility:
+        return ReportConstants.AbilityMacro;
+
+      case ReportableType.SuccessWithResult:
         return ReportConstants.PerformanceWithResultMacro;
 
-      case PerformanceOutcome.FailureWithException:
+      case ReportableType.FailureWithError:
         return ReportConstants.PerformanceWithExceptionMacro;
 
       default:
@@ -274,7 +230,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <param name="reportable">Reportable.</param>
     /// <param name="formattingService">Formatting service.</param>
-    public ReportableModel(Reportable reportable, IObjectFormattingService formattingService)
+    public ReportableModel(IReportable reportable, IObjectFormattingService formattingService)
     {
       if(formattingService == null)
         throw new ArgumentNullException(nameof(formattingService));

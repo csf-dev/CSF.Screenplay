@@ -8,18 +8,18 @@ using Ploeh.AutoFixture.Kernel;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class PerformanceSpecimenBuilder : ISpecimenBuilder
+  public class ReportableSpecimenBuilder : ISpecimenBuilder
   {
     public object Create(object request, ISpecimenContext context)
     {
       var type = request as Type;
       if(type == null) return new NoSpecimen();
-      if(!typeof(Performance).IsAssignableFrom(type)) return new NoSpecimen();
+      if(!typeof(Reportable).IsAssignableFrom(type)) return new NoSpecimen();
         
       return CreatePerformance(context);
     }
 
-    Performance CreatePerformance(ISpecimenContext context)
+    Reportable CreatePerformance(ISpecimenContext context)
     {
       var category = SelectPerformanceCategory();
       switch(category)
@@ -33,69 +33,85 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       case PerformanceCategory.SuccessWithChildren:
         return CreateSuccessPerformanceWithChildren(context);
 
+      case PerformanceCategory.GainAbility:
+        return CreateGainAbility(context);
+
       default:
         return CreateSuccessPerformance(context);
       }
     }
 
-    Performance CreateSuccessPerformance(ISpecimenContext context)
+    Reportable CreateSuccessPerformance(ISpecimenContext context)
     {
-      return CreatePerformance(context,
-                               PerformanceOutcome.Success);
+      return CreateReportable(context,
+                               ReportableType.Success);
     }
 
-    Performance CreateSuccessPerformanceWithChildren(ISpecimenContext context)
+    Reportable CreateSuccessPerformanceWithChildren(ISpecimenContext context)
     {
       var howManyChildren = ScenarioCustomisation.Randomiser.Next(1, 5);
       var children = Enumerable.Range(0, howManyChildren)
-                               .Select(x => context.Resolve(typeof(Performance)))
-                               .Cast<Performance>()
+                               .Select(x => context.Resolve(typeof(Reportable)))
+                               .Cast<Reportable>()
                                .ToArray();
-      return CreatePerformance(context,
-                               PerformanceOutcome.Success,
+      return CreateReportable(context,
+                               ReportableType.Success,
                                children: children);
     }
 
-    Performance CreateSuccessPerformanceWithResult(ISpecimenContext context)
+    Reportable CreateSuccessPerformanceWithResult(ISpecimenContext context)
     {
-      return CreatePerformance(context,
-                               PerformanceOutcome.SuccessWithResult,
+      return CreateReportable(context,
+                               ReportableType.SuccessWithResult,
                                context.Resolve(typeof(Guid)));
     }
 
-    Performance CreateFailurePerformance(ISpecimenContext context)
+    Reportable CreateFailurePerformance(ISpecimenContext context)
     {
-      return CreatePerformance(context,
-                               PerformanceOutcome.FailureWithException,
+      return CreateReportable(context,
+                               ReportableType.FailureWithError,
                                exception: (Exception) context.Resolve(typeof(Exception)));
     }
 
-    Performance CreatePerformance(ISpecimenContext context,
-                                  PerformanceOutcome outcome,
+    Reportable CreateGainAbility(ISpecimenContext context)
+    {
+      return CreateReportable(context, ReportableType.GainAbility);
+    }
+
+    Reportable CreateReportable(ISpecimenContext context,
+                                ReportableType reportableType,
                                   object result = null,
                                   Exception exception = null,
                                   IList<Reportable> children = null)
     {
       var actor = (INamed) context.Resolve(typeof(INamed));
-      var performable = (IPerformable) context.Resolve(typeof(IPerformable));
-      var performanceType = SelectPerformanceType();
+      var category = SelectReportableCategory();
 
-      return new Performance(actor, outcome, performable, performanceType, result, exception, children);
+      return new Reportable {
+        ActorName = actor.Name,
+        Category = category,
+        Error = exception?.ToString(),
+        Type = reportableType,
+        Report = (string) context.Resolve(typeof(string)),
+        Reportables = children,
+        Result = result?.ToString(),
+      };
     }
 
-    PerformanceType SelectPerformanceType()
+    ReportableCategory SelectReportableCategory()
     {
       var randomNumber = ScenarioCustomisation.Randomiser.Next(0, 3);
-      if(randomNumber == 0) return PerformanceType.Given;
-      if(randomNumber == 1) return PerformanceType.When;
-      return PerformanceType.Then;
+      if(randomNumber == 0) return ReportableCategory.Given;
+      if(randomNumber == 1) return ReportableCategory.When;
+      return ReportableCategory.Then;
     }
 
     PerformanceCategory SelectPerformanceCategory()
     {
       var randomNumber = ScenarioCustomisation.Randomiser.Next(0, 10);
 
-      if(randomNumber < 5) return PerformanceCategory.Success;
+      if(randomNumber < 4) return PerformanceCategory.Success;
+      if(randomNumber < 5) return PerformanceCategory.GainAbility;
       if(randomNumber < 7) return PerformanceCategory.SuccessWithResult;
       if(randomNumber < 9) return PerformanceCategory.SuccessWithChildren;
       return PerformanceCategory.FailureWithException;
@@ -106,7 +122,8 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       Success,
       SuccessWithChildren,
       SuccessWithResult,
-      FailureWithException
+      FailureWithException,
+      GainAbility
     }
   }
 }

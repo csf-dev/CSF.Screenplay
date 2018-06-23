@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Reporting
   /// <summary>
   /// Indicates a type which can provide a human-readable report text indicating its nature.
   /// </summary>
-  public interface IReportable
+  public interface IProvidesReport
   {
     /// <summary>
     /// Gets the report of the current instance, for the given actor.

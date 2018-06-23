@@ -9,12 +9,76 @@ namespace CSF.Screenplay.Reporting.Builders
   /// <summary>
   /// Builder type for the reporting on a single Screenplay Scenario.
   /// </summary>
-  public class ScenarioBuilder
+  public class ScenarioBuilder : IBuildsScenario
   {
     readonly Scenario scenario;
-    readonly Stack<PerformanceBuilder> builderStack;
-    PerformanceType currentPerformanceType;
+    readonly Stack<ReportableBuilder> builderStack;
+    ReportableCategory currentPerformanceType;
     bool finalised;
+
+    /// <summary>
+    /// Gets or sets the scenario identifier.
+    /// </summary>
+    /// <value>The scenario identifier.</value>
+    public string ScenarioIdName
+    {
+      get { return scenario.Name.Id; }
+      set { scenario.Name.Id = value; }
+    }
+
+    /// <summary>
+    /// Gets or sets the scenario friendly name.
+    /// </summary>
+    /// <value>The scenario friendly name.</value>
+    public string ScenarioFriendlyName
+    {
+      get { return scenario.Name.Name; }
+      set { scenario.Name.Name = value; }
+    }
+
+    /// <summary>
+    /// Gets a value which indicates whether or not the <see cref="P:CSF.Screenplay.Reporting.Builders.IBuildsScenario.ScenarioIdName" /> was auto-generated (and therefore
+    /// meaningless).
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the scenario identifier is generated; otherwise, <c>false</c>.</value>
+    public bool ScenarioIdIsGenerated
+    {
+      get { return scenario.Name.IsIdGenerated; }
+      set { scenario.Name.IsIdGenerated = value; }
+    }
+
+    /// <summary>
+    /// Gets or sets the feature identifier.
+    /// </summary>
+    /// <value>The feature identifier.</value>
+    public string FeatureIdName
+    {
+      get { return scenario.Feature.Name.Id; }
+      set { scenario.Feature.Name.Id = value; }
+    }
+
+    /// <summary>
+    /// Gets or sets the feature friendly name.
+    /// </summary>
+    /// <value>The feature friendly name.</value>
+    public string FeatureFriendlyName
+    {
+      get { return scenario.Feature.Name.Name; }
+      set { scenario.Feature.Name.Name = value; }
+    }
+
+    /// <summary>
+    /// Gets a value which indicates whether or not the <see cref="P:CSF.Screenplay.Reporting.Builders.IBuildsScenario.FeatureIdName" /> was auto-generated (and therefore
+    /// meaningless).
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the feature identifier is generated; otherwise, <c>false</c>.</value>
+    public bool FeatureIdIsGenerated
+    {
+      get { return scenario.Name.IsIdGenerated; }
+      set { scenario.Name.IsIdGenerated = value; }
+    }
 
     /// <summary>
     /// Finalise the current scenario, recording whether or not it was a success.
@@ -26,6 +90,13 @@ namespace CSF.Screenplay.Reporting.Builders
       finalised = true;
       scenario.Outcome = outcome;
     }
+
+    /// <summary>
+    /// Gets a value which indicates if the scenario is finalised or not.
+    /// </summary>
+    /// <returns>
+    /// <c>true</c>, if the scenario is finalised, <c>false</c> otherwise.</returns>
+    public bool IsFinalised() => finalised;
 
     /// <summary>
     /// Gets the underlying scenario report model.
@@ -41,7 +112,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void BeginPerformance(INamed actor, Performables.IPerformable performable)
     {
       EnsureNotFinalised();
-      var builder = new PerformanceBuilder {
+      var builder = new ReportableBuilder {
         Performable = performable,
         Actor = actor,
         PerformanceType = currentPerformanceType,
@@ -53,7 +124,7 @@ namespace CSF.Screenplay.Reporting.Builders
     /// Begins reporting of a performance of a given type.
     /// </summary>
     /// <param name="performanceType">Performance type.</param>
-    public void BeginPerformanceType(PerformanceType performanceType)
+    public void BeginPerformanceCategory(ReportableCategory performanceType)
     {
       EnsureNotFinalised();
       performanceType.RequireDefinedValue(nameof(performanceType));
@@ -103,10 +174,10 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Ends the performance of the current type.
     /// </summary>
-    public void EndPerformanceType()
+    public void EndPerformanceCategory()
     {
       EnsureNotFinalised();
-      currentPerformanceType = PerformanceType.Unspecified;
+      currentPerformanceType = 0;
     }
 
     /// <summary>
@@ -117,8 +188,13 @@ namespace CSF.Screenplay.Reporting.Builders
     public void GainAbility(INamed actor, IAbility ability)
     {
       EnsureNotFinalised();
-      var item = new GainAbility(actor, PerformanceOutcome.Success, ability, currentPerformanceType);
-      AddReportable(item);
+
+      AddReportable(new Reportable {
+        ActorName = actor.Name,
+        Type = ReportableType.GainAbility,
+        Report = ability.GetReport(actor),
+        Category = currentPerformanceType,
+      });
     }
 
     void EnsureNotFinalised()
@@ -139,11 +215,11 @@ namespace CSF.Screenplay.Reporting.Builders
     void FinalisePerformance(Performables.IPerformable performable)
     {
       var builder = PopCurrentBuilder(performable);
-      var performance = builder.GetPerformance();
+      var performance = builder.GetReportable();
       AddReportable(performance);
     }
 
-    void AddPerformanceBuilder(PerformanceBuilder builder)
+    void AddPerformanceBuilder(ReportableBuilder builder)
     {
       if(builder == null)
         throw new ArgumentNullException(nameof(builder));
@@ -151,13 +227,13 @@ namespace CSF.Screenplay.Reporting.Builders
       builderStack.Push(builder);
     }
 
-    PerformanceBuilder PopCurrentBuilder(Performables.IPerformable expectedPerformable)
+    ReportableBuilder PopCurrentBuilder(Performables.IPerformable expectedPerformable)
     {
       PeekCurrentBuilder(expectedPerformable);
       return builderStack.Pop();
     }
 
-    PerformanceBuilder PeekCurrentBuilder(Performables.IPerformable expectedPerformable = null)
+    ReportableBuilder PeekCurrentBuilder(Performables.IPerformable expectedPerformable = null)
     {
       if(builderStack.Count == 0 && expectedPerformable == null)
         return null;
@@ -165,7 +241,7 @@ namespace CSF.Screenplay.Reporting.Builders
       {
         var message = String.Format(Resources.ExceptionFormats.PerformableWasRequiredInBuilderStack,
                                     nameof(Performables.IPerformable),
-                                    nameof(PerformanceBuilder));
+                                    nameof(ReportableBuilder));
         throw new InvalidOperationException(message);
       }
         
@@ -179,7 +255,7 @@ namespace CSF.Screenplay.Reporting.Builders
       {
         var message = String.Format(Resources.ExceptionFormats.PerformableDoesNotMatchExpectedPerformance,
                                     nameof(Performables.IPerformable),
-                                    nameof(PerformanceBuilder));
+                                    nameof(ReportableBuilder));
         throw new ArgumentException(message, nameof(expectedPerformable));
       }
 
@@ -198,26 +274,10 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <summary>
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Builders.ScenarioBuilder"/> class.
     /// </summary>
-    /// <param name="idName">Identifier name.</param>
-    /// <param name="friendlyName">Friendly name.</param>
-    /// <param name="featureName">Feature name.</param>
-    /// <param name="featureId">Feature identifier.</param>
-    /// <param name="scenarioIdIsGenerated">Indicates whether <paramref name="idName"/> is auto-generated or not</param>
-    /// <param name="featureIdIsGenerated">Indicates whether <paramref name="featureId"/> is auto-generated or not</param>
-    public ScenarioBuilder(string idName,
-                           string friendlyName,
-                           string featureName,
-                           string featureId,
-                           bool scenarioIdIsGenerated = false,
-                           bool featureIdIsGenerated = false)
+    public ScenarioBuilder()
     {
-      builderStack = new Stack<PerformanceBuilder>();
-      scenario = new Scenario(idName,
-                              friendlyName,
-                              featureName,
-                              featureId,
-                              scenarioIdIsGenerated,
-                              featureIdIsGenerated);
+      builderStack = new Stack<ReportableBuilder>();
+      scenario = new Scenario();
     }
   }
 }

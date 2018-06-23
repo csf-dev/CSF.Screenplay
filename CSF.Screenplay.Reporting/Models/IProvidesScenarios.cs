@@ -1,5 +1,5 @@
 ﻿//
-// ActorName.cs
+// IProvidesScenarios.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,26 +24,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Collections.Generic;
+
 namespace CSF.Screenplay.Reporting.Models
 {
   /// <summary>
-  /// A small DTO type which represents an actor name.
+  /// An object which has a collection of <see cref="IScenario"/>.
   /// </summary>
-  public class ActorName : Actors.INamed
+  public interface IProvidesScenarios
   {
     /// <summary>
-    /// Gets the name.
+    /// Gets the scenarios.
     /// </summary>
-    /// <value>The name.</value>
-    public string Name { get; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ActorName"/> class.
-    /// </summary>
-    /// <param name="name">Name.</param>
-    public ActorName(string name)
-    {
-      Name = name;
-    }
+    /// <value>The scenarios.</value>
+    IEnumerable<IScenario> Scenarios { get; }
   }
 }

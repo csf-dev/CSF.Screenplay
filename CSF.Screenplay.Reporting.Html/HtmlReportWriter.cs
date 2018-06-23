@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Reporting
     /// Write the specified report to the destination.
     /// </summary>
     /// <param name="report">Report model.</param>
-    public void Write(Report report)
+    public void Write(IReport report)
     {
       var doc = GetDocument();
       var emptyDoc = GetDocument();
@@ -52,7 +52,7 @@ namespace CSF.Screenplay.Reporting
       }
     }
 
-    ReportDocument GetDocumentModel(Report reportModel, IZptDocument document)
+    ReportDocument GetDocumentModel(IReport reportModel, IZptDocument document)
       => new ReportDocument(reportModel, formattingService, document);
 
     Stream GetDocumentStream()

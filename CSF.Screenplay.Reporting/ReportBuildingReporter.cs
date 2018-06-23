@@ -33,8 +33,8 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioName">The scenario name.</param>
     /// <param name="featureName">The feature name.</param>
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
-    protected override void BeginNewScenario(IdAndName scenarioName,
-                                             IdAndName featureName,
+    protected override void BeginNewScenario(Scenarios.IdAndName scenarioName,
+                                             Scenarios.IdAndName featureName,
                                              Guid scenarioIdentity)
     {
       builder.BeginNewScenario(scenarioName?.Identity,
@@ -73,7 +73,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginGiven(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.BeginPerformanceType(Models.PerformanceType.Given, scenarioIdentity);
+      builder.BeginPerformanceCategory(Models.ReportableCategory.Given, scenarioIdentity);
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndGiven(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.EndPerformanceType(scenarioIdentity);
+      builder.EndPerformanceCategory(scenarioIdentity);
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginWhen(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.BeginPerformanceType(Models.PerformanceType.When, scenarioIdentity);
+      builder.BeginPerformanceCategory(Models.ReportableCategory.When, scenarioIdentity);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndWhen(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.EndPerformanceType(scenarioIdentity);
+      builder.EndPerformanceCategory(scenarioIdentity);
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void BeginThen(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.BeginPerformanceType(Models.PerformanceType.Then, scenarioIdentity);
+      builder.BeginPerformanceCategory(Models.ReportableCategory.Then, scenarioIdentity);
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="scenarioIdentity">The screenplay scenario identity.</param>
     protected override void EndThen(Actors.INamed actor, Guid scenarioIdentity)
     {
-      builder.EndPerformanceType(scenarioIdentity);
+      builder.EndPerformanceCategory(scenarioIdentity);
     }
 
     /// <summary>

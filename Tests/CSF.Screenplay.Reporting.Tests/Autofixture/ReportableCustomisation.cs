@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Linq;
 using CSF.Screenplay.Reporting.Models;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Kernel;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
-  public class PerformanceCustomisation : ICustomization
+  public class ReportableCustomisation : ICustomization
   {
     readonly ISpecimenBuilder performanceBuilder;
 
     public void Customize(IFixture fixture)
     {
-      fixture.Customize<Performance>(builder => builder.FromFactory(performanceBuilder));
+      fixture.Customizations.Insert(0, performanceBuilder);
     }
 
-    public PerformanceCustomisation()
+    public ReportableCustomisation()
     {
-      performanceBuilder = new PerformanceSpecimenBuilder();
+      performanceBuilder = new ReportableSpecimenBuilder();
     }
   }
 }

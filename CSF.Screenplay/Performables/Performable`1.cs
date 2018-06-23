@@ -50,7 +50,7 @@ namespace CSF.Screenplay.Performables
       return PerformAs(actor);
     }
 
-    string IReportable.GetReport(INamed actor)
+    string IProvidesReport.GetReport(INamed actor)
     {
       if(actor == null)
         throw new ArgumentNullException(nameof(actor));

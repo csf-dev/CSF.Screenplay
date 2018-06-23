@@ -43,17 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Feature.cs" />
-    <Compile Include="Models\IReportFactory.cs" />
-    <Compile Include="Models\ReportFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IReporter.cs" />
     <Compile Include="NoOpReporter.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Scenario.cs" />
-    <Compile Include="Models\Performance.cs" />
-    <Compile Include="Models\PerformanceType.cs" />
-    <Compile Include="Models\PerformanceOutcome.cs" />
-    <Compile Include="Models\GainAbility.cs" />
+    <Compile Include="Models\ReportableCategory.cs" />
+    <Compile Include="Models\ReportableType.cs" />
     <Compile Include="Models\Reportable.cs" />
     <Compile Include="Trace\TraceConstants.cs" />
     <Compile Include="Trace\AbilityReport.cs" />
@@ -66,7 +62,7 @@
     <Compile Include="Trace\SuccessReport.cs" />
     <Compile Include="Trace\TraceReporter.cs" />
     <Compile Include="ReportBuildingReporter.cs" />
-    <Compile Include="Builders\PerformanceBuilder.cs" />
+    <Compile Include="Builders\ReportableBuilder.cs" />
     <Compile Include="Builders\ReportBuilder.cs" />
     <Compile Include="IModelBuildingReporter.cs" />
     <Compile Include="IReportWriter.cs" />
@@ -85,7 +81,27 @@
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ActorName.cs" />
+    <Compile Include="Models\IdAndName.cs" />
+    <Compile Include="Adapters\HierarchicalReportAdapter.cs" />
+    <Compile Include="Models\IProvidesScenarios.cs" />
+    <Compile Include="Adapters\HierarchicalFeature.cs" />
+    <Compile Include="Models\IProvidesIdAndName.cs" />
+    <Compile Include="Adapters\IProvidesHierarchicalFeatures.cs" />
+    <Compile Include="Models\IProvidesReportables.cs" />
+    <Compile Include="Models\IScenario.cs" />
+    <Compile Include="Models\IReport.cs" />
+    <Compile Include="Models\IReportable.cs" />
+    <Compile Include="Models\IFeature.cs" />
+    <Compile Include="Adapters\IHierarchicalFeature.cs" />
+    <Compile Include="Adapters\IProvidesScenarioMetadata.cs" />
+    <Compile Include="Adapters\ScenarioMetadataAdapter.cs" />
+    <Compile Include="Builders\IBuildsReports.cs" />
+    <Compile Include="Builders\IBuildsScenario.cs" />
+    <Compile Include="Builders\ScenarioHasNotBegunException.cs" />
+    <Compile Include="Builders\ScenarioHasBegunAlreadyException.cs" />
+    <Compile Include="Builders\ScenarioHasBegunAlreadyException %28copy%29.cs" />
+    <Compile Include="Builders\IGetsReport.cs" />
+    <Compile Include="Builders\ReportFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">
@@ -98,6 +114,7 @@
     <Folder Include="Trace\" />
     <Folder Include="Builders\" />
     <Folder Include="Resources\" />
+    <Folder Include="Adapters\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

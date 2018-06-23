@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Reporting
     /// Write the specified report to the destination.
     /// </summary>
     /// <param name="reportModel">Report model.</param>
-    public void Write(Report reportModel)
+    public void Write(IReport reportModel)
     {
       serializer.Serialize(writer, reportModel);
     }
@@ -66,7 +66,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="report">The report.</param>
     /// <param name="path">Destination file path.</param>
-    public static void WriteToFile(Report report, string path)
+    public static void WriteToFile(IReport report, string path)
     {
       using(var writer = new StreamWriter(path))
       {

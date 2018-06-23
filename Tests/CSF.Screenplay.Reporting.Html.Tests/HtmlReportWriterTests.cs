@@ -29,44 +29,6 @@ namespace CSF.Screenplay.Reporting.Html.Tests
       }
     }
 
-    [Test,AutoMoqData,Description("Reproduces #131")]
-    public void Write_does_not_crash_when_using_ability_with_no_public_methods([RandomReport] Report report,
-                                                                               [StringFormat] IObjectFormattingService formatService,
-                                                                               IActor actor,
-                                                                               PerformanceOutcome outcome)
-    {
-      // Arrange
-      var ability = new AbilityWithOnlyExplicitInterfaceImplementations();
-      report.Scenarios.First().Reportables.Add(new GainAbility(actor, outcome, ability));
-
-      using(var writer = GetReportOutput())
-      {
-        var sut = new HtmlReportWriter(writer, formatService);
-
-        // Act & assert
-        Assert.DoesNotThrow(() => sut.Write(report));
-      }
-    }
-
-    [Test,AutoMoqData,Description("Reproduces #131")]
-    public void Write_does_not_crash_when_using_performance_with_no_public_methods([RandomReport] Report report,
-                                                                                   [StringFormat] IObjectFormattingService formatService,
-                                                                                   IActor actor,
-                                                                                   PerformanceOutcome outcome)
-    {
-      // Arrange
-      var performable = new PerformableWithOnlyExplicitInterfaceImplementations();
-      report.Scenarios.First().Reportables.Add(new Performance(actor, outcome, performable));
-
-      using(var writer = GetReportOutput())
-      {
-        var sut = new HtmlReportWriter(writer, formatService);
-
-        // Act & assert
-        Assert.DoesNotThrow(() => sut.Write(report));
-      }
-    }
-
     TextWriter GetReportOutput()
     {
       // Uncomment this line to write the report to a file instead of a throwaway string
@@ -74,20 +36,6 @@ namespace CSF.Screenplay.Reporting.Html.Tests
 
       var sb = new StringBuilder();
       return new StringWriter(sb);
-    }
-
-    public class AbilityWithOnlyExplicitInterfaceImplementations : IAbility
-    {
-      void IDisposable.Dispose() { /* Intentional no-op */ }
-
-      string IReportable.GetReport(INamed actor) => "Sample string";
-    }
-
-    public class PerformableWithOnlyExplicitInterfaceImplementations : IPerformable
-    {
-      string IReportable.GetReport(INamed actor) => "Sample string";
-
-      void IPerformable.PerformAs(IPerformer actor) { /* Intentional no-op */ }
     }
   }
 }

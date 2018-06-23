@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
         throw new InvalidOperationException($"`{nameof(RandomReportAttribute)}' is only valid for `{nameof(Report)}' parameters.");
       }
 
-      return new ReportCustomisation();
+      return new RandomReportCustomization();
     }
   }
 }
