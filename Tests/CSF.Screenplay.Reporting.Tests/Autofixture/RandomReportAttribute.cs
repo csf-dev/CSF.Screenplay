@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.NUnit3;
 

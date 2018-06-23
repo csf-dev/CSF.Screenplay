@@ -24,7 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture

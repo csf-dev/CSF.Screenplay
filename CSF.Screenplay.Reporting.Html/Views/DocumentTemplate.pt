@@ -169,7 +169,7 @@
                        metal:fill-slot="extended_content">
                     <p>
                       <strong>Result</strong>
-                      <span tal:replace="reportable/GetFormattedResult">The performance result</span>
+                      <span tal:replace="reportable/Result">The performance result</span>
                     </p>
                   </div>
                 </div>

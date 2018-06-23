@@ -3,6 +3,7 @@ using System.Reflection;
 using Moq;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.NUnit3;
+using CSF.Screenplay.ReportFormatting;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
 {
@@ -10,9 +11,9 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
   {
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {
-      if(parameter.ParameterType != typeof(IObjectFormattingService))
+      if(parameter.ParameterType != typeof(IFormatsObjectForReport))
       {
-        throw new InvalidOperationException($"`{nameof(StringFormatAttribute)}' is only valid for `{nameof(IObjectFormattingService)}' parameters.");
+        throw new InvalidOperationException($"`{nameof(StringFormatAttribute)}' is only valid for `{nameof(IFormatsObjectForReport)}' parameters.");
       }
 
       return new StringFormatCustomisation();
@@ -22,14 +23,8 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
     {
       public void Customize(IFixture fixture)
       {
-        fixture.Customize<IObjectFormattingService>(builder => {
-          return builder
-            .FromFactory(() => Mock.Of<IObjectFormattingService>())
-            .Do(service => {
-              Mock.Get(service)
-                  .Setup(x => x.Format(It.IsAny<object>()))
-                  .Returns((object obj) => obj?.ToString());
-            });
+        fixture.Customize<IFormatsObjectForReport>(builder => {
+          return builder.FromFactory(() => new DefaultObjectFormattingStrategy());
         });
       }
     }

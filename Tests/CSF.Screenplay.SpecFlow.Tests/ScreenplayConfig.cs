@@ -14,16 +14,20 @@ namespace CSF.Screenplay.SpecFlow.Tests
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
-          .WithFormatter<Stopwatch.TimeSpanFormatter>()
-          .WriteReport((formatter, report) => {
-          var path = "SpecFlow.report.txt";
-          TextReportWriter.WriteToFile(report, path, formatter);
-        });
+          .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
+        //  .WriteReport((formatter, report) => {
+        //  var path = "SpecFlow.report.txt";
+        //  TextReportWriter.WriteToFile(report, path, formatter);
+        //});
+          ;
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
         b.RegisterType<AddNumbers>();
       });
+
+      // TODO: Write this implementation
+      throw new System.NotImplementedException();
     }
   }
 }

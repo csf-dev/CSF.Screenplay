@@ -1,12 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using CSF.Screenplay.Reporting;
 using System.Text;
 using System.IO;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
-using Moq;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
@@ -19,8 +15,8 @@ namespace CSF.Screenplay.Reporting.Tests
 
       using(var writer = new StringWriter(builder))
       {
-        var sut = new TextReportWriter(writer);
-        sut.Write(report);
+        var sut = new TextReportRenderer(writer);
+        sut.Render(report);
       }
 
       return builder.ToString();
@@ -38,7 +34,7 @@ Given Joe does a thing
 ";
 
       scenario.Name.Name = "Scenario name";
-      scenario.Outcome = true;
+      scenario.Outcome = ScenarioOutcome.Success;
       scenario.Feature.Name.Name = "Feature name";
 
       reportable.Category = ReportableCategory.Given;
@@ -69,7 +65,7 @@ Scenario: Scenario name
 Given Joe does a thing
 ";
       scenario.Name.Name = "Scenario name";
-      scenario.Outcome = false;
+      scenario.Outcome = ScenarioOutcome.Failure;
       scenario.Feature.Name.Name = "Feature name";
 
       reportable.Category = ReportableCategory.Given;
@@ -101,7 +97,7 @@ Given Joe does a thing
 ";
 
       scenario.Name.Name = "Scenario name";
-      scenario.Outcome = null;
+      scenario.Outcome = ScenarioOutcome.Inconclusive;
       scenario.Feature.Name.Name = "Feature name";
 
       reportable.Category = ReportableCategory.Given;
@@ -158,7 +154,7 @@ Given Joe does a thing
     {
       // Arrange
       scenario.Name.Name = "Scenario name";
-      scenario.Outcome = true;
+      scenario.Outcome = ScenarioOutcome.Success;
       scenario.Feature.Name = new IdAndName();
 
       reportable.Category = ReportableCategory.Given;
@@ -184,7 +180,7 @@ Given Joe does a thing
       // Arrange
       scenario.Name.Name = null;
       scenario.Name.Id = "ScenarioId";
-      scenario.Outcome = true;
+      scenario.Outcome = ScenarioOutcome.Success;
 
       reportable.Category = ReportableCategory.Given;
       reportable.Report = "Joe does a thing";

@@ -26,17 +26,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Reporting.Adapters;
+using CSF.Screenplay.ReportModel.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
   /// <summary>
-  /// Model for HTML report features (wraps a <see cref="Feature"/> instance).
+  /// Model for HTML report features (wraps an <see cref="IHierarchicalFeature"/> instance).
   /// </summary>
   public class FeatureModel
   {
     readonly IHierarchicalFeature feature;
-    readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Gets the identity of this feature.
@@ -58,16 +57,17 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets a collection of the scenarios in the current feature.
     /// </summary>
     public IReadOnlyCollection<ScenarioModel> Scenarios
-      => feature.Scenarios.Select(x => new ScenarioModel(x, formattingService)).ToArray();
+      => feature.Scenarios.Select(x => new ScenarioModel(x)).ToArray();
 
     /// <summary>
-    /// Gets or sets a value indicating whether this <see cref="Feature"/> contains any scenarios which are themselves failures.
+    /// Gets a value indicating whether this <see cref="IHierarchicalFeature"/> contains any scenarios
+    /// which are themselves failures.
     /// </summary>
     /// <value><c>true</c> if this feature contains any failures; otherwise, <c>false</c>.</value>
     public bool HasFailures => feature.IsFailure;
 
     /// <summary>
-    /// Gets or sets a value indicating whether every <see cref="Scenario"/> within this <see cref="Feature"/> is a success.
+    /// Gets a value indicating whether every scenario within this <see cref="IHierarchicalFeature"/> is a success.
     /// </summary>
     /// <value><c>true</c> if the feature contains only successful scenarios; otherwise, <c>false</c>.</value>
     public bool IsSuccess => feature.IsSuccess;
@@ -94,16 +94,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.FeatureModel"/> class.
     /// </summary>
     /// <param name="feature">Feature.</param>
-    /// <param name="formattingService">Formatting service.</param>
-    public FeatureModel(IHierarchicalFeature feature, IObjectFormattingService formattingService)
+    public FeatureModel(IHierarchicalFeature feature)
     {
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(feature == null)
         throw new ArgumentNullException(nameof(feature));
 
       this.feature = feature;
-      this.formattingService = formattingService;
     }
   }
 }

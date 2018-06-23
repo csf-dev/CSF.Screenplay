@@ -1,14 +1,9 @@
-﻿using NUnit.Framework;
-using CSF.Screenplay.Reporting.Models;
-using CSF.Screenplay.Reporting.Tests.Autofixture;
-using System.IO;
-using System.Linq;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Abilities;
-using System;
-using CSF.Screenplay.Performables;
-using CSF.Screenplay.Reporting.Tests;
+﻿using System.IO;
 using System.Text;
+using CSF.Screenplay.Reporting.Tests;
+using CSF.Screenplay.Reporting.Tests.Autofixture;
+using CSF.Screenplay.ReportModel;
+using NUnit.Framework;
 
 namespace CSF.Screenplay.Reporting.Html.Tests
 {
@@ -16,16 +11,15 @@ namespace CSF.Screenplay.Reporting.Html.Tests
   public class HtmlReportWriterTests
   {
     [Test,AutoMoqData]
-    public void Write_can_create_a_document_without_crashing([RandomReport] Report report,
-                                                             [StringFormat] IObjectFormattingService formatService)
+    public void Write_can_create_a_document_without_crashing([RandomReport] Report report)
     {
       // Arrange
       using(var writer = GetReportOutput())
       {
-        var sut = new HtmlReportWriter(writer, formatService);
+        var sut = new HtmlReportRenderer(writer);
 
         // Act & assert
-        Assert.DoesNotThrow(() => sut.Write(report));
+        Assert.DoesNotThrow(() => sut.Render(report));
       }
     }
 

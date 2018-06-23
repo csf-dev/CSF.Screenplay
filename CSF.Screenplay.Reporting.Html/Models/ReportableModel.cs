@@ -26,9 +26,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Abilities;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
+using CSF.Screenplay.ReportModel;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -38,7 +36,6 @@ namespace CSF.Screenplay.Reporting.Models
   public class ReportableModel
   {
     readonly IReportable reportable;
-    readonly IObjectFormattingService formattingService;
 
     #region common to all reportables
 
@@ -77,7 +74,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The reportables.</value>
     public virtual IReadOnlyList<ReportableModel> Reportables
-      => reportable.Reportables.Select(x => new ReportableModel(x, formattingService)).ToArray();
+      => reportable.Reportables.Select(x => new ReportableModel(x)).ToArray();
 
     /// <summary>
     /// Gets a value indicating whether this performance has any child reportables or not.
@@ -181,11 +178,6 @@ namespace CSF.Screenplay.Reporting.Models
     /// <summary>
     /// Formats a given object using a formatting service.
     /// </summary>
-    public string GetFormattedResult() => formattingService.Format(Result);
-
-    /// <summary>
-    /// Formats a given object using a formatting service.
-    /// </summary>
     public string GetFormattedException() => Error;
 
     /// <summary>
@@ -229,16 +221,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.ReportableModel"/> class.
     /// </summary>
     /// <param name="reportable">Reportable.</param>
-    /// <param name="formattingService">Formatting service.</param>
-    public ReportableModel(IReportable reportable, IObjectFormattingService formattingService)
+    public ReportableModel(IReportable reportable)
     {
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(reportable == null)
         throw new ArgumentNullException(nameof(reportable));
 
       this.reportable = reportable;
-      this.formattingService = formattingService;
     }
   }
 }
