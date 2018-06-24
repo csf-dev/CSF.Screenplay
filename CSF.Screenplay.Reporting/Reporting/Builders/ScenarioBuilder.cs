@@ -186,7 +186,7 @@ namespace CSF.Screenplay.Reporting.Builders
     public void EndPerformanceCategory()
     {
       EnsureNotFinalised();
-      currentPerformanceType = 0;
+      currentPerformanceType = ReportableCategory.None;
     }
 
     /// <summary>

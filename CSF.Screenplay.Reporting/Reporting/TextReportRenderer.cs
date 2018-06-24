@@ -154,7 +154,7 @@ namespace CSF.Screenplay.Reporting
 
     string GetPerformanceTypeString(ReportableCategory type, int currentIndentLevel)
     {
-      if(type == 0)
+      if(!type.IsDefinedValue() || type == ReportableCategory.None)
         return String.Empty;
 
       // Don't keep writing the performance type after the base indent level

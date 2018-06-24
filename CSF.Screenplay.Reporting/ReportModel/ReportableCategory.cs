@@ -7,9 +7,14 @@ namespace CSF.Screenplay.ReportModel
   public enum ReportableCategory
   {
     /// <summary>
+    /// No category applicable.
+    /// </summary>
+    None = 0,
+
+    /// <summary>
     /// A given (arrange) performance.
     /// </summary>
-    Given = 1,
+    Given,
 
     /// <summary>
     /// A when (act) performance.

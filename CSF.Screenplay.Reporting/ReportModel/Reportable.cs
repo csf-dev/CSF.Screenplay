@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Actors;
 using Newtonsoft.Json;
 
 namespace CSF.Screenplay.ReportModel

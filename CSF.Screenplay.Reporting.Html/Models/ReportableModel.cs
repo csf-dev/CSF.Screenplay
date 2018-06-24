@@ -52,10 +52,13 @@ namespace CSF.Screenplay.Reporting.Models
     public virtual string PerformanceType
     {
       get {
-        if(reportable.Category.IsDefinedValue())
-          return reportable.Category.ToString();
+        if(!reportable.Category.IsDefinedValue())
+          return String.Empty;
 
-        return String.Empty;
+        if(reportable.Category == ReportableCategory.None)
+          return String.Empty;
+        
+        return reportable.Category.ToString();
       }
     }
 
