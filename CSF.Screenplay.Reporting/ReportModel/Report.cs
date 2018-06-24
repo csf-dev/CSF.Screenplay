@@ -10,6 +10,7 @@ namespace CSF.Screenplay.ReportModel
   public class Report : IReport
   {
     ICollection<Scenario> scenarios;
+    ReportMetadata metadata;
 
     /// <summary>
     /// Gets the scenarios in the current report instance.
@@ -22,10 +23,14 @@ namespace CSF.Screenplay.ReportModel
     }
 
     /// <summary>
-    /// Gets the timestamp for the creation of this report.
+    /// Gets or sets the metadata.
     /// </summary>
-    /// <value>The timestamp.</value>
-    public DateTime Timestamp { get; set; }
+    /// <value>The metadata.</value>
+    public ReportMetadata Metadata
+    {
+      get { return metadata; }
+      set { metadata = value ?? new ReportMetadata(); }
+    }
 
     IEnumerable<IScenario> IProvidesScenarios.Scenarios => Scenarios.Cast<IScenario>();
 
@@ -35,6 +40,7 @@ namespace CSF.Screenplay.ReportModel
     public Report()
     {
       scenarios = new List<Scenario>();
+      metadata = new ReportMetadata();
     }
   }
 }

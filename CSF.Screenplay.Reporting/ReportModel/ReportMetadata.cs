@@ -1,5 +1,5 @@
 ﻿//
-// IReport.cs
+// ReportMetadata.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -27,9 +27,20 @@ using System;
 namespace CSF.Screenplay.ReportModel
 {
   /// <summary>
-  /// An object which represents a Screenplay report.
+  /// Metadata related to a report.
   /// </summary>
-  public interface IReport : IProvidesScenarios, IProvidesReportMetadata
+  public class ReportMetadata
   {
+    /// <summary>
+    /// Gets or sets the timestamp for the creation of the report..
+    /// </summary>
+    /// <value>The timestamp.</value>
+    public DateTime Timestamp { get; set; }
+
+    /// <summary>
+    /// Gets or sets a semantic version for the report format.
+    /// </summary>
+    /// <value>The report format version.</value>
+    public string ReportFormatVersion { get; set; }
   }
 }

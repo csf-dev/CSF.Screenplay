@@ -28,8 +28,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CSF.Screenplay.Reporting.Builders;
 using CSF.Screenplay.ReportModel;
-using Newtonsoft.Json;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -38,13 +38,10 @@ namespace CSF.Screenplay.Reporting
   /// </summary>
   public class JsonScenarioRenderer : IObservesScenarioCompletion, IDisposable
   {
-    readonly JsonSerializer serializer;
-    readonly JsonTextWriter jsonWriter;
-    readonly TextWriter writer;
-    readonly bool disposeWriter;
     readonly ISet<Task> scenarioTasks;
-    readonly object writeLock = new object();
-    bool hasWrittenHeader;
+    readonly IGetsReportMetadata metadataFactory;
+    readonly IWritesReportOneScenarioAtATime writer;
+    readonly object beginReportLock = new object();
 
     /// <summary>
     /// Subscribes to an object which exposes completed scenarios.
@@ -72,6 +69,23 @@ namespace CSF.Screenplay.Reporting
       scenarioProvider.TestRunCompleted -= OnTestRunCompleted;
     }
 
+    void QueueWriteScenario(Scenario scenario)
+    {
+      var writeTask = new Task(() => WriteScenario(scenario));
+      scenarioTasks.Add(writeTask);
+      writeTask.Start();
+    }
+
+    void WriteScenario(Scenario scenario)
+    {
+      lock(beginReportLock)
+      {
+        if(!writer.HasBegun) BeginReport();
+      }
+
+      writer.WriteScenario(scenario);
+    }
+
     void OnScenarioCompleted(object sender, EventArgs ev)
     {
       var args = ev as ScenarioCompletedEventArgs;
@@ -83,56 +97,18 @@ namespace CSF.Screenplay.Reporting
     {
       Task.WaitAll(scenarioTasks.ToArray());
 
-      lock(writeLock)
+      lock(beginReportLock)
       {
-        WriteReportFooter();
-        writer.Flush();
+        if(!writer.HasBegun) BeginReport();
       }
+
+      writer.EndReport();
     }
 
-    void QueueWriteScenario(Scenario scenario)
+    void BeginReport()
     {
-      var writeTask = new Task(() => WriteScenario(scenario));
-      scenarioTasks.Add(writeTask);
-      writeTask.Start();
-    }
-
-    void WriteScenario(Scenario scenario)
-    {
-      lock(writeLock)
-      {
-        WriteScenarioLocked(scenario);
-      }
-    }
-
-    void WriteReportHeader()
-    {
-      jsonWriter.WriteStartObject();
-      jsonWriter.WritePropertyName(nameof(Report.Scenarios));
-      jsonWriter.WriteStartArray();
-
-      hasWrittenHeader = true;
-    }
-
-    void WriteReportFooter()
-    {
-      if(!hasWrittenHeader)
-        WriteReportHeader();
-
-      jsonWriter.WriteEndArray();
-      jsonWriter.WritePropertyName(nameof(Report.Timestamp));
-      jsonWriter.WriteValue(DateTime.UtcNow);
-      jsonWriter.WriteEndObject();
-
-      jsonWriter.Flush();
-    }
-
-    void WriteScenarioLocked(Scenario scenario)
-    {
-      if(!hasWrittenHeader)
-        WriteReportHeader();
-
-      serializer.Serialize(jsonWriter, scenario);
+      var metadata = metadataFactory.GetReportMetadata();
+      writer.BeginReport(metadata);
     }
 
     #region IDisposable Support
@@ -147,10 +123,7 @@ namespace CSF.Screenplay.Reporting
       if(!disposedValue)
       {
         if(disposing)
-        {
-          if(disposeWriter)
-            writer.Dispose();
-        }
+          writer.Dispose();
 
         disposedValue = true;
       }
@@ -175,16 +148,13 @@ namespace CSF.Screenplay.Reporting
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.JsonScenarioRenderer"/> class.
     /// </summary>
     /// <param name="writer">Writer.</param>
-    /// <param name="disposeWriter">If set to <c>true</c> dispose writer.</param>
-    public JsonScenarioRenderer(TextWriter writer, bool disposeWriter = true)
+    /// <param name="metadataFactory">A report metadata factory</param>
+    public JsonScenarioRenderer(IWritesReportOneScenarioAtATime writer, IGetsReportMetadata metadataFactory = null)
     {
       if(writer == null)
         throw new ArgumentNullException(nameof(writer));
       this.writer = writer;
-      this.disposeWriter = disposeWriter;
-
-      jsonWriter = new JsonTextWriter(writer);
-      serializer = new JsonSerializer();
+      this.metadataFactory = metadataFactory ?? new ReportMetadataFactory();
       scenarioTasks = new HashSet<Task>();
     }
 
@@ -194,7 +164,7 @@ namespace CSF.Screenplay.Reporting
     /// <param name="path">Destination file path.</param>
     public static JsonScenarioRenderer CreateForFile(string path)
     {
-      var writer = new StreamWriter(path);
+      var writer = JsonScenarioAtATimeReportWriter.CreateForFile(path);
       return new JsonScenarioRenderer(writer);
     }
   }

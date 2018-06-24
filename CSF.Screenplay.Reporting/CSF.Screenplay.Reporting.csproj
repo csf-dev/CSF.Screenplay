@@ -115,6 +115,12 @@
     <Compile Include="Reporting\IExposesCompletedScenarios.cs" />
     <Compile Include="Reporting\JsonReportRenderer.cs" />
     <Compile Include="Reporting\JsonScenarioRenderer.cs" />
+    <Compile Include="ReportModel\ReportMetadata.cs" />
+    <Compile Include="ReportModel\IProvidesReportMetadata.cs" />
+    <Compile Include="Reporting\Builders\IGetsReportMetadata.cs" />
+    <Compile Include="Reporting\Builders\ReportMetadataFactory.cs" />
+    <Compile Include="Reporting\JsonScenarioAtATimeReportWriter.cs" />
+    <Compile Include="Reporting\IWritesReportOneScenarioAtATime.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

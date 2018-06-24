@@ -10,6 +10,8 @@ namespace CSF.Screenplay.Reporting.Builders
   /// </summary>
   public class ReportFactory : IGetsReport
   {
+    readonly IGetsReportMetadata metadataFactory;
+
     /// <summary>
     /// Creates and returns a <see cref="Report"/> instance.
     /// </summary>
@@ -21,7 +23,7 @@ namespace CSF.Screenplay.Reporting.Builders
         throw new ArgumentNullException(nameof(scenarios));
 
       return new Report {
-        Timestamp = DateTime.UtcNow,
+        Metadata = metadataFactory.GetReportMetadata(),
         Scenarios = scenarios.ToList(),
       };
     }
@@ -42,6 +44,22 @@ namespace CSF.Screenplay.Reporting.Builders
         .ToArray();
       
       return GetReport(scenarios);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Builders.ReportFactory"/> class.
+    /// </summary>
+    public ReportFactory() : this(new ReportMetadataFactory()) {}
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Builders.ReportFactory"/> class.
+    /// </summary>
+    /// <param name="metadataFactory">Metadata factory.</param>
+    public ReportFactory(IGetsReportMetadata metadataFactory)
+    {
+      if(metadataFactory == null)
+        throw new ArgumentNullException(nameof(metadataFactory));
+      this.metadataFactory = metadataFactory;
     }
   }
 }

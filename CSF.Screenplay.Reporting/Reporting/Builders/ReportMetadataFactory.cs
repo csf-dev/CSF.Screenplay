@@ -1,5 +1,5 @@
 ﻿//
-// IReport.cs
+// ReportMetadataFactory.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,12 +24,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-namespace CSF.Screenplay.ReportModel
+using CSF.Screenplay.ReportModel;
+
+namespace CSF.Screenplay.Reporting.Builders
 {
   /// <summary>
-  /// An object which represents a Screenplay report.
+  /// A factory which creates instances of <see cref="ReportMetadata"/>.
   /// </summary>
-  public interface IReport : IProvidesScenarios, IProvidesReportMetadata
+  public class ReportMetadataFactory : IGetsReportMetadata
   {
+    internal const string ReportFormatVersion = "1.0.0";
+
+    /// <summary>
+    /// Gets the report metadata.
+    /// </summary>
+    /// <returns>The report metadata.</returns>
+    public ReportMetadata GetReportMetadata()
+    {
+      return new ReportMetadata {
+        Timestamp = DateTime.UtcNow,
+        ReportFormatVersion = ReportFormatVersion,
+      };
+    }
   }
 }

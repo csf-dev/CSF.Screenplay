@@ -46,10 +46,10 @@ namespace CSF.Screenplay.ReportModel.Adapters
     public IEnumerable<IScenario> Scenarios => report.Scenarios;
 
     /// <summary>
-    /// Gets the timestamp at which this report was generated.
+    /// Gets the metadata.
     /// </summary>
-    /// <value>The timestamp.</value>
-    public DateTime Timestamp => report.Timestamp;
+    /// <value>The metadata.</value>
+    public ReportMetadata Metadata => report.Metadata;
 
     /// <summary>
     /// Gets the features.

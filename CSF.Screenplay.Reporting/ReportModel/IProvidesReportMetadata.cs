@@ -1,5 +1,5 @@
 ﻿//
-// IReport.cs
+// IProvidesReportMetadata.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -27,9 +27,14 @@ using System;
 namespace CSF.Screenplay.ReportModel
 {
   /// <summary>
-  /// An object which represents a Screenplay report.
+  /// An object which provides metadata about a report.
   /// </summary>
-  public interface IReport : IProvidesScenarios, IProvidesReportMetadata
+  public interface IProvidesReportMetadata
   {
+    /// <summary>
+    /// Gets the metadata.
+    /// </summary>
+    /// <value>The metadata.</value>
+    ReportMetadata Metadata { get; }
   }
 }

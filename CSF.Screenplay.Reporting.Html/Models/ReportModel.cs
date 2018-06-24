@@ -92,7 +92,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the timestamp for the creation of this report.
     /// </summary>
     /// <value>The timestamp.</value>
-    public virtual DateTime Timestamp => report.Timestamp;
+    public virtual DateTime Timestamp => report.Metadata.Timestamp;
 
     /// <summary>
     /// Gets the formatted time.

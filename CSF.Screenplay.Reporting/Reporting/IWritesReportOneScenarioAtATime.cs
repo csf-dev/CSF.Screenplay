@@ -1,5 +1,5 @@
 ﻿//
-// IReport.cs
+// IWritesScenariosToReport.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,12 +24,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-namespace CSF.Screenplay.ReportModel
+using CSF.Screenplay.ReportModel;
+
+namespace CSF.Screenplay.Reporting
 {
   /// <summary>
-  /// An object which represents a Screenplay report.
+  /// An object which writes a report, one scenario at a time.
   /// </summary>
-  public interface IReport : IProvidesScenarios, IProvidesReportMetadata
+  public interface IWritesReportOneScenarioAtATime : IDisposable
   {
+    /// <summary>
+    /// Gets a value indicating whether the report has begun writing.
+    /// </summary>
+    /// <value><c>true</c> if the report has begun; otherwise, <c>false</c>.</value>
+    bool HasBegun { get; }
+
+    /// <summary>
+    /// Gets a value indicating whether the report has finished writing.
+    /// </summary>
+    /// <value><c>true</c> if the report has ended; otherwise, <c>false</c>.</value>
+    bool HasEnded { get; }
+
+    /// <summary>
+    /// Begins the report.
+    /// </summary>
+    /// <param name="metadata">Metadata.</param>
+    void BeginReport(ReportMetadata metadata);
+
+    /// <summary>
+    /// Writes the scenario.
+    /// </summary>
+    /// <param name="scenario">Scenario.</param>
+    void WriteScenario(Scenario scenario);
+
+    /// <summary>
+    /// Ends the report.
+    /// </summary>
+    void EndReport();
   }
 }
