@@ -26,7 +26,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Reporting.Adapters;
+using CSF.Screenplay.ReportModel;
+using CSF.Screenplay.ReportModel.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -36,7 +37,6 @@ namespace CSF.Screenplay.Reporting.Models
   public class ScenarioModel
   {
     readonly IProvidesScenarioMetadata scenario;
-    readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Gets the unique identifier name of the scenario.
@@ -73,13 +73,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The reportables.</value>
     public virtual IReadOnlyList<ReportableModel> Reportables
-      => scenario.Reportables.Select(x => new ReportableModel(x, formattingService)).ToArray();
-
-    /// <summary>
-    /// Gets or sets the outcome for the test scenario.
-    /// </summary>
-    /// <value>The outcome.</value>
-    public virtual bool? Outcome => scenario.Outcome;
+      => scenario.Reportables.Select(x => new ReportableModel(x)).ToArray();
 
     /// <summary>
     /// Gets or sets a value indicating whether this <see cref="T:CSF.Screenplay.Reporting.Models.Scenario"/>
@@ -123,16 +117,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.ScenarioModel"/> class.
     /// </summary>
     /// <param name="scenario">Scenario.</param>
-    /// <param name="formattingService">Formatting service.</param>
-    public ScenarioModel(IScenario scenario, IObjectFormattingService formattingService)
+    public ScenarioModel(IScenario scenario)
     {
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(scenario == null)
         throw new ArgumentNullException(nameof(scenario));
 
       this.scenario = new ScenarioMetadataAdapter(scenario);
-      this.formattingService = formattingService;
     }
   }
 }

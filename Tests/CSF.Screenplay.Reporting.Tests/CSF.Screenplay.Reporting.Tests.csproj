@@ -61,6 +61,7 @@
     <Compile Include="Autofixture\RandomReportAttribute.cs" />
     <Compile Include="Autofixture\RandomReportCustomization.cs" />
     <Compile Include="Autofixture\NoRecursiveReportsCustomization.cs" />
+    <Compile Include="JsonReportRendererTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

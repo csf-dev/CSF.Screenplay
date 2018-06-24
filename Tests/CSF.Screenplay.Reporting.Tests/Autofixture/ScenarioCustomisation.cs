@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
@@ -37,15 +37,15 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       switch(random)
       {
       case 1:
-        scenario.Outcome = true;
+        scenario.Outcome = ScenarioOutcome.Success;
         break;
 
       case 2:
-        scenario.Outcome = false;
+        scenario.Outcome = ScenarioOutcome.Failure;
         break;
 
       default:
-        scenario.Outcome = null;
+        scenario.Outcome = ScenarioOutcome.Inconclusive;
         break;
       }
     }

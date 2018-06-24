@@ -26,7 +26,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Reporting.Adapters;
+using CSF.Screenplay.ReportModel;
+using CSF.Screenplay.ReportModel.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
@@ -36,14 +37,13 @@ namespace CSF.Screenplay.Reporting.Models
   public class ReportModel
   {
     readonly IProvidesHierarchicalFeatures report;
-    readonly IObjectFormattingService formattingService;
 
     /// <summary>
     /// Gets a collection of the scenarios in this report.
     /// </summary>
     /// <value>The scenarios.</value>
     public virtual IReadOnlyList<FeatureModel> Features
-    => report.GetFeatures().Select(x => new FeatureModel(x, formattingService)).ToArray();
+    => report.GetFeatures().Select(x => new FeatureModel(x)).ToArray();
 
     /// <summary>
     /// Gets the count of features (total) in this report.
@@ -68,7 +68,7 @@ namespace CSF.Screenplay.Reporting.Models
     /// </summary>
     /// <value>The scenarios.</value>
     public virtual IReadOnlyList<ScenarioModel> Scenarios
-      => report.GetFeatures().SelectMany(x => x.Scenarios).Select(x => new ScenarioModel(x, formattingService)).ToArray();
+      => report.GetFeatures().SelectMany(x => x.Scenarios).Select(x => new ScenarioModel(x)).ToArray();
 
     /// <summary>
     /// Gets the count of scenarios (total) in this report.
@@ -80,19 +80,19 @@ namespace CSF.Screenplay.Reporting.Models
     /// Gets the count of successful scenarios in this report.
     /// </summary>
     /// <value>The successful scenario count.</value>
-    public virtual int SuccessfulScenarioCount => report.Scenarios.Count(x => x.Outcome == true);
+    public virtual int SuccessfulScenarioCount => report.Scenarios.Count(x => x.Outcome == ScenarioOutcome.Success);
 
     /// <summary>
     /// Gets the count of failing scenarios in this report.
     /// </summary>
     /// <value>The failing scenario count.</value>
-    public virtual int FailingScenarioCount => report.Scenarios.Count(x => x.Outcome == false);
+    public virtual int FailingScenarioCount => report.Scenarios.Count(x => x.Outcome == ScenarioOutcome.Failure);
 
     /// <summary>
     /// Gets the timestamp for the creation of this report.
     /// </summary>
     /// <value>The timestamp.</value>
-    public virtual DateTime Timestamp => report.Timestamp;
+    public virtual DateTime Timestamp => report.Metadata.Timestamp;
 
     /// <summary>
     /// Gets the formatted time.
@@ -110,16 +110,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.ReportModel"/> class.
     /// </summary>
     /// <param name="report">Report.</param>
-    /// <param name="formattingService">Formatting service.</param>
-    public ReportModel(IReport report, IObjectFormattingService formattingService)
+    public ReportModel(IReport report)
     {
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(report == null)
         throw new ArgumentNullException(nameof(report));
 
       this.report = new HierarchicalReportAdapter(report);
-      this.formattingService = formattingService;
     }
   }
 }

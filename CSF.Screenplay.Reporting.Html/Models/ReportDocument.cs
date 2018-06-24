@@ -1,4 +1,5 @@
 ﻿using System;
+using CSF.Screenplay.ReportModel;
 using CSF.Zpt;
 using CSF.Zpt.Metal;
 
@@ -10,7 +11,6 @@ namespace CSF.Screenplay.Reporting.Models
   /// </summary>
   public class ReportDocument
   {
-    readonly IObjectFormattingService formattingService;
     readonly IZptDocument document;
     readonly ReportModel report;
 
@@ -52,21 +52,16 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.ReportDocument"/> class.
     /// </summary>
     /// <param name="report">The Screenplay report to render.</param>
-    /// <param name="formattingService">A formatting service.</param>
     /// <param name="document">The ZPT document.</param>
     public ReportDocument(IReport report,
-                          IObjectFormattingService formattingService,
                           IZptDocument document)
     {
       if(document == null)
         throw new ArgumentNullException(nameof(document));
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(report == null)
         throw new ArgumentNullException(nameof(report));
 
-      this.report = new ReportModel(report, formattingService);
-      this.formattingService = formattingService;
+      this.report = new ReportModel(report);
       this.document = document;
     }
   }

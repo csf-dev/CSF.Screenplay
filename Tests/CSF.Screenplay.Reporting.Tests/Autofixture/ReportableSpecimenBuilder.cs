@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 using Ploeh.AutoFixture.Kernel;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture

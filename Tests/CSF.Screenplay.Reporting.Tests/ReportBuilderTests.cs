@@ -4,11 +4,11 @@ using CSF.Screenplay.Reporting.Builders;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Reporting.Models;
 using Moq;
 using System.Collections.Generic;
-using Ploeh.AutoFixture.NUnit3;
 using CSF.Screenplay.Abilities;
+using CSF.Screenplay.ReportModel;
+using CSF.Screenplay.ReportFormatting;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
@@ -19,16 +19,17 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void BeginNewScenario_uses_factory_to_create_a_scenario_using_the_scenario_identity(Guid scenarioIdentity,
+                                                                                               IFormatsObjectForReport formatter,
                                                                                                IBuildsScenario scenarioBuilder,
                                                                                                IGetsReport reportFactory)
     {
       // Arrange
       Guid capturedGuid = Guid.Empty;
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => {
+      Func<Guid,IFormatsObjectForReport,IBuildsScenario> scenarioBuilderFactory = (g, f) => {
         capturedGuid = g;
         return scenarioBuilder;
       };
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, scenarioBuilderFactory);
 
       // Act
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
@@ -39,6 +40,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void BeginNewScenario_sets_all_scenario_and_feature_properties(Guid scenarioIdentity,
+                                                                          IFormatsObjectForReport formatter,
                                                                           IBuildsScenario scenarioBuilder,
                                                                           IGetsReport reportFactory,
                                                                           string scenarioId,
@@ -49,8 +51,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                           bool featureIdGenerated)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
 
       // Act
       sut.BeginNewScenario(scenarioId,
@@ -72,13 +73,13 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void EndScenario_calls_finalise_for_the_appropriate_builder(IBuildsScenario scenarioBuilder,
+                                                                       IFormatsObjectForReport formatter,
                                                                        IGetsReport reportFactory,
                                                                        bool success,
                                                                        Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -90,14 +91,14 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void BeginPerformance_calls_BeginPerformance_from_builder(IBuildsScenario scenarioBuilder,
+                                                                     IFormatsObjectForReport formatter,
                                                                      IGetsReport reportFactory,
                                                                      Guid scenarioIdentity,
                                                                      IActor actor,
                                                                      IPerformable performable)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -109,13 +110,13 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void BeginPerformanceType_calls_BeginPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
+                                                                             IFormatsObjectForReport formatter,
                                                                              IGetsReport reportFactory,
                                                                              Guid scenarioIdentity,
                                                                              ReportableCategory category)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -127,6 +128,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void RecordResult_calls_RecordResult_from_builder(IBuildsScenario scenarioBuilder,
+                                                             IFormatsObjectForReport formatter,
                                                              IGetsReport reportFactory,
                                                              IActor actor,
                                                              IPerformable performable,
@@ -134,8 +136,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                              Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
       sut.BeginPerformance(actor, performable, scenarioIdentity);
 
@@ -148,6 +149,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void RecordFailure_calls_RecordFailure_from_builder(IBuildsScenario scenarioBuilder,
+                                                               IFormatsObjectForReport formatter,
                                                                IGetsReport reportFactory,
                                                                IActor actor,
                                                                IPerformable performable,
@@ -155,8 +157,7 @@ namespace CSF.Screenplay.Reporting.Tests
                                                                Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
       sut.BeginPerformance(actor, performable, scenarioIdentity);
 
@@ -169,14 +170,14 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void RecordSuccess_calls_RecordSuccess_from_builder(IBuildsScenario scenarioBuilder,
+                                                               IFormatsObjectForReport formatter,
                                                                IGetsReport reportFactory,
                                                                IActor actor,
                                                                IPerformable performable,
                                                                Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
       sut.BeginPerformance(actor, performable, scenarioIdentity);
 
@@ -189,12 +190,12 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void EndPerformanceType_calls_EndPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
+                                                                         IFormatsObjectForReport formatter,
                                                                          IGetsReport reportFactory,
                                                                            Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -206,14 +207,14 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void GainAbility_calls_GainAbility_from_builder(IBuildsScenario scenarioBuilder,
+                                                           IFormatsObjectForReport formatter,
                                                            IGetsReport reportFactory,
                                                                     INamed actor,
                                                                     IAbility ability,
                                                                     Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -225,12 +226,12 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void GetReport_passes_builder_created_from_scenario_factory_to_report_factory(IBuildsScenario scenarioBuilder,
+                                                                                         IFormatsObjectForReport formatter,
                                                                                          IGetsReport reportFactory,
                                                                                          Guid scenarioIdentity)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       sut.BeginNewScenario(null, null, null, null, scenarioIdentity, false, false);
 
       // Act
@@ -243,12 +244,12 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void GetReport_passes_same_number_of_builders_as_scenarios(IBuildsScenario scenarioBuilder,
+                                                                      IFormatsObjectForReport formatter,
                                                                       IGetsReport reportFactory,
                                                                       [Values(1, 2, 5, 10)] int howManyScenarios)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       foreach(var iterations in Enumerable.Range(0, howManyScenarios))
         sut.BeginNewScenario(null, null, null, null, Guid.NewGuid(), false, false);
 
@@ -262,12 +263,12 @@ namespace CSF.Screenplay.Reporting.Tests
 
     [Test,AutoMoqData]
     public void GetReport_returns_result_from_factory(IBuildsScenario scenarioBuilder,
+                                                      IFormatsObjectForReport formatter,
                                                       IGetsReport reportFactory,
                                                       Report report)
     {
       // Arrange
-      Func<Guid,IBuildsScenario> scenarioBuilderFactory = g => scenarioBuilder;
-      var sut = new ReportBuilder(reportFactory, scenarioBuilderFactory);
+      var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
       Mock.Get(reportFactory)
           .Setup(x => x.GetReport(It.IsAny<IEnumerable<IBuildsScenario>>()))
           .Returns(report);
@@ -399,7 +400,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
       // Act & assert
       Assert.That(() => sut.BeginPerformance(actor, performable, scenarioIdentity),
-                  Throws.TypeOf<ScenarioHasEndedAlreadyException>());
+                  Throws.TypeOf<ScenarioIsFinalisedAlreadyException>());
     }
 
     [Test,AutoMoqData]
@@ -414,34 +415,16 @@ namespace CSF.Screenplay.Reporting.Tests
 
       // Act & assert
       Assert.That(() => sut.BeginPerformanceCategory(type, scenarioIdentity),
-                  Throws.TypeOf<ScenarioHasEndedAlreadyException>());
+                  Throws.TypeOf<ScenarioIsFinalisedAlreadyException>());
     }
 
     #endregion
 
+    #region support methods
 
+    Func<Guid, IFormatsObjectForReport, IBuildsScenario> GetScenarioBuilderFactory(IBuildsScenario scenarioBuilder)
+      => (guid, formatter) => scenarioBuilder;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #endregion
   }
 }

@@ -1,10 +1,8 @@
 ﻿using System.Linq;
 using CSF.Screenplay.Reporting.Builders;
-using CSF.Screenplay.Reporting.Models;
-using CSF.Screenplay.Reporting.Tests.Autofixture;
+using CSF.Screenplay.ReportModel;
 using Moq;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
