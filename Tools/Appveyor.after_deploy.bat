@@ -17,9 +17,9 @@ appveyor PushArtifact JsonApis.report.txt
 @echo Screenplay reports
 @echo ******************
 
-@type SpecFlow.report.txt
+@type SpecFlow.report.json
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
-@type JsonApis.report.txt
+@type JsonApis.report.json
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
 
 @echo off
