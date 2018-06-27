@@ -78,8 +78,8 @@ namespace CSF.Screenplay.Reporting.Builders
     /// <c>true</c> if the feature identifier is generated; otherwise, <c>false</c>.</value>
     public bool FeatureIdIsGenerated
     {
-      get { return scenario.Name.IsIdGenerated; }
-      set { scenario.Name.IsIdGenerated = value; }
+      get { return scenario.Feature.Name.IsIdGenerated; }
+      set { scenario.Feature.Name.IsIdGenerated = value; }
     }
 
     /// <summary>
