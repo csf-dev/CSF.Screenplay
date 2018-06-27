@@ -1,5 +1,5 @@
 ﻿//
-// Application.cs
+// IReadsReport.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,27 +24,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-namespace CSF.Screenplay.Reporting
+namespace CSF.Screenplay.ReportModel
 {
-  public class Application
+  /// <summary>
+  /// An object which can get an <see cref="IReport"/> instance.
+  /// </summary>
+  public interface IGetsReport
   {
-    readonly string inputPath, outputPath;
-
-    public void WriteHtmlReport()
-    {
-      var report = JsonReportReader.ReadFromFile(inputPath);
-      HtmlReportWriter.WriteToFile(report, outputPath);
-    }
-
-    public Application(string inputPath, string outputPath)
-    {
-      if(outputPath == null)
-        throw new ArgumentNullException(nameof(outputPath));
-      if(inputPath == null)
-        throw new ArgumentNullException(nameof(inputPath));
-      
-      this.inputPath = inputPath;
-      this.outputPath = outputPath;
-    }
+    /// <summary>
+    /// Gets the report.
+    /// </summary>
+    /// <returns>The report.</returns>
+    IReport GetReport();
   }
 }

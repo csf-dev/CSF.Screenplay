@@ -38,8 +38,18 @@ namespace CSF.Screenplay.Reporting
       var inputFile = args[0];
       var outputFile = args[1];
 
-      var app = new Application(inputFile, outputFile);
-      app.WriteHtmlReport();
+      WriteHtmlReport(inputFile, outputFile);
+    }
+
+    static void WriteHtmlReport(string inputPath, string outputPath)
+    {
+      if(outputPath == null)
+        throw new ArgumentNullException(nameof(outputPath));
+      if(inputPath == null)
+        throw new ArgumentNullException(nameof(inputPath));
+      
+      var report = JsonReportReader.ReadFromFile(inputPath);
+      HtmlReportRenderer.WriteToFile(report, outputPath);
     }
   }
 }
