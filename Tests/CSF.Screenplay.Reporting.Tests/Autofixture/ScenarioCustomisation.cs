@@ -1,5 +1,5 @@
 ﻿using System;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests.Autofixture
@@ -15,8 +15,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       new NamedCustomisation().Customize(fixture);
       new AbilityCustomisation().Customize(fixture);
       new PerformableCustomisation().Customize(fixture);
-      new GainAbilityCustomisation().Customize(fixture);
-      new PerformanceCustomisation().Customize(fixture);
+      new ReportableCustomisation().Customize(fixture);
 
       fixture.Customize<Scenario>(builder => {
         return builder
@@ -29,7 +28,7 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
     }
 
     Scenario CreateScenario(string id, string name)
-      => new Scenario($"ScenarioId {id}", $"Scenario {name}");
+      => new Scenario { Name = new IdAndName { Id = $"ScenarioId {id}", Name = $"Scenario {name}" } };
 
     void ConfigureRandomOutcome(Scenario scenario)
     {
@@ -38,15 +37,15 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
       switch(random)
       {
       case 1:
-        scenario.Outcome = true;
+        scenario.Outcome = ScenarioOutcome.Success;
         break;
 
       case 2:
-        scenario.Outcome = false;
+        scenario.Outcome = ScenarioOutcome.Failure;
         break;
 
       default:
-        scenario.Outcome = null;
+        scenario.Outcome = ScenarioOutcome.Inconclusive;
         break;
       }
     }
@@ -54,17 +53,12 @@ namespace CSF.Screenplay.Reporting.Tests.Autofixture
     void AddSomeReportables(Scenario scenario, IFixture fixture)
     {
       int
-        howManyAbilities = Randomiser.Next(0, 4),
-        howManyPerformances = Randomiser.Next(1, 6);
+        howManyReportables = Randomiser.Next(1, 10);
 
-      var abilities = fixture.CreateMany<GainAbility>(howManyAbilities);
-      var performances = fixture.CreateMany<Performance>(howManyPerformances);
+      var reportables = fixture.CreateMany<Reportable>(howManyReportables);
 
-      foreach(var ability in abilities)
-        scenario.Reportables.Add(ability);
-
-      foreach(var performance in performances)
-        scenario.Reportables.Add(performance);
+      foreach(var reportable in reportables)
+        scenario.Reportables.Add(reportable);
     }
 
     static ScenarioCustomisation()

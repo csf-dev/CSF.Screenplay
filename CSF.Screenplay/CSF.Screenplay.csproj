@@ -76,7 +76,7 @@
     <Compile Include="Actors\GainAbilityEventArgs.cs" />
     <Compile Include="Actors\PerformanceEventArgsBase.cs" />
     <Compile Include="Actors\ActorEventArgs.cs" />
-    <Compile Include="Reporting\IReportable.cs" />
+    <Compile Include="Reporting\IProvidesReport.cs" />
     <Compile Include="Scenarios\IScenarioFactory.cs" />
     <Compile Include="Scenarios\IdAndName.cs" />
     <Compile Include="Scenarios\ScenarioFactory.cs" />
@@ -95,10 +95,6 @@
     <Compile Include="Scenarios\Scenario.cs" />
     <Compile Include="Scenarios\ICanBeginAndEndScenario.cs" />
     <Compile Include="Actors\Actor.cs" />
-    <Compile Include="Reporting\ObjectFormatter.cs" />
-    <Compile Include="Reporting\IObjectFormatter.cs" />
-    <Compile Include="Reporting\StringArrayFormatter.cs" />
-    <Compile Include="Reporting\DefaultObjectFormatter.cs" />
     <Compile Include="Integration\ServiceRegistrations.cs" />
     <Compile Include="Scenarios\ContainerExtensions.cs" />
     <Compile Include="Actors\Stage.cs" />
@@ -108,8 +104,7 @@
     <Compile Include="Stopwatch\StartTheStopwatch.cs" />
     <Compile Include="Stopwatch\StopTheStopwatch.cs" />
     <Compile Include="Stopwatch\UseAStopwatch.cs" />
-    <Compile Include="Stopwatch\TimeSpanFormatter.cs" />
-    <Compile Include="Stopwatch\IDurationFormatter.cs" />
+    <Compile Include="Stopwatch\IFormatsDurations.cs" />
     <Compile Include="Resources\ExceptionFormats.Designer.cs">
       <DependentUpon>ExceptionFormats.resx</DependentUpon>
     </Compile>
@@ -123,6 +118,10 @@
     <Compile Include="Builders\TimespanBuilder.cs" />
     <Compile Include="Builders\TimespanBuilder`1.cs" />
     <Compile Include="Builders\TimespanWrapper.cs" />
+    <Compile Include="ReportFormatting\IFormatsObjectForReport.cs" />
+    <Compile Include="ReportFormatting\IHasObjectFormattingStrategyInfo.cs" />
+    <Compile Include="ReportFormatting\ObjectFormattingStrategy.cs" />
+    <Compile Include="ReportFormatting\TimeSpanFormattingStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Actors\" />
@@ -134,6 +133,7 @@
     <Folder Include="Stopwatch\" />
     <Folder Include="Resources\" />
     <Folder Include="Builders\" />
+    <Folder Include="ReportFormatting\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

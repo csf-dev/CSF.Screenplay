@@ -26,50 +26,51 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSF.Screenplay.ReportModel.Adapters;
 
 namespace CSF.Screenplay.Reporting.Models
 {
   /// <summary>
-  /// Model for HTML report features (wraps a <see cref="Feature"/> instance).
+  /// Model for HTML report features (wraps an <see cref="IHierarchicalFeature"/> instance).
   /// </summary>
   public class FeatureModel
   {
-    readonly Feature feature;
-    readonly IObjectFormattingService formattingService;
+    readonly IHierarchicalFeature feature;
 
     /// <summary>
     /// Gets the identity of this feature.
     /// </summary>
-    public string Id => feature.Id;
+    public string Id => feature.Name.Id;
 
     /// <summary>
     /// Gets a value indicating whether the <see cref="Id"/> should be displayed.
     /// </summary>
     /// <value><c>true</c> if the feature identifier should be displayed; otherwise, <c>false</c>.</value>
-    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !feature.IsIdGenerated;
+    public bool ShouldDisplayId => !String.IsNullOrEmpty(Id) && !feature.Name.IsIdGenerated;
 
     /// <summary>
     /// Gets the human-readable friendly-name of this feature.
     /// </summary>
-    public string FriendlyName => feature.FriendlyName;
+    public string FriendlyName => feature.Name.Name;
 
     /// <summary>
     /// Gets a collection of the scenarios in the current feature.
     /// </summary>
     public IReadOnlyCollection<ScenarioModel> Scenarios
-      => feature.Scenarios.Select(x => new ScenarioModel(x, formattingService)).ToArray();
+      => feature.Scenarios.Select(x => new ScenarioModel(x)).ToArray();
 
     /// <summary>
-    /// Gets or sets a value indicating whether this <see cref="Feature"/> contains any scenarios which are themselves failures.
+    /// Gets a value indicating whether this <see cref="IHierarchicalFeature"/> contains any scenarios
+    /// which are themselves failures.
     /// </summary>
     /// <value><c>true</c> if this feature contains any failures; otherwise, <c>false</c>.</value>
-    public bool HasFailures => feature.Scenarios.Any(x => x.IsFailure);
+    public bool HasFailures => feature.IsFailure;
 
     /// <summary>
-    /// Gets or sets a value indicating whether every <see cref="Scenario"/> within this <see cref="Feature"/> is a success.
+    /// Gets a value indicating whether every scenario within this <see cref="IHierarchicalFeature"/> is a success.
     /// </summary>
     /// <value><c>true</c> if the feature contains only successful scenarios; otherwise, <c>false</c>.</value>
-    public bool IsSuccess => feature.Scenarios.All(x => x.IsSuccess);
+    public bool IsSuccess => feature.IsSuccess;
 
     /// <summary>
     /// Gets the HTML class attribute value indicating the outcome of a given feature.
@@ -78,7 +79,7 @@ namespace CSF.Screenplay.Reporting.Models
     public string GetOutcomeClass()
     {
       if(feature == null) return String.Empty;
-      var outcome = GetOutcomeClass(feature.IsSuccess, feature.HasFailures);
+      var outcome = GetOutcomeClass(IsSuccess, HasFailures);
       return $"feature {outcome}";
     }
 
@@ -93,16 +94,12 @@ namespace CSF.Screenplay.Reporting.Models
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Reporting.Models.FeatureModel"/> class.
     /// </summary>
     /// <param name="feature">Feature.</param>
-    /// <param name="formattingService">Formatting service.</param>
-    public FeatureModel(Feature feature, IObjectFormattingService formattingService)
+    public FeatureModel(IHierarchicalFeature feature)
     {
-      if(formattingService == null)
-        throw new ArgumentNullException(nameof(formattingService));
       if(feature == null)
         throw new ArgumentNullException(nameof(feature));
 
       this.feature = feature;
-      this.formattingService = formattingService;
     }
   }
 }

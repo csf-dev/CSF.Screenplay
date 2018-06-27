@@ -14,11 +14,9 @@ namespace CSF.Screenplay.SpecFlow.Tests
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
-          .WithFormatter<Stopwatch.TimeSpanFormatter>()
-          .WriteReport((formatter, report) => {
-          var path = "SpecFlow.report.txt";
-          TextReportWriter.WriteToFile(report, path, formatter);
-        });
+          .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.json"))
+          ;
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {

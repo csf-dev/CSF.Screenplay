@@ -1,12 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using CSF.Screenplay.Reporting;
 using System.Text;
 using System.IO;
-using CSF.Screenplay.Actors;
-using CSF.Screenplay.Performables;
-using Moq;
-using CSF.Screenplay.Reporting.Models;
+using CSF.Screenplay.ReportModel;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
@@ -19,35 +15,37 @@ namespace CSF.Screenplay.Reporting.Tests
 
       using(var writer = new StringWriter(builder))
       {
-        var sut = new TextReportWriter(writer);
-        sut.Write(report);
+        var sut = new TextReportRenderer(writer);
+        sut.Render(report);
       }
 
       return builder.ToString();
     }
 
     [Test,AutoMoqData]
-    public void Can_create_report_with_one_performance(string id,
-                                                       string name,
-                                                       string feature,
-                                                       IActor actor,
-                                                       IPerformable performable)
+    public void Can_create_report_with_one_performance(Scenario scenario, Reportable reportable)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
+      var expected = @"
+Feature:  Feature name
+Scenario: Scenario name
 **** Success ****
 Given Joe does a thing
 ";
 
-      Mock.Get(performable)
-          .Setup(x => x.GetReport(actor))
-          .Returns("Joe does a thing");
+      scenario.Name.Name = "Scenario name";
+      scenario.Outcome = ScenarioOutcome.Success;
+      scenario.Feature.Name.Name = "Feature name";
 
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = true };
-      scenario.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given));
-      var report = new Report(new [] { scenario });
+      reportable.Category = ReportableCategory.Given;
+      reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
+
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
@@ -57,27 +55,28 @@ Given Joe does a thing
     }
 
     [Test,AutoMoqData]
-    public void Can_create_report_with_scenario_failure(IActor actor,
-                                                        IPerformable performable,
-                                                        string id,
-                                                        string name,
-                                                        string feature)
+    public void Can_create_report_with_scenario_failure(Scenario scenario, Reportable reportable)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
+      var expected = @"
+Feature:  Feature name
+Scenario: Scenario name
 **** Failure ****
 Given Joe does a thing
 ";
+      scenario.Name.Name = "Scenario name";
+      scenario.Outcome = ScenarioOutcome.Failure;
+      scenario.Feature.Name.Name = "Feature name";
 
-      Mock.Get(performable)
-          .Setup(x => x.GetReport(actor))
-          .Returns("Joe does a thing");
+      reportable.Category = ReportableCategory.Given;
+      reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
 
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = false };
-      scenario.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given));
-      var report = new Report(new [] { scenario });
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
@@ -87,27 +86,29 @@ Given Joe does a thing
     }
 
     [Test,AutoMoqData]
-    public void Can_create_report_with_inconclusive_outcome(IActor actor,
-                                                            IPerformable performable,
-                                                            string id,
-                                                            string name,
-                                                            string feature)
+    public void Can_create_report_with_inconclusive_outcome(Scenario scenario, Reportable reportable)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
+      var expected = @"
+Feature:  Feature name
+Scenario: Scenario name
 **** Inconclusive ****
 Given Joe does a thing
 ";
 
-      Mock.Get(performable)
-          .Setup(x => x.GetReport(actor))
-          .Returns("Joe does a thing");
+      scenario.Name.Name = "Scenario name";
+      scenario.Outcome = ScenarioOutcome.Inconclusive;
+      scenario.Feature.Name.Name = "Feature name";
 
-      var scenario = new Models.Scenario(id, name, feature);
-      scenario.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given));
-      var report = new Report(new [] { scenario });
+      reportable.Category = ReportableCategory.Given;
+      reportable.Report = "Joe does a thing";
+      reportable.Type = ReportableType.Success;
+
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
@@ -117,225 +118,209 @@ Given Joe does a thing
     }
 
     [Test,AutoMoqData]
-    public void Reported_exceptions_should_not_be_duplicated_up_the_reporting_chain(IActor actor,
-                                                                                    IPerformable performable,
-                                                                                    IPerformable childPerformable,
-                                                                                    string id,
-                                                                                    string name,
-                                                                                    string feature,
-                                                                                    Exception error)
+    public void Reported_exceptions_should_not_be_duplicated_up_the_reporting_chain(Scenario scenario,
+                                                                                    Reportable reportableOne,
+                                                                                    Reportable reportableTwo)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
-**** Success ****
-Given Joe does a thing
+      reportableOne.Category = ReportableCategory.Given;
+      reportableOne.Type = ReportableType.FailureWithError;
+      reportableOne.Report = "Joe does a thing";
+      reportableOne.Error = "Error text";
+
+      reportableTwo.Category = ReportableCategory.Given;
+      reportableTwo.Type = ReportableType.FailureWithError;
+      reportableTwo.Report = "Joe does a different thing";
+      reportableTwo.Error = "Error text";
+
+      reportableOne.Reportables.Add(reportableTwo);
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportableOne);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
+
+      // Act
+      var result = ExerciseSut(report);
+
+      // Assert
+      Assert.That(result, Contains.Substring(@"Given Joe does a thing
           Joe does a different thing
-          FAILED: {error.ToString()}
-";
+          FAILED: Error text"));
+    }
 
-      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
-      Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
+    [Test,AutoMoqData]
+    public void Feature_name_is_omitted_if_not_provided(Scenario scenario, Reportable reportable)
+    {
+      // Arrange
+      scenario.Name.Name = "Scenario name";
+      scenario.Outcome = ScenarioOutcome.Success;
+      scenario.Feature.Name = new IdAndName();
 
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = true };
-      var parentPerformance = new Performance(actor,
-                                              PerformanceOutcome.FailureWithException,
-                                              performable,
-                                              PerformanceType.Given,
-                                              error: error);
-      var childPerformance = new Performance(actor,
-                                             PerformanceOutcome.FailureWithException,
-                                             childPerformable,
-                                             PerformanceType.Given,
-                                             error: error);
-      parentPerformance.Reportables.Add(childPerformance);
-      scenario.Reportables.Add(parentPerformance);
-      var report = new Report(new [] { scenario });
+      reportable.Category = ReportableCategory.Given;
+      reportable.Report = "Joe does a thing";
+
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
 
       // Assert
-      Assert.That(result, Is.EqualTo(expected));
+      Assert.That(result, Does.Not.Contain("Feature:"));
     }
 
     [Test,AutoMoqData]
-    public void Feature_name_is_omitted_if_not_provided(IActor actor,
-                                                        IPerformable performable,
-                                                        string id,
-                                                        string name)
+    public void The_Scenario_id_is_used_instead_of_the_name_if_the_name_is_omitted(Scenario scenario,
+                                                                                   Reportable reportable)
     {
       // Arrange
-      var expected = $@"
-Scenario: {name}
-**** Success ****
-Given Joe does a thing
-";
+      scenario.Name.Name = null;
+      scenario.Name.Id = "ScenarioId";
+      scenario.Outcome = ScenarioOutcome.Success;
 
-      Mock.Get(performable)
-          .Setup(x => x.GetReport(actor))
-          .Returns("Joe does a thing");
+      reportable.Category = ReportableCategory.Given;
+      reportable.Report = "Joe does a thing";
 
-      var scenario = new Models.Scenario(id, name, null) { Outcome = true };
-      scenario.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given));
-      var report = new Report(new [] { scenario });
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
 
       // Assert
-      Assert.That(result, Is.EqualTo(expected));
+      Assert.That(result, Contains.Substring("Scenario: ScenarioId"));
     }
 
     [Test,AutoMoqData]
-    public void Scenario_id_is_used_if_name_if_omitted(IActor actor,
-                                                       IPerformable performable,
-                                                       string id,
-                                                       string feature)
+    public void Can_create_report_with_two_nested_performances(Scenario scenario,
+                                                               Reportable reportableOne,
+                                                               Reportable reportableTwo)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {id}
-**** Success ****
-Given Joe does a thing
-";
+      reportableOne.Category = ReportableCategory.Given;
+      reportableOne.Type = ReportableType.Success;
+      reportableOne.Report = "Joe does a thing";
+      reportableOne.Reportables.Clear();
 
-      Mock.Get(performable)
-          .Setup(x => x.GetReport(actor))
-          .Returns("Joe does a thing");
+      reportableTwo.Category = ReportableCategory.Given;
+      reportableTwo.Type = ReportableType.Success;
+      reportableTwo.Report = "Joe does a different thing";
+      reportableTwo.Reportables.Clear();
 
-      var scenario = new Models.Scenario(id, null, feature) { Outcome = true };
-      scenario.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given));
-      var report = new Report(new [] { scenario });
+      reportableOne.Reportables.Add(reportableTwo);
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportableOne);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
 
       // Assert
-      Assert.That(result, Is.EqualTo(expected));
+      Assert.That(result, Contains.Substring(@"Given Joe does a thing
+          Joe does a different thing"));
     }
 
     [Test,AutoMoqData]
-    public void Can_create_report_with_two_nested_performances(IActor actor,
-                                                               IPerformable performable,
-                                                               IPerformable childPerformable,
-                                                               string id,
-                                                               string name,
-                                                               string feature)
+    public void Can_create_report_with_three_nested_performances(Scenario scenario,
+                                                                 Reportable reportableOne,
+                                                                 Reportable reportableTwo,
+                                                                 Reportable reportableThree)
     {
       // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
-**** Success ****
-Given Joe does a thing
+      reportableOne.Category = ReportableCategory.Given;
+      reportableOne.Type = ReportableType.Success;
+      reportableOne.Report = "Joe does a thing";
+      reportableOne.Reportables.Clear();
+
+      reportableTwo.Category = ReportableCategory.Given;
+      reportableTwo.Type = ReportableType.Success;
+      reportableTwo.Report = "Joe does a different thing";
+      reportableTwo.Reportables.Clear();
+
+      reportableThree.Category = ReportableCategory.Given;
+      reportableThree.Type = ReportableType.Success;
+      reportableThree.Report = "Joe does a totally different thing";
+      reportableThree.Reportables.Clear();
+
+      reportableOne.Reportables.Add(reportableTwo);
+      reportableTwo.Reportables.Add(reportableThree);
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportableOne);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
+
+      // Act
+      var result = ExerciseSut(report);
+
+      // Assert
+      Assert.That(result, Contains.Substring(@"Given Joe does a thing
           Joe does a different thing
-";
+              Joe does a totally different thing"));
+    }
 
-      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
-      Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
+    [Test,AutoMoqData]
+    public void Can_create_report_with_complex_nested_performances(Scenario scenario,
+                                                                   Reportable reportable1,
+                                                                   Reportable reportable2,
+                                                                   Reportable reportable3,
+                                                                   Reportable reportable4,
+                                                                   Reportable reportable5)
+    {
+      // Arrange
+      reportable1.Category = ReportableCategory.Given;
+      reportable1.Type = ReportableType.Success;
+      reportable1.Report = "Joe does a thing";
+      reportable1.Reportables.Clear();
 
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = true };
-      var parentPerformance = new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given);
-      parentPerformance.Reportables.Add(new Performance(actor, PerformanceOutcome.Success, childPerformable, PerformanceType.Given));
-      scenario.Reportables.Add(parentPerformance);
-      var report = new Report(new [] { scenario });
+      reportable2.Category = ReportableCategory.Given;
+      reportable2.Type = ReportableType.Success;
+      reportable2.Report = "Joe does a different thing";
+      reportable2.Reportables.Clear();
+
+      reportable3.Category = ReportableCategory.Given;
+      reportable3.Type = ReportableType.Success;
+      reportable3.Report = "Joe does a totally different thing";
+      reportable3.Reportables.Clear();
+
+      reportable4.Category = ReportableCategory.Given;
+      reportable4.Type = ReportableType.Success;
+      reportable4.Report = "Joe does an unrelated thing";
+      reportable4.Reportables.Clear();
+
+      reportable5.Category = ReportableCategory.When;
+      reportable5.Type = ReportableType.Success;
+      reportable5.Report = "Joe takes some kind of action";
+      reportable5.Reportables.Clear();
+
+      reportable1.Reportables.Add(reportable2);
+      reportable1.Reportables.Add(reportable4);
+      reportable2.Reportables.Add(reportable3);
+      scenario.Reportables.Clear();
+      scenario.Reportables.Add(reportable1);
+      scenario.Reportables.Add(reportable5);
+
+      var report = new Report();
+      report.Scenarios.Add(scenario);
 
       // Act
       var result = ExerciseSut(report);
 
       // Assert
-      Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test,AutoMoqData]
-    public void Can_create_report_with_three_nested_performances(IActor actor,
-                                                                 IPerformable performable,
-                                                                 IPerformable childPerformable,
-                                                                 IPerformable grandChildPerformable,
-                                                                 string id,
-                                                                 string name,
-                                                                 string feature)
-    {
-      // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
-**** Success ****
-Given Joe does a thing
-          Joe does a different thing
-              Joe does a totally different thing
-";
-
-      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
-      Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
-      Mock.Get(grandChildPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a totally different thing");
-
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = true };
-      var parentPerformance = new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given);
-      var childPerformance = new Performance(actor, PerformanceOutcome.Success, childPerformable, PerformanceType.Given);
-      var grandchildPerformance = new Performance(actor, PerformanceOutcome.Success, grandChildPerformable, PerformanceType.Given);
-      parentPerformance.Reportables.Add(childPerformance);
-      childPerformance.Reportables.Add(grandchildPerformance);
-      scenario.Reportables.Add(parentPerformance);
-      var report = new Report(new [] { scenario });
-
-      // Act
-      var result = ExerciseSut(report);
-
-      // Assert
-      Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test,AutoMoqData]
-    public void Can_create_report_with_complex_nested_performances(IActor actor,
-                                                                   IPerformable performable,
-                                                                   IPerformable childPerformable,
-                                                                   IPerformable grandChildPerformable,
-                                                                   IPerformable siblingPerformable,
-                                                                   IPerformable secondPerformable,
-                                                                   string id,
-                                                                   string name,
-                                                                   string feature)
-    {
-      // Arrange
-      var expected = $@"
-Feature:  {feature}
-Scenario: {name}
-**** Success ****
-Given Joe does a thing
+      Assert.That(result, Contains.Substring(@"Given Joe does a thing
           Joe does a different thing
               Joe does a totally different thing
           Joe does an unrelated thing
- When Joe takes some kind of action
-";
-
-      Mock.Get(performable).Setup(x => x.GetReport(actor)).Returns("Joe does a thing");
-      Mock.Get(childPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a different thing");
-      Mock.Get(grandChildPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does a totally different thing");
-      Mock.Get(siblingPerformable).Setup(x => x.GetReport(actor)).Returns("Joe does an unrelated thing");
-      Mock.Get(secondPerformable).Setup(x => x.GetReport(actor)).Returns("Joe takes some kind of action");
-
-      var scenario = new Models.Scenario(id, name, feature) { Outcome = true };
-      var parentPerformance = new Performance(actor, PerformanceOutcome.Success, performable, PerformanceType.Given);
-      var childPerformance = new Performance(actor, PerformanceOutcome.Success, childPerformable, PerformanceType.Given);
-      var grandchildPerformance = new Performance(actor, PerformanceOutcome.Success, grandChildPerformable, PerformanceType.Given);
-      var siblingPerformance = new Performance(actor, PerformanceOutcome.Success, siblingPerformable, PerformanceType.Given);
-      var secondPerformance = new Performance(actor, PerformanceOutcome.Success, secondPerformable, PerformanceType.When);
-      parentPerformance.Reportables.Add(childPerformance);
-      parentPerformance.Reportables.Add(siblingPerformance);
-      childPerformance.Reportables.Add(grandchildPerformance);
-      scenario.Reportables.Add(parentPerformance);
-      scenario.Reportables.Add(secondPerformance);
-      var report = new Report(new [] { scenario });
-
-      // Act
-      var result = ExerciseSut(report);
-
-      // Assert
-      Assert.That(result, Is.EqualTo(expected));
+ When Joe takes some kind of action"));
     }
   }
 }

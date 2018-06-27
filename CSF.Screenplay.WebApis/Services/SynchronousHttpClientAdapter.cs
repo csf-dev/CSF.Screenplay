@@ -28,6 +28,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.ReportFormatting;
 using CSF.Screenplay.Stopwatch;
 
 namespace CSF.Screenplay.WebApis.Services
@@ -37,6 +38,8 @@ namespace CSF.Screenplay.WebApis.Services
   /// </summary>
   public class SynchronousHttpClientAdapter : IMakesSynchronousHttpRequests
   {
+    static readonly IFormatsObjectForReport TimeSpanFormatter = new TimeSpanFormattingStrategy();
+
     readonly HttpClient httpClient;
     readonly TimeSpan defaultTimeout;
 
@@ -63,8 +66,7 @@ namespace CSF.Screenplay.WebApis.Services
       }
       catch(TaskCanceledException ex)
       {
-        var timeFormatter = new TimeSpanFormatter();
-        var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, timeFormatter.Format(actualTimeout));
+        var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, TimeSpanFormatter.FormatForReport(actualTimeout));
         throw new TimeoutException(message, ex);
       }
       catch(HttpRequestException ex)
@@ -75,8 +77,7 @@ namespace CSF.Screenplay.WebApis.Services
       {
         if(ex.InnerExceptions.OfType<TaskCanceledException>().Any())
         {
-          var timeFormatter = new TimeSpanFormatter();
-          var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, timeFormatter.Format(actualTimeout));
+          var message = String.Format(Resources.ExceptionFormats.ApiRequestTimedOut, TimeSpanFormatter.FormatForReport(actualTimeout));
           throw new TimeoutException(message, ex);
         }
         else if(ex.InnerExceptions.OfType<HttpRequestException>().Any())
