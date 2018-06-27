@@ -19,3 +19,5 @@ Screenshots/
 Backup/
 UpgradeLog.htm
 nuget-packages/
+*.report.html
+*.report.json

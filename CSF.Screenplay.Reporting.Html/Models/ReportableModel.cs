@@ -136,6 +136,7 @@ namespace CSF.Screenplay.Reporting.Models
     {
       switch(reportable.Type)
       {
+      case ReportableType.GainAbility:
       case ReportableType.Success:
       case ReportableType.SuccessWithResult:
         return GetOutcomeClass(true, false);

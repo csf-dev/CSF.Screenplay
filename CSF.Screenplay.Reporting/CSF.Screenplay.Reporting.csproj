@@ -121,6 +121,8 @@
     <Compile Include="Reporting\Builders\ReportMetadataFactory.cs" />
     <Compile Include="Reporting\JsonScenarioAtATimeReportWriter.cs" />
     <Compile Include="Reporting\IWritesReportOneScenarioAtATime.cs" />
+    <Compile Include="ReportModel\IGetsReport.cs" />
+    <Compile Include="Reporting\JsonReportReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj">

@@ -118,7 +118,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <param name="report">The report.</param>
     /// <param name="path">Destination file path.</param>
-    public static void WriteToFile(Report report, string path)
+    public static void WriteToFile(IReport report, string path)
     {
       using(var reportWriter = new HtmlReportRenderer(new StreamWriter(path)))
       {

@@ -12,20 +12,20 @@ using CSF.Screenplay.ReportFormatting;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
-  [TestFixture,Parallelizable]
+  [TestFixture, Parallelizable]
   public class ReportBuilderTests
   {
     #region "happy path" tests
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginNewScenario_uses_factory_to_create_a_scenario_using_the_scenario_identity(Guid scenarioIdentity,
                                                                                                IFormatsObjectForReport formatter,
                                                                                                IBuildsScenario scenarioBuilder,
-                                                                                               IGetsReport reportFactory)
+                                                                                               Builders.IGetsReport reportFactory)
     {
       // Arrange
       Guid capturedGuid = Guid.Empty;
-      Func<Guid,IFormatsObjectForReport,IBuildsScenario> scenarioBuilderFactory = (g, f) => {
+      Func<Guid, IFormatsObjectForReport, IBuildsScenario> scenarioBuilderFactory = (g, f) => {
         capturedGuid = g;
         return scenarioBuilder;
       };
@@ -38,11 +38,11 @@ namespace CSF.Screenplay.Reporting.Tests
       Assert.That(capturedGuid, Is.EqualTo(scenarioIdentity));
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginNewScenario_sets_all_scenario_and_feature_properties(Guid scenarioIdentity,
                                                                           IFormatsObjectForReport formatter,
                                                                           IBuildsScenario scenarioBuilder,
-                                                                          IGetsReport reportFactory,
+                                                                          Builders.IGetsReport reportFactory,
                                                                           string scenarioId,
                                                                           string scenarioName,
                                                                           string featureId,
@@ -71,10 +71,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).VerifySet(x => x.FeatureIdIsGenerated = featureIdGenerated, Times.Once, nameof(IBuildsScenario.FeatureIdIsGenerated));
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void EndScenario_calls_finalise_for_the_appropriate_builder(IBuildsScenario scenarioBuilder,
                                                                        IFormatsObjectForReport formatter,
-                                                                       IGetsReport reportFactory,
+                                                                       Builders.IGetsReport reportFactory,
                                                                        bool success,
                                                                        Guid scenarioIdentity)
     {
@@ -89,10 +89,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.Finalise(success), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformance_calls_BeginPerformance_from_builder(IBuildsScenario scenarioBuilder,
                                                                      IFormatsObjectForReport formatter,
-                                                                     IGetsReport reportFactory,
+                                                                     Builders.IGetsReport reportFactory,
                                                                      Guid scenarioIdentity,
                                                                      IActor actor,
                                                                      IPerformable performable)
@@ -108,10 +108,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.BeginPerformance(actor, performable), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformanceType_calls_BeginPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
                                                                              IFormatsObjectForReport formatter,
-                                                                             IGetsReport reportFactory,
+                                                                             Builders.IGetsReport reportFactory,
                                                                              Guid scenarioIdentity,
                                                                              ReportableCategory category)
     {
@@ -126,10 +126,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.BeginPerformanceCategory(category), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordResult_calls_RecordResult_from_builder(IBuildsScenario scenarioBuilder,
                                                              IFormatsObjectForReport formatter,
-                                                             IGetsReport reportFactory,
+                                                             Builders.IGetsReport reportFactory,
                                                              IActor actor,
                                                              IPerformable performable,
                                                              object result,
@@ -147,10 +147,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.RecordResult(performable, result), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordFailure_calls_RecordFailure_from_builder(IBuildsScenario scenarioBuilder,
                                                                IFormatsObjectForReport formatter,
-                                                               IGetsReport reportFactory,
+                                                               Builders.IGetsReport reportFactory,
                                                                IActor actor,
                                                                IPerformable performable,
                                                                Exception exception,
@@ -168,10 +168,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.RecordFailure(performable, exception), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordSuccess_calls_RecordSuccess_from_builder(IBuildsScenario scenarioBuilder,
                                                                IFormatsObjectForReport formatter,
-                                                               IGetsReport reportFactory,
+                                                               Builders.IGetsReport reportFactory,
                                                                IActor actor,
                                                                IPerformable performable,
                                                                Guid scenarioIdentity)
@@ -188,11 +188,11 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.RecordSuccess(performable), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void EndPerformanceType_calls_EndPerformanceType_from_builder(IBuildsScenario scenarioBuilder,
                                                                          IFormatsObjectForReport formatter,
-                                                                         IGetsReport reportFactory,
-                                                                           Guid scenarioIdentity)
+                                                                         Builders.IGetsReport reportFactory,
+                                                                         Guid scenarioIdentity)
     {
       // Arrange
       var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
@@ -205,13 +205,13 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.EndPerformanceCategory(), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void GainAbility_calls_GainAbility_from_builder(IBuildsScenario scenarioBuilder,
                                                            IFormatsObjectForReport formatter,
-                                                           IGetsReport reportFactory,
-                                                                    INamed actor,
-                                                                    IAbility ability,
-                                                                    Guid scenarioIdentity)
+                                                           Builders.IGetsReport reportFactory,
+                                                           INamed actor,
+                                                           IAbility ability,
+                                                           Guid scenarioIdentity)
     {
       // Arrange
       var sut = new ReportBuilder(formatter, reportFactory, GetScenarioBuilderFactory(scenarioBuilder));
@@ -224,10 +224,10 @@ namespace CSF.Screenplay.Reporting.Tests
       Mock.Get(scenarioBuilder).Verify(x => x.GainAbility(actor, ability), Times.Once);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void GetReport_passes_builder_created_from_scenario_factory_to_report_factory(IBuildsScenario scenarioBuilder,
                                                                                          IFormatsObjectForReport formatter,
-                                                                                         IGetsReport reportFactory,
+                                                                                         Builders.IGetsReport reportFactory,
                                                                                          Guid scenarioIdentity)
     {
       // Arrange
@@ -242,10 +242,10 @@ namespace CSF.Screenplay.Reporting.Tests
           .Verify(x => x.GetReport(It.Is<IEnumerable<IBuildsScenario>>(b => b.Contains(scenarioBuilder))), Times.Once());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void GetReport_passes_same_number_of_builders_as_scenarios(IBuildsScenario scenarioBuilder,
                                                                       IFormatsObjectForReport formatter,
-                                                                      IGetsReport reportFactory,
+                                                                      Builders.IGetsReport reportFactory,
                                                                       [Values(1, 2, 5, 10)] int howManyScenarios)
     {
       // Arrange
@@ -261,10 +261,10 @@ namespace CSF.Screenplay.Reporting.Tests
           .Verify(x => x.GetReport(It.Is<IEnumerable<IBuildsScenario>>(b => b.Count() == howManyScenarios)), Times.Once());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void GetReport_returns_result_from_factory(IBuildsScenario scenarioBuilder,
                                                       IFormatsObjectForReport formatter,
-                                                      IGetsReport reportFactory,
+                                                      Builders.IGetsReport reportFactory,
                                                       Report report)
     {
       // Arrange
@@ -284,7 +284,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     #region error: scenario has not begun yet
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void EndScenario_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                             bool success,
                                                                                             Guid scenarioIdentity)
@@ -294,7 +294,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformance_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                                  INamed actor,
                                                                                                  IPerformable performable,
@@ -305,7 +305,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformanceType_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                                      ReportableCategory category,
                                                                                                      Guid scenarioIdentity)
@@ -315,7 +315,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordResult_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                              IPerformable performable,
                                                                                              object result,
@@ -326,7 +326,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordFailure_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                               IPerformable performable,
                                                                                               Exception exception,
@@ -337,7 +337,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void RecordSuccess_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                               IPerformable performable,
                                                                                               Guid scenarioIdentity)
@@ -347,7 +347,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void EndPerformanceType_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                                    Guid scenarioIdentity)
     {
@@ -356,7 +356,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioHasNotBegunException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void GainAbility_raises_exception_when_called_for_a_scenario_which_has_not_begun(ReportBuilder sut,
                                                                                             INamed actor,
                                                                                             IAbility ability,
@@ -371,7 +371,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     #region error: beginning the same scenario twice
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginScenario_raises_an_exception_if_called_twice_with_the_same_identity(ReportBuilder sut,
                                                                                          Guid scenarioIdentity)
     {
@@ -387,7 +387,7 @@ namespace CSF.Screenplay.Reporting.Tests
 
     #region error: scenario has already ended
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformance_raises_exception_when_called_after_EndScenario(INamed actor,
                                                                                 IPerformable performable,
                                                                                 bool success,
@@ -403,7 +403,7 @@ namespace CSF.Screenplay.Reporting.Tests
                   Throws.TypeOf<ScenarioIsFinalisedAlreadyException>());
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public void BeginPerformanceType_raises_exception_when_called_after_EndScenario(ReportableCategory type,
                                                                                     bool success,
                                                                                     ReportBuilder sut,
@@ -423,7 +423,7 @@ namespace CSF.Screenplay.Reporting.Tests
     #region support methods
 
     Func<Guid, IFormatsObjectForReport, IBuildsScenario> GetScenarioBuilderFactory(IBuildsScenario scenarioBuilder)
-      => (guid, formatter) => scenarioBuilder;
+    => (guid, formatter) => scenarioBuilder;
 
     #endregion
   }
