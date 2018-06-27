@@ -240,7 +240,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     public ReportingIntegrationBuilder()
     {
-      formatterRegistry = new ObjectFormattingStrategyRegistry();
+      formatterRegistry = ObjectFormattingStrategyRegistry.CreateDefault();
       reporterToUse = formatter => new ReportBuildingReportableEventHandler(formatter);
     }
 
