@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="CSF.Screenplay.Reporting.Html.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
