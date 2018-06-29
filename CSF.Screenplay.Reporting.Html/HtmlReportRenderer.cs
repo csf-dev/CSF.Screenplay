@@ -109,8 +109,18 @@ namespace CSF.Screenplay.Reporting
 
       this.writer = writer;
       this.disposeWriter = disposeWriter;
-      var pluginConfig = new HardCodedZptSharpConfigurationProvider();
-      documentFactory = new ZptDocumentFactory(new ZptDocumentProviderService(pluginConfig));
+
+      // TODO: Once the blocking issues are resolved, pass a hard coded configuration to the ZptDocumentFactory
+      // 
+      // This is blocked by https://github.com/csf-dev/CSF.Screenplay/issues/141.
+      // In turn, that is blocked by the upstream ZPT-Sharp issue https://github.com/csf-dev/ZPT-Sharp/issues/252
+      // Once all of this is resolved, clients won't need to put all of their configuration for ZPT-Sharp
+      // into their application configuration files. The code which achieves this is commented-out below:
+      // 
+      // var pluginConfig = new HardCodedZptSharpConfigurationProvider();
+      // documentFactory = new ZptDocumentFactory(new ZptDocumentProviderService(pluginConfig));
+
+      documentFactory = new ZptDocumentFactory();
     }
 
     /// <summary>

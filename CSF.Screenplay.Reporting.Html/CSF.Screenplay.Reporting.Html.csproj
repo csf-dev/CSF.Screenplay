@@ -91,7 +91,6 @@
     <Compile Include="Models\ReportDocument.cs" />
     <Compile Include="StreamSourceInfo.cs" />
     <Compile Include="Views\ResourceBundler.cs" />
-    <Compile Include="HardCodedZptSharpConfigurationProvider.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\ScenarioModel.cs" />
     <Compile Include="Models\FeatureModel.cs" />
@@ -100,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="HardCodedZptSharpConfigurationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Reporting\CSF.Screenplay.Reporting.csproj">
