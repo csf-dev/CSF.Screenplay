@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Reporting.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.Reporting.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.13.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.14.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,8 +51,17 @@
     <Compile Include="ReportBuilderTests.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
     <Compile Include="TextReportWriterTests.cs" />
-    <Compile Include="Autofixture\ScenarioAttribute.cs" />
-    <Compile Include="Autofixture\ScenarioCustomization.cs" />
+    <Compile Include="Autofixture\AbilityCustomisation.cs" />
+    <Compile Include="Autofixture\NamedCustomisation.cs" />
+    <Compile Include="Autofixture\PerformableCustomisation.cs" />
+    <Compile Include="Autofixture\ReportableCustomisation.cs" />
+    <Compile Include="Autofixture\ReportableSpecimenBuilder.cs" />
+    <Compile Include="Autofixture\ScenarioCustomisation.cs" />
+    <Compile Include="Autofixture\StringFormatAttribute.cs" />
+    <Compile Include="Autofixture\RandomReportAttribute.cs" />
+    <Compile Include="Autofixture\RandomReportCustomization.cs" />
+    <Compile Include="Autofixture\NoRecursiveReportsCustomization.cs" />
+    <Compile Include="JsonReportRendererTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

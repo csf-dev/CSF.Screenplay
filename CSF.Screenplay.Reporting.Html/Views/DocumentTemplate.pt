@@ -87,11 +87,11 @@
               <div metal:define-macro="reportable"
                    tal:define="outcomeClass reportable/GetOutcomeClass;
                                reportableClass reportable/GetReportableClass;
-                               containerClass string:$outcomeClass $reportableClass"
+                               hasContentClass reportable/GetContentClass;
+                               containerClass string:$outcomeClass $reportableClass $hasContentClass"
                    tal:attributes="class containerClass"
-                   class="performance success template">
-                <p class="description"
-                   tal:define="actor reportable/Actor">
+                   class="empty performance success template">
+                <p class="description">
                   <strong tal:condition="rootReportable"
                           tal:content="reportable/PerformanceType"
                           class="performance_type">Given</strong>
@@ -109,7 +109,7 @@
               <!-- The macro for an ability -->
               <div metal:extend-macro="reportable"
                    metal:define-macro="ability"
-                   class="ability success inner_macro">
+                   class="empty ability success inner_macro">
                 <p class="description">
                   <strong class="performance_type">Given</strong>
                   <span metal:fill-slot="body" class="body"
@@ -122,7 +122,7 @@
               <!-- The base macro for a performance, it can be used directly or extended -->
               <div metal:extend-macro="reportable"
                    metal:define-macro="performance"
-                   class="performance success inner_macro">
+                   class="has_content performance success inner_macro">
                 <p class="description">
                   <strong class="performance_type">When</strong>
                   <span metal:fill-slot="body" class="body"
@@ -159,7 +159,7 @@
               <!-- The macro for a performance which has a result -->
               <div metal:extend-macro="performance"
                    metal:define-macro="performance_success_result"
-                   class="performance success inner_macro">
+                   class="has_content performance success inner_macro">
                 <p class="description">
                   <strong class="performance_type">Then</strong>
                   <span class="body">Joe reads some kind of value</span>
@@ -169,7 +169,7 @@
                        metal:fill-slot="extended_content">
                     <p>
                       <strong>Result</strong>
-                      <span tal:replace="reportable/GetFormattedResult">The performance result</span>
+                      <span tal:replace="reportable/Result">The performance result</span>
                     </p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@
               <!-- The macro for a performance which has failed with an exception -->
               <div metal:extend-macro="performance"
                    metal:define-macro="performance_failure_exception"
-                   class="performance failure inner_macro">
+                   class="has_content performance failure inner_macro">
                 <p class="description">
                   <strong class="performance_type">Then</strong>
                   <span class="body">Joe does something that fails</span>
@@ -187,21 +187,20 @@
                 <div class="additional_content">
                   <div class="extended_content performance_exception"
                        metal:fill-slot="extended_content"
-                       tal:define="exception reportable/Exception | nothing;
-                                   canFormatException reportable/CanFormatException">
+                       tal:define="exception reportable/Error | nothing;
+                                   canFormatException reportable/CanFormatException"
+                       tal:condition="reportable/ShouldReportFailure">
                     <p tal:condition="canFormatException">
                       <strong>Failed</strong>
                       <span tal:replace="reportable/GetFormattedException">The formatted exception</span>
                     </p>
                     <p tal:condition="not:canFormatException">
-                      <strong>Failed</strong> with an exception
-                      <pre tal:content="exception">Exception
+                      <strong>Failed</strong><span tal:condition="exception"
+                                                   tal:omit-tag="string:true"> with an exception</span>
+                      <pre tal:content="exception" tal:condition="exception">Exception
   at My.Funky.Stack.Trace.Line1 &gt; Something
   at My.Funky.Stack.Trace.Line2 &gt; Something else
   at My.Funky.Stack.Trace.Line3 &gt; Something different</pre>
-                    </p>
-                    <p>
-                      <strong>Failed</strong>
                     </p>
                   </div>
                 </div>
@@ -216,7 +215,7 @@
         tal:attributes="class feature/GetOutcomeClass">
       <header>
         <div class="identifier"
-             tal:condition="feature/Id | nothing">
+             tal:condition="feature/ShouldDisplayId">
           <span class="hidden">Feature ID:</span>
           <span tal:replace="feature/Id">Feature.Identifier.Here</span>
         </div>
@@ -231,7 +230,7 @@
             tal:attributes="class scenario/GetOutcomeClass">
           <header>
             <div class="identifier"
-                 tal:condition="scenario/Id | nothing">
+                 tal:condition="scenario/ShouldDisplayId">
               <span class="hidden">Scenario ID:</span>
               <span tal:replace="scenario/Id">Scenario.Identifier.Here</span>
             </div>

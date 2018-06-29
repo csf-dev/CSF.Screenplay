@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using CSF.Screenplay.Reporting.Models;
-using CSF.Screenplay.Reporting.Tests.Autofixture;
+using CSF.Screenplay.Reporting.Builders;
+using CSF.Screenplay.ReportModel;
+using Moq;
 using NUnit.Framework;
-using Ploeh.AutoFixture;
 
 namespace CSF.Screenplay.Reporting.Tests
 {
@@ -10,10 +10,10 @@ namespace CSF.Screenplay.Reporting.Tests
   public class ReportFactoryTests
   {
     [Test,AutoMoqData]
-    public void GetReport_returns_all_scenarios(ReportFactory sut,
-                                                [Scenario] Scenario scenarioOne,
-                                                [Scenario] Scenario scenarioTwo,
-                                                [Scenario] Scenario scenarioThree)
+    public void GetReport_creates_report_using_all_scenarios(ReportFactory sut,
+                                                             Scenario scenarioOne,
+                                                             Scenario scenarioTwo,
+                                                             Scenario scenarioThree)
     {
       // Arrange
       var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
@@ -22,88 +22,33 @@ namespace CSF.Screenplay.Reporting.Tests
       var result = sut.GetReport(allScenarios);
 
       // Assert
-      CollectionAssert.AreEquivalent(allScenarios, result.Scenarios);
+      Assert.That(result.Scenarios, Is.EquivalentTo(allScenarios));
     }
 
     [Test,AutoMoqData]
-    public void GetReport_does_not_create_duplicate_features_when_multiple_scenarios_use_the_same_feature(
-      ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature")] Scenario scenarioThree)
+    public void GetReport_calls_getScenario_from_all_builders(ReportFactory sut,
+                                                              IBuildsScenario scenarioOne,
+                                                              IBuildsScenario scenarioTwo,
+                                                              IBuildsScenario scenarioThree,
+                                                              Scenario scenario)
     {
       // Arrange
-      var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
+      Mock.Get(scenarioOne).Setup(x => x.GetScenario()).Returns(scenario);
+      Mock.Get(scenarioTwo).Setup(x => x.GetScenario()).Returns(scenario);
+      Mock.Get(scenarioThree).Setup(x => x.GetScenario()).Returns(scenario);
+
+      var allBuilders = new [] { scenarioOne, scenarioTwo, scenarioThree };
+      var sameScenarioThreeTimes = new [] { scenario, scenario, scenario };
 
       // Act
-      var result = sut.GetReport(allScenarios);
+      var result = sut.GetReport(allBuilders);
 
       // Assert
-      Assert.AreEqual(1, result.Features.Count, "Only one feature created");
-      Assert.AreEqual("TestFeature", result.Features.First().Id);
-    }
+      Mock.Get(scenarioOne).Verify(x => x.GetScenario(), Times.Once);
+      Mock.Get(scenarioTwo).Verify(x => x.GetScenario(), Times.Once);
+      Mock.Get(scenarioThree).Verify(x => x.GetScenario(), Times.Once);
 
-    [Test,AutoMoqData]
-    public void GetReport_places_all_scenarios_in_the_correct_feature(
-      ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature1")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature2")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature1")] Scenario scenarioThree)
-    {
-      // Arrange
-      var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
-      var expectedScenariosInFeature1 = new [] { scenarioOne, scenarioThree };
-      var expectedScenariosInFeature2 = new [] { scenarioTwo };
-
-      // Act
-      var result = sut.GetReport(allScenarios);
-
-      // Assert
-      Assert.AreEqual(2, result.Features.Count, "Two features created");
-      var actualScenariosInFeature1 = result.Features.Single(x => x.Id == "TestFeature1").Scenarios;
-      var actualScenariosInFeature2 = result.Features.Single(x => x.Id == "TestFeature2").Scenarios;
-
-      CollectionAssert.AreEquivalent(expectedScenariosInFeature1, actualScenariosInFeature1, "Scenarios in feature 1");
-      CollectionAssert.AreEquivalent(expectedScenariosInFeature2, actualScenariosInFeature2, "Scenarios in feature 2");
-    }
-
-    [Test,AutoMoqData]
-    public void GetReport_orders_features_alphabetically_by_name(
-      ReportFactory sut,
-      [Scenario(FeatureId = "C feature", FeatureName = "CC this is the third feature")] Scenario scenarioOne,
-      [Scenario(FeatureId = "A feature", FeatureName = "AA this is the first feature")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "B feature", FeatureName = "BB this is the second feature")] Scenario scenarioThree)
-    {
-      // Arrange
-      var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
-      var expectedFeatureOrder = new [] { "A feature", "B feature", "C feature" };
-
-      // Act
-      var result = sut.GetReport(allScenarios);
-
-      // Assert
-      var orderedFeatures = result.Features.Select(x => x.Id).ToArray();
-      CollectionAssert.AreEqual(expectedFeatureOrder, orderedFeatures);
-    }
-
-    [Test,AutoMoqData]
-    public void GetReport_orders_scenarios_alphabetically_by_name_within_features(
-      ReportFactory sut,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S3", ScenarioName = "C third")] Scenario scenarioOne,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S1", ScenarioName = "A first")] Scenario scenarioTwo,
-      [Scenario(FeatureId = "TestFeature", ScenarioId = "S2", ScenarioName = "B second")] Scenario scenarioThree)
-    {
-      // Arrange
-      var allScenarios = new [] { scenarioOne, scenarioTwo, scenarioThree };
-      var expectedScenarioOrder = new [] { "S1", "S2", "S3" };
-
-      // Act
-      var result = sut.GetReport(allScenarios);
-
-      // Assert
-      var feature = result.Features.Single();
-      var actualScenarioOrder = feature.Scenarios.Select(x => x.Id).ToArray();
-      CollectionAssert.AreEqual(expectedScenarioOrder, actualScenarioOrder);
+      Assert.That(result.Scenarios, Is.EquivalentTo(sameScenarioThreeTimes));
     }
   }
 }

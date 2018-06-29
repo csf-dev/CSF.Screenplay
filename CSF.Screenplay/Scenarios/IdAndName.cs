@@ -19,6 +19,12 @@ namespace CSF.Screenplay.Scenarios
     public string Name { get; private set; }
 
     /// <summary>
+    /// Gets a value indicating whether the identity is auto-generated or not.
+    /// </summary>
+    /// <value><c>true</c> if the identity is auto-generated; otherwise, <c>false</c>.</value>
+    public bool IsIdentityGenerated { get; private set; }
+
+    /// <summary>
     /// Determines whether the specified <see cref="object"/> is equal to the current <see cref="T:CSF.Screenplay.Scenarios.IdAndName"/>.
     /// </summary>
     /// <param name="obj">The <see cref="object"/> to compare with the current <see cref="T:CSF.Screenplay.Scenarios.IdAndName"/>.</param>
@@ -60,13 +66,15 @@ namespace CSF.Screenplay.Scenarios
     /// </summary>
     /// <param name="identity">Identity.</param>
     /// <param name="name">Name.</param>
-    public IdAndName(string identity, string name = null)
+    /// <param name="isIdentityGenerated">Indicates whether the identity is generated or not.</param>
+    public IdAndName(string identity, string name = null, bool isIdentityGenerated = false)
     {
       if(identity == null)
         throw new ArgumentNullException(nameof(identity));
 
       Identity = identity;
       Name = name;
+      IsIdentityGenerated = isIdentityGenerated;
     }
   }
 }

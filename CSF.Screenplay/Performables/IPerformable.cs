@@ -7,7 +7,7 @@ namespace CSF.Screenplay.Performables
   /// <summary>
   /// Represents a performable thing; a task, a question or an action.
   /// </summary>
-  public interface IPerformable : IReportable
+  public interface IPerformable : IProvidesReport
   {
     /// <summary>
     /// Performs this operation, as the given actor.

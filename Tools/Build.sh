@@ -29,8 +29,14 @@ build_solution()
 run_unit_tests()
 {
   echo "Running unit tests ..."
-  test_assemblies=$(find ./Tests/ -type f -path "*/bin/Debug/*" -name "$TEST_PATTERN" \! -name "${JSON_TESTS}.dll")
-  mono "$NUNIT_PATH" $test_assemblies
+  test_assemblies=$(find ./Tests/ \
+    -type f \
+    -path "*/bin/Debug/*" \
+    -name "$TEST_PATTERN" \
+    \! -name "${JSON_TESTS}.dll" \
+    \! -path "*/CSF.Screenplay.Reporting.*.Tests/bin/Debug/CSF.Screenplay.Reporting.Tests.dll" \
+    )
+  mono "$NUNIT_PATH" --result="UnitTests.xml" $test_assemblies
   stop_if_failure $? "Run unit tests"
 }
 
@@ -44,7 +50,7 @@ start_webserver()
 run_integration_tests()
 {
   echo "Running integration tests ..."
-  mono "$NUNIT_PATH" --labels=All "$JSON_TESTS_PATH"
+  mono "$NUNIT_PATH" --result="IntegrationTests.xml" --labels=All "$JSON_TESTS_PATH"
   test_outcome=$?
 }
 

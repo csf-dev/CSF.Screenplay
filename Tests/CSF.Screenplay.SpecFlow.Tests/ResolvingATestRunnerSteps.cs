@@ -56,7 +56,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     [Then(@"if nothing crashed then the test passes")]
     public void ThenPassTheTest()
     {
-      Assert.Pass("The test passed");
+      // No-op: The test passed
     }
 
     public ResolvingATestRunnerSteps(Lazy<ITestRunner> testRunner,

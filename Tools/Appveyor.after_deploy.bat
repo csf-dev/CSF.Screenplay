@@ -8,19 +8,10 @@
 nunit3-console.exe Tests\CSF.Screenplay.WebApis.Tests\bin\Debug\CSF.Screenplay.WebApis.Tests.dll
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%TESTFAILURE_ERROR%
 
-appveyor PushArtifact SpecFlow.report.txt
+appveyor PushArtifact SpecFlow.report.json
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%PUSHARTIFACT_ERROR%
-appveyor PushArtifact JsonApis.report.txt
+appveyor PushArtifact JsonApis.report.json
 @IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%PUSHARTIFACT_ERROR%
-
-@echo ******************
-@echo Screenplay reports
-@echo ******************
-
-@type SpecFlow.report.txt
-@IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
-@type JsonApis.report.txt
-@IF %ERRORLEVEL% NEQ 0 SET /A exitcode^|=%READREPORT_ERROR%
 
 @echo off
 

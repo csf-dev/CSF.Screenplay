@@ -29,6 +29,23 @@ using System.Linq;
 
 namespace CSF.Screenplay.Reporting
 {
+  /// <summary>
+  /// Due to a number of issues, this class is currently unused (and not compiled).
+  /// </summary>
+  /// <remarks>
+  /// <para>
+  /// The two issues blocking the meaningful use of the class are:
+  /// https://github.com/csf-dev/CSF.Screenplay/issues/141 and https://github.com/csf-dev/ZPT-Sharp/issues/252.
+  /// </para>
+  /// <para>
+  /// Once they are resolved then it will become possible to pass configuration into ZPT-Sharp via an implementation
+  /// such as this one, and we may use this class to hard-code the way that ZPT-Sharp works.  In turn, that relieves
+  /// the need for client apps to keep the ZPT-Sharp configuration in their own application config files.
+  /// </para>
+  /// <para>
+  /// This passing of hard-coded config would occur in the HtmlReportRenderer class.
+  /// </para>
+  /// </remarks>
   class HardCodedZptSharpConfigurationProvider : Zpt.IPluginConfiguration
   {
     static readonly Type[] pluginTypes = {

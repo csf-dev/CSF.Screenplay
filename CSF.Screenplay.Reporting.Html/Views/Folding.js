@@ -16,6 +16,13 @@
       var $this = $(this);
       $this.parent().toggleClass(collapsed);
     })
+
+    self.reportBody.on('click', self.selectors.reportables, function(ev) {
+      var $this = $(this);
+      $this.toggleClass(collapsed);
+      $(self.selectors.reportables, $this).addClass(collapsed);
+      ev.stopPropagation();
+    })
   }
   
   function collapseAll()
@@ -24,6 +31,8 @@
     
     $(self.selectors.features, self.reportBody)
       .add(self.selectors.scenarios, self.reportBody)
+      .add(self.selectors.reportables, self.reportBody)
+      .not($(self.selectors.emptyReportables, self.reportBody).parent())
       .addClass(collapsed);
   }
   
@@ -34,6 +43,8 @@
     this.selectors = {
       featureHeaders: '.feature>header',
       scenarioHeaders: '.scenario>header',
+      reportables: '.reportable',
+      emptyReportables: '.reportable>.empty',
       features: '.feature',
       scenarios: '.scenario',
     };

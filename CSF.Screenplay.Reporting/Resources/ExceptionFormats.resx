@@ -21,6 +21,9 @@
   <data name="ScenarioAlreadyFinalised" xml:space="preserve">
     <value>The scenario has already been finalised; no further actions may be taken against it.</value>
   </data>
+  <data name="ScenarioNotFinalisedYet" xml:space="preserve">
+    <value>The scenario has not yet been finalised; you must execute '{0}' first to finalise the scenario.</value>
+  </data>
   <data name="PerformableWasRequiredInBuilderStack" xml:space="preserve">
     <value>Whilst building a report about a specific `{0}', an attempt to get the corresponding `{1}' failed to find any performances.  This scenario is invalid.</value>
   </data>

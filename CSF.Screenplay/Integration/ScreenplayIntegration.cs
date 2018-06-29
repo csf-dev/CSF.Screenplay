@@ -90,7 +90,7 @@ namespace CSF.Screenplay.Integration
     /// </summary>
     /// <returns>The scenario factory.</returns>
     public IScenarioFactory GetScenarioFactory()
-      => new ScenarioFactory(RootContainer, builder.ServiceRegistrations.PerTestRun);
+      => new ScenarioFactory(RootContainer, builder.ServiceRegistrations.PerScenario);
 
     #endregion
 
