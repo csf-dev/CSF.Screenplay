@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Models
   /// the target of that action could not be found/does not exist.
   /// </summary>
   [System.Serializable]
-  public class TargetNotFoundException : Exception, IReportable
+  public class TargetNotFoundException : Exception, IProvidesReport
   {
     /// <summary>
     /// Gets or sets the target which was not found (leading to this exception).

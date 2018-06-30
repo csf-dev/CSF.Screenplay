@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.ReportFormatting;
 using CSF.Screenplay.Selenium.Abilities;
-using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Selenium.Queries;
 using CSF.Screenplay.Stopwatch;
@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Selenium.Waits
     readonly Func<T,bool> predicate;
     readonly TimeSpan timeout;
     readonly ISet<Type> ignoredExceptionTypes;
-    readonly IDurationFormatter durationFormatter;
+    readonly IFormatsDurations durationFormatter;
 
     /// <summary>
     /// Gets a collection of <c>System.Type</c> representing exception types which will be ignored during the wait
@@ -153,7 +153,7 @@ namespace CSF.Screenplay.Selenium.Waits
       this.timeout = timeout;
 
       ignoredExceptionTypes = new HashSet<Type>();
-      durationFormatter = new TimeSpanFormatter();
+      durationFormatter = new TimeSpanFormattingStrategy();
     }
   }
 }

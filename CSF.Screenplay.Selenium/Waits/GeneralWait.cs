@@ -2,7 +2,7 @@
 using System.Threading;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using CSF.Screenplay.Selenium.Models;
+using CSF.Screenplay.ReportFormatting;
 using CSF.Screenplay.Stopwatch;
 
 namespace CSF.Screenplay.Selenium.Waits
@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.Waits
   public class GeneralWait : Performable
   {
     readonly TimeSpan timespan;
-    readonly IDurationFormatter durationFormatter;
+    readonly IFormatsDurations durationFormatter;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Selenium.Waits
     public GeneralWait(TimeSpan timespan)
     {
       this.timespan = timespan;
-      durationFormatter = new TimeSpanFormatter();
+      durationFormatter = new TimeSpanFormattingStrategy();
     }
   }
 }
