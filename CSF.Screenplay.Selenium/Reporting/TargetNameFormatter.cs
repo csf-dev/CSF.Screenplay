@@ -24,7 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Reporting;
+using CSF.Screenplay.ReportFormatting;
 using CSF.Screenplay.Selenium.Models;
 
 namespace CSF.Screenplay.Selenium.Reporting
@@ -32,13 +32,13 @@ namespace CSF.Screenplay.Selenium.Reporting
   /// <summary>
   /// Object formatter for an object which implements <see cref="IHasTargetName"/>.
   /// </summary>
-  public class TargetNameFormatter : ObjectFormatter<IHasTargetName>
+  public class TargetNameFormatter : ObjectFormattingStrategy<IHasTargetName>
   {
     /// <summary>
     /// Formats the given object.
     /// </summary>
     /// <param name="obj">Object.</param>
-    public override string Format(IHasTargetName obj)
+    public override string FormatForReport(IHasTargetName obj)
     {
       if(obj == null) return "<null>";
       return obj.GetName();

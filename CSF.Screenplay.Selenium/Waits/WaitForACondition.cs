@@ -1,6 +1,7 @@
 ﻿using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
+using CSF.Screenplay.ReportFormatting;
 using CSF.Screenplay.Selenium.Abilities;
 using CSF.Screenplay.Selenium.Models;
 using CSF.Screenplay.Stopwatch;
@@ -17,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Waits
     readonly Func<IWebDriver,bool> condition;
     readonly string conditionName;
     readonly TimeSpan timeout;
-    readonly IDurationFormatter durationFormatter;
+    readonly IFormatsDurations durationFormatter;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -66,7 +67,7 @@ namespace CSF.Screenplay.Selenium.Waits
       this.condition = condition;
       this.timeout = timeout;
 
-      durationFormatter = new TimeSpanFormatter();
+      durationFormatter = new TimeSpanFormattingStrategy();
     }
   }
 }

@@ -8,9 +8,9 @@ namespace CSF.Screenplay.Selenium.Models
   /// Exception raised when an actor gives up on a wait performance.
   /// </summary>
   [System.Serializable]
-  public class GivenUpWaitingException : Exception, IReportable
+  public class GivenUpWaitingException : Exception, IProvidesReport
   {
-    string IReportable.GetReport(INamed actor) => $"{actor.Name} gives up on waiting because it has taken too long.";
+    string IProvidesReport.GetReport(INamed actor) => $"{actor.Name} gives up on waiting because it has taken too long.";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:GivenUpWaitingException"/> class
