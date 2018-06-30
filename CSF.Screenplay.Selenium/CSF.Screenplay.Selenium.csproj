@@ -54,11 +54,11 @@
     <Reference Include="CSF.Utils">
       <HintPath>..\packages\CSF.Utils.6.1.1\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Screenplay">
-      <HintPath>..\packages\CSF.Screenplay.0.13.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.WebDriverExtras">
       <HintPath>..\packages\CSF.WebDriverExtras.1.0.3\lib\net45\CSF.WebDriverExtras.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay">
+      <HintPath>..\packages\CSF.Screenplay.0.14.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

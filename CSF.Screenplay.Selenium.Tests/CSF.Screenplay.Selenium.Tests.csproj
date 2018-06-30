@@ -64,17 +64,17 @@
     <Reference Include="CSF.Utils">
       <HintPath>..\packages\CSF.Utils.6.1.1\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="CSF.Screenplay">
-      <HintPath>..\packages\CSF.Screenplay.0.13.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
-    </Reference>
-    <Reference Include="CSF.Screenplay.Reporting">
-      <HintPath>..\packages\CSF.Screenplay.Reporting.0.13.0-beta\lib\net45\CSF.Screenplay.Reporting.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.Reflection">
       <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
     </Reference>
+    <Reference Include="CSF.Screenplay">
+      <HintPath>..\packages\CSF.Screenplay.0.14.0-beta\lib\net45\CSF.Screenplay.dll</HintPath>
+    </Reference>
     <Reference Include="CSF.Screenplay.NUnit">
-      <HintPath>..\packages\CSF.Screenplay.NUnit.0.13.0-beta\lib\net45\CSF.Screenplay.NUnit.dll</HintPath>
+      <HintPath>..\packages\CSF.Screenplay.NUnit.0.14.0-beta\lib\net45\CSF.Screenplay.NUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="CSF.Screenplay.Reporting">
+      <HintPath>..\packages\CSF.Screenplay.Reporting.0.14.0-beta\lib\net45\CSF.Screenplay.Reporting.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
