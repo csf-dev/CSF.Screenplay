@@ -62,6 +62,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="InvalidFlagsDefinition.json" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FooBrowser.flags.json">
