@@ -36,7 +36,7 @@ namespace CSF.Screenplay.Selenium.Tests
 
     void WriteReport(IObjectFormattingService formatter, Report report)
     {
-      var path = "NUnit.report.txt";
+      var path = "NUnit.report.json";
       TextReportWriter.WriteToFile(report, path, formatter);
     }
   }
