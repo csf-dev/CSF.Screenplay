@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Tests
       builder.UseReporting(config => {
         config
           .SubscribeToActorsCreatedInCast()
-          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("NUnit.report.txt"))
+          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("NUnit.report.json"))
           .WithFormattingStrategy<StringCollectionFormattingStrategy>()
           .WithFormattingStrategy<OptionCollectionFormatter>()
           .WithFormattingStrategy<ElementCollectionFormatter>()

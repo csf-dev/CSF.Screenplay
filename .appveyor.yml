@@ -8,7 +8,10 @@ services:
 build:
   project: CSF.Screenplay.Selenium.sln
   verbosity: normal
-test: off
+test:
+  assemblies:
+    only:
+    - '**\CSF.Screenplay.Selenium.BrowserFlags.Tests.dll'
 artifacts:
   - path: CSF.Screenplay.WebTestWebsite
     name: TestWebsite
