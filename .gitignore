@@ -17,3 +17,4 @@ Backup/
 UpgradeLog.htm
 *.nupkg
 saved-screenshots/
+*.report.json
