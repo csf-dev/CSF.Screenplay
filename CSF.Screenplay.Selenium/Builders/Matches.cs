@@ -43,16 +43,16 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <value>The matcher builder.</value>
     public static ICriteriaBasedMatcherBuilder Criteria => new QueryBuilder();
 
-    /// <summary>
-    /// Helper interface (it has no functionality) for the building of matchers which are based on queries.
-    /// </summary>
-    public interface IQueryBasedMatcherBuilder {}
-
-    /// <summary>
-    /// Helper interface (it has no functionality) for the building of matchers which are based on criteria.
-    /// </summary>
-    public interface ICriteriaBasedMatcherBuilder {}
-
     class QueryBuilder : IQueryBasedMatcherBuilder, ICriteriaBasedMatcherBuilder {}
   }
+
+  /// <summary>
+  /// Helper interface (it has no functionality) for the building of matchers which are based on queries.
+  /// </summary>
+  public interface IQueryBasedMatcherBuilder {}
+
+  /// <summary>
+  /// Helper interface (it has no functionality) for the building of matchers which are based on criteria.
+  /// </summary>
+  public interface ICriteriaBasedMatcherBuilder {}
 }
