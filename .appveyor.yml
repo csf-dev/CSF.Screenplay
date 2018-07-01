@@ -10,9 +10,8 @@ build:
   verbosity: normal
 test:
   assemblies:
-    except:
+    only:
     - '**\CSF.Screenplay.Selenium.BrowserFlags.Tests.dll'
-    - '**\CSF.Screenplay.WebTestWebsite.dll'
 artifacts:
   - path: CSF.Screenplay.WebTestWebsite
     name: TestWebsite
