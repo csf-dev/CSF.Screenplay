@@ -33,9 +33,13 @@ namespace CSF.Screenplay.Selenium
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(GetWebDriverResolver(name))
-         .AsOwnType()
-         .WithName(name);
+        b.RegisterDynamicFactory(GetLazyWebDriverTracker(name))
+          .As<ITracksWebDriverCreation>()
+          .WithName(name);
+
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+          .AsOwnType()
+          .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -60,9 +64,13 @@ namespace CSF.Screenplay.Selenium
       builder.ServiceRegistrations.PerScenario.Add(b => {
         b.RegisterDynamicFactory(factory).AsOwnType().WithName(name);
 
-        b.RegisterDynamicFactory(GetWebDriverResolver(name))
-         .AsOwnType()
-         .WithName(name);
+        b.RegisterDynamicFactory(GetLazyWebDriverTracker(name))
+          .As<ITracksWebDriverCreation>()
+          .WithName(name);
+
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+          .AsOwnType()
+          .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -89,9 +97,13 @@ namespace CSF.Screenplay.Selenium
       });
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(GetWebDriverResolver(name))
-         .AsOwnType()
-         .WithName(name);
+        b.RegisterDynamicFactory(GetLazyWebDriverTracker(name))
+          .As<ITracksWebDriverCreation>()
+          .WithName(name);
+
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+          .AsOwnType()
+          .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -114,9 +126,15 @@ namespace CSF.Screenplay.Selenium
         throw new ArgumentNullException(nameof(factory));
 
       builder.ServiceRegistrations.PerScenario.Add(b => {
-        b.RegisterDynamicFactory(factory)
-         .AsOwnType()
-         .WithName(name);
+        b.RegisterDynamicFactory(resolver => {
+          return new LazyWebDriverCreationTracker(new Lazy<IWebDriver>(() => factory(resolver)));
+        })
+          .As<ITracksWebDriverCreation>()
+          .WithName(name);
+        
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+          .AsOwnType()
+          .WithName(name);
       });
 
       builder.AfterScenario.Add(MarkWebDriverWithOutcome(name));
@@ -139,7 +157,15 @@ namespace CSF.Screenplay.Selenium
         throw new ArgumentNullException(nameof(lazyWebDriver));
 
       helper.ServiceRegistrations.PerTestRun.Add(b => {
-        b.RegisterDynamicFactory(r => lazyWebDriver.Value).AsOwnType().WithName(name);
+        b.RegisterFactory(() => new LazyWebDriverCreationTracker(lazyWebDriver))
+          .AsOwnType()
+          .WithName(name);
+      });
+
+      helper.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+         .AsOwnType()
+         .WithName(name);
       });
     }
 
@@ -164,12 +190,26 @@ namespace CSF.Screenplay.Selenium
         b.RegisterDynamicFactory(resolver => {
            var fac = resolver.Resolve<ICreatesWebDriver>(name);
            var flagsProvider = resolver.TryResolve<IGetsBrowserFlags>();
-
-           return factory.CreateWebDriver(flagsProvider: flagsProvider);
+           var lazyDriver = new Lazy<IWebDriver>(() => factory.CreateWebDriver(flagsProvider: flagsProvider));
+           return new LazyWebDriverCreationTracker(lazyDriver);
          })
          .AsOwnType()
          .WithName(name);
       });
+
+      builder.ServiceRegistrations.PerScenario.Add(b => {
+        b.RegisterDynamicFactory(resolver => resolver.Resolve<ITracksWebDriverCreation>().GetWebDriver())
+         .AsOwnType()
+         .WithName(name);
+      });
+    }
+
+    static Func<IResolvesServices,LazyWebDriverCreationTracker> GetLazyWebDriverTracker(string name)
+    {
+      return resolver => {
+        var webDriverResolver = GetWebDriverResolver(name);
+        return new LazyWebDriverCreationTracker(new Lazy<IWebDriver>(() => webDriverResolver(resolver)));
+      };
     }
 
     static Func<IResolvesServices,IWebDriver> GetWebDriverResolver(string name)
@@ -192,8 +232,11 @@ namespace CSF.Screenplay.Selenium
         if(!scenario.Success.HasValue) return;
         var success = scenario.Success.Value;
 
-        var webDriver = scenario.DiContainer.TryResolve<IWebDriver>(name);
-        if(webDriver == null) return;
+        var webDriverTracker = scenario.DiContainer.TryResolve<ITracksWebDriverCreation>(name);
+        if(webDriverTracker == null) return;
+        if(!webDriverTracker.HasWebDriverBeenCreated) return;
+
+        var webDriver = webDriverTracker.GetWebDriver();
 
         var receivesStatus = webDriver as ICanReceiveScenarioOutcome;
         if(receivesStatus == null) return;

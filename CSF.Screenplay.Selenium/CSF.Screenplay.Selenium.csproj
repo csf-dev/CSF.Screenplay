@@ -206,6 +206,8 @@
     <Compile Include="SaveScreenshotsBuilderExtensions.cs" />
     <Compile Include="Actions\SaveAScreenshot.cs" />
     <Compile Include="Builders\TakeAScreenshot.cs" />
+    <Compile Include="LazyWebDriverCreationTracker.cs" />
+    <Compile Include="ITracksWebDriverCreation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
