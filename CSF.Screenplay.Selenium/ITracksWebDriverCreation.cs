@@ -1,5 +1,5 @@
 ﻿//
-// SeleniumWebElementAdapterFormatter.cs
+// ITracksWebDriverCreation.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,24 +24,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.ReportFormatting;
-using CSF.Screenplay.Selenium.Models;
+using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.Reporting
+namespace CSF.Screenplay.Selenium
 {
   /// <summary>
-  /// Object formatter for an object which implements <see cref="IHasTargetName"/>.
+  /// A service which tracks whether or not a web driver has been created or not, and provides access
+  /// to that web driver.
   /// </summary>
-  public class TargetNameFormatter : ObjectFormattingStrategy<IHasTargetName>
+  public interface ITracksWebDriverCreation
   {
     /// <summary>
-    /// Formats the given object.
+    /// Gets a value indicating whether the web driver has been created or not.
     /// </summary>
-    /// <param name="obj">Object.</param>
-    public override string FormatForReport(IHasTargetName obj)
-    {
-      if(obj == null) return "<null>";
-      return obj.GetName();
-    }
+    /// <value><c>true</c> if the web driver has been created; otherwise, <c>false</c>.</value>
+    bool HasWebDriverBeenCreated { get; }
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    IWebDriver GetWebDriver();
   }
 }

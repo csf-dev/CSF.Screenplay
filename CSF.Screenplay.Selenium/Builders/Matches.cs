@@ -1,5 +1,5 @@
 ﻿//
-// SeleniumWebElementAdapterFormatter.cs
+// Matches.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,24 +24,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.ReportFormatting;
-using CSF.Screenplay.Selenium.Models;
-
-namespace CSF.Screenplay.Selenium.Reporting
+namespace CSF.Screenplay.Selenium.Builders
 {
   /// <summary>
-  /// Object formatter for an object which implements <see cref="IHasTargetName"/>.
+  /// Builder type for creating matchers.
   /// </summary>
-  public class TargetNameFormatter : ObjectFormattingStrategy<IHasTargetName>
+  public static class Matches
   {
     /// <summary>
-    /// Formats the given object.
+    /// Gets a matcher builder, for creating a matcher from queries.
     /// </summary>
-    /// <param name="obj">Object.</param>
-    public override string FormatForReport(IHasTargetName obj)
-    {
-      if(obj == null) return "<null>";
-      return obj.GetName();
-    }
+    /// <value>The matcher builder.</value>
+    public static IQueryBasedMatcherBuilder Query => new QueryBuilder();
+
+    /// <summary>
+    /// Gets a matcher builder, for creating a matcher for a specific criterion.
+    /// </summary>
+    /// <value>The matcher builder.</value>
+    public static ICriteriaBasedMatcherBuilder Criteria => new QueryBuilder();
+
+    class QueryBuilder : IQueryBasedMatcherBuilder, ICriteriaBasedMatcherBuilder {}
   }
+
+  /// <summary>
+  /// Helper interface (it has no functionality) for the building of matchers which are based on queries.
+  /// </summary>
+  public interface IQueryBasedMatcherBuilder {}
+
+  /// <summary>
+  /// Helper interface (it has no functionality) for the building of matchers which are based on criteria.
+  /// </summary>
+  public interface ICriteriaBasedMatcherBuilder {}
 }

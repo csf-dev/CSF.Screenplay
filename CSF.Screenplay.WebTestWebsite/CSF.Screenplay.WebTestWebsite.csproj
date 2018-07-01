@@ -9,7 +9,7 @@
     <RootNamespace>CSF.Screenplay.WebTestWebsite</RootNamespace>
     <AssemblyName>CSF.Screenplay.WebTestWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.4.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.5.0-beta</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,34 +90,34 @@
       <HintPath>..\packages\CSF.Utils.6.1.1\lib\net45\CSF.Utils.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.Abstractions">
-      <HintPath>..\packages\CSF.Zpt.Abstractions.1.0.6\lib\net45\CSF.Zpt.Abstractions.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.Abstractions.1.1.0\lib\net45\CSF.Zpt.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt">
-      <HintPath>..\packages\CSF.Zpt.1.0.6\lib\net45\CSF.Zpt.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.1.1.0\lib\net45\CSF.Zpt.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.DocumentProviders.XmlLinq">
-      <HintPath>..\packages\CSF.Zpt.DocumentProviders.XmlLinq.1.0.6\lib\net45\CSF.Zpt.DocumentProviders.XmlLinq.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.DocumentProviders.XmlLinq.1.1.0\lib\net45\CSF.Zpt.DocumentProviders.XmlLinq.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.CSharpExpressions">
-      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.0.6\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.CSharpFramework">
-      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.0.6\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpFramework.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.CSharpExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.CSharpFramework.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.NotExpressions">
-      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.NotExpressions.1.0.6\lib\net45\CSF.Zpt.ExpressionEvaluators.NotExpressions.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.NotExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.NotExpressions.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.PathExpressions">
-      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.PathExpressions.1.0.6\lib\net45\CSF.Zpt.ExpressionEvaluators.PathExpressions.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.PathExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.PathExpressions.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.StringExpressions">
-      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.StringExpressions.1.0.6\lib\net45\CSF.Zpt.ExpressionEvaluators.StringExpressions.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.StringExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.StringExpressions.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.DocumentProviders.HtmlHAP">
-      <HintPath>..\packages\CSF.Zpt.DocumentProviders.HtmlHAP.1.0.6\lib\net45\CSF.Zpt.DocumentProviders.HtmlHAP.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.DocumentProviders.HtmlHAP.1.1.0\lib\net45\CSF.Zpt.DocumentProviders.HtmlHAP.dll</HintPath>
     </Reference>
     <Reference Include="CSF.Zpt.MVC5">
-      <HintPath>..\packages\CSF.Zpt.MVC5.1.0.6\lib\net45\CSF.Zpt.MVC5.dll</HintPath>
+      <HintPath>..\packages\CSF.Zpt.MVC5.1.1.0\lib\net45\CSF.Zpt.MVC5.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
-    <Content Include="Web.config" />
+    <Content Include="web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Scripts\PageTwo.js" />

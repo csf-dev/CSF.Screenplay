@@ -1,5 +1,5 @@
 ﻿//
-// SeleniumWebElementAdapterFormatter.cs
+// WebDriverCreationTracker.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,24 +24,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.ReportFormatting;
-using CSF.Screenplay.Selenium.Models;
+using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.Reporting
+namespace CSF.Screenplay.Selenium
 {
   /// <summary>
-  /// Object formatter for an object which implements <see cref="IHasTargetName"/>.
+  /// A simple shared wrapper around a lazy web driver, used to track whether or not it has been initialised.
   /// </summary>
-  public class TargetNameFormatter : ObjectFormattingStrategy<IHasTargetName>
+  public class LazyWebDriverCreationTracker : ITracksWebDriverCreation
   {
+    readonly Lazy<IWebDriver> lazyWebDriver;
+
     /// <summary>
-    /// Formats the given object.
+    /// Gets a value indicating whether the web driver has been created or not.
     /// </summary>
-    /// <param name="obj">Object.</param>
-    public override string FormatForReport(IHasTargetName obj)
+    /// <value><c>true</c> if the web driver has been created; otherwise, <c>false</c>.</value>
+    public bool HasWebDriverBeenCreated => lazyWebDriver.IsValueCreated;
+
+    /// <summary>
+    /// Gets the web driver.
+    /// </summary>
+    /// <returns>The web driver.</returns>
+    public IWebDriver GetWebDriver() => lazyWebDriver.Value;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.WebDriverCreationTracker"/> class.
+    /// </summary>
+    /// <param name="lazyWebDriver">Lazy web driver.</param>
+    public LazyWebDriverCreationTracker(Lazy<IWebDriver> lazyWebDriver)
     {
-      if(obj == null) return "<null>";
-      return obj.GetName();
+      if(lazyWebDriver == null)
+        throw new ArgumentNullException(nameof(lazyWebDriver));
+      this.lazyWebDriver = lazyWebDriver;
     }
   }
 }

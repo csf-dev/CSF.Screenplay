@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Models
     /// </summary>
     /// <returns>The web element adapter.</returns>
     /// <param name="ability">Ability.</param>
-    public IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability) => elements.FirstOrDefault();
+    public IWebElementAdapter GetWebElementAdapter(BrowseTheWeb ability) => GetWebElementAdapter();
 
     /// <summary>
     /// Gets a collection of web element adapters from the current instance, using the given web-browsing ability.
@@ -47,7 +47,7 @@ namespace CSF.Screenplay.Selenium.Models
     /// </summary>
     /// <returns>The web element adapter.</returns>
     /// <param name="driver">The web driver.</param>
-    public IWebElementAdapter GetWebElementAdapter(IWebDriver driver) => elements.FirstOrDefault();
+    public IWebElementAdapter GetWebElementAdapter(IWebDriver driver) => GetWebElementAdapter();
 
     /// <summary>
     /// Gets a collection of web element adapters from the current instance, using a given Selenium web driver.
@@ -73,6 +73,18 @@ namespace CSF.Screenplay.Selenium.Models
     /// </summary>
     /// <returns>A <see cref="T:System.String"/> that represents the current <see cref="ElementCollection"/>.</returns>
     public override string ToString() => $"[{nameof(ElementCollection)}:{GetName()}]";
+
+    IWebElementAdapter GetWebElementAdapter()
+    {
+      if(!elements.Any())
+      {
+        throw new TargetNotFoundException($"There is no element matching '{GetName()}' on the screen.") {
+          Target = this
+        };
+      }
+
+      return elements.First();
+    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ElementCollection"/> class.
