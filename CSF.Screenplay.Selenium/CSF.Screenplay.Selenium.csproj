@@ -208,6 +208,8 @@
     <Compile Include="Builders\TakeAScreenshot.cs" />
     <Compile Include="LazyWebDriverCreationTracker.cs" />
     <Compile Include="ITracksWebDriverCreation.cs" />
+    <Compile Include="Builders\Matches.cs" />
+    <Compile Include="Builders\MatcherBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
