@@ -3,6 +3,8 @@
 NUNIT_CONSOLE_VERSION="3.7.0"
 NUNIT_PATH="./testrunner/NUnit.ConsoleRunner.${NUNIT_CONSOLE_VERSION}/tools/nunit3-console.exe"
 TEST_PATTERN="CSF.*.Tests.dll"
+UNIT_TESTS="CSF.Screenplay.Selenium.BrowserFlags.Tests"
+UNIT_TESTS_PATH="${WEB_TESTS}/bin/Debug/${WEB_TESTS}.dll"
 WEB_TESTS="CSF.Screenplay.Selenium.Tests"
 WEB_TESTS_PATH="${WEB_TESTS}/bin/Debug/${WEB_TESTS}.dll"
 
@@ -33,6 +35,13 @@ start_webserver()
   stop_if_failure $? "Starting the application"
 }
 
+run_unit_tests()
+{
+  echo "Running integration tests ..."
+  mono "$NUNIT_PATH" --labels=All "$UNIT_TESTS_PATH"
+  test_outcome=$?
+}
+
 run_integration_tests()
 {
   echo "Running integration tests ..."
@@ -46,6 +55,14 @@ shutdown_webserver()
 }
 
 build_solution
+
+run_unit_tests
+if [ "$test_outcome" -ne "0" ]
+then
+  echo "Stopping the build: Unit test failure"
+  exit 1
+fi
+
 start_webserver
 run_integration_tests
 shutdown_webserver
