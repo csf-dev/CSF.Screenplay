@@ -1,5 +1,7 @@
 sudo: false
 language: csharp
+mono:
+    - 5.10.1
 solution: CSF.Screenplay.Selenium.sln
 
 addons:
