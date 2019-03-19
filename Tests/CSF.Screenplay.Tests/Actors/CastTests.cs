@@ -108,7 +108,7 @@ namespace CSF.Screenplay.Tests.Actors
       Assert.That(sarahAgain, Is.SameAs(sarah));
     }
 
-    [Test]
+    [Test,Parallelizable(ParallelScope.None)]
     public void Get_does_not_re_apply_actor_customisation_if_using_the_same_persona_type_twice()
     {
       // Arrange
