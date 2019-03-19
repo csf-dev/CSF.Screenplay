@@ -25,12 +25,6 @@ namespace CSF.Screenplay
     event EventHandler<ActorEventArgs> ActorCreated;
 
     /// <summary>
-    /// An event which is triggered any time a new actor is added to the current cast.
-    /// Where an actor is created then added, this event fires after <see cref="ActorCreated"/>.
-    /// </summary>
-    event EventHandler<ActorEventArgs> ActorAdded;
-
-    /// <summary>
     /// Gets a single actor by their name, creating them if they do not already exist in the cast.
     /// If this operation leads to the creation of a new actor then it will fire both
     /// <see cref="ActorCreated"/> and then <see cref="ActorAdded"/>.

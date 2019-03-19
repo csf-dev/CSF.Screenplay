@@ -97,10 +97,9 @@ namespace CSF.Screenplay.Actors
     IActor CreateAndAddActor(string name)
     {
       var actor = new Actor(name, scenarioIdentity);
-      OnActorCreated(actor);
-
       Actors.Add(name, actor);
-      OnActorAdded(actor);
+
+      OnActorCreated(actor);
 
       return actor;
     }
@@ -111,7 +110,6 @@ namespace CSF.Screenplay.Actors
 
     /// <summary>
     /// An event which is triggered any time a new actor is created by the current cast.
-    /// Fires before <see cref="ActorAdded"/>.
     /// </summary>
     public event EventHandler<ActorEventArgs> ActorCreated;
 
@@ -123,22 +121,6 @@ namespace CSF.Screenplay.Actors
     {
       var args = new ActorEventArgs(actor);
       ActorCreated?.Invoke(this, args);
-    }
-
-    /// <summary>
-    /// An event which is triggered any time a new actor is added to the current cast.
-    /// Where an actor is created then added, this event fires after <see cref="ActorCreated"/>.
-    /// </summary>
-    public event EventHandler<ActorEventArgs> ActorAdded;
-
-    /// <summary>
-    /// Event invoker for the <see cref="ActorAdded"/> event.
-    /// </summary>
-    /// <param name="actor">Actor.</param>
-    protected virtual void OnActorAdded(IActor actor)
-    {
-      var args = new ActorEventArgs(actor);
-      ActorAdded?.Invoke(this, args);
     }
 
     #endregion

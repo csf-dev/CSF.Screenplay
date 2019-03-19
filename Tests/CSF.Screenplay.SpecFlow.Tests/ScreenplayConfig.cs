@@ -13,7 +13,7 @@ namespace CSF.Screenplay.SpecFlow.Tests
     {
       builder.UseReporting(config => {
         config
-          .SubscribeToActorsCreatedInCast()
+          .SubscribeToActorsInCast()
           .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
           .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.json"))
           ;

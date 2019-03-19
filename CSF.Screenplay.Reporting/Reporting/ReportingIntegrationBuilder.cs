@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Reporting
     Func<IFormatsObjectForReport,IHandlesReportableEvents> reporterToUse;
     IObservesScenarioCompletion scenarioCompletionObserver;
     string name, castName;
-    bool subscribeToCastActorCreation, subscribeToCastActorAddition;
+    bool subscribeToActorsInCast;
     readonly IObjectFormatingStrategyRegistry formatterRegistry;
 
     #endregion
@@ -100,25 +100,9 @@ namespace CSF.Screenplay.Reporting
     /// Requires a cast to be in use.
     /// </summary>
     /// <param name="castName">Cast name.</param>
-    public ReportingIntegrationBuilder SubscribeToActorsCreatedInCast(string castName = null)
+    public ReportingIntegrationBuilder SubscribeToActorsInCast(string castName = null)
     {
-      subscribeToCastActorCreation = true;
-      subscribeToCastActorAddition = false;
-      this.castName = castName;
-      return this;
-    }
-
-    /// <summary>
-    /// Causes the builder to subscribe to actors whenever they are added to a cast instance.
-    /// This will cause the reporter to subscribe to all actors participating in the cast, those created within it and
-    /// also those added to it externally.
-    /// Requires a cast to be in use.
-    /// </summary>
-    /// <param name="castName">Cast name.</param>
-    public ReportingIntegrationBuilder SubscribeToActorsAddedToCast(string castName = null)
-    {
-      subscribeToCastActorCreation = false;
-      subscribeToCastActorAddition = true;
+      subscribeToActorsInCast = true;
       this.castName = castName;
       return this;
     }
@@ -172,24 +156,12 @@ namespace CSF.Screenplay.Reporting
     {
       integration.BeforeScenario.Add((scenario) => {
 
-        if(!subscribeToCastActorCreation && !subscribeToCastActorAddition)
-          return;
+        if(!subscribeToActorsInCast) return;
 
         var cast = scenario.DiContainer.Resolve<ICast>(castName);
         var reporter = scenario.DiContainer.Resolve<IObservesReportableEvents>(name);
 
-        if(subscribeToCastActorCreation)
-        {
-          cast.ActorCreated += (sender, e) => {
-            reporter.Subscribe(e.Actor);
-          };
-        }
-        else
-        {
-          cast.ActorAdded += (sender, e) => {
-            reporter.Subscribe(e.Actor);
-          };
-        }
+        cast.ActorCreated += (sender, e) => reporter.Subscribe(e.Actor);
       });
     }
 
