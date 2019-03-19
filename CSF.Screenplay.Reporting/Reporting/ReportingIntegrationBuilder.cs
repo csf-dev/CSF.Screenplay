@@ -1,5 +1,4 @@
 ﻿using System;
-using CSF.Screenplay.Actors;
 using CSF.Screenplay.Integration;
 using CSF.Screenplay.ReportFormatting;
 
@@ -14,8 +13,7 @@ namespace CSF.Screenplay.Reporting
 
     Func<IFormatsObjectForReport,IHandlesReportableEvents> reporterToUse;
     IObservesScenarioCompletion scenarioCompletionObserver;
-    string name, castName;
-    bool subscribeToActorsInCast;
+    string name;
     readonly IObjectFormatingStrategyRegistry formatterRegistry;
 
     #endregion
@@ -52,7 +50,7 @@ namespace CSF.Screenplay.Reporting
     /// Indicates that when scenarios complete and their reports become available, the given object should render
     /// their results.
     /// </summary>
-    /// <returns>The scenario renderer.</returns>
+    /// <returns>The report integration builder.</returns>
     /// <param name="renderer">Renderer.</param>
     public ReportingIntegrationBuilder WithScenarioRenderer(IObservesScenarioCompletion renderer)
     {
@@ -61,13 +59,25 @@ namespace CSF.Screenplay.Reporting
     }
 
     /// <summary>
+    /// Indicates that when scenarios complete and their reports become available, they should be written to
+    /// a JSON report file at the specified path.
+    /// </summary>
+    /// <returns>The report integration builder.</returns>
+    /// <param name="path">The file path for the JSON report file.</param>
+    public ReportingIntegrationBuilder WithReportJsonFile(string path)
+    {
+      scenarioCompletionObserver = JsonScenarioRenderer.CreateForFile(path);
+      return this;
+    }
+
+    /// <summary>
     /// Adds an object formatter to the given reporter.
     /// </summary>
     /// <returns>The formatter.</returns>
     /// <typeparam name="T">The object formatter type.</typeparam>
-    public ReportingIntegrationBuilder WithFormattingStrategy<T>() where T : IHasObjectFormattingStrategyInfo,new()
+    public ReportingIntegrationBuilder WithFormatter<T>() where T : IHasObjectFormattingStrategyInfo,new()
     {
-      return WithFormattingStrategy(new T());
+      return WithFormatter(new T());
     }
 
     /// <summary>
@@ -75,7 +85,7 @@ namespace CSF.Screenplay.Reporting
     /// </summary>
     /// <returns>The formatter.</returns>
     /// <param name="strategy">Formatter.</param>
-    public ReportingIntegrationBuilder WithFormattingStrategy(IHasObjectFormattingStrategyInfo strategy)
+    public ReportingIntegrationBuilder WithFormatter(IHasObjectFormattingStrategyInfo strategy)
     {
       if(strategy == null)
         throw new ArgumentNullException(nameof(strategy));
@@ -91,19 +101,6 @@ namespace CSF.Screenplay.Reporting
     public ReportingIntegrationBuilder Name(string name) 
     {
       this.name = name;
-      return this;
-    }
-
-    /// <summary>
-    /// Causes the builder to subscribe to actors whenever they are created within a cast instance.
-    /// If actors are merely added to the cast (but created externally) then the reporter will not subscribe to them.
-    /// Requires a cast to be in use.
-    /// </summary>
-    /// <param name="castName">Cast name.</param>
-    public ReportingIntegrationBuilder SubscribeToActorsInCast(string castName = null)
-    {
-      subscribeToActorsInCast = true;
-      this.castName = castName;
       return this;
     }
 
@@ -155,10 +152,7 @@ namespace CSF.Screenplay.Reporting
     void SubscribeToCast(IIntegrationConfigBuilder integration)
     {
       integration.BeforeScenario.Add((scenario) => {
-
-        if(!subscribeToActorsInCast) return;
-
-        var cast = scenario.DiContainer.Resolve<ICast>(castName);
+        var cast = scenario.DiContainer.Resolve<ICast>(name);
         var reporter = scenario.DiContainer.Resolve<IObservesReportableEvents>(name);
 
         cast.ActorCreated += (sender, e) => reporter.Subscribe(e.Actor);

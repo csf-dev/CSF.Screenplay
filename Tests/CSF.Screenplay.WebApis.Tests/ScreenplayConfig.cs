@@ -15,10 +15,9 @@ namespace CSF.Screenplay.WebApis.Tests
       builder.UseWebApis("http://localhost:8080/api/");
       builder.UseReporting(config => {
         config
-          .SubscribeToActorsInCast()
-          .WithFormattingStrategy<TimeoutExceptionFormatter>()
-          .WithFormattingStrategy<WebApiExceptionFormatter>()
-          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("JsonApis.report.json"))
+          .WithFormatter<TimeoutExceptionFormatter>()
+          .WithFormatter<WebApiExceptionFormatter>()
+          .WithReportJsonFile("JsonApis.report.json")
           ;
       });
     }
