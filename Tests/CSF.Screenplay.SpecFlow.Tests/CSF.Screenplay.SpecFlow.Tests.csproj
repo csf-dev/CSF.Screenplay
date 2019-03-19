@@ -73,7 +73,6 @@
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
-    <Compile Include="CastExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
     <Compile Include="Stage.feature.cs">
       <DependentUpon>Stage.feature</DependentUpon>
@@ -92,6 +91,7 @@
       <DependentUpon>Personas.feature</DependentUpon>
     </Compile>
     <Compile Include="Personas\Sarah.cs" />
+    <Compile Include="Personas\Mathias.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

@@ -10,23 +10,20 @@ namespace CSF.Screenplay.SpecFlow.Tests
   [Binding]
   public class TestSteps
   {
-    readonly ICast cast;
     readonly IStage stage;
 
-    [Given(@"Joe has the number (-?\d+)")]
+    [Given(@"Mathias has the number (-?\d+)")]
     public void GivenJoeStartsWithTheNumber(int number)
     {
-      var joe = cast.GetMathsWhiz("Joe");
-      stage.ShineTheSpotlightOn(joe);
+      var mathias = stage.ShineTheSpotlightOn<Mathias>();
 
-      Given(joe).WasAbleTo(StartWith.TheNumber(number));
+      Given(mathias).WasAbleTo(StartWith.TheNumber(number));
     }
 
     [Given(@"Sarah is an actor created from a persona")]
     public void GivenSarahIsAnActorFromAPersona()
     {
-      var sarah = cast.Get<Sarah>();
-      stage.ShineTheSpotlightOn(sarah);
+      var sarah = stage.ShineTheSpotlightOn<Sarah>();
     }
 
     [Given(@"(?:he|she|they) (?:has|have) the number (-?\d+)")]
@@ -62,15 +59,12 @@ namespace CSF.Screenplay.SpecFlow.Tests
       Assert.That(result, Is.EqualTo(number));
     }
 
-    public TestSteps(ICast cast, IStage stage)
+    public TestSteps(IStage stage)
     {
       if(stage == null)
         throw new ArgumentNullException(nameof(stage));
-      if(cast == null)
-        throw new ArgumentNullException(nameof(cast));
 
       this.stage = stage;
-      this.cast = cast;
     }
   }
 }
