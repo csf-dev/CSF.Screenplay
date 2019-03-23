@@ -15,23 +15,25 @@ The CSF.Screenplay library is inspired by [Serenity], a testing framework which 
 [Selenium]: http://www.seleniumhq.org/
 [Serenity]: https://github.com/serenity-bdd
 
-## Example test
-*The preferred integration* for Screenplay is **[SpecFlow]**.  This example uses **[NUnit]** instead though, as it is more concise and more widely recognised.
+## Getting started
+There is [a documentation wiki] available with a wealth of learning materials. To demonstrate the basics though, here is an example test.
 
+This example is written using **[NUnit]**; it is a concise and widely recognised test format. *For a better BDD experience*, we recommend using the **[SpecFlow]** test framework.
+
+[a documentation wiki]: https://github.com/csf-dev/CSF.Screenplay/wiki
 [SpecFlow]: http://specflow.org/
 [NUnit]: http://nunit.org/
 
 ```csharp
 [TestFixture]
-[Description("Users should be able to buy groceries via the web application")]
+[Description("Users should be able to buy groceries via the application")]
 public class UsersCanBuyGroceries
 {
   [Test,Screenplay]
-  [Description("Joe should see a thankyou message when he uses the web application to buy eggs.")]
-  public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(ICast cast, BrowseTheWeb browseTheWeb)
+  [Description("Joe should see a thankyou message when he uses the application to buy eggs.")]
+  public void JoeShouldSeeAThankyouMessageWhenHeBuysEggs(ICast cast)
   {
-    var joe = cast.Get("Joe")
-    joe.IsAbleTo(browseTheWeb);
+    var joe = cast.Get<Joe>();
 
     Given(joe).WasAbleTo(SearchTheShop.ForGroceries());
     When(joe).AttemptsTo(Click.On(GroceriesForSale.BuyEggsButton));
