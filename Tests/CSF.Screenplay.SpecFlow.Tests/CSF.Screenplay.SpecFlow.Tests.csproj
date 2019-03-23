@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.SpecFlow.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.SpecFlow.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.14.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.15.0-rc1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +73,6 @@
     <Compile Include="Actions\StartWithTheNumber.cs" />
     <Compile Include="Actions\AddTheNumber.cs" />
     <Compile Include="Actions\GetTheNumber.cs" />
-    <Compile Include="CastExtensions.cs" />
     <Compile Include="ScreenplayConfig.cs" />
     <Compile Include="Stage.feature.cs">
       <DependentUpon>Stage.feature</DependentUpon>
@@ -92,6 +91,7 @@
       <DependentUpon>Personas.feature</DependentUpon>
     </Compile>
     <Compile Include="Personas\Sarah.cs" />
+    <Compile Include="Personas\Mathias.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CSF.Screenplay.SpecFlow\CSF.Screenplay.SpecFlow.csproj">

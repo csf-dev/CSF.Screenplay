@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.WebApis.Tests</RootNamespace>
     <AssemblyName>CSF.Screenplay.WebApis.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.14.0-beta</ReleaseVersion>
+    <ReleaseVersion>0.15.0-rc1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

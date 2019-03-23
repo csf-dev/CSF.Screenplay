@@ -1,5 +1,4 @@
 ﻿using CSF.Screenplay.Integration;
-using CSF.Screenplay.Reporting;
 using CSF.Screenplay.SpecFlow;
 using CSF.Screenplay.SpecFlow.Tests.Abilities;
 
@@ -13,9 +12,8 @@ namespace CSF.Screenplay.SpecFlow.Tests
     {
       builder.UseReporting(config => {
         config
-          .SubscribeToActorsCreatedInCast()
-          .WithFormattingStrategy<ReportFormatting.TimeSpanFormattingStrategy>()
-          .WithScenarioRenderer(JsonScenarioRenderer.CreateForFile("SpecFlow.report.json"))
+          .WithFormatter<ReportFormatting.TimeSpanFormattingStrategy>()
+          .WithReportJsonFile("SpecFlow.report.json")
           ;
       });
 
