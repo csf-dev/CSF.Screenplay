@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.WebApis</RootNamespace>
     <AssemblyName>CSF.Screenplay.WebApis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>0.15.0-rc1</ReleaseVersion>
+    <ReleaseVersion>0.15.1-rc2</ReleaseVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
