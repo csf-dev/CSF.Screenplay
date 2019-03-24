@@ -2,10 +2,10 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Reporting.JsonToHtml</id>
-    <version>0.15.0-rc1</version>
+    <version>0.15.1-rc2</version>
     <title>CSF.Screenplay.Reporting.JsonToHtml</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A console application which converts JSON reports into pretty human-readable HTML reports.</description>
@@ -13,15 +13,12 @@
     <dependencies>
       <dependency id="Zpt-Sharp-API" version="[1.1.0,2.0.0)" />
       <dependency id="CSF.Zpt.ExpressionEvaluators.LoadExpressions" version="[1.1.0,2.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.15.0-rc1" />
-      <dependency id="CSF.Screenplay.Reporting" version="0.15.0-rc1" />
-      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="CSF.Screenplay" version="0.15.1-rc2" />
+      <dependency id="CSF.Screenplay.Reporting" version="0.15.1-rc2" />
+      <dependency id="Newtonsoft.Json" version="[10.0.3,13.0.0)" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/CSF.Screenplay.Reporting.Html.dll" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.Html.xml" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.JsonToHtml.exe" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.JsonToHtml.exe.config" target="lib/net45" />
+    <file src="bin/Release/*.*" target="tools" />
   </files>
 </package>

@@ -2,10 +2,10 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.Reporting</id>
-    <version>0.15.0-rc1</version>
+    <version>0.15.1-rc2</version>
     <title>CSF.Screenplay.Reporting</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Types related to the creation of reports from Screenplay performances</description>
@@ -13,7 +13,8 @@
     <dependencies>
       <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
       <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.15.0-rc1" />
+      <dependency id="CSF.Screenplay" version="0.15.1-rc2" />
+      <dependency id="Newtonsoft.Json" version="[10.0.3,13.0.0)" />
     </dependencies>
   </metadata>
   <files>

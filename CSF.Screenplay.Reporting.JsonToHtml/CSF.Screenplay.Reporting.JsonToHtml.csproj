@@ -8,7 +8,7 @@
     <RootNamespace>CSF.Screenplay.Reporting</RootNamespace>
     <AssemblyName>CSF.Screenplay.Reporting.JsonToHtml</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <ReleaseVersion>0.15.0-rc1</ReleaseVersion>
+    <ReleaseVersion>0.15.1-rc2</ReleaseVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -31,9 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="CSF.Caches">
       <HintPath>..\packages\CSF.Caches.1.0.2\lib\net45\CSF.Caches.dll</HintPath>
     </Reference>
@@ -83,6 +80,9 @@
     </Reference>
     <Reference Include="CSF.Zpt.ExpressionEvaluators.LoadExpressions">
       <HintPath>..\packages\CSF.Zpt.ExpressionEvaluators.LoadExpressions.1.1.0\lib\net45\CSF.Zpt.ExpressionEvaluators.LoadExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

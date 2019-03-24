@@ -2,17 +2,17 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.WebApis</id>
-    <version>0.15.0-rc1</version>
+    <version>0.15.1-rc2</version>
     <title>CSF.Screenplay.WebApis</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Abilities and Actions for making use of HTTP web APIs in Screenplay</description>
     <copyright>Copyright 2018</copyright>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="[10.0.3,11.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.15.0-rc1" />
+      <dependency id="Newtonsoft.Json" version="[10.0.3,13.0.0)" />
+      <dependency id="CSF.Screenplay" version="0.15.1-rc2" />
     </dependencies>
   </metadata>
   <files>
