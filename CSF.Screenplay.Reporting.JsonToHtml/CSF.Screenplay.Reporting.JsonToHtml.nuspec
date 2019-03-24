@@ -19,9 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Release/CSF.Screenplay.Reporting.Html.dll" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.Html.xml" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.JsonToHtml.exe" target="lib/net45" />
-    <file src="bin/Release/CSF.Screenplay.Reporting.JsonToHtml.exe.config" target="lib/net45" />
+    <file src="bin/Release/*.*" target="tools" />
   </files>
 </package>
