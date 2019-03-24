@@ -5,7 +5,7 @@
     <version>0.15.0-rc1</version>
     <title>CSF.Screenplay.NUnit</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Bindings and types for making use of CSF.Screenplay with NUnit Framework 3.x</description>

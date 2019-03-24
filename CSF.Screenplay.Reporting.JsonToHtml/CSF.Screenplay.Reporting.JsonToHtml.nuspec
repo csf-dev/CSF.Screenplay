@@ -5,7 +5,7 @@
     <version>0.15.0-rc1</version>
     <title>CSF.Screenplay.Reporting.JsonToHtml</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A console application which converts JSON reports into pretty human-readable HTML reports.</description>

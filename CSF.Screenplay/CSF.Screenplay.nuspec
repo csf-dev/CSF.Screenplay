@@ -5,7 +5,7 @@
     <version>0.15.0-rc1</version>
     <title>CSF.Screenplay</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Core framework to support the Screenplay (AKA Journey) pattern for BDD testing.</description>

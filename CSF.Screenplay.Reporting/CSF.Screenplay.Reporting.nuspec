@@ -5,7 +5,7 @@
     <version>0.15.0-rc1</version>
     <title>CSF.Screenplay.Reporting</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Types related to the creation of reports from Screenplay performances</description>

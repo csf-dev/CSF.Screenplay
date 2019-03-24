@@ -5,7 +5,7 @@
     <version>0.15.0-rc1</version>
     <title>CSF.Screenplay.WebApis</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Abilities and Actions for making use of HTTP web APIs in Screenplay</description>
