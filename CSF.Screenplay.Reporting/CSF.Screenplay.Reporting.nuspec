@@ -14,6 +14,7 @@
       <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
       <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
       <dependency id="CSF.Screenplay" version="0.15.0-rc1" />
+      <dependency id="Newtonsoft.Json" version="[10.0.3,13.0.0)" />
     </dependencies>
   </metadata>
   <files>
