@@ -10,13 +10,6 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A console application which converts JSON reports into pretty human-readable HTML reports.</description>
     <copyright>Copyright 2018</copyright>
-    <dependencies>
-      <dependency id="Zpt-Sharp-API" version="[1.1.0,2.0.0)" />
-      <dependency id="CSF.Zpt.ExpressionEvaluators.LoadExpressions" version="[1.1.0,2.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.15.1-rc2" />
-      <dependency id="CSF.Screenplay.Reporting" version="0.15.1-rc2" />
-      <dependency id="Newtonsoft.Json" version="[10.0.3,13.0.0)" />
-    </dependencies>
   </metadata>
   <files>
     <file src="bin/Release/*.*" target="tools" />
