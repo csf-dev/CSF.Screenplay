@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay</id>
-    <version>0.15.1-rc2</version>
+    <version>1.0.0</version>
     <title>CSF.Screenplay</title>
     <authors>CSF Software Ltd</authors>
     <license type="expression">MIT</license>
