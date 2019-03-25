@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Screenplay.NUnit</id>
-    <version>0.15.1-rc2</version>
+    <version>1.0.0</version>
     <title>CSF.Screenplay.NUnit</title>
     <authors>CSF Software Ltd</authors>
     <license type="expression">MIT</license>
@@ -13,7 +13,7 @@
     <dependencies>
       <dependency id="CSF.FlexDi" version="[1.0.2,2.0.0)" />
       <dependency id="CSF.Reflection" version="[1.0.3,2.0.0)" />
-      <dependency id="CSF.Screenplay" version="0.15.1-rc2" />
+      <dependency id="CSF.Screenplay" version="[1.0.0,2.0.0)" />
       <dependency id="NUnit" version="[3.4.0,4.0.0)" />
     </dependencies>
   </metadata>
