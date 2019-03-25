@@ -7,13 +7,14 @@
 * Detailled human-readable reports are produced at the end of every test run
 * It is an ideal framework for controlling technologies such as [Selenium] Web Driver
 
-The CSF.Screenplay library is inspired by [Serenity], a testing framework which includes a Java implementation of the Screenplay pattern.
+The CSF.Screenplay library is inspired by [Serenity], a testing framework which includes a Java implementation of the Screenplay pattern. It is **[available for download via NuGet]**.
 
 [Screenplay]: https://www.infoq.com/articles/Beyond-Page-Objects-Test-Automation-Serenity-Screenplay
 [BDD tests]: https://en.wikipedia.org/wiki/Behavior-driven_development
 [SOLID design principles]: https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
 [Selenium]: http://www.seleniumhq.org/
 [Serenity]: https://github.com/serenity-bdd
+[available for download via NuGet]: https://github.com/csf-dev/CSF.Screenplay/wiki/NuGetPackages
 
 ## Getting started
 There is [a documentation wiki] available with a wealth of learning materials. To demonstrate the basics though, here is an example test.
