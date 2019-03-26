@@ -43,5 +43,38 @@ namespace CSF.Screenplay.Selenium.Tests.Waits
         When(joe).AttemptsTo(Wait.ForAtMost(2).Seconds().OrUntil(PageThree.DelayedLinkOne).IsVisible());
       });
     }
+
+    [Test,Screenplay]
+    [Description("If the actor's default wait time is not long enough for the element to appear then an exception is raised.")]
+    public void Wait_UntilVisible_raises_exception_if_actors_default_wait_time_is_not_long_enough(ICast cast, BrowseTheWeb browseTheWeb)
+    {
+      var joe = cast.Get("Joe");
+      joe.IsAbleTo(browseTheWeb);
+      joe.IsAbleTo(ChooseADefaultWaitTime.Of(TimeSpan.FromSeconds(2)));
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
+
+      When(joe).AttemptsTo(Click.On(PageThree.DelayedButtonOne));
+
+      Assert.Throws<GivenUpWaitingException>(() => {
+        When(joe).AttemptsTo(Wait.Until(PageThree.DelayedLinkOne).IsVisible());
+      });
+    }
+
+    [Test,Screenplay]
+    [Description("If the actor's default wait time is sufficient for the element to appear then no exception is raised.")]
+    public void Wait_UntilVisible_does_not_raise_exception_if_actors_default_wait_time_is_long_enough(ICast cast, BrowseTheWeb browseTheWeb)
+    {
+      var joe = cast.Get("Joe");
+      joe.IsAbleTo(browseTheWeb);
+      joe.IsAbleTo(ChooseADefaultWaitTime.Of(TimeSpan.FromSeconds(5)));
+
+      Given(joe).WasAbleTo(OpenTheirBrowserOn.ThePage<PageThree>());
+
+      When(joe).AttemptsTo(Click.On(PageThree.DelayedButtonOne));
+      When(joe).AttemptsTo(Wait.Until(PageThree.DelayedLinkOne).IsVisible());
+
+      Then(joe).ShouldSee(TheText.Of(PageThree.DelayedLinkOne)).Should().Be("This link appears!");
+    }
   }
 }
