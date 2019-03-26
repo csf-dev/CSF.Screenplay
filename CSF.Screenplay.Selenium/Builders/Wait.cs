@@ -167,7 +167,7 @@ namespace CSF.Screenplay.Selenium.Builders
       if(target == null)
         throw new InvalidOperationException("You must choose a target.");
 
-      return new TargettedWait<T>(target, query, predicate, timespanProvider.GetTimespan());
+      return new TargettedWait<T>(target, query, predicate, timespanProvider?.GetTimespan());
     }
   }
 }

@@ -51,5 +51,12 @@ namespace CSF.Screenplay.Selenium.Abilities
     {
       this.timeout = timeout;
     }
+
+    /// <summary>
+    /// Static builder function to get a new instance of this ability.
+    /// </summary>
+    /// <returns>An instance of the ability.</returns>
+    /// <param name="timeout">Timeout.</param>
+    public static ChooseADefaultWaitTime Of(TimeSpan timeout) => new ChooseADefaultWaitTime(timeout);
   }
 }
