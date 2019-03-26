@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.Builders
   /// </summary>
   public class Wait
   {
-    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(4));
+    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(10));
 
     IProvidesTimespan timespanProvider;
     ITarget target;
