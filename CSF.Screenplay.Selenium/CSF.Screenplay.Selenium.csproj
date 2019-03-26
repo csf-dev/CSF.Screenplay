@@ -210,6 +210,9 @@
     <Compile Include="ITracksWebDriverCreation.cs" />
     <Compile Include="Builders\Matches.cs" />
     <Compile Include="Builders\MatcherBuilderExtensions.cs" />
+    <Compile Include="ScreenplayConstants.cs" />
+    <Compile Include="Abilities\ChooseADefaultWaitTime.cs" />
+    <Compile Include="Waits\GetDuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

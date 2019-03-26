@@ -13,8 +13,6 @@ namespace CSF.Screenplay.Selenium.Builders
   /// </summary>
   public class Wait
   {
-    static readonly IProvidesTimespan DefaultTimeout = new TimespanWrapper(TimeSpan.FromSeconds(10));
-
     IProvidesTimespan timespanProvider;
     ITarget target;
 
@@ -57,11 +55,7 @@ namespace CSF.Screenplay.Selenium.Builders
       if(target == null)
         throw new ArgumentNullException(nameof(target));
       
-      return new Wait
-      {
-        target = target,
-        timespanProvider = DefaultTimeout,
-      };
+      return new Wait { target = target };
     }
 
     /// <summary>
@@ -72,20 +66,20 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <param name="conditionName">A name for the condition.</param>
     public static IPerformable Until(Func<IWebDriver,bool> expectedCondition, string conditionName)
     {
-      return new WaitForACondition(expectedCondition, conditionName, DefaultTimeout.GetTimespan());
+      return new WaitForACondition(expectedCondition, conditionName, null);
     }
 
     /// <summary>
     /// Gets a 'wait' performable which completes once the page has finished loading, using the default timeout.
     /// </summary>
     /// <returns>The performable.</returns>
-    public static IPerformable UntilThePageLoads() => new WaitUntilThePageLoads(DefaultTimeout.GetTimespan());
+    public static IPerformable UntilThePageLoads() => new WaitUntilThePageLoads(null);
 
     /// <summary>
     /// Gets a 'wait' performable which completes once the page has finished loading.
     /// </summary>
     /// <returns>The performable.</returns>
-    public IPerformable OrUntilThePageLoads() => new WaitUntilThePageLoads(timespanProvider.GetTimespan());
+    public IPerformable OrUntilThePageLoads() => new WaitUntilThePageLoads(timespanProvider?.GetTimespan());
 
     /// <summary>
     /// Gets a wait builder for a given target.

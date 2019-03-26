@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Waits
     const string COMPLETE = "complete";
 
     readonly IFormatsDurations durationFormatter;
-    readonly TimeSpan timeout;
+    readonly TimeSpan? timeout;
 
     /// <summary>
     /// Gets the report of the current instance, for the given actor.
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Selenium.Waits
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
     {
-      var timeoutString = durationFormatter.GetDuration(timeout);
+      var timeoutString = durationFormatter.GetDuration(GetDuration.ToWait(timeout, actor));
       return $"{actor.Name} waits for at most {timeoutString} or until the page has loaded";
     }
 
@@ -40,7 +40,7 @@ namespace CSF.Screenplay.Selenium.Waits
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
       var action = Execute.JavaScript.WhichGetsTheDocumentReadyState();
-      var wait = new WebDriverWait(ability.WebDriver, timeout);
+      var wait = new WebDriverWait(ability.WebDriver, GetDuration.ToWait(timeout, actor));
 
       try
       {
@@ -56,7 +56,7 @@ namespace CSF.Screenplay.Selenium.Waits
     /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.Waits.WaitUntilThePageLoads"/> class.
     /// </summary>
     /// <param name="timeout">Timeout.</param>
-    public WaitUntilThePageLoads(TimeSpan timeout)
+    public WaitUntilThePageLoads(TimeSpan? timeout)
     {
       this.timeout = timeout;
       durationFormatter = new TimeSpanFormattingStrategy();
