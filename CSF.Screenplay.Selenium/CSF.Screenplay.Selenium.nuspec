@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <title>CSF.Screenplay.Selenium</title>
     <authors>CSF Software Ltd</authors>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/csf-dev/CSF.Screenplay.Selenium</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Extension to CSF.Screenplay, providing an ability, actions and tasks for Selenium WebDriver for web UI testing using the Screenplay pattern</description>
