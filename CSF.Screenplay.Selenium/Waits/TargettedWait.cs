@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Selenium.Waits
     readonly ITarget target;
     readonly IQuery<T> query;
     readonly Func<T,bool> predicate;
-    readonly TimeSpan timeout;
+    readonly TimeSpan? timeout;
     readonly ISet<Type> ignoredExceptionTypes;
     readonly IFormatsDurations durationFormatter;
 
@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Selenium.Waits
       var actorName = actor.Name;
       var targetName = target.GetName();
       var matchDescription = query.GetMatchDescription();
-      var timeoutString = durationFormatter.GetDuration(timeout);
+      var timeoutString = durationFormatter.GetDuration(GetDuration.ToWait(timeout, actor));
 
       return $"{actorName} waits for at most {timeoutString} or until {targetName} {matchDescription}.";
     }
@@ -84,7 +84,7 @@ namespace CSF.Screenplay.Selenium.Waits
     /// <param name="ability">Ability.</param>
     protected virtual void Wait(IPerformer actor, BrowseTheWeb ability)
     {
-      var wait = new WebDriverWait(ability.WebDriver, timeout);
+      var wait = new WebDriverWait(ability.WebDriver, GetDuration.ToWait(timeout, actor));
       ConfigureWait(wait);
       Wait(actor, wait);
     }
@@ -138,7 +138,7 @@ namespace CSF.Screenplay.Selenium.Waits
     public TargettedWait(ITarget target,
                          IQuery<T> query,
                          Func<T,bool> predicate,
-                         TimeSpan timeout)
+                         TimeSpan? timeout)
     {
       if(predicate == null)
         throw new ArgumentNullException(nameof(predicate));

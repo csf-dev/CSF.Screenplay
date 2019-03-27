@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Selenium.Waits
   {
     readonly Func<IWebDriver,bool> condition;
     readonly string conditionName;
-    readonly TimeSpan timeout;
+    readonly TimeSpan? timeout;
     readonly IFormatsDurations durationFormatter;
 
     /// <summary>
@@ -27,7 +27,7 @@ namespace CSF.Screenplay.Selenium.Waits
     /// <param name="actor">An actor for whom to write the report.</param>
     protected override string GetReport(INamed actor)
     {
-      var formattedTime = durationFormatter.GetDuration(timeout);
+      var formattedTime = durationFormatter.GetDuration(GetDuration.ToWait(timeout, actor));
       return $"{actor.Name} waits for {conditionName} or until {formattedTime} has passed";
     }
 
@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Selenium.Waits
     protected override void PerformAs(IPerformer actor)
     {
       var ability = actor.GetAbility<BrowseTheWeb>();
-      var wait = new WebDriverWait(ability.WebDriver, timeout);
+      var wait = new WebDriverWait(ability.WebDriver, GetDuration.ToWait(timeout, actor));
 
       try
       {
@@ -56,7 +56,7 @@ namespace CSF.Screenplay.Selenium.Waits
     /// <param name="condition">Condition.</param>
     /// <param name="conditionName">Condition name.</param>
     /// <param name="timeout">Timeout.</param>
-    public WaitForACondition(Func<IWebDriver,bool> condition, string conditionName, TimeSpan timeout)
+    public WaitForACondition(Func<IWebDriver,bool> condition, string conditionName, TimeSpan? timeout)
     {
       if(conditionName == null)
         throw new ArgumentNullException(nameof(conditionName));

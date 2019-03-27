@@ -68,8 +68,9 @@ matrix:
     - env:
       - WebDriver_Platform="macOS 10.13"
       - WebDriver_BrowserName="Safari"
-      - WebDriver_BrowserVersion="11.0"
+      - WebDriver_BrowserVersion="11.1"
     - env:
+      - WebDriver_Platform="macOS 10.13"
       - WebDriver_BrowserName="Safari"
       - WebDriver_BrowserVersion="latest"
 
