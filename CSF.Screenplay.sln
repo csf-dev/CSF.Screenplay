@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebApis.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Reporting.JsonToHtml", "CSF.Screenplay.Reporting.JsonToHtml\CSF.Screenplay.Reporting.JsonToHtml.csproj", "{D9723059-FE14-47A0-9E3D-D4F3E32576E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{06CCB639-6BDD-4639-BEBC-5AE73795E17C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.NUnit.Tutorial", "Docs\CSF.Screenplay.NUnit.Tutorial\CSF.Screenplay.NUnit.Tutorial.csproj", "{E808E9F3-3771-4ACA-B595-02023C1A100E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,10 @@ Global
 		{D9723059-FE14-47A0-9E3D-D4F3E32576E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9723059-FE14-47A0-9E3D-D4F3E32576E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9723059-FE14-47A0-9E3D-D4F3E32576E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E808E9F3-3771-4ACA-B595-02023C1A100E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E808E9F3-3771-4ACA-B595-02023C1A100E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E808E9F3-3771-4ACA-B595-02023C1A100E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E808E9F3-3771-4ACA-B595-02023C1A100E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6273A66-8B2A-47C0-A982-F94E6BEA79F8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
@@ -95,6 +103,7 @@ Global
 		{7D3FE30F-56FD-4A79-B05B-CE0251159D3A} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 		{C3A68C7D-848E-434C-8004-9BC3B99CF2B8} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
 		{AD2EA460-8F07-4068-90DF-0EB373836D86} = {ED939EED-BD26-4C3C-9089-48E04DD01CD8}
+		{E808E9F3-3771-4ACA-B595-02023C1A100E} = {06CCB639-6BDD-4639-BEBC-5AE73795E17C}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		version = 1.0.0
