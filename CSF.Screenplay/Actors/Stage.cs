@@ -1,4 +1,5 @@
 using System;
+using CSF.Screenplay.Performances;
 
 namespace CSF.Screenplay.Actors
 {

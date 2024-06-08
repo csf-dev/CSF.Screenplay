@@ -1,11 +1,11 @@
 using System;
 
-namespace CSF.Screenplay.Actors
+namespace CSF.Screenplay.Performances
 {
     /// <summary>
     /// A model for event arguments which relate to a scope of a performance.
     /// </summary>
-    /// <seealso cref="ICanPerform"/>
+    /// <seealso cref="Performance"/>
     public class PerformanceScopeEventArgs : EventArgs, IHasPerformanceIdentity
     {
         /// <inheritdoc/>
