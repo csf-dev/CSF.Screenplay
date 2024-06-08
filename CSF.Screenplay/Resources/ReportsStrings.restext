@@ -1,0 +1,4 @@
+FallbackReportFormat = {0} performs {1}
+FallbackAbilityReportFormat = {0} is able to {1}
+ExceptionFormattingFormat = Unexpected exception formatting value of type {0}: {1}
+UnnamedActor = Unnamed actor

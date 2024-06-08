@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "dotnet: build"
+		},
+		{
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"command": "dotnet",
+			"args": ["test"],
+			"problemMatcher": [],
+			"label": "dotnet: test"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"command": "docfx",
+			"args": ["CSF.Screenplay.Docs/docfx.json"],
+			"problemMatcher": [],
+			"label": "docfx: build"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"command": "docfx",
+			"args": ["CSF.Screenplay.Docs/docfx.json", "--serve"],
+			"problemMatcher": [],
+			"label": "docfx: serve"
+		}
+	]
+}
