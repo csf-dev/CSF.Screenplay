@@ -3,7 +3,7 @@ using System;
 namespace CSF.Screenplay.Actors
 {
     /// <summary>The default implementation of <see cref="IStage"/> which provides a context for which actor is currently active.</summary>
-    public class Stage : IStage, IHasScenarioIdentity
+    public class Stage : IStage, IHasPerformanceIdentity
     {
         readonly ICast cast;
         readonly object spotlightSyncRoot = new object();
@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Actors
         Actor spotlitActor;
 
         /// <inheritdoc/>
-        public virtual Guid ScenarioIdentity => cast.ScenarioIdentity;
+        public virtual Guid PerformanceIdentity => cast.PerformanceIdentity;
 
         /// <inheritdoc/>
         public event EventHandler<ActorEventArgs> ActorSpotlit;
@@ -25,12 +25,12 @@ namespace CSF.Screenplay.Actors
         }
 
         /// <inheritdoc/>
-        public event EventHandler<ScenarioEventArgs> SpotlitTurnedOff;
+        public event EventHandler<PerformanceScopeEventArgs> SpotlitTurnedOff;
 
         /// <summary>Invokes the <see cref="SpotlitTurnedOff"/> event.</summary>
         protected virtual void InvokeSpotlitTurnedOff()
         {
-            var args = new ScenarioEventArgs(ScenarioIdentity);
+            var args = new PerformanceScopeEventArgs(PerformanceIdentity);
             SpotlitTurnedOff?.Invoke(this, args);
         }
 

@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Actors
         public virtual IServiceProvider ServiceProvider { get; }
 
         /// <inheritdoc/>
-        public virtual Guid ScenarioIdentity { get; }
+        public virtual Guid PerformanceIdentity { get; }
 
         /// <inheritdoc/>
         public event EventHandler<ActorEventArgs> ActorCreated;
@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Actors
         {
             if (persona is null) throw new ArgumentNullException(nameof(persona));
             return actors.GetOrAdd(persona.Name, _ => {
-                var actor = persona.GetActor(ScenarioIdentity, ServiceProvider);
+                var actor = persona.GetActor(PerformanceIdentity, ServiceProvider);
                 InvokeActorCreated(actor);
                 return actor;
             });
@@ -41,12 +41,12 @@ namespace CSF.Screenplay.Actors
 
         /// <summary>Initialises a new instance of <see cref="Cast"/>.</summary>
         /// <param name="serviceProvider">A service provider</param>
-        /// <param name="scenarioIdentity">The identity of the current scenario/performance</param>
+        /// <param name="performanceIdentity">The identity of the current performance</param>
         /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" />.</exception>
-        public Cast(IServiceProvider serviceProvider, Guid scenarioIdentity)
+        public Cast(IServiceProvider serviceProvider, Guid performanceIdentity)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-            ScenarioIdentity = scenarioIdentity;
+            PerformanceIdentity = performanceIdentity;
         }
 
         /// <summary>Implementation of <see cref="IPersona"/> which performs no operation beyond giving the actor a name</summary>
@@ -56,8 +56,8 @@ namespace CSF.Screenplay.Actors
             public string Name { get; }
 
             /// <inheritdoc/>
-            public Actor GetActor(Guid scenarioIdentity, IServiceProvider serviceProvider)
-                => new Actor(Name, scenarioIdentity, serviceProvider);
+            public Actor GetActor(Guid performanceIdentity, IServiceProvider serviceProvider)
+                => new Actor(Name, performanceIdentity, serviceProvider);
 
             internal NameOnlyPersona(string name)
             {

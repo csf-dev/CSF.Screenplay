@@ -22,6 +22,11 @@ namespace CSF.Screenplay
     /// an interface derived from this one, such as <see cref="IPerformableWithResult"/> or its strongly-typed counterpart
     /// <see cref="IPerformableWithResult{TResult}"/>.
     /// </para>
+    /// <para>
+    /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
+    /// </para>
     /// </remarks>
     /// <seealso cref="IPerformableWithResult"/>
     /// <seealso cref="IPerformableWithResult{TResult}"/>
@@ -57,6 +62,11 @@ namespace CSF.Screenplay
     /// <para>
     /// Objects which implement this interface may be adapted to <see cref="IPerformable"/> via the
     /// <see cref="PerformableExtensions.ToPerformable(IPerformableWithResult)"/> extension method.
+    /// </para>
+    /// <para>
+    /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>
     /// <seealso cref="IPerformable"/>
@@ -94,6 +104,11 @@ namespace CSF.Screenplay
     /// <see cref="PerformableExtensions.ToPerformable{TResult}(IPerformableWithResult{TResult})"/> extension method or to
     /// the non-generic <see cref="IPerformableWithResult"/> via
     /// <see cref="PerformableExtensions.ToNonGenericPerformableWithResult{TResult}(IPerformableWithResult{TResult})"/>.
+    /// </para>
+    /// <para>
+    /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>
     /// <seealso cref="IPerformable"/>

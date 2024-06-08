@@ -6,7 +6,7 @@ namespace CSF.Screenplay
     /// <summary>The stage provides a contextual actor who is 'in the spotlight'</summary>
     /// <remarks>
     /// <para>
-    /// It is often more consise and easier to understand scenarios when some of the steps use the passive voice.
+    /// It is often more consise and easier to understand performances when some of the steps use the passive voice.
     /// In order to do this, there must be a concept which allows us to discern "which actor is acting at the moment".
     /// The stage provides this via the concept of a 'spotlight'.
     /// Either zero or one actor may be in the spotlight at any given time.
@@ -19,7 +19,7 @@ namespace CSF.Screenplay
     /// <para>
     /// The lifetime of a stage instance is equal to the lifetime of the current performance.
     /// An actor in the spotlight will be consistent across the lifetime of the performance but will be independent
-    /// of other performances/scenarios.
+    /// of other performances.
     /// </para>
     /// </remarks>
     /// <seealso cref="ICast"/>
@@ -39,7 +39,7 @@ namespace CSF.Screenplay
         /// <remarks>
         /// <para>This means that there is now no spotlit actor.</para>
         /// </remarks>
-        event EventHandler<ScenarioEventArgs> SpotlitTurnedOff;
+        event EventHandler<PerformanceScopeEventArgs> SpotlitTurnedOff;
 
         /// <summary>Gets the actor which is currently in the spotlight.</summary>
         /// <returns>The actor who has previously been placed in the spotlight, or a <see langword="null" />

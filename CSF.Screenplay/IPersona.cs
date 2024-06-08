@@ -6,7 +6,7 @@ namespace CSF.Screenplay
     /// <remarks>
     /// <para>
     /// In Screenplay is is recommended to use memorable actors which are widely understood and recognisable
-    /// by the team. This is easier if the composition of an actor is the same across every scenario in which
+    /// by the team. This is easier if the composition of an actor is the same across every performance in which
     /// they participate.
     /// </para>
     /// <para>
@@ -23,8 +23,8 @@ namespace CSF.Screenplay
         /// configure the actor with the standard abilities associated with this persona.
         /// </para>
         /// </remarks>
-        /// <param name="scenarioIdentity">A unique identity for the currently-executing scenario</param>
+        /// <param name="performanceIdentity">A unique identity for the currently-executing performance</param>
         /// <param name="serviceProvider">An object which provides access to services from dependency injection</param>
-        Actor GetActor(Guid scenarioIdentity, IServiceProvider serviceProvider);
+        Actor GetActor(Guid performanceIdentity, IServiceProvider serviceProvider);
     }
 }
