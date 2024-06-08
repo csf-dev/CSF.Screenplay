@@ -3,11 +3,11 @@ namespace CSF.Screenplay.Performances
     /// <summary>Enumerates the states of a performance &amp; thus the scenario which consumes it.</summary>
     public enum ScenarioState
     {
-        /// <summary>The scenario is not yet started; use <see cref="IBeginsAndEndsScenario.BeginScenario"/> to begin it.</summary>
+        /// <summary>The scenario is not yet started; use <see cref="IBeginsAndEndsPerformance.BeginPerformance"/> to begin it.</summary>
         NotStarted = 0,
 
         /// <summary>The scenario has been started but is not yet complete; use
-        /// <see cref="IBeginsAndEndsScenario.CompleteScenario(bool?)"/> to complete it.</summary>
+        /// <see cref="IBeginsAndEndsPerformance.CompletePerformance(bool?)"/> to complete it.</summary>
         InProgress,
 
         /// <summary>The scenario has completed and was a success.</summary>

@@ -24,7 +24,7 @@ namespace CSF.Screenplay
                                       IDisposable,
                                       IHasScenarioHierarchy,
                                       IHasScenarioEvents,
-                                      IBeginsAndEndsScenario
+                                      IBeginsAndEndsPerformance
     {
         bool hasBegun, hasCompleted;
         bool? success;
@@ -72,7 +72,7 @@ namespace CSF.Screenplay
         public event EventHandler<ScenarioEventArgs> Begin;
 
         /// <inheritdoc/>
-        public void BeginScenario()
+        public void BeginPerformance()
         {
             if(hasBegun) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be begun only once; performance instances are not reusable.");
             hasBegun = true;
@@ -84,10 +84,11 @@ namespace CSF.Screenplay
         public event EventHandler<ScenarioCompleteEventArgs> Complete;
 
         /// <inheritdoc/>
-        public void CompleteScenario(bool? success)
+        public void CompletePerformance(bool? success)
         {
             if(hasCompleted) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be completed only once; performance instances are not reusable.");
             hasBegun = hasCompleted = true;
+            this.success = success;
             var args = new ScenarioCompleteEventArgs(PerformanceIdentity, ScenarioHierarchy, success);
             Complete?.Invoke(this, args);
         }
