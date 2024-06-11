@@ -11,7 +11,8 @@
             "docs/**",
             "**/bin/**",
             "**/obj/**",
-            "*.Tests/**"
+            "Tests_old/**",
+            "Tests/**"
           ]
         }
       ],

@@ -1,4 +1,6 @@
 - name: Documentation
-  href: docs/
+  href: docs/index.md
+- name: Glossary
+  href: docs/glossary/index.md
 - name: API reference
-  href: api/
+  href: api/index.md

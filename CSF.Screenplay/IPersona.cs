@@ -10,7 +10,7 @@ namespace CSF.Screenplay
     /// they participate.
     /// </para>
     /// <para>
-    /// By using a separate persona implementation for each actor, the developer can ensure consistent creation
+    /// By using a separate persona implementation for each named actor, the developer can ensure consistent creation
     /// for instances of those actors.
     /// </para>
     /// </remarks>

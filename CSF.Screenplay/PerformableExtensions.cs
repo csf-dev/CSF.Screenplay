@@ -73,7 +73,7 @@ namespace CSF.Screenplay
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
 
-            return performable is ICanReport reporter ? reporter.GetReport(actor) : DefaultStrings.GetReport(actor, performable);
+            return performable is ICanReport reporter ? reporter.GetReportFragment(actor) : DefaultStrings.GetReport(actor, performable);
         }
 
         /// <summary>Gets a report fragment for the specified performable and actor</summary>
@@ -91,7 +91,7 @@ namespace CSF.Screenplay
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
                 
-            return performable is ICanReport reporter ? reporter.GetReport(actor) : DefaultStrings.GetReport(actor, performable);
+            return performable is ICanReport reporter ? reporter.GetReportFragment(actor) : DefaultStrings.GetReport(actor, performable);
         }
 
         /// <summary>Gets a report fragment for the specified performable and actor</summary>
@@ -110,7 +110,7 @@ namespace CSF.Screenplay
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
                 
-            return performable is ICanReport reporter ? reporter.GetReport(actor) : DefaultStrings.GetReport(actor, performable);
+            return performable is ICanReport reporter ? reporter.GetReportFragment(actor) : DefaultStrings.GetReport(actor, performable);
         }
 
         /// <summary>Adapter class which allows an <see cref="IPerformableWithResult"/> to be used as an <see cref="IPerformable"/>.</summary>
@@ -126,10 +126,10 @@ namespace CSF.Screenplay
             }
 
             /// <inheritdoc/>
-            public string GetReport(IHasName actor)
+            public string GetReportFragment(IHasName actor)
             {
                 return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReport(actor)
+                    ? reporter.GetReportFragment(actor)
                     : DefaultStrings.GetReport(actor, PerformableWithResult);
             }
 
@@ -152,10 +152,10 @@ namespace CSF.Screenplay
             }
 
             /// <inheritdoc/>
-            public string GetReport(IHasName actor)
+            public string GetReportFragment(IHasName actor)
             {
                 return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReport(actor)
+                    ? reporter.GetReportFragment(actor)
                     : DefaultStrings.GetReport(actor, PerformableWithResult);
             }
 
@@ -172,10 +172,10 @@ namespace CSF.Screenplay
             public IPerformableWithResult<T> PerformableWithResult { get; }
 
             /// <inheritdoc/>
-            public string GetReport(IHasName actor)
+            public string GetReportFragment(IHasName actor)
             {
                 return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReport(actor)
+                    ? reporter.GetReportFragment(actor)
                     : DefaultStrings.GetReport(actor, PerformableWithResult);
             }
 
