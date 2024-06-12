@@ -1,29 +1,5 @@
 ﻿version: '{branch}-{build}'
 init:
 - cmd: git config --global core.autocrlf true
-before_build:
-- cmd: Tools\Appveyor.before_build.bat
-services:
-  - iis
 build:
   project: CSF.Screenplay.sln
-  verbosity: normal
-test:
-  assemblies:
-    except:
-    - '**\CSF.Screenplay.Web.Tests.dll'
-    - '**\CSF.Screenplay.WebApis.Tests.dll'
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
-    - '**\CSF.Screenplay.NUnit.dll'
-    - '**\CSF.Screenplay.Reporting.Html.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
-    - '**\CSF.Screenplay.Reporting.Json.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
-artifacts:
-  - path: Tests\CSF.Screenplay.WebTestWebsite
-    name: TestWebsite
-deploy:
-  - provider: Local
-    TestWebsite.deploy_website: true
-    TestWebsite.site_name: "Test Web Site"
-    TestWebsite.port: 8080
-after_deploy:
-- cmd: Tools\Appveyor.after_deploy.bat
