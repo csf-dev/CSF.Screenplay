@@ -1,4 +1,11 @@
-﻿version: '{branch}-{build}'
+﻿image: Visual Studio 2022
+version: '{branch}-{build}'
 init:
-- cmd: git config --global core.autocrlf true
-build: dotnet build CSF.Screenplay.sln
+  - cmd: git config --global core.autocrlf true
+before_build:
+  - dotnet tool update -g docfx
+build_script:
+  - dotnet build
+  - docfx CSF.Screenplay.Docs\docfx.json
+test_script:
+  - dotnet test
