@@ -1,5 +1,4 @@
 ﻿version: '{branch}-{build}'
 init:
 - cmd: git config --global core.autocrlf true
-build:
-  project: CSF.Screenplay.sln
+build: dotnet build CSF.Screenplay.sln
