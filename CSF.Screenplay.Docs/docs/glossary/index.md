@@ -16,6 +16,7 @@ Where applicable, the glossary definition documentation links to relevant types 
 | [Persona]     | A factory or template for consistently creating reusable, well-known actors                   |
 | [Cast]        | A factory & registry for actors which facilitates managing multiple actors in a performance   |
 | [Stage]       | Provides situational context; a concept of 'the currently active actor'                       |
+| [Spotlight]   | The currently active actor, facilitated by the stage                                          |
 | [Report]      | An output which details every performance/scenario and the outcomes of theie performables     |
 | [Scenario]    | Typically similar to a performance, this is a single test within a testing framework          |
 | [Integration] | A consumer of the Screenplay framework, such as a testing framework                           |
@@ -32,6 +33,7 @@ Where applicable, the glossary definition documentation links to relevant types 
 [Persona]: Persona.md
 [Cast]: Cast.md
 [Stage]: Stage.md
+[Spotlight]: Stage.md#spotlight
 [Report]: Report.md
 [Scenario]: Scenario.md
 [Integration]: Integration.md
