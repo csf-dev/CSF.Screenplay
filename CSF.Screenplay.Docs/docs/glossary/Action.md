@@ -2,6 +2,7 @@
 
 An Action is a kind of **[Performable]** in which an **[Actor]** does something or interacts with the application in such as way as to change its state.
 Specifically, an action should be the smallest, most granular change or interaction possible; something which cannot reasonably be split into constituent parts.
+
 In an application of Screenplay which controls a web browser, an action might be a single mouse click, or entering some specified text into an input field.
 To create higher-level interactions, use **[Tasks]** to compose actions.
 Out of the kinds of performable, actions are the smallest building blocks available.

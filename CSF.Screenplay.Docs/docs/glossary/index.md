@@ -19,6 +19,7 @@ Where applicable, the glossary definition documentation links to relevant types 
 | [Spotlight]   | The currently active actor, facilitated by the stage                                          |
 | [Report]      | An output which details every performance/scenario and the outcomes of theie performables     |
 | [Scenario]    | Typically similar to a performance, this is a single test within a testing framework          |
+| [Feature]     | A logical group of related scenarios, this is a test class or test fixture in some testing frameworks          |
 | [Integration] | A consumer of the Screenplay framework, such as a testing framework                           |
 
 [API documentation]: ../../api/index.md
@@ -36,4 +37,5 @@ Where applicable, the glossary definition documentation links to relevant types 
 [Spotlight]: Stage.md#spotlight
 [Report]: Report.md
 [Scenario]: Scenario.md
+[Feature]: Feature.md
 [Integration]: Integration.md

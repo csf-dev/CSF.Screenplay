@@ -1,10 +1,18 @@
 # Task
 
-A Task is a kind of **[Performable]** which represents a higher-level interaction or reading of the application's state than just **[Actions]** or **[Questions]**.
-Wheras action and question classes are often shipped with Screenplay frameworks, Tasks are typically written by the developer who is making use of Screenplay.
+A Task is a kind of **[Performable]** which represents a high-level interaction with the application.
+Where **[Actions]** or **[Questions]** are highly granular for maximum reusability, tasks may be as specific as the use-case warrants. 
 
-Tasks could implement any of the three performable interfaces, because their scope is unlimited.
-To maximise the reusability of tasks, though, strongly consider writing your tasks in a way which interacts with the application and changes its state or in a way which gets information from the application without changing its state.
+Action & question classes are often shipped with Screenplay frameworks.
+Tasks are typically written by the developer who is making use of Screenplay.
+In practice, tasks are just compositions of actions, questions or other lower-level tasks.
+
+Tasks may implement any of the three performable interfaces.
+To maximise their reusability, developers are advised to write tasks in a way which _either_:
+
+* Changes the application's state
+* Gets information from the application without changing its state
+
 This draws from [the lessons that writing pure functions] teaches us.
 
 In a Screenplay which controls a web application, a good example of a task is completing a registration form which involves entering data into multiple input fields.

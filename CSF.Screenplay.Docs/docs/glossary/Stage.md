@@ -14,6 +14,7 @@ Given Jack can wash dishes
 
 This is perfectly functional but each **[Performable]** has been qualified with the name "Jack", to indicate the Actor.
 This could be more readable but also more reusable from a code perspective if we had a concept of _a currently-active actor_.
+With a currently-active actor our gherkin could read _"he has"_ or _"he washes"_ and could accept a variety of pronouns.
 This is precisely what the stage provides.
 
 In code, the stage is the [`IStage`] interface, which may be dependency-injected into your **[Scenario]** logic.
@@ -28,5 +29,5 @@ In code, the stage is the [`IStage`] interface, which may be dependency-injected
 ## Spotlight
 
 When the stage is used to get an actor, that actor is placed 'in the **Spotlight**'. That same actor remains in the spotlight until a different actor is placed there.
-A stage may be used as any time to get the actor who is currently in the spotlight.
+A stage may be used at any time to get the actor who is currently in the spotlight.
 Thus, it is possible to infer an actor in Performance logic without needing their name.

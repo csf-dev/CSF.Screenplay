@@ -5,10 +5,11 @@ Performables are grouped into one of three types, although these are somewhat ar
 
 * **[Actions]** are the most granular of individual interactions with the application, composable to form higher-order interactions
 * **[Questions]** are granular, like actions, but read the application's state to get information instead of making changes
-* **[Tasks]** are those higher-order interactions which are formed by composing actions, questions or even other tasks
+* **[Tasks]** are higher-order interactions which are formed by composing actions, questions and/or other tasks
 
-Actions & Questions are typically shipped by a framework; they are the fundamental building blocks.
-Thus, there are a discrete number of them possible for a specified application of Screenplay.
+Actions & Questions are typically shipped by a framework; they are the fundamental building blocks from which developers create their own tasks.
+There are typically a discrete number of actions & questions possible for a specified application of Screenplay.
+
 Tasks, on the other hand, could be unlimited.
 Developers using Screenplay should write as many as they need.
 Tasks may represent any of the - possibly complex - interactions between the actor and the application, composing actions and/or questions and even other lower-level tasks.
