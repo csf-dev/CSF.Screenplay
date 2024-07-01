@@ -1,2 +1,34 @@
 - name: Docs home
   href: ../
+- name: Glossary home
+  href: index.md
+- name: Ability
+  href: Ability.md
+- name: Action
+  href: Action.md
+- name: Actor
+  href: Actor.md
+- name: Cast
+  href: Cast.md
+- name: Feature
+  href: Feature.md
+- name: Integration
+  href: Integration.md
+- name: Performable
+  href: Performable.md
+- name: Performance
+  href: Performance.md
+- name: Persona
+  href: Persona.md
+- name: Question
+  href: Question.md
+- name: Report
+  href: Report.md
+- name: Scenario
+  href: Scenario.md
+- name: Screenplay
+  href: Screenplay.md
+- name: Stage
+  href: Stage.md
+- name: Task
+  href: Task.md
