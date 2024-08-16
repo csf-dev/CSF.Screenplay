@@ -1,5 +1,5 @@
 - name: Documentation
-  href: docs/index.md
+  href: index.md
 - name: Glossary
   href: docs/glossary/index.md
 - name: API reference

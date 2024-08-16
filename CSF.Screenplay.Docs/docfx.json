@@ -4,9 +4,7 @@
       "src": [
         {
           "src": "../",
-          "files": [
-            "**/*.csproj"
-          ],
+          "files": [ "**/*.csproj" ],
           "exclude": [
             "docs/**",
             "**/bin/**",
@@ -22,9 +20,7 @@
   "build": {
     "content": [
       {
-        "files": [
-          "**/*.{md,yml}"
-        ],
+        "files": [ "**/*.{md,yml}" ],
         "exclude": []
       }
     ],
@@ -43,7 +39,7 @@
     ],
     "globalMetadata": {
       "_appName": "CSF.Screenplay",
-      "_appTitle": "CSF.Screenplay",
+      "_appTitle": "Screenplay docs",
       "_enableSearch": true,
       "pdf": false
     }
