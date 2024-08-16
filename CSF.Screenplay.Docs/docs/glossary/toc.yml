@@ -1,6 +1,4 @@
-- name: Docs home
-  href: ../
-- name: Glossary home
+- name: Glossary
   href: index.md
 - name: Ability
   href: Ability.md
