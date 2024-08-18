@@ -13,5 +13,5 @@ Each Performance gets its own cast.
 [Performance]: Performance.md
 [a factory]: https://en.wikipedia.org/wiki/Factory_method_pattern
 [a registry]: https://martinfowler.com/eaaCatalog/registry.html
-[an injectable service]: ../dependencyInjection/index.md
+[an injectable service]: ../docs/dependencyInjection/index.md
 [`ICast`]: xref:CSF.Screenplay.ICast

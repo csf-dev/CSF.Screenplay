@@ -50,4 +50,4 @@ Once you understand the essentials, [the Screenplay reference] provides more inf
 You may also be interested in [the glossary of Screenplay terminology].
 
 [the Screenplay reference]: docs/screenplayReference/index.md
-[the glossary of Screenplay terminology]: docs/glossary/index.md
+[the glossary of Screenplay terminology]: glossary/index.md

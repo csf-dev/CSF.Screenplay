@@ -22,7 +22,7 @@ Where applicable, the glossary definition documentation links to relevant types 
 | [Feature]     | A logical group of related scenarios, this is a test class or test fixture in some testing frameworks          |
 | [Integration] | A consumer of the Screenplay framework, such as a testing framework                           |
 
-[API documentation]: ../../api/index.md
+[API documentation]: ../api/index.md
 [Screenplay]: Screenplay.md
 [Performance]: Performance.md
 [Performable]: Performable.md

@@ -2,4 +2,4 @@
 
 TODO: Write this docco
 
-* [Glossary of terms](../glossary/index.md)
+* [Glossary of terms](../../glossary/index.md)
