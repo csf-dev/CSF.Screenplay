@@ -26,13 +26,13 @@ namespace CSF.Screenplay.Actors
         }
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceScopeEventArgs> SpotlitTurnedOff;
+        public event EventHandler<PerformanceScopeEventArgs> SpotlightTurnedOff;
 
-        /// <summary>Invokes the <see cref="SpotlitTurnedOff"/> event.</summary>
+        /// <summary>Invokes the <see cref="SpotlightTurnedOff"/> event.</summary>
         protected virtual void InvokeSpotlitTurnedOff()
         {
             var args = new PerformanceScopeEventArgs(PerformanceIdentity);
-            SpotlitTurnedOff?.Invoke(this, args);
+            SpotlightTurnedOff?.Invoke(this, args);
         }
 
         /// <inheritdoc/>

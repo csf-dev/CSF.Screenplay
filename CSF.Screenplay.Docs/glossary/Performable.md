@@ -1,3 +1,7 @@
+---
+uid: PerformableGlossaryItem
+---
+
 # Performable
 
 A 'performable' is a verb in the language of Screenplay; performables are _things that **[Actors]** do_.
@@ -23,12 +27,12 @@ It's important to understand that whilst there are three interfaces shown here a
 * [`IPerformableWithResult`]
 * [`IPerformableWithResult<TResult>`]
 
-[Actors]: Actor.md
+[Actors]: xref:CSF.Screenplay.Actor
 [Actions]: Action.md
 [Tasks]: Task.md
 [Questions]: Question.md
 [Abilities]: Ability.md
-[Performance]: Performance.md
+[Performance]: xref:CSF.Screenplay.Performance
 [`ICanReport`]: xref:CSF.Screenplay.ICanReport
 [`IPerformable`]: xref:CSF.Screenplay.IPerformable
 [`IPerformableWithResult`]: xref:CSF.Screenplay.IPerformableWithResult

@@ -5,9 +5,9 @@
 - name: Action
   href: Action.md
 - name: Actor
-  href: Actor.md
+  uid: CSF.Screenplay.Actor
 - name: Cast
-  href: Cast.md
+  uid: CSF.Screenplay.ICast
 - name: Feature
   href: Feature.md
 - name: Integration
@@ -15,7 +15,7 @@
 - name: Performable
   href: Performable.md
 - name: Performance
-  href: Performance.md
+  uid: CSF.Screenplay.Performance
 - name: Persona
   href: Persona.md
 - name: Question
@@ -25,8 +25,8 @@
 - name: Scenario
   href: Scenario.md
 - name: Screenplay
-  href: Screenplay.md
+  uid: CSF.Screenplay.Screenplay
 - name: Stage
-  href: Stage.md
+  uid: CSF.Screenplay.IStage
 - name: Task
   href: Task.md

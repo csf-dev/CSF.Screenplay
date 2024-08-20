@@ -11,9 +11,9 @@ Performables in a report are also included hierarchically. This means that high-
 Reports are useful to document what has been performed in a Screenplay.
 They help developers diagnose and debug issues when they arise.
 
-[Screenplay]: Screenplay.md
+[Screenplay]: xref:CSF.Screenplay.Screenplay
 [Features]: Feature.md
 [Scenarios]: Scenario.md
-[Performance]: Performance.md
+[Performance]: xref:CSF.Screenplay.Performance
 [Performables]: Performable.md
 [Tasks]: Task.md

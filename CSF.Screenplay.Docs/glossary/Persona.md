@@ -10,8 +10,8 @@ Personas help facilitate that by providing a reusable location at which to set t
 Personas in Screenplay are classes which implement the [`IPersona`] interface.
 
 [a factory]: https://en.wikipedia.org/wiki/Factory_method_pattern
-[Actor]: Actor.md
-[Performances]: Performance.md
+[Actor]: xref:CSF.Screenplay.Actor
+[Performances]: xref:CSF.Screenplay.Performance
 [`Name`]: xref:CSF.Screenplay.IHasName.Name
 [Abilities]: Ability.md
 [`IPersona`]: xref:CSF.Screenplay.IPersona

@@ -13,7 +13,7 @@ Actions _most commonly_ implement the [`IPerformable`] interface though, as they
 Generally, the logic of actions interacts directly with the actor's **[Abilities]** in order to provide the functionality required to perform the action.
 
 [Performable]: Performable.md
-[Actor]: Actor.md
+[Actor]: xref:CSF.Screenplay.Actor
 [Tasks]: Task.md
 [`IPerformable`]: xref:CSF.Screenplay.IPerformable
 [Abilities]: Ability.md

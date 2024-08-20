@@ -1,7 +1,8 @@
 # Glossary
 
 Following is a glossary of Screenplay terminology; each term is a link to its own documentation.
-Where applicable, the glossary definition documentation links to relevant types & members within the [API documentation].
+Many of these terms are implemented directly as .NET types in the Screenplay architecture.
+Where applicable, the glossary item links directly to the relevant type within the [API documentation].
 
 | Term          | Summary                                                                                       |
 | ----          | -------                                                                                       |
@@ -22,19 +23,19 @@ Where applicable, the glossary definition documentation links to relevant types 
 | [Feature]     | A logical group of related scenarios, this is a test class or test fixture in some testing frameworks          |
 | [Integration] | A consumer of the Screenplay framework, such as a testing framework                           |
 
-[API documentation]: ../api/index.md
-[Screenplay]: Screenplay.md
-[Performance]: Performance.md
+[API documentation]: xref:CSF.Screenplay
+[Screenplay]: xref:CSF.Screenplay.Screenplay
+[Performance]: xref:CSF.Screenplay.Performance
 [Performable]: Performable.md
 [Action]: Action.md
 [Question]: Question.md
 [Task]: Task.md
-[Actor]: Actor.md
+[Actor]: xref:CSF.Screenplay.Actor
 [Ability]: Ability.md
 [Persona]: Persona.md
-[Cast]: Cast.md
-[Stage]: Stage.md
-[Spotlight]: Stage.md#spotlight
+[Cast]: xref:CSF.Screenplay.ICast
+[Stage]: xref:CSF.Screenplay.IStage
+[Spotlight]: Spotlight.md
 [Report]: Report.md
 [Scenario]: Scenario.md
 [Feature]: Feature.md

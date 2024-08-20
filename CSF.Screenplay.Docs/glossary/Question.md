@@ -10,7 +10,7 @@ To create higher-level questions with broader scope, compose them with **[Tasks]
 Generally, the logic of questions interacts directly with the actor's **[Abilities]** in order to provide the functionality required to get the requested information.
 
 [Performable]: Performable.md
-[Actor]: Actor.md
+[Actor]: xref:CSF.Screenplay.Actor
 [Actions]: Action.md
 [`IPerformableWithResult`]: xref:CSF.Screenplay.IPerformableWithResult
 [`IPerformableWithResult<TResult>`]: xref:CSF.Screenplay.IPerformableWithResult`1

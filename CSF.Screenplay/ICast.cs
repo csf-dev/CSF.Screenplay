@@ -3,22 +3,35 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-    /// <summary>A cast is a combined registry and factory for actor instances, useful when coordinating multiple actors across a performance</summary>
+    /// <summary>A combined registry and factory for <see cref="Actor"/> instances, useful when coordinating multiple
+    /// actors across a <see cref="Performance"/></summary>
     /// <remarks>
     /// <para>
-    /// Screenplay performances do not require the use of a Cast, it is an optional technique provided for convenience.
-    /// Performances which use only a single actor may find it simpler to use an <see cref="IPersona"/> directly for the creation
+    /// The cast is an optional but recommended component of Screenplay logic.
+    /// It is used to manage <see cref="Actor"/> objects for the duration of a <see cref="Performance"/>.
+    /// Cast objects are always scoped to a <see cref="Performance"/> and have the same lifetime.
+    /// Any actors created or tracked by a cast will also automatically share this lifetime.
+    /// </para>
+    /// <para>
+    /// In terms of design patterns, the cast operates as both a registry: <see href="https://martinfowler.com/eaaCatalog/registry.html"/>
+    /// and as a factory: <see href="https://en.wikipedia.org/wiki/Factory_method_pattern"/> for actors.
+    /// During the cast's lifetime, subsequent calls to an overload of <c>GetActor</c> using the same actor/persona name will
+    /// return the instance of <see cref="Actor"/> as was created the first time the method was called with that name.
+    /// A cast, and the actors managed by a cast, are independent per <see cref="Performance"/>, though.
+    /// </para>
+    /// <para>
+    /// Performances which use only a single actor might find it simpler to use an <see cref="IPersona"/> directly for the creation
     /// of that single actor, or (not recommended) create the actor manually.
     /// </para>
     /// <para>
-    /// Implementations of Cast have a lifetime equal to the lifetime of the current performance and retain a registry of the actors
-    /// which have been created/used during the lifetime of that performance.
-    /// During that lifetime, multiple calls to a <c>GetActor</c> method using the same actor name (or persona-name) will return the
-    /// same actor instance without creating a new actor each time.
-    /// The actors 'in a cast' will be independent across different performances, however.
+    /// In <xref href="ScreenplayGlossaryItem?text=a+Screenplay"/> the cast is <xref href="InjectingServicesArticle?text=a+dependency-injectable+service"/>
+    /// which may be used within your performances.
     /// </para>
     /// </remarks>
     /// <seealso cref="IStage"/>
+    /// <seealso cref="Actor"/>
+    /// <seealso cref="Performance"/>
+    /// <seealso cref="IPersona"/>
     public interface ICast : IHasServiceProvider, IHasPerformanceIdentity
     {
         /// <summary>

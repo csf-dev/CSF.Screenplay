@@ -63,7 +63,7 @@ The logic within tests (above) which use Screenplay will be written using Screen
 That it, it will use [Actors], [Abilities] and [Performables].
 In this context, each test is a Screenplay [Performance].
 
-[Actors]: ../glossary/Actor.md
+[Actors]: xref:CSF.Screenplay.Actor
 [Abilities]: ../glossary/Ability.md
 [Performables]: ../glossary/Performable.md
-[Performance]: ../glossary/Performance.md
+[Performance]: xref:CSF.Screenplay.Performance

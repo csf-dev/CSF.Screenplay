@@ -9,13 +9,21 @@ namespace CSF.Screenplay
     /// <summary>A performance represents a self-contained scope of performables which typically results in overall success or failure.</summary>
     /// <remarks>
     /// <para>
-    /// The performance is a scope of Screenplay logic.  In testing frameworks this might be called a "scenario", or a "test", or "test case", or "theory".
-    /// It is a series of actions/performables with a beginning, middle and end. Actors participate in the performance and drive the performables forward.
+    /// The performance provides a scope for a script involving one or more <see cref="Actor"/> instances, executing
+    /// <xref href="PerformableGlossaryItem?text=one+or+more+performable+items"/>.
+    /// A <see cref="Screenplay"/> will contain one or more performances.
+    /// A performance is a series of actions/performables with a beginning, middle and end.
+    /// Actors participate in the performance and drive the performables forward.
     /// Typically a performance will complete in either success or failure.
     /// </para>
     /// <para>
-    /// This performance object represents the scope or lifetime of that performance.
-    /// Associated with it is a dependency injection lifetime scope.
+    /// Where Screenplay is being used for automated testing, a performance corresponds to a single test.
+    /// In the testing framework that might be called a "scenario", a "test", a "test case", or a "theory".
+    /// </para>
+    /// <para>
+    /// The performance object also corresponds to the lifetime of <xref href="DependencyInjectionScopeArticle?text=the+dependency+injection+scope"/>.
+    /// A new scope is created for each performance.
+    /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>
     public sealed class Performance : IHasPerformanceIdentity,
@@ -23,7 +31,7 @@ namespace CSF.Screenplay
                                       IEquatable<Performance>,
                                       IDisposable,
                                       IHasScenarioHierarchy,
-                                      IHasScenarioEvents,
+                                      Performances.IHasPerformanceEvents,
                                       IBeginsAndEndsPerformance
     {
         bool hasBegun, hasCompleted;
