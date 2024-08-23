@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
 
 namespace CSF.Screenplay
@@ -19,6 +18,8 @@ namespace CSF.Screenplay
     /// <para>
     /// Where Screenplay is being used for automated testing, a performance corresponds to a single test.
     /// In the testing framework that might be called a "scenario", a "test", a "test case", or a "theory".
+    /// When using Screenplay within a testing integration, the performance corresponds very closely to
+    /// <xref href="ScenarioGlossaryItem?text=the+current+Scenario"/>.
     /// </para>
     /// <para>
     /// The performance object also corresponds to the lifetime of <xref href="DependencyInjectionScopeArticle?text=the+dependency+injection+scope"/>.
@@ -30,8 +31,6 @@ namespace CSF.Screenplay
                                       IHasServiceProvider,
                                       IEquatable<Performance>,
                                       IDisposable,
-                                      IHasScenarioHierarchy,
-                                      Performances.IHasPerformanceEvents,
                                       IBeginsAndEndsPerformance
     {
         bool hasBegun, hasCompleted;
@@ -43,53 +42,67 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         public IServiceProvider ServiceProvider { get; }
 
-        /// <summary>Gets an ordered list which indicates the current object's position within the scenario hierarchy.</summary>
+        /// <summary>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</summary>
         /// <remarks>
         /// <para>
-        /// Identifiers and names which are earlier in this list are considered to be 'parents' within the hierarchy. Items subsequent
-        /// in this list are hierarchical descendents of the preceding list items.
+        /// A <see cref="Screenplay"/> typically contains more than one performance and may contain many.
+        /// It is normal to organise performances into a hierarchical structure based upon their purpose, role or relationship.
+        /// The position of the current performance in that naming structure is represented by the value of this property.
+        /// </para>
+        /// <para>
+        /// The ordered list of <see cref="IdentifierAndName"/> instances indicate a path from the 'root' of the hierarchy
+        /// (which has no inherent name) to the current performance. Identifier/name pairs which are earlier in the collection
+        /// are considered to be closer to the root, whereas latter identifier/names are branch &amp; leaf names.
+        /// In this manner, they work very similarly to .NET namespaces.
+        /// The earlier in the list that a name appears, the more general it should be, representing a wider category.
+        /// </para>
+        /// <para>
+        /// When using Screenplay with <xref href="IntegrationGlossaryItem?an+automated+testing+integration"/>, this hierarchy of names
+        /// would typically correspond to the naming convention used by the testing framework.
+        /// That might be based upon .NET namespaces, classes and test methods for a more traditional unit testing framework.
+        /// Alternatively, for a BDD-style testing framework, it could be named based upon human-readable
+        /// feature &amp; scenario names.
         /// </para>
         /// </remarks>
         /// <example>
         /// <para>
-        /// If you wished to indicate that the current object is a scenario named <c>Joe can take out the Trash</c>, which is part of a
-        /// feature named <c>Joe can do his chores</c> then the first item in this list should be <c>Joe can do his chores</c> (the parent
-        /// feature) and the second item <c>Joe can take out the Trash</c> (the scenario which is a child of that feature).
+        /// If the current performance is to be named <c>Joe can take out the Trash</c>, and it is part of a parent name, named
+        /// <c>Joe can do his chores</c> then the first identifier in the list will be named <c>Joe can do his chores</c>
+        /// and the second will be named <c>Joe can take out the Trash</c>.
         /// </para>
         /// </example>
-        public List<IdentifierAndName> ScenarioHierarchy { get; } = new List<IdentifierAndName>();
-
-        IReadOnlyList<IdentifierAndName> IHasScenarioHierarchy.ScenarioHierarchy => ScenarioHierarchy;
+        public List<IdentifierAndName> NamingHierarchy { get; } = new List<IdentifierAndName>();
 
         /// <summary>Gets a value which indicates the state of the current performance.</summary>
-        public ScenarioState ScenarioState
+        /// <seealso cref="Performances.PerformanceState"/>
+        public PerformanceState PerformanceState
         {
             get {
-                if (!hasBegun) return ScenarioState.NotStarted;
-                if (!hasCompleted) return ScenarioState.InProgress;
+                if (!hasBegun) return PerformanceState.NotStarted;
+                if (!hasCompleted) return PerformanceState.InProgress;
                 switch(success)
                 {
-                    case true: return ScenarioState.Success;
-                    case false: return ScenarioState.Failed;
-                    default: return ScenarioState.Completed;
+                    case true: return PerformanceState.Success;
+                    case false: return PerformanceState.Failed;
+                    default: return PerformanceState.Completed;
                 }
             }
         }
 
         /// <inheritdoc/>
-        public event EventHandler<ScenarioEventArgs> Begin;
+        public event EventHandler<PerformanceEventArgs> Begin;
 
         /// <inheritdoc/>
         public void BeginPerformance()
         {
             if(hasBegun) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be begun only once; performance instances are not reusable.");
             hasBegun = true;
-            var args = new ScenarioEventArgs(PerformanceIdentity, ScenarioHierarchy);
+            var args = new PerformanceEventArgs(PerformanceIdentity, NamingHierarchy);
             Begin?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public event EventHandler<ScenarioCompleteEventArgs> Complete;
+        public event EventHandler<PerformanceCompleteEventArgs> Complete;
 
         /// <inheritdoc/>
         public void CompletePerformance(bool? success)
@@ -97,7 +110,7 @@ namespace CSF.Screenplay
             if(hasCompleted) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be completed only once; performance instances are not reusable.");
             hasBegun = hasCompleted = true;
             this.success = success;
-            var args = new ScenarioCompleteEventArgs(PerformanceIdentity, ScenarioHierarchy, success);
+            var args = new PerformanceCompleteEventArgs(PerformanceIdentity, NamingHierarchy, success);
             Complete?.Invoke(this, args);
         }
 
@@ -124,15 +137,15 @@ namespace CSF.Screenplay
 
         /// <summary>Initialises a new instance of <see cref="Performance"/></summary>
         /// <param name="serviceProvider">A dependency injection service provider</param>
-        /// <param name="scenarioHierarchy">A collection of identifiers and names providing the scenario
-        /// hierarchy; see <see cref="IHasScenarioHierarchy"/> for more information.</param>
+        /// <param name="namingHierarchy">A collection of identifiers and names providing the hierarchical name of this
+        /// performance; see <see cref="NamingHierarchy"/> for more information.</param>
         /// <param name="performanceIdentity">A unique identifier for the performance; if omitted (equal to <see cref="Guid.Empty"/>)
         /// then a new Guid will be generated as the identity for this performance</param>
         /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" /></exception>
-        public Performance(IServiceProvider serviceProvider, IList<IdentifierAndName> scenarioHierarchy = default, Guid performanceIdentity = default)
+        public Performance(IServiceProvider serviceProvider, IList<IdentifierAndName> namingHierarchy = default, Guid performanceIdentity = default)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-            ScenarioHierarchy = scenarioHierarchy?.ToList() ?? new List<IdentifierAndName>();
+            NamingHierarchy = namingHierarchy?.ToList() ?? new List<IdentifierAndName>();
             PerformanceIdentity = performanceIdentity != default ? performanceIdentity : Guid.NewGuid();
         }
     }

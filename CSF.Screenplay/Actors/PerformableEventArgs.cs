@@ -3,9 +3,9 @@
 namespace CSF.Screenplay.Actors
 {
     /// <summary>
-    /// A model for event arguments which relate to an actor's performance
+    /// A model for event arguments which relate to an actor's use of a performable.
     /// </summary>
-    public class PerformanceEventArgs : ActorEventArgs
+    public class PerformableEventArgs : ActorEventArgs
     {
         /// <summary>
         /// Gets the performable item to which these event arguments relate.
@@ -18,12 +18,12 @@ namespace CSF.Screenplay.Actors
         public PerformancePhase Phase { get; }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="PerformanceEventArgs"/>.
+        /// Initializes a new instance of <see cref="PerformableEventArgs"/>.
         /// </summary>
         /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformanceEventArgs(ICanPerform actor, object performable, PerformancePhase phase = PerformancePhase.Unspecified) : base(actor)
+        public PerformableEventArgs(ICanPerform actor, object performable, PerformancePhase phase = PerformancePhase.Unspecified) : base(actor)
         {
             Performable = performable ?? throw new ArgumentNullException(nameof(performable));
             Phase = Enum.IsDefined(typeof(PerformancePhase), phase)

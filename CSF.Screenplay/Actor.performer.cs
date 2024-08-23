@@ -11,9 +11,9 @@ namespace CSF.Screenplay
         /// Performs an action or task which returns no result.
         /// </summary>
         /// <param name="performable">The performable item</param>
-        /// <param name="cancellationToken">An optional token to cancel the performance</param>
-        /// <param name="phase">The phase to which the performance belongs</param>
-        /// <returns>A task which completes when the performance is complete</returns>
+        /// <param name="cancellationToken">An optional token to cancel the performable</param>
+        /// <param name="phase">The performance phase to which the performable belongs</param>
+        /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         protected virtual async Task PerformAsync(IPerformable performable,
                                                   CancellationToken cancellationToken = default,
@@ -23,13 +23,13 @@ namespace CSF.Screenplay
 
             try
             {
-                InvokeBeginPerformance(performable, phase);
+                InvokeBeginPerformable(performable, phase);
                 await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
-                InvokeEndPerformance(performable, phase);
+                InvokeEndPerformable(performable, phase);
             }
             catch(Exception ex)
             {
-                InvokePerformanceFailed(performable, ex, phase);
+                InvokePerformableFailed(performable, ex, phase);
                 throw;
             }
         }
@@ -41,9 +41,9 @@ namespace CSF.Screenplay
         /// Performs an action or task which returns an untyped result.
         /// </summary>
         /// <param name="performable">The performable item</param>
-        /// <param name="cancellationToken">An optional token to cancel the performance</param>
-        /// <param name="phase">The phase to which the performance belongs</param>
-        /// <returns>A task which completes when the performance is complete</returns>
+        /// <param name="cancellationToken">An optional token to cancel the performable</param>
+        /// <param name="phase">The performance phase to which the performable belongs</param>
+        /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         protected virtual async Task<object> PerformAsync(IPerformableWithResult performable,
                                                           CancellationToken cancellationToken = default,
@@ -53,15 +53,15 @@ namespace CSF.Screenplay
 
             try
             {
-                InvokeBeginPerformance(performable, phase);
+                InvokeBeginPerformable(performable, phase);
                 var result = await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
-                InvokePerformanceResult(performable, result);
-                InvokeEndPerformance(performable, phase);
+                InvokePerformableResult(performable, result);
+                InvokeEndPerformable(performable, phase);
                 return result;
             }
             catch(Exception ex)
             {
-                InvokePerformanceFailed(performable, ex, phase);
+                InvokePerformableFailed(performable, ex, phase);
                 throw;
             }
         }
@@ -73,9 +73,9 @@ namespace CSF.Screenplay
         /// Performs an action or task which returns a strongly typed result.
         /// </summary>
         /// <param name="performable">The performable item</param>
-        /// <param name="cancellationToken">An optional token to cancel the performance</param>
-        /// <param name="phase">The phase to which the performance belongs</param>
-        /// <returns>A task which completes when the performance is complete</returns>
+        /// <param name="cancellationToken">An optional token to cancel the performable</param>
+        /// <param name="phase">The performance phase to which the performable belongs</param>
+        /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         protected virtual async Task<T> PerformAsync<T>(IPerformableWithResult<T> performable,
                                                         CancellationToken cancellationToken = default,
@@ -85,15 +85,15 @@ namespace CSF.Screenplay
 
             try
             {
-                InvokeBeginPerformance(performable, phase);
+                InvokeBeginPerformable(performable, phase);
                 var result = await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
-                InvokePerformanceResult(performable, result);
-                InvokeEndPerformance(performable, phase);
+                InvokePerformableResult(performable, result);
+                InvokeEndPerformable(performable, phase);
                 return result;
             }
             catch(Exception ex)
             {
-                InvokePerformanceFailed(performable, ex, phase);
+                InvokePerformableFailed(performable, ex, phase);
                 throw;
             }
         }

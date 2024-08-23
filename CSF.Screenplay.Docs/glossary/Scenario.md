@@ -1,3 +1,7 @@
+---
+uid: ScenarioGlossaryItem
+---
+
 # Scenario
 
 A **Scenario** is a concept which is relevant when the Screenplay library is being used to perform automated tests. 

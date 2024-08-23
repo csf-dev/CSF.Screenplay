@@ -10,12 +10,12 @@ namespace CSF.Screenplay.Performances
         readonly IServiceScopeFactory scopeFactory;
 
         /// <inheritdoc/>
-        public Performance CreatePerformance(IList<IdentifierAndName> scenarioHierarchy = null)
+        public Performance CreatePerformance(IList<IdentifierAndName> namingHierarchy = null)
         {
             var diScope = scopeFactory.CreateScope();
             var performanceId = Guid.NewGuid();
 
-            return new Performance(diScope.ServiceProvider, scenarioHierarchy, performanceId);
+            return new Performance(diScope.ServiceProvider, namingHierarchy, performanceId);
         }
 
         /// <summary>Initialises a new instance of <see cref="PerformanceFactory"/></summary>

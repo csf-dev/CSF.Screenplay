@@ -24,7 +24,8 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
-    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the
+    /// <see cref="Performance"/> report is generated.
     /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>
@@ -36,8 +37,8 @@ namespace CSF.Screenplay
         /// Performs the action(s) are represented by the current instance.
         /// </summary>
         /// <param name="actor">The actor that is performing.</param>
-        /// <param name="cancellationToken">An optional cancellation token by which to abort the performance.</param>
-        /// <returns>A task which completes when the performance represented by the current instance is complete.</returns>
+        /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
+        /// <returns>A task which completes when the performable represented by the current instance is complete.</returns>
         Task PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }
 
@@ -65,7 +66,8 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
-    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the
+    /// <see cref="Performance"/> report is generated.
     /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>
@@ -78,8 +80,8 @@ namespace CSF.Screenplay
         /// Performs the action(s) are represented by the current instance and returns a value.
         /// </summary>
         /// <param name="actor">The actor that is performing.</param>
-        /// <param name="cancellationToken">An optional cancellation token by which to abort the performance.</param>
-        /// <returns>A task which exposes a 'result' value when the performance represented by the current instance is complete.</returns>
+        /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
+        /// <returns>A task which exposes a 'result' value when the performable represented by the current instance is complete.</returns>
         Task<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }    
 
@@ -107,7 +109,8 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
-    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the performance report is generated.
+    /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the
+    /// <see cref="Performance"/> report is generated.
     /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>
@@ -121,8 +124,8 @@ namespace CSF.Screenplay
         /// Performs the action(s) are represented by the current instance and returns a strongly-typed value.
         /// </summary>
         /// <param name="actor">The actor that is performing.</param>
-        /// <param name="cancellationToken">An optional cancellation token by which to abort the performance.</param>
-        /// <returns>A task which exposes a strongly-typed 'result' value when the performance represented by the current instance is complete.</returns>
+        /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
+        /// <returns>A task which exposes a strongly-typed 'result' value when the performable represented by the current instance is complete.</returns>
         Task<TResult> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }
 }

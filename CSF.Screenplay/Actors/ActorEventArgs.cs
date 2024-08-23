@@ -3,7 +3,7 @@
 namespace CSF.Screenplay.Actors
 {
     /// <summary>
-    /// A model for event arguments which relate to an actor.
+    /// A model for event arguments which relate to an <see cref="CSF.Screenplay.Actor"/>.
     /// </summary>
     /// <seealso cref="ICanPerform"/>
     public class ActorEventArgs : EventArgs

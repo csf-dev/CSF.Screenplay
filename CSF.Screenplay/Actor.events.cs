@@ -6,61 +6,61 @@ namespace CSF.Screenplay
     public partial class Actor : IHasPerformanceEvents
     {
         /// <inheritdoc/>
-        public event EventHandler<PerformanceEventArgs> BeginPerformance;
+        public event EventHandler<PerformableEventArgs> BeginPerformable;
 
         /// <summary>
-        /// Invokes the <see cref="BeginPerformance"/> event.
+        /// Invokes the <see cref="BeginPerformable"/> event.
         /// </summary>
         /// <param name="performable">The performable item</param>
         /// <param name="phase">The performance phase to which this event relates</param>
-        protected virtual void InvokeBeginPerformance(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
+        protected virtual void InvokeBeginPerformable(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformanceEventArgs(this, performable, phase);
-            BeginPerformance?.Invoke(this, args);
+            var args = new PerformableEventArgs(this, performable, phase);
+            BeginPerformable?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceEventArgs> EndPerformance;
+        public event EventHandler<PerformableEventArgs> EndPerformable;
 
         /// <summary>
-        /// Invokes the <see cref="EndPerformance"/> event.
+        /// Invokes the <see cref="EndPerformable"/> event.
         /// </summary>
         /// <param name="performable">The performable item</param>
         /// <param name="phase">The performance phase to which this event relates</param>
-        protected virtual void InvokeEndPerformance(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
+        protected virtual void InvokeEndPerformable(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformanceEventArgs(this, performable, phase);
-            EndPerformance?.Invoke(this, args);
+            var args = new PerformableEventArgs(this, performable, phase);
+            EndPerformable?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceResultEventArgs> PerformanceResult;
+        public event EventHandler<PerformableResultEventArgs> PerformableResult;
 
         /// <summary>
-        /// Invokes the <see cref="PerformanceResult"/> event.
+        /// Invokes the <see cref="PerformableResult"/> event.
         /// </summary>
         /// <param name="performable">The performable item</param>
-        /// <param name="result">The result value from the performance</param>
+        /// <param name="result">The result value from the performable</param>
         /// <param name="phase">The performance phase to which this event relates</param>
-        protected virtual void InvokePerformanceResult(object performable, object result, PerformancePhase phase = PerformancePhase.Unspecified)
+        protected virtual void InvokePerformableResult(object performable, object result, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformanceResultEventArgs(this, performable, result, phase);
-            PerformanceResult?.Invoke(this, args);
+            var args = new PerformableResultEventArgs(this, performable, result, phase);
+            PerformableResult?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceFailureEventArgs> PerformanceFailed;
+        public event EventHandler<PerformableFailureEventArgs> PerformableFailed;
 
         /// <summary>
-        /// Invokes the <see cref="PerformanceFailed"/> event.
+        /// Invokes the <see cref="PerformableFailed"/> event.
         /// </summary>
         /// <param name="performable">The performable item</param>
-        /// <param name="exception">The exception which halted the performance</param>
+        /// <param name="exception">The exception which halted the performable</param>
         /// <param name="phase">The performance phase to which this event relates</param>
-        protected virtual void InvokePerformanceFailed(object performable, Exception exception, PerformancePhase phase = PerformancePhase.Unspecified)
+        protected virtual void InvokePerformableFailed(object performable, Exception exception, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformanceFailureEventArgs(this, performable, exception, phase);
-            PerformanceFailed?.Invoke(this, args);
+            var args = new PerformableFailureEventArgs(this, performable, exception, phase);
+            PerformableFailed?.Invoke(this, args);
         }
 
         /// <inheritdoc/>

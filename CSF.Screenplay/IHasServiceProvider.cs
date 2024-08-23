@@ -1,6 +1,6 @@
 using System;
 
-namespace CSF.Screenplay.Actors
+namespace CSF.Screenplay
 {
     /// <summary>An object which has an associated <see cref="IServiceProvider"/>, which resolves
     /// services from dependency injection.</summary>

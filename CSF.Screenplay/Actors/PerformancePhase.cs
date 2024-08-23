@@ -1,6 +1,17 @@
 namespace CSF.Screenplay.Actors
 {
     /// <summary>Enumerates the phases of a performance</summary>
+    /// <remarks>
+    /// <para>
+    /// It is common for a <see cref="Performance"/> to occur in phases. This is especially true when Screenplay
+    /// is being used as a testing tool.
+    /// This type enumerates the possible phases.
+    /// </para>
+    /// <para>
+    /// If phases are irrelevant to your usage of Screenplay then feel free to use <see cref="Unspecified"/>, which is the default
+    /// phase when no phase has been specified.
+    /// </para>
+    /// </remarks>
     public enum PerformancePhase
     {
         /// <summary>Indicates that no phase has been specified</summary>
