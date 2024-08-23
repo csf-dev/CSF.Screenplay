@@ -1,0 +1,18 @@
+<Project DefaultTargets="Build">
+    <PropertyGroup>
+        <OutputPath>..\docs\</OutputPath>
+        <ConfigFileName>docfx.json</ConfigFileName>
+        <DocfxExecutable>docfx.exe</DocfxExecutable>
+    </PropertyGroup>
+
+    <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+
+    <Target Name="Build">
+        <Message Text="Executing '$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)'" />
+        <Exec Command="$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)" />
+    </Target>
+    <Target Name="Clean">
+        <RemoveDir Directories="$(OutputPath)" />
+    </Target>
+</Project>

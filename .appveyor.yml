@@ -6,6 +6,5 @@ before_build:
   - dotnet tool update -g docfx
 build_script:
   - dotnet build
-  - docfx CSF.Screenplay.Docs\docfx.json
 test_script:
   - dotnet test
