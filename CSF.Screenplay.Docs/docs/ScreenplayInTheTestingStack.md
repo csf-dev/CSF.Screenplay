@@ -13,7 +13,7 @@ block-beta
     columns 2
     Runner["Test runner"]:2
     FW["Test framework"]:2
-    Int["Screenplay integration"]:2
+    Int["Test integration"]:2
     Test Logic["Screenplay test logic"]
     classDef sp fill:#f0f0bb,stroke:#cc7
     class Int,Logic sp
@@ -35,12 +35,12 @@ Applied to NUnit, this is the `NUnit.Framework.dll` which is included in [the NU
 
 [the NUnit NuGet package]: https://www.nuget.org/packages/NUnit
 
-## The Screenplay integration
+## The Test integration
 
-[The Screenplay Integration] is the extension to the test framework (above) which enables the use of Screenplay test logic.
-Each testing framework has its own Screenplay integration, as it must be developed for the test framework's syntax and extension points.
+[The Test Integration] is the extension to the test framework (above) which enables the use of Screenplay-based logic in tests.
+Each testing framework has its own test integration, as it must be developed for the test framework's syntax and extension points.
 
-[The Screenplay Integration]: ../glossary/Integration.md
+[The Test Integration]: ../glossary/Integration.md
 
 ## Tests
 
