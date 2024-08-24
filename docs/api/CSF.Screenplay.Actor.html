@@ -89,12 +89,12 @@
 
 
   <h1 id="CSF_Screenplay_Actor" data-uid="CSF.Screenplay.Actor" class="text-break">
-Class Actor  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.phases.cs/#L7"><i class="bi bi-code-slash"></i></a>
+Class Actor  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.phases.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>A representation of an autonomous, or at least seemingly-autonomous, person or system which directs the events of a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
@@ -102,7 +102,7 @@ Class Actor  <a class="header-action link-secondary" title="View source" href="h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Actor : IHasAbilities, IHasName, IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IHasPerformanceEvents, ICanPerform, ICanPerformGiven, ICanPerformWhen, ICanPerformThen</code></pre>
+    <pre><code class="lang-csharp hljs">public class Actor : IHasAbilities, IHasName, IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IHasPerformableEvents, ICanPerform, ICanPerformGiven, ICanPerformWhen, ICanPerformThen</code></pre>
   </div>
 
 
@@ -124,7 +124,7 @@ Class Actor  <a class="header-action link-secondary" title="View source" href="h
       <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
       <div><a class="xref" href="CSF.Screenplay.IHasServiceProvider.html">IHasServiceProvider</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Actors.IHasPerformanceEvents.html">IHasPerformanceEvents</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Actors.IHasPerformableEvents.html">IHasPerformableEvents</a></div>
       <div><a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a></div>
@@ -232,7 +232,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor__ctor_System_String_System_Guid_System_IServiceProvider_" data-uid="CSF.Screenplay.Actor.#ctor(System.String,System.Guid,System.IServiceProvider)">
   Actor(string, Guid, IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></p>
@@ -275,7 +275,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Abilities" data-uid="CSF.Screenplay.Actor.Abilities">
   Abilities
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.abilities.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of the actor's abilities</p>
@@ -307,7 +307,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Name" data-uid="CSF.Screenplay.Actor.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor's name</p>
@@ -339,7 +339,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_PerformanceIdentity" data-uid="CSF.Screenplay.Actor.PerformanceIdentity">
   PerformanceIdentity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the unique identity for the performance in which this actor is participating</p>
@@ -371,7 +371,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_ServiceProvider" data-uid="CSF.Screenplay.Actor.ServiceProvider">
   ServiceProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a service resolver instance associated with this actor</p>
@@ -407,7 +407,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Dispose_System_Boolean_" data-uid="CSF.Screenplay.Actor.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.disposable.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.disposable.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Virtual method implementing the dispose pattern, for extensibility.</p>
@@ -445,7 +445,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_Finalize" data-uid="CSF.Screenplay.Actor.Finalize">
   ~Actor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.disposable.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.disposable.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Destructor for instances of <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>.</p>
@@ -472,7 +472,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_InvokeBeginPerformable_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.InvokeBeginPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)">
   InvokeBeginPerformable(object, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_BeginPerformable">BeginPerformable</a> event.</p>
@@ -508,7 +508,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_InvokeEndPerformable_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.InvokeEndPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)">
   InvokeEndPerformable(object, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_EndPerformable">EndPerformable</a> event.</p>
@@ -544,7 +544,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_InvokeGainedAbility_System_Object_" data-uid="CSF.Screenplay.Actor.InvokeGainedAbility(System.Object)">
   InvokeGainedAbility(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_GainedAbility">GainedAbility</a> event.</p>
@@ -577,7 +577,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_InvokePerformableFailed_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.InvokePerformableFailed(System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)">
   InvokePerformableFailed(object, Exception, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformableFailed">PerformableFailed</a> event.</p>
@@ -616,7 +616,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_InvokePerformableResult_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.InvokePerformableResult(System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)">
   InvokePerformableResult(object, object, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformableResult">PerformableResult</a> event.</p>
@@ -655,7 +655,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_IsAbleTo_System_Object_" data-uid="CSF.Screenplay.Actor.IsAbleTo(System.Object)">
   IsAbleTo(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.abilities.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a new ability to the actor</p>
@@ -697,7 +697,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_PerformAsync_CSF_Screenplay_IPerformable_System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformable,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)">
   PerformAsync(IPerformable, CancellationToken, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.performer.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.performer.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
@@ -748,7 +748,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_PerformAsync_CSF_Screenplay_IPerformableWithResult_System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformableWithResult,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)">
   PerformAsync(IPerformableWithResult, CancellationToken, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.performer.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.performer.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
@@ -799,7 +799,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_PerformAsync__1_CSF_Screenplay_IPerformableWithResult___0__System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actor.PerformAsync``1(CSF.Screenplay.IPerformableWithResult{``0},System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)">
   PerformAsync&lt;T&gt;(IPerformableWithResult&lt;T&gt;, CancellationToken, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.performer.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.performer.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
@@ -858,7 +858,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_BeginPerformable" data-uid="CSF.Screenplay.Actor.BeginPerformable">
   BeginPerformable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when the actor begins the execution of a performable object.</p>
@@ -889,7 +889,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_EndPerformable" data-uid="CSF.Screenplay.Actor.EndPerformable">
   EndPerformable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an actor ends the execution of a performable object.</p>
@@ -920,7 +920,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_GainedAbility" data-uid="CSF.Screenplay.Actor.GainedAbility">
   GainedAbility
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an actor gains a new ability.</p>
@@ -951,7 +951,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_PerformableFailed" data-uid="CSF.Screenplay.Actor.PerformableFailed">
   PerformableFailed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when a performable object fails with an exception.</p>
@@ -982,7 +982,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_PerformableResult" data-uid="CSF.Screenplay.Actor.PerformableResult">
   PerformableResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.events.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.events.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an actor receives a result from a perfperformable objectrmance.</p>
@@ -1020,7 +1020,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Actor.phases.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.phases.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

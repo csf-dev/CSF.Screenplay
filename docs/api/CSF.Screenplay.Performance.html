@@ -89,12 +89,12 @@
 
 
   <h1 id="CSF_Screenplay_Performance" data-uid="CSF.Screenplay.Performance" class="text-break">
-Class Performance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Class Performance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>A performance represents a self-contained scope of performables which typically results in overall success or failure.</p>
@@ -152,7 +152,7 @@ Class Performance  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level0 remarks"><p>
 The performance provides a scope for a script involving one or more <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, executing
 <a class="xref" href="../glossary/Performable.html">one or more performable items</a>.
-A <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> will contain one or more performances.
+A <a class="xref" href="CSF.Screenplay.html">CSF.Screenplay</a> will contain one or more performances.
 A performance is a series of actions/performables with a beginning, middle and end.
 Actors participate in the performance and drive the performables forward.
 Typically a performance will complete in either success or failure.
@@ -179,7 +179,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Performance__ctor_System_IServiceProvider_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_" data-uid="CSF.Screenplay.Performance.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)">
   Performance(IServiceProvider, IList&lt;IdentifierAndName&gt;, Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
@@ -230,7 +230,7 @@ then a new Guid will be generated as the identity for this performance</p>
 
   <h3 id="CSF_Screenplay_Performance_NamingHierarchy" data-uid="CSF.Screenplay.Performance.NamingHierarchy">
   NamingHierarchy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
@@ -263,7 +263,7 @@ and the second will be named <code>Joe can take out the Trash</code>.
 
   <h4 class="section" id="CSF_Screenplay_Performance_NamingHierarchy_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-A <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> typically contains more than one performance and may contain many.
+A <a class="xref" href="CSF.Screenplay.html">CSF.Screenplay</a> typically contains more than one performance and may contain many.
 It is normal to organise performances into a hierarchical structure based upon their purpose, role or relationship.
 The position of the current performance in that naming structure is represented by the value of this property.
 </p>
@@ -290,7 +290,7 @@ feature &amp; scenario names.
 
   <h3 id="CSF_Screenplay_Performance_PerformanceIdentity" data-uid="CSF.Screenplay.Performance.PerformanceIdentity">
   PerformanceIdentity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the unique <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> identifier</p>
@@ -316,7 +316,7 @@ feature &amp; scenario names.
 
   <h4 class="section" id="CSF_Screenplay_Performance_PerformanceIdentity_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This value is used to uniquely identify a performance within a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.
+This value is used to uniquely identify a performance within a <a class="xref" href="CSF.Screenplay.html">CSF.Screenplay</a>.
 </p>
 </div>
 
@@ -327,7 +327,7 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
   <h3 id="CSF_Screenplay_Performance_PerformanceState" data-uid="CSF.Screenplay.Performance.PerformanceState">
   PerformanceState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>
@@ -365,7 +365,7 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
   <h3 id="CSF_Screenplay_Performance_ServiceProvider" data-uid="CSF.Screenplay.Performance.ServiceProvider">
   ServiceProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a service provider/resolver instance associated with this object.</p>
@@ -401,7 +401,7 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
   <h3 id="CSF_Screenplay_Performance_BeginPerformance" data-uid="CSF.Screenplay.Performance.BeginPerformance">
   BeginPerformance()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Begins the performance</p>
@@ -428,7 +428,7 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
   <h3 id="CSF_Screenplay_Performance_CompletePerformance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performance.CompletePerformance(System.Nullable{System.Boolean})">
   CompletePerformance(bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Completes the performance with a value indicating whether or not it was a success</p>
@@ -463,7 +463,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Dispose" data-uid="CSF.Screenplay.Performance.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -490,7 +490,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Equals_CSF_Screenplay_Performance_" data-uid="CSF.Screenplay.Performance.Equals(CSF.Screenplay.Performance)">
   Equals(Performance)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
@@ -529,7 +529,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Equals_System_Object_" data-uid="CSF.Screenplay.Performance.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
@@ -568,7 +568,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_GetHashCode" data-uid="CSF.Screenplay.Performance.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
@@ -604,7 +604,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Begin" data-uid="CSF.Screenplay.Performance.Begin">
   Begin
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -634,7 +634,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Complete" data-uid="CSF.Screenplay.Performance.Complete">
   Complete
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -665,7 +665,7 @@ succeed but should not be considered a failure either.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Performance.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 

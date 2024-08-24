@@ -630,42 +630,42 @@ references:
   fullName.vb: CSF.Screenplay.Actors.ICanPerformWhen.AttemptsTo(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), System.Threading.CancellationToken)
   nameWithType: ICanPerformWhen.AttemptsTo<T>(IPerformableWithResult<T>, CancellationToken)
   nameWithType.vb: ICanPerformWhen.AttemptsTo(Of T)(IPerformableWithResult(Of T), CancellationToken)
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents
-  name: IHasPerformanceEvents
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html
-  commentId: T:CSF.Screenplay.Actors.IHasPerformanceEvents
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents
-  nameWithType: IHasPerformanceEvents
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents
+  name: IHasPerformableEvents
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html
+  commentId: T:CSF.Screenplay.Actors.IHasPerformableEvents
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents
+  nameWithType: IHasPerformableEvents
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.BeginPerformable
   name: BeginPerformable
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_BeginPerformable
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
-  nameWithType: IHasPerformanceEvents.BeginPerformable
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_BeginPerformable
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.BeginPerformable
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.BeginPerformable
+  nameWithType: IHasPerformableEvents.BeginPerformable
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.EndPerformable
   name: EndPerformable
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_EndPerformable
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
-  nameWithType: IHasPerformanceEvents.EndPerformable
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_EndPerformable
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.EndPerformable
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.EndPerformable
+  nameWithType: IHasPerformableEvents.EndPerformable
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.GainedAbility
   name: GainedAbility
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_GainedAbility
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
-  nameWithType: IHasPerformanceEvents.GainedAbility
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_GainedAbility
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.GainedAbility
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.GainedAbility
+  nameWithType: IHasPerformableEvents.GainedAbility
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableFailed
   name: PerformableFailed
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_PerformableFailed
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
-  nameWithType: IHasPerformanceEvents.PerformableFailed
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_PerformableFailed
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.PerformableFailed
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableFailed
+  nameWithType: IHasPerformableEvents.PerformableFailed
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
   name: PerformableResult
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_PerformableResult
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
-  nameWithType: IHasPerformanceEvents.PerformableResult
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_PerformableResult
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
+  nameWithType: IHasPerformableEvents.PerformableResult
 - uid: CSF.Screenplay.Actors.PerformableEventArgs
   name: PerformableEventArgs
   href: api/CSF.Screenplay.Actors.PerformableEventArgs.html
@@ -944,6 +944,60 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actors.Stage.TurnSpotlightOff
   nameWithType: Stage.TurnSpotlightOff
+- uid: CSF.Screenplay.DefaultStrings
+  name: DefaultStrings
+  href: api/CSF.Screenplay.DefaultStrings.html
+  commentId: T:CSF.Screenplay.DefaultStrings
+  fullName: CSF.Screenplay.DefaultStrings
+  nameWithType: DefaultStrings
+- uid: CSF.Screenplay.DefaultStrings.FormatValue(System.Object)
+  name: FormatValue(object)
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_FormatValue_System_Object_
+  commentId: M:CSF.Screenplay.DefaultStrings.FormatValue(System.Object)
+  name.vb: FormatValue(Object)
+  fullName: CSF.Screenplay.DefaultStrings.FormatValue(object)
+  fullName.vb: CSF.Screenplay.DefaultStrings.FormatValue(Object)
+  nameWithType: DefaultStrings.FormatValue(object)
+  nameWithType.vb: DefaultStrings.FormatValue(Object)
+- uid: CSF.Screenplay.DefaultStrings.FormatValue*
+  name: FormatValue
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_FormatValue_
+  commentId: Overload:CSF.Screenplay.DefaultStrings.FormatValue
+  isSpec: "True"
+  fullName: CSF.Screenplay.DefaultStrings.FormatValue
+  nameWithType: DefaultStrings.FormatValue
+- uid: CSF.Screenplay.DefaultStrings.GetAbilityReport(System.Object,System.Object)
+  name: GetAbilityReport(object, object)
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetAbilityReport_System_Object_System_Object_
+  commentId: M:CSF.Screenplay.DefaultStrings.GetAbilityReport(System.Object,System.Object)
+  name.vb: GetAbilityReport(Object, Object)
+  fullName: CSF.Screenplay.DefaultStrings.GetAbilityReport(object, object)
+  fullName.vb: CSF.Screenplay.DefaultStrings.GetAbilityReport(Object, Object)
+  nameWithType: DefaultStrings.GetAbilityReport(object, object)
+  nameWithType.vb: DefaultStrings.GetAbilityReport(Object, Object)
+- uid: CSF.Screenplay.DefaultStrings.GetAbilityReport*
+  name: GetAbilityReport
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetAbilityReport_
+  commentId: Overload:CSF.Screenplay.DefaultStrings.GetAbilityReport
+  isSpec: "True"
+  fullName: CSF.Screenplay.DefaultStrings.GetAbilityReport
+  nameWithType: DefaultStrings.GetAbilityReport
+- uid: CSF.Screenplay.DefaultStrings.GetReport(System.Object,System.Object)
+  name: GetReport(object, object)
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetReport_System_Object_System_Object_
+  commentId: M:CSF.Screenplay.DefaultStrings.GetReport(System.Object,System.Object)
+  name.vb: GetReport(Object, Object)
+  fullName: CSF.Screenplay.DefaultStrings.GetReport(object, object)
+  fullName.vb: CSF.Screenplay.DefaultStrings.GetReport(Object, Object)
+  nameWithType: DefaultStrings.GetReport(object, object)
+  nameWithType.vb: DefaultStrings.GetReport(Object, Object)
+- uid: CSF.Screenplay.DefaultStrings.GetReport*
+  name: GetReport
+  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetReport_
+  commentId: Overload:CSF.Screenplay.DefaultStrings.GetReport
+  isSpec: "True"
+  fullName: CSF.Screenplay.DefaultStrings.GetReport
+  nameWithType: DefaultStrings.GetReport
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -2070,66 +2124,6 @@ references:
   commentId: F:CSF.Screenplay.Performances.PerformanceState.Success
   fullName: CSF.Screenplay.Performances.PerformanceState.Success
   nameWithType: PerformanceState.Success
-- uid: CSF.Screenplay.Reports
-  name: CSF.Screenplay.Reports
-  href: api/CSF.Screenplay.Reports.html
-  commentId: N:CSF.Screenplay.Reports
-  fullName: CSF.Screenplay.Reports
-  nameWithType: CSF.Screenplay.Reports
-- uid: CSF.Screenplay.Reports.DefaultStrings
-  name: DefaultStrings
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html
-  commentId: T:CSF.Screenplay.Reports.DefaultStrings
-  fullName: CSF.Screenplay.Reports.DefaultStrings
-  nameWithType: DefaultStrings
-- uid: CSF.Screenplay.Reports.DefaultStrings.FormatValue(System.Object)
-  name: FormatValue(object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_FormatValue_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.FormatValue(System.Object)
-  name.vb: FormatValue(Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.FormatValue(object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.FormatValue(Object)
-  nameWithType: DefaultStrings.FormatValue(object)
-  nameWithType.vb: DefaultStrings.FormatValue(Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.FormatValue*
-  name: FormatValue
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_FormatValue_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.FormatValue
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.FormatValue
-  nameWithType: DefaultStrings.FormatValue
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name: GetAbilityReport(object, object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetAbilityReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name.vb: GetAbilityReport(Object, Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(object, object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(Object, Object)
-  nameWithType: DefaultStrings.GetAbilityReport(object, object)
-  nameWithType.vb: DefaultStrings.GetAbilityReport(Object, Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport*
-  name: GetAbilityReport
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetAbilityReport_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport
-  nameWithType: DefaultStrings.GetAbilityReport
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetReport(System.Object,System.Object)
-  name: GetReport(object, object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.GetReport(System.Object,System.Object)
-  name.vb: GetReport(Object, Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetReport(object, object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.GetReport(Object, Object)
-  nameWithType: DefaultStrings.GetReport(object, object)
-  nameWithType.vb: DefaultStrings.GetReport(Object, Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetReport*
-  name: GetReport
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetReport_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.GetReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetReport
-  nameWithType: DefaultStrings.GetReport
 - uid: CSF.Screenplay.Screenplay
   name: Screenplay
   href: api/CSF.Screenplay.Screenplay.html
