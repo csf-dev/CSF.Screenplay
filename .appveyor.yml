@@ -9,4 +9,4 @@ build_script:
 test_script:
   - dotnet test
 after_test:
-  - Tools\appveyor_publish_docs.ps1
+  - ps: Tools\appveyor_publish_docs.ps1
