@@ -3,10 +3,6 @@ $ErrorActionPreference = "Stop"
 $BaseDir = "docs"
 Write-Host "Publishing the docs site to $BaseDir"
 
-Write-Host "Clearing $BaseDir ..."
-Get-ChildItem -Path $BaseDir\* -Exclude README.md,.placeholder,.nojekyll | Remove-Item -Recurse
-Get-ChildItem -Path $BaseDir\* -Directory | Remove-Item
-
 if($Env:APPVEYOR -eq "True") {
     Write-Host "Setting up git to make a commit from Appveyor"
     git config --global user.name "Appveyor (on behalf of Craig Fowler)"
