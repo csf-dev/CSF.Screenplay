@@ -32,7 +32,7 @@ namespace CSF.Screenplay
     /// await Given(joe).WasAbleTo(takeOutTheTrash);
     /// </code>
     /// </example>
-    public static class ScreenplayStarter
+    public static class PerformanceStarter
     {
         /// <summary>
         /// Returns the actor instance, down-cast to <see cref="ICanPerformGiven"/>, activating the fluent interface for the
