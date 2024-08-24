@@ -4,10 +4,7 @@ init:
   - cmd: git config --global core.autocrlf true
 before_build:
   - dotnet tool update -g docfx
-  - ps: |
-    Write-Host "Clearing docs\ for new documentation ..."
-    Get-ChildItem -Path docs\* -Exclude README.md,.placeholder,.nojekyll | Remove-Item -Recurse
-    Get-ChildItem -Path docs\* -Directory | Remove-Item
+  - dotnet clean
 build_script:
   - dotnet build
 test_script:
