@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$BaseDir = "docs\"
+$BaseDir = "docs"
 Write-Host "Publishing the docs site to $BaseDir"
 
 Write-Host "Clearing $BaseDir ..."
@@ -20,7 +20,7 @@ if($Env:APPVEYOR -eq "True") {
 $ErrorActionPreference = "silentlycontinue"
 
 git checkout -b temp/publish-docs
-git add --all $BaseDir
+git add --all $BaseDir/
 git commit -m "Auto: Updates to docs website via CI [skip ci]"
 git checkout $Env:APPVEYOR_REPO_BRANCH
 git pull
