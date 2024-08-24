@@ -1,3 +1,4 @@
+Set-PSDebug -Trace 1
 $ErrorActionPreference = "Stop"
 
 $BaseDir = "docs/"

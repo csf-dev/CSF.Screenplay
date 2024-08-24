@@ -8,5 +8,5 @@ build_script:
   - dotnet build
 test_script:
   - dotnet test
-after_build:
+after_test:
   - Tools\appveyor_publish_docs.ps1
