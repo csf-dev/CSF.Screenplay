@@ -89,12 +89,12 @@
 
 
   <h1 id="CSF_Screenplay_IStage" data-uid="CSF.Screenplay.IStage" class="text-break">
-Interface IStage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L59"><i class="bi bi-code-slash"></i></a>
+Interface IStage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>The stage facilitates a contextual <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> who is 'in the spotlight' - a currently-active actor</p>
@@ -173,7 +173,7 @@ implicitly be retrieved using the cast, via <a class="xref" href="CSF.Screenplay
 
   <h3 id="CSF_Screenplay_IStage_GetSpotlitActor" data-uid="CSF.Screenplay.IStage.GetSpotlitActor">
   GetSpotlitActor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor which is currently in the spotlight.</p>
@@ -207,7 +207,7 @@ reference if there is presently no actor in the spotlight.</p>
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.Actor)">
   Spotlight(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places the specified actor into the spotlight, making them 'the current actor' on this stage.</p>
@@ -261,7 +261,7 @@ then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.IPersona)">
   Spotlight(IPersona)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
@@ -325,7 +325,7 @@ See <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActo
 
   <h3 id="CSF_Screenplay_IStage_TurnSpotlightOff" data-uid="CSF.Screenplay.IStage.TurnSpotlightOff">
   TurnSpotlightOff()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</p>
@@ -369,7 +369,7 @@ effect, the spotlight will remain empty, the event noted will not be triggered a
 
   <h3 id="CSF_Screenplay_IStage_ActorSpotlit" data-uid="CSF.Screenplay.IStage.ActorSpotlit">
   ActorSpotlit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an actor enters the spotlight.</p>
@@ -403,7 +403,7 @@ effect, the spotlight will remain empty, the event noted will not be triggered a
 
   <h3 id="CSF_Screenplay_IStage_SpotlightTurnedOff" data-uid="CSF.Screenplay.IStage.SpotlightTurnedOff">
   SpotlightTurnedOff
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an actor is removed from the spotlight because the spotlight has been turned off.</p>
@@ -442,7 +442,7 @@ effect, the spotlight will remain empty, the event noted will not be triggered a
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L59" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IStage.cs/#L59" class="edit-link">Edit this page</a>
         </div>
 
 
