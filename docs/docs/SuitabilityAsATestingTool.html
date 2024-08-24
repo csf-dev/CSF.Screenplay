@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Where Screenplay is suitable for testing | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Where Screenplay is suitable for testing | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Docs/docs/SuitabilityAsATestingTool.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="where-screenplay-is-suitable-for-testing">Where Screenplay is suitable for testing</h1>
+
+<p>The Screenplay pattern is a recommended tool for writing automated tests for application software.
+Unlike <a href="https://nunit.org/">NUnit</a> or <a href="https://specflow.org/">SpecFlow</a> (or many others) Screenplay is not a complete testing framework.
+Rather, Screenplay integrates with your chosen testing framework to assist in the writing of test logic.</p>
+<p><em>Screenplay is not a silver bullet</em>; some kinds of tests could benefit from Screenplay and others will not.
+Some testing scenarios are listed below, along with a brief consideration as to whether Screenplay is likely to be relevant.
+Terminology can differ between developers, so each type of test begins with a short definition.</p>
+<h2 id="ideal-system-tests">Ideal: System tests</h2>
+<p>Also known as &quot;end-to-end tests&quot;; this kind of test exercises and tests <em>the full deployed application</em> without the use of any <a href="https://en.wikipedia.org/wiki/Test_double">test fakes</a>.
+The application might be set up/configured in a controlled environment but it runs and is exercised in the same way it would in production.</p>
+<p>System tests are <strong>an ideal candidate</strong> for the use of Screenplay.
+System tests are often written from a user's perspective and test meaningful, observable behaviour of the application, such as a complete <a href="https://en.wikipedia.org/wiki/User_story">user story</a>.
+Screenplay excels in this area of test design.</p>
+<h2 id="unsuitable-unit-tests">Unsuitable: Unit tests</h2>
+<p>Unit tests test the functionality of a small unit of code in isolation.
+Typically this is a single class or function.
+Anything external to the tested unit is replaced with <a href="https://en.wikipedia.org/wiki/Test_double">a test fake</a> or <a href="https://en.wikipedia.org/wiki/Mock_object">a mock</a>.</p>
+<p>Screenplay is <strong>not recommended</strong> for use in unit testing.
+Unit tests are rarely written from an end-user's perspective and often do not test <em>complete</em> application behaviour, such as a <a href="https://en.wikipedia.org/wiki/User_story">user story</a>.
+A unit test will only test only a small aspect of some functionality.
+When this aspect is considered in isolation it may be meaningless, or too abstract to comprehend for an end-user.
+Additionally:</p>
+<ul>
+<li>The steps involved in unit tests should be short &amp; simple, with minimal need for code reuse or composition</li>
+<li>The steps are typically difficult to describe in the application's <a href="https://en.wikipedia.org/wiki/Domain_(software_engineering)">'behaviour domain'</a>, only with language that a software developer would understand</li>
+</ul>
+<h2 id="perhaps-useful-integration-tests">Perhaps useful: Integration tests</h2>
+<p>Integration tests live at a point in <em>the spectrum of testing</em> between unit &amp; system tests.
+Like unit tests, they execute logic via its programming API instead of testing the deployed application.
+Unlike unit tests, each integration test exercises logic across many units of code/classes.
+Thus, it is common for integration tests to test high-level APIs which represent complete <a href="https://en.wikipedia.org/wiki/User_story">user stories</a>.
+Integration tests <em>might include</em> some <a href="https://en.wikipedia.org/wiki/Test_double">test fakes</a>.
+Usually these are limited to things which are difficult or expensive to control.
+Asynchronous web services &amp; databases are typically replaced with test fakes in integration tests.</p>
+<p>For integration tests, we recommend that you <strong>evaluate for yourself</strong> whether Screenplay is useful.
+In some projects/applications, Screenplay will be excellent for integration tests.
+In others it might not.</p>
+<p>You will find Screenplay most useful if your integration tests test complete user stories.
+This is particularly true if the test/sample scenarios would be recognisable to end users, even if described in an abstract manner, for example without reference to a user interface.</p>
+<h2 id="recommended-use-bdd-style-tests">Recommended: Use BDD-style tests</h2>
+<p>Screenplay is a great tool when used alongside <a href="https://en.wikipedia.org/wiki/Behavior-driven_development">Behaviour Driven Development</a> (BDD).
+Whilst the use of a BDD framework such as <a href="https://specflow.org/">SpecFlow</a> is not at all mandatory, those familiar with BDD will quickly see the synergies with Screenplay.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Docs/docs/SuitabilityAsATestingTool.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

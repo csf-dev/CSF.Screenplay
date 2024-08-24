@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Screenplay | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Screenplay | Screenplay docs ">
+      
+      <meta name="description" content="An object which represents a complete execution of Screenplay logic, which should include one or more  instances.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/v2-rewrite/apiSpec/new?filename=CSF_Screenplay_Screenplay.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Screenplay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Screenplay">
+
+
+
+  <h1 id="CSF_Screenplay_Screenplay" data-uid="CSF.Screenplay.Screenplay" class="text-break">
+Class Screenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An object which represents a complete execution of Screenplay logic, which should include one or
+more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> instances.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Screenplay</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Screenplay</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_Screenplay_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A Screenplay, when used as a noun (an instance of this class), refers to a complete execution of the Screenplay
+software.
+A Screenplay is composed of at least one <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> and typically contains many performances.
+</p>
+<p>
+When the Screenplay architecture is applied to automated testing, an instance of this class corresponds to a
+complete test run, where each test corresponds to a performance.
+End-user logic, such as test logic, rarely interacts directly with this class.
+That is because the Screenplay object is generally consumed only by <a class="xref" href="../glossary/Integration.html">integration logic</a>.
+</p>
+<p>
+The Screenplay object is used to create instances of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> via the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_PerformanceFactory">PerformanceFactory</a>.
+You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformanceRelate.html">diagram showing how screenplays, performances, actors and performables relate to one another</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Screenplay__ctor_" data-uid="CSF.Screenplay.Screenplay.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay__ctor_CSF_Screenplay_Performances_ICreatesPerformance_" data-uid="CSF.Screenplay.Screenplay.#ctor(CSF.Screenplay.Performances.ICreatesPerformance)">
+  Screenplay(ICreatesPerformance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Screenplay(ICreatesPerformance performanceFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performanceFactory</code> <a class="xref" href="CSF.Screenplay.Performances.ICreatesPerformance.html">ICreatesPerformance</a></dt>
+    <dd><p>The factory for performance instances</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If the performance factory is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_Screenplay_PerformanceFactory_" data-uid="CSF.Screenplay.Screenplay.PerformanceFactory*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_PerformanceFactory" data-uid="CSF.Screenplay.Screenplay.PerformanceFactory">
+  PerformanceFactory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the factory which should be used to create new instances of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> within the
+current Screenplay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICreatesPerformance PerformanceFactory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Performances.ICreatesPerformance.html">ICreatesPerformance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Screenplay_BeginScreenplay_" data-uid="CSF.Screenplay.Screenplay.BeginScreenplay*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_BeginScreenplay" data-uid="CSF.Screenplay.Screenplay.BeginScreenplay">
+  BeginScreenplay()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
+Screenplay has begun.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginScreenplay()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Screenplay_CompletePerformance_" data-uid="CSF.Screenplay.Screenplay.CompletePerformance*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_CompletePerformance_CSF_Screenplay_Performance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Screenplay.CompletePerformance(CSF.Screenplay.Performance,System.Nullable{System.Boolean})">
+  CompletePerformance(Performance, bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture the specified
+performance has has completed, and that its result should be recorded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CompletePerformance(Performance performance, bool? success)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performance</code> <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></dt>
+    <dd><p>The performance which has completed</p>
+</dd>
+    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>A value indicating the outcome of the performance; see
+<a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_CompletePerformance_System_Nullable_System_Boolean__">CompletePerformance(bool?)</a> for more information</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Screenplay_CompleteScreenplay_" data-uid="CSF.Screenplay.Screenplay.CompleteScreenplay*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_CompleteScreenplay" data-uid="CSF.Screenplay.Screenplay.CompleteScreenplay">
+  CompleteScreenplay()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
+Screenplay is now complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CompleteScreenplay()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Screenplay_StartPerformance_" data-uid="CSF.Screenplay.Screenplay.StartPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_StartPerformance_CSF_Screenplay_Performance_" data-uid="CSF.Screenplay.Screenplay.StartPerformance(CSF.Screenplay.Performance)">
+  StartPerformance(Performance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture the specified
+performance has begun.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartPerformance(Performance performance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performance</code> <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></dt>
+    <dd><p>The performance which has begun</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="CSF_Screenplay_Screenplay_ScreenplayBegun" data-uid="CSF.Screenplay.Screenplay.ScreenplayBegun">
+  ScreenplayBegun
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs at the beginning of a Screenplay process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler ScreenplayBegun</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="CSF_Screenplay_Screenplay_ScreenplayCompleted" data-uid="CSF.Screenplay.Screenplay.ScreenplayCompleted">
+  ScreenplayCompleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the Screenplay process has completed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler ScreenplayCompleted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/Screenplay.cs/#L26" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICast | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICast | Screenplay docs ">
+      
+      <meta name="description" content="A combined registry and factory for  instances, useful when coordinating multiple actors across a">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/v2-rewrite/apiSpec/new?filename=CSF_Screenplay_ICast.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ICast%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.ICast">
+
+
+
+  <h1 id="CSF_Screenplay_ICast" data-uid="CSF.Screenplay.ICast" class="text-break">
+Interface ICast  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/ICast.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A combined registry and factory for <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, useful when coordinating multiple
+actors across a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICast : IHasServiceProvider, IHasPerformanceIdentity</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="CSF.Screenplay.IHasServiceProvider.html#CSF_Screenplay_IHasServiceProvider_ServiceProvider">IHasServiceProvider.ServiceProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">IHasPerformanceIdentity.PerformanceIdentity</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_ICast_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The cast is an optional but recommended component of Screenplay logic.
+It is used to manage <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> objects for the duration of a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.
+Cast objects are always scoped to a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> and have the same lifetime.
+Any actors created or tracked by a cast will also automatically share this lifetime.
+</p>
+<p>
+In terms of design patterns, the cast operates as both a registry: <a href="https://martinfowler.com/eaaCatalog/registry.html">https://martinfowler.com/eaaCatalog/registry.html</a>
+and as a factory: <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">https://en.wikipedia.org/wiki/Factory_method_pattern</a> for actors.
+During the cast's lifetime, subsequent calls to an overload of <code>GetActor</code> using the same actor/persona name will
+return the instance of <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> as was created the first time the method was called with that name.
+A cast, and the actors managed by a cast, are independent per <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>, though.
+</p>
+<p>
+Performances which use only a single actor might find it simpler to use an <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a> directly for the creation
+of that single actor, or (not recommended) create the actor manually.
+</p>
+<p>
+In <span class="xref">a Screenplay</span> the cast is <a class="xref" href="../docs/dependencyInjection/InjectingServices.html">a dependency-injectable service</a>
+which may be used within your performances.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_ICast_GetActor_" data-uid="CSF.Screenplay.ICast.GetActor*"></a>
+
+  <h3 id="CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.ICast.GetActor(CSF.Screenplay.IPersona)">
+  GetActor(IPersona)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/ICast.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> based upon a persona, creating them if they do not already exist in the cast.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Actor GetActor(IPersona persona)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>persona</code> <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></dt>
+    <dd><p>The persona from which to get an actor</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor of the specified name, either an existing instance or a newly-created actor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method will create the actor within the current cast, using the persona as a factory, if they do not already exist.
+Alternatively, this method will return the existing actor, if they already exist in the cast, matched using the
+<a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>'s <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name">Name</a>.
+If executing this method results in the creation of a new actor then the <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated">ActorCreated</a>
+event will be triggered.
+</p>
+<p>
+Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
+should match an existing actor if the specified persona name differs only in case.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_ICast_GetActor_" data-uid="CSF.Screenplay.ICast.GetActor*"></a>
+
+  <h3 id="CSF_Screenplay_ICast_GetActor_System_String_" data-uid="CSF.Screenplay.ICast.GetActor(System.String)">
+  GetActor(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/ICast.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> by their name, creating them if they do not already exist in the cast.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Actor GetActor(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the actor to get</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor of the specified name, either an existing instance or a newly-created actor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ICast_GetActor_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method will create the actor within the current cast, if they do not already exist.
+Alternatively, this method will return the existing actor, if they already exist in the cast.
+If executing this method results in the creation of a new actor then the <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated">ActorCreated</a>
+event will be triggered.
+</p>
+<p>
+Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
+should match an existing actor if the specified name differs only in case.
+</p>
+<p>
+If you make use of a same-named actor across multiple performances then it is highly recommended to use personas
+in order to consistently define the actor's attributes and abilities. You would then use the overload of this
+method which uses that persona to define the actor.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="CSF_Screenplay_ICast_ActorCreated" data-uid="CSF.Screenplay.ICast.ActorCreated">
+  ActorCreated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/ICast.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a new actor is created in the cast.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorCreated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.IStage.html">IStage</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/ICast.cs/#L35" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
