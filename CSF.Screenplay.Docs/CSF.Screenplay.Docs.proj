@@ -1,6 +1,6 @@
 <Project DefaultTargets="Build">
     <PropertyGroup>
-        <OutputPath>..\docs\</OutputPath>
+        <OutputPath>$(MSBuildProjectDirectory)\..\docs\</OutputPath>
         <ConfigFileName>docfx.json</ConfigFileName>
         <DocfxExecutable>docfx.exe</DocfxExecutable>
     </PropertyGroup>
