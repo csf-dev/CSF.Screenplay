@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IStage | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IStage | Screenplay docs ">
+      
+      <meta name="description" content="The stage facilitates a contextual  who is &#39;in the spotlight&#39; - a currently-active actor">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/v2-rewrite/apiSpec/new?filename=CSF_Screenplay_IStage.md&amp;value=---%0Auid%3A%20CSF.Screenplay.IStage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.IStage">
+
+
+
+  <h1 id="CSF_Screenplay_IStage" data-uid="CSF.Screenplay.IStage" class="text-break">
+Interface IStage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The stage facilitates a contextual <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> who is 'in the spotlight' - a currently-active actor</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IStage</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h2 id="CSF_Screenplay_IStage_examples">Examples</h2>
+  <p>
+Consider a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> which is based upon the following, which is described in Gherkin BDD syntax:
+<a href="https://cucumber.io/docs/gherkin/">https://cucumber.io/docs/gherkin/</a>.
+</p>
+<pre><code class="lang-csharp">Given Jack can wash dishes
+  And Jack has filled a basin with hot water
+ When Jack washes a dinner plate
+ Then Jack should have one clean dinner plate</code></pre>
+<p>
+This format of test is perfectly functional, but each <a class="xref" href="../glossary/Performable.html">performable item</a> needed
+to be qualified with the actor's name: "Jack".
+This could be more human-readable but also more reusable from a code perspective if we had a context of a 'current'
+actor, who we could refer to with a pronoun.
+With such a concept, our gherkin could read "he has" or "he washes" and could accept any one of a variety of pronouns.
+</p>
+
+
+  <h2 id="CSF_Screenplay_IStage_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The Stage is an optional but recommended component of Screenplay, useful when a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> involves
+repeated use of an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>.
+It facilitates the use of passive voice and the use of pronouns within the logic of performances without needing to
+frequently repeat the <a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Name">Name</a> of the actor.
+</p>
+<p>
+It is often more consise and easier to understand performances when some of the steps use the passive voice.
+In order to do this, there must be a concept which allows us to discern "which actor is acting at the moment".
+The stage provides this via the concept of <span class="xref">a Spotlight</span>.
+Either zero or one actor may be in the spotlight at any given time.
+If a new actor is placed in the spotlight then the previous actor is removed from it.
+</p>
+<p>
+Spotlighting an actor facilitates performance steps which use 'the current actor' instead of a specific
+named actor.
+</p>
+<p>
+The lifetime of a stage instance is equal to the lifetime of the current <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.
+An actor in the spotlight will be consistent across the lifetime of the performance but will be independent
+of other performances.
+</p>
+<p>
+In <span class="xref">a Screenplay</span> the stage is <a class="xref" href="../docs/dependencyInjection/InjectingServices.html">a dependency-injectable service</a>
+which may be used within your performances.
+The stage implicitly consumes some functionality from the <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a>.
+If <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona_">Spotlight(IPersona)</a> is used, then the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> to put in the spotlight will
+implicitly be retrieved using the cast, via <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_">GetActor(IPersona)</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_IStage_GetSpotlitActor_" data-uid="CSF.Screenplay.IStage.GetSpotlitActor*"></a>
+
+  <h3 id="CSF_Screenplay_IStage_GetSpotlitActor" data-uid="CSF.Screenplay.IStage.GetSpotlitActor">
+  GetSpotlitActor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the actor which is currently in the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Actor GetSpotlitActor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor who has previously been placed in the spotlight, or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+reference if there is presently no actor in the spotlight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_IStage_Spotlight_" data-uid="CSF.Screenplay.IStage.Spotlight*"></a>
+
+  <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.Actor)">
+  Spotlight(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Places the specified actor into the spotlight, making them 'the current actor' on this stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Spotlight(Actor actor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A maximum of one actor may be in the spotlight at any time, so if a different actor is already in the spotlight as this
+method is used, then they will be implicitly removed and replaced by the specified actor.
+The actor who is in the spotlight may be retrieved by calling <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_GetSpotlitActor">GetSpotlitActor()</a>.
+</p>
+<p>
+If the specified actor is already in the spotlight then this method will have no effect, the actor will remain
+in the spotlight.
+</p>
+<p>
+If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
+then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit">ActorSpotlit</a> event will be triggered.
+</p>
+<p>To remove an actor from the spotlight without replacing them, use <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff">TurnSpotlightOff()</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If the actor is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_IStage_Spotlight_" data-uid="CSF.Screenplay.IStage.Spotlight*"></a>
+
+  <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.IPersona)">
+  Spotlight(IPersona)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Actor Spotlight(IPersona persona)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>persona</code> <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor instance which was placed into the spotlight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A maximum of one actor may be in the spotlight at any time, so if a different actor is already in the spotlight as this
+method is used, then they will be implicitly removed and replaced by the actor derived from the persona.
+The actor who is in the spotlight may be retrieved by calling <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_GetSpotlitActor">GetSpotlitActor()</a>.
+</p>
+<p>
+If actor indicated by the persona is already in the spotlight then this method will have no effect, the actor will remain
+in the spotlight.
+</p>
+<p>
+If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
+then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit">ActorSpotlit</a> event will be triggered.
+</p>
+<p>
+When spotlighting a persona, the actor instance is retrieved from an <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a> based upon that same persona.
+See <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_">GetActor(IPersona)</a> for more information.
+</p>
+<p>To remove an actor from the spotlight without replacing them, use <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff">TurnSpotlightOff()</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If the actor is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_IStage_TurnSpotlightOff_" data-uid="CSF.Screenplay.IStage.TurnSpotlightOff*"></a>
+
+  <h3 id="CSF_Screenplay_IStage_TurnSpotlightOff" data-uid="CSF.Screenplay.IStage.TurnSpotlightOff">
+  TurnSpotlightOff()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Actor TurnSpotlightOff()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>If an actor was previously in the spotlight, and has now been removed, then this method returns that actor;
+otherwise it will return a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IStage_TurnSpotlightOff_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If this method results in the removal of an actor from the spotlight then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_SpotlightTurnedOff">SpotlightTurnedOff</a> event
+will be triggered. If there was already no actor in the spotlight when this method is executed then it will have no
+effect, the spotlight will remain empty, the event noted will not be triggered and this method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+</div>
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="CSF_Screenplay_IStage_ActorSpotlit" data-uid="CSF.Screenplay.IStage.ActorSpotlit">
+  ActorSpotlit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when an actor enters the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorSpotlit</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IStage_ActorSpotlit_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This might mean that an actor who was previously in the spotlight has been removed and replaced.</p>
+</div>
+
+
+
+
+
+  <h3 id="CSF_Screenplay_IStage_SpotlightTurnedOff" data-uid="CSF.Screenplay.IStage.SpotlightTurnedOff">
+  SpotlightTurnedOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when an actor is removed from the spotlight because the spotlight has been turned off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;PerformanceScopeEventArgs&gt; SpotlightTurnedOff</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IStage_SpotlightTurnedOff_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This means that there is now no spotlit actor.</p>
+</div>
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.ICast.html">ICast</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay/IStage.cs/#L59" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
