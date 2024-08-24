@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using CSF.Screenplay.Reports;
 
 namespace CSF.Screenplay
 {

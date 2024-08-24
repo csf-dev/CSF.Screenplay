@@ -1,7 +1,7 @@
 using System;
 using CSF.Screenplay.Resources;
 
-namespace CSF.Screenplay.Reports
+namespace CSF.Screenplay
 {
     /// <summary>
     /// An object which provides default human readable strings

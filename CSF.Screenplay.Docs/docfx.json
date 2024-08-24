@@ -21,7 +21,7 @@
     "content": [
       {
         "files": [ "**/*.{md,yml}" ],
-        "exclude": []
+        "exclude": [ "README.md" ]
       }
     ],
     "resource": [

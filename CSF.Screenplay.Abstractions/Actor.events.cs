@@ -3,7 +3,7 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-    public partial class Actor : IHasPerformanceEvents
+    public partial class Actor : IHasPerformableEvents
     {
         /// <inheritdoc/>
         public event EventHandler<PerformableEventArgs> BeginPerformable;
