@@ -1,5 +1,5 @@
 {
-  "source_base_path": "E:/Craig/Documents/Projects/CSF.Screenplay/CSF.Screenplay.Docs",
+  "source_base_path": "C:/projects/csf-screenplay/CSF.Screenplay.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -36,6 +36,26 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ActorExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility2.html"
         }
       },
       "version": ""

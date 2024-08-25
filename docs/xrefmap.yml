@@ -347,6 +347,76 @@ references:
   commentId: T:CSF.Screenplay.ActorTests
   fullName: CSF.Screenplay.ActorTests
   nameWithType: ActorTests
+- uid: CSF.Screenplay.ActorTests.DisposableAbility1
+  name: ActorTests.DisposableAbility1
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility1.html
+  commentId: T:CSF.Screenplay.ActorTests.DisposableAbility1
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility1
+  nameWithType: ActorTests.DisposableAbility1
+- uid: CSF.Screenplay.ActorTests.DisposableAbility1.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility1.html#CSF_Screenplay_ActorTests_DisposableAbility1_Dispose
+  commentId: M:CSF.Screenplay.ActorTests.DisposableAbility1.Dispose
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility1.Dispose()
+  nameWithType: ActorTests.DisposableAbility1.Dispose()
+- uid: CSF.Screenplay.ActorTests.DisposableAbility1.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility1.html#CSF_Screenplay_ActorTests_DisposableAbility1_Dispose_
+  commentId: Overload:CSF.Screenplay.ActorTests.DisposableAbility1.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility1.Dispose
+  nameWithType: ActorTests.DisposableAbility1.Dispose
+- uid: CSF.Screenplay.ActorTests.DisposableAbility2
+  name: ActorTests.DisposableAbility2
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility2.html
+  commentId: T:CSF.Screenplay.ActorTests.DisposableAbility2
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility2
+  nameWithType: ActorTests.DisposableAbility2
+- uid: CSF.Screenplay.ActorTests.DisposableAbility2.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility2.html#CSF_Screenplay_ActorTests_DisposableAbility2_Dispose
+  commentId: M:CSF.Screenplay.ActorTests.DisposableAbility2.Dispose
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility2.Dispose()
+  nameWithType: ActorTests.DisposableAbility2.Dispose()
+- uid: CSF.Screenplay.ActorTests.DisposableAbility2.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.ActorTests.DisposableAbility2.html#CSF_Screenplay_ActorTests_DisposableAbility2_Dispose_
+  commentId: Overload:CSF.Screenplay.ActorTests.DisposableAbility2.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.DisposableAbility2.Dispose
+  nameWithType: ActorTests.DisposableAbility2.Dispose
+- uid: CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility2},CSF.Screenplay.Actor,System.String)
+  name: DisposeShouldDisposeDisposableAbilities(Mock<DisposableAbility1>, Mock<DisposableAbility2>, Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_DisposeShouldDisposeDisposableAbilities_Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility1__Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility2__CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility2},CSF.Screenplay.Actor,System.String)
+  name.vb: DisposeShouldDisposeDisposableAbilities(Mock(Of DisposableAbility1), Mock(Of DisposableAbility2), Actor, String)
+  fullName: CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities(Moq.Mock<CSF.Screenplay.ActorTests.DisposableAbility1>, Moq.Mock<CSF.Screenplay.ActorTests.DisposableAbility2>, CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities(Moq.Mock(Of CSF.Screenplay.ActorTests.DisposableAbility1), Moq.Mock(Of CSF.Screenplay.ActorTests.DisposableAbility2), CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.DisposeShouldDisposeDisposableAbilities(Mock<ActorTests.DisposableAbility1>, Mock<ActorTests.DisposableAbility2>, Actor, string)
+  nameWithType.vb: ActorTests.DisposeShouldDisposeDisposableAbilities(Mock(Of ActorTests.DisposableAbility1), Mock(Of ActorTests.DisposableAbility2), Actor, String)
+- uid: CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities*
+  name: DisposeShouldDisposeDisposableAbilities
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_DisposeShouldDisposeDisposableAbilities_
+  commentId: Overload:CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities
+  nameWithType: ActorTests.DisposeShouldDisposeDisposableAbilities
+- uid: CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},CSF.Screenplay.Actor)
+  name: DisposeShouldNotDisposeTwiceIfCalledTwice(Mock<DisposableAbility1>, Actor)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_DisposeShouldNotDisposeTwiceIfCalledTwice_Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility1__CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},CSF.Screenplay.Actor)
+  name.vb: DisposeShouldNotDisposeTwiceIfCalledTwice(Mock(Of DisposableAbility1), Actor)
+  fullName: CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Moq.Mock<CSF.Screenplay.ActorTests.DisposableAbility1>, CSF.Screenplay.Actor)
+  fullName.vb: CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Moq.Mock(Of CSF.Screenplay.ActorTests.DisposableAbility1), CSF.Screenplay.Actor)
+  nameWithType: ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Mock<ActorTests.DisposableAbility1>, Actor)
+  nameWithType.vb: ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Mock(Of ActorTests.DisposableAbility1), Actor)
+- uid: CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice*
+  name: DisposeShouldNotDisposeTwiceIfCalledTwice
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_DisposeShouldNotDisposeTwiceIfCalledTwice_
+  commentId: Overload:CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice
+  nameWithType: ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice
 - uid: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor,System.String)
   name: IsAbleToShouldAddAnAbilityToTheActor(Actor, string)
   href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldAddAnAbilityToTheActor_CSF_Screenplay_Actor_System_String_
@@ -395,6 +465,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility
   nameWithType: ActorTests.IsAbleToShouldNotThrowForAStringAbility
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(CSF.Screenplay.Actor,System.String)
+  name: IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfCalledAfterActorIsDisposed_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(CSF.Screenplay.Actor,System.String)
+  name.vb: IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor, String)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor, string)
+  nameWithType.vb: ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor, String)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed*
+  name: IsAbleToShouldThrowIfCalledAfterActorIsDisposed
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfCalledAfterActorIsDisposed_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed
+  nameWithType: ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed
 - uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(CSF.Screenplay.Actor)
   name: IsAbleToShouldThrowIfTheAbilityIsNull(Actor)
   href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheAbilityIsNull_CSF_Screenplay_Actor_
@@ -424,6 +510,135 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
   nameWithType: ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})
+  name: PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult<string>)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})
+  name.vb: PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult(Of String))
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult<string>)
+  fullName.vb: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult(Of String))
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult<string>)
+  nameWithType.vb: ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult(Of String))
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable*
+  name: PerformAsyncWithGenericResultShouldExecuteThePerformable
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldExecuteThePerformable_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})
+  name: PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult<string>)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})
+  name.vb: PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult(Of String))
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult<string>)
+  fullName.vb: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult(Of String))
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult<string>)
+  nameWithType.vb: ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult(Of String))
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows*
+  name: PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String},System.String)
+  name: PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult<string>, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaiseThreeEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__System_String_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String},System.String)
+  name.vb: PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult(Of String), String)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult<string>, string)
+  fullName.vb: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult(Of String), String)
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult<string>, string)
+  nameWithType.vb: ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult(Of String), String)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents*
+  name: PerformAsyncWithGenericResultShouldRaiseThreeEvents
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaiseThreeEvents_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents
+  nameWithType: ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)
+  name: PerformAsyncWithNongenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult)
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable*
+  name: PerformAsyncWithNongenericResultShouldExecuteThePerformable
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldExecuteThePerformable_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)
+  name: PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult)
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows*
+  name: PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult,System.Object)
+  name: PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult, object)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaiseThreeEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_Object_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult,System.Object)
+  name.vb: PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult, Object)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult, object)
+  fullName.vb: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor, CSF.Screenplay.IPerformableWithResult, Object)
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult, object)
+  nameWithType.vb: ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult, Object)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents*
+  name: PerformAsyncWithNongenericResultShouldRaiseThreeEvents
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaiseThreeEvents_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents
+  nameWithType: ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  name: PerformAsyncWithoutResultShouldExecuteThePerformable(Actor, IPerformable)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable(CSF.Screenplay.Actor, CSF.Screenplay.IPerformable)
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable(Actor, IPerformable)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable*
+  name: PerformAsyncWithoutResultShouldExecuteThePerformable
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldExecuteThePerformable_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  name: PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformable)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor, CSF.Screenplay.IPerformable)
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformable)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows*
+  name: PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  name: PerformAsyncWithoutResultShouldRaiseTwoEvents(Actor, IPerformable)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaiseTwoEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_
+  commentId: M:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents(CSF.Screenplay.Actor, CSF.Screenplay.IPerformable)
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents(Actor, IPerformable)
+- uid: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents*
+  name: PerformAsyncWithoutResultShouldRaiseTwoEvents
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaiseTwoEvents_
+  commentId: Overload:CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents
+  nameWithType: ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents
 - uid: CSF.Screenplay.Actors
   name: CSF.Screenplay.Actors
   href: api/CSF.Screenplay.Actors.html
