@@ -123,26 +123,19 @@ Interface ICreatesPerformance  <a class="header-action link-secondary" title="Vi
 
   <a id="CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance_" data-uid="CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__" data-uid="CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance(System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})">
-  CreatePerformance(IList&lt;IdentifierAndName&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performances/ICreatesPerformance.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance" data-uid="CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance">
+  CreatePerformance()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performances/ICreatesPerformance.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a new performance with the specified naming hierarchy.</p>
+  <div class="markdown level1 summary"><p>Creates a new performance instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Performance CreatePerformance(IList&lt;IdentifierAndName&gt; namingHierarchy = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Performance CreatePerformance()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>namingHierarchy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
-    <dd><p>A collection of identifiers and names providing the naming
-hierarchy; see <a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_NamingHierarchy">NamingHierarchy</a> for more information.</p>
-</dd>
-  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">

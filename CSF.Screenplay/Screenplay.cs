@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay
 {
@@ -25,11 +29,7 @@ namespace CSF.Screenplay
     /// <seealso cref="Performance"/>
     public sealed class Screenplay
     {
-        readonly ICreatesPerformance performanceFactory;
-
-        /// <summary>Gets the factory which should be used to create new instances of <see cref="Performance"/> within the
-        /// current Screenplay.</summary>
-        public ICreatesPerformance PerformanceFactory => performanceFactory;
+        readonly IServiceProvider serviceProvider;
         
         /// <summary>Occurs at the beginning of a Screenplay process.</summary>
         public event EventHandler ScreenplayBegun;
@@ -45,32 +45,57 @@ namespace CSF.Screenplay
         /// Screenplay is now complete.</summary>
         public void CompleteScreenplay() => ScreenplayCompleted?.Invoke(this, EventArgs.Empty);
 
-        /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture the specified
-        /// performance has begun.</summary>
-        /// <param name="performance">The performance which has begun</param>
-        public void StartPerformance(Performance performance)
+        /// <summary>
+        /// Executes the specified logic as a <see cref="Performance"/>
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method is the primary entry point for beginning a Screenplay <see cref="Performance"/>.
+        /// This method begins a new Dependency Injection Scope, and within that scope starts the performance, which executes the specified
+        /// performance logic: <paramref name="performanceLogic"/>.
+        /// The return value from the performance logic should conform to the semantics of the parameter value passed to
+        /// <see cref="Performance.CompletePerformance(bool?)"/>.
+        /// </para>
+        /// <para>
+        /// The <paramref name="namingHierarchy"/> may be used to give the performance a name, so that its results (and subsequent report)
+        /// may be identified. This parameter has the same semantics as <see cref="Performance.NamingHierarchy"/>.
+        /// </para>
+        /// </remarks>
+        /// <param name="performanceLogic">The logic to be executed by the performance.</param>
+        /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
+        /// <param name="cancellationToken">An optional cancellation token to abort the performance logic.</param>
+        /// <returns>A task which completes when the performance's logic has completed.</returns>
+        /// <exception cref="ArgumentNullException">If the <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
+        public async Task ExecuteAsPerformanceAsync(Func<CancellationToken,Task<bool?>> performanceLogic,
+                                                    IList<IdentifierAndName> namingHierarchy = default,
+                                                    CancellationToken cancellationToken = default)
         {
-            if (performance is null) throw new ArgumentNullException(nameof(performance));
-            performance.BeginPerformance();
-        }
+            if (performanceLogic is null)
+                throw new ArgumentNullException(nameof(performanceLogic));
+            namingHierarchy = namingHierarchy ?? new List<IdentifierAndName>();
 
-        /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture the specified
-        /// performance has has completed, and that its result should be recorded.</summary>
-        /// <param name="performance">The performance which has completed</param>
-        /// <param name="success">A value indicating the outcome of the performance; see
-        /// <see cref="Performance.CompletePerformance(bool?)"/> for more information</param>
-        public void CompletePerformance(Performance performance, bool? success)
-        {
-            if (performance is null) throw new ArgumentNullException(nameof(performance));
-            performance.CompletePerformance(success);
+            using(var scope = serviceProvider.CreateScope())
+            using(var performance = scope.ServiceProvider.GetRequiredService<Performance>())
+            {
+                performance.NamingHierarchy.Clear();
+                performance.NamingHierarchy.AddRange(namingHierarchy);
+                performance.BeginPerformance();
+
+                var result = await performanceLogic(cancellationToken).ConfigureAwait(false);
+
+                performance.CompletePerformance(result);
+            }
         }
 
         /// <summary>Initialises a new instance of <see cref="Screenplay"/></summary>
-        /// <param name="performanceFactory">The factory for performance instances</param>
-        /// <exception cref="ArgumentNullException">If the performance factory is <see langword="null" /></exception>
-        public Screenplay(ICreatesPerformance performanceFactory)
+        /// <param name="services">An optional dependency injection service collection</param>
+        public Screenplay(IServiceCollection services = default)
         {
-            this.performanceFactory = performanceFactory ?? throw new ArgumentNullException(nameof(performanceFactory));
+            services = services ?? new ServiceCollection();
+            services.AddTransient<ICreatesPerformance, PerformanceFactory>();
+            services.AddSingleton(this);
+            services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
+            serviceProvider = services.BuildServiceProvider();
         }
     }
 }

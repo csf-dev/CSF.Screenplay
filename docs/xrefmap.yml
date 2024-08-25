@@ -1824,15 +1824,12 @@ references:
   commentId: T:CSF.Screenplay.Performances.ICreatesPerformance
   fullName: CSF.Screenplay.Performances.ICreatesPerformance
   nameWithType: ICreatesPerformance
-- uid: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance(System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
-  name: CreatePerformance(IList<IdentifierAndName>)
-  href: api/CSF.Screenplay.Performances.ICreatesPerformance.html#CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
-  commentId: M:CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance(System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
-  name.vb: CreatePerformance(IList(Of IdentifierAndName))
-  fullName: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance(System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>)
-  fullName.vb: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance(System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName))
-  nameWithType: ICreatesPerformance.CreatePerformance(IList<IdentifierAndName>)
-  nameWithType.vb: ICreatesPerformance.CreatePerformance(IList(Of IdentifierAndName))
+- uid: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance
+  name: CreatePerformance()
+  href: api/CSF.Screenplay.Performances.ICreatesPerformance.html#CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance
+  commentId: M:CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance
+  fullName: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance()
+  nameWithType: ICreatesPerformance.CreatePerformance()
 - uid: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance*
   name: CreatePerformance
   href: api/CSF.Screenplay.Performances.ICreatesPerformance.html#CSF_Screenplay_Performances_ICreatesPerformance_CreatePerformance_
@@ -2021,15 +2018,15 @@ references:
   commentId: T:CSF.Screenplay.Performances.PerformanceFactory
   fullName: CSF.Screenplay.Performances.PerformanceFactory
   nameWithType: PerformanceFactory
-- uid: CSF.Screenplay.Performances.PerformanceFactory.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)
-  name: PerformanceFactory(IServiceScopeFactory)
-  href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory__ctor_Microsoft_Extensions_DependencyInjection_IServiceScopeFactory_
-  commentId: M:CSF.Screenplay.Performances.PerformanceFactory.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)
-  name.vb: New(IServiceScopeFactory)
-  fullName: CSF.Screenplay.Performances.PerformanceFactory.PerformanceFactory(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceFactory.New(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)
-  nameWithType: PerformanceFactory.PerformanceFactory(IServiceScopeFactory)
-  nameWithType.vb: PerformanceFactory.New(IServiceScopeFactory)
+- uid: CSF.Screenplay.Performances.PerformanceFactory.#ctor(System.IServiceProvider)
+  name: PerformanceFactory(IServiceProvider)
+  href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory__ctor_System_IServiceProvider_
+  commentId: M:CSF.Screenplay.Performances.PerformanceFactory.#ctor(System.IServiceProvider)
+  name.vb: New(IServiceProvider)
+  fullName: CSF.Screenplay.Performances.PerformanceFactory.PerformanceFactory(System.IServiceProvider)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceFactory.New(System.IServiceProvider)
+  nameWithType: PerformanceFactory.PerformanceFactory(IServiceProvider)
+  nameWithType.vb: PerformanceFactory.New(IServiceProvider)
 - uid: CSF.Screenplay.Performances.PerformanceFactory.#ctor*
   name: PerformanceFactory
   href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory__ctor_
@@ -2040,15 +2037,12 @@ references:
   fullName.vb: CSF.Screenplay.Performances.PerformanceFactory.New
   nameWithType: PerformanceFactory.PerformanceFactory
   nameWithType.vb: PerformanceFactory.New
-- uid: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance(System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
-  name: CreatePerformance(IList<IdentifierAndName>)
-  href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory_CreatePerformance_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
-  commentId: M:CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance(System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
-  name.vb: CreatePerformance(IList(Of IdentifierAndName))
-  fullName: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance(System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance(System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName))
-  nameWithType: PerformanceFactory.CreatePerformance(IList<IdentifierAndName>)
-  nameWithType.vb: PerformanceFactory.CreatePerformance(IList(Of IdentifierAndName))
+- uid: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance
+  name: CreatePerformance()
+  href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory_CreatePerformance
+  commentId: M:CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance
+  fullName: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance()
+  nameWithType: PerformanceFactory.CreatePerformance()
 - uid: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance*
   name: CreatePerformance
   href: api/CSF.Screenplay.Performances.PerformanceFactory.html#CSF_Screenplay_Performances_PerformanceFactory_CreatePerformance_
@@ -2136,15 +2130,15 @@ references:
   commentId: T:CSF.Screenplay.Screenplay
   fullName: CSF.Screenplay.Screenplay
   nameWithType: Screenplay
-- uid: CSF.Screenplay.Screenplay.#ctor(CSF.Screenplay.Performances.ICreatesPerformance)
-  name: Screenplay(ICreatesPerformance)
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay__ctor_CSF_Screenplay_Performances_ICreatesPerformance_
-  commentId: M:CSF.Screenplay.Screenplay.#ctor(CSF.Screenplay.Performances.ICreatesPerformance)
-  name.vb: New(ICreatesPerformance)
-  fullName: CSF.Screenplay.Screenplay.Screenplay(CSF.Screenplay.Performances.ICreatesPerformance)
-  fullName.vb: CSF.Screenplay.Screenplay.New(CSF.Screenplay.Performances.ICreatesPerformance)
-  nameWithType: Screenplay.Screenplay(ICreatesPerformance)
-  nameWithType.vb: Screenplay.New(ICreatesPerformance)
+- uid: CSF.Screenplay.Screenplay.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: Screenplay(IServiceCollection)
+  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.Screenplay.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: New(IServiceCollection)
+  fullName: CSF.Screenplay.Screenplay.Screenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: CSF.Screenplay.Screenplay.New(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: Screenplay.Screenplay(IServiceCollection)
+  nameWithType.vb: Screenplay.New(IServiceCollection)
 - uid: CSF.Screenplay.Screenplay.#ctor*
   name: Screenplay
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay__ctor_
@@ -2168,22 +2162,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Screenplay.BeginScreenplay
   nameWithType: Screenplay.BeginScreenplay
-- uid: CSF.Screenplay.Screenplay.CompletePerformance(CSF.Screenplay.Performance,System.Nullable{System.Boolean})
-  name: CompletePerformance(Performance, bool?)
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompletePerformance_CSF_Screenplay_Performance_System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.Screenplay.CompletePerformance(CSF.Screenplay.Performance,System.Nullable{System.Boolean})
-  name.vb: CompletePerformance(Performance, Boolean?)
-  fullName: CSF.Screenplay.Screenplay.CompletePerformance(CSF.Screenplay.Performance, bool?)
-  fullName.vb: CSF.Screenplay.Screenplay.CompletePerformance(CSF.Screenplay.Performance, Boolean?)
-  nameWithType: Screenplay.CompletePerformance(Performance, bool?)
-  nameWithType.vb: Screenplay.CompletePerformance(Performance, Boolean?)
-- uid: CSF.Screenplay.Screenplay.CompletePerformance*
-  name: CompletePerformance
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompletePerformance_
-  commentId: Overload:CSF.Screenplay.Screenplay.CompletePerformance
-  isSpec: "True"
-  fullName: CSF.Screenplay.Screenplay.CompletePerformance
-  nameWithType: Screenplay.CompletePerformance
 - uid: CSF.Screenplay.Screenplay.CompleteScreenplay
   name: CompleteScreenplay()
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompleteScreenplay
@@ -2197,19 +2175,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Screenplay.CompleteScreenplay
   nameWithType: Screenplay.CompleteScreenplay
-- uid: CSF.Screenplay.Screenplay.PerformanceFactory
-  name: PerformanceFactory
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_PerformanceFactory
-  commentId: P:CSF.Screenplay.Screenplay.PerformanceFactory
-  fullName: CSF.Screenplay.Screenplay.PerformanceFactory
-  nameWithType: Screenplay.PerformanceFactory
-- uid: CSF.Screenplay.Screenplay.PerformanceFactory*
-  name: PerformanceFactory
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_PerformanceFactory_
-  commentId: Overload:CSF.Screenplay.Screenplay.PerformanceFactory
+- uid: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
+  name: ExecuteAsPerformanceAsync(Func<CancellationToken, Task<bool?>>, IList<IdentifierAndName>, CancellationToken)
+  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
+  name.vb: ExecuteAsPerformanceAsync(Func(Of CancellationToken, Task(Of Boolean?)), IList(Of IdentifierAndName), CancellationToken)
+  fullName: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task(Of Boolean?)), System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), System.Threading.CancellationToken)
+  nameWithType: Screenplay.ExecuteAsPerformanceAsync(Func<CancellationToken, Task<bool?>>, IList<IdentifierAndName>, CancellationToken)
+  nameWithType.vb: Screenplay.ExecuteAsPerformanceAsync(Func(Of CancellationToken, Task(Of Boolean?)), IList(Of IdentifierAndName), CancellationToken)
+- uid: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync*
+  name: ExecuteAsPerformanceAsync
+  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_
+  commentId: Overload:CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync
   isSpec: "True"
-  fullName: CSF.Screenplay.Screenplay.PerformanceFactory
-  nameWithType: Screenplay.PerformanceFactory
+  fullName: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync
+  nameWithType: Screenplay.ExecuteAsPerformanceAsync
 - uid: CSF.Screenplay.Screenplay.ScreenplayBegun
   name: ScreenplayBegun
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ScreenplayBegun
@@ -2222,19 +2203,28 @@ references:
   commentId: E:CSF.Screenplay.Screenplay.ScreenplayCompleted
   fullName: CSF.Screenplay.Screenplay.ScreenplayCompleted
   nameWithType: Screenplay.ScreenplayCompleted
-- uid: CSF.Screenplay.Screenplay.StartPerformance(CSF.Screenplay.Performance)
-  name: StartPerformance(Performance)
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_StartPerformance_CSF_Screenplay_Performance_
-  commentId: M:CSF.Screenplay.Screenplay.StartPerformance(CSF.Screenplay.Performance)
-  fullName: CSF.Screenplay.Screenplay.StartPerformance(CSF.Screenplay.Performance)
-  nameWithType: Screenplay.StartPerformance(Performance)
-- uid: CSF.Screenplay.Screenplay.StartPerformance*
-  name: StartPerformance
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_StartPerformance_
-  commentId: Overload:CSF.Screenplay.Screenplay.StartPerformance
+- uid: CSF.Screenplay.ScreenplayExtensions
+  name: ScreenplayExtensions
+  href: api/CSF.Screenplay.ScreenplayExtensions.html
+  commentId: T:CSF.Screenplay.ScreenplayExtensions
+  fullName: CSF.Screenplay.ScreenplayExtensions
+  nameWithType: ScreenplayExtensions
+- uid: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay,System.Func{System.Nullable{System.Boolean}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Int32)
+  name: ExecuteAsPerformance(Screenplay, Func<bool?>, IList<IdentifierAndName>, int)
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Int32_
+  commentId: M:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay,System.Func{System.Nullable{System.Boolean}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Int32)
+  name.vb: ExecuteAsPerformance(Screenplay, Func(Of Boolean?), IList(Of IdentifierAndName), Integer)
+  fullName: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay, System.Func<bool?>, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, int)
+  fullName.vb: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay, System.Func(Of Boolean?), System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), Integer)
+  nameWithType: ScreenplayExtensions.ExecuteAsPerformance(Screenplay, Func<bool?>, IList<IdentifierAndName>, int)
+  nameWithType.vb: ScreenplayExtensions.ExecuteAsPerformance(Screenplay, Func(Of Boolean?), IList(Of IdentifierAndName), Integer)
+- uid: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance*
+  name: ExecuteAsPerformance
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_
+  commentId: Overload:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance
   isSpec: "True"
-  fullName: CSF.Screenplay.Screenplay.StartPerformance
-  nameWithType: Screenplay.StartPerformance
+  fullName: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance
+  nameWithType: ScreenplayExtensions.ExecuteAsPerformance
 - uid: DependencyInjectionScopeArticle
   name: Dependency injection scope
   href: docs/dependencyInjection/DependencyInjectionScope.html
