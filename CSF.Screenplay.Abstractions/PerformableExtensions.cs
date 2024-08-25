@@ -119,7 +119,7 @@ namespace CSF.Screenplay
             public IPerformableWithResult PerformableWithResult { get; }
 
             /// <inheritdoc/>
-            public async Task PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+            public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
             {
                 await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
             }
@@ -145,7 +145,7 @@ namespace CSF.Screenplay
             public IPerformableWithResult<T> PerformableWithResult { get; }
 
             /// <inheritdoc/>
-            public async Task PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+            public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
             {
                 await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
             }
@@ -179,7 +179,7 @@ namespace CSF.Screenplay
             }
 
             /// <inheritdoc/>
-            public async Task<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+            public async ValueTask<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
             {
                 return await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
             }

@@ -39,7 +39,7 @@ namespace CSF.Screenplay
         /// <param name="actor">The actor that is performing.</param>
         /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
         /// <returns>A task which completes when the performable represented by the current instance is complete.</returns>
-        Task PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
+        ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ namespace CSF.Screenplay
         /// <param name="actor">The actor that is performing.</param>
         /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
         /// <returns>A task which exposes a 'result' value when the performable represented by the current instance is complete.</returns>
-        Task<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
+        ValueTask<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }    
 
     /// <summary>
@@ -126,6 +126,6 @@ namespace CSF.Screenplay
         /// <param name="actor">The actor that is performing.</param>
         /// <param name="cancellationToken">An optional cancellation token by which to abort the performable.</param>
         /// <returns>A task which exposes a strongly-typed 'result' value when the performable represented by the current instance is complete.</returns>
-        Task<TResult> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
+        ValueTask<TResult> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default);
     }
 }

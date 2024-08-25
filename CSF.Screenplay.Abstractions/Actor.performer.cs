@@ -15,7 +15,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async Task PerformAsync(IPerformable performable,
+        protected virtual async ValueTask PerformAsync(IPerformable performable,
                                                   CancellationToken cancellationToken = default,
                                                   PerformancePhase phase = PerformancePhase.Unspecified)
         {
@@ -34,7 +34,7 @@ namespace CSF.Screenplay
             }
         }
 
-        Task ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
+        ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken);
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async Task<object> PerformAsync(IPerformableWithResult performable,
+        protected virtual async ValueTask<object> PerformAsync(IPerformableWithResult performable,
                                                           CancellationToken cancellationToken = default,
                                                           PerformancePhase phase = PerformancePhase.Unspecified)
         {
@@ -66,7 +66,7 @@ namespace CSF.Screenplay
             }
         }
 
-        Task<object> ICanPerform.PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken)
+        ValueTask<object> ICanPerform.PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken);
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async Task<T> PerformAsync<T>(IPerformableWithResult<T> performable,
+        protected virtual async ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
                                                         CancellationToken cancellationToken = default,
                                                         PerformancePhase phase = PerformancePhase.Unspecified)
         {
@@ -98,7 +98,7 @@ namespace CSF.Screenplay
             }
         }
 
-        Task<T> ICanPerform.PerformAsync<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken)
+        ValueTask<T> ICanPerform.PerformAsync<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken);
     }
 }

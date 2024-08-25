@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Actors
         /// <param name="performable">The performable item</param>
         /// <param name="cancellationToken">An optional token to cancel the performable</param>
         /// <returns>A task which completes when the performable is complete</returns>
-        Task Should(IPerformable performable, CancellationToken cancellationToken = default);
+        ValueTask Should(IPerformable performable, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Performs an action or task which returns an untyped result.
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Actors
         /// <param name="performable">The performable item</param>
         /// <param name="cancellationToken">An optional token to cancel the performable</param>
         /// <returns>A task which exposes a result when the performable is complete</returns>
-        Task<object> Should(IPerformableWithResult performable, CancellationToken cancellationToken = default);
+        ValueTask<object> Should(IPerformableWithResult performable, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Performs an action or task which returns a strongly typed result.
@@ -38,6 +38,6 @@ namespace CSF.Screenplay.Actors
         /// <param name="cancellationToken">An optional token to cancel the performable</param>
         /// <typeparam name="T">The result type</typeparam>
         /// <returns>A task which exposes a result when the performable is complete</returns>
-        Task<T> Should<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken = default);
+        ValueTask<T> Should<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken = default);
     }
 }

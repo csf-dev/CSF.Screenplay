@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/projects/csf-screenplay/CSF.Screenplay.Docs",
+  "source_base_path": "E:/Craig/Documents/Projects/CSF.Screenplay/CSF.Screenplay.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -106,6 +106,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Actors.IHasPerformableEvents.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Actors.IHasPerformanceEvents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Actors.IHasPerformanceEvents.html"
         }
       },
       "version": ""
@@ -446,6 +456,26 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performances.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reports.DefaultStrings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reports.DefaultStrings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reports.html"
         }
       },
       "version": ""

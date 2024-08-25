@@ -139,7 +139,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task Should(IPerformable performable, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">ValueTask Should(IPerformable performable, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -154,7 +154,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
     <dd><p>A task which completes when the performable is complete</p>
 </dd>
   </dl>
@@ -181,7 +181,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;object&gt; Should(IPerformableWithResult performable, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">ValueTask&lt;object&gt; Should(IPerformableWithResult performable, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -196,7 +196,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd><p>A task which exposes a result when the performable is complete</p>
 </dd>
   </dl>
@@ -223,7 +223,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;T&gt; Should&lt;T&gt;(IPerformableWithResult&lt;T&gt; performable, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">ValueTask&lt;T&gt; Should&lt;T&gt;(IPerformableWithResult&lt;T&gt; performable, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -238,7 +238,7 @@ methods is written in the future tense, as is best pratice for the Then phase of
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
     <dd><p>A task which exposes a result when the performable is complete</p>
 </dd>
   </dl>

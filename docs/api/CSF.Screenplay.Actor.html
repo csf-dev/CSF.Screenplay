@@ -705,7 +705,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task PerformAsync(IPerformable performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual ValueTask PerformAsync(IPerformable performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -723,7 +723,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
     <dd><p>A task which completes when the performable is complete</p>
 </dd>
   </dl>
@@ -756,7 +756,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task&lt;object&gt; PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual ValueTask&lt;object&gt; PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -774,7 +774,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd><p>A task which completes when the performable is complete</p>
 </dd>
   </dl>
@@ -807,7 +807,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task&lt;T&gt; PerformAsync&lt;T&gt;(IPerformableWithResult&lt;T&gt; performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual ValueTask&lt;T&gt; PerformAsync&lt;T&gt;(IPerformableWithResult&lt;T&gt; performable, CancellationToken cancellationToken = default, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -825,7 +825,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
     <dd><p>A task which completes when the performable is complete</p>
 </dd>
   </dl>
