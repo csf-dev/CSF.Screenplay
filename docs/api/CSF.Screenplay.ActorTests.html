@@ -154,11 +154,85 @@ public class ActorTests</code></pre>
 </h2>
 
 
+  <a id="CSF_Screenplay_ActorTests_DisposeShouldDisposeDisposableAbilities_" data-uid="CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_DisposeShouldDisposeDisposableAbilities_Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility1__Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility2__CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.DisposeShouldDisposeDisposableAbilities(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility2},CSF.Screenplay.Actor,System.String)">
+  DisposeShouldDisposeDisposableAbilities(Mock&lt;DisposableAbility1&gt;, Mock&lt;DisposableAbility2&gt;, Actor, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void DisposeShouldDisposeDisposableAbilities(Mock&lt;ActorTests.DisposableAbility1&gt; ability1, Mock&lt;ActorTests.DisposableAbility2&gt; ability2, Actor sut, string stringAbility)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ability1</code> <span class="xref">Mock</span>&lt;<a class="xref" href="CSF.Screenplay.ActorTests.html">ActorTests</a>.<a class="xref" href="CSF.Screenplay.ActorTests.DisposableAbility1.html">DisposableAbility1</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>ability2</code> <span class="xref">Mock</span>&lt;<a class="xref" href="CSF.Screenplay.ActorTests.html">ActorTests</a>.<a class="xref" href="CSF.Screenplay.ActorTests.DisposableAbility2.html">DisposableAbility2</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>stringAbility</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_DisposeShouldNotDisposeTwiceIfCalledTwice_" data-uid="CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_DisposeShouldNotDisposeTwiceIfCalledTwice_Moq_Mock_CSF_Screenplay_ActorTests_DisposableAbility1__CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ActorTests.DisposeShouldNotDisposeTwiceIfCalledTwice(Moq.Mock{CSF.Screenplay.ActorTests.DisposableAbility1},CSF.Screenplay.Actor)">
+  DisposeShouldNotDisposeTwiceIfCalledTwice(Mock&lt;DisposableAbility1&gt;, Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void DisposeShouldNotDisposeTwiceIfCalledTwice(Mock&lt;ActorTests.DisposableAbility1&gt; ability1, Actor sut)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ability1</code> <span class="xref">Mock</span>&lt;<a class="xref" href="CSF.Screenplay.ActorTests.html">ActorTests</a>.<a class="xref" href="CSF.Screenplay.ActorTests.DisposableAbility1.html">DisposableAbility1</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_ActorTests_IsAbleToShouldAddAnAbilityToTheActor_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor*"></a>
 
   <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldAddAnAbilityToTheActor_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor,System.String)">
   IsAbleToShouldAddAnAbilityToTheActor(Actor, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -193,7 +267,7 @@ public void IsAbleToShouldAddAnAbilityToTheActor(Actor sut, string aString)</cod
 
   <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldInvokeGainedAbilityEvent_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(CSF.Screenplay.Actor,System.String)">
   IsAbleToShouldInvokeGainedAbilityEvent(Actor, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -228,7 +302,7 @@ public void IsAbleToShouldInvokeGainedAbilityEvent(Actor sut, string aString)</c
 
   <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldNotThrowForAStringAbility_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility(CSF.Screenplay.Actor,System.String)">
   IsAbleToShouldNotThrowForAStringAbility(Actor, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -259,11 +333,46 @@ public void IsAbleToShouldNotThrowForAStringAbility(Actor sut, string aString)</
 
 
 
+  <a id="CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfCalledAfterActorIsDisposed_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfCalledAfterActorIsDisposed_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfCalledAfterActorIsDisposed(CSF.Screenplay.Actor,System.String)">
+  IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor sut, string stringAbility)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>stringAbility</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheAbilityIsNull_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull*"></a>
 
   <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheAbilityIsNull_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(CSF.Screenplay.Actor)">
   IsAbleToShouldThrowIfTheAbilityIsNull(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -296,7 +405,7 @@ public void IsAbleToShouldThrowIfTheAbilityIsNull(Actor sut)</code></pre>
 
   <h3 id="CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(CSF.Screenplay.Actor,System.String)">
   IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -316,6 +425,355 @@ public void IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor sut, strin
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldExecuteThePerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})">
+  PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor sut, IPerformableWithResult&lt;string&gt; performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String})">
+  PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void PerformAsyncWithGenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor sut, IPerformableWithResult&lt;string&gt; performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaiseThreeEvents_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithGenericResultShouldRaiseThreeEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_String__System_String_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithGenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult{System.String},System.String)">
+  PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult&lt;string&gt;, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithGenericResultShouldRaiseThreeEvents(Actor sut, IPerformableWithResult&lt;string&gt; performable, string expectedResult)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>expectedResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldExecuteThePerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)">
+  PerformAsyncWithNongenericResultShouldExecuteThePerformable(Actor, IPerformableWithResult)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithNongenericResultShouldExecuteThePerformable(Actor sut, IPerformableWithResult performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult)">
+  PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformableWithResult)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void PerformAsyncWithNongenericResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor sut, IPerformableWithResult performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaiseThreeEvents_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithNongenericResultShouldRaiseThreeEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformableWithResult_System_Object_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithNongenericResultShouldRaiseThreeEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformableWithResult,System.Object)">
+  PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor, IPerformableWithResult, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithNongenericResultShouldRaiseThreeEvents(Actor sut, IPerformableWithResult performable, object expectedResult)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></dt>
+    <dd></dd>
+    <dt><code>expectedResult</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldExecuteThePerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldExecuteThePerformable_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldExecuteThePerformable(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)">
+  PerformAsyncWithoutResultShouldExecuteThePerformable(Actor, IPerformable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithoutResultShouldExecuteThePerformable(Actor sut, IPerformable performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)">
+  PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor, IPerformable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public void PerformAsyncWithoutResultShouldRaisePerformableFailedEventIfPerformableThrows(Actor sut, IPerformable performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaiseTwoEvents_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents*"></a>
+
+  <h3 id="CSF_Screenplay_ActorTests_PerformAsyncWithoutResultShouldRaiseTwoEvents_CSF_Screenplay_Actor_CSF_Screenplay_IPerformable_" data-uid="CSF.Screenplay.ActorTests.PerformAsyncWithoutResultShouldRaiseTwoEvents(CSF.Screenplay.Actor,CSF.Screenplay.IPerformable)">
+  PerformAsyncWithoutResultShouldRaiseTwoEvents(Actor, IPerformable)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Tests/ActorTests.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Test]
+[AutoMoqData]
+public Task PerformAsyncWithoutResultShouldRaiseTwoEvents(Actor sut, IPerformable performable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sut</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+    <dt><code>performable</code> <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
