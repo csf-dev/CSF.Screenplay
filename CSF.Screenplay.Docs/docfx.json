@@ -10,7 +10,7 @@
             "**/bin/**",
             "**/obj/**",
             "Tests_old/**",
-            "Tests/**"
+            "CSF.Screenplay.Tests/**"
           ]
         }
       ],
