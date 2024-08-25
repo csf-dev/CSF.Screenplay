@@ -1,6 +1,5 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay
 {
@@ -67,7 +66,7 @@ namespace CSF.Screenplay
         /// <param name="performable">The performable item</param>
         /// <param name="actor">The actor</param>
         /// <exception cref="ArgumentNullException">If <paramref name="performable"/> is <see langword="null" /></exception>
-        public static string GetReport(this IPerformable performable, IHasName actor)
+        public static string GetReportFragment(this IPerformable performable, IHasName actor)
         {
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
@@ -85,7 +84,7 @@ namespace CSF.Screenplay
         /// <param name="performable">The performable item</param>
         /// <param name="actor">The actor</param>
         /// <exception cref="ArgumentNullException">If <paramref name="performable"/> is <see langword="null" /></exception>
-        public static string GetReport(this IPerformableWithResult performable, IHasName actor)
+        public static string GetReportFragment(this IPerformableWithResult performable, IHasName actor)
         {
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
@@ -104,90 +103,12 @@ namespace CSF.Screenplay
         /// <param name="actor">The actor</param>
         /// <typeparam name="T">The result type returned by the performable</typeparam>
         /// <exception cref="ArgumentNullException">If <paramref name="performable"/> is <see langword="null" /></exception>
-        public static string GetReport<T>(this IPerformableWithResult<T> performable, IHasName actor)
+        public static string GetReportFragment<T>(this IPerformableWithResult<T> performable, IHasName actor)
         {
             if (performable is null)
                 throw new ArgumentNullException(nameof(performable));
                 
             return performable is ICanReport reporter ? reporter.GetReportFragment(actor) : DefaultStrings.GetReport(actor, performable);
-        }
-
-        /// <summary>Adapter class which allows an <see cref="IPerformableWithResult"/> to be used as an <see cref="IPerformable"/>.</summary>
-        public class NoResultPerformableAdapter : IPerformable, ICanReport
-        {
-            /// <summary>Gets the wrapped <see cref="IPerformableWithResult"/> instance.</summary>
-            public IPerformableWithResult PerformableWithResult { get; }
-
-            /// <inheritdoc/>
-            public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-            {
-                await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <inheritdoc/>
-            public string GetReportFragment(IHasName actor)
-            {
-                return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReportFragment(actor)
-                    : DefaultStrings.GetReport(actor, PerformableWithResult);
-            }
-
-            internal NoResultPerformableAdapter(IPerformableWithResult performableWithResult)
-            {
-                PerformableWithResult = performableWithResult ?? throw new System.ArgumentNullException(nameof(performableWithResult));
-            }
-        }
-
-        /// <summary>Adapter class which allows an <see cref="IPerformableWithResult{TResult}"/> to be used as an <see cref="IPerformable"/>.</summary>
-        public class NonGenericNoResultPerformableAdapter<T> : IPerformable, ICanReport
-        {
-            /// <summary>Gets the wrapped <see cref="IPerformableWithResult{TResult}"/> instance.</summary>
-            public IPerformableWithResult<T> PerformableWithResult { get; }
-
-            /// <inheritdoc/>
-            public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-            {
-                await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
-            }
-
-            /// <inheritdoc/>
-            public string GetReportFragment(IHasName actor)
-            {
-                return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReportFragment(actor)
-                    : DefaultStrings.GetReport(actor, PerformableWithResult);
-            }
-
-            internal NonGenericNoResultPerformableAdapter(IPerformableWithResult<T> performableWithResult)
-            {
-                PerformableWithResult = performableWithResult ?? throw new System.ArgumentNullException(nameof(performableWithResult));
-            }
-        }
-
-        /// <summary>Adapter class which allows an <see cref="IPerformableWithResult{TResult}"/> to be used as an <see cref="IPerformableWithResult"/>.</summary>
-        public class NonGenericPerformableWithResultAdapter<T> : IPerformableWithResult, ICanReport
-        {
-            /// <summary>Gets the wrapped <see cref="IPerformableWithResult{TResult}"/> instance.</summary>
-            public IPerformableWithResult<T> PerformableWithResult { get; }
-
-            /// <inheritdoc/>
-            public string GetReportFragment(IHasName actor)
-            {
-                return PerformableWithResult is ICanReport reporter
-                    ? reporter.GetReportFragment(actor)
-                    : DefaultStrings.GetReport(actor, PerformableWithResult);
-            }
-
-            /// <inheritdoc/>
-            public async ValueTask<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-            {
-                return await PerformableWithResult.PerformAsAsync(actor, cancellationToken).ConfigureAwait(false);
-            }
-
-            internal NonGenericPerformableWithResultAdapter(IPerformableWithResult<T> performableWithResult)
-            {
-                PerformableWithResult = performableWithResult ?? throw new System.ArgumentNullException(nameof(performableWithResult));
-            }
         }
     }
 }

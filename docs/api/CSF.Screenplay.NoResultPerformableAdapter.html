@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class PerformableExtensions.NoResultPerformableAdapter | Screenplay docs </title>
+      <title>Class NoResultPerformableAdapter | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class PerformableExtensions.NoResultPerformableAdapter | Screenplay docs ">
+      <meta name="title" content="Class NoResultPerformableAdapter | Screenplay docs ">
       
       <meta name="description" content="Adapter class which allows an  to be used as an .">
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/v2-rewrite/apiSpec/new?filename=CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter.md&amp;value=---%0Auid%3A%20CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/v2-rewrite/apiSpec/new?filename=CSF_Screenplay_NoResultPerformableAdapter.md&amp;value=---%0Auid%3A%20CSF.Screenplay.NoResultPerformableAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter">
+        <article data-uid="CSF.Screenplay.NoResultPerformableAdapter">
 
 
 
-  <h1 id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter" class="text-break">
-Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_NoResultPerformableAdapter" data-uid="CSF.Screenplay.NoResultPerformableAdapter" class="text-break">
+Class NoResultPerformableAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performables/NoResultPerformableAdapter.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PerformableExtensions.NoResultPerformableAdapter : IPerformable, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class NoResultPerformableAdapter : IPerformable, ICanReport</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action 
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">PerformableExtensions.NoResultPerformableAdapter</span></div>
+      <div><span class="xref">NoResultPerformableAdapter</span></div>
     </dd>
   </dl>
 
@@ -155,23 +155,29 @@ Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action 
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReport_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_">PerformableExtensions.GetReport(IPerformable, IHasName)</a>
+      <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_">PerformableExtensions.GetReportFragment(IPerformable, IHasName)</a>
   </div>
   </dd></dl>
 
 
 
+  <h2 id="CSF_Screenplay_NoResultPerformableAdapter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This class intentionally has only an <code>internal</code> constructor, which means it may only be constructed by Screenplay framework
+logic. This is the extension method <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult_">ToPerformable(IPerformableWithResult)</a>.
+</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformableWithResult_" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult*"></a>
+  <a id="CSF_Screenplay_NoResultPerformableAdapter_PerformableWithResult_" data-uid="CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult*"></a>
 
-  <h3 id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformableWithResult" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult">
+  <h3 id="CSF_Screenplay_NoResultPerformableAdapter_PerformableWithResult" data-uid="CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult">
   PerformableWithResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performables/NoResultPerformableAdapter.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the wrapped <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a> instance.</p>
@@ -203,11 +209,11 @@ Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action 
 </h2>
 
 
-  <a id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_" data-uid="CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)">
+  <h3 id="CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)">
   GetReportFragment(IHasName)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performables/NoResultPerformableAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -238,7 +244,7 @@ Class PerformableExtensions.NoResultPerformableAdapter  <a class="header-action 
 
 
 
-  <h4 class="section" id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -256,7 +262,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -283,11 +289,11 @@ are seldom presented as paragraphs of prose.
 
 
 
-  <a id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformAsAsync_" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_NoResultPerformableAdapter_PerformAsAsync_" data-uid="CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_NoResultPerformableAdapter_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performables/NoResultPerformableAdapter.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -325,11 +331,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.PerformableExtensions.html">PerformableExtensions</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L116" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performables/NoResultPerformableAdapter.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

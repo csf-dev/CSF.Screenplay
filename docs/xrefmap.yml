@@ -666,42 +666,6 @@ references:
   commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
   fullName: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
   nameWithType: IHasPerformableEvents.PerformableResult
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents
-  name: IHasPerformanceEvents
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html
-  commentId: T:CSF.Screenplay.Actors.IHasPerformanceEvents
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents
-  nameWithType: IHasPerformanceEvents
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
-  name: BeginPerformable
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_BeginPerformable
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.BeginPerformable
-  nameWithType: IHasPerformanceEvents.BeginPerformable
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
-  name: EndPerformable
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_EndPerformable
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.EndPerformable
-  nameWithType: IHasPerformanceEvents.EndPerformable
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
-  name: GainedAbility
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_GainedAbility
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.GainedAbility
-  nameWithType: IHasPerformanceEvents.GainedAbility
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
-  name: PerformableFailed
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_PerformableFailed
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableFailed
-  nameWithType: IHasPerformanceEvents.PerformableFailed
-- uid: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
-  name: PerformableResult
-  href: api/CSF.Screenplay.Actors.IHasPerformanceEvents.html#CSF_Screenplay_Actors_IHasPerformanceEvents_PerformableResult
-  commentId: E:CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
-  fullName: CSF.Screenplay.Actors.IHasPerformanceEvents.PerformableResult
-  nameWithType: IHasPerformanceEvents.PerformableResult
 - uid: CSF.Screenplay.Actors.PerformableEventArgs
   name: PerformableEventArgs
   href: api/CSF.Screenplay.Actors.PerformableEventArgs.html
@@ -1359,205 +1323,145 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IStage.TurnSpotlightOff
   nameWithType: IStage.TurnSpotlightOff
+- uid: CSF.Screenplay.NoResultPerformableAdapter
+  name: NoResultPerformableAdapter
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html
+  commentId: T:CSF.Screenplay.NoResultPerformableAdapter
+  fullName: CSF.Screenplay.NoResultPerformableAdapter
+  nameWithType: NoResultPerformableAdapter
+- uid: CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: NoResultPerformableAdapter.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.GetReportFragment
+  nameWithType: NoResultPerformableAdapter.GetReportFragment
+- uid: CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: NoResultPerformableAdapter.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.PerformAsAsync
+  nameWithType: NoResultPerformableAdapter.PerformAsAsync
+- uid: CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_PerformableWithResult
+  commentId: P:CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult
+  nameWithType: NoResultPerformableAdapter.PerformableWithResult
+- uid: CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult*
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_PerformableWithResult_
+  commentId: Overload:CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.NoResultPerformableAdapter.PerformableWithResult
+  nameWithType: NoResultPerformableAdapter.PerformableWithResult
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1
+  name: NonGenericPerformableWithResultAdapter<T>
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html
+  commentId: T:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1
+  name.vb: NonGenericPerformableWithResultAdapter(Of T)
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T)
+  nameWithType: NonGenericPerformableWithResultAdapter<T>
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T)
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.GetReportFragment(IHasName)
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.GetReportFragment
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.GetReportFragment
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).GetReportFragment
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.PerformAsAsync(ICanPerform, CancellationToken)
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.PerformAsAsync
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_PerformableWithResult
+  commentId: P:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
+- uid: CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformableWithResult*
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_PerformableWithResult_
+  commentId: Overload:CSF.Screenplay.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
+  fullName.vb: CSF.Screenplay.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
+  nameWithType: NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
+  nameWithType.vb: NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
 - uid: CSF.Screenplay.PerformableExtensions
   name: PerformableExtensions
   href: api/CSF.Screenplay.PerformableExtensions.html
   commentId: T:CSF.Screenplay.PerformableExtensions
   fullName: CSF.Screenplay.PerformableExtensions
   nameWithType: PerformableExtensions
-- uid: CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
-  name: GetReport(IPerformable, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReport_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformable, CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReport(IPerformable, IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
-  name: GetReport(IPerformableWithResult, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReport_CSF_Screenplay_IPerformableWithResult_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReport(CSF.Screenplay.IPerformableWithResult, CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReport(IPerformableWithResult, IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.GetReport*
-  name: GetReport
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReport_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.GetReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.GetReport
-  nameWithType: PerformableExtensions.GetReport
-- uid: CSF.Screenplay.PerformableExtensions.GetReport``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
-  name: GetReport<T>(IPerformableWithResult<T>, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReport__1_CSF_Screenplay_IPerformableWithResult___0__CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReport``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
-  name.vb: GetReport(Of T)(IPerformableWithResult(Of T), IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReport<T>(CSF.Screenplay.IPerformableWithResult<T>, CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.GetReport(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReport<T>(IPerformableWithResult<T>, IHasName)
-  nameWithType.vb: PerformableExtensions.GetReport(Of T)(IPerformableWithResult(Of T), IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter
-  name: PerformableExtensions.NoResultPerformableAdapter
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html
-  commentId: T:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.GetReportFragment(IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment*
+- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
+  name: GetReportFragment(IPerformable, IHasName)
+  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable, CSF.Screenplay.IHasName)
+  nameWithType: PerformableExtensions.GetReportFragment(IPerformable, IHasName)
+- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
+  name: GetReportFragment(IPerformableWithResult, IHasName)
+  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformableWithResult_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult, CSF.Screenplay.IHasName)
+  nameWithType: PerformableExtensions.GetReportFragment(IPerformableWithResult, IHasName)
+- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment*
   name: GetReportFragment
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment
+  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.PerformableExtensions.GetReportFragment
   isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.GetReportFragment
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.GetReportFragment
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, CancellationToken)
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync(ICanPerform, CancellationToken)
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync*
-  name: PerformAsAsync
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.PerformAsAsync
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformableWithResult
-  commentId: P:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-- uid: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult*
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.html#CSF_Screenplay_PerformableExtensions_NoResultPerformableAdapter_PerformableWithResult_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-  nameWithType: PerformableExtensions.NoResultPerformableAdapter.PerformableWithResult
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1
-  name: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html
-  commentId: T:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1
-  name.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T)
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.GetReportFragment(IHasName)
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment(IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.GetReportFragment*
-  name: GetReportFragment
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.GetReportFragment
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.GetReportFragment
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.GetReportFragment
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, CancellationToken)
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync(ICanPerform, CancellationToken)
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync(ICanPerform, CancellationToken)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformAsAsync*
-  name: PerformAsAsync
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformAsAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_PerformableWithResult
-  commentId: P:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformableWithResult*
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericNoResultPerformableAdapter_1_PerformableWithResult_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
-  nameWithType: PerformableExtensions.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
-  nameWithType.vb: PerformableExtensions.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1
-  name: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html
-  commentId: T:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1
-  name.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T)
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.GetReportFragment(IHasName)
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment(IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.GetReportFragment*
-  name: GetReportFragment
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.GetReportFragment
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.GetReportFragment
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.GetReportFragment
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).GetReportFragment
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, CancellationToken)
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync(ICanPerform, CancellationToken)
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync(ICanPerform, CancellationToken)
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformAsAsync*
-  name: PerformAsAsync
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformAsAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformAsAsync
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformAsAsync
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_PerformableWithResult
-  commentId: P:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
-- uid: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformableWithResult*
-  name: PerformableWithResult
-  href: api/CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_PerformableExtensions_NonGenericPerformableWithResultAdapter_1_PerformableWithResult_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter`1.PerformableWithResult
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
-  fullName.vb: CSF.Screenplay.PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
-  nameWithType: PerformableExtensions.NonGenericPerformableWithResultAdapter<T>.PerformableWithResult
-  nameWithType.vb: PerformableExtensions.NonGenericPerformableWithResultAdapter(Of T).PerformableWithResult
+  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment
+  nameWithType: PerformableExtensions.GetReportFragment
+- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
+  name: GetReportFragment<T>(IPerformableWithResult<T>, IHasName)
+  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment__1_CSF_Screenplay_IPerformableWithResult___0__CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
+  name.vb: GetReportFragment(Of T)(IPerformableWithResult(Of T), IHasName)
+  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment<T>(CSF.Screenplay.IPerformableWithResult<T>, CSF.Screenplay.IHasName)
+  fullName.vb: CSF.Screenplay.PerformableExtensions.GetReportFragment(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), CSF.Screenplay.IHasName)
+  nameWithType: PerformableExtensions.GetReportFragment<T>(IPerformableWithResult<T>, IHasName)
+  nameWithType.vb: PerformableExtensions.GetReportFragment(Of T)(IPerformableWithResult(Of T), IHasName)
 - uid: CSF.Screenplay.PerformableExtensions.ToNonGenericPerformableWithResult*
   name: ToNonGenericPerformableWithResult
   href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult_
@@ -1596,6 +1500,72 @@ references:
   fullName.vb: CSF.Screenplay.PerformableExtensions.ToPerformable(Of TResult)(CSF.Screenplay.IPerformableWithResult(Of TResult))
   nameWithType: PerformableExtensions.ToPerformable<TResult>(IPerformableWithResult<TResult>)
   nameWithType.vb: PerformableExtensions.ToPerformable(Of TResult)(IPerformableWithResult(Of TResult))
+- uid: CSF.Screenplay.Performables
+  name: CSF.Screenplay.Performables
+  href: api/CSF.Screenplay.Performables.html
+  commentId: N:CSF.Screenplay.Performables
+  fullName: CSF.Screenplay.Performables
+  nameWithType: CSF.Screenplay.Performables
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1
+  name: NonGenericNoResultPerformableAdapter<T>
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html
+  commentId: T:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1
+  name.vb: NonGenericNoResultPerformableAdapter(Of T)
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T)
+  nameWithType: NonGenericNoResultPerformableAdapter<T>
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T)
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.GetReportFragment(IHasName)
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.GetReportFragment
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).GetReportFragment
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.GetReportFragment
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).GetReportFragment
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.PerformAsAsync(ICanPerform, CancellationToken)
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.PerformAsAsync
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.PerformAsAsync
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).PerformAsAsync
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_PerformableWithResult
+  commentId: P:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
+- uid: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformableWithResult*
+  name: PerformableWithResult
+  href: api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_PerformableWithResult_
+  commentId: Overload:CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter`1.PerformableWithResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
+  fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
+  nameWithType: NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
+  nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
 - uid: CSF.Screenplay.Performance
   name: Performance
   href: api/CSF.Screenplay.Performance.html
@@ -2160,66 +2130,6 @@ references:
   commentId: F:CSF.Screenplay.Performances.PerformanceState.Success
   fullName: CSF.Screenplay.Performances.PerformanceState.Success
   nameWithType: PerformanceState.Success
-- uid: CSF.Screenplay.Reports
-  name: CSF.Screenplay.Reports
-  href: api/CSF.Screenplay.Reports.html
-  commentId: N:CSF.Screenplay.Reports
-  fullName: CSF.Screenplay.Reports
-  nameWithType: CSF.Screenplay.Reports
-- uid: CSF.Screenplay.Reports.DefaultStrings
-  name: DefaultStrings
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html
-  commentId: T:CSF.Screenplay.Reports.DefaultStrings
-  fullName: CSF.Screenplay.Reports.DefaultStrings
-  nameWithType: DefaultStrings
-- uid: CSF.Screenplay.Reports.DefaultStrings.FormatValue(System.Object)
-  name: FormatValue(object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_FormatValue_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.FormatValue(System.Object)
-  name.vb: FormatValue(Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.FormatValue(object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.FormatValue(Object)
-  nameWithType: DefaultStrings.FormatValue(object)
-  nameWithType.vb: DefaultStrings.FormatValue(Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.FormatValue*
-  name: FormatValue
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_FormatValue_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.FormatValue
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.FormatValue
-  nameWithType: DefaultStrings.FormatValue
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name: GetAbilityReport(object, object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetAbilityReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name.vb: GetAbilityReport(Object, Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(object, object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport(Object, Object)
-  nameWithType: DefaultStrings.GetAbilityReport(object, object)
-  nameWithType.vb: DefaultStrings.GetAbilityReport(Object, Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport*
-  name: GetAbilityReport
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetAbilityReport_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetAbilityReport
-  nameWithType: DefaultStrings.GetAbilityReport
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetReport(System.Object,System.Object)
-  name: GetReport(object, object)
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.Reports.DefaultStrings.GetReport(System.Object,System.Object)
-  name.vb: GetReport(Object, Object)
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetReport(object, object)
-  fullName.vb: CSF.Screenplay.Reports.DefaultStrings.GetReport(Object, Object)
-  nameWithType: DefaultStrings.GetReport(object, object)
-  nameWithType.vb: DefaultStrings.GetReport(Object, Object)
-- uid: CSF.Screenplay.Reports.DefaultStrings.GetReport*
-  name: GetReport
-  href: api/CSF.Screenplay.Reports.DefaultStrings.html#CSF_Screenplay_Reports_DefaultStrings_GetReport_
-  commentId: Overload:CSF.Screenplay.Reports.DefaultStrings.GetReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reports.DefaultStrings.GetReport
-  nameWithType: DefaultStrings.GetReport
 - uid: CSF.Screenplay.Screenplay
   name: Screenplay
   href: api/CSF.Screenplay.Screenplay.html
