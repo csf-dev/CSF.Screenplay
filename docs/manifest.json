@@ -42,6 +42,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Actors.ActorEventArgs.yml",
       "output": {
         ".html": {
@@ -166,6 +176,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Actors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.AutoMoqDataAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.AutoMoqDataAttribute.html"
         }
       },
       "version": ""

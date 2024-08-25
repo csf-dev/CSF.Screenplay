@@ -102,7 +102,7 @@ Class Actor  <a class="header-action link-secondary" title="View source" href="h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Actor : IHasAbilities, IHasName, IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IHasPerformableEvents, ICanPerform, ICanPerformGiven, ICanPerformWhen, ICanPerformThen</code></pre>
+    <pre><code class="lang-csharp hljs">public class Actor : IHasAbilities, IHasName, IHasPerformanceIdentity, IDisposable, IHasPerformableEvents, ICanPerform, ICanPerformGiven, ICanPerformWhen, ICanPerformThen</code></pre>
   </div>
 
 
@@ -122,7 +122,6 @@ Class Actor  <a class="header-action link-secondary" title="View source" href="h
       <div><a class="xref" href="CSF.Screenplay.IHasAbilities.html">IHasAbilities</a></div>
       <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
       <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
-      <div><a class="xref" href="CSF.Screenplay.IHasServiceProvider.html">IHasServiceProvider</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.IHasPerformableEvents.html">IHasPerformableEvents</a></div>
       <div><a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></div>
@@ -230,9 +229,9 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <a id="CSF_Screenplay_Actor__ctor_" data-uid="CSF.Screenplay.Actor.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Actor__ctor_System_String_System_Guid_System_IServiceProvider_" data-uid="CSF.Screenplay.Actor.#ctor(System.String,System.Guid,System.IServiceProvider)">
-  Actor(string, Guid, IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actor__ctor_System_String_System_Guid_" data-uid="CSF.Screenplay.Actor.#ctor(System.String,System.Guid)">
+  Actor(string, Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></p>
@@ -240,7 +239,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Actor(string name = null, Guid performanceIdentity = default, IServiceProvider serviceProvider = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Actor(string name = null, Guid performanceIdentity = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -250,9 +249,6 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 </dd>
     <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
     <dd><p>A unique identity for the performance</p>
-</dd>
-    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
-    <dd><p>An optional service resolver associated with the current actor</p>
 </dd>
   </dl>
 
@@ -275,7 +271,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Abilities" data-uid="CSF.Screenplay.Actor.Abilities">
   Abilities
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of the actor's abilities</p>
@@ -307,7 +303,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Name" data-uid="CSF.Screenplay.Actor.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor's name</p>
@@ -339,7 +335,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_PerformanceIdentity" data-uid="CSF.Screenplay.Actor.PerformanceIdentity">
   PerformanceIdentity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the unique identity for the performance in which this actor is participating</p>
@@ -357,38 +353,6 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="CSF_Screenplay_Actor_ServiceProvider_" data-uid="CSF.Screenplay.Actor.ServiceProvider*"></a>
-
-  <h3 id="CSF_Screenplay_Actor_ServiceProvider" data-uid="CSF.Screenplay.Actor.ServiceProvider">
-  ServiceProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets a service resolver instance associated with this actor</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual IServiceProvider ServiceProvider { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
     <dd></dd>
   </dl>
 
@@ -655,7 +619,7 @@ and - for any of them which implement <a class="xref" href="https://learn.micros
 
   <h3 id="CSF_Screenplay_Actor_IsAbleTo_System_Object_" data-uid="CSF.Screenplay.Actor.IsAbleTo(System.Object)">
   IsAbleTo(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actor.abilities.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a new ability to the actor</p>

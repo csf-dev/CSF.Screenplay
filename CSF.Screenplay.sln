@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Docs", "CSF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Abstractions", "CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj", "{F55AA0FF-9796-4202-BFDD-49C262509FC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Tests", "CSF.Screenplay.Tests\CSF.Screenplay.Tests.csproj", "{7369BCFA-DA98-4C05-9708-7949AF3E485B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,5 +27,9 @@ Global
 		{F55AA0FF-9796-4202-BFDD-49C262509FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F55AA0FF-9796-4202-BFDD-49C262509FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F55AA0FF-9796-4202-BFDD-49C262509FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7369BCFA-DA98-4C05-9708-7949AF3E485B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7369BCFA-DA98-4C05-9708-7949AF3E485B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7369BCFA-DA98-4C05-9708-7949AF3E485B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7369BCFA-DA98-4C05-9708-7949AF3E485B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

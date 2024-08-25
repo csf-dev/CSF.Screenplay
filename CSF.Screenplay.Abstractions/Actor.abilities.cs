@@ -7,7 +7,6 @@ namespace CSF.Screenplay
     public partial class Actor : IHasAbilities
     {
         readonly HashSet<object> abilities = new HashSet<object>();
-        readonly object abilitySyncRoot = new object();
 
         /// <summary>Gets a collection of the actor's abilities</summary>
         protected virtual HashSet<object> Abilities => abilities;
@@ -21,15 +20,13 @@ namespace CSF.Screenplay
         protected virtual void IsAbleTo(object ability)
         {
             if (ability is null) throw new ArgumentNullException(nameof(ability));
+            AssertNotDisposed();
 
             var abilityType = ability.GetType();
 
-            lock (abilitySyncRoot)
-            {
-                if (abilities.Any(abilityType.IsInstanceOfType))
-                    throw new InvalidOperationException($"{name} must not have any abilities which derive from {abilityType.FullName}.");
-                abilities.Add(ability);
-            }
+            if (abilities.Any(abilityType.IsInstanceOfType))
+                throw new InvalidOperationException($"{name} must not already have any abilities which derive from {abilityType.FullName}.");
+            abilities.Add(ability);
 
             InvokeGainedAbility(ability);
         }

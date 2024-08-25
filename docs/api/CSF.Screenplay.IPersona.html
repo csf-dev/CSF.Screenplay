@@ -141,9 +141,9 @@ for instances of those actors.
 
   <a id="CSF_Screenplay_IPersona_GetActor_" data-uid="CSF.Screenplay.IPersona.GetActor*"></a>
 
-  <h3 id="CSF_Screenplay_IPersona_GetActor_System_Guid_System_IServiceProvider_" data-uid="CSF.Screenplay.IPersona.GetActor(System.Guid,System.IServiceProvider)">
-  GetActor(Guid, IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IPersona.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_IPersona_GetActor_System_Guid_" data-uid="CSF.Screenplay.IPersona.GetActor(System.Guid)">
+  GetActor(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/IPersona.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor which is associated with the current persona</p>
@@ -151,16 +151,13 @@ for instances of those actors.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Actor GetActor(Guid performanceIdentity, IServiceProvider serviceProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">Actor GetActor(Guid performanceIdentity)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
     <dd><p>A unique identity for the currently-executing performance</p>
-</dd>
-    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
-    <dd><p>An object which provides access to services from dependency injection</p>
 </dd>
   </dl>
 
@@ -176,7 +173,7 @@ for instances of those actors.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_IPersona_GetActor_System_Guid_System_IServiceProvider__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_IPersona_GetActor_System_Guid__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementors should not only create and return the actor from this method, but also
 configure the actor with the standard abilities associated with this persona.

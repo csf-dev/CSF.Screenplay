@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Actors
         {
             if (persona is null) throw new ArgumentNullException(nameof(persona));
             return actors.GetOrAdd(persona.Name, _ => {
-                var actor = persona.GetActor(PerformanceIdentity, ServiceProvider);
+                var actor = persona.GetActor(PerformanceIdentity);
                 InvokeActorCreated(actor);
                 return actor;
             });
@@ -56,8 +56,8 @@ namespace CSF.Screenplay.Actors
             public string Name { get; }
 
             /// <inheritdoc/>
-            public Actor GetActor(Guid performanceIdentity, IServiceProvider serviceProvider)
-                => new Actor(Name, performanceIdentity, serviceProvider);
+            public Actor GetActor(Guid performanceIdentity)
+                => new Actor(Name, performanceIdentity);
 
             internal NameOnlyPersona(string name)
             {

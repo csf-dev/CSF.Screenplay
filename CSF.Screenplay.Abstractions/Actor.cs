@@ -42,11 +42,10 @@ namespace CSF.Screenplay
     /// <seealso cref="Performance"/>
     /// <seealso cref="ICast"/>
     /// <seealso cref="IStage"/>
-    public partial class Actor : IHasName, IHasPerformanceIdentity, IHasServiceProvider
+    public partial class Actor : IHasName, IHasPerformanceIdentity
     {
         readonly string name;
         readonly Guid performanceIdentity;
-        readonly IServiceProvider serviceProvider;
 
         /// <summary>Gets the actor's name</summary>
         protected virtual string Name => name;
@@ -58,22 +57,14 @@ namespace CSF.Screenplay
 
         Guid IHasPerformanceIdentity.PerformanceIdentity => PerformanceIdentity;
 
-        /// <summary>Gets a service resolver instance associated with this actor</summary>
-        protected virtual IServiceProvider ServiceProvider => serviceProvider;
-
-        IServiceProvider IHasServiceProvider.ServiceProvider => ServiceProvider;
-
         /// <summary>Initialises a new instance of <see cref="Actor"/></summary>
         /// <param name="name">The actor's name</param>
         /// <param name="performanceIdentity">A unique identity for the performance</param>
-        /// <param name="serviceProvider">An optional service resolver associated with the current actor</param>
         public Actor(string name = null,
-                     Guid performanceIdentity = default,
-                     IServiceProvider serviceProvider = default)
+                     Guid performanceIdentity = default)
         {
             this.name = name ?? ReportStrings.UnnamedActor;
             this.performanceIdentity = performanceIdentity;
-            this.serviceProvider = serviceProvider;
         }
     }
 }

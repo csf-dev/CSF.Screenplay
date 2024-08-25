@@ -20,6 +20,7 @@ namespace CSF.Screenplay
                                                   PerformancePhase phase = PerformancePhase.Unspecified)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
+            AssertNotDisposed();
 
             try
             {
@@ -50,6 +51,7 @@ namespace CSF.Screenplay
                                                           PerformancePhase phase = PerformancePhase.Unspecified)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
+            AssertNotDisposed();
 
             try
             {
@@ -82,6 +84,7 @@ namespace CSF.Screenplay
                                                         PerformancePhase phase = PerformancePhase.Unspecified)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
+            AssertNotDisposed();
 
             try
             {

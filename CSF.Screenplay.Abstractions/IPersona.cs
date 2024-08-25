@@ -24,7 +24,6 @@ namespace CSF.Screenplay
         /// </para>
         /// </remarks>
         /// <param name="performanceIdentity">A unique identity for the currently-executing performance</param>
-        /// <param name="serviceProvider">An object which provides access to services from dependency injection</param>
-        Actor GetActor(Guid performanceIdentity, IServiceProvider serviceProvider);
+        Actor GetActor(Guid performanceIdentity);
     }
 }

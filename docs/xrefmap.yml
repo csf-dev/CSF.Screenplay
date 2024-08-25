@@ -16,15 +16,15 @@ references:
   commentId: T:CSF.Screenplay.Actor
   fullName: CSF.Screenplay.Actor
   nameWithType: Actor
-- uid: CSF.Screenplay.Actor.#ctor(System.String,System.Guid,System.IServiceProvider)
-  name: Actor(string, Guid, IServiceProvider)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor__ctor_System_String_System_Guid_System_IServiceProvider_
-  commentId: M:CSF.Screenplay.Actor.#ctor(System.String,System.Guid,System.IServiceProvider)
-  name.vb: New(String, Guid, IServiceProvider)
-  fullName: CSF.Screenplay.Actor.Actor(string, System.Guid, System.IServiceProvider)
-  fullName.vb: CSF.Screenplay.Actor.New(String, System.Guid, System.IServiceProvider)
-  nameWithType: Actor.Actor(string, Guid, IServiceProvider)
-  nameWithType.vb: Actor.New(String, Guid, IServiceProvider)
+- uid: CSF.Screenplay.Actor.#ctor(System.String,System.Guid)
+  name: Actor(string, Guid)
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor__ctor_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Actor.#ctor(System.String,System.Guid)
+  name.vb: New(String, Guid)
+  fullName: CSF.Screenplay.Actor.Actor(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Actor.New(String, System.Guid)
+  nameWithType: Actor.Actor(string, Guid)
+  nameWithType.vb: Actor.New(String, Guid)
 - uid: CSF.Screenplay.Actor.#ctor*
   name: Actor
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor__ctor_
@@ -260,19 +260,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actor.PerformanceIdentity
   nameWithType: Actor.PerformanceIdentity
-- uid: CSF.Screenplay.Actor.ServiceProvider
-  name: ServiceProvider
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_ServiceProvider
-  commentId: P:CSF.Screenplay.Actor.ServiceProvider
-  fullName: CSF.Screenplay.Actor.ServiceProvider
-  nameWithType: Actor.ServiceProvider
-- uid: CSF.Screenplay.Actor.ServiceProvider*
-  name: ServiceProvider
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_ServiceProvider_
-  commentId: Overload:CSF.Screenplay.Actor.ServiceProvider
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.ServiceProvider
-  nameWithType: Actor.ServiceProvider
 - uid: CSF.Screenplay.ActorExtensions
   name: ActorExtensions
   href: api/CSF.Screenplay.ActorExtensions.html
@@ -354,6 +341,89 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorExtensions.IsAbleTo
   nameWithType: ActorExtensions.IsAbleTo
+- uid: CSF.Screenplay.ActorTests
+  name: ActorTests
+  href: api/CSF.Screenplay.ActorTests.html
+  commentId: T:CSF.Screenplay.ActorTests
+  fullName: CSF.Screenplay.ActorTests
+  nameWithType: ActorTests
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor,System.String)
+  name: IsAbleToShouldAddAnAbilityToTheActor(Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldAddAnAbilityToTheActor_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor,System.String)
+  name.vb: IsAbleToShouldAddAnAbilityToTheActor(Actor, String)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor(CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.IsAbleToShouldAddAnAbilityToTheActor(Actor, string)
+  nameWithType.vb: ActorTests.IsAbleToShouldAddAnAbilityToTheActor(Actor, String)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor*
+  name: IsAbleToShouldAddAnAbilityToTheActor
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldAddAnAbilityToTheActor_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldAddAnAbilityToTheActor
+  nameWithType: ActorTests.IsAbleToShouldAddAnAbilityToTheActor
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(CSF.Screenplay.Actor,System.String)
+  name: IsAbleToShouldInvokeGainedAbilityEvent(Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldInvokeGainedAbilityEvent_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(CSF.Screenplay.Actor,System.String)
+  name.vb: IsAbleToShouldInvokeGainedAbilityEvent(Actor, String)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(Actor, string)
+  nameWithType.vb: ActorTests.IsAbleToShouldInvokeGainedAbilityEvent(Actor, String)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent*
+  name: IsAbleToShouldInvokeGainedAbilityEvent
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldInvokeGainedAbilityEvent_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldInvokeGainedAbilityEvent
+  nameWithType: ActorTests.IsAbleToShouldInvokeGainedAbilityEvent
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility(CSF.Screenplay.Actor,System.String)
+  name: IsAbleToShouldNotThrowForAStringAbility(Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldNotThrowForAStringAbility_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility(CSF.Screenplay.Actor,System.String)
+  name.vb: IsAbleToShouldNotThrowForAStringAbility(Actor, String)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility(CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility(CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.IsAbleToShouldNotThrowForAStringAbility(Actor, string)
+  nameWithType.vb: ActorTests.IsAbleToShouldNotThrowForAStringAbility(Actor, String)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility*
+  name: IsAbleToShouldNotThrowForAStringAbility
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldNotThrowForAStringAbility_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldNotThrowForAStringAbility
+  nameWithType: ActorTests.IsAbleToShouldNotThrowForAStringAbility
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(CSF.Screenplay.Actor)
+  name: IsAbleToShouldThrowIfTheAbilityIsNull(Actor)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheAbilityIsNull_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(CSF.Screenplay.Actor)
+  nameWithType: ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull(Actor)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull*
+  name: IsAbleToShouldThrowIfTheAbilityIsNull
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheAbilityIsNull_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull
+  nameWithType: ActorTests.IsAbleToShouldThrowIfTheAbilityIsNull
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(CSF.Screenplay.Actor,System.String)
+  name: IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor, string)
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(CSF.Screenplay.Actor,System.String)
+  name.vb: IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor, String)
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(CSF.Screenplay.Actor, String)
+  nameWithType: ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor, string)
+  nameWithType.vb: ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice(Actor, String)
+- uid: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice*
+  name: IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
+  href: api/CSF.Screenplay.ActorTests.html#CSF_Screenplay_ActorTests_IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice_
+  commentId: Overload:CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
+  isSpec: "True"
+  fullName: CSF.Screenplay.ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
+  nameWithType: ActorTests.IsAbleToShouldThrowIfTheSameAbilityTypeIsAddedTwice
 - uid: CSF.Screenplay.Actors
   name: CSF.Screenplay.Actors
   href: api/CSF.Screenplay.Actors.html
@@ -944,6 +1014,31 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actors.Stage.TurnSpotlightOff
   nameWithType: Stage.TurnSpotlightOff
+- uid: CSF.Screenplay.AutoMoqDataAttribute
+  name: AutoMoqDataAttribute
+  href: api/CSF.Screenplay.AutoMoqDataAttribute.html
+  commentId: T:CSF.Screenplay.AutoMoqDataAttribute
+  fullName: CSF.Screenplay.AutoMoqDataAttribute
+  nameWithType: AutoMoqDataAttribute
+- uid: CSF.Screenplay.AutoMoqDataAttribute.#ctor
+  name: AutoMoqDataAttribute()
+  href: api/CSF.Screenplay.AutoMoqDataAttribute.html#CSF_Screenplay_AutoMoqDataAttribute__ctor
+  commentId: M:CSF.Screenplay.AutoMoqDataAttribute.#ctor
+  name.vb: New()
+  fullName: CSF.Screenplay.AutoMoqDataAttribute.AutoMoqDataAttribute()
+  fullName.vb: CSF.Screenplay.AutoMoqDataAttribute.New()
+  nameWithType: AutoMoqDataAttribute.AutoMoqDataAttribute()
+  nameWithType.vb: AutoMoqDataAttribute.New()
+- uid: CSF.Screenplay.AutoMoqDataAttribute.#ctor*
+  name: AutoMoqDataAttribute
+  href: api/CSF.Screenplay.AutoMoqDataAttribute.html#CSF_Screenplay_AutoMoqDataAttribute__ctor_
+  commentId: Overload:CSF.Screenplay.AutoMoqDataAttribute.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.AutoMoqDataAttribute.AutoMoqDataAttribute
+  fullName.vb: CSF.Screenplay.AutoMoqDataAttribute.New
+  nameWithType: AutoMoqDataAttribute.AutoMoqDataAttribute
+  nameWithType.vb: AutoMoqDataAttribute.New
 - uid: CSF.Screenplay.DefaultStrings
   name: DefaultStrings
   href: api/CSF.Screenplay.DefaultStrings.html
@@ -1247,12 +1342,12 @@ references:
   commentId: T:CSF.Screenplay.IPersona
   fullName: CSF.Screenplay.IPersona
   nameWithType: IPersona
-- uid: CSF.Screenplay.IPersona.GetActor(System.Guid,System.IServiceProvider)
-  name: GetActor(Guid, IServiceProvider)
-  href: api/CSF.Screenplay.IPersona.html#CSF_Screenplay_IPersona_GetActor_System_Guid_System_IServiceProvider_
-  commentId: M:CSF.Screenplay.IPersona.GetActor(System.Guid,System.IServiceProvider)
-  fullName: CSF.Screenplay.IPersona.GetActor(System.Guid, System.IServiceProvider)
-  nameWithType: IPersona.GetActor(Guid, IServiceProvider)
+- uid: CSF.Screenplay.IPersona.GetActor(System.Guid)
+  name: GetActor(Guid)
+  href: api/CSF.Screenplay.IPersona.html#CSF_Screenplay_IPersona_GetActor_System_Guid_
+  commentId: M:CSF.Screenplay.IPersona.GetActor(System.Guid)
+  fullName: CSF.Screenplay.IPersona.GetActor(System.Guid)
+  nameWithType: IPersona.GetActor(Guid)
 - uid: CSF.Screenplay.IPersona.GetActor*
   name: GetActor
   href: api/CSF.Screenplay.IPersona.html#CSF_Screenplay_IPersona_GetActor_
