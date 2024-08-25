@@ -88,6 +88,27 @@ public class ActorTests
         Assert.That(() => sut.IsAbleTo(stringAbility), Throws.InstanceOf<ObjectDisposedException>());
     }
 
+    [Test,AutoMoqData]
+    public void PerformAsyncWithoutResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformable performable)
+    {
+        ((IDisposable) sut).Dispose();
+        Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
+    }
+
+    [Test,AutoMoqData]
+    public void PerformAsyncWithNongenericResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformableWithResult performable)
+    {
+        ((IDisposable) sut).Dispose();
+        Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
+    }
+
+    [Test,AutoMoqData]
+    public void PerformAsyncWithGenericResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformableWithResult<string> performable)
+    {
+        ((IDisposable) sut).Dispose();
+        Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
+    }
+
     public class DisposableAbility1 : IDisposable
     {
         public virtual void Dispose() {}
@@ -195,6 +216,7 @@ public class ActorTests
         Assert.Multiple(() =>
         {
             Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InvalidOperationException, "PerformAsync throws an exception");
+            sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The exception is exposed by the failure event");
         });
     }
@@ -247,6 +269,7 @@ public class ActorTests
         Assert.Multiple(() =>
         {
             Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InvalidOperationException, "PerformAsync throws an exception");
+            sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The exception is exposed by the failure event");
         });
     }
