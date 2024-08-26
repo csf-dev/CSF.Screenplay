@@ -252,6 +252,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.IHasSubscribedActors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.IHasSubscribedActors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.IPerformable.yml",
       "output": {
         ".html": {
@@ -362,6 +372,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.PerformanceImpl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.PerformanceImpl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.PerformanceStarter.yml",
       "output": {
         ".html": {
@@ -392,20 +412,30 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performances.IdentifierAndName.yml",
+      "source_relative_path": "api/CSF.Screenplay.Performances.IHasPerformanceEvents.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.Performances.IdentifierAndName.html"
+          "relative_path": "api/CSF.Screenplay.Performances.IHasPerformanceEvents.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.yml",
+      "source_relative_path": "api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html"
+          "relative_path": "api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performances.IdentifierAndName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performances.IdentifierAndName.html"
         }
       },
       "version": ""
@@ -422,10 +452,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performances.PerformanceEventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performances.PerformanceEventBus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performances.PerformanceFactory.yml",
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performances.PerformanceFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html"
         }
       },
       "version": ""

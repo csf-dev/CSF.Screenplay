@@ -124,7 +124,10 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor">ActorEventArgs.Actor</a>
+      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName">ActorEventArgs.ActorName</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity">ActorEventArgs.PerformanceIdentity</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs.empty">EventArgs.Empty</a>
@@ -163,9 +166,9 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
 
   <a id="CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_CSF_Screenplay_ICanPerform_System_Object_" data-uid="CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object)">
-  GainAbilityEventArgs(ICanPerform, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/GainAbilityEventArgs.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_System_String_System_Guid_System_Object_" data-uid="CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(System.String,System.Guid,System.Object)">
+  GainAbilityEventArgs(string, Guid, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/GainAbilityEventArgs.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.GainAbilityEventArgs.html">GainAbilityEventArgs</a>.</p>
@@ -173,13 +176,16 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GainAbilityEventArgs(ICanPerform actor, object ability)</code></pre>
+    <pre><code class="lang-csharp hljs">public GainAbilityEventArgs(string actorName, Guid performanceIdentity, object ability)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
-    <dd><p>The actor</p>
+    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The actor's name</p>
+</dd>
+    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The actor's performance identity</p>
 </dd>
     <dt><code>ability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>The ability</p>

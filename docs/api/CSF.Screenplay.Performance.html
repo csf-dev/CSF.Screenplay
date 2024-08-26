@@ -102,7 +102,7 @@ Class Performance  <a class="header-action link-secondary" title="View source" h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class Performance : IHasPerformanceIdentity, IHasServiceProvider, IEquatable&lt;Performance&gt;, IDisposable, IBeginsAndEndsPerformance</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Performance : IHasPerformanceIdentity, IHasServiceProvider, IEquatable&lt;Performance&gt;, IDisposable, IBeginsAndEndsPerformance</code></pre>
   </div>
 
 
@@ -127,6 +127,12 @@ Class Performance  <a class="header-action link-secondary" title="View source" h
     </dd>
   </dl>
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.PerformanceImpl.html">PerformanceImpl</a></div>
+    </dd>
+  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
@@ -136,6 +142,9 @@ Class Performance  <a class="header-action link-secondary" title="View source" h
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -179,7 +188,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Performance__ctor_System_IServiceProvider_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_" data-uid="CSF.Screenplay.Performance.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)">
   Performance(IServiceProvider, IList&lt;IdentifierAndName&gt;, Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
@@ -187,7 +196,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Performance(IServiceProvider serviceProvider, IList&lt;IdentifierAndName&gt; namingHierarchy = null, Guid performanceIdentity = default)</code></pre>
+    <pre><code class="lang-csharp hljs">protected Performance(IServiceProvider serviceProvider, IList&lt;IdentifierAndName&gt; namingHierarchy, Guid performanceIdentity)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -401,7 +410,7 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
   <h3 id="CSF_Screenplay_Performance_BeginPerformance" data-uid="CSF.Screenplay.Performance.BeginPerformance">
   BeginPerformance()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Begins the performance</p>
@@ -424,46 +433,11 @@ This value is used to uniquely identify a performance within a <a class="xref" h
 
 
 
-  <a id="CSF_Screenplay_Performance_CompletePerformance_" data-uid="CSF.Screenplay.Performance.CompletePerformance*"></a>
-
-  <h3 id="CSF_Screenplay_Performance_CompletePerformance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performance.CompletePerformance(System.Nullable{System.Boolean})">
-  CompletePerformance(bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L108"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Completes the performance with a value indicating whether or not it was a success</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CompletePerformance(bool? success)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
-    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then the performance is to be considered a success; if
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> then a failure. A value of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> indicates that the performance did not
-succeed but should not be considered a failure either.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="CSF_Screenplay_Performance_Dispose_" data-uid="CSF.Screenplay.Performance.Dispose*"></a>
 
   <h3 id="CSF_Screenplay_Performance_Dispose" data-uid="CSF.Screenplay.Performance.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -490,7 +464,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Equals_CSF_Screenplay_Performance_" data-uid="CSF.Screenplay.Performance.Equals(CSF.Screenplay.Performance)">
   Equals(Performance)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
@@ -529,7 +503,7 @@ succeed but should not be considered a failure either.</p>
 
   <h3 id="CSF_Screenplay_Performance_Equals_System_Object_" data-uid="CSF.Screenplay.Performance.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
@@ -564,11 +538,46 @@ succeed but should not be considered a failure either.</p>
 
 
 
+  <a id="CSF_Screenplay_Performance_FinishPerformance_" data-uid="CSF.Screenplay.Performance.FinishPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_Performance_FinishPerformance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performance.FinishPerformance(System.Nullable{System.Boolean})">
+  FinishPerformance(bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finishes the performance with a value indicating whether or not it was a success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FinishPerformance(bool? success)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then the performance is to be considered a success; if
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> then a failure. A value of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> indicates that the performance did not
+succeed but should not be considered a failure either.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_Performance_GetHashCode_" data-uid="CSF.Screenplay.Performance.GetHashCode*"></a>
 
   <h3 id="CSF_Screenplay_Performance_GetHashCode" data-uid="CSF.Screenplay.Performance.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
@@ -597,21 +606,19 @@ succeed but should not be considered a failure either.</p>
 
 
 
-  <h2 class="section" id="events">Events
-</h2>
+  <a id="CSF_Screenplay_Performance_InvokePerformanceBegun_" data-uid="CSF.Screenplay.Performance.InvokePerformanceBegun*"></a>
 
-
-
-  <h3 id="CSF_Screenplay_Performance_Begin" data-uid="CSF.Screenplay.Performance.Begin">
-  Begin
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performance_InvokePerformanceBegun" data-uid="CSF.Screenplay.Performance.InvokePerformanceBegun">
+  InvokePerformanceBegun()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invokes an event which signifies that a performance has begun.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PerformanceEventArgs&gt; Begin</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract void InvokePerformanceBegun()</code></pre>
   </div>
 
 
@@ -619,11 +626,6 @@ succeed but should not be considered a failure either.</p>
 
 
 
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.PerformanceEventArgs.html">PerformanceEventArgs</a>&gt;</dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -631,29 +633,32 @@ succeed but should not be considered a failure either.</p>
 
 
 
+  <a id="CSF_Screenplay_Performance_InvokePerformanceFinished_" data-uid="CSF.Screenplay.Performance.InvokePerformanceFinished*"></a>
 
-  <h3 id="CSF_Screenplay_Performance_Complete" data-uid="CSF.Screenplay.Performance.Complete">
-  Complete
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performance_InvokePerformanceFinished_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performance.InvokePerformanceFinished(System.Nullable{System.Boolean})">
+  InvokePerformanceFinished(bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Performance.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Invokes an event which signifies that a performance has completed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PerformanceCompleteEventArgs&gt; Complete</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract void InvokePerformanceFinished(bool? success)</code></pre>
   </div>
 
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html">PerformanceCompleteEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>A value which indicates whether or not the performance was a success.</p>
+</dd>
   </dl>
+
+
+
+
+
 
 
 
