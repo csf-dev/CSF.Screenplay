@@ -27,12 +27,12 @@ namespace CSF.Screenplay
     /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>
-    public sealed class Performance : IHasPerformanceIdentity,
+    public abstract class Performance : IHasPerformanceIdentity,
                                       IHasServiceProvider,
                                       IEquatable<Performance>,
                                       IDisposable,
                                       IBeginsAndEndsPerformance
-    {
+    {        
         bool hasBegun, hasCompleted;
         bool? success;
 
@@ -90,29 +90,32 @@ namespace CSF.Screenplay
         }
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceEventArgs> Begin;
-
-        /// <inheritdoc/>
         public void BeginPerformance()
         {
             if(hasBegun) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be begun only once; performance instances are not reusable.");
             hasBegun = true;
-            var args = new PerformanceEventArgs(PerformanceIdentity, NamingHierarchy);
-            Begin?.Invoke(this, args);
+            InvokePerformanceBegun();
         }
 
-        /// <inheritdoc/>
-        public event EventHandler<PerformanceCompleteEventArgs> Complete;
+        /// <summary>
+        /// Invokes an event which signifies that a performance has begun.
+        /// </summary>
+        protected abstract void InvokePerformanceBegun();
 
         /// <inheritdoc/>
-        public void CompletePerformance(bool? success)
+        public void FinishPerformance(bool? success)
         {
             if(hasCompleted) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be completed only once; performance instances are not reusable.");
             hasBegun = hasCompleted = true;
             this.success = success;
-            var args = new PerformanceCompleteEventArgs(PerformanceIdentity, NamingHierarchy, success);
-            Complete?.Invoke(this, args);
+            InvokePerformanceFinished(success);
         }
+
+        /// <summary>
+        /// Invokes an event which signifies that a performance has completed.
+        /// </summary>
+        /// <param name="success">A value which indicates whether or not the performance was a success.</param>
+        protected abstract void InvokePerformanceFinished(bool? success);
 
         /// <inheritdoc/>
         public bool Equals(Performance other)
@@ -142,7 +145,7 @@ namespace CSF.Screenplay
         /// <param name="performanceIdentity">A unique identifier for the performance; if omitted (equal to <see cref="Guid.Empty"/>)
         /// then a new Guid will be generated as the identity for this performance</param>
         /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" /></exception>
-        public Performance(IServiceProvider serviceProvider, IList<IdentifierAndName> namingHierarchy = default, Guid performanceIdentity = default)
+        protected Performance(IServiceProvider serviceProvider, IList<IdentifierAndName> namingHierarchy, Guid performanceIdentity)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             NamingHierarchy = namingHierarchy?.ToList() ?? new List<IdentifierAndName>();

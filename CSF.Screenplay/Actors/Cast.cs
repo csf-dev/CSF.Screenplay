@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Concurrent;
+using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay.Actors
 {
     /// <summary>The default implementation of <see cref="ICast"/> which serves as a registry/factory for <see cref="Actor"/> instances.</summary>
     public class Cast : ICast
     {
+        readonly IRelaysPerformanceEvents performanceEventBus;
         readonly ConcurrentDictionary<string,Actor> actors = new ConcurrentDictionary<string,Actor>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <inheritdoc/>
@@ -34,6 +37,7 @@ namespace CSF.Screenplay.Actors
             if (persona is null) throw new ArgumentNullException(nameof(persona));
             return actors.GetOrAdd(persona.Name, _ => {
                 var actor = persona.GetActor(PerformanceIdentity);
+                performanceEventBus.SubscribeTo(actor);
                 InvokeActorCreated(actor);
                 return actor;
             });
@@ -47,6 +51,7 @@ namespace CSF.Screenplay.Actors
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             PerformanceIdentity = performanceIdentity;
+            performanceEventBus = serviceProvider.GetRequiredService<IRelaysPerformanceEvents>();
         }
 
         /// <summary>Implementation of <see cref="IPersona"/> which performs no operation beyond giving the actor a name</summary>

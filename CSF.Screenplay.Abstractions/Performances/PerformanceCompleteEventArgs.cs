@@ -4,14 +4,14 @@ using System.Collections.Generic;
 namespace CSF.Screenplay.Performances
 {
     /// <summary>
-    /// A model for event arguments which relate to a completion of a <see cref="Performance"/>.
+    /// A model for event arguments which relate to a finishing of a <see cref="Performance"/>.
     /// </summary>
     /// <seealso cref="Performance"/>
     /// <seealso cref="PerformanceScopeEventArgs"/>
     /// <seealso cref="PerformanceEventArgs"/>
-    public class PerformanceCompleteEventArgs : PerformanceEventArgs
+    public class PerformanceFinishedEventArgs : PerformanceEventArgs
     {
-        /// <summary>Gets a value indicating whether the completion of the <see cref="Performance"/> was a success or not</summary>
+        /// <summary>Gets a value indicating whether the finished <see cref="Performance"/> was a success or not</summary>
         /// <remarks>
         /// <para>
         /// The three possible values for this property correspond to three possible values of <see cref="PerformanceState"/>
@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Performances
         /// <param name="namingHierarchy">The scenario hierarchy</param>
         /// <param name="success">A value indicating whether or not the scenario completed with a succeess result</param>
         /// <exception cref="ArgumentNullException">If the scenario hierarchy is <see langword="null" /></exception>
-        public PerformanceCompleteEventArgs(Guid performanceIdentity,
+        public PerformanceFinishedEventArgs(Guid performanceIdentity,
                                          IReadOnlyList<IdentifierAndName> namingHierarchy,
                                          bool? success) : base(performanceIdentity, namingHierarchy)
         {

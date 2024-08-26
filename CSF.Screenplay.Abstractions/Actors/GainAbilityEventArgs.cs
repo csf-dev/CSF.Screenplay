@@ -15,9 +15,10 @@ namespace CSF.Screenplay.Actors
         /// <summary>
         /// Initializes a new instance of <see cref="GainAbilityEventArgs"/>.
         /// </summary>
-        /// <param name="actor">The actor</param>
+        /// <param name="actorName">The actor's name</param>
+        /// <param name="performanceIdentity">The actor's performance identity</param>
         /// <param name="ability">The ability</param>
-        public GainAbilityEventArgs(Actor actor, object ability) : base(actor)
+        public GainAbilityEventArgs(string actorName, Guid performanceIdentity, object ability) : base(actorName, performanceIdentity)
         {
             Ability = ability ?? throw new ArgumentNullException(nameof(ability));
         }

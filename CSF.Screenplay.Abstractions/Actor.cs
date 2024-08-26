@@ -60,8 +60,8 @@ namespace CSF.Screenplay
         /// <summary>Initialises a new instance of <see cref="Actor"/></summary>
         /// <param name="name">The actor's name</param>
         /// <param name="performanceIdentity">A unique identity for the performance</param>
-        public Actor(string name = null,
-                     Guid performanceIdentity = default)
+        public Actor(string name,
+                     Guid performanceIdentity)
         {
             this.name = name ?? ReportStrings.UnnamedActor;
             this.performanceIdentity = performanceIdentity;

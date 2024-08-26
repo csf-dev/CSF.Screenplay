@@ -54,7 +54,7 @@ namespace CSF.Screenplay
         /// This method begins a new Dependency Injection Scope, and within that scope starts the performance, which executes the specified
         /// performance logic: <paramref name="performanceLogic"/>.
         /// The return value from the performance logic should conform to the semantics of the parameter value passed to
-        /// <see cref="Performance.CompletePerformance(bool?)"/>.
+        /// <see cref="Performance.FinishPerformance(bool?)"/>.
         /// </para>
         /// <para>
         /// The <paramref name="namingHierarchy"/> may be used to give the performance a name, so that its results (and subsequent report)
@@ -83,7 +83,7 @@ namespace CSF.Screenplay
 
                 var result = await performanceLogic(cancellationToken).ConfigureAwait(false);
 
-                performance.CompletePerformance(result);
+                performance.FinishPerformance(result);
             }
         }
 
@@ -91,11 +91,7 @@ namespace CSF.Screenplay
         /// <param name="services">An optional dependency injection service collection</param>
         public Screenplay(IServiceCollection services = default)
         {
-            services = services ?? new ServiceCollection();
-            services.AddTransient<ICreatesPerformance, PerformanceFactory>();
-            services.AddSingleton(this);
-            services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
-            serviceProvider = services.BuildServiceProvider();
+            serviceProvider = DependencyInjectionSetup.SetupDependencyInjection(services, this);
         }
     }
 }

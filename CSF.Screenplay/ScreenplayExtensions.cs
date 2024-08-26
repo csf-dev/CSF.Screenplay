@@ -26,7 +26,7 @@ namespace CSF.Screenplay
         /// This method begins a new Dependency Injection Scope, and within that scope starts the performance, which executes the specified
         /// performance logic: <paramref name="performanceLogic"/>.
         /// The return value from the performance logic should conform to the semantics of the parameter value passed to
-        /// <see cref="Performance.CompletePerformance(bool?)"/>.
+        /// <see cref="Performance.FinishPerformance(bool?)"/>.
         /// </para>
         /// <para>
         /// The <paramref name="namingHierarchy"/> may be used to give the performance a name, so that its results (and subsequent report)

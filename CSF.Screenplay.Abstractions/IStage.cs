@@ -10,7 +10,7 @@ namespace CSF.Screenplay
     /// The Stage is an optional but recommended component of Screenplay, useful when a <see cref="Performance"/> involves
     /// repeated use of an <see cref="Actor"/>.
     /// It facilitates the use of passive voice and the use of pronouns within the logic of performances without needing to
-    /// frequently repeat the <see cref="Actor.Name"/> of the actor.
+    /// frequently repeat the <see cref="IHasName.Name"/> of the actor.
     /// </para>
     /// <para>
     /// It is often more consise and easier to understand performances when some of the steps use the passive voice.

@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Performances
         NotStarted = 0,
 
         /// <summary>The performance has been started but is not yet complete; use
-        /// <see cref="IBeginsAndEndsPerformance.CompletePerformance(bool?)"/> to complete it.</summary>
+        /// <see cref="IBeginsAndEndsPerformance.FinishPerformance(bool?)"/> to complete it.</summary>
         InProgress,
 
         /// <summary>The performance has completed and was a success.</summary>
