@@ -4,7 +4,7 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-    public partial class Actor : ICanPerformGiven, ICanPerformWhen, ICanPerformThen
+    public sealed partial class Actor : ICanPerformGiven, ICanPerformWhen, ICanPerformThen
     {
         ValueTask ICanPerformGiven.WasAbleTo(IPerformable performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken, PerformancePhase.Given);

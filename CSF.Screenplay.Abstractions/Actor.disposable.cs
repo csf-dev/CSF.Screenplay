@@ -2,18 +2,18 @@ using System;
 
 namespace CSF.Screenplay
 {
-    public partial class Actor : IDisposable
+    public sealed partial class Actor : IDisposable
     {
         bool disposedValue;
 
-        /// <summary>Virtual method implementing the dispose pattern, for extensibility.</summary>
+        /// <summary>Method implementing the dispose pattern.</summary>
         /// <remarks>
         /// <para>
         /// This implementation of disposal will iterate through all of this actor's <see cref="Abilities"/>
         /// and - for any of them which implement <see cref="IDisposable"/> - dispose them.
         /// </para>
         /// </remarks>
-        protected virtual void Dispose(bool disposing)
+        void Dispose(bool disposing)
         {
             if (disposedValue) return;
 

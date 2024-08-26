@@ -5,7 +5,7 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-    public partial class Actor : ICanPerform
+    public sealed partial class Actor : ICanPerform
     {
         /// <summary>
         /// Performs an action or task which returns no result.
@@ -15,7 +15,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async ValueTask PerformAsync(IPerformable performable,
+        async ValueTask PerformAsync(IPerformable performable,
                                                   CancellationToken cancellationToken = default,
                                                   PerformancePhase phase = PerformancePhase.Unspecified)
         {
@@ -46,7 +46,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async ValueTask<object> PerformAsync(IPerformableWithResult performable,
+        async ValueTask<object> PerformAsync(IPerformableWithResult performable,
                                                           CancellationToken cancellationToken = default,
                                                           PerformancePhase phase = PerformancePhase.Unspecified)
         {
@@ -79,7 +79,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
+        async ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
                                                         CancellationToken cancellationToken = default,
                                                         PerformancePhase phase = PerformancePhase.Unspecified)
         {

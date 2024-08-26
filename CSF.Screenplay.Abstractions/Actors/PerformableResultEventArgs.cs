@@ -18,7 +18,7 @@
         /// <param name="performable">The performable item</param>
         /// <param name="result">The result from the performable</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformableResultEventArgs(ICanPerform actor,
+        public PerformableResultEventArgs(Actor actor,
                                           object performable,
                                           object result,
                                           PerformancePhase phase = PerformancePhase.Unspecified) : base(actor, performable, phase)

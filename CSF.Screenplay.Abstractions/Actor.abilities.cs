@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace CSF.Screenplay
 {
-    public partial class Actor : IHasAbilities
+    public sealed partial class Actor : IHasAbilities
     {
         readonly HashSet<object> abilities = new HashSet<object>();
 
         /// <summary>Gets a collection of the actor's abilities</summary>
-        protected virtual HashSet<object> Abilities => abilities;
+        HashSet<object> Abilities => abilities;
 
         IReadOnlyCollection<object> IHasAbilities.Abilities => Abilities;
 
@@ -17,7 +17,7 @@ namespace CSF.Screenplay
         /// <param name="ability">The ability to add</param>
         /// <exception cref="ArgumentNullException">If the ability is <see langword="null" /></exception>
         /// <exception cref="InvalidOperationException">If the actor already has an ability of this type or a derived type</exception>
-        protected virtual void IsAbleTo(object ability)
+        void IsAbleTo(object ability)
         {
             if (ability is null) throw new ArgumentNullException(nameof(ability));
             AssertNotDisposed();

@@ -23,7 +23,7 @@ namespace CSF.Screenplay.Actors
         /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformableEventArgs(ICanPerform actor, object performable, PerformancePhase phase = PerformancePhase.Unspecified) : base(actor)
+        public PerformableEventArgs(Actor actor, object performable, PerformancePhase phase = PerformancePhase.Unspecified) : base(actor)
         {
             Performable = performable ?? throw new ArgumentNullException(nameof(performable));
             Phase = Enum.IsDefined(typeof(PerformancePhase), phase)

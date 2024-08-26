@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Actors
         /// <param name="performable">The performable item which raised the exception</param>
         /// <param name="exception">The exception which occurred</param>
         /// <param name="phase">The phase of performance which was underway when the exception occurred</param>
-        public PerformableFailureEventArgs(ICanPerform actor,
+        public PerformableFailureEventArgs(Actor actor,
                                            object performable,
                                            Exception exception,
                                            PerformancePhase phase = PerformancePhase.Unspecified) : base(actor, performable, phase)
