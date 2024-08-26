@@ -35,41 +35,12 @@ references:
   fullName.vb: CSF.Screenplay.Actor.New
   nameWithType: Actor.Actor
   nameWithType.vb: Actor.New
-- uid: CSF.Screenplay.Actor.Abilities
-  name: Abilities
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Abilities
-  commentId: P:CSF.Screenplay.Actor.Abilities
-  fullName: CSF.Screenplay.Actor.Abilities
-  nameWithType: Actor.Abilities
-- uid: CSF.Screenplay.Actor.Abilities*
-  name: Abilities
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Abilities_
-  commentId: Overload:CSF.Screenplay.Actor.Abilities
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.Abilities
-  nameWithType: Actor.Abilities
 - uid: CSF.Screenplay.Actor.BeginPerformable
   name: BeginPerformable
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_BeginPerformable
   commentId: E:CSF.Screenplay.Actor.BeginPerformable
   fullName: CSF.Screenplay.Actor.BeginPerformable
   nameWithType: Actor.BeginPerformable
-- uid: CSF.Screenplay.Actor.Dispose(System.Boolean)
-  name: Dispose(bool)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose_System_Boolean_
-  commentId: M:CSF.Screenplay.Actor.Dispose(System.Boolean)
-  name.vb: Dispose(Boolean)
-  fullName: CSF.Screenplay.Actor.Dispose(bool)
-  fullName.vb: CSF.Screenplay.Actor.Dispose(Boolean)
-  nameWithType: Actor.Dispose(bool)
-  nameWithType.vb: Actor.Dispose(Boolean)
-- uid: CSF.Screenplay.Actor.Dispose*
-  name: Dispose
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose_
-  commentId: Overload:CSF.Screenplay.Actor.Dispose
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.Dispose
-  nameWithType: Actor.Dispose
 - uid: CSF.Screenplay.Actor.EndPerformable
   name: EndPerformable
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_EndPerformable
@@ -98,143 +69,6 @@ references:
   commentId: E:CSF.Screenplay.Actor.GainedAbility
   fullName: CSF.Screenplay.Actor.GainedAbility
   nameWithType: Actor.GainedAbility
-- uid: CSF.Screenplay.Actor.InvokeBeginPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: InvokeBeginPerformable(object, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeBeginPerformable_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.InvokeBeginPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: InvokeBeginPerformable(Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actor.InvokeBeginPerformable(object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actor.InvokeBeginPerformable(Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.InvokeBeginPerformable(object, PerformancePhase)
-  nameWithType.vb: Actor.InvokeBeginPerformable(Object, PerformancePhase)
-- uid: CSF.Screenplay.Actor.InvokeBeginPerformable*
-  name: InvokeBeginPerformable
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeBeginPerformable_
-  commentId: Overload:CSF.Screenplay.Actor.InvokeBeginPerformable
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.InvokeBeginPerformable
-  nameWithType: Actor.InvokeBeginPerformable
-- uid: CSF.Screenplay.Actor.InvokeEndPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: InvokeEndPerformable(object, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeEndPerformable_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.InvokeEndPerformable(System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: InvokeEndPerformable(Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actor.InvokeEndPerformable(object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actor.InvokeEndPerformable(Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.InvokeEndPerformable(object, PerformancePhase)
-  nameWithType.vb: Actor.InvokeEndPerformable(Object, PerformancePhase)
-- uid: CSF.Screenplay.Actor.InvokeEndPerformable*
-  name: InvokeEndPerformable
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeEndPerformable_
-  commentId: Overload:CSF.Screenplay.Actor.InvokeEndPerformable
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.InvokeEndPerformable
-  nameWithType: Actor.InvokeEndPerformable
-- uid: CSF.Screenplay.Actor.InvokeGainedAbility(System.Object)
-  name: InvokeGainedAbility(object)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeGainedAbility_System_Object_
-  commentId: M:CSF.Screenplay.Actor.InvokeGainedAbility(System.Object)
-  name.vb: InvokeGainedAbility(Object)
-  fullName: CSF.Screenplay.Actor.InvokeGainedAbility(object)
-  fullName.vb: CSF.Screenplay.Actor.InvokeGainedAbility(Object)
-  nameWithType: Actor.InvokeGainedAbility(object)
-  nameWithType.vb: Actor.InvokeGainedAbility(Object)
-- uid: CSF.Screenplay.Actor.InvokeGainedAbility*
-  name: InvokeGainedAbility
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeGainedAbility_
-  commentId: Overload:CSF.Screenplay.Actor.InvokeGainedAbility
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.InvokeGainedAbility
-  nameWithType: Actor.InvokeGainedAbility
-- uid: CSF.Screenplay.Actor.InvokePerformableFailed(System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name: InvokePerformableFailed(object, Exception, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokePerformableFailed_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.InvokePerformableFailed(System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: InvokePerformableFailed(Object, Exception, PerformancePhase)
-  fullName: CSF.Screenplay.Actor.InvokePerformableFailed(object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actor.InvokePerformableFailed(Object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.InvokePerformableFailed(object, Exception, PerformancePhase)
-  nameWithType.vb: Actor.InvokePerformableFailed(Object, Exception, PerformancePhase)
-- uid: CSF.Screenplay.Actor.InvokePerformableFailed*
-  name: InvokePerformableFailed
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokePerformableFailed_
-  commentId: Overload:CSF.Screenplay.Actor.InvokePerformableFailed
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.InvokePerformableFailed
-  nameWithType: Actor.InvokePerformableFailed
-- uid: CSF.Screenplay.Actor.InvokePerformableResult(System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: InvokePerformableResult(object, object, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokePerformableResult_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.InvokePerformableResult(System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: InvokePerformableResult(Object, Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actor.InvokePerformableResult(object, object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actor.InvokePerformableResult(Object, Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.InvokePerformableResult(object, object, PerformancePhase)
-  nameWithType.vb: Actor.InvokePerformableResult(Object, Object, PerformancePhase)
-- uid: CSF.Screenplay.Actor.InvokePerformableResult*
-  name: InvokePerformableResult
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokePerformableResult_
-  commentId: Overload:CSF.Screenplay.Actor.InvokePerformableResult
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.InvokePerformableResult
-  nameWithType: Actor.InvokePerformableResult
-- uid: CSF.Screenplay.Actor.IsAbleTo(System.Object)
-  name: IsAbleTo(object)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_IsAbleTo_System_Object_
-  commentId: M:CSF.Screenplay.Actor.IsAbleTo(System.Object)
-  name.vb: IsAbleTo(Object)
-  fullName: CSF.Screenplay.Actor.IsAbleTo(object)
-  fullName.vb: CSF.Screenplay.Actor.IsAbleTo(Object)
-  nameWithType: Actor.IsAbleTo(object)
-  nameWithType.vb: Actor.IsAbleTo(Object)
-- uid: CSF.Screenplay.Actor.IsAbleTo*
-  name: IsAbleTo
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_IsAbleTo_
-  commentId: Overload:CSF.Screenplay.Actor.IsAbleTo
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.IsAbleTo
-  nameWithType: Actor.IsAbleTo
-- uid: CSF.Screenplay.Actor.Name
-  name: Name
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Name
-  commentId: P:CSF.Screenplay.Actor.Name
-  fullName: CSF.Screenplay.Actor.Name
-  nameWithType: Actor.Name
-- uid: CSF.Screenplay.Actor.Name*
-  name: Name
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Name_
-  commentId: Overload:CSF.Screenplay.Actor.Name
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.Name
-  nameWithType: Actor.Name
-- uid: CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformable,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformAsync(IPerformable, CancellationToken, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformAsync_CSF_Screenplay_IPerformable_System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformable,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  fullName: CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformable, System.Threading.CancellationToken, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.PerformAsync(IPerformable, CancellationToken, PerformancePhase)
-- uid: CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformableWithResult,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformAsync(IPerformableWithResult, CancellationToken, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformAsync_CSF_Screenplay_IPerformableWithResult_System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformableWithResult,System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  fullName: CSF.Screenplay.Actor.PerformAsync(CSF.Screenplay.IPerformableWithResult, System.Threading.CancellationToken, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.PerformAsync(IPerformableWithResult, CancellationToken, PerformancePhase)
-- uid: CSF.Screenplay.Actor.PerformAsync*
-  name: PerformAsync
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformAsync_
-  commentId: Overload:CSF.Screenplay.Actor.PerformAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.PerformAsync
-  nameWithType: Actor.PerformAsync
-- uid: CSF.Screenplay.Actor.PerformAsync``1(CSF.Screenplay.IPerformableWithResult{``0},System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformAsync<T>(IPerformableWithResult<T>, CancellationToken, PerformancePhase)
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformAsync__1_CSF_Screenplay_IPerformableWithResult___0__System_Threading_CancellationToken_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actor.PerformAsync``1(CSF.Screenplay.IPerformableWithResult{``0},System.Threading.CancellationToken,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: PerformAsync(Of T)(IPerformableWithResult(Of T), CancellationToken, PerformancePhase)
-  fullName: CSF.Screenplay.Actor.PerformAsync<T>(CSF.Screenplay.IPerformableWithResult<T>, System.Threading.CancellationToken, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actor.PerformAsync(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), System.Threading.CancellationToken, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: Actor.PerformAsync<T>(IPerformableWithResult<T>, CancellationToken, PerformancePhase)
-  nameWithType.vb: Actor.PerformAsync(Of T)(IPerformableWithResult(Of T), CancellationToken, PerformancePhase)
 - uid: CSF.Screenplay.Actor.PerformableFailed
   name: PerformableFailed
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformableFailed
@@ -247,19 +81,6 @@ references:
   commentId: E:CSF.Screenplay.Actor.PerformableResult
   fullName: CSF.Screenplay.Actor.PerformableResult
   nameWithType: Actor.PerformableResult
-- uid: CSF.Screenplay.Actor.PerformanceIdentity
-  name: PerformanceIdentity
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformanceIdentity
-  commentId: P:CSF.Screenplay.Actor.PerformanceIdentity
-  fullName: CSF.Screenplay.Actor.PerformanceIdentity
-  nameWithType: Actor.PerformanceIdentity
-- uid: CSF.Screenplay.Actor.PerformanceIdentity*
-  name: PerformanceIdentity
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_PerformanceIdentity_
-  commentId: Overload:CSF.Screenplay.Actor.PerformanceIdentity
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.PerformanceIdentity
-  nameWithType: Actor.PerformanceIdentity
 - uid: CSF.Screenplay.ActorExtensions
   name: ActorExtensions
   href: api/CSF.Screenplay.ActorExtensions.html
@@ -353,15 +174,24 @@ references:
   commentId: T:CSF.Screenplay.Actors.ActorEventArgs
   fullName: CSF.Screenplay.Actors.ActorEventArgs
   nameWithType: ActorEventArgs
-- uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.ICanPerform)
-  name: ActorEventArgs(ICanPerform)
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_CSF_Screenplay_ICanPerform_
-  commentId: M:CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.ICanPerform)
-  name.vb: New(ICanPerform)
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorEventArgs(CSF.Screenplay.ICanPerform)
-  fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New(CSF.Screenplay.ICanPerform)
-  nameWithType: ActorEventArgs.ActorEventArgs(ICanPerform)
-  nameWithType.vb: ActorEventArgs.New(ICanPerform)
+- uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.Actor)
+  name: ActorEventArgs(Actor)
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.Actor)
+  name.vb: New(Actor)
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorEventArgs(CSF.Screenplay.Actor)
+  fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New(CSF.Screenplay.Actor)
+  nameWithType: ActorEventArgs.ActorEventArgs(Actor)
+  nameWithType.vb: ActorEventArgs.New(Actor)
+- uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor(System.String,System.Guid)
+  name: ActorEventArgs(string, Guid)
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Actors.ActorEventArgs.#ctor(System.String,System.Guid)
+  name.vb: New(String, Guid)
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorEventArgs(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New(String, System.Guid)
+  nameWithType: ActorEventArgs.ActorEventArgs(string, Guid)
+  nameWithType.vb: ActorEventArgs.New(String, Guid)
 - uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor*
   name: ActorEventArgs
   href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_
@@ -372,19 +202,32 @@ references:
   fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New
   nameWithType: ActorEventArgs.ActorEventArgs
   nameWithType.vb: ActorEventArgs.New
-- uid: CSF.Screenplay.Actors.ActorEventArgs.Actor
-  name: Actor
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor
-  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.Actor
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.Actor
-  nameWithType: ActorEventArgs.Actor
-- uid: CSF.Screenplay.Actors.ActorEventArgs.Actor*
-  name: Actor
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor_
-  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.Actor
+- uid: CSF.Screenplay.Actors.ActorEventArgs.ActorName
+  name: ActorName
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName
+  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.ActorName
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorName
+  nameWithType: ActorEventArgs.ActorName
+- uid: CSF.Screenplay.Actors.ActorEventArgs.ActorName*
+  name: ActorName
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName_
+  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.ActorName
   isSpec: "True"
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.Actor
-  nameWithType: ActorEventArgs.Actor
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorName
+  nameWithType: ActorEventArgs.ActorName
+- uid: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
+  name: PerformanceIdentity
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity
+  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
+  nameWithType: ActorEventArgs.PerformanceIdentity
+- uid: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity*
+  name: PerformanceIdentity
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity_
+  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
+  isSpec: "True"
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
+  nameWithType: ActorEventArgs.PerformanceIdentity
 - uid: CSF.Screenplay.Actors.Cast
   name: Cast
   href: api/CSF.Screenplay.Actors.Cast.html
@@ -483,15 +326,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.GainAbilityEventArgs
   fullName: CSF.Screenplay.Actors.GainAbilityEventArgs
   nameWithType: GainAbilityEventArgs
-- uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object)
-  name: GainAbilityEventArgs(ICanPerform, object)
-  href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_CSF_Screenplay_ICanPerform_System_Object_
-  commentId: M:CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object)
-  name.vb: New(ICanPerform, Object)
-  fullName: CSF.Screenplay.Actors.GainAbilityEventArgs.GainAbilityEventArgs(CSF.Screenplay.ICanPerform, object)
-  fullName.vb: CSF.Screenplay.Actors.GainAbilityEventArgs.New(CSF.Screenplay.ICanPerform, Object)
-  nameWithType: GainAbilityEventArgs.GainAbilityEventArgs(ICanPerform, object)
-  nameWithType.vb: GainAbilityEventArgs.New(ICanPerform, Object)
+- uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(System.String,System.Guid,System.Object)
+  name: GainAbilityEventArgs(string, Guid, object)
+  href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_System_String_System_Guid_System_Object_
+  commentId: M:CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(System.String,System.Guid,System.Object)
+  name.vb: New(String, Guid, Object)
+  fullName: CSF.Screenplay.Actors.GainAbilityEventArgs.GainAbilityEventArgs(string, System.Guid, object)
+  fullName.vb: CSF.Screenplay.Actors.GainAbilityEventArgs.New(String, System.Guid, Object)
+  nameWithType: GainAbilityEventArgs.GainAbilityEventArgs(string, Guid, object)
+  nameWithType.vb: GainAbilityEventArgs.New(String, Guid, Object)
 - uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor*
   name: GainAbilityEventArgs
   href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_
@@ -659,15 +502,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableEventArgs
   fullName: CSF.Screenplay.Actors.PerformableEventArgs
   nameWithType: PerformableEventArgs
-- uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableEventArgs(ICanPerform, object, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_CSF_Screenplay_ICanPerform_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(ICanPerform, Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableEventArgs.PerformableEventArgs(CSF.Screenplay.ICanPerform, object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableEventArgs.New(CSF.Screenplay.ICanPerform, Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableEventArgs.PerformableEventArgs(ICanPerform, object, PerformancePhase)
-  nameWithType.vb: PerformableEventArgs.New(ICanPerform, Object, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor(System.String,System.Guid,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableEventArgs(string, Guid, object, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_System_String_System_Guid_System_Object_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableEventArgs.#ctor(System.String,System.Guid,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(String, Guid, Object, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableEventArgs.PerformableEventArgs(string, System.Guid, object, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableEventArgs.New(String, System.Guid, Object, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableEventArgs.PerformableEventArgs(string, Guid, object, PerformancePhase)
+  nameWithType.vb: PerformableEventArgs.New(String, Guid, Object, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor*
   name: PerformableEventArgs
   href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_
@@ -710,15 +553,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableFailureEventArgs
   fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs
   nameWithType: PerformableFailureEventArgs
-- uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableFailureEventArgs(ICanPerform, object, Exception, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_CSF_Screenplay_ICanPerform_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(ICanPerform, Object, Exception, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs.PerformableFailureEventArgs(CSF.Screenplay.ICanPerform, object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableFailureEventArgs.New(CSF.Screenplay.ICanPerform, Object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableFailureEventArgs.PerformableFailureEventArgs(ICanPerform, object, Exception, PerformancePhase)
-  nameWithType.vb: PerformableFailureEventArgs.New(ICanPerform, Object, Exception, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(System.String,System.Guid,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableFailureEventArgs(string, Guid, object, Exception, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_System_String_System_Guid_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(System.String,System.Guid,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(String, Guid, Object, Exception, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs.PerformableFailureEventArgs(string, System.Guid, object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableFailureEventArgs.New(String, System.Guid, Object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableFailureEventArgs.PerformableFailureEventArgs(string, Guid, object, Exception, PerformancePhase)
+  nameWithType.vb: PerformableFailureEventArgs.New(String, Guid, Object, Exception, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor*
   name: PerformableFailureEventArgs
   href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_
@@ -748,15 +591,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableResultEventArgs
   fullName: CSF.Screenplay.Actors.PerformableResultEventArgs
   nameWithType: PerformableResultEventArgs
-- uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableResultEventArgs(ICanPerform, object, object, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_CSF_Screenplay_ICanPerform_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(CSF.Screenplay.ICanPerform,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(ICanPerform, Object, Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableResultEventArgs.PerformableResultEventArgs(CSF.Screenplay.ICanPerform, object, object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableResultEventArgs.New(CSF.Screenplay.ICanPerform, Object, Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableResultEventArgs.PerformableResultEventArgs(ICanPerform, object, object, PerformancePhase)
-  nameWithType.vb: PerformableResultEventArgs.New(ICanPerform, Object, Object, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(System.String,System.Guid,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableResultEventArgs(string, Guid, object, object, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_System_String_System_Guid_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(System.String,System.Guid,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(String, Guid, Object, Object, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableResultEventArgs.PerformableResultEventArgs(string, System.Guid, object, object, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableResultEventArgs.New(String, System.Guid, Object, Object, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableResultEventArgs.PerformableResultEventArgs(string, Guid, object, object, PerformancePhase)
+  nameWithType.vb: PerformableResultEventArgs.New(String, Guid, Object, Object, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor*
   name: PerformableResultEventArgs
   href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_
@@ -1164,6 +1007,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IHasServiceProvider.ServiceProvider
   nameWithType: IHasServiceProvider.ServiceProvider
+- uid: CSF.Screenplay.IHasSubscribedActors
+  name: IHasSubscribedActors
+  href: api/CSF.Screenplay.IHasSubscribedActors.html
+  commentId: T:CSF.Screenplay.IHasSubscribedActors
+  fullName: CSF.Screenplay.IHasSubscribedActors
+  nameWithType: IHasSubscribedActors
+- uid: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
+  name: GetSubscribedActors()
+  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_GetSubscribedActors
+  commentId: M:CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
+  fullName: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors()
+  nameWithType: IHasSubscribedActors.GetSubscribedActors()
+- uid: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors*
+  name: GetSubscribedActors
+  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_GetSubscribedActors_
+  commentId: Overload:CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
+  isSpec: "True"
+  fullName: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
+  nameWithType: IHasSubscribedActors.GetSubscribedActors
+- uid: CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
+  name: SubscribeTo(IHasPerformableEvents)
+  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_SubscribeTo_CSF_Screenplay_Actors_IHasPerformableEvents_
+  commentId: M:CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
+  fullName: CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
+  nameWithType: IHasSubscribedActors.SubscribeTo(IHasPerformableEvents)
+- uid: CSF.Screenplay.IHasSubscribedActors.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.IHasSubscribedActors.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.IHasSubscribedActors.SubscribeTo
+  nameWithType: IHasSubscribedActors.SubscribeTo
 - uid: CSF.Screenplay.IPerformable
   name: IPerformable
   href: api/CSF.Screenplay.IPerformable.html
@@ -1578,12 +1453,6 @@ references:
   fullName.vb: CSF.Screenplay.Performance.New
   nameWithType: Performance.Performance
   nameWithType.vb: Performance.New
-- uid: CSF.Screenplay.Performance.Begin
-  name: Begin
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_Begin
-  commentId: E:CSF.Screenplay.Performance.Begin
-  fullName: CSF.Screenplay.Performance.Begin
-  nameWithType: Performance.Begin
 - uid: CSF.Screenplay.Performance.BeginPerformance
   name: BeginPerformance()
   href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_BeginPerformance
@@ -1597,28 +1466,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.BeginPerformance
   nameWithType: Performance.BeginPerformance
-- uid: CSF.Screenplay.Performance.Complete
-  name: Complete
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_Complete
-  commentId: E:CSF.Screenplay.Performance.Complete
-  fullName: CSF.Screenplay.Performance.Complete
-  nameWithType: Performance.Complete
-- uid: CSF.Screenplay.Performance.CompletePerformance(System.Nullable{System.Boolean})
-  name: CompletePerformance(bool?)
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_CompletePerformance_System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.Performance.CompletePerformance(System.Nullable{System.Boolean})
-  name.vb: CompletePerformance(Boolean?)
-  fullName: CSF.Screenplay.Performance.CompletePerformance(bool?)
-  fullName.vb: CSF.Screenplay.Performance.CompletePerformance(Boolean?)
-  nameWithType: Performance.CompletePerformance(bool?)
-  nameWithType.vb: Performance.CompletePerformance(Boolean?)
-- uid: CSF.Screenplay.Performance.CompletePerformance*
-  name: CompletePerformance
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_CompletePerformance_
-  commentId: Overload:CSF.Screenplay.Performance.CompletePerformance
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performance.CompletePerformance
-  nameWithType: Performance.CompletePerformance
 - uid: CSF.Screenplay.Performance.Dispose
   name: Dispose()
   href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_Dispose
@@ -1654,6 +1501,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.Equals
   nameWithType: Performance.Equals
+- uid: CSF.Screenplay.Performance.FinishPerformance(System.Nullable{System.Boolean})
+  name: FinishPerformance(bool?)
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_FinishPerformance_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performance.FinishPerformance(System.Nullable{System.Boolean})
+  name.vb: FinishPerformance(Boolean?)
+  fullName: CSF.Screenplay.Performance.FinishPerformance(bool?)
+  fullName.vb: CSF.Screenplay.Performance.FinishPerformance(Boolean?)
+  nameWithType: Performance.FinishPerformance(bool?)
+  nameWithType.vb: Performance.FinishPerformance(Boolean?)
+- uid: CSF.Screenplay.Performance.FinishPerformance*
+  name: FinishPerformance
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_FinishPerformance_
+  commentId: Overload:CSF.Screenplay.Performance.FinishPerformance
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performance.FinishPerformance
+  nameWithType: Performance.FinishPerformance
 - uid: CSF.Screenplay.Performance.GetHashCode
   name: GetHashCode()
   href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_GetHashCode
@@ -1667,6 +1530,35 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.GetHashCode
   nameWithType: Performance.GetHashCode
+- uid: CSF.Screenplay.Performance.InvokePerformanceBegun
+  name: InvokePerformanceBegun()
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceBegun
+  commentId: M:CSF.Screenplay.Performance.InvokePerformanceBegun
+  fullName: CSF.Screenplay.Performance.InvokePerformanceBegun()
+  nameWithType: Performance.InvokePerformanceBegun()
+- uid: CSF.Screenplay.Performance.InvokePerformanceBegun*
+  name: InvokePerformanceBegun
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceBegun_
+  commentId: Overload:CSF.Screenplay.Performance.InvokePerformanceBegun
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performance.InvokePerformanceBegun
+  nameWithType: Performance.InvokePerformanceBegun
+- uid: CSF.Screenplay.Performance.InvokePerformanceFinished(System.Nullable{System.Boolean})
+  name: InvokePerformanceFinished(bool?)
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceFinished_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performance.InvokePerformanceFinished(System.Nullable{System.Boolean})
+  name.vb: InvokePerformanceFinished(Boolean?)
+  fullName: CSF.Screenplay.Performance.InvokePerformanceFinished(bool?)
+  fullName.vb: CSF.Screenplay.Performance.InvokePerformanceFinished(Boolean?)
+  nameWithType: Performance.InvokePerformanceFinished(bool?)
+  nameWithType.vb: Performance.InvokePerformanceFinished(Boolean?)
+- uid: CSF.Screenplay.Performance.InvokePerformanceFinished*
+  name: InvokePerformanceFinished
+  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceFinished_
+  commentId: Overload:CSF.Screenplay.Performance.InvokePerformanceFinished
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performance.InvokePerformanceFinished
+  nameWithType: Performance.InvokePerformanceFinished
 - uid: CSF.Screenplay.Performance.NamingHierarchy
   name: NamingHierarchy
   href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_NamingHierarchy
@@ -1719,6 +1611,60 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.ServiceProvider
   nameWithType: Performance.ServiceProvider
+- uid: CSF.Screenplay.PerformanceImpl
+  name: PerformanceImpl
+  href: api/CSF.Screenplay.PerformanceImpl.html
+  commentId: T:CSF.Screenplay.PerformanceImpl
+  fullName: CSF.Screenplay.PerformanceImpl
+  nameWithType: PerformanceImpl
+- uid: CSF.Screenplay.PerformanceImpl.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)
+  name: PerformanceImpl(IServiceProvider, IList<IdentifierAndName>, Guid)
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl__ctor_System_IServiceProvider_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_
+  commentId: M:CSF.Screenplay.PerformanceImpl.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)
+  name.vb: New(IServiceProvider, IList(Of IdentifierAndName), Guid)
+  fullName: CSF.Screenplay.PerformanceImpl.PerformanceImpl(System.IServiceProvider, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, System.Guid)
+  fullName.vb: CSF.Screenplay.PerformanceImpl.New(System.IServiceProvider, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), System.Guid)
+  nameWithType: PerformanceImpl.PerformanceImpl(IServiceProvider, IList<IdentifierAndName>, Guid)
+  nameWithType.vb: PerformanceImpl.New(IServiceProvider, IList(Of IdentifierAndName), Guid)
+- uid: CSF.Screenplay.PerformanceImpl.#ctor*
+  name: PerformanceImpl
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl__ctor_
+  commentId: Overload:CSF.Screenplay.PerformanceImpl.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.PerformanceImpl.PerformanceImpl
+  fullName.vb: CSF.Screenplay.PerformanceImpl.New
+  nameWithType: PerformanceImpl.PerformanceImpl
+  nameWithType.vb: PerformanceImpl.New
+- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
+  name: InvokePerformanceBegun()
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun
+  commentId: M:CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
+  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun()
+  nameWithType: PerformanceImpl.InvokePerformanceBegun()
+- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun*
+  name: InvokePerformanceBegun
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun_
+  commentId: Overload:CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
+  nameWithType: PerformanceImpl.InvokePerformanceBegun
+- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(System.Nullable{System.Boolean})
+  name: InvokePerformanceFinished(bool?)
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceFinished_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(System.Nullable{System.Boolean})
+  name.vb: InvokePerformanceFinished(Boolean?)
+  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(bool?)
+  fullName.vb: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(Boolean?)
+  nameWithType: PerformanceImpl.InvokePerformanceFinished(bool?)
+  nameWithType.vb: PerformanceImpl.InvokePerformanceFinished(Boolean?)
+- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished*
+  name: InvokePerformanceFinished
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceFinished_
+  commentId: Overload:CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished
+  nameWithType: PerformanceImpl.InvokePerformanceFinished
 - uid: CSF.Screenplay.PerformanceStarter
   name: PerformanceStarter
   href: api/CSF.Screenplay.PerformanceStarter.html
@@ -1789,22 +1735,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.BeginPerformance
   nameWithType: IBeginsAndEndsPerformance.BeginPerformance
-- uid: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance(System.Nullable{System.Boolean})
-  name: CompletePerformance(bool?)
-  href: api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_CompletePerformance_System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance(System.Nullable{System.Boolean})
-  name.vb: CompletePerformance(Boolean?)
-  fullName: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance(bool?)
-  fullName.vb: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance(Boolean?)
-  nameWithType: IBeginsAndEndsPerformance.CompletePerformance(bool?)
-  nameWithType.vb: IBeginsAndEndsPerformance.CompletePerformance(Boolean?)
-- uid: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance*
-  name: CompletePerformance
-  href: api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_CompletePerformance_
-  commentId: Overload:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance
+- uid: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance(System.Nullable{System.Boolean})
+  name: FinishPerformance(bool?)
+  href: api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance(System.Nullable{System.Boolean})
+  name.vb: FinishPerformance(Boolean?)
+  fullName: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance(bool?)
+  fullName.vb: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance(Boolean?)
+  nameWithType: IBeginsAndEndsPerformance.FinishPerformance(bool?)
+  nameWithType.vb: IBeginsAndEndsPerformance.FinishPerformance(Boolean?)
+- uid: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance*
+  name: FinishPerformance
+  href: api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_
+  commentId: Overload:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance
   isSpec: "True"
-  fullName: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.CompletePerformance
-  nameWithType: IBeginsAndEndsPerformance.CompletePerformance
+  fullName: CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance
+  nameWithType: IBeginsAndEndsPerformance.FinishPerformance
 - uid: CSF.Screenplay.Performances.ICreatesPerformance
   name: ICreatesPerformance
   href: api/CSF.Screenplay.Performances.ICreatesPerformance.html
@@ -1824,6 +1770,131 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.ICreatesPerformance.CreatePerformance
   nameWithType: ICreatesPerformance.CreatePerformance
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents
+  name: IHasPerformanceEvents
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html
+  commentId: T:CSF.Screenplay.Performances.IHasPerformanceEvents
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents
+  nameWithType: IHasPerformanceEvents
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.BeginPerformable
+  name: BeginPerformable
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_BeginPerformable
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.BeginPerformable
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.BeginPerformable
+  nameWithType: IHasPerformanceEvents.BeginPerformable
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.EndPerformable
+  name: EndPerformable
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_EndPerformable
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.EndPerformable
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.EndPerformable
+  nameWithType: IHasPerformanceEvents.EndPerformable
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.GainedAbility
+  name: GainedAbility
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_GainedAbility
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.GainedAbility
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.GainedAbility
+  nameWithType: IHasPerformanceEvents.GainedAbility
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableFailed
+  name: PerformableFailed
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_PerformableFailed
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableFailed
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableFailed
+  nameWithType: IHasPerformanceEvents.PerformableFailed
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableResult
+  name: PerformableResult
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_PerformableResult
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableResult
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableResult
+  nameWithType: IHasPerformanceEvents.PerformableResult
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceBegun
+  name: PerformanceBegun
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_PerformanceBegun
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceBegun
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceBegun
+  nameWithType: IHasPerformanceEvents.PerformanceBegun
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
+  name: PerformanceFinished
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_PerformanceFinished
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
+  nameWithType: IHasPerformanceEvents.PerformanceFinished
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents
+  name: IRelaysPerformanceEvents
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html
+  commentId: T:CSF.Screenplay.Performances.IRelaysPerformanceEvents
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents
+  nameWithType: IRelaysPerformanceEvents
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
+  name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
+  name.vb: InvokePerformanceBegun(Guid, IList(Of IdentifierAndName))
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName))
+  nameWithType: IRelaysPerformanceEvents.InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokePerformanceBegun(Guid, IList(Of IdentifierAndName))
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun*
+  name: InvokePerformanceBegun
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceBegun_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun
+  nameWithType: IRelaysPerformanceEvents.InvokePerformanceBegun
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name: InvokePerformanceFinished(Guid, IList<IdentifierAndName>, bool?)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceFinished_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name.vb: InvokePerformanceFinished(Guid, IList(Of IdentifierAndName), Boolean?)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished(System.Guid, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, bool?)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished(System.Guid, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), Boolean?)
+  nameWithType: IRelaysPerformanceEvents.InvokePerformanceFinished(Guid, IList<IdentifierAndName>, bool?)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokePerformanceFinished(Guid, IList(Of IdentifierAndName), Boolean?)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished*
+  name: InvokePerformanceFinished
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceFinished_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished
+  nameWithType: IRelaysPerformanceEvents.InvokePerformanceFinished
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo(CSF.Screenplay.Actor)
+  name: SubscribeTo(Actor)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_SubscribeTo_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo(CSF.Screenplay.Actor)
+  nameWithType: IRelaysPerformanceEvents.SubscribeTo(Actor)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo
+  nameWithType: IRelaysPerformanceEvents.SubscribeTo
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom(CSF.Screenplay.Actor)
+  name: UnsubscribeFrom(Actor)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_UnsubscribeFrom_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom(CSF.Screenplay.Actor)
+  nameWithType: IRelaysPerformanceEvents.UnsubscribeFrom(Actor)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom*
+  name: UnsubscribeFrom
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_UnsubscribeFrom_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFrom
+  nameWithType: IRelaysPerformanceEvents.UnsubscribeFrom
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors(System.Guid)
+  name: UnsubscribeFromAllActors(Guid)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_UnsubscribeFromAllActors_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors(System.Guid)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors(System.Guid)
+  nameWithType: IRelaysPerformanceEvents.UnsubscribeFromAllActors(Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors*
+  name: UnsubscribeFromAllActors
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_UnsubscribeFromAllActors_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.UnsubscribeFromAllActors
+  nameWithType: IRelaysPerformanceEvents.UnsubscribeFromAllActors
 - uid: CSF.Screenplay.Performances.IdentifierAndName
   name: IdentifierAndName
   href: api/CSF.Screenplay.Performances.IdentifierAndName.html
@@ -1923,44 +1994,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IdentifierAndName.WasIdentifierAutoGenerated
   nameWithType: IdentifierAndName.WasIdentifierAutoGenerated
-- uid: CSF.Screenplay.Performances.PerformanceCompleteEventArgs
-  name: PerformanceCompleteEventArgs
-  href: api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html
-  commentId: T:CSF.Screenplay.Performances.PerformanceCompleteEventArgs
-  fullName: CSF.Screenplay.Performances.PerformanceCompleteEventArgs
-  nameWithType: PerformanceCompleteEventArgs
-- uid: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.#ctor(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
-  name: PerformanceCompleteEventArgs(Guid, IReadOnlyList<IdentifierAndName>, bool?)
-  href: api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html#CSF_Screenplay_Performances_PerformanceCompleteEventArgs__ctor_System_Guid_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.Performances.PerformanceCompleteEventArgs.#ctor(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
-  name.vb: New(Guid, IReadOnlyList(Of IdentifierAndName), Boolean?)
-  fullName: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.PerformanceCompleteEventArgs(System.Guid, System.Collections.Generic.IReadOnlyList<CSF.Screenplay.Performances.IdentifierAndName>, bool?)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.New(System.Guid, System.Collections.Generic.IReadOnlyList(Of CSF.Screenplay.Performances.IdentifierAndName), Boolean?)
-  nameWithType: PerformanceCompleteEventArgs.PerformanceCompleteEventArgs(Guid, IReadOnlyList<IdentifierAndName>, bool?)
-  nameWithType.vb: PerformanceCompleteEventArgs.New(Guid, IReadOnlyList(Of IdentifierAndName), Boolean?)
-- uid: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.#ctor*
-  name: PerformanceCompleteEventArgs
-  href: api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html#CSF_Screenplay_Performances_PerformanceCompleteEventArgs__ctor_
-  commentId: Overload:CSF.Screenplay.Performances.PerformanceCompleteEventArgs.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.PerformanceCompleteEventArgs
-  fullName.vb: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.New
-  nameWithType: PerformanceCompleteEventArgs.PerformanceCompleteEventArgs
-  nameWithType.vb: PerformanceCompleteEventArgs.New
-- uid: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success
-  name: Success
-  href: api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html#CSF_Screenplay_Performances_PerformanceCompleteEventArgs_Success
-  commentId: P:CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success
-  fullName: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success
-  nameWithType: PerformanceCompleteEventArgs.Success
-- uid: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success*
-  name: Success
-  href: api/CSF.Screenplay.Performances.PerformanceCompleteEventArgs.html#CSF_Screenplay_Performances_PerformanceCompleteEventArgs_Success_
-  commentId: Overload:CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performances.PerformanceCompleteEventArgs.Success
-  nameWithType: PerformanceCompleteEventArgs.Success
 - uid: CSF.Screenplay.Performances.PerformanceEventArgs
   name: PerformanceEventArgs
   href: api/CSF.Screenplay.Performances.PerformanceEventArgs.html
@@ -1999,6 +2032,125 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceEventArgs.NamingHierarchy
   nameWithType: PerformanceEventArgs.NamingHierarchy
+- uid: CSF.Screenplay.Performances.PerformanceEventBus
+  name: PerformanceEventBus
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html
+  commentId: T:CSF.Screenplay.Performances.PerformanceEventBus
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus
+  nameWithType: PerformanceEventBus
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.BeginPerformable
+  name: BeginPerformable
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_BeginPerformable
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.BeginPerformable
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.BeginPerformable
+  nameWithType: PerformanceEventBus.BeginPerformable
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.EndPerformable
+  name: EndPerformable
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_EndPerformable
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.EndPerformable
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.EndPerformable
+  nameWithType: PerformanceEventBus.EndPerformable
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
+  name: GainedAbility
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_GainedAbility
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
+  nameWithType: PerformanceEventBus.GainedAbility
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
+  name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
+  name.vb: InvokePerformanceBegun(Guid, IList(Of IdentifierAndName))
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName))
+  nameWithType: PerformanceEventBus.InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
+  nameWithType.vb: PerformanceEventBus.InvokePerformanceBegun(Guid, IList(Of IdentifierAndName))
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun*
+  name: InvokePerformanceBegun
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceBegun_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun
+  nameWithType: PerformanceEventBus.InvokePerformanceBegun
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name: InvokePerformanceFinished(Guid, IList<IdentifierAndName>, bool?)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceFinished_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name.vb: InvokePerformanceFinished(Guid, IList(Of IdentifierAndName), Boolean?)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished(System.Guid, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, bool?)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished(System.Guid, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), Boolean?)
+  nameWithType: PerformanceEventBus.InvokePerformanceFinished(Guid, IList<IdentifierAndName>, bool?)
+  nameWithType.vb: PerformanceEventBus.InvokePerformanceFinished(Guid, IList(Of IdentifierAndName), Boolean?)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished*
+  name: InvokePerformanceFinished
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceFinished_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished
+  nameWithType: PerformanceEventBus.InvokePerformanceFinished
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.PerformableFailed
+  name: PerformableFailed
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_PerformableFailed
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformableFailed
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformableFailed
+  nameWithType: PerformanceEventBus.PerformableFailed
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.PerformableResult
+  name: PerformableResult
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_PerformableResult
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformableResult
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformableResult
+  nameWithType: PerformanceEventBus.PerformableResult
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceBegun
+  name: PerformanceBegun
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_PerformanceBegun
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformanceBegun
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceBegun
+  nameWithType: PerformanceEventBus.PerformanceBegun
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
+  name: PerformanceFinished
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_PerformanceFinished
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
+  nameWithType: PerformanceEventBus.PerformanceFinished
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo(CSF.Screenplay.Actor)
+  name: SubscribeTo(Actor)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_SubscribeTo_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo(CSF.Screenplay.Actor)
+  nameWithType: PerformanceEventBus.SubscribeTo(Actor)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo
+  nameWithType: PerformanceEventBus.SubscribeTo
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom(CSF.Screenplay.Actor)
+  name: UnsubscribeFrom(Actor)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_UnsubscribeFrom_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom(CSF.Screenplay.Actor)
+  nameWithType: PerformanceEventBus.UnsubscribeFrom(Actor)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom*
+  name: UnsubscribeFrom
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_UnsubscribeFrom_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFrom
+  nameWithType: PerformanceEventBus.UnsubscribeFrom
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors(System.Guid)
+  name: UnsubscribeFromAllActors(Guid)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_UnsubscribeFromAllActors_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors(System.Guid)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors(System.Guid)
+  nameWithType: PerformanceEventBus.UnsubscribeFromAllActors(Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors*
+  name: UnsubscribeFromAllActors
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_UnsubscribeFromAllActors_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.UnsubscribeFromAllActors
+  nameWithType: PerformanceEventBus.UnsubscribeFromAllActors
 - uid: CSF.Screenplay.Performances.PerformanceFactory
   name: PerformanceFactory
   href: api/CSF.Screenplay.Performances.PerformanceFactory.html
@@ -2037,6 +2189,44 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceFactory.CreatePerformance
   nameWithType: PerformanceFactory.CreatePerformance
+- uid: CSF.Screenplay.Performances.PerformanceFinishedEventArgs
+  name: PerformanceFinishedEventArgs
+  href: api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html
+  commentId: T:CSF.Screenplay.Performances.PerformanceFinishedEventArgs
+  fullName: CSF.Screenplay.Performances.PerformanceFinishedEventArgs
+  nameWithType: PerformanceFinishedEventArgs
+- uid: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name: PerformanceFinishedEventArgs(Guid, IReadOnlyList<IdentifierAndName>, bool?)
+  href: api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html#CSF_Screenplay_Performances_PerformanceFinishedEventArgs__ctor_System_Guid_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})
+  name.vb: New(Guid, IReadOnlyList(Of IdentifierAndName), Boolean?)
+  fullName: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.PerformanceFinishedEventArgs(System.Guid, System.Collections.Generic.IReadOnlyList<CSF.Screenplay.Performances.IdentifierAndName>, bool?)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.New(System.Guid, System.Collections.Generic.IReadOnlyList(Of CSF.Screenplay.Performances.IdentifierAndName), Boolean?)
+  nameWithType: PerformanceFinishedEventArgs.PerformanceFinishedEventArgs(Guid, IReadOnlyList<IdentifierAndName>, bool?)
+  nameWithType.vb: PerformanceFinishedEventArgs.New(Guid, IReadOnlyList(Of IdentifierAndName), Boolean?)
+- uid: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor*
+  name: PerformanceFinishedEventArgs
+  href: api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html#CSF_Screenplay_Performances_PerformanceFinishedEventArgs__ctor_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.PerformanceFinishedEventArgs
+  fullName.vb: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.New
+  nameWithType: PerformanceFinishedEventArgs.PerformanceFinishedEventArgs
+  nameWithType.vb: PerformanceFinishedEventArgs.New
+- uid: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success
+  name: Success
+  href: api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html#CSF_Screenplay_Performances_PerformanceFinishedEventArgs_Success
+  commentId: P:CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success
+  fullName: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success
+  nameWithType: PerformanceFinishedEventArgs.Success
+- uid: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success*
+  name: Success
+  href: api/CSF.Screenplay.Performances.PerformanceFinishedEventArgs.html#CSF_Screenplay_Performances_PerformanceFinishedEventArgs_Success_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceFinishedEventArgs.Success
+  nameWithType: PerformanceFinishedEventArgs.Success
 - uid: CSF.Screenplay.Performances.PerformanceScopeEventArgs
   name: PerformanceScopeEventArgs
   href: api/CSF.Screenplay.Performances.PerformanceScopeEventArgs.html

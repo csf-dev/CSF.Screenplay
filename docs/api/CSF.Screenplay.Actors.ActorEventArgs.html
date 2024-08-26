@@ -166,9 +166,9 @@ Class ActorEventArgs  <a class="header-action link-secondary" title="View source
 
   <a id="CSF_Screenplay_Actors_ActorEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_ActorEventArgs__ctor_CSF_Screenplay_ICanPerform_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.ICanPerform)">
-  ActorEventArgs(ICanPerform)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/ActorEventArgs.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_ActorEventArgs__ctor_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.#ctor(CSF.Screenplay.Actor)">
+  ActorEventArgs(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/ActorEventArgs.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></p>
@@ -176,13 +176,49 @@ Class ActorEventArgs  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ActorEventArgs(ICanPerform actor)</code></pre>
+    <pre><code class="lang-csharp hljs">public ActorEventArgs(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
     <dd><p>The actor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Actors_ActorEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Actors_ActorEventArgs__ctor_System_String_System_Guid_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.#ctor(System.String,System.Guid)">
+  ActorEventArgs(string, Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/ActorEventArgs.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActorEventArgs(string actorName, Guid performanceIdentity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The actor's name</p>
+</dd>
+    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>The actor's performance identity</p>
 </dd>
   </dl>
 
@@ -201,19 +237,19 @@ Class ActorEventArgs  <a class="header-action link-secondary" title="View source
 </h2>
 
 
-  <a id="CSF_Screenplay_Actors_ActorEventArgs_Actor_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.Actor*"></a>
+  <a id="CSF_Screenplay_Actors_ActorEventArgs_ActorName_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.ActorName*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_ActorEventArgs_Actor" data-uid="CSF.Screenplay.Actors.ActorEventArgs.Actor">
-  Actor
+  <h3 id="CSF_Screenplay_Actors_ActorEventArgs_ActorName" data-uid="CSF.Screenplay.Actors.ActorEventArgs.ActorName">
+  ActorName
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/ActorEventArgs.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the actor to which these event arguments relate</p>
+  <div class="markdown level1 summary"><p>Gets the name of the actor to which these event arguments relate</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICanPerform Actor { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string ActorName { get; }</code></pre>
   </div>
 
 
@@ -222,7 +258,39 @@ Class ActorEventArgs  <a class="header-action link-secondary" title="View source
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity_" data-uid="CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity*"></a>
+
+  <h3 id="CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity" data-uid="CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity">
+  PerformanceIdentity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/v2-rewrite/CSF.Screenplay.Abstractions/Actors/ActorEventArgs.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the identity of the <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> to which the actor belongs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid PerformanceIdentity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
     <dd></dd>
   </dl>
 
@@ -235,7 +303,7 @@ Class ActorEventArgs  <a class="header-action link-secondary" title="View source
 
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
-      <div><a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></div>
   </div>
 
 </article>
