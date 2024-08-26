@@ -172,6 +172,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.CastExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.CastExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.DefaultStrings.yml",
       "output": {
         ".html": {
@@ -526,6 +536,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ScreenplayExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.StageExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.StageExtensions.html"
         }
       },
       "version": ""
