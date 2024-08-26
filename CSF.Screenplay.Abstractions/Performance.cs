@@ -105,6 +105,7 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         public void FinishPerformance(bool? success)
         {
+            if (!hasBegun) throw new InvalidOperationException($"An instance of {nameof(Performance)} may not be completed before it has begun.");
             if(hasCompleted) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be completed only once; performance instances are not reusable.");
             hasBegun = hasCompleted = true;
             this.success = success;

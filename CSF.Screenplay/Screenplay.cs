@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
+using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
 
 namespace CSF.Screenplay
 {
@@ -27,10 +28,11 @@ namespace CSF.Screenplay
     /// </para>
     /// </remarks>
     /// <seealso cref="Performance"/>
-    public sealed class Screenplay
+    public sealed class Screenplay : IHasServiceProvider
     {
-        readonly IServiceProvider serviceProvider;
-        
+        /// <inheritdoc/>
+        public IServiceProvider ServiceProvider { get; }
+
         /// <summary>Occurs at the beginning of a Screenplay process.</summary>
         public event EventHandler ScreenplayBegun;
 
@@ -66,7 +68,7 @@ namespace CSF.Screenplay
         /// <param name="cancellationToken">An optional cancellation token to abort the performance logic.</param>
         /// <returns>A task which completes when the performance's logic has completed.</returns>
         /// <exception cref="ArgumentNullException">If the <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
-        public async Task ExecuteAsPerformanceAsync(Func<CancellationToken,Task<bool?>> performanceLogic,
+        public async Task ExecuteAsPerformanceAsync(AsyncPerformanceLogic performanceLogic,
                                                     IList<IdentifierAndName> namingHierarchy = default,
                                                     CancellationToken cancellationToken = default)
         {
@@ -74,14 +76,14 @@ namespace CSF.Screenplay
                 throw new ArgumentNullException(nameof(performanceLogic));
             namingHierarchy = namingHierarchy ?? new List<IdentifierAndName>();
 
-            using(var scope = serviceProvider.CreateScope())
+            using(var scope = ServiceProvider.CreateScope())
             using(var performance = scope.ServiceProvider.GetRequiredService<Performance>())
             {
                 performance.NamingHierarchy.Clear();
                 performance.NamingHierarchy.AddRange(namingHierarchy);
                 performance.BeginPerformance();
 
-                var result = await performanceLogic(cancellationToken).ConfigureAwait(false);
+                var result = await performanceLogic(scope.ServiceProvider, cancellationToken).ConfigureAwait(false);
 
                 performance.FinishPerformance(result);
             }
@@ -91,7 +93,7 @@ namespace CSF.Screenplay
         /// <param name="services">An optional dependency injection service collection</param>
         public Screenplay(IServiceCollection services = default)
         {
-            serviceProvider = DependencyInjectionSetup.SetupDependencyInjection(services, this);
+            ServiceProvider = DependencyInjectionSetup.SetupDependencyInjection(services, this);
         }
     }
 }

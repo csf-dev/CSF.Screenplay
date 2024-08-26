@@ -4,22 +4,26 @@ using CSF.Screenplay.Performances;
 namespace CSF.Screenplay.Actors
 {
     /// <summary>The default implementation of <see cref="IStage"/> which provides a context for which actor is currently active.</summary>
-    public class Stage : IStage, IHasPerformanceIdentity
+    public sealed class Stage : IStage, IHasPerformanceIdentity
     {
-        readonly ICast cast;
         readonly object spotlightSyncRoot = new object();
 
         Actor spotlitActor;
 
+        /// <summary>
+        /// Gets the cast to which the current stage is linked.
+        /// </summary>
+        public ICast Cast { get; }
+
         /// <inheritdoc/>
-        public virtual Guid PerformanceIdentity => cast.PerformanceIdentity;
+        public Guid PerformanceIdentity => Cast.PerformanceIdentity;
 
         /// <inheritdoc/>
         public event EventHandler<ActorEventArgs> ActorSpotlit;
 
         /// <summary>Invokes the <see cref="ActorSpotlit"/> event.</summary>
         /// <param name="actor">The actor which is now in the spotlight</param>
-        protected virtual void InvokeActorSpotlit(Actor actor)
+        void InvokeActorSpotlit(Actor actor)
         {
             var args = new ActorEventArgs(actor);
             ActorSpotlit?.Invoke(this, args);
@@ -29,17 +33,17 @@ namespace CSF.Screenplay.Actors
         public event EventHandler<PerformanceScopeEventArgs> SpotlightTurnedOff;
 
         /// <summary>Invokes the <see cref="SpotlightTurnedOff"/> event.</summary>
-        protected virtual void InvokeSpotlitTurnedOff()
+        void InvokeSpotlitTurnedOff()
         {
             var args = new PerformanceScopeEventArgs(PerformanceIdentity);
             SpotlightTurnedOff?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public virtual Actor GetSpotlitActor() => spotlitActor;
+        public Actor GetSpotlitActor() => spotlitActor;
 
         /// <inheritdoc/>
-        public virtual void Spotlight(Actor actor)
+        public void Spotlight(Actor actor)
         {
             if (actor is null) throw new ArgumentNullException(nameof(actor));
 
@@ -53,15 +57,15 @@ namespace CSF.Screenplay.Actors
         }
 
         /// <inheritdoc/>
-        public virtual Actor Spotlight(IPersona persona)
+        public Actor Spotlight(IPersona persona)
         {
-            var actor = cast.GetActor(persona);
+            var actor = Cast.GetActor(persona);
             Spotlight(actor);
             return actor;
         }
 
         /// <inheritdoc/>
-        public virtual Actor TurnSpotlightOff()
+        public Actor TurnSpotlightOff()
         {
             Actor previouslySpotlit;
 
@@ -81,7 +85,7 @@ namespace CSF.Screenplay.Actors
         /// <exception cref="ArgumentNullException">If the cast is <see langword="null" /></exception>
         public Stage(ICast cast)
         {
-            this.cast = cast ?? throw new ArgumentNullException(nameof(cast));
+            Cast = cast ?? throw new ArgumentNullException(nameof(cast));
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Performances;
+using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
+using SyncPerformanceLogic = System.Func<System.IServiceProvider, bool?>;
 
 namespace CSF.Screenplay
 {
@@ -33,8 +35,8 @@ namespace CSF.Screenplay
         /// may be identified. This parameter has the same semantics as <see cref="Performance.NamingHierarchy"/>.
         /// </para>
         /// <para>
-        /// Use this method only if <see cref="Screenplay.ExecuteAsPerformanceAsync(Func{CancellationToken, Task{bool?}}, IList{IdentifierAndName}, CancellationToken)"/> is not viable.
-        /// This method executes the logic asynchronously, as is the architecture of Screenplay, but then uses <see cref="Task.Wait()"/> to convert
+        /// Use this method only if <see cref="Screenplay.ExecuteAsPerformanceAsync(AsyncPerformanceLogic, IList{IdentifierAndName}, CancellationToken)"/> is not viable.
+        /// This method executes the logic asynchronously, as is the architecture of Screenplay, but then uses <see cref="Task.Wait(CancellationToken)"/> to convert
         /// the asynchronous result into a synchronous one.
         /// </para>
         /// <para>
@@ -50,7 +52,7 @@ namespace CSF.Screenplay
         /// <exception cref="ArgumentNullException">If either <paramref name="screenplay"/> or <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
         /// <exception cref="ArgumentOutOfRangeException">If <paramref name="timeoutMiliseconds"/> is a negative number.</exception>
         public static void ExecuteAsPerformance(this Screenplay screenplay,
-                                                Func<bool?> performanceLogic,
+                                                SyncPerformanceLogic performanceLogic,
                                                 IList<IdentifierAndName> namingHierarchy = default,
                                                 int timeoutMiliseconds = default)
         {
@@ -65,14 +67,15 @@ namespace CSF.Screenplay
             screenplay.ExecuteAsPerformanceAsync(GetAsyncPerformanceLogic(performanceLogic),
                                                  namingHierarchy,
                                                  token)
-                .Wait();
+                .Wait(token);
         }
 
-        static Func<CancellationToken,Task<bool?>> GetAsyncPerformanceLogic(Func<bool?> syncPerformanceLogic)
+        static AsyncPerformanceLogic GetAsyncPerformanceLogic(SyncPerformanceLogic syncPerformanceLogic)
         {
-            return token =>
+            return (services, token) =>
             {
-                var task = new Task<bool?>(syncPerformanceLogic);
+                var task = new Task<bool?>(() => syncPerformanceLogic(services), token);
+                task.Start();
                 task.Wait(token);
                 var result = task.Result;
                 switch (result)

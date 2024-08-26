@@ -6,33 +6,33 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CSF.Screenplay.Actors
 {
     /// <summary>The default implementation of <see cref="ICast"/> which serves as a registry/factory for <see cref="Actor"/> instances.</summary>
-    public class Cast : ICast
+    public sealed class Cast : ICast
     {
         readonly IRelaysPerformanceEvents performanceEventBus;
         readonly ConcurrentDictionary<string,Actor> actors = new ConcurrentDictionary<string,Actor>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <inheritdoc/>
-        public virtual IServiceProvider ServiceProvider { get; }
+        public IServiceProvider ServiceProvider { get; }
 
         /// <inheritdoc/>
-        public virtual Guid PerformanceIdentity { get; }
+        public Guid PerformanceIdentity { get; }
 
         /// <inheritdoc/>
         public event EventHandler<ActorEventArgs> ActorCreated;
 
         /// <summary>Invokes the <see cref="ActorCreated"/> event.</summary>
         /// <param name="actor">The actor which has been created</param>
-        protected virtual void InvokeActorCreated(Actor actor)
+        void InvokeActorCreated(Actor actor)
         {
             var args = new ActorEventArgs(actor);
             ActorCreated?.Invoke(this, args);
         }
 
         /// <inheritdoc/>
-        public virtual Actor GetActor(string name) => GetActor(new NameOnlyPersona(name));
+        public Actor GetActor(string name) => GetActor(new NameOnlyPersona(name));
 
         /// <inheritdoc/>
-        public virtual Actor GetActor(IPersona persona)
+        public Actor GetActor(IPersona persona)
         {
             if (persona is null) throw new ArgumentNullException(nameof(persona));
             return actors.GetOrAdd(persona.Name, _ => {

@@ -59,6 +59,11 @@ namespace CSF.Screenplay
     public interface IStage
     {
         /// <summary>
+        /// Gets the cast to which the current stage is linked.
+        /// </summary>
+        ICast Cast { get; }
+
+        /// <summary>
         /// Occurs when an actor enters the spotlight.
         /// </summary>
         /// <remarks>
@@ -119,6 +124,10 @@ namespace CSF.Screenplay
         /// See <see cref="ICast.GetActor(IPersona)"/> for more information.
         /// </para>
         /// <para>To remove an actor from the spotlight without replacing them, use <see cref="TurnSpotlightOff"/>.</para>
+        /// <para>
+        /// Consider using <see cref="StageExtensions.Spotlight{TPersona}(IStage)"/> instead of this method; the generic version takes
+        /// care of resolving the persona instance from dependency injection for you.
+        /// </para>
         /// </remarks>
         /// <returns>The actor instance which was placed into the spotlight.</returns>
         /// <exception cref="ArgumentNullException">If the actor is <see langword="null" />.</exception>

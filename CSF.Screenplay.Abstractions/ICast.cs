@@ -7,7 +7,7 @@ namespace CSF.Screenplay
     /// actors across a <see cref="Performance"/></summary>
     /// <remarks>
     /// <para>
-    /// The cast is an optional but recommended component of Screenplay logic.
+    /// The cast is a strongly recommended component of Screenplay logic.
     /// It is used to manage <see cref="Actor"/> objects for the duration of a <see cref="Performance"/>.
     /// Cast objects are always scoped to a <see cref="Performance"/> and have the same lifetime.
     /// Any actors created or tracked by a cast will also automatically share this lifetime.
@@ -20,8 +20,8 @@ namespace CSF.Screenplay
     /// A cast, and the actors managed by a cast, are independent per <see cref="Performance"/>, though.
     /// </para>
     /// <para>
-    /// Performances which use only a single actor might find it simpler to use an <see cref="IPersona"/> directly for the creation
-    /// of that single actor, or (not recommended) create the actor manually.
+    /// Developers are strongly advised to configure their actors via classes which derive from <see cref="IPersona"/>.
+    /// This allows for sharing of common actor-setup logic such as abilities.
     /// </para>
     /// <para>
     /// In <xref href="ScreenplayGlossaryItem?text=a+Screenplay"/> the cast is <xref href="InjectingServicesArticle?text=a+dependency-injectable+service"/>
@@ -78,6 +78,10 @@ namespace CSF.Screenplay
         /// <para>
         /// Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
         /// should match an existing actor if the specified persona name differs only in case.
+        /// </para>
+        /// <para>
+        /// Consider using <see cref="CastExtensions.GetActor{TPersona}(ICast)"/> instead of this method; the generic version takes
+        /// care of resolving the persona instance from dependency injection for you.
         /// </para>
         /// </remarks>
         /// <returns>An actor of the specified name, either an existing instance or a newly-created actor.</returns>
