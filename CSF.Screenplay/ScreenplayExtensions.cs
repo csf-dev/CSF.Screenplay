@@ -61,17 +61,27 @@ namespace CSF.Screenplay
             if (timeoutMiliseconds < 0)
                 throw new ArgumentOutOfRangeException(nameof(timeoutMiliseconds), "The timeout must not be negative.");
 
-            Func<CancellationToken,Task<bool?>> asyncPerformanceLogic = token => {
-                var result = Task.Run(performanceLogic, token).Result;
-                switch(result)
+            var token = GetCancellationToken(timeoutMiliseconds);
+            screenplay.ExecuteAsPerformanceAsync(GetAsyncPerformanceLogic(performanceLogic),
+                                                 namingHierarchy,
+                                                 token)
+                .Wait();
+        }
+
+        static Func<CancellationToken,Task<bool?>> GetAsyncPerformanceLogic(Func<bool?> syncPerformanceLogic)
+        {
+            return token =>
+            {
+                var task = new Task<bool?>(syncPerformanceLogic);
+                task.Wait(token);
+                var result = task.Result;
+                switch (result)
                 {
-                case true: return trueTask;
-                case false: return falseTask;
-                default: return nullTask;
+                    case true: return trueTask;
+                    case false: return falseTask;
+                    default: return nullTask;
                 }
             };
-
-            screenplay.ExecuteAsPerformanceAsync(asyncPerformanceLogic, namingHierarchy, GetCancellationToken(timeoutMiliseconds)).Wait();
         }
 
         static CancellationToken GetCancellationToken(int timeoutMiliseconds)

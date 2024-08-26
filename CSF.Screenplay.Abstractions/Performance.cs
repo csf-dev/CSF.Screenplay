@@ -28,10 +28,10 @@ namespace CSF.Screenplay
     /// </para>
     /// </remarks>
     public abstract class Performance : IHasPerformanceIdentity,
-                                      IHasServiceProvider,
-                                      IEquatable<Performance>,
-                                      IDisposable,
-                                      IBeginsAndEndsPerformance
+                                        IHasServiceProvider,
+                                        IEquatable<Performance>,
+                                        IDisposable,
+                                        IBeginsAndEndsPerformance
     {        
         bool hasBegun, hasCompleted;
         bool? success;
