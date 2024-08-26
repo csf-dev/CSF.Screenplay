@@ -10,8 +10,9 @@
     <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
 
     <Target Name="Build">
-        <Message Text="Executing '$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)'" />
-        <Exec Command="$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)" />
+        <Message Text="Skipping docs build in this build config" Condition="'$(Configuration)' != 'Docs'" />
+        <Message Text="Executing '$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)'" Condition="'$(Configuration)' == 'Docs'" />
+        <Exec Command="$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)" Condition="'$(Configuration)' == 'Docs'" />
     </Target>
     <Target Name="Clean">
         <RemoveDir Directories="$(OutputPath);$(ApiDocsPath)" />

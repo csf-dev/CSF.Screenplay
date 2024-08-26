@@ -25,10 +25,20 @@
 			"group": {
 				"kind": "build"
 			},
+			"command": "dotnet",
+			"args": ["build", "-c", "Docs"],
+			"problemMatcher": [],
+			"label": "Build docs website",
+			"options": {"cwd": "${workspaceFolder}"}
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
 			"command": "docfx",
 			"args": ["CSF.Screenplay.Docs/docfx.json", "--serve"],
 			"problemMatcher": [],
-			"label": "docfx: serve"
+			"label": "Serve docs website"
 		}
 	]
 }

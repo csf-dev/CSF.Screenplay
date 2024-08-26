@@ -10,4 +10,5 @@ build_script:
 test_script:
   - dotnet test
 after_test:
+  - dotnet build -c Docs
   - ps: Tools\appveyor_publish_docs.ps1
