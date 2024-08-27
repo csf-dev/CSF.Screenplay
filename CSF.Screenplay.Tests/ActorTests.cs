@@ -61,7 +61,7 @@ public class ActorTests
         sut.IsAbleTo(ability2.Object);
         sut.IsAbleTo(stringAbility);
 
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
 
         Assert.Multiple(() =>
         {
@@ -75,8 +75,8 @@ public class ActorTests
     {
         sut.IsAbleTo(ability1.Object);
 
-        ((IDisposable) sut).Dispose();
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
+        sut.Dispose();
 
         ability1.Verify(x => x.Dispose(), Times.Once);
     }
@@ -84,28 +84,28 @@ public class ActorTests
     [Test,AutoMoqData]
     public void IsAbleToShouldThrowIfCalledAfterActorIsDisposed(Actor sut, string stringAbility)
     {
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
         Assert.That(() => sut.IsAbleTo(stringAbility), Throws.InstanceOf<ObjectDisposedException>());
     }
 
     [Test,AutoMoqData]
     public void PerformAsyncWithoutResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformable performable)
     {
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
         Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
     }
 
     [Test,AutoMoqData]
     public void PerformAsyncWithNongenericResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformableWithResult performable)
     {
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
         Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
     }
 
     [Test,AutoMoqData]
     public void PerformAsyncWithGenericResultShouldThrowIfCalledAfterActorIsDisposed(Actor sut, IPerformableWithResult<string> performable)
     {
-        ((IDisposable) sut).Dispose();
+        sut.Dispose();
         Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
     }
 
