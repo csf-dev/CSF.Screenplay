@@ -123,7 +123,7 @@ Interface IStage  <a class="header-action link-secondary" title="View source" hr
 
   <h2 id="CSF_Screenplay_IStage_examples">Examples</h2>
   <p>
-Consider a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> which is based upon the following, which is described in Gherkin BDD syntax:
+Consider a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> which is based upon the following, which is described in Gherkin BDD syntax:
 <a href="https://cucumber.io/docs/gherkin/">https://cucumber.io/docs/gherkin/</a>.
 </p>
 <pre><code class="lang-csharp">Given Jack can wash dishes
@@ -141,7 +141,7 @@ With such a concept, our gherkin could read "he has" or "he washes" and could ac
 
   <h2 id="CSF_Screenplay_IStage_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-The Stage is an optional but recommended component of Screenplay, useful when a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> involves
+The Stage is an optional but recommended component of Screenplay, useful when a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> involves
 repeated use of an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>.
 It facilitates the use of passive voice and the use of pronouns within the logic of performances without needing to
 frequently repeat the <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name">Name</a> of the actor.
@@ -158,7 +158,7 @@ Spotlighting an actor facilitates performance steps which use 'the current actor
 named actor.
 </p>
 <p>
-The lifetime of a stage instance is equal to the lifetime of the current <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.
+The lifetime of a stage instance is equal to the lifetime of the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
 An actor in the spotlight will be consistent across the lifetime of the performance but will be independent
 of other performances.
 </p>

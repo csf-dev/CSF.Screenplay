@@ -98,7 +98,7 @@ Interface ICast  <a class="header-action link-secondary" title="View source" hre
   </div>
 
   <div class="markdown summary"><p>A combined registry and factory for <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, useful when coordinating multiple
-actors across a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
+actors across a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -136,8 +136,8 @@ actors across a <a class="xref" href="CSF.Screenplay.Performance.html">Performan
   <h2 id="CSF_Screenplay_ICast_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 The cast is a strongly recommended component of Screenplay logic.
-It is used to manage <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> objects for the duration of a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.
-Cast objects are always scoped to a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> and have the same lifetime.
+It is used to manage <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> objects for the duration of a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
+Cast objects are always scoped to a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> and have the same lifetime.
 Any actors created or tracked by a cast will also automatically share this lifetime.
 </p>
 <p>
@@ -145,7 +145,7 @@ In terms of design patterns, the cast operates as both a registry: <a href="http
 and as a factory: <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">https://en.wikipedia.org/wiki/Factory_method_pattern</a> for actors.
 During the cast's lifetime, subsequent calls to an overload of <code>GetActor</code> using the same actor/persona name will
 return the instance of <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> as was created the first time the method was called with that name.
-A cast, and the actors managed by a cast, are independent per <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>, though.
+A cast, and the actors managed by a cast, are independent per <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>, though.
 </p>
 <p>
 Developers are strongly advised to configure their actors via classes which derive from <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>.
@@ -325,7 +325,7 @@ method which uses that persona to define the actor.
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.IStage.html">IStage</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></div>
       <div><a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></div>
   </div>
 

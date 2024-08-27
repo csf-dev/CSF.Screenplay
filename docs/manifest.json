@@ -302,6 +302,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.IPerformance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.IPerformance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.IPersona.yml",
       "output": {
         ".html": {
@@ -376,16 +386,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performance.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.PerformanceImpl.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.PerformanceImpl.html"
         }
       },
       "version": ""

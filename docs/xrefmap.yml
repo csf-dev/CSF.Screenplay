@@ -1096,6 +1096,38 @@ references:
   fullName.vb: CSF.Screenplay.IPerformableWithResult(Of TResult).PerformAsAsync
   nameWithType: IPerformableWithResult<TResult>.PerformAsAsync
   nameWithType.vb: IPerformableWithResult(Of TResult).PerformAsAsync
+- uid: CSF.Screenplay.IPerformance
+  name: IPerformance
+  href: api/CSF.Screenplay.IPerformance.html
+  commentId: T:CSF.Screenplay.IPerformance
+  fullName: CSF.Screenplay.IPerformance
+  nameWithType: IPerformance
+- uid: CSF.Screenplay.IPerformance.NamingHierarchy
+  name: NamingHierarchy
+  href: api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy
+  commentId: P:CSF.Screenplay.IPerformance.NamingHierarchy
+  fullName: CSF.Screenplay.IPerformance.NamingHierarchy
+  nameWithType: IPerformance.NamingHierarchy
+- uid: CSF.Screenplay.IPerformance.NamingHierarchy*
+  name: NamingHierarchy
+  href: api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy_
+  commentId: Overload:CSF.Screenplay.IPerformance.NamingHierarchy
+  isSpec: "True"
+  fullName: CSF.Screenplay.IPerformance.NamingHierarchy
+  nameWithType: IPerformance.NamingHierarchy
+- uid: CSF.Screenplay.IPerformance.PerformanceState
+  name: PerformanceState
+  href: api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_PerformanceState
+  commentId: P:CSF.Screenplay.IPerformance.PerformanceState
+  fullName: CSF.Screenplay.IPerformance.PerformanceState
+  nameWithType: IPerformance.PerformanceState
+- uid: CSF.Screenplay.IPerformance.PerformanceState*
+  name: PerformanceState
+  href: api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_PerformanceState_
+  commentId: Overload:CSF.Screenplay.IPerformance.PerformanceState
+  isSpec: "True"
+  fullName: CSF.Screenplay.IPerformance.PerformanceState
+  nameWithType: IPerformance.PerformanceState
 - uid: CSF.Screenplay.IPersona
   name: IPersona
   href: api/CSF.Screenplay.IPersona.html
@@ -1536,35 +1568,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.GetHashCode
   nameWithType: Performance.GetHashCode
-- uid: CSF.Screenplay.Performance.InvokePerformanceBegun
-  name: InvokePerformanceBegun()
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceBegun
-  commentId: M:CSF.Screenplay.Performance.InvokePerformanceBegun
-  fullName: CSF.Screenplay.Performance.InvokePerformanceBegun()
-  nameWithType: Performance.InvokePerformanceBegun()
-- uid: CSF.Screenplay.Performance.InvokePerformanceBegun*
-  name: InvokePerformanceBegun
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceBegun_
-  commentId: Overload:CSF.Screenplay.Performance.InvokePerformanceBegun
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performance.InvokePerformanceBegun
-  nameWithType: Performance.InvokePerformanceBegun
-- uid: CSF.Screenplay.Performance.InvokePerformanceFinished(System.Nullable{System.Boolean})
-  name: InvokePerformanceFinished(bool?)
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceFinished_System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.Performance.InvokePerformanceFinished(System.Nullable{System.Boolean})
-  name.vb: InvokePerformanceFinished(Boolean?)
-  fullName: CSF.Screenplay.Performance.InvokePerformanceFinished(bool?)
-  fullName.vb: CSF.Screenplay.Performance.InvokePerformanceFinished(Boolean?)
-  nameWithType: Performance.InvokePerformanceFinished(bool?)
-  nameWithType.vb: Performance.InvokePerformanceFinished(Boolean?)
-- uid: CSF.Screenplay.Performance.InvokePerformanceFinished*
-  name: InvokePerformanceFinished
-  href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_InvokePerformanceFinished_
-  commentId: Overload:CSF.Screenplay.Performance.InvokePerformanceFinished
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performance.InvokePerformanceFinished
-  nameWithType: Performance.InvokePerformanceFinished
 - uid: CSF.Screenplay.Performance.NamingHierarchy
   name: NamingHierarchy
   href: api/CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_NamingHierarchy
@@ -1617,73 +1620,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performance.ServiceProvider
   nameWithType: Performance.ServiceProvider
-- uid: CSF.Screenplay.PerformanceImpl
-  name: PerformanceImpl
-  href: api/CSF.Screenplay.PerformanceImpl.html
-  commentId: T:CSF.Screenplay.PerformanceImpl
-  fullName: CSF.Screenplay.PerformanceImpl
-  nameWithType: PerformanceImpl
-- uid: CSF.Screenplay.PerformanceImpl.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)
-  name: PerformanceImpl(IServiceProvider, IList<IdentifierAndName>, Guid)
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl__ctor_System_IServiceProvider_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_
-  commentId: M:CSF.Screenplay.PerformanceImpl.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)
-  name.vb: New(IServiceProvider, IList(Of IdentifierAndName), Guid)
-  fullName: CSF.Screenplay.PerformanceImpl.PerformanceImpl(System.IServiceProvider, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, System.Guid)
-  fullName.vb: CSF.Screenplay.PerformanceImpl.New(System.IServiceProvider, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), System.Guid)
-  nameWithType: PerformanceImpl.PerformanceImpl(IServiceProvider, IList<IdentifierAndName>, Guid)
-  nameWithType.vb: PerformanceImpl.New(IServiceProvider, IList(Of IdentifierAndName), Guid)
-- uid: CSF.Screenplay.PerformanceImpl.#ctor*
-  name: PerformanceImpl
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl__ctor_
-  commentId: Overload:CSF.Screenplay.PerformanceImpl.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.PerformanceImpl.PerformanceImpl
-  fullName.vb: CSF.Screenplay.PerformanceImpl.New
-  nameWithType: PerformanceImpl.PerformanceImpl
-  nameWithType.vb: PerformanceImpl.New
-- uid: CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
-  name: Equals(Performance)
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_Equals_CSF_Screenplay_Performance_
-  commentId: M:CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
-  fullName: CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
-  nameWithType: PerformanceImpl.Equals(Performance)
-- uid: CSF.Screenplay.PerformanceImpl.Equals*
-  name: Equals
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_Equals_
-  commentId: Overload:CSF.Screenplay.PerformanceImpl.Equals
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformanceImpl.Equals
-  nameWithType: PerformanceImpl.Equals
-- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
-  name: InvokePerformanceBegun()
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun
-  commentId: M:CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
-  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun()
-  nameWithType: PerformanceImpl.InvokePerformanceBegun()
-- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun*
-  name: InvokePerformanceBegun
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun_
-  commentId: Overload:CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
-  nameWithType: PerformanceImpl.InvokePerformanceBegun
-- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(System.Nullable{System.Boolean})
-  name: InvokePerformanceFinished(bool?)
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceFinished_System_Nullable_System_Boolean__
-  commentId: M:CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(System.Nullable{System.Boolean})
-  name.vb: InvokePerformanceFinished(Boolean?)
-  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(bool?)
-  fullName.vb: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(Boolean?)
-  nameWithType: PerformanceImpl.InvokePerformanceFinished(bool?)
-  nameWithType.vb: PerformanceImpl.InvokePerformanceFinished(Boolean?)
-- uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished*
-  name: InvokePerformanceFinished
-  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceFinished_
-  commentId: Overload:CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished
-  nameWithType: PerformanceImpl.InvokePerformanceFinished
 - uid: CSF.Screenplay.PerformanceStarter
   name: PerformanceStarter
   href: api/CSF.Screenplay.PerformanceStarter.html

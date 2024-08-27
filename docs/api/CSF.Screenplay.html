@@ -96,7 +96,7 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
-      <dd><p>A representation of an autonomous, or at least seemingly-autonomous, person or system which directs the events of a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
+      <dd><p>A representation of an autonomous, or at least seemingly-autonomous, person or system which directs the events of a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -131,17 +131,12 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></dt>
-      <dd><p>A performance represents a self-contained scope of performables which typically results in overall success or failure.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.PerformanceImpl.html">PerformanceImpl</a></dt>
-      <dd><p>Primary implementation type of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
+      <dd><p>Primary implementation type of <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.PerformanceStarter.html">PerformanceStarter</a></dt>
-      <dd><p>Helper class for beginning the functionality of a Screenplay <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> from your
+      <dd><p>Helper class for beginning the functionality of a Screenplay <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> from your
 own logic, using a fluent interface</p>
 </dd>
     </dl>
@@ -171,13 +166,13 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a></dt>
-      <dd><p>A type which can provide a human-readable report fragment when it is used in a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
+      <dd><p>A type which can provide a human-readable report fragment when it is used in a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.ICast.html">ICast</a></dt>
       <dd><p>A combined registry and factory for <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, useful when coordinating multiple
-actors across a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
+actors across a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -192,7 +187,7 @@ actors across a <a class="xref" href="CSF.Screenplay.Performance.html">Performan
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></dt>
-      <dd><p>An object which provides a value which uniquely identifies the currently-executing <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
+      <dd><p>An object which provides a value which uniquely identifies the currently-executing <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -219,6 +214,11 @@ services from dependency injection.</p>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a></dt>
       <dd><p>An object which represents something that a performer (typically an actor) may perform and which returns a strongly-typed result when it completes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></dt>
+      <dd><p>A performance represents a self-contained scope of performables which typically results in overall success or failure.</p>
 </dd>
     </dl>
     <dl class="jumplist">
