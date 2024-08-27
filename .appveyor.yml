@@ -14,7 +14,7 @@ init:
 install:
     - cmd: dotnet tool install --global dotnet-sonarscanner
     - cmd: dotnet tool install --global coverlet.console
-    - dotnet tool update -g docfx
+    - cmd: dotnet tool update -g docfx
 
 before_build:
     - dotnet --version
@@ -56,5 +56,5 @@ after_test:
         dotnet-sonarscanner end
         /d:"sonar.login=%SONARCLOUD_SECRET_KEY%"
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
-    - dotnet build -c Docs
+    - cmd: dotnet build -c Docs
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
