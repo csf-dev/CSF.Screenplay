@@ -56,7 +56,5 @@ after_test:
         dotnet-sonarscanner end
         /d:"sonar.login=%SONARCLOUD_SECRET_KEY%"
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
-
-after_test:
     - dotnet build -c Docs
-    - ps: Tools\appveyor_publish_docs.ps1
+    - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
