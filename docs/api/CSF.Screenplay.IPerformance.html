@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IPerformance | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IPerformance | Screenplay docs ">
+      
+      <meta name="description" content="A performance represents a self-contained scope of performables which typically results in overall success or failure.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_IPerformance.md&amp;value=---%0Auid%3A%20CSF.Screenplay.IPerformance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.IPerformance">
+
+
+
+  <h1 id="CSF_Screenplay_IPerformance" data-uid="CSF.Screenplay.IPerformance" class="text-break">
+Interface IPerformance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A performance represents a self-contained scope of performables which typically results in overall success or failure.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPerformance : IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IBeginsAndEndsPerformance</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">IHasPerformanceIdentity.PerformanceIdentity</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.IHasServiceProvider.html#CSF_Screenplay_IHasServiceProvider_ServiceProvider">IHasServiceProvider.ServiceProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_BeginPerformance">IBeginsAndEndsPerformance.BeginPerformance()</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_System_Nullable_System_Boolean__">IBeginsAndEndsPerformance.FinishPerformance(bool?)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_IPerformance_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The performance provides a scope for a script involving one or more <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, executing
+<a class="xref" href="../glossary/Performable.html">one or more performable items</a>.
+A Screenplay will contain one or more performances.
+A performance is a series of actions/performables with a beginning, middle and end.
+Actors participate in the performance and drive the performables forward.
+Typically a performance will complete in either success or failure.
+</p>
+<p>
+Where Screenplay is being used for automated testing, a performance corresponds to a single test.
+In the testing framework that might be called a "scenario", a "test", a "test case", or a "theory".
+When using Screenplay within a testing integration, the performance corresponds very closely to
+<a class="xref" href="../glossary/Scenario.html">the current Scenario</a>.
+</p>
+<p>
+The performance object also corresponds to the lifetime of <a class="xref" href="../docs/dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.
+A new scope is created for each performance.
+You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformanceRelate.html">diagram showing how screenplays, performances, actors and performables relate to one another</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_IPerformance_NamingHierarchy_" data-uid="CSF.Screenplay.IPerformance.NamingHierarchy*"></a>
+
+  <h3 id="CSF_Screenplay_IPerformance_NamingHierarchy" data-uid="CSF.Screenplay.IPerformance.NamingHierarchy">
+  NamingHierarchy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;IdentifierAndName&gt; NamingHierarchy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="CSF_Screenplay_IPerformance_NamingHierarchy_examples">Examples</h4>
+  <p>
+If the current performance is to be named <code>Joe can take out the Trash</code>, and it is part of a parent name, named
+<code>Joe can do his chores</code> then the first identifier in the list will be named <code>Joe can do his chores</code>
+and the second will be named <code>Joe can take out the Trash</code>.
+</p>
+
+
+  <h4 class="section" id="CSF_Screenplay_IPerformance_NamingHierarchy_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A Screenplay typically contains more than one performance and may contain many.
+It is normal to organise performances into a hierarchical structure based upon their purpose, role or relationship.
+The position of the current performance in that naming structure is represented by the value of this property.
+</p>
+<p>
+The ordered list of <a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a> instances indicate a path from the 'root' of the hierarchy
+(which has no inherent name) to the current performance. Identifier/name pairs which are earlier in the collection
+are considered to be closer to the root, whereas latter identifier/names are branch &amp; leaf names.
+In this manner, they work very similarly to .NET namespaces.
+The earlier in the list that a name appears, the more general it should be, representing a wider category.
+</p>
+<p>
+When using Screenplay with <a class="xref" href="../glossary/Integration.html">Integration</a>, this hierarchy of names
+would typically correspond to the naming convention used by the testing framework.
+That might be based upon .NET namespaces, classes and test methods for a more traditional unit testing framework.
+Alternatively, for a BDD-style testing framework, it could be named based upon human-readable
+feature &amp; scenario names.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_IPerformance_PerformanceState_" data-uid="CSF.Screenplay.IPerformance.PerformanceState*"></a>
+
+  <h3 id="CSF_Screenplay_IPerformance_PerformanceState" data-uid="CSF.Screenplay.IPerformance.PerformanceState">
+  PerformanceState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PerformanceState PerformanceState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html">PerformanceState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html">PerformanceState</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
