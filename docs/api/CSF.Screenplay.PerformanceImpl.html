@@ -102,7 +102,7 @@ Class PerformanceImpl  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class PerformanceImpl : Performance, IHasPerformanceIdentity, IHasServiceProvider, IEquatable&lt;Performance&gt;, IDisposable, IBeginsAndEndsPerformance</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PerformanceImpl : Performance, IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IBeginsAndEndsPerformance</code></pre>
   </div>
 
 
@@ -122,7 +122,6 @@ Class PerformanceImpl  <a class="header-action link-secondary" title="View sourc
     <dd>
       <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
       <div><a class="xref" href="CSF.Screenplay.IHasServiceProvider.html">IHasServiceProvider</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>&gt;</div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
       <div><a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html">IBeginsAndEndsPerformance</a></div>
     </dd>
@@ -149,9 +148,6 @@ Class PerformanceImpl  <a class="header-action link-secondary" title="View sourc
     </div>
     <div>
       <a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_FinishPerformance_System_Nullable_System_Boolean__">Performance.FinishPerformance(bool?)</a>
-    </div>
-    <div>
-      <a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_Equals_CSF_Screenplay_Performance_">Performance.Equals(Performance)</a>
     </div>
     <div>
       <a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_Equals_System_Object_">Performance.Equals(object)</a>
@@ -189,7 +185,7 @@ Class PerformanceImpl  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_PerformanceImpl__ctor_System_IServiceProvider_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_" data-uid="CSF.Screenplay.PerformanceImpl.#ctor(System.IServiceProvider,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)">
   PerformanceImpl(IServiceProvider, IList&lt;IdentifierAndName&gt;, Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/PerformanceImpl.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/PerformanceImpl.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
@@ -236,6 +232,45 @@ then a new Guid will be generated as the identity for this performance</p>
 </h2>
 
 
+  <a id="CSF_Screenplay_PerformanceImpl_Equals_" data-uid="CSF.Screenplay.PerformanceImpl.Equals*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceImpl_Equals_CSF_Screenplay_Performance_" data-uid="CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)">
+  Equals(Performance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/PerformanceImpl.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates whether the current instance is equal to the specified <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool Equals(Performance other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></dt>
+    <dd><p>A performance</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current instance is equal to to other; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun_" data-uid="CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun*"></a>
 
   <h3 id="CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun" data-uid="CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun">
@@ -267,7 +302,7 @@ then a new Guid will be generated as the identity for this performance</p>
 
   <h3 id="CSF_Screenplay_PerformanceImpl_InvokePerformanceFinished_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.PerformanceImpl.InvokePerformanceFinished(System.Nullable{System.Boolean})">
   InvokePerformanceFinished(bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/PerformanceImpl.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/PerformanceImpl.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event which signifies that a performance has completed.</p>

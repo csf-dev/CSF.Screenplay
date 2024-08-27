@@ -41,28 +41,25 @@ references:
   commentId: E:CSF.Screenplay.Actor.BeginPerformable
   fullName: CSF.Screenplay.Actor.BeginPerformable
   nameWithType: Actor.BeginPerformable
+- uid: CSF.Screenplay.Actor.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose
+  commentId: M:CSF.Screenplay.Actor.Dispose
+  fullName: CSF.Screenplay.Actor.Dispose()
+  nameWithType: Actor.Dispose()
+- uid: CSF.Screenplay.Actor.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose_
+  commentId: Overload:CSF.Screenplay.Actor.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.Actor.Dispose
+  nameWithType: Actor.Dispose
 - uid: CSF.Screenplay.Actor.EndPerformable
   name: EndPerformable
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_EndPerformable
   commentId: E:CSF.Screenplay.Actor.EndPerformable
   fullName: CSF.Screenplay.Actor.EndPerformable
   nameWithType: Actor.EndPerformable
-- uid: CSF.Screenplay.Actor.Finalize
-  name: ~Actor()
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Finalize
-  commentId: M:CSF.Screenplay.Actor.Finalize
-  name.vb: ''
-  fullName: CSF.Screenplay.Actor.~Actor()
-  fullName.vb: ''
-  nameWithType: Actor.~Actor()
-  nameWithType.vb: ''
-- uid: CSF.Screenplay.Actor.Finalize*
-  name: ~Actor
-  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Finalize_
-  commentId: Overload:CSF.Screenplay.Actor.Finalize
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actor.~Actor
-  nameWithType: Actor.~Actor
 - uid: CSF.Screenplay.Actor.GainedAbility
   name: GainedAbility
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_GainedAbility
@@ -1645,6 +1642,19 @@ references:
   fullName.vb: CSF.Screenplay.PerformanceImpl.New
   nameWithType: PerformanceImpl.PerformanceImpl
   nameWithType.vb: PerformanceImpl.New
+- uid: CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
+  name: Equals(Performance)
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_Equals_CSF_Screenplay_Performance_
+  commentId: M:CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
+  fullName: CSF.Screenplay.PerformanceImpl.Equals(CSF.Screenplay.Performance)
+  nameWithType: PerformanceImpl.Equals(Performance)
+- uid: CSF.Screenplay.PerformanceImpl.Equals*
+  name: Equals
+  href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_Equals_
+  commentId: Overload:CSF.Screenplay.PerformanceImpl.Equals
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerformanceImpl.Equals
+  nameWithType: PerformanceImpl.Equals
 - uid: CSF.Screenplay.PerformanceImpl.InvokePerformanceBegun
   name: InvokePerformanceBegun()
   href: api/CSF.Screenplay.PerformanceImpl.html#CSF_Screenplay_PerformanceImpl_InvokePerformanceBegun
