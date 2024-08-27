@@ -1,6 +1,6 @@
 namespace CSF.Screenplay.Performances
 {
-    /// <summary>Enumerates the states of a <see cref="Performance"/>.</summary>
+    /// <summary>Enumerates the states of a <see cref="IPerformance"/>.</summary>
     /// <remarks>
     /// <para>
     /// When Screenplay is being used with <xref href="IntegrationGlossaryItem?an+automated+testing+integration"/> then
@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Performances
         /// <remarks>
         /// <para>
         /// In some <xref href="IntegrationGlossaryItem?automated+testing+integrations"/>, this might mean that the
-        /// <see cref="Performance"/> or <xref href="ScenarioGlossaryItem?text=Scenario"/> was skipped or interrupted in
+        /// <see cref="IPerformance"/> or <xref href="ScenarioGlossaryItem?text=Scenario"/> was skipped or interrupted in
         /// a way that should not be treated as a failure.
         /// </para>
         /// </remarks>

@@ -35,12 +35,12 @@ namespace CSF.Screenplay.Performances
         event EventHandler<GainAbilityEventArgs> GainedAbility;
 
         /// <summary>
-        /// Occurs when a <see cref="Performance"/> begins executing.
+        /// Occurs when a <see cref="IPerformance"/> begins executing.
         /// </summary>
         event EventHandler<PerformanceEventArgs> PerformanceBegun;
 
         /// <summary>
-        /// Occurs when a <see cref="Performance"/> has finished executing.
+        /// Occurs when a <see cref="IPerformance"/> has finished executing.
         /// </summary>
         event EventHandler<PerformanceFinishedEventArgs> PerformanceFinished;
     }

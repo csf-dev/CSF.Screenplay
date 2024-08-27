@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace CSF.Screenplay.Actors
 {
     /// <summary>
-    /// An actor which is able to perform in the <see cref="PerformancePhase.When"/> phase of a <see cref="Performance"/>.
+    /// An actor which is able to perform in the <see cref="PerformancePhase.When"/> phase of a <see cref="IPerformance"/>.
     /// </summary>
     /// <remarks>
     /// <para>

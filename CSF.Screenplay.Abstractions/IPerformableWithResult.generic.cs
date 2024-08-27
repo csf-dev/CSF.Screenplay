@@ -28,7 +28,7 @@ namespace CSF.Screenplay
     /// <para>
     /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
     /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the
-    /// <see cref="Performance"/> report is generated.
+    /// <see cref="IPerformance"/> report is generated.
     /// Implementing <see cref="ICanReport"/> allows a performable to provide a customised human-readable report fragment.
     /// </para>
     /// </remarks>

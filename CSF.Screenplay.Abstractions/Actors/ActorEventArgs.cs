@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Actors
         public string ActorName { get; }
 
         /// <summary>
-        /// Gets the identity of the <see cref="Performance"/> to which the actor belongs.
+        /// Gets the identity of the <see cref="IPerformance"/> to which the actor belongs.
         /// </summary>
         public Guid PerformanceIdentity { get; }
 

@@ -3,12 +3,12 @@ using CSF.Screenplay.Resources;
 
 namespace CSF.Screenplay
 {
-    /// <summary>A representation of an autonomous, or at least seemingly-autonomous, person or system which directs the events of a <see cref="Performance"/>.</summary>
+    /// <summary>A representation of an autonomous, or at least seemingly-autonomous, person or system which directs the events of a <see cref="IPerformance"/>.</summary>
     /// <remarks>
     /// <para>
     /// An actor should represent an autonomous or semi-autonomous system.  Most commonly is a human being using a piece of software.
     /// An actor might also represent an automated system which acts according to policy, so long as configuring/initating that
-    /// system is not a part of the <see cref="Performance"/>.
+    /// system is not a part of the <see cref="IPerformance"/>.
     /// Within a performance, <xref href="PerformableGlossaryItem?text=each+performable+item"/> is executed in the context of the actor
     /// which performed it.
     /// </para>
@@ -39,7 +39,7 @@ namespace CSF.Screenplay
     /// would be the actor in such a performance.
     /// </para>
     /// </example>
-    /// <seealso cref="Performance"/>
+    /// <seealso cref="IPerformance"/>
     /// <seealso cref="ICast"/>
     /// <seealso cref="IStage"/>
     public sealed partial class Actor : IHasName, IHasPerformanceIdentity

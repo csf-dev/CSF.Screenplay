@@ -6,7 +6,7 @@ namespace CSF.Screenplay
     /// <remarks>
     /// <para>
     /// In Screenplay is is recommended to use memorable actors which are widely understood and recognisable
-    /// by the team. This is easier if the composition of an actor is the same across every <see cref="Performance"/> in which
+    /// by the team. This is easier if the composition of an actor is the same across every <see cref="IPerformance"/> in which
     /// they participate.
     /// </para>
     /// <para>

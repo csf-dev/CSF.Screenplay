@@ -2,7 +2,7 @@ using System;
 
 namespace CSF.Screenplay.Actors
 {
-    /// <summary>An actor which may emit events as they participate in a <see cref="Performance"/></summary>
+    /// <summary>An actor which may emit events as they participate in a <see cref="IPerformance"/></summary>
     public interface IHasPerformableEvents
     {
         /// <summary>

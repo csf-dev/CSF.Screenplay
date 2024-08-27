@@ -2,7 +2,7 @@ using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay
 {
-    /// <summary>Helper class for beginning the functionality of a Screenplay <see cref="Performance"/> from your
+    /// <summary>Helper class for beginning the functionality of a Screenplay <see cref="IPerformance"/> from your
     /// own logic, using a fluent interface</summary>
     /// <remarks>
     /// <para>

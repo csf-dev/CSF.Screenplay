@@ -1,7 +1,7 @@
 ﻿namespace CSF.Screenplay
 {
   /// <summary>
-  /// A type which can provide a human-readable report fragment when it is used in a <see cref="Performance"/>.
+  /// A type which can provide a human-readable report fragment when it is used in a <see cref="IPerformance"/>.
   /// </summary>
   /// <remarks>
   /// <para>

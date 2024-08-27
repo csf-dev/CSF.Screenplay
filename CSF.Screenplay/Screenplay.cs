@@ -77,7 +77,7 @@ namespace CSF.Screenplay
             namingHierarchy = namingHierarchy ?? new List<IdentifierAndName>();
 
             using(var scope = ServiceProvider.CreateScope())
-            using(var performance = scope.ServiceProvider.GetRequiredService<Performance>())
+            using(var performance = scope.ServiceProvider.GetRequiredService<IPerformance>())
             {
                 performance.NamingHierarchy.Clear();
                 performance.NamingHierarchy.AddRange(namingHierarchy);

@@ -5,7 +5,7 @@ using CSF.Screenplay.Actors;
 namespace CSF.Screenplay.Performances
 {
     /// <summary>
-    /// An object which can relay events that relate to a <see cref="Performance"/>
+    /// An object which can relay events that relate to a <see cref="IPerformance"/>
     /// </summary>
     /// <remarks>
     /// <para>
@@ -27,14 +27,14 @@ namespace CSF.Screenplay.Performances
         /// <remarks>
         /// <para>
         /// This method is typically used when the actor instance is about to be disposed, such as at the end of
-        /// a <see cref="Performance"/>.
+        /// a <see cref="IPerformance"/>.
         /// </para>
         /// </remarks>
         /// <param name="actor">The actor from which this relay should unsubscribe.</param>
         void UnsubscribeFrom(Actor actor);
 
         /// <summary>
-        /// Unsubscribes from all of the events for all of the actors who are part of the the <see cref="Performance"/>,
+        /// Unsubscribes from all of the events for all of the actors who are part of the the <see cref="IPerformance"/>,
         /// indicated by its identity.
         /// </summary>
         /// <remarks>
@@ -50,14 +50,14 @@ namespace CSF.Screenplay.Performances
         void UnsubscribeFromAllActors(Guid performanceIdentity);
 
         /// <summary>
-        /// Invokes an event indicating that a <see cref="Performance"/> has begun.
+        /// Invokes an event indicating that a <see cref="IPerformance"/> has begun.
         /// </summary>
         /// <param name="performanceIdentity">The performance identity</param>
         /// <param name="namingHierarchy">The performance's hierarchical name</param>
         void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy);
 
         /// <summary>
-        /// Invokes an event indicating that a <see cref="Performance"/> has finished.
+        /// Invokes an event indicating that a <see cref="IPerformance"/> has finished.
         /// </summary>
         /// <param name="performanceIdentity">The performance identity</param>
         /// <param name="namingHierarchy">The performance's hierarchical name</param>

@@ -4,12 +4,12 @@ using CSF.Screenplay.Actors;
 namespace CSF.Screenplay
 {
     /// <summary>A combined registry and factory for <see cref="Actor"/> instances, useful when coordinating multiple
-    /// actors across a <see cref="Performance"/></summary>
+    /// actors across a <see cref="IPerformance"/></summary>
     /// <remarks>
     /// <para>
     /// The cast is a strongly recommended component of Screenplay logic.
-    /// It is used to manage <see cref="Actor"/> objects for the duration of a <see cref="Performance"/>.
-    /// Cast objects are always scoped to a <see cref="Performance"/> and have the same lifetime.
+    /// It is used to manage <see cref="Actor"/> objects for the duration of a <see cref="IPerformance"/>.
+    /// Cast objects are always scoped to a <see cref="IPerformance"/> and have the same lifetime.
     /// Any actors created or tracked by a cast will also automatically share this lifetime.
     /// </para>
     /// <para>
@@ -17,7 +17,7 @@ namespace CSF.Screenplay
     /// and as a factory: <see href="https://en.wikipedia.org/wiki/Factory_method_pattern"/> for actors.
     /// During the cast's lifetime, subsequent calls to an overload of <c>GetActor</c> using the same actor/persona name will
     /// return the instance of <see cref="Actor"/> as was created the first time the method was called with that name.
-    /// A cast, and the actors managed by a cast, are independent per <see cref="Performance"/>, though.
+    /// A cast, and the actors managed by a cast, are independent per <see cref="IPerformance"/>, though.
     /// </para>
     /// <para>
     /// Developers are strongly advised to configure their actors via classes which derive from <see cref="IPersona"/>.
@@ -30,7 +30,7 @@ namespace CSF.Screenplay
     /// </remarks>
     /// <seealso cref="IStage"/>
     /// <seealso cref="Actor"/>
-    /// <seealso cref="Performance"/>
+    /// <seealso cref="IPerformance"/>
     /// <seealso cref="IPersona"/>
     public interface ICast : IHasServiceProvider, IHasPerformanceIdentity
     {

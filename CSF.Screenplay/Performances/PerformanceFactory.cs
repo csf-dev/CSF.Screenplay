@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Performances
         readonly IServiceProvider services;
 
         /// <inheritdoc/>
-        public Performance CreatePerformance() => new PerformanceImpl(services, performanceIdentity: Guid.NewGuid());
+        public IPerformance CreatePerformance() => new Performance(services, performanceIdentity: Guid.NewGuid());
 
         /// <summary>Initialises a new instance of <see cref="PerformanceFactory"/></summary>
         /// <param name="services">Dependency injection services</param>

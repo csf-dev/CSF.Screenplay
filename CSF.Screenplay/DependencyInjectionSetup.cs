@@ -25,7 +25,7 @@ namespace CSF.Screenplay
             services.AddTransient<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
-            services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<Performance>().PerformanceIdentity));
+            services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
             services.AddScoped<IStage, Stage>();
             return services.BuildServiceProvider();
         }

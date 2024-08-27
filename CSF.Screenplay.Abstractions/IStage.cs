@@ -7,7 +7,7 @@ namespace CSF.Screenplay
     /// <summary>The stage facilitates a contextual <see cref="Actor"/> who is 'in the spotlight' - a currently-active actor</summary>
     /// <remarks>
     /// <para>
-    /// The Stage is an optional but recommended component of Screenplay, useful when a <see cref="Performance"/> involves
+    /// The Stage is an optional but recommended component of Screenplay, useful when a <see cref="IPerformance"/> involves
     /// repeated use of an <see cref="Actor"/>.
     /// It facilitates the use of passive voice and the use of pronouns within the logic of performances without needing to
     /// frequently repeat the <see cref="IHasName.Name"/> of the actor.
@@ -24,7 +24,7 @@ namespace CSF.Screenplay
     /// named actor.
     /// </para>
     /// <para>
-    /// The lifetime of a stage instance is equal to the lifetime of the current <see cref="Performance"/>.
+    /// The lifetime of a stage instance is equal to the lifetime of the current <see cref="IPerformance"/>.
     /// An actor in the spotlight will be consistent across the lifetime of the performance but will be independent
     /// of other performances.
     /// </para>
@@ -38,7 +38,7 @@ namespace CSF.Screenplay
     /// </remarks>
     /// <example>
     /// <para>
-    /// Consider a <see cref="Performance"/> which is based upon the following, which is described in Gherkin BDD syntax:
+    /// Consider a <see cref="IPerformance"/> which is based upon the following, which is described in Gherkin BDD syntax:
     /// <see href="https://cucumber.io/docs/gherkin/"/>.
     /// </para>
     /// <code>

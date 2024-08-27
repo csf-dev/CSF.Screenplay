@@ -3,7 +3,7 @@ namespace CSF.Screenplay.Actors
     /// <summary>Enumerates the phases of a performance</summary>
     /// <remarks>
     /// <para>
-    /// It is common for a <see cref="Performance"/> to occur in phases. This is especially true when Screenplay
+    /// It is common for a <see cref="IPerformance"/> to occur in phases. This is especially true when Screenplay
     /// is being used as a testing tool.
     /// This type enumerates the possible phases.
     /// </para>
