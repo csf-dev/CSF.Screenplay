@@ -14,6 +14,7 @@
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
     <PackageReference Include="NUnit.Analyzers" Version="4.3.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="4.0.254" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="AutoFixture.NUnit3" Version="4.18.1" />
