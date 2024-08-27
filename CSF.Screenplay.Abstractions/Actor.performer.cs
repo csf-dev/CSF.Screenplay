@@ -16,8 +16,8 @@ namespace CSF.Screenplay
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         async ValueTask PerformAsync(IPerformable performable,
-                                                  CancellationToken cancellationToken = default,
-                                                  PerformancePhase phase = PerformancePhase.Unspecified)
+                                     PerformancePhase phase = PerformancePhase.Unspecified,
+                                     CancellationToken cancellationToken = default)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
             AssertNotDisposed();
@@ -36,7 +36,7 @@ namespace CSF.Screenplay
         }
 
         ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
-            => PerformAsync(performable, cancellationToken);
+            => PerformAsync(performable, cancellationToken: cancellationToken);
 
         /// <summary>
         /// Performs an action or task which returns an untyped result.
@@ -47,8 +47,8 @@ namespace CSF.Screenplay
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         async ValueTask<object> PerformAsync(IPerformableWithResult performable,
-                                                          CancellationToken cancellationToken = default,
-                                                          PerformancePhase phase = PerformancePhase.Unspecified)
+                                             PerformancePhase phase = PerformancePhase.Unspecified,
+                                             CancellationToken cancellationToken = default)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
             AssertNotDisposed();
@@ -69,7 +69,7 @@ namespace CSF.Screenplay
         }
 
         ValueTask<object> ICanPerform.PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken)
-            => PerformAsync(performable, cancellationToken);
+            => PerformAsync(performable, cancellationToken: cancellationToken);
 
         /// <summary>
         /// Performs an action or task which returns a strongly typed result.
@@ -80,8 +80,8 @@ namespace CSF.Screenplay
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
         async ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
-                                                        CancellationToken cancellationToken = default,
-                                                        PerformancePhase phase = PerformancePhase.Unspecified)
+                                           PerformancePhase phase = PerformancePhase.Unspecified,
+                                           CancellationToken cancellationToken = default)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
             AssertNotDisposed();
@@ -102,6 +102,6 @@ namespace CSF.Screenplay
         }
 
         ValueTask<T> ICanPerform.PerformAsync<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken)
-            => PerformAsync(performable, cancellationToken);
+            => PerformAsync(performable, cancellationToken: cancellationToken);
     }
 }

@@ -14,14 +14,19 @@ namespace CSF.Screenplay
 
         /// <inheritdoc/>
         protected override void InvokePerformanceBegun()
-        {
-            performanceEventBus.InvokePerformanceBegun(PerformanceIdentity, NamingHierarchy);
-        }
+            => performanceEventBus.InvokePerformanceBegun(PerformanceIdentity, NamingHierarchy);
 
         /// <inheritdoc/>
         protected override void InvokePerformanceFinished(bool? success)
+            => performanceEventBus.InvokePerformanceFinished(PerformanceIdentity, NamingHierarchy, success);
+
+        /// <inheritdoc/>
+        protected override bool Equals(Performance other)
         {
-            performanceEventBus.InvokePerformanceFinished(PerformanceIdentity, NamingHierarchy, success);
+            if(ReferenceEquals(other, this)) return true;
+            if(ReferenceEquals(other, null)) return false;
+
+            return Equals(PerformanceIdentity, other.PerformanceIdentity);
         }
 
         /// <summary>Initialises a new instance of <see cref="Performance"/></summary>

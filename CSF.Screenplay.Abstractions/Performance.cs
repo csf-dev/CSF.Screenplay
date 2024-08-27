@@ -29,7 +29,6 @@ namespace CSF.Screenplay
     /// </remarks>
     public abstract class Performance : IHasPerformanceIdentity,
                                         IHasServiceProvider,
-                                        IEquatable<Performance>,
                                         IDisposable,
                                         IBeginsAndEndsPerformance
     {        
@@ -118,14 +117,12 @@ namespace CSF.Screenplay
         /// <param name="success">A value which indicates whether or not the performance was a success.</param>
         protected abstract void InvokePerformanceFinished(bool? success);
 
-        /// <inheritdoc/>
-        public bool Equals(Performance other)
-        {
-            if(ReferenceEquals(other, this)) return true;
-            if(ReferenceEquals(other, null)) return false;
-
-            return Equals(PerformanceIdentity, other.PerformanceIdentity);
-        }
+        /// <summary>
+        /// Gets a value which indicates whether the current instance is equal to the specified <see cref="Performance"/>.
+        /// </summary>
+        /// <param name="other">A performance</param>
+        /// <returns><see langword="true" /> if the current instance is equal to to other; <see langword="false" /> if not.</returns>
+        protected abstract bool Equals(Performance other);
 
         /// <inheritdoc/>
         public override bool Equals(object obj) => Equals(obj as Performance);
