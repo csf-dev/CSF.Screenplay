@@ -91,7 +91,7 @@ namespace CSF.Screenplay
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             NamingHierarchy = namingHierarchy?.ToList() ?? new List<IdentifierAndName>();
-            PerformanceIdentity = performanceIdentity != default ? performanceIdentity : Guid.NewGuid();
+            PerformanceIdentity = performanceIdentity != Guid.Empty ? performanceIdentity : Guid.NewGuid();
             performanceEventBus = serviceProvider.GetRequiredService<IRelaysPerformanceEvents>();
         }
     }

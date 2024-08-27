@@ -35,9 +35,6 @@ namespace CSF.Screenplay
             }
         }
 
-        ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
-            => PerformAsync(performable, cancellationToken: cancellationToken);
-
         /// <summary>
         /// Performs an action or task which returns an untyped result.
         /// </summary>
@@ -68,9 +65,6 @@ namespace CSF.Screenplay
             }
         }
 
-        ValueTask<object> ICanPerform.PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken)
-            => PerformAsync(performable, cancellationToken: cancellationToken);
-
         /// <summary>
         /// Performs an action or task which returns a strongly typed result.
         /// </summary>
@@ -100,6 +94,12 @@ namespace CSF.Screenplay
                 throw;
             }
         }
+
+        ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
+            => PerformAsync(performable, cancellationToken: cancellationToken);
+
+        ValueTask<object> ICanPerform.PerformAsync(IPerformableWithResult performable, CancellationToken cancellationToken)
+            => PerformAsync(performable, cancellationToken: cancellationToken);
 
         ValueTask<T> ICanPerform.PerformAsync<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken: cancellationToken);
