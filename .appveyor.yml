@@ -25,7 +25,7 @@ before_build:
         ELSE (SET BranchName=%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%)
     - cmd: >
         dotnet-sonarscanner begin 
-        /k:"CSF.Screenplay"
+        /k:"csf-dev_CSF.Screenplay"
         /v:AppVeyor_build_%APPVEYOR_BUILD_NUMBER%
         /o:craigfowler-github
         /d:sonar.host.url="https://sonarcloud.io"
