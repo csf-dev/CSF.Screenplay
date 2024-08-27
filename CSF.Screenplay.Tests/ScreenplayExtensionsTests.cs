@@ -58,10 +58,10 @@ public class ScreenplayExtensionsTests
         var sut = new Screenplay();
         bool? PerformanceLogic(IServiceProvider services)
         {
-            Thread.Sleep(100);
+            Thread.Sleep(500);
             return true;
         }
         
-        Assert.That(() => sut.ExecuteAsPerformance(PerformanceLogic, timeoutMiliseconds: 50), Throws.InstanceOf<OperationCanceledException>());
+        Assert.That(() => sut.ExecuteAsPerformance(PerformanceLogic, timeoutMiliseconds: 100), Throws.InstanceOf<OperationCanceledException>());
     }
 }
