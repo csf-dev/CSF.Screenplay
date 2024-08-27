@@ -107,7 +107,7 @@
   "api/CSF.Screenplay.IHasName.html": {
     "href": "api/CSF.Screenplay.IHasName.html",
     "title": "Interface IHasName | Screenplay docs",
-    "keywords": "Interface IHasName Namespace CSF.Screenplay Assembly CSF.Screenplay.Abstractions.dll A part of a Screenplay performance which has a human-readable name. public interface IHasName Properties Name Gets the human-readable name of the current object. string Name { get; } Property Value string"
+    "keywords": "Interface IHasName Namespace CSF.Screenplay Assembly CSF.Screenplay.Abstractions.dll A part of a Screenplay performance which has a human-readable name. public interface IHasName Properties Name Gets the human-readable name of the current object. string Name { get; } Property Value string Remarks null is not an acceptable or permitted return type here. All types which implement this interface must return a non-null response from this property."
   },
   "api/CSF.Screenplay.IHasPerformanceIdentity.html": {
     "href": "api/CSF.Screenplay.IHasPerformanceIdentity.html",
