@@ -1,0 +1,6 @@
+- name: Documentation
+  href: index.md
+- name: Glossary
+  href: glossary/
+- name: API reference
+  href: api/

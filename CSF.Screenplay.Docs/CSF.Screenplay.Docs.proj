@@ -1,0 +1,20 @@
+<Project DefaultTargets="Build">
+    <PropertyGroup>
+        <OutputPath>$(MSBuildProjectDirectory)\..\docs\</OutputPath>
+        <ApiDocsPath>$(MSBuildProjectDirectory)\api</ApiDocsPath>
+        <ConfigFileName>docfx.json</ConfigFileName>
+        <DocfxExecutable>docfx.exe</DocfxExecutable>
+    </PropertyGroup>
+
+    <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+
+    <Target Name="Build">
+        <Message Text="Skipping docs build in this build config" Condition="'$(Configuration)' != 'Docs'" />
+        <Message Text="Executing '$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)'" Condition="'$(Configuration)' == 'Docs'" />
+        <Exec Command="$(DocfxExecutable) $(ConfigFileName) --output $(OutputPath)" Condition="'$(Configuration)' == 'Docs'" />
+    </Target>
+    <Target Name="Clean">
+        <RemoveDir Directories="$(OutputPath);$(ApiDocsPath)" />
+    </Target>
+</Project>

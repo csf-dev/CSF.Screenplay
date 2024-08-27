@@ -1,29 +1,60 @@
-﻿version: '{branch}-{build}'
+environment:
+    matrix:
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+          JAVA_HOME: C:\Program Files\Java\jdk17
+        - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+          JAVA_HOME: /usr/lib/jvm/jdk15
+
+# A note/reminder for readers: Script items prefixed "cmd:" are executed on Windows-only environments.
+# Items with no prefix are run on all environments (Windows & Linux)
+
 init:
-- cmd: git config --global core.autocrlf true
+    - cmd: git config --global core.autocrlf true
+
+install:
+    - cmd: dotnet tool install --global dotnet-sonarscanner
+    - cmd: dotnet tool install --global coverlet.console
+    - cmd: dotnet tool update -g docfx
+
 before_build:
-- cmd: Tools\Appveyor.before_build.bat
-services:
-  - iis
-build:
-  project: CSF.Screenplay.sln
-  verbosity: normal
-test:
-  assemblies:
-    except:
-    - '**\CSF.Screenplay.Web.Tests.dll'
-    - '**\CSF.Screenplay.WebApis.Tests.dll'
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
-    - '**\CSF.Screenplay.NUnit.dll'
-    - '**\CSF.Screenplay.Reporting.Html.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
-    - '**\CSF.Screenplay.Reporting.Json.Tests\bin\Debug\CSF.Screenplay.Reporting.Tests.dll'
-artifacts:
-  - path: Tests\CSF.Screenplay.WebTestWebsite
-    name: TestWebsite
-deploy:
-  - provider: Local
-    TestWebsite.deploy_website: true
-    TestWebsite.site_name: "Test Web Site"
-    TestWebsite.port: 8080
-after_deploy:
-- cmd: Tools\Appveyor.after_deploy.bat
+    - dotnet --version
+    - dotnet restore --verbosity m
+    - dotnet clean
+    - cmd: >
+        IF NOT DEFINED APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH (SET BranchName=%APPVEYOR_REPO_BRANCH%)
+        ELSE (SET BranchName=%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%)
+    - cmd: >
+        dotnet-sonarscanner begin 
+        /k:"CSF.Screenplay"
+        /v:AppVeyor_build_%APPVEYOR_BUILD_NUMBER%
+        /o:craigfowler-github
+        /d:sonar.host.url="https://sonarcloud.io"
+        /d:sonar.login=%SONARCLOUD_SECRET_KEY%
+        /d:sonar.cs.nunit.reportsPaths=%APPVEYOR_BUILD_FOLDER%\**\TestResults.xml
+        /d:sonar.cs.opencover.reportsPaths=%APPVEYOR_BUILD_FOLDER%\**\coverage.opencover.xml
+        /d:sonar.branch.name=%BranchName%
+        /s:%APPVEYOR_BUILD_FOLDER%\.sonarqube-analysisproperties.xml
+
+build_script:
+    - dotnet build --no-incremental
+
+test_script:
+    - cmd: >
+        coverlet
+        .\CSF.Screenplay.Tests\bin\Debug\net8.0\CSF.Screenplay.Tests.dll
+        --target "dotnet"
+        --targetargs "test --no-build --logger:nunit --test-adapter-path:."
+        -f=opencover
+        -o="TestResults\coverage.opencover.xml"
+    - sh: >
+        dotnet test
+        --test-adapter-path:.
+        --logger:nunit
+
+after_test:
+    - cmd: >
+        dotnet-sonarscanner end
+        /d:"sonar.login=%SONARCLOUD_SECRET_KEY%"
+    - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
+    - cmd: dotnet build -c Docs
+    - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }

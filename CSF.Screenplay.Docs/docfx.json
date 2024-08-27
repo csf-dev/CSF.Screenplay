@@ -1,0 +1,47 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../",
+          "files": [ "**/*.csproj" ],
+          "exclude": [
+            "docs/**",
+            "**/bin/**",
+            "**/obj/**",
+            "Tests_old/**",
+            "CSF.Screenplay.Tests/**"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [ "**/*.{md,yml}" ],
+        "exclude": [ "README.md" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          ".nojekyll"
+        ]
+      }
+    ],
+    "output": "../docs",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "CSF.Screenplay",
+      "_appTitle": "Screenplay docs",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}
