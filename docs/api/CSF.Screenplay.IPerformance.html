@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IPerformance" data-uid="CSF.Screenplay.IPerformance" class="text-break">
-Interface IPerformance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L29"><i class="bi bi-code-slash"></i></a>
+Interface IPerformance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -152,6 +152,7 @@ When using Screenplay within a testing integration, the performance corresponds 
 <p>
 The performance object also corresponds to the lifetime of <a class="xref" href="../docs/dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.
 A new scope is created for each performance.
+Within a DI scope, the performance is an injectable service.
 You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformanceRelate.html">diagram showing how screenplays, performances, actors and performables relate to one another</a>.
 </p>
 </div>
@@ -165,7 +166,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_IPerformance_NamingHierarchy" data-uid="CSF.Screenplay.IPerformance.NamingHierarchy">
   NamingHierarchy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
@@ -225,7 +226,7 @@ feature &amp; scenario names.
 
   <h3 id="CSF_Screenplay_IPerformance_PerformanceState" data-uid="CSF.Screenplay.IPerformance.PerformanceState">
   PerformanceState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>
@@ -263,7 +264,7 @@ feature &amp; scenario names.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L29" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 

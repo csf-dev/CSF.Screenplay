@@ -87,9 +87,9 @@
         <article data-uid="HowScreenplayAndPerformanceRelateArticle">
 <h1 id="top-down-look-at-a-screenplay">Top-down look at a screenplay</h1>
 
-<p>The diagram below shows a top-down look at a <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">Screenplay</a> and how it relates to <a class="xref" href="../api/CSF.Screenplay.Performance.html">Performances</a>, <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a> and <a href="../glossary/Performable.html">Performables</a>.
+<p>The diagram below shows a top-down look at a <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">Screenplay</a> and how it relates to <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a>, <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a> and <a href="../glossary/Performable.html">Performables</a>.
 The Screenplay <em>might itself be controlled by</em> a <a href="../glossary/Integration.html">Test Integration</a>, if Screenplay is being used for automated tests.</p>
-<p>The lifetime shown, for the <a class="xref" href="../api/CSF.Screenplay.Performance.html">Performance</a> also indicates the lifetime of <a href="dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.</p>
+<p>The lifetime shown, for the <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a> also indicates the lifetime of <a href="dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.</p>
 <pre><code class="lang-mermaid">sequenceDiagram
     accDescr {
         A single instance of Screenplay runs each Performance.
