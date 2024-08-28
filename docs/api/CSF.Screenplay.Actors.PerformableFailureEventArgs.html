@@ -103,7 +103,7 @@ an exception halted the execution of the performable item.</p>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PerformableFailureEventArgs : PerformableEventArgs</code></pre>
+    <pre><code class="lang-csharp hljs">public class PerformableFailureEventArgs : PerformableEventArgs, IHasPerformanceIdentity</code></pre>
   </div>
 
 
@@ -114,12 +114,19 @@ an exception halted the execution of the performable item.</p>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a></div>
       <div><span class="xref">PerformableFailureEventArgs</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -135,7 +142,7 @@ an exception halted the execution of the performable item.</p>
       <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName">ActorEventArgs.ActorName</a>
     </div>
     <div>
-      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity">ActorEventArgs.PerformanceIdentity</a>
+      <a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html#CSF_Screenplay_Performances_PerformanceScopeEventArgs_PerformanceIdentity">PerformanceScopeEventArgs.PerformanceIdentity</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs.empty">EventArgs.Empty</a>

@@ -212,19 +212,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorName
   nameWithType: ActorEventArgs.ActorName
-- uid: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
-  name: PerformanceIdentity
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity
-  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
-  nameWithType: ActorEventArgs.PerformanceIdentity
-- uid: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity*
-  name: PerformanceIdentity
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity_
-  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
-  isSpec: "True"
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.PerformanceIdentity
-  nameWithType: ActorEventArgs.PerformanceIdentity
 - uid: CSF.Screenplay.Actors.Cast
   name: Cast
   href: api/CSF.Screenplay.Actors.Cast.html
@@ -250,12 +237,6 @@ references:
   fullName.vb: CSF.Screenplay.Actors.Cast.New
   nameWithType: Cast.Cast
   nameWithType.vb: Cast.New
-- uid: CSF.Screenplay.Actors.Cast.ActorCreated
-  name: ActorCreated
-  href: api/CSF.Screenplay.Actors.Cast.html#CSF_Screenplay_Actors_Cast_ActorCreated
-  commentId: E:CSF.Screenplay.Actors.Cast.ActorCreated
-  fullName: CSF.Screenplay.Actors.Cast.ActorCreated
-  nameWithType: Cast.ActorCreated
 - uid: CSF.Screenplay.Actors.Cast.GetActor(CSF.Screenplay.IPersona)
   name: GetActor(IPersona)
   href: api/CSF.Screenplay.Actors.Cast.html#CSF_Screenplay_Actors_Cast_GetActor_CSF_Screenplay_IPersona_
@@ -643,15 +624,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.Stage
   fullName: CSF.Screenplay.Actors.Stage
   nameWithType: Stage
-- uid: CSF.Screenplay.Actors.Stage.#ctor(CSF.Screenplay.ICast)
-  name: Stage(ICast)
-  href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage__ctor_CSF_Screenplay_ICast_
-  commentId: M:CSF.Screenplay.Actors.Stage.#ctor(CSF.Screenplay.ICast)
-  name.vb: New(ICast)
-  fullName: CSF.Screenplay.Actors.Stage.Stage(CSF.Screenplay.ICast)
-  fullName.vb: CSF.Screenplay.Actors.Stage.New(CSF.Screenplay.ICast)
-  nameWithType: Stage.Stage(ICast)
-  nameWithType.vb: Stage.New(ICast)
+- uid: CSF.Screenplay.Actors.Stage.#ctor(CSF.Screenplay.ICast,CSF.Screenplay.Performances.IRelaysPerformanceEvents)
+  name: Stage(ICast, IRelaysPerformanceEvents)
+  href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage__ctor_CSF_Screenplay_ICast_CSF_Screenplay_Performances_IRelaysPerformanceEvents_
+  commentId: M:CSF.Screenplay.Actors.Stage.#ctor(CSF.Screenplay.ICast,CSF.Screenplay.Performances.IRelaysPerformanceEvents)
+  name.vb: New(ICast, IRelaysPerformanceEvents)
+  fullName: CSF.Screenplay.Actors.Stage.Stage(CSF.Screenplay.ICast, CSF.Screenplay.Performances.IRelaysPerformanceEvents)
+  fullName.vb: CSF.Screenplay.Actors.Stage.New(CSF.Screenplay.ICast, CSF.Screenplay.Performances.IRelaysPerformanceEvents)
+  nameWithType: Stage.Stage(ICast, IRelaysPerformanceEvents)
+  nameWithType.vb: Stage.New(ICast, IRelaysPerformanceEvents)
 - uid: CSF.Screenplay.Actors.Stage.#ctor*
   name: Stage
   href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage__ctor_
@@ -662,12 +643,6 @@ references:
   fullName.vb: CSF.Screenplay.Actors.Stage.New
   nameWithType: Stage.Stage
   nameWithType.vb: Stage.New
-- uid: CSF.Screenplay.Actors.Stage.ActorSpotlit
-  name: ActorSpotlit
-  href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage_ActorSpotlit
-  commentId: E:CSF.Screenplay.Actors.Stage.ActorSpotlit
-  fullName: CSF.Screenplay.Actors.Stage.ActorSpotlit
-  nameWithType: Stage.ActorSpotlit
 - uid: CSF.Screenplay.Actors.Stage.Cast
   name: Cast
   href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage_Cast
@@ -726,12 +701,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actors.Stage.Spotlight
   nameWithType: Stage.Spotlight
-- uid: CSF.Screenplay.Actors.Stage.SpotlightTurnedOff
-  name: SpotlightTurnedOff
-  href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage_SpotlightTurnedOff
-  commentId: E:CSF.Screenplay.Actors.Stage.SpotlightTurnedOff
-  fullName: CSF.Screenplay.Actors.Stage.SpotlightTurnedOff
-  nameWithType: Stage.SpotlightTurnedOff
 - uid: CSF.Screenplay.Actors.Stage.TurnSpotlightOff
   name: TurnSpotlightOff()
   href: api/CSF.Screenplay.Actors.Stage.html#CSF_Screenplay_Actors_Stage_TurnSpotlightOff
@@ -880,12 +849,6 @@ references:
   commentId: T:CSF.Screenplay.ICast
   fullName: CSF.Screenplay.ICast
   nameWithType: ICast
-- uid: CSF.Screenplay.ICast.ActorCreated
-  name: ActorCreated
-  href: api/CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated
-  commentId: E:CSF.Screenplay.ICast.ActorCreated
-  fullName: CSF.Screenplay.ICast.ActorCreated
-  nameWithType: ICast.ActorCreated
 - uid: CSF.Screenplay.ICast.GetActor(CSF.Screenplay.IPersona)
   name: GetActor(IPersona)
   href: api/CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_
@@ -1000,38 +963,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IHasServiceProvider.ServiceProvider
   nameWithType: IHasServiceProvider.ServiceProvider
-- uid: CSF.Screenplay.IHasSubscribedActors
-  name: IHasSubscribedActors
-  href: api/CSF.Screenplay.IHasSubscribedActors.html
-  commentId: T:CSF.Screenplay.IHasSubscribedActors
-  fullName: CSF.Screenplay.IHasSubscribedActors
-  nameWithType: IHasSubscribedActors
-- uid: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
-  name: GetSubscribedActors()
-  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_GetSubscribedActors
-  commentId: M:CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
-  fullName: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors()
-  nameWithType: IHasSubscribedActors.GetSubscribedActors()
-- uid: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors*
-  name: GetSubscribedActors
-  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_GetSubscribedActors_
-  commentId: Overload:CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
-  isSpec: "True"
-  fullName: CSF.Screenplay.IHasSubscribedActors.GetSubscribedActors
-  nameWithType: IHasSubscribedActors.GetSubscribedActors
-- uid: CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
-  name: SubscribeTo(IHasPerformableEvents)
-  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_SubscribeTo_CSF_Screenplay_Actors_IHasPerformableEvents_
-  commentId: M:CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
-  fullName: CSF.Screenplay.IHasSubscribedActors.SubscribeTo(CSF.Screenplay.Actors.IHasPerformableEvents)
-  nameWithType: IHasSubscribedActors.SubscribeTo(IHasPerformableEvents)
-- uid: CSF.Screenplay.IHasSubscribedActors.SubscribeTo*
-  name: SubscribeTo
-  href: api/CSF.Screenplay.IHasSubscribedActors.html#CSF_Screenplay_IHasSubscribedActors_SubscribeTo_
-  commentId: Overload:CSF.Screenplay.IHasSubscribedActors.SubscribeTo
-  isSpec: "True"
-  fullName: CSF.Screenplay.IHasSubscribedActors.SubscribeTo
-  nameWithType: IHasSubscribedActors.SubscribeTo
 - uid: CSF.Screenplay.IPerformable
   name: IPerformable
   href: api/CSF.Screenplay.IPerformable.html
@@ -1153,12 +1084,6 @@ references:
   commentId: T:CSF.Screenplay.IStage
   fullName: CSF.Screenplay.IStage
   nameWithType: IStage
-- uid: CSF.Screenplay.IStage.ActorSpotlit
-  name: ActorSpotlit
-  href: api/CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit
-  commentId: E:CSF.Screenplay.IStage.ActorSpotlit
-  fullName: CSF.Screenplay.IStage.ActorSpotlit
-  nameWithType: IStage.ActorSpotlit
 - uid: CSF.Screenplay.IStage.Cast
   name: Cast
   href: api/CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_Cast
@@ -1204,12 +1129,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IStage.Spotlight
   nameWithType: IStage.Spotlight
-- uid: CSF.Screenplay.IStage.SpotlightTurnedOff
-  name: SpotlightTurnedOff
-  href: api/CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_SpotlightTurnedOff
-  commentId: E:CSF.Screenplay.IStage.SpotlightTurnedOff
-  fullName: CSF.Screenplay.IStage.SpotlightTurnedOff
-  nameWithType: IStage.SpotlightTurnedOff
 - uid: CSF.Screenplay.IStage.TurnSpotlightOff
   name: TurnSpotlightOff()
   href: api/CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff
@@ -1731,6 +1650,18 @@ references:
   commentId: T:CSF.Screenplay.Performances.IHasPerformanceEvents
   fullName: CSF.Screenplay.Performances.IHasPerformanceEvents
   nameWithType: IHasPerformanceEvents
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ActorCreated
+  name: ActorCreated
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ActorCreated
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.ActorCreated
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.ActorCreated
+  nameWithType: IHasPerformanceEvents.ActorCreated
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ActorSpotlit
+  name: ActorSpotlit
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ActorSpotlit
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.ActorSpotlit
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.ActorSpotlit
+  nameWithType: IHasPerformanceEvents.ActorSpotlit
 - uid: CSF.Screenplay.Performances.IHasPerformanceEvents.BeginPerformable
   name: BeginPerformable
   href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_BeginPerformable
@@ -1773,12 +1704,62 @@ references:
   commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   nameWithType: IHasPerformanceEvents.PerformanceFinished
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded
+  name: ScreenplayEnded
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayEnded
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded
+  nameWithType: IHasPerformanceEvents.ScreenplayEnded
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayStarted
+  name: ScreenplayStarted
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayStarted
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayStarted
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayStarted
+  nameWithType: IHasPerformanceEvents.ScreenplayStarted
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.SpotlightTurnedOff
+  name: SpotlightTurnedOff
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_SpotlightTurnedOff
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.SpotlightTurnedOff
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.SpotlightTurnedOff
+  nameWithType: IHasPerformanceEvents.SpotlightTurnedOff
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents
   name: IRelaysPerformanceEvents
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html
   commentId: T:CSF.Screenplay.Performances.IRelaysPerformanceEvents
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents
   nameWithType: IRelaysPerformanceEvents
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(System.String,System.Guid)
+  name: InvokeActorCreated(string, Guid)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(System.String,System.Guid)
+  name.vb: InvokeActorCreated(String, Guid)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(String, System.Guid)
+  nameWithType: IRelaysPerformanceEvents.InvokeActorCreated(string, Guid)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokeActorCreated(String, Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated*
+  name: InvokeActorCreated
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated
+  nameWithType: IRelaysPerformanceEvents.InvokeActorCreated
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(System.String,System.Guid)
+  name: InvokeActorSpotlit(string, Guid)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(System.String,System.Guid)
+  name.vb: InvokeActorSpotlit(String, Guid)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(String, System.Guid)
+  nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit(string, Guid)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokeActorSpotlit(String, Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit*
+  name: InvokeActorSpotlit
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit
+  nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
   name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
@@ -1811,6 +1792,45 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished
   nameWithType: IRelaysPerformanceEvents.InvokePerformanceFinished
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded
+  name: InvokeScreenplayEnded()
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayEnded
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded()
+  nameWithType: IRelaysPerformanceEvents.InvokeScreenplayEnded()
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded*
+  name: InvokeScreenplayEnded
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayEnded_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded
+  nameWithType: IRelaysPerformanceEvents.InvokeScreenplayEnded
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted
+  name: InvokeScreenplayStarted()
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayStarted
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted()
+  nameWithType: IRelaysPerformanceEvents.InvokeScreenplayStarted()
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted*
+  name: InvokeScreenplayStarted
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayStarted_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted
+  nameWithType: IRelaysPerformanceEvents.InvokeScreenplayStarted
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff(System.Guid)
+  name: InvokeSpotlightTurnedOff(Guid)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeSpotlightTurnedOff_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff(System.Guid)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff(System.Guid)
+  nameWithType: IRelaysPerformanceEvents.InvokeSpotlightTurnedOff(Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff*
+  name: InvokeSpotlightTurnedOff
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeSpotlightTurnedOff_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff
+  nameWithType: IRelaysPerformanceEvents.InvokeSpotlightTurnedOff
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.SubscribeTo(CSF.Screenplay.Actor)
   name: SubscribeTo(Actor)
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_SubscribeTo_CSF_Screenplay_Actor_
@@ -1993,6 +2013,18 @@ references:
   commentId: T:CSF.Screenplay.Performances.PerformanceEventBus
   fullName: CSF.Screenplay.Performances.PerformanceEventBus
   nameWithType: PerformanceEventBus
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.ActorCreated
+  name: ActorCreated
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ActorCreated
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.ActorCreated
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.ActorCreated
+  nameWithType: PerformanceEventBus.ActorCreated
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.ActorSpotlit
+  name: ActorSpotlit
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ActorSpotlit
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.ActorSpotlit
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.ActorSpotlit
+  nameWithType: PerformanceEventBus.ActorSpotlit
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.BeginPerformable
   name: BeginPerformable
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_BeginPerformable
@@ -2011,6 +2043,38 @@ references:
   commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
   nameWithType: PerformanceEventBus.GainedAbility
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(System.String,System.Guid)
+  name: InvokeActorCreated(string, Guid)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(System.String,System.Guid)
+  name.vb: InvokeActorCreated(String, Guid)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(String, System.Guid)
+  nameWithType: PerformanceEventBus.InvokeActorCreated(string, Guid)
+  nameWithType.vb: PerformanceEventBus.InvokeActorCreated(String, Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated*
+  name: InvokeActorCreated
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated
+  nameWithType: PerformanceEventBus.InvokeActorCreated
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(System.String,System.Guid)
+  name: InvokeActorSpotlit(string, Guid)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_System_String_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(System.String,System.Guid)
+  name.vb: InvokeActorSpotlit(String, Guid)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(string, System.Guid)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(String, System.Guid)
+  nameWithType: PerformanceEventBus.InvokeActorSpotlit(string, Guid)
+  nameWithType.vb: PerformanceEventBus.InvokeActorSpotlit(String, Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit*
+  name: InvokeActorSpotlit
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit
+  nameWithType: PerformanceEventBus.InvokeActorSpotlit
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
   name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
@@ -2043,6 +2107,45 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceFinished
   nameWithType: PerformanceEventBus.InvokePerformanceFinished
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded
+  name: InvokeScreenplayEnded()
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeScreenplayEnded
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded()
+  nameWithType: PerformanceEventBus.InvokeScreenplayEnded()
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded*
+  name: InvokeScreenplayEnded
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeScreenplayEnded_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayEnded
+  nameWithType: PerformanceEventBus.InvokeScreenplayEnded
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted
+  name: InvokeScreenplayStarted()
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeScreenplayStarted
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted()
+  nameWithType: PerformanceEventBus.InvokeScreenplayStarted()
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted*
+  name: InvokeScreenplayStarted
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeScreenplayStarted_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeScreenplayStarted
+  nameWithType: PerformanceEventBus.InvokeScreenplayStarted
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff(System.Guid)
+  name: InvokeSpotlightTurnedOff(Guid)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeSpotlightTurnedOff_System_Guid_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff(System.Guid)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff(System.Guid)
+  nameWithType: PerformanceEventBus.InvokeSpotlightTurnedOff(Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff*
+  name: InvokeSpotlightTurnedOff
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeSpotlightTurnedOff_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeSpotlightTurnedOff
+  nameWithType: PerformanceEventBus.InvokeSpotlightTurnedOff
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.PerformableFailed
   name: PerformableFailed
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_PerformableFailed
@@ -2067,6 +2170,24 @@ references:
   commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   nameWithType: PerformanceEventBus.PerformanceFinished
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayEnded
+  name: ScreenplayEnded
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ScreenplayEnded
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayEnded
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayEnded
+  nameWithType: PerformanceEventBus.ScreenplayEnded
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayStarted
+  name: ScreenplayStarted
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ScreenplayStarted
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayStarted
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayStarted
+  nameWithType: PerformanceEventBus.ScreenplayStarted
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.SpotlightTurnedOff
+  name: SpotlightTurnedOff
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_SpotlightTurnedOff
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.SpotlightTurnedOff
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.SpotlightTurnedOff
+  nameWithType: PerformanceEventBus.SpotlightTurnedOff
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.SubscribeTo(CSF.Screenplay.Actor)
   name: SubscribeTo(Actor)
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_SubscribeTo_CSF_Screenplay_Actor_

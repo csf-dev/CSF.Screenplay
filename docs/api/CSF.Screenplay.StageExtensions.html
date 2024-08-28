@@ -157,7 +157,7 @@ Class StageExtensions  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_StageExtensions_Spotlight__1_CSF_Screenplay_IStage_" data-uid="CSF.Screenplay.StageExtensions.Spotlight``1(CSF.Screenplay.IStage)">
   Spotlight&lt;TPersona&gt;(IStage)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/StageExtensions.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/StageExtensions.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
@@ -203,10 +203,6 @@ The actor who is in the spotlight may be retrieved by calling <a class="xref" hr
 <p>
 If actor indicated by the persona is already in the spotlight then this method will have no effect, the actor will remain
 in the spotlight.
-</p>
-<p>
-If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit">ActorSpotlit</a> event will be triggered.
 </p>
 <p>
 When spotlighting a persona, the actor instance is retrieved from an <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a> based upon that same persona.

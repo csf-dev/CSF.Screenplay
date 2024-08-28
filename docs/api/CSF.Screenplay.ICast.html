@@ -166,7 +166,7 @@ which may be used within your performances.
 
   <h3 id="CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.ICast.GetActor(CSF.Screenplay.IPersona)">
   GetActor(IPersona)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> based upon a persona, creating them if they do not already exist in the cast.</p>
@@ -202,8 +202,6 @@ which may be used within your performances.
 This method will create the actor within the current cast, using the persona as a factory, if they do not already exist.
 Alternatively, this method will return the existing actor, if they already exist in the cast, matched using the
 <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>'s <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name">Name</a>.
-If executing this method results in the creation of a new actor then the <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated">ActorCreated</a>
-event will be triggered.
 </p>
 <p>
 Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
@@ -228,7 +226,7 @@ care of resolving the persona instance from dependency injection for you.
 
   <h3 id="CSF_Screenplay_ICast_GetActor_System_String_" data-uid="CSF.Screenplay.ICast.GetActor(System.String)">
   GetActor(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> by their name, creating them if they do not already exist in the cast.</p>
@@ -263,8 +261,6 @@ care of resolving the persona instance from dependency injection for you.
   <div class="markdown level1 remarks"><p>
 This method will create the actor within the current cast, if they do not already exist.
 Alternatively, this method will return the existing actor, if they already exist in the cast.
-If executing this method results in the creation of a new actor then the <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated">ActorCreated</a>
-event will be triggered.
 </p>
 <p>
 Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
@@ -284,41 +280,6 @@ method which uses that persona to define the actor.
     <div><a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></div>
     </dd>
   </dl>
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="CSF_Screenplay_ICast_ActorCreated" data-uid="CSF.Screenplay.ICast.ActorCreated">
-  ActorCreated
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L40"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Occurs when a new actor is created in the cast.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorCreated</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
 
 
   <h2 id="seealso">See Also</h2>

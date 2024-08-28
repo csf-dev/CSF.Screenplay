@@ -102,7 +102,7 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GainAbilityEventArgs : ActorEventArgs</code></pre>
+    <pre><code class="lang-csharp hljs">public class GainAbilityEventArgs : ActorEventArgs, IHasPerformanceIdentity</code></pre>
   </div>
 
 
@@ -113,11 +113,18 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></div>
       <div><span class="xref">GainAbilityEventArgs</span></div>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -127,7 +134,7 @@ Class GainAbilityEventArgs  <a class="header-action link-secondary" title="View 
       <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName">ActorEventArgs.ActorName</a>
     </div>
     <div>
-      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_PerformanceIdentity">ActorEventArgs.PerformanceIdentity</a>
+      <a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html#CSF_Screenplay_Performances_PerformanceScopeEventArgs_PerformanceIdentity">PerformanceScopeEventArgs.PerformanceIdentity</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs.empty">EventArgs.Empty</a>
