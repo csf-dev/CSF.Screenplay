@@ -6,7 +6,7 @@ using Moq;
 namespace CSF.Screenplay;
 
 [TestFixture,Parallelizable]
-public class PerformanceImplTests
+public class PerformanceTests
 {
     [Test,AutoMoqData]
     public void BeginPerformanceShouldInvokePerformanceBegunOnTheEventBus([Frozen] IRelaysPerformanceEvents performanceEventBus,
@@ -94,5 +94,14 @@ public class PerformanceImplTests
         sut.BeginPerformance();
         sut.FinishPerformance(null);
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.Completed));
+    }
+
+    [Test,AutoMoqData]
+    public void DisposeShouldUnsubscribeFromAllActors([Frozen] IRelaysPerformanceEvents eventBus,
+                                                      [AutofixtureServices, Frozen] IServiceProvider services,
+                                                      Performance sut)
+    {
+        sut.Dispose();
+        Mock.Get(eventBus).Verify(x => x.UnsubscribeFromAllActors(sut.PerformanceIdentity), Times.Once);
     }
 }

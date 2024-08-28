@@ -75,6 +75,8 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         public void Dispose()
         {
+            performanceEventBus.UnsubscribeFromAllActors(PerformanceIdentity);
+            
             if (ServiceProvider is IDisposable disposable) disposable.Dispose();
         }
 
