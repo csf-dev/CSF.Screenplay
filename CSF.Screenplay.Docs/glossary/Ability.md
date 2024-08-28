@@ -12,7 +12,7 @@ That said - it is recommended for Abilities to implement [`ICanReport`] if possi
 **[Tasks]**, on the other hand, should not.
 
 [Actors]: xref:CSF.Screenplay.Actor
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [`ICanReport`]: xref:CSF.Screenplay.ICanReport
 [Actions]: Action.md
 [Questions]: Question.md

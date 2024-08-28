@@ -10,6 +10,6 @@ Thus, it is possible to infer an actor in [Performance] logic without needing to
 
 See the documentation for the [Stage] for more information.
 
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [Actor]: xref:CSF.Screenplay.Actor
 [Stage]: xref:CSF.Screenplay.IStage

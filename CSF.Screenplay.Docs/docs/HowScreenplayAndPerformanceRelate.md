@@ -29,9 +29,9 @@ sequenceDiagram
 ```
 
 [Screenplay]: xref:CSF.Screenplay.Screenplay
-[Performances]: xref:CSF.Screenplay.Performance
+[Performances]: xref:CSF.Screenplay.IPerformance
 [Actors]: xref:CSF.Screenplay.Actor
 [Performables]: ../glossary/Performable.md
 [Test Integration]: ../glossary/Integration.md
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [the dependency injection scope]: dependencyInjection/DependencyInjectionScope.md

@@ -10,6 +10,6 @@ The integration library performs the necessary scaffolding to make the Screenpla
 It also deals with the association of **[Scenarios]** with **[Performances]** and the lifetime of the whole **[Screenplay]**, culminating with the production of the **[Report]**.
 
 [Scenarios]: Scenario.md
-[Performances]: xref:CSF.Screenplay.Performance
+[Performances]: xref:CSF.Screenplay.IPerformance
 [Screenplay]: xref:CSF.Screenplay.Screenplay
 [Report]: Report.md

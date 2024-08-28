@@ -30,7 +30,7 @@ block-beta
 ```
 
 ["A Screenplay"]: xref:CSF.Screenplay.Screenplay
-[Performances]: xref:CSF.Screenplay.Performance
+[Performances]: xref:CSF.Screenplay.IPerformance
 
 ## Explanation
 

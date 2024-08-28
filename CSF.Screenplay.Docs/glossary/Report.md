@@ -14,6 +14,6 @@ They help developers diagnose and debug issues when they arise.
 [Screenplay]: xref:CSF.Screenplay.Screenplay
 [Features]: Feature.md
 [Scenarios]: Scenario.md
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [Performables]: Performable.md
 [Tasks]: Task.md

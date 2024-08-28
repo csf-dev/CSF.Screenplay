@@ -11,7 +11,7 @@ Personas in Screenplay are classes which implement the [`IPersona`] interface.
 
 [a factory]: https://en.wikipedia.org/wiki/Factory_method_pattern
 [Actor]: xref:CSF.Screenplay.Actor
-[Performances]: xref:CSF.Screenplay.Performance
+[Performances]: xref:CSF.Screenplay.IPerformance
 [`Name`]: xref:CSF.Screenplay.IHasName.Name
 [Abilities]: Ability.md
 [`IPersona`]: xref:CSF.Screenplay.IPersona

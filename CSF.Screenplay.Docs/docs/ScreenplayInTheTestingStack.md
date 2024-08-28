@@ -66,4 +66,4 @@ In this context, each test is a Screenplay [Performance].
 [Actors]: xref:CSF.Screenplay.Actor
 [Abilities]: ../glossary/Ability.md
 [Performables]: ../glossary/Performable.md
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance

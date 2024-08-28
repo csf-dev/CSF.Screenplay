@@ -23,6 +23,7 @@ namespace CSF.Screenplay
     /// <para>
     /// The performance object also corresponds to the lifetime of <xref href="DependencyInjectionScopeArticle?text=the+dependency+injection+scope"/>.
     /// A new scope is created for each performance.
+    /// Within a DI scope, the performance is an injectable service.
     /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>

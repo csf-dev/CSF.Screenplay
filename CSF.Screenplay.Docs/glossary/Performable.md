@@ -32,7 +32,7 @@ It's important to understand that whilst there are three interfaces shown here a
 [Tasks]: Task.md
 [Questions]: Question.md
 [Abilities]: Ability.md
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [`ICanReport`]: xref:CSF.Screenplay.ICanReport
 [`IPerformable`]: xref:CSF.Screenplay.IPerformable
 [`IPerformableWithResult`]: xref:CSF.Screenplay.IPerformableWithResult

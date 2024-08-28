@@ -25,7 +25,7 @@ Where applicable, the glossary item links directly to the relevant type within t
 
 [API documentation]: xref:CSF.Screenplay
 [Screenplay]: xref:CSF.Screenplay.Screenplay
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [Performable]: Performable.md
 [Action]: Action.md
 [Question]: Question.md

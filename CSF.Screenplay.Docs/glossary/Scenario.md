@@ -13,5 +13,5 @@ The lifetime of a scenario very closely corresponds to that of a **[Performance]
 Every scenario is contained within a **[Feature]**.
 
 [Integration]: Integration.md
-[Performance]: xref:CSF.Screenplay.Performance
+[Performance]: xref:CSF.Screenplay.IPerformance
 [Feature]: Feature.md
