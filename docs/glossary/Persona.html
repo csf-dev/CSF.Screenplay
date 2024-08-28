@@ -88,7 +88,7 @@
 <h1 id="persona">Persona</h1>
 
 <p>A Persona is a class which serves as <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">a factory</a> for a specific <strong><a class="xref" href="../api/CSF.Screenplay.Actor.html">Actor</a></strong>.
-In Screenplay, it is strongly recommended to create and re-use well-known Actors across your <strong><a class="xref" href="../api/CSF.Screenplay.Performance.html">Performances</a></strong>.
+In Screenplay, it is strongly recommended to create and re-use well-known Actors across your <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a></strong>.
 That is, if an actor with a specified <a class="xref" href="../api/CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name"><code>Name</code></a> has a certain set of <strong><a href="Ability.html">Abilities</a></strong> in one Performance, then ideally all actors of the same name should have that same set of abilities in other performances.</p>
 <p>This leads to the creation of well-known Actors which are well-understood by the team who are working with Screenplay.
 Personas help facilitate that by providing a reusable location at which to set the actor's name and to assign &amp; configure their abilities.</p>
