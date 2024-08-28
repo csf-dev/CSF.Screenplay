@@ -16,8 +16,6 @@ namespace CSF.Screenplay
         /// if they do not already exist.
         /// Alternatively, this method will return the existing actor, if they already exist in the cast, matched using the
         /// <see cref="IPersona"/>'s <see cref="IHasName.Name"/>.
-        /// If executing this method results in the creation of a new actor then the <see cref="ICast.ActorCreated"/>
-        /// event will be triggered.
         /// </para>
         /// <para>
         /// Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations

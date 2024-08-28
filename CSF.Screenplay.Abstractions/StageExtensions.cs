@@ -19,10 +19,6 @@ namespace CSF.Screenplay
         /// in the spotlight.
         /// </para>
         /// <para>
-        /// If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-        /// then the <see cref="IStage.ActorSpotlit"/> event will be triggered.
-        /// </para>
-        /// <para>
         /// When spotlighting a persona, the actor instance is retrieved from an <see cref="ICast"/> based upon that same persona.
         /// See <see cref="ICast.GetActor(IPersona)"/> for more information.
         /// </para>

@@ -35,19 +35,12 @@ namespace CSF.Screenplay
     public interface ICast : IHasServiceProvider, IHasPerformanceIdentity
     {
         /// <summary>
-        /// Occurs when a new actor is created in the cast.
-        /// </summary>
-        event EventHandler<ActorEventArgs> ActorCreated;
-
-        /// <summary>
         /// Gets a single <see cref="Actor"/> by their name, creating them if they do not already exist in the cast.
         /// </summary>
         /// <remarks>
         /// <para>
         /// This method will create the actor within the current cast, if they do not already exist.
         /// Alternatively, this method will return the existing actor, if they already exist in the cast.
-        /// If executing this method results in the creation of a new actor then the <see cref="ActorCreated"/>
-        /// event will be triggered.
         /// </para>
         /// <para>
         /// Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations
@@ -72,8 +65,6 @@ namespace CSF.Screenplay
         /// This method will create the actor within the current cast, using the persona as a factory, if they do not already exist.
         /// Alternatively, this method will return the existing actor, if they already exist in the cast, matched using the
         /// <see cref="IPersona"/>'s <see cref="IHasName.Name"/>.
-        /// If executing this method results in the creation of a new actor then the <see cref="ActorCreated"/>
-        /// event will be triggered.
         /// </para>
         /// <para>
         /// Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations

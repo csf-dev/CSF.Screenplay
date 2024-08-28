@@ -18,27 +18,16 @@ namespace CSF.Screenplay.Actors
         public Guid PerformanceIdentity { get; }
 
         /// <inheritdoc/>
-        public event EventHandler<ActorEventArgs> ActorCreated;
-
-        /// <summary>Invokes the <see cref="ActorCreated"/> event.</summary>
-        /// <param name="actor">The actor which has been created</param>
-        void InvokeActorCreated(Actor actor)
-        {
-            var args = new ActorEventArgs(actor);
-            ActorCreated?.Invoke(this, args);
-        }
-
-        /// <inheritdoc/>
         public Actor GetActor(string name) => GetActor(new NameOnlyPersona(name));
 
         /// <inheritdoc/>
         public Actor GetActor(IPersona persona)
         {
             if (persona is null) throw new ArgumentNullException(nameof(persona));
-            return actors.GetOrAdd(persona.Name, _ => {
+            return actors.GetOrAdd(persona.Name, name => {
                 var actor = persona.GetActor(PerformanceIdentity);
+                performanceEventBus.InvokeActorCreated(name, PerformanceIdentity);
                 performanceEventBus.SubscribeTo(actor);
-                InvokeActorCreated(actor);
                 return actor;
             });
         }

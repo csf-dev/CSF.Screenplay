@@ -21,10 +21,37 @@ namespace CSF.Screenplay.Performances
     /// This way, consumers have only a single object to which they should subscribe in order to receive
     /// those events.
     /// </para>
+    /// <para>
+    /// As you will see from the API of this object, the implementations of <see cref="IHasPerformanceEvents"/>
+    /// and <see cref="IRelaysPerformanceEvents"/> are not symmetrical.  Many events are published by subscribing
+    /// to the events upon an <see cref="Actor"/>.
+    /// </para>
     /// </remarks>
     public class PerformanceEventBus : IHasPerformanceEvents, IRelaysPerformanceEvents
     {
         readonly ConcurrentDictionary<Guid,HashSet<Actor>> subscribedActors = new ConcurrentDictionary<Guid,HashSet<Actor>>();
+
+        #region Pub: Screenplay
+
+        /// <inheritdoc/>
+        public event EventHandler ScreenplayStarted;
+
+        /// <inheritdoc/>
+        public event EventHandler ScreenplayEnded;
+
+        #endregion
+
+        #region Pub: Performances
+
+        /// <inheritdoc/>
+        public event EventHandler<PerformanceEventArgs> PerformanceBegun;
+
+        /// <inheritdoc/>
+        public event EventHandler<PerformanceFinishedEventArgs> PerformanceFinished;
+
+        #endregion
+
+        #region Pub: Performables
 
         /// <inheritdoc/>
         public event EventHandler<PerformableEventArgs> BeginPerformable;
@@ -37,18 +64,22 @@ namespace CSF.Screenplay.Performances
 
         void OnEndPerformable(object sender, PerformableEventArgs args)
             => EndPerformable?.Invoke(sender, args);
-
+        
         /// <inheritdoc/>
         public event EventHandler<PerformableResultEventArgs> PerformableResult;
 
         void OnPerformableResult(object sender, PerformableResultEventArgs args)
             => PerformableResult?.Invoke(sender, args);
-
+        
         /// <inheritdoc/>
         public event EventHandler<PerformableFailureEventArgs> PerformableFailed;
 
         void OnPerformableFailed(object sender, PerformableFailureEventArgs args)
             => PerformableFailed?.Invoke(sender, args);
+
+        #endregion
+
+        #region Pub: Actors
 
         /// <inheritdoc/>
         public event EventHandler<GainAbilityEventArgs> GainedAbility;
@@ -57,22 +88,17 @@ namespace CSF.Screenplay.Performances
             => GainedAbility?.Invoke(sender, args);
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceEventArgs> PerformanceBegun;
+        public event EventHandler<ActorEventArgs> ActorCreated;
 
         /// <inheritdoc/>
-        public event EventHandler<PerformanceFinishedEventArgs> PerformanceFinished;
+        public event EventHandler<ActorEventArgs> ActorSpotlit;
 
         /// <inheritdoc/>
-        public void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy)
-        {
-            PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>()));
-        }
+        public event EventHandler<PerformanceScopeEventArgs> SpotlightTurnedOff;
 
-        /// <inheritdoc/>
-        public void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success)
-        {
-            PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>(), success));
-        }
+        #endregion
+
+        #region Sub: Actors
 
         /// <inheritdoc/>
         public void SubscribeTo(Actor actor)
@@ -114,5 +140,41 @@ namespace CSF.Screenplay.Performances
             foreach (var actor in actorsForPerformance.ToList())
                 UnsubscribeFrom(actor);
         }
+
+        /// <inheritdoc/>
+        public void InvokeActorCreated(string actorName, Guid performanceIdentity)
+            => ActorCreated?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
+
+        /// <inheritdoc/>
+        public void InvokeActorSpotlit(string actorName, Guid performanceIdentity)
+            => ActorSpotlit?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
+
+        /// <inheritdoc/>
+        public void InvokeSpotlightTurnedOff(Guid performanceIdentity)
+            => SpotlightTurnedOff?.Invoke(this, new PerformanceScopeEventArgs(performanceIdentity));
+
+        #endregion
+
+        #region Sub: Performances
+
+        /// <inheritdoc/>
+        public void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy)
+            => PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>()));
+
+        /// <inheritdoc/>
+        public void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success)
+            => PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>(), success));
+
+        #endregion
+
+        #region Sub: Screenplay
+
+        /// <inheritdoc/>
+        public void InvokeScreenplayStarted() => ScreenplayStarted?.Invoke(this, EventArgs.Empty);
+
+        /// <inheritdoc/>
+        public void InvokeScreenplayEnded() => ScreenplayEnded?.Invoke(this, EventArgs.Empty);
+
+        #endregion
     }
 }

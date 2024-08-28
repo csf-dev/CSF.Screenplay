@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CSF.Screenplay.Actors;
 
 namespace CSF.Screenplay.Performances
 {
@@ -11,10 +10,20 @@ namespace CSF.Screenplay.Performances
     /// <para>
     /// This object is used as an event sink; a single point of contact to which many objects may send events.
     /// This allows event consumers to receive events from many origins by subscribing to only a single object.
+    /// There should only be a single instance of an object which implements this interface, for the lifetime
+    /// of a Screenplay.
+    /// </para>
+    /// <para>
+    /// This type is closely related to <see cref="IHasPerformanceEvents"/>.  This is the event sink and
+    /// <c>IHasPerformanceEvents</c> is the publisher of those events. Despite this, their APIs are not symmetrical,
+    /// as many of the events published are derived by subscribing to an <see cref="Actor"/> instance.
     /// </para>
     /// </remarks>
+    /// <seealso cref="IHasPerformanceEvents"/>
     public interface IRelaysPerformanceEvents
     {
+        #region Actors
+
         /// <summary>
         /// Subscribes to (and relays) events from the specified actor.
         /// </summary>
@@ -48,6 +57,30 @@ namespace CSF.Screenplay.Performances
         /// </remarks>
         /// <param name="performanceIdentity">The identity of a performance.</param>
         void UnsubscribeFromAllActors(Guid performanceIdentity);
+        
+        /// <summary>
+        /// Invokes an event indicating that a new <see cref="Actor"/> has been created and added to the <see cref="IPerformance"/>.
+        /// </summary>
+        /// <param name="actorName">The actor's human-readable name.</param>
+        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
+        void InvokeActorCreated(string actorName, Guid performanceIdentity);
+
+        /// <summary>
+        /// Invokes an event indicating that an <see cref="Actor"/> has been placed into the Spotlight of an <see cref="IStage"/>.
+        /// </summary>
+        /// <param name="actorName">The actor's human-readable name.</param>
+        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
+        void InvokeActorSpotlit(string actorName, Guid performanceIdentity);
+
+        /// <summary>
+        /// Invokes an event indicating that the Spotlight of the <see cref="IStage"/> has been 'turned off'.
+        /// </summary>
+        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
+        void InvokeSpotlightTurnedOff(Guid performanceIdentity);
+
+        #endregion
+
+        #region Performances
 
         /// <summary>
         /// Invokes an event indicating that a <see cref="IPerformance"/> has begun.
@@ -63,5 +96,21 @@ namespace CSF.Screenplay.Performances
         /// <param name="namingHierarchy">The performance's hierarchical name</param>
         /// <param name="success">A value indicating whether or not the performance was a success</param>
         void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success);
+
+        #endregion
+
+        #region Screenplay
+
+        /// <summary>
+        /// Invokes an event indicating that a Screenplay has started.
+        /// </summary>
+        void InvokeScreenplayStarted();
+
+        /// <summary>
+        /// Invokes an event indicating that a Screenplay has ended.
+        /// </summary>
+        void InvokeScreenplayEnded();
+
+        #endregion
     }
 }

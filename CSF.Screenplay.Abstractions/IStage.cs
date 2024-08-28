@@ -63,22 +63,6 @@ namespace CSF.Screenplay
         /// </summary>
         ICast Cast { get; }
 
-        /// <summary>
-        /// Occurs when an actor enters the spotlight.
-        /// </summary>
-        /// <remarks>
-        /// <para>This might mean that an actor who was previously in the spotlight has been removed and replaced.</para>
-        /// </remarks>
-        event EventHandler<ActorEventArgs> ActorSpotlit;
-
-        /// <summary>
-        /// Occurs when an actor is removed from the spotlight because the spotlight has been turned off.
-        /// </summary>
-        /// <remarks>
-        /// <para>This means that there is now no spotlit actor.</para>
-        /// </remarks>
-        event EventHandler<PerformanceScopeEventArgs> SpotlightTurnedOff;
-
         /// <summary>Gets the actor which is currently in the spotlight.</summary>
         /// <returns>The actor who has previously been placed in the spotlight, or a <see langword="null" />
         /// reference if there is presently no actor in the spotlight.</returns>
@@ -94,10 +78,6 @@ namespace CSF.Screenplay
         /// <para>
         /// If the specified actor is already in the spotlight then this method will have no effect, the actor will remain
         /// in the spotlight.
-        /// </para>
-        /// <para>
-        /// If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-        /// then the <see cref="ActorSpotlit"/> event will be triggered.
         /// </para>
         /// <para>To remove an actor from the spotlight without replacing them, use <see cref="TurnSpotlightOff"/>.</para>
         /// </remarks>
@@ -116,10 +96,6 @@ namespace CSF.Screenplay
         /// in the spotlight.
         /// </para>
         /// <para>
-        /// If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-        /// then the <see cref="ActorSpotlit"/> event will be triggered.
-        /// </para>
-        /// <para>
         /// When spotlighting a persona, the actor instance is retrieved from an <see cref="ICast"/> based upon that same persona.
         /// See <see cref="ICast.GetActor(IPersona)"/> for more information.
         /// </para>
@@ -136,9 +112,8 @@ namespace CSF.Screenplay
         /// <summary>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</summary>
         /// <remarks>
         /// <para>
-        /// If this method results in the removal of an actor from the spotlight then the <see cref="SpotlightTurnedOff"/> event
-        /// will be triggered. If there was already no actor in the spotlight when this method is executed then it will have no
-        /// effect, the spotlight will remain empty, the event noted will not be triggered and this method will return <see langword="null" />.
+        /// If there was already no actor in the spotlight when this method is executed then it will have no
+        /// effect, the spotlight will remain empty and this method will return <see langword="null" />.
         /// </para>
         /// </remarks>
         /// <returns>If an actor was previously in the spotlight, and has now been removed, then this method returns that actor;
