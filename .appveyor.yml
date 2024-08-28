@@ -54,7 +54,7 @@ test_script:
 after_test:
     - cmd: >
         dotnet-sonarscanner end
-        /d:"sonar.login=%SONARCLOUD_SECRET_KEY%"
+        /d:"sonar.token=%SONARCLOUD_SECRET_KEY%"
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
     - cmd: dotnet build -c Docs
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
