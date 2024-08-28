@@ -216,7 +216,7 @@ implicitly be retrieved using the cast, via <a class="xref" href="CSF.Screenplay
 
   <h3 id="CSF_Screenplay_IStage_GetSpotlitActor" data-uid="CSF.Screenplay.IStage.GetSpotlitActor">
   GetSpotlitActor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor which is currently in the spotlight.</p>
@@ -250,7 +250,7 @@ reference if there is presently no actor in the spotlight.</p>
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.Actor)">
   Spotlight(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places the specified actor into the spotlight, making them 'the current actor' on this stage.</p>
@@ -284,10 +284,6 @@ The actor who is in the spotlight may be retrieved by calling <a class="xref" hr
 If the specified actor is already in the spotlight then this method will have no effect, the actor will remain
 in the spotlight.
 </p>
-<p>
-If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit">ActorSpotlit</a> event will be triggered.
-</p>
 <p>To remove an actor from the spotlight without replacing them, use <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff">TurnSpotlightOff()</a>.</p>
 </div>
 
@@ -304,7 +300,7 @@ then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.IPersona)">
   Spotlight(IPersona)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
@@ -345,10 +341,6 @@ If actor indicated by the persona is already in the spotlight then this method w
 in the spotlight.
 </p>
 <p>
-If this method results in a new actor entering the spotlight (that is, they were not already in the spotlight)
-then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_ActorSpotlit">ActorSpotlit</a> event will be triggered.
-</p>
-<p>
 When spotlighting a persona, the actor instance is retrieved from an <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a> based upon that same persona.
 See <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_">GetActor(IPersona)</a> for more information.
 </p>
@@ -372,7 +364,7 @@ care of resolving the persona instance from dependency injection for you.
 
   <h3 id="CSF_Screenplay_IStage_TurnSpotlightOff" data-uid="CSF.Screenplay.IStage.TurnSpotlightOff">
   TurnSpotlightOff()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</p>
@@ -400,82 +392,9 @@ otherwise it will return a <a href="https://learn.microsoft.com/dotnet/csharp/la
 
   <h4 class="section" id="CSF_Screenplay_IStage_TurnSpotlightOff_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-If this method results in the removal of an actor from the spotlight then the <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_SpotlightTurnedOff">SpotlightTurnedOff</a> event
-will be triggered. If there was already no actor in the spotlight when this method is executed then it will have no
-effect, the spotlight will remain empty, the event noted will not be triggered and this method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+If there was already no actor in the spotlight when this method is executed then it will have no
+effect, the spotlight will remain empty and this method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
 </p>
-</div>
-
-
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="CSF_Screenplay_IStage_ActorSpotlit" data-uid="CSF.Screenplay.IStage.ActorSpotlit">
-  ActorSpotlit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L72"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Occurs when an actor enters the spotlight.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorSpotlit</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-  <h4 class="section" id="CSF_Screenplay_IStage_ActorSpotlit_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This might mean that an actor who was previously in the spotlight has been removed and replaced.</p>
-</div>
-
-
-
-
-
-  <h3 id="CSF_Screenplay_IStage_SpotlightTurnedOff" data-uid="CSF.Screenplay.IStage.SpotlightTurnedOff">
-  SpotlightTurnedOff
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L80"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Occurs when an actor is removed from the spotlight because the spotlight has been turned off.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;PerformanceScopeEventArgs&gt; SpotlightTurnedOff</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-  <h4 class="section" id="CSF_Screenplay_IStage_SpotlightTurnedOff_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This means that there is now no spotlit actor.</p>
 </div>
 
 

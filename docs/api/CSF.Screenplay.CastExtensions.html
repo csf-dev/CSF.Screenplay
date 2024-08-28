@@ -157,7 +157,7 @@ Class CastExtensions  <a class="header-action link-secondary" title="View source
 
   <h3 id="CSF_Screenplay_CastExtensions_GetActor__1_CSF_Screenplay_ICast_" data-uid="CSF.Screenplay.CastExtensions.GetActor``1(CSF.Screenplay.ICast)">
   GetActor&lt;TPersona&gt;(ICast)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/CastExtensions.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/CastExtensions.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> based upon a persona, creating them if they do not already exist in the cast.</p>
@@ -200,8 +200,6 @@ This method will create the actor within the current cast, using a resolved inst
 if they do not already exist.
 Alternatively, this method will return the existing actor, if they already exist in the cast, matched using the
 <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>'s <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name">Name</a>.
-If executing this method results in the creation of a new actor then the <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_ActorCreated">ActorCreated</a>
-event will be triggered.
 </p>
 <p>
 Actor names are matched using a case-insensitive invariant culture string comparison. Cast implementations

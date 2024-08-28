@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IHasPerformanceEvents | Screenplay docs ">
       
-      <meta name="description" content="An object which has events that">
+      <meta name="description" content="An object which has events which are significant to the progress of a Screenplay.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Performances_IHasPerformanceEvents" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents" class="text-break">
-Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An object which has events that</p>
+  <div class="markdown summary"><p>An object which has events which are significant to the progress of a Screenplay.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -115,6 +115,21 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
 
 
+  <h2 id="CSF_Screenplay_Performances_IHasPerformanceEvents_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This object is used as an event publisher, such that events which originate from many separate objects
+may be aggregated to a single point of contact.  This way, consumers of those events have only a single object
+to which they need subscribe.
+There should only be a single instance of an object which implements this interface, for the lifetime
+of a Screenplay.
+</p>
+<p>
+This type is closely related to <a class="xref" href="CSF.Screenplay.Performances.IRelaysPerformanceEvents.html">IRelaysPerformanceEvents</a>.  This is the event publisher and
+<code>IRelaysPerformanceEvents</code> is event sink which collects them. Despite this, their APIs are not symmetrical,
+as many of the events published by this type are derived by subscribing to an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instance from
+the event sink.
+</p>
+</div>
 
 
   <h2 class="section" id="events">Events
@@ -122,9 +137,71 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
 
 
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ActorCreated" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ActorCreated">
+  ActorCreated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a new <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> is created and added to the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorCreated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ActorSpotlit" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ActorSpotlit">
+  ActorSpotlit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> is placed into the Spotlight of an <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;ActorEventArgs&gt; ActorSpotlit</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_BeginPerformable" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.BeginPerformable">
   BeginPerformable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> begins the execution of a performable object.</p>
@@ -155,7 +232,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_EndPerformable" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.EndPerformable">
   EndPerformable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> ends the execution of a performable object.</p>
@@ -186,7 +263,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_GainedAbility" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.GainedAbility">
   GainedAbility
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> gains a new ability.</p>
@@ -217,7 +294,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_PerformableFailed" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableFailed">
   PerformableFailed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when a performable object fails with an exception.</p>
@@ -248,7 +325,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_PerformableResult" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.PerformableResult">
   PerformableResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> receives a result from a perfperformable objectrmance.</p>
@@ -279,7 +356,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_PerformanceBegun" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceBegun">
   PerformanceBegun
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> begins executing.</p>
@@ -310,7 +387,7 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_PerformanceFinished" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished">
   PerformanceFinished
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> has finished executing.</p>
@@ -339,10 +416,107 @@ Interface IHasPerformanceEvents  <a class="header-action link-secondary" title="
 
 
 
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayEnded" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded">
+  ScreenplayEnded
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a Screenplay has ended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler ScreenplayEnded</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayStarted" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayStarted">
+  ScreenplayStarted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a Screenplay starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler ScreenplayStarted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_SpotlightTurnedOff" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.SpotlightTurnedOff">
+  SpotlightTurnedOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the Spotlight of an <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a> is 'turned off'; the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> who is currently spotlit is removed without being replaced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;PerformanceScopeEventArgs&gt; SpotlightTurnedOff</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Performances.IRelaysPerformanceEvents.html">IRelaysPerformanceEvents</a></div>
+  </div>
+
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L25" class="edit-link">Edit this page</a>
         </div>
 
 
