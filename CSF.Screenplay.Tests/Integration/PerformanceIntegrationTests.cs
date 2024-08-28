@@ -19,9 +19,9 @@ public class PerformanceIntegrationTests
         await screenplay.ExecuteAsPerformanceAsync(async (s, c) => {
             var cast = s.GetRequiredService<ICast>();
             var actor = cast.GetActor("Joe");
-            await Given(actor).WasAbleTo(sampleAction);
-            question1Result = await When(actor).AttemptsTo(sampleQuestion1);
-            question2Result = await Then(actor).Should(sampleQuestion2);
+            await Given(actor).WasAbleTo(sampleAction, c);
+            question1Result = await When(actor).AttemptsTo(sampleQuestion1, c);
+            question2Result = await Then(actor).Should(sampleQuestion2, c);
             return true;
         });
 
