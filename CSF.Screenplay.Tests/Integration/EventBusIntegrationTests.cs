@@ -17,9 +17,9 @@ public class EventBusIntegrationTests
         var sut = new Screenplay();
         string? createdActorName = null;
         bool performanceBegun = false, performanceFinished = false;
-        IList<object> performablesBegun = new List<object>();
-        IList<object> performablesEnded = new List<object>();
-        IList<object> performableResults = new List<object>();
+        List<object> performablesBegun = [];
+        List<object> performablesEnded = [];
+        List<object> performableResults = [];
         void OnActorCreated(object? sender, ActorEventArgs ev) => createdActorName = ev.ActorName;
         void OnBeginPerformable(object? sender, PerformableEventArgs ev) => performablesBegun.Add(ev.Performable);
         void OnEndPerformable(object? sender, PerformableEventArgs ev) => performablesEnded.Add(ev.Performable);
