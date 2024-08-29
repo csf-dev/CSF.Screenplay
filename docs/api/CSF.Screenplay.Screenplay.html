@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Screenplay" data-uid="CSF.Screenplay.Screenplay" class="text-break">
-Class Screenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L31"><i class="bi bi-code-slash"></i></a>
+Class Screenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -185,7 +185,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Screenplay.Screenplay.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   Screenplay(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></p>
@@ -222,7 +222,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay_ServiceProvider" data-uid="CSF.Screenplay.Screenplay.ServiceProvider">
   ServiceProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a service provider/resolver instance associated with this object.</p>
@@ -258,7 +258,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay_BeginScreenplay" data-uid="CSF.Screenplay.Screenplay.BeginScreenplay">
   BeginScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
@@ -286,7 +286,7 @@ Screenplay has begun.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_CompleteScreenplay" data-uid="CSF.Screenplay.Screenplay.CompleteScreenplay">
   CompleteScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
@@ -314,7 +314,7 @@ Screenplay is now complete.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.IServiceProvider,System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)">
   ExecuteAsPerformanceAsync(Func&lt;IServiceProvider, CancellationToken, Task&lt;bool?&gt;&gt;, IList&lt;IdentifierAndName&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes the specified logic as a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
@@ -363,6 +363,15 @@ The return value from the performance logic should conform to the semantics of t
 The <code class="paramref">namingHierarchy</code> may be used to give the performance a name, so that its results (and subsequent report)
 may be identified. This parameter has the same semantics as <a class="xref" href="CSF.Screenplay.Performance.html#CSF_Screenplay_Performance_NamingHierarchy">NamingHierarchy</a>.
 </p>
+<p>
+Note that if the <code class="paramref">performanceLogic</code> raises a <a class="xref" href="CSF.Screenplay.Performables.PerformableException.html">PerformableException</a> then this method will 'swallow'
+that exception and not rethrow.  That's not particularly bad though because:
+</p>
+<ul><li>
+An event will be raised with the event bus: <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a>, specifically
+<a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_PerformableFailed">PerformableFailed</a>.
+This will contain details of the exception which occurred.
+</li><li>The performance will be immediately terminated and placed into the <a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Failed">Failed</a> state.</li></ul>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -374,72 +383,6 @@ may be identified. This parameter has the same semantics as <a class="xref" href
 
 
 
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="CSF_Screenplay_Screenplay_ScreenplayBegun" data-uid="CSF.Screenplay.Screenplay.ScreenplayBegun">
-  ScreenplayBegun
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L37"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Occurs at the beginning of a Screenplay process.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler ScreenplayBegun</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="CSF_Screenplay_Screenplay_ScreenplayCompleted" data-uid="CSF.Screenplay.Screenplay.ScreenplayCompleted">
-  ScreenplayCompleted
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L40"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Occurs when the Screenplay process has completed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler ScreenplayCompleted</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></div>
@@ -448,7 +391,7 @@ may be identified. This parameter has the same semantics as <a class="xref" href
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L31" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L32" class="edit-link">Edit this page</a>
         </div>
 
 
