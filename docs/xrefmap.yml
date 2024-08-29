@@ -1385,6 +1385,62 @@ references:
   fullName.vb: CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
   nameWithType: NonGenericNoResultPerformableAdapter<T>.PerformableWithResult
   nameWithType.vb: NonGenericNoResultPerformableAdapter(Of T).PerformableWithResult
+- uid: CSF.Screenplay.Performables.PerformableException
+  name: PerformableException
+  href: api/CSF.Screenplay.Performables.PerformableException.html
+  commentId: T:CSF.Screenplay.Performables.PerformableException
+  fullName: CSF.Screenplay.Performables.PerformableException
+  nameWithType: PerformableException
+- uid: CSF.Screenplay.Performables.PerformableException.#ctor
+  name: PerformableException()
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException__ctor
+  commentId: M:CSF.Screenplay.Performables.PerformableException.#ctor
+  name.vb: New()
+  fullName: CSF.Screenplay.Performables.PerformableException.PerformableException()
+  fullName.vb: CSF.Screenplay.Performables.PerformableException.New()
+  nameWithType: PerformableException.PerformableException()
+  nameWithType.vb: PerformableException.New()
+- uid: CSF.Screenplay.Performables.PerformableException.#ctor(System.String)
+  name: PerformableException(string)
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException__ctor_System_String_
+  commentId: M:CSF.Screenplay.Performables.PerformableException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Performables.PerformableException.PerformableException(string)
+  fullName.vb: CSF.Screenplay.Performables.PerformableException.New(String)
+  nameWithType: PerformableException.PerformableException(string)
+  nameWithType.vb: PerformableException.New(String)
+- uid: CSF.Screenplay.Performables.PerformableException.#ctor(System.String,System.Exception)
+  name: PerformableException(string, Exception)
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException__ctor_System_String_System_Exception_
+  commentId: M:CSF.Screenplay.Performables.PerformableException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: CSF.Screenplay.Performables.PerformableException.PerformableException(string, System.Exception)
+  fullName.vb: CSF.Screenplay.Performables.PerformableException.New(String, System.Exception)
+  nameWithType: PerformableException.PerformableException(string, Exception)
+  nameWithType.vb: PerformableException.New(String, Exception)
+- uid: CSF.Screenplay.Performables.PerformableException.#ctor*
+  name: PerformableException
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.PerformableException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.PerformableException.PerformableException
+  fullName.vb: CSF.Screenplay.Performables.PerformableException.New
+  nameWithType: PerformableException.PerformableException
+  nameWithType.vb: PerformableException.New
+- uid: CSF.Screenplay.Performables.PerformableException.Performable
+  name: Performable
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException_Performable
+  commentId: P:CSF.Screenplay.Performables.PerformableException.Performable
+  fullName: CSF.Screenplay.Performables.PerformableException.Performable
+  nameWithType: PerformableException.Performable
+- uid: CSF.Screenplay.Performables.PerformableException.Performable*
+  name: Performable
+  href: api/CSF.Screenplay.Performables.PerformableException.html#CSF_Screenplay_Performables_PerformableException_Performable_
+  commentId: Overload:CSF.Screenplay.Performables.PerformableException.Performable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.PerformableException.Performable
+  nameWithType: PerformableException.Performable
 - uid: CSF.Screenplay.Performance
   name: Performance
   href: api/CSF.Screenplay.Performance.html
@@ -2444,18 +2500,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync
   nameWithType: Screenplay.ExecuteAsPerformanceAsync
-- uid: CSF.Screenplay.Screenplay.ScreenplayBegun
-  name: ScreenplayBegun
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ScreenplayBegun
-  commentId: E:CSF.Screenplay.Screenplay.ScreenplayBegun
-  fullName: CSF.Screenplay.Screenplay.ScreenplayBegun
-  nameWithType: Screenplay.ScreenplayBegun
-- uid: CSF.Screenplay.Screenplay.ScreenplayCompleted
-  name: ScreenplayCompleted
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ScreenplayCompleted
-  commentId: E:CSF.Screenplay.Screenplay.ScreenplayCompleted
-  fullName: CSF.Screenplay.Screenplay.ScreenplayCompleted
-  nameWithType: Screenplay.ScreenplayCompleted
 - uid: CSF.Screenplay.Screenplay.ServiceProvider
   name: ServiceProvider
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ServiceProvider
