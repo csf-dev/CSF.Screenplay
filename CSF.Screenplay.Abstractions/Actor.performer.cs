@@ -32,10 +32,7 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
-                {
-                    Performable = performable,
-                };
+                throw GetPerformableException(performable, ex);
             }
         }
 
@@ -65,10 +62,7 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
-                {
-                    Performable = performable,
-                };
+                throw GetPerformableException(performable, ex);
             }
         }
 
@@ -98,11 +92,16 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
-                {
-                    Performable = performable,
-                };
+                throw GetPerformableException(performable, ex);
             }
+        }
+
+        PerformableException GetPerformableException(object performable, Exception ex)
+        {
+            return new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+            {
+                Performable = performable,
+            };
         }
 
         ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
