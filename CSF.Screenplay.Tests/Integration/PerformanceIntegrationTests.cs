@@ -1,3 +1,4 @@
+using CSF.Screenplay.Stubs;
 using Microsoft.Extensions.DependencyInjection;
 using static CSF.Screenplay.PerformanceStarter;
 
@@ -6,13 +7,12 @@ namespace CSF.Screenplay.Integration;
 [TestFixture, Parallelizable]
 public class PerformanceIntegrationTests
 {
-    [Test]
-    public async Task ExecuteAsPerformanceAsyncShouldExecuteThreePerformables()
+    [Test,AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldExecuteThreePerformables(SampleAction sampleAction,
+                                                                              SampleQuestion sampleQuestion1,
+                                                                              SampleGenericQuestion sampleQuestion2)
     {
         var screenplay = new Screenplay();
-        var sampleAction = new SampleAction();
-        var sampleQuestion1 = new SampleQuestion();
-        var sampleQuestion2 = new SampleGenericQuestion();
         object? question1Result = null;
         string? question2Result = null;
 
@@ -30,33 +30,5 @@ public class PerformanceIntegrationTests
             Assert.That(question1Result, Is.EqualTo(5), "Question 1 result");
             Assert.That(question2Result, Is.EqualTo("Joe"), "Question 2 result");
         });
-    }
-
-    class SampleAction : IPerformable
-    {
-        public string? ActorName { get; private set; }
-
-        public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-        {
-            ActorName = ((IHasName) actor).Name;
-            return ValueTask.CompletedTask;
-        }
-    }
-
-    class SampleQuestion : IPerformableWithResult
-    {
-        public ValueTask<object> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-        {
-            return ValueTask.FromResult<object>(5);
-        }
-    }
-
-    class SampleGenericQuestion : IPerformableWithResult<string>
-    {
-        public ValueTask<string> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
-        {
-            var actorName = ((IHasName) actor).Name;
-            return ValueTask.FromResult(actorName);
-        }
     }
 }

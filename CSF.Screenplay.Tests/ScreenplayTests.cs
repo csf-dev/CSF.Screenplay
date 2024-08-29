@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay;
 
-[TestFixture,Parallelizable]
+[TestFixture, Parallelizable]
 public class ScreenplayTests
 {
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldExecuteTheLogic()
     {
         var sut = new Screenplay();
@@ -21,7 +21,7 @@ public class ScreenplayTests
         Assert.That(logicExecuted, Is.True);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldInvokeBeginPerformanceOnThePerformable()
     {
         var sut = new Screenplay();
@@ -37,7 +37,7 @@ public class ScreenplayTests
         Assert.That(eventReceived, Is.True);
     }
 
-    [Test,AutoMoqData]
+    [Test, AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldInvokeFinishPerformanceOnThePerformable()
     {
         var sut = new Screenplay();

@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay
 {
@@ -31,7 +32,10 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw;
+                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+                {
+                    Performable = performable,
+                };
             }
         }
 
@@ -61,7 +65,10 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw;
+                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+                {
+                    Performable = performable,
+                };
             }
         }
 
@@ -91,7 +98,10 @@ namespace CSF.Screenplay
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
-                throw;
+                throw new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+                {
+                    Performable = performable,
+                };
             }
         }
 

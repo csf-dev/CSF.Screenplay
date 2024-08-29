@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
 using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
@@ -33,19 +34,13 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         public IServiceProvider ServiceProvider { get; }
 
-        /// <summary>Occurs at the beginning of a Screenplay process.</summary>
-        public event EventHandler ScreenplayBegun;
-
-        /// <summary>Occurs when the Screenplay process has completed.</summary>
-        public event EventHandler ScreenplayCompleted;
-
         /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
         /// Screenplay has begun.</summary>
-        public void BeginScreenplay() => ScreenplayBegun?.Invoke(this, EventArgs.Empty);
+        public void BeginScreenplay() => ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayStarted();
 
         /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
         /// Screenplay is now complete.</summary>
-        public void CompleteScreenplay() => ScreenplayCompleted?.Invoke(this, EventArgs.Empty);
+        public void CompleteScreenplay() => ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayEnded();
 
         /// <summary>
         /// Executes the specified logic as a <see cref="Performance"/>
@@ -62,6 +57,18 @@ namespace CSF.Screenplay
         /// The <paramref name="namingHierarchy"/> may be used to give the performance a name, so that its results (and subsequent report)
         /// may be identified. This parameter has the same semantics as <see cref="Performance.NamingHierarchy"/>.
         /// </para>
+        /// <para>
+        /// Note that if the <paramref name="performanceLogic"/> raises a <see cref="PerformableException"/> then this method will 'swallow'
+        /// that exception and not rethrow.  That's not particularly bad though because:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>
+        /// An event will be raised with the event bus: <see cref="IHasPerformanceEvents"/>, specifically
+        /// <see cref="IHasPerformanceEvents.PerformableFailed"/>.
+        /// This will contain details of the exception which occurred.
+        /// </description></item>
+        /// <item><description>The performance will be immediately terminated and placed into the <see cref="PerformanceState.Failed"/> state.</description></item>
+        /// </list>
         /// </remarks>
         /// <param name="performanceLogic">The logic to be executed by the performance.</param>
         /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
@@ -83,9 +90,17 @@ namespace CSF.Screenplay
                 performance.NamingHierarchy.AddRange(namingHierarchy);
                 performance.BeginPerformance();
 
-                var result = await performanceLogic(scope.ServiceProvider, cancellationToken).ConfigureAwait(false);
-
-                performance.FinishPerformance(result);
+                try
+                {
+                    var result = await performanceLogic(scope.ServiceProvider, cancellationToken).ConfigureAwait(false);
+                    performance.FinishPerformance(result);
+                }
+                // Only catch performable exceptions; if it's anything else then the root-level logic of the performance logic is at fault,
+                // and that's unrelated to Screenplay, so shouldn't be caught here.
+                catch(PerformableException)
+                {
+                    performance.FinishPerformance(false);
+                }
             }
         }
 

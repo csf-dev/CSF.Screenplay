@@ -1,0 +1,211 @@
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performances;
+using CSF.Screenplay.Stubs;
+using Microsoft.Extensions.DependencyInjection;
+
+using static CSF.Screenplay.PerformanceStarter;
+
+namespace CSF.Screenplay.Integration;
+
+[TestFixture,Parallelizable]
+public class EventBusIntegrationTests
+{
+    [Test, AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectPerformanceEvents(SampleAction sampleAction,
+                                                                                  SampleGenericQuestion sampleQuestion)
+    {
+        var sut = new Screenplay();
+        string? createdActorName = null;
+        bool performanceBegun = false, performanceFinished = false;
+        IList<object> performablesBegun = new List<object>();
+        IList<object> performablesEnded = new List<object>();
+        IList<object> performableResults = new List<object>();
+        void OnActorCreated(object? sender, ActorEventArgs ev) => createdActorName = ev.ActorName;
+        void OnBeginPerformable(object? sender, PerformableEventArgs ev) => performablesBegun.Add(ev.Performable);
+        void OnEndPerformable(object? sender, PerformableEventArgs ev) => performablesEnded.Add(ev.Performable);
+        void OnPerformableResult(object? sender, PerformableResultEventArgs ev) => performableResults.Add(ev.Result);
+        void OnPerformanceBegun(object? sender, PerformanceEventArgs ev) => performanceBegun = true;
+        void OnPerformanceFinished(object? sender, PerformanceFinishedEventArgs ev) => performanceFinished = true;
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+        eventPublisher.PerformanceBegun += OnPerformanceBegun;
+        eventPublisher.PerformanceFinished += OnPerformanceFinished;
+        eventPublisher.ActorCreated += OnActorCreated;
+        eventPublisher.BeginPerformable += OnBeginPerformable;
+        eventPublisher.EndPerformable += OnEndPerformable;
+        eventPublisher.PerformableResult += OnPerformableResult;
+
+        await sut.ExecuteAsPerformanceAsync(async (s, c) =>
+        {
+            var cast = s.GetRequiredService<ICast>();
+            var joe = cast.GetActor("Joe");
+
+            await When(joe).AttemptsTo(sampleAction, c);
+            await Then(joe).Should(sampleQuestion, c);
+
+            return true;
+        });
+
+        eventPublisher.PerformanceBegun -= OnPerformanceBegun;
+        eventPublisher.PerformanceFinished -= OnPerformanceFinished;
+        eventPublisher.ActorCreated -= OnActorCreated;
+        eventPublisher.BeginPerformable -= OnBeginPerformable;
+        eventPublisher.EndPerformable -= OnEndPerformable;
+        eventPublisher.PerformableResult -= OnPerformableResult;
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(performanceBegun, Is.True, $"{nameof(OnPerformanceBegun)} was triggered");
+            Assert.That(performanceFinished, Is.True, $"{nameof(OnPerformanceFinished)} was triggered");
+            Assert.That(createdActorName, Is.EqualTo("Joe"), $"{nameof(OnActorCreated)} was triggered");
+            Assert.That(performablesBegun, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnBeginPerformable)} was triggered with the right performables");
+            Assert.That(performablesEnded, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnEndPerformable)} was triggered with the right performables");
+            Assert.That(performableResults, Is.EqualTo(new object[] { "Joe" }),  $"{nameof(OnPerformableResult)} was triggered with the right performables");
+        });
+    }
+
+    [Test,AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectSpotlightEvents()
+    {
+        var sut = new Screenplay();
+        string? spotlitActorName = null;
+        bool spotlightOff = false;
+        void OnActorSpotlit(object? sender, ActorEventArgs e) => spotlitActorName = e.ActorName;
+        void OnSpotlightTurnedOff(object? sender, PerformanceScopeEventArgs e) => spotlightOff = true;
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.ActorSpotlit += OnActorSpotlit;
+        eventPublisher.SpotlightTurnedOff += OnSpotlightTurnedOff;
+
+        await sut.ExecuteAsPerformanceAsync((s, c) =>
+        {
+            var stage = s.GetRequiredService<IStage>();
+            var joe = stage.Cast.GetActor("Joe");
+            stage.Spotlight(joe);
+            stage.TurnSpotlightOff();
+
+            return Task.FromResult<bool?>(true);
+        });
+
+        eventPublisher.ActorSpotlit -= OnActorSpotlit;
+        eventPublisher.SpotlightTurnedOff -= OnSpotlightTurnedOff;
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(spotlitActorName, Is.EqualTo("Joe"), $"{nameof(OnActorSpotlit)} was triggered");
+            Assert.That(spotlightOff, Is.True, $"{nameof(OnSpotlightTurnedOff)} was triggered");
+        });
+    }
+
+    [Test,AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectActorAbilityEvents(object anAbility)
+    {
+        var sut = new Screenplay();
+        object? capturedAbility = null;
+        void OnGainedAbility(object? sender, GainAbilityEventArgs e) => capturedAbility = e.Ability;
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.GainedAbility += OnGainedAbility;
+
+        await sut.ExecuteAsPerformanceAsync((s, c) =>
+        {
+            var cast = s.GetRequiredService<ICast>();
+            var joe = cast.GetActor("Joe");
+            joe.IsAbleTo(anAbility);
+
+            return Task.FromResult<bool?>(true);
+        });
+
+        eventPublisher.GainedAbility -= OnGainedAbility;
+
+        Assert.That(capturedAbility, Is.SameAs(anAbility), $"{nameof(OnGainedAbility)} was triggered");
+    }
+
+    [Test,AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectPerformableFailureEventsWhenItThrows(ThrowingAction performable)
+    {
+        var sut = new Screenplay();
+        Exception? exceptionCaught = null;
+        bool? result = null;
+        void OnPerformableFailed(object? sender, PerformableFailureEventArgs e) => exceptionCaught = e.Exception;
+        void OnPerformanceFinished(object? sender, PerformanceFinishedEventArgs e) => result = e.Success;
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.PerformableFailed += OnPerformableFailed;
+        eventPublisher.PerformanceFinished += OnPerformanceFinished;
+
+        await sut.ExecuteAsPerformanceAsync(async (s, c) =>
+        {
+            var cast = s.GetRequiredService<ICast>();
+            var joe = cast.GetActor("Joe");
+            await When(joe).AttemptsTo(performable, c);
+
+            return true;
+        });
+
+        eventPublisher.PerformableFailed -= OnPerformableFailed;
+        eventPublisher.PerformanceFinished -= OnPerformanceFinished;
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(exceptionCaught,
+                        Is.InstanceOf<InvalidOperationException>().And.Property(nameof(Exception.Message)).EqualTo(ThrowingAction.Message),
+                        $"{nameof(OnPerformableFailed)} was triggered");
+            Assert.That(result, Is.False, $"{nameof(OnPerformanceFinished)} was triggered");
+        });
+    }
+
+    [Test,AutoMoqData]
+    public async Task ExecuteAsPerformanceAsyncShouldRecordThePerformanceAsAFailureIfItReturnsFalse()
+    {
+        var sut = new Screenplay();
+        bool? result = null;
+        void OnPerformanceFinished(object? sender, PerformanceFinishedEventArgs e) => result = e.Success;
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.PerformanceFinished += OnPerformanceFinished;
+
+        await sut.ExecuteAsPerformanceAsync((s, c) =>
+        {
+            return Task.FromResult<bool?>(false);
+        });
+
+        eventPublisher.PerformanceFinished -= OnPerformanceFinished;
+
+        Assert.That(result, Is.False, $"{nameof(OnPerformanceFinished)} was triggered");
+    }
+
+    [Test,AutoMoqData]
+    public void BeginScreenplayShouldEmitTheCorrectEvent()
+    {
+        var sut = new Screenplay();
+        bool started = false;
+        void OnScreenplayStarted(object? sender, EventArgs e) => started = true;
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.ScreenplayStarted += OnScreenplayStarted;
+        sut.BeginScreenplay();
+        eventPublisher.ScreenplayStarted -= OnScreenplayStarted;
+
+        Assert.That(started, Is.True);
+    }
+    
+    [Test,AutoMoqData]
+    public void CompleteScreenplayShouldEmitTheCorrectEvent()
+    {
+        var sut = new Screenplay();
+        bool ended = false;
+        void OnScreenplayEnded(object? sender, EventArgs e) => ended = true;
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+
+        eventPublisher.ScreenplayEnded += OnScreenplayEnded;
+        sut.CompleteScreenplay();
+        eventPublisher.ScreenplayEnded -= OnScreenplayEnded;
+
+        Assert.That(ended, Is.True);
+    }
+}

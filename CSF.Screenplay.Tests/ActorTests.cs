@@ -1,4 +1,5 @@
 using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performables;
 using Moq;
 
 namespace CSF.Screenplay;
@@ -162,9 +163,9 @@ public class ActorTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InvalidOperationException, "PerformAsync throws an exception");
+            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
-            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The exception is exposed by the failure event");
+            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
         });
     }
 
@@ -215,9 +216,9 @@ public class ActorTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InvalidOperationException, "PerformAsync throws an exception");
+            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
-            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The exception is exposed by the failure event");
+            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
         });
     }
 
@@ -268,9 +269,9 @@ public class ActorTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InvalidOperationException, "PerformAsync throws an exception");
+            Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
-            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The exception is exposed by the failure event");
+            Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
         });
     }
 
