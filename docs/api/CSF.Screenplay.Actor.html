@@ -407,7 +407,7 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
 
   <h3 id="CSF_Screenplay_Actor_Dispose" data-uid="CSF.Screenplay.Actor.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actor.disposable.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actor.disposable.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -415,9 +415,42 @@ and/or <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>, which assis
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Dispose()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Actor_Dispose_" data-uid="CSF.Screenplay.Actor.Dispose*"></a>
+
+  <h3 id="CSF_Screenplay_Actor_Dispose_System_Boolean_" data-uid="CSF.Screenplay.Actor.Dispose(System.Boolean)">
+  Dispose(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actor.disposable.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the current instance, via the Dispose Pattern.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A value indicating wherher or not disposal should occur.</p>
+</dd>
+  </dl>
 
 
 

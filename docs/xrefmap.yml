@@ -63,6 +63,15 @@ references:
   commentId: M:CSF.Screenplay.Actor.Dispose
   fullName: CSF.Screenplay.Actor.Dispose()
   nameWithType: Actor.Dispose()
+- uid: CSF.Screenplay.Actor.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose_System_Boolean_
+  commentId: M:CSF.Screenplay.Actor.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: CSF.Screenplay.Actor.Dispose(bool)
+  fullName.vb: CSF.Screenplay.Actor.Dispose(Boolean)
+  nameWithType: Actor.Dispose(bool)
+  nameWithType.vb: Actor.Dispose(Boolean)
 - uid: CSF.Screenplay.Actor.Dispose*
   name: Dispose
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_Dispose_
