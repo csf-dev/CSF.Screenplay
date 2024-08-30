@@ -22,7 +22,7 @@ namespace CSF.Screenplay
         /// <param name="disposing">A value indicating wherher or not disposal should occur.</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue) return;
+            if (disposedValue) return;
 
             if (disposing)
             {
