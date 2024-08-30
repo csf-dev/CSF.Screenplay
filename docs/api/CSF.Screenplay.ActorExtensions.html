@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ActorExtensions" data-uid="CSF.Screenplay.ActorExtensions" class="text-break">
-Class ActorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L7"><i class="bi bi-code-slash"></i></a>
+Class ActorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -153,11 +153,152 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 </h2>
 
 
+  <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  AttemptsTo(Actor, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask AttemptsTo(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task which completes when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  AttemptsTo(Actor, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; AttemptsTo(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  AttemptsTo&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; AttemptsTo&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The result type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_ActorExtensions_GetAbility_" data-uid="CSF.Screenplay.ActorExtensions.GetAbility*"></a>
 
   <h3 id="CSF_Screenplay_ActorExtensions_GetAbility_CSF_Screenplay_ICanPerform_System_Type_" data-uid="CSF.Screenplay.ActorExtensions.GetAbility(CSF.Screenplay.ICanPerform,System.Type)">
   GetAbility(ICanPerform, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the first ability which the actor has of the specified type</p>
@@ -211,7 +352,7 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_ActorExtensions_GetAbility__1_CSF_Screenplay_ICanPerform_" data-uid="CSF.Screenplay.ActorExtensions.GetAbility``1(CSF.Screenplay.ICanPerform)">
   GetAbility&lt;T&gt;(ICanPerform)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the first ability which the actor has of the specified type</p>
@@ -268,7 +409,7 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_ActorExtensions_HasAbility_CSF_Screenplay_ICanPerform_System_Type_" data-uid="CSF.Screenplay.ActorExtensions.HasAbility(CSF.Screenplay.ICanPerform,System.Type)">
   HasAbility(ICanPerform, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates if the actor has an ability of the specified type.</p>
@@ -316,7 +457,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_HasAbility_CSF_Screenplay_IHasAbilities_System_Type_" data-uid="CSF.Screenplay.ActorExtensions.HasAbility(CSF.Screenplay.IHasAbilities,System.Type)">
   HasAbility(IHasAbilities, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates if the actor has an ability of the specified type.</p>
@@ -359,7 +500,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_HasAbility__1_CSF_Screenplay_ICanPerform_" data-uid="CSF.Screenplay.ActorExtensions.HasAbility``1(CSF.Screenplay.ICanPerform)">
   HasAbility&lt;T&gt;(ICanPerform)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates if the actor has an ability of the specified type.</p>
@@ -410,7 +551,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_HasAbility__1_CSF_Screenplay_IHasAbilities_" data-uid="CSF.Screenplay.ActorExtensions.HasAbility``1(CSF.Screenplay.IHasAbilities)">
   HasAbility&lt;T&gt;(IHasAbilities)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates if the actor has an ability of the specified type.</p>
@@ -456,7 +597,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_IsAbleTo_CSF_Screenplay_ICanPerform_System_Object_" data-uid="CSF.Screenplay.ActorExtensions.IsAbleTo(CSF.Screenplay.ICanPerform,System.Object)">
   IsAbleTo(ICanPerform, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds an ability to the specified actor</p>
@@ -501,11 +642,434 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
 
 
+  <a id="CSF_Screenplay_ActorExtensions_PerformAsync_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  PerformAsync(ICanPerform, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns no result from the performable which is exposed by the specified builder object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask PerformAsync(this ICanPerform actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task which completes when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_PerformAsync_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  PerformAsync(ICanPerform, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result from the performable which is exposed by the specified builder object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; PerformAsync(this ICanPerform actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_PerformAsync_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync__1_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync``1(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  PerformAsync&lt;T&gt;(ICanPerform, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result from the performable which is exposed by the specified builder object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; PerformAsync&lt;T&gt;(this ICanPerform actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The result type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  Should(Actor, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask Should(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task which completes when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  Should(Actor, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; Should(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_Should__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  Should&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; Should&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The result type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  WasAbleTo(Actor, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask WasAbleTo(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task which completes when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  WasAbleTo(Actor, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; WasAbleTo(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  WasAbleTo&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; WasAbleTo&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>An actor</p>
+</dd>
+    <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
+    <dd><p>The performable builder</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>An optional token to cancel the performable</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
+    <dd><p>A task which exposes a result when the performable is complete</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The result type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

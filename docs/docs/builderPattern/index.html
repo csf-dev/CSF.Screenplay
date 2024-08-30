@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Dependency injection scope | Screenplay docs </title>
+      <title>The builder pattern | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Dependency injection scope | Screenplay docs ">
+      <meta name="title" content="The builder pattern | Screenplay docs ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/DependencyInjectionScope.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/builderPattern/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,15 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="DependencyInjectionScopeArticle">
-<h1 id="dependency-injection-scope">Dependency injection scope</h1>
+        <article data-uid="BuilderPatternMainArticle">
+<h1 id="the-builder-pattern">The builder pattern</h1>
 
-<p>Developers familiar with dependency injection are likely to be familiar with the concept of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#service-lifetimes">DI Scopes</a>.
-That is - some services which are designated as <em>scoped</em> or <em>instance per scope</em> use a common/shared instance for the lifetime/duration of the scope.</p>
-<p>Within Screenplay logic, a DI scope is automatically created, with a lifetime matching that of the current <a class="xref" href="../../api/CSF.Screenplay.Performance.html">Performance</a>.
-Within a performance, when any of the scoped services (listed below) are injected, each point of injection will receive the same shared instance of that service.
-Instances are independent per-performance; each performance gets its own shared instance of each of the listed services.</p>
-<h2 id="list-of-scoped-services">List of scoped services</h2>
-<ul>
-<li><a class="xref" href="../../api/CSF.Screenplay.ICast.html">The Cast</a></li>
-<li><a class="xref" href="../../api/CSF.Screenplay.IStage.html">The Stage</a></li>
-<li><a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">The current performance</a></li>
-</ul>
+<p>TODO: Write this docco</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/DependencyInjectionScope.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/builderPattern/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
