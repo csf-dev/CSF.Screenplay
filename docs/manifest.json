@@ -352,6 +352,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.IGetsPerformable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformableWithResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformableWithResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.IGetsPerformableWithResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.IProvidesTimeSpan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.IProvidesTimeSpan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.yml",
       "output": {
         ".html": {
@@ -366,6 +406,26 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performables.PerformableException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder.html"
         }
       },
       "version": ""
@@ -629,6 +689,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/TestFrameworkIntegrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/builderPattern/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/builderPattern/index.html"
         }
       },
       "version": ""

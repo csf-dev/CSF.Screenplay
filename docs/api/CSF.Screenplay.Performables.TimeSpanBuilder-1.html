@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TimeSpanBuilder&lt;TOtherBuilder&gt; | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TimeSpanBuilder&lt;TOtherBuilder&gt; | Screenplay docs ">
+      
+      <meta name="description" content="A supplementary builder type which enables the collection of  instances.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Performables_TimeSpanBuilder_1.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Performables.TimeSpanBuilder%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1">
+
+
+
+  <h1 id="CSF_Screenplay_Performables_TimeSpanBuilder_1" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1" class="text-break">
+Class TimeSpanBuilder&lt;TOtherBuilder&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Performables.html">Performables</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A supplementary builder type which enables the collection of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> instances.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TimeSpanBuilder&lt;TOtherBuilder&gt; : IProvidesTimeSpan where TOtherBuilder : class</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TOtherBuilder</code></dt>
+    <dd><p>The builder type for which this builder will supplement</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TimeSpanBuilder&lt;TOtherBuilder&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.Performables.IProvidesTimeSpan.html">IProvidesTimeSpan</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_examples">Examples</h2>
+  <p>
+The example below shows how the time span builder is intended to be used.  It is consumed from within another builder,
+which needs to include a developer-configurable time span.
+See <a class="xref" href="../docs/builderPattern/index.html">the documentation for writing=performable builders</a> for more information
+about the makeup of the <code>EatLunchPerformableBuilder</code>.
+</p>
+<pre><code class="lang-csharp">public class EatLunchPerformableBuilder : IPerformableBuilder
+{
+    TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; timeSpanBuilder;
+<pre><code>protected string FoodName { get; init; }
+
+IPerformable IPerformableBuilder.GetPerformable()
+    =&gt; new EatLunch(FoodName, timeSpanBuilder?.GetTimeSpan() ?? TimeSpan.FromMinutes(30));
+
+public TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; For(int howMany)
+{
+    timeSpanBuilder = TimeSpanBuilder.Create(this, howMany);
+    return timeSpanBuilder;
+}
+
+public static EatLunchPerformableBuilder Eat(string foodName) =&gt; new EatLunchPerformableBuilder() { FoodName = foodName };
+</code></pre>
+<p>}</p></code></pre>
+<p>
+The sample builder above would be used to build an instance of a (fictitious) <code>EachLunch</code> performable, which derives from
+<a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a>.  The fictitious performable requires two parameters; the name of the food being eaten for lunch
+and how long the lunch break lasts. The time span builder is used for that second parameter.
+A consumer which uses this builder in an <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>, or another <a class="xref" href="../glossary/Performable.html">performable</a>,
+might consume it as follows.
+</p>
+<pre><code class="lang-csharp">using static EatLunchPerformableBuilder;
+<p>// ...</p>
+<p>actor.PerformAsync(Eat(&quot;Sandwiches&quot;).For(30).Minutes(), cancellationToken);</p></code></pre>
+
+
+  <h2 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+When consuming <a class="xref" href="../glossary/Performable.html">Performable objects</a> it is recommended to use
+<a class="xref" href="../docs/builderPattern/index.html">the builder pattern</a> to create them.
+A commonly-used 'parameter' which may be specified in builders is 'an amount of time', IE a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>.
+</p>
+<p>
+This builder is intended to supplement another builder, for the purpose of specifying an amount of time.
+The 'other' builder is passed as a constructor parameter to this builder, along with an absolute amount.
+The consumer should then execute one of the methods of this type, which selects the unit of time and thus
+determines the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> value.
+The method which determines the units then returns that other builder instance, allowing the building process
+to continue with that other builder.
+</p>
+<p>
+Whilst it is possible to create instances of this type via its public constructor, it is often easier to create
+instances using the <code>static</code><a class="xref" href="CSF.Screenplay.Performables.TimeSpanBuilder.html">TimeSpanBuilder</a> class.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1__ctor_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1__ctor__0_System_Int32_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.#ctor(`0,System.Int32)">
+  TimeSpanBuilder(TOtherBuilder, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Performables.TimeSpanBuilder-1.html">TimeSpanBuilder&lt;TOtherBuilder&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpanBuilder(TOtherBuilder otherBuilder, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>otherBuilder</code> <span class="xref">TOtherBuilder</span></dt>
+    <dd><p>The other builder which shall be supplemented by this</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The absolute value of time, but without units</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">otherBuilder</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>If <code class="paramref">value</code> is less than zero.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Days_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Days*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Days" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Days">
+  Days()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the contained time span to be measured in days, then returns the contained builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOtherBuilder Days()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOtherBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Hours_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Hours*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Hours" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Hours">
+  Hours()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the contained time span to be measured in hours, then returns the contained builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOtherBuilder Hours()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOtherBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Milliseconds_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Milliseconds*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Milliseconds" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Milliseconds">
+  Milliseconds()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the contained time span to be measured in milliseconds, then returns the contained builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOtherBuilder Milliseconds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOtherBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Minutes_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Minutes*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Minutes" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Minutes">
+  Minutes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the contained time span to be measured in minutes, then returns the contained builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOtherBuilder Minutes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOtherBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Seconds_" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Seconds*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_TimeSpanBuilder_1_Seconds" data-uid="CSF.Screenplay.Performables.TimeSpanBuilder`1.Seconds">
+  Seconds()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the contained time span to be measured in seconds, then returns the contained builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOtherBuilder Seconds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TOtherBuilder</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Performables.TimeSpanBuilder.html#CSF_Screenplay_Performables_TimeSpanBuilder_Create__1___0_System_Int32_">Create</a>&lt;TOtherBuilder&gt;(TOtherBuilder, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)</div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/TimeSpanBuilder.generic.cs/#L70" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
