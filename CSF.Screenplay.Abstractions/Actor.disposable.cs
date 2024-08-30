@@ -2,12 +2,12 @@ using System;
 
 namespace CSF.Screenplay
 {
-    public sealed partial class Actor : IDisposable
+    public partial class Actor : IDisposable
     {
         bool disposedValue;
 
         /// <inheritdoc/>
-        public void Dispose()
+        public virtual void Dispose()
         {
             if (disposedValue) return;
 

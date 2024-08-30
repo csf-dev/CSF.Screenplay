@@ -42,18 +42,18 @@ namespace CSF.Screenplay
     /// <seealso cref="IPerformance"/>
     /// <seealso cref="ICast"/>
     /// <seealso cref="IStage"/>
-    public sealed partial class Actor : IHasName, IHasPerformanceIdentity
+    public partial class Actor : IHasName, IHasPerformanceIdentity
     {
         readonly string name;
         readonly Guid performanceIdentity;
 
         /// <summary>Gets the actor's name</summary>
-        string Name => name;
+        protected virtual string Name => name;
 
         string IHasName.Name => Name;
 
         /// <summary>Gets the unique identity for the performance in which this actor is participating</summary>
-        Guid PerformanceIdentity => performanceIdentity;
+        protected virtual Guid PerformanceIdentity => performanceIdentity;
 
         Guid IHasPerformanceIdentity.PerformanceIdentity => PerformanceIdentity;
 

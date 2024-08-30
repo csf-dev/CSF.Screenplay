@@ -18,4 +18,4 @@ Instances are independent per-performance; each performance gets its own shared 
 
 * [The Cast](xref:CSF.Screenplay.ICast)
 * [The Stage](xref:CSF.Screenplay.IStage)
-* [The current performance](xref:CSF.Screenplay.Performance)
+* [The current performance](xref:CSF.Screenplay.IPerformance)

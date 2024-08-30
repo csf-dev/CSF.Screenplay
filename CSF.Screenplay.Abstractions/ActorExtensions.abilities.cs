@@ -4,7 +4,7 @@ using System.Linq;
 namespace CSF.Screenplay
 {
     /// <summary>Extension methods for actor types</summary>
-    public static class ActorExtensions
+    public static partial class ActorExtensions
     {
         /// <summary>Gets a value which indicates if the actor has an ability of the specified type.</summary>
         /// <remarks>
