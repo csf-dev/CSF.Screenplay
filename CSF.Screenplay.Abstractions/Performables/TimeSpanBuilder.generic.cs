@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Performables
     /// <para>
     /// The example below shows how the time span builder is intended to be used.  It is consumed from within another builder,
     /// which needs to include a developer-configurable time span.
-    /// See <xref href="BuilderPatternMainArticle?text=the+documentation+for+writing=performable+builders"/> for more information
+    /// See <xref href="BuilderPatternMainArticle?text=the+documentation+for+writing+performable+builders"/> for more information
     /// about the makeup of the <c>EatLunchPerformableBuilder</c>.
     /// </para>
     /// <code>
