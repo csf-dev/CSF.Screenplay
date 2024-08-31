@@ -1,0 +1,4 @@
+StartTheStopwatchFormat = {0} starts their stopwatch
+StopTheStopwatchFormat = {0} stops their stopwatch
+ResetTheStopwatchFormat = {0} resets their stopwatch to zero
+ReadTheStopwatchFormat = {0} reads their stopwatch

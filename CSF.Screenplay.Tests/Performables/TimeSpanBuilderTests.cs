@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Performables;
 public class TimeSpanBuilderTests
 {
     [Test,AutoMoqData]
-    public void GetTimeSpanShouldReturnACorrectTimeSpanInTheContextOfALargerBuilder(Actor actor, string foodName)
+    public void GetTimeSpanShouldReturnACorrectTimeSpanInTheContextOfALargerBuilderIntegrationTest(Actor actor, string foodName)
     {
         object? performable = null;
         void OnBeginPerformable(object? sender, PerformableEventArgs ev) => performable = ev.Performable;
@@ -24,6 +24,46 @@ public class TimeSpanBuilderTests
             Assert.That(performable, Has.Property(nameof(EatLunch.FoodName)).EqualTo(foodName), $"The performable must have the correct {nameof(EatLunch.FoodName)}");
             Assert.That(performable, Has.Property(nameof(EatLunch.HowLong)).EqualTo(TimeSpan.FromMinutes(10)), $"The performable must have the correct {nameof(EatLunch.HowLong)}");
         });
+    }
+
+    [Test,AutoMoqData]
+    public void MillisecondsShouldCreateAnAmountInMilliseconds(object otherBuilder)
+    {
+        var sut = TimeSpanBuilder.Create(otherBuilder, 20);
+        sut.Milliseconds();
+        Assert.That(((IProvidesTimeSpan)sut).GetTimeSpan(), Is.EqualTo(TimeSpan.FromMilliseconds(20)));
+    }
+
+    [Test,AutoMoqData]
+    public void SecondsShouldCreateAnAmountInSeconds(object otherBuilder)
+    {
+        var sut = TimeSpanBuilder.Create(otherBuilder, 20);
+        sut.Seconds();
+        Assert.That(((IProvidesTimeSpan)sut).GetTimeSpan(), Is.EqualTo(TimeSpan.FromSeconds(20)));
+    }
+
+    [Test,AutoMoqData]
+    public void MinutesShouldCreateAnAmountInMinutes(object otherBuilder)
+    {
+        var sut = TimeSpanBuilder.Create(otherBuilder, 20);
+        sut.Minutes();
+        Assert.That(((IProvidesTimeSpan)sut).GetTimeSpan(), Is.EqualTo(TimeSpan.FromMinutes(20)));
+    }
+
+    [Test,AutoMoqData]
+    public void HoursShouldCreateAnAmountInHours(object otherBuilder)
+    {
+        var sut = TimeSpanBuilder.Create(otherBuilder, 20);
+        sut.Hours();
+        Assert.That(((IProvidesTimeSpan)sut).GetTimeSpan(), Is.EqualTo(TimeSpan.FromHours(20)));
+    }
+
+    [Test,AutoMoqData]
+    public void DaysShouldCreateAnAmountInDays(object otherBuilder)
+    {
+        var sut = TimeSpanBuilder.Create(otherBuilder, 20);
+        sut.Days();
+        Assert.That(((IProvidesTimeSpan)sut).GetTimeSpan(), Is.EqualTo(TimeSpan.FromDays(20)));
     }
 
     // Note that this class is identical to the example in the docco comments for TimeSpanBuilder<TOtherBuilder>
