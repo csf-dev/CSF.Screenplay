@@ -13,6 +13,44 @@ references:
   commentId: N:CSF.Screenplay
   fullName: CSF.Screenplay
   nameWithType: CSF.Screenplay
+- uid: CSF.Screenplay.Abilities
+  name: CSF.Screenplay.Abilities
+  href: api/CSF.Screenplay.Abilities.html
+  commentId: N:CSF.Screenplay.Abilities
+  fullName: CSF.Screenplay.Abilities
+  nameWithType: CSF.Screenplay.Abilities
+- uid: CSF.Screenplay.Abilities.UseAStopwatch
+  name: UseAStopwatch
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html
+  commentId: T:CSF.Screenplay.Abilities.UseAStopwatch
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch
+  nameWithType: UseAStopwatch
+- uid: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: UseAStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment
+  nameWithType: UseAStopwatch.GetReportFragment
+- uid: CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch
+  name: Stopwatch
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_Stopwatch
+  commentId: P:CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch
+  nameWithType: UseAStopwatch.Stopwatch
+- uid: CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch*
+  name: Stopwatch
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_Stopwatch_
+  commentId: Overload:CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch.Stopwatch
+  nameWithType: UseAStopwatch.Stopwatch
 - uid: CSF.Screenplay.Actor
   name: Actor
   href: api/CSF.Screenplay.Actor.html
@@ -1811,6 +1849,192 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performables.PerformableException.Performable
   nameWithType: PerformableException.Performable
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch
+  name: ReadTheStopwatch
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html
+  commentId: T:CSF.Screenplay.Performables.ReadTheStopwatch
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch
+  nameWithType: ReadTheStopwatch
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: ReadTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment
+  nameWithType: ReadTheStopwatch.GetReportFragment
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: ReadTheStopwatch.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.PerformAsAsync
+  nameWithType: ReadTheStopwatch.PerformAsAsync
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch
+  name: ResetTheStopwatch
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html
+  commentId: T:CSF.Screenplay.Performables.ResetTheStopwatch
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch
+  nameWithType: ResetTheStopwatch
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: ResetTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment
+  nameWithType: ResetTheStopwatch.GetReportFragment
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: ResetTheStopwatch.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync
+  nameWithType: ResetTheStopwatch.PerformAsAsync
+- uid: CSF.Screenplay.Performables.StartTheStopwatch
+  name: StartTheStopwatch
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html
+  commentId: T:CSF.Screenplay.Performables.StartTheStopwatch
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch
+  nameWithType: StartTheStopwatch
+- uid: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: StartTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment
+  nameWithType: StartTheStopwatch.GetReportFragment
+- uid: CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: StartTheStopwatch.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync
+  nameWithType: StartTheStopwatch.PerformAsAsync
+- uid: CSF.Screenplay.Performables.StopTheStopwatch
+  name: StopTheStopwatch
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html
+  commentId: T:CSF.Screenplay.Performables.StopTheStopwatch
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch
+  nameWithType: StopTheStopwatch
+- uid: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: StopTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment
+  nameWithType: StopTheStopwatch.GetReportFragment
+- uid: CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: StopTheStopwatch.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync
+  nameWithType: StopTheStopwatch.PerformAsAsync
+- uid: CSF.Screenplay.Performables.StopwatchBuilder
+  name: StopwatchBuilder
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html
+  commentId: T:CSF.Screenplay.Performables.StopwatchBuilder
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder
+  nameWithType: StopwatchBuilder
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
+  name: ReadTheStopwatch()
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ReadTheStopwatch
+  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch()
+  nameWithType: StopwatchBuilder.ReadTheStopwatch()
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch*
+  name: ReadTheStopwatch
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ReadTheStopwatch_
+  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
+  nameWithType: StopwatchBuilder.ReadTheStopwatch
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
+  name: ResetTheStopwatch()
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ResetTheStopwatch
+  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch()
+  nameWithType: StopwatchBuilder.ResetTheStopwatch()
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch*
+  name: ResetTheStopwatch
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ResetTheStopwatch_
+  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
+  nameWithType: StopwatchBuilder.ResetTheStopwatch
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
+  name: StartTheStopwatch()
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StartTheStopwatch
+  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch()
+  nameWithType: StopwatchBuilder.StartTheStopwatch()
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch*
+  name: StartTheStopwatch
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StartTheStopwatch_
+  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
+  nameWithType: StopwatchBuilder.StartTheStopwatch
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
+  name: StopTheStopwatch()
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StopTheStopwatch
+  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch()
+  nameWithType: StopwatchBuilder.StopTheStopwatch()
+- uid: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch*
+  name: StopTheStopwatch
+  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StopTheStopwatch_
+  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
+  nameWithType: StopwatchBuilder.StopTheStopwatch
 - uid: CSF.Screenplay.Performables.TimeSpanBuilder
   name: TimeSpanBuilder
   href: api/CSF.Screenplay.Performables.TimeSpanBuilder.html
