@@ -32,21 +32,22 @@ namespace CSF.Screenplay.Performables
     /// about the makeup of the <c>EatLunchPerformableBuilder</c>.
     /// </para>
     /// <code>
-    /// public class EatLunchPerformableBuilder : IPerformableBuilder
+    /// public class EatLunchPerformableBuilder : IGetsPerformable
     /// {
-    ///     TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; timeSpanBuilder;
-    ///     
-    ///     protected string FoodName { get; init; }
-    ///     
-    ///     IPerformable IPerformableBuilder.GetPerformable()
-    ///         =&gt; new EatLunch(FoodName, timeSpanBuilder?.GetTimeSpan() ?? TimeSpan.FromMinutes(30));
-    ///     
+    ///     IProvidesTimeSpan? timeSpanBuilder;
+    /// 
+    ///     protected string? FoodName { get; init; }
+    /// 
+    ///     IPerformable IGetsPerformable.GetPerformable()
+    ///         =&gt; new EatLunch(FoodName, timeSpanBuilder?.GetTimeSpan() ?? TimeSpan.Zero);
+    /// 
     ///     public TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; For(int howMany)
     ///     {
-    ///         timeSpanBuilder = TimeSpanBuilder.Create(this, howMany);
-    ///         return timeSpanBuilder;
+    ///         var builder = TimeSpanBuilder.Create(this, howMany);
+    ///         timeSpanBuilder = builder;
+    ///         return builder;
     ///     }
-    ///     
+    /// 
     ///     public static EatLunchPerformableBuilder Eat(string foodName) =&gt; new EatLunchPerformableBuilder() { FoodName = foodName };
     /// }
     /// </code>
@@ -64,6 +65,10 @@ namespace CSF.Screenplay.Performables
     /// 
     /// actor.PerformAsync(Eat("Sandwiches").For(30).Minutes(), cancellationToken);
     /// </code>
+    /// <para>
+    /// A note for developers with access to the source code for this library.
+    /// There is a small integration test which sets up and exercises the example above; it is named <c>TimeSpanBuilderTests</c>.
+    /// </para>
     /// </example>
     /// <typeparam name="TOtherBuilder">The builder type for which this builder will supplement</typeparam>
     /// <seealso cref="TimeSpanBuilder.Create{TOtherBuilder}(TOtherBuilder, int)"/>
