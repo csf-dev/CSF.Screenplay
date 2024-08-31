@@ -22,6 +22,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Abilities.UseAStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Abilities.UseAStopwatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Abilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Abilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Actor.yml",
       "output": {
         ".html": {
@@ -406,6 +426,56 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performables.PerformableException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.ReadTheStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.ReadTheStopwatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.ResetTheStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.ResetTheStopwatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.StartTheStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.StartTheStopwatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.StopTheStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.StopTheStopwatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.StopwatchBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.StopwatchBuilder.html"
         }
       },
       "version": ""
