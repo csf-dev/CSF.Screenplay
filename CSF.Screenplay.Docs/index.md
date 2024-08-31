@@ -4,6 +4,8 @@ _layout: landing
 
 # Screenplay pattern
 
+_TODO: Rework and improve this introduction._
+
 Screenplay is a *software design pattern* to assist in the automation of complex processes.
 It is commonly recommended for use in writing tests using the [Behaviour Driven Development] (BDD) style.
 **CSF.Screenplay** is a library and framework for using this design pattern.
@@ -46,8 +48,9 @@ There are two step-by-step tutorials available for writing your first Screenplay
 
 ## Reference
 
-Once you understand the essentials, [the Screenplay reference] provides more information about how specific APIs are used.
+_TODO: Rework this section._
+
+Once you understand the essentials, the Screenplay reference provides more information about how specific APIs are used.
 You may also be interested in [the glossary of Screenplay terminology].
 
-[the Screenplay reference]: docs/screenplayReference/index.md
 [the glossary of Screenplay terminology]: glossary/index.md
