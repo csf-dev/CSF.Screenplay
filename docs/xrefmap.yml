@@ -259,18 +259,18 @@ references:
   commentId: T:CSF.Screenplay.ActorExtensions
   fullName: CSF.Screenplay.ActorExtensions
   nameWithType: ActorExtensions
-- uid: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  name: AttemptsTo(Actor, IGetsPerformable, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.AttemptsTo(Actor, IGetsPerformable, CancellationToken)
-- uid: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  name: AttemptsTo(Actor, IGetsPerformableWithResult, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.AttemptsTo(Actor, IGetsPerformableWithResult, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  name: AttemptsTo(ICanPerformWhen, IGetsPerformable, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.AttemptsTo(ICanPerformWhen, IGetsPerformable, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  name: AttemptsTo(ICanPerformWhen, IGetsPerformableWithResult, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.AttemptsTo(ICanPerformWhen, IGetsPerformableWithResult, CancellationToken)
 - uid: CSF.Screenplay.ActorExtensions.AttemptsTo*
   name: AttemptsTo
   href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo_
@@ -278,15 +278,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorExtensions.AttemptsTo
   nameWithType: ActorExtensions.AttemptsTo
-- uid: CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name: AttemptsTo<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name.vb: AttemptsTo(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo<T>(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.ActorExtensions.AttemptsTo(Of T)(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.AttemptsTo<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  nameWithType.vb: ActorExtensions.AttemptsTo(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name: AttemptsTo<T>(ICanPerformWhen, IGetsPerformableWithResult<T>, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_AttemptsTo__1_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name.vb: AttemptsTo(Of T)(ICanPerformWhen, IGetsPerformableWithResult(Of T), CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.AttemptsTo<T>(CSF.Screenplay.Actors.ICanPerformWhen, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.ActorExtensions.AttemptsTo(Of T)(CSF.Screenplay.Actors.ICanPerformWhen, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.AttemptsTo<T>(ICanPerformWhen, IGetsPerformableWithResult<T>, CancellationToken)
+  nameWithType.vb: ActorExtensions.AttemptsTo(Of T)(ICanPerformWhen, IGetsPerformableWithResult(Of T), CancellationToken)
 - uid: CSF.Screenplay.ActorExtensions.GetAbility(CSF.Screenplay.ICanPerform,System.Type)
   name: GetAbility(ICanPerform, Type)
   href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_GetAbility_CSF_Screenplay_ICanPerform_System_Type_
@@ -390,18 +390,18 @@ references:
   fullName.vb: CSF.Screenplay.ActorExtensions.PerformAsync(Of T)(CSF.Screenplay.ICanPerform, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
   nameWithType: ActorExtensions.PerformAsync<T>(ICanPerform, IGetsPerformableWithResult<T>, CancellationToken)
   nameWithType.vb: ActorExtensions.PerformAsync(Of T)(ICanPerform, IGetsPerformableWithResult(Of T), CancellationToken)
-- uid: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  name: Should(Actor, IGetsPerformable, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.Should(Actor, IGetsPerformable, CancellationToken)
-- uid: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  name: Should(Actor, IGetsPerformableWithResult, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.Should(Actor, IGetsPerformableWithResult, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  name: Should(ICanPerformThen, IGetsPerformable, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.Should(ICanPerformThen, IGetsPerformable, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  name: Should(ICanPerformThen, IGetsPerformableWithResult, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.Should(ICanPerformThen, IGetsPerformableWithResult, CancellationToken)
 - uid: CSF.Screenplay.ActorExtensions.Should*
   name: Should
   href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should_
@@ -409,27 +409,27 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorExtensions.Should
   nameWithType: ActorExtensions.Should
-- uid: CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name: Should<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name.vb: Should(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.Should<T>(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.ActorExtensions.Should(Of T)(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.Should<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  nameWithType.vb: ActorExtensions.Should(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
-- uid: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  name: WasAbleTo(Actor, IGetsPerformable, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.WasAbleTo(Actor, IGetsPerformable, CancellationToken)
-- uid: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  name: WasAbleTo(Actor, IGetsPerformableWithResult, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.WasAbleTo(Actor, IGetsPerformableWithResult, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name: Should<T>(ICanPerformThen, IGetsPerformableWithResult<T>, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_Should__1_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name.vb: Should(Of T)(ICanPerformThen, IGetsPerformableWithResult(Of T), CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.Should<T>(CSF.Screenplay.Actors.ICanPerformThen, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.ActorExtensions.Should(Of T)(CSF.Screenplay.Actors.ICanPerformThen, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.Should<T>(ICanPerformThen, IGetsPerformableWithResult<T>, CancellationToken)
+  nameWithType.vb: ActorExtensions.Should(Of T)(ICanPerformThen, IGetsPerformableWithResult(Of T), CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  name: WasAbleTo(ICanPerformGiven, IGetsPerformable, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven, CSF.Screenplay.Performables.IGetsPerformable, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.WasAbleTo(ICanPerformGiven, IGetsPerformable, CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  name: WasAbleTo(ICanPerformGiven, IGetsPerformableWithResult, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven, CSF.Screenplay.Performables.IGetsPerformableWithResult, System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.WasAbleTo(ICanPerformGiven, IGetsPerformableWithResult, CancellationToken)
 - uid: CSF.Screenplay.ActorExtensions.WasAbleTo*
   name: WasAbleTo
   href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo_
@@ -437,15 +437,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorExtensions.WasAbleTo
   nameWithType: ActorExtensions.WasAbleTo
-- uid: CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name: WasAbleTo<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
-  name.vb: WasAbleTo(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
-  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo<T>(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.ActorExtensions.WasAbleTo(Of T)(CSF.Screenplay.Actor, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
-  nameWithType: ActorExtensions.WasAbleTo<T>(Actor, IGetsPerformableWithResult<T>, CancellationToken)
-  nameWithType.vb: ActorExtensions.WasAbleTo(Of T)(Actor, IGetsPerformableWithResult(Of T), CancellationToken)
+- uid: CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name: WasAbleTo<T>(ICanPerformGiven, IGetsPerformableWithResult<T>, CancellationToken)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_WasAbleTo__1_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)
+  name.vb: WasAbleTo(Of T)(ICanPerformGiven, IGetsPerformableWithResult(Of T), CancellationToken)
+  fullName: CSF.Screenplay.ActorExtensions.WasAbleTo<T>(CSF.Screenplay.Actors.ICanPerformGiven, CSF.Screenplay.Performables.IGetsPerformableWithResult<T>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.ActorExtensions.WasAbleTo(Of T)(CSF.Screenplay.Actors.ICanPerformGiven, CSF.Screenplay.Performables.IGetsPerformableWithResult(Of T), System.Threading.CancellationToken)
+  nameWithType: ActorExtensions.WasAbleTo<T>(ICanPerformGiven, IGetsPerformableWithResult<T>, CancellationToken)
+  nameWithType.vb: ActorExtensions.WasAbleTo(Of T)(ICanPerformGiven, IGetsPerformableWithResult(Of T), CancellationToken)
 - uid: CSF.Screenplay.Actors
   name: CSF.Screenplay.Actors
   href: api/CSF.Screenplay.Actors.html

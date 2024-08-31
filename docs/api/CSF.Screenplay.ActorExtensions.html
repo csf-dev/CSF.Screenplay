@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ActorExtensions" data-uid="CSF.Screenplay.ActorExtensions" class="text-break">
-Class ActorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class ActorExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
-  AttemptsTo(Actor, IGetsPerformable, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  AttemptsTo(ICanPerformWhen, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
@@ -165,12 +165,12 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask AttemptsTo(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask AttemptsTo(this ICanPerformWhen actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
@@ -200,9 +200,9 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
-  AttemptsTo(Actor, IGetsPerformableWithResult, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  AttemptsTo(ICanPerformWhen, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
@@ -210,12 +210,12 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; AttemptsTo(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; AttemptsTo(this ICanPerformWhen actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
@@ -245,9 +245,9 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
 
   <a id="CSF_Screenplay_ActorExtensions_AttemptsTo_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
-  AttemptsTo&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_AttemptsTo__1_CSF_Screenplay_Actors_ICanPerformWhen_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.AttemptsTo``1(CSF.Screenplay.Actors.ICanPerformWhen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  AttemptsTo&lt;T&gt;(ICanPerformWhen, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
@@ -255,12 +255,12 @@ Class ActorExtensions  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; AttemptsTo&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; AttemptsTo&lt;T&gt;(this ICanPerformWhen actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
@@ -646,7 +646,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
   PerformAsync(ICanPerform, IGetsPerformable, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns no result from the performable which is exposed by the specified builder object.</p>
@@ -691,7 +691,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
   PerformAsync(ICanPerform, IGetsPerformableWithResult, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result from the performable which is exposed by the specified builder object.</p>
@@ -736,7 +736,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync__1_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync``1(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
   PerformAsync&lt;T&gt;(ICanPerform, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result from the performable which is exposed by the specified builder object.</p>
@@ -785,9 +785,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
-  Should(Actor, IGetsPerformable, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  Should(ICanPerformThen, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
@@ -795,12 +795,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask Should(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask Should(this ICanPerformThen actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
@@ -830,9 +830,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
-  Should(Actor, IGetsPerformableWithResult, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_Should_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  Should(ICanPerformThen, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
@@ -840,12 +840,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; Should(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; Should(this ICanPerformThen actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
@@ -875,9 +875,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_Should_" data-uid="CSF.Screenplay.ActorExtensions.Should*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_Should__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
-  Should&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_Should__1_CSF_Screenplay_Actors_ICanPerformThen_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.Should``1(CSF.Screenplay.Actors.ICanPerformThen,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  Should&lt;T&gt;(ICanPerformThen, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L198"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
@@ -885,12 +885,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; Should&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; Should&lt;T&gt;(this ICanPerformThen actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
@@ -926,9 +926,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
-  WasAbleTo(Actor, IGetsPerformable, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
+  WasAbleTo(ICanPerformGiven, IGetsPerformable, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns no result.</p>
@@ -936,12 +936,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask WasAbleTo(this Actor actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask WasAbleTo(this ICanPerformGiven actor, IGetsPerformable performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformable.html">IGetsPerformable</a></dt>
@@ -971,9 +971,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
-  WasAbleTo(Actor, IGetsPerformableWithResult, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformableWithResult_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult,System.Threading.CancellationToken)">
+  WasAbleTo(ICanPerformGiven, IGetsPerformableWithResult, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns an untyped result.</p>
@@ -981,12 +981,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; WasAbleTo(this Actor actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;object&gt; WasAbleTo(this ICanPerformGiven actor, IGetsPerformableWithResult performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult.html">IGetsPerformableWithResult</a></dt>
@@ -1016,9 +1016,9 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
   <a id="CSF_Screenplay_ActorExtensions_WasAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo*"></a>
 
-  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo__1_CSF_Screenplay_Actor_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actor,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
-  WasAbleTo&lt;T&gt;(Actor, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ActorExtensions_WasAbleTo__1_CSF_Screenplay_Actors_ICanPerformGiven_CSF_Screenplay_Performables_IGetsPerformableWithResult___0__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.WasAbleTo``1(CSF.Screenplay.Actors.ICanPerformGiven,CSF.Screenplay.Performables.IGetsPerformableWithResult{``0},System.Threading.CancellationToken)">
+  WasAbleTo&lt;T&gt;(ICanPerformGiven, IGetsPerformableWithResult&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs an action or task which returns a strongly typed result.</p>
@@ -1026,12 +1026,12 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; WasAbleTo&lt;T&gt;(this Actor actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; WasAbleTo&lt;T&gt;(this ICanPerformGiven actor, IGetsPerformableWithResult&lt;T&gt; performableBuilder, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a></dt>
     <dd><p>An actor</p>
 </dd>
     <dt><code>performableBuilder</code> <a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;T&gt;</dt>
@@ -1069,7 +1069,7 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.performableBuilders.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 
