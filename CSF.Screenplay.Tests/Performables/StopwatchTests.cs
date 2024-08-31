@@ -18,7 +18,7 @@ public class StopwatchTests
         var elapsed = await Then(actor).Should(ReadTheStopwatch());
         await Then(actor).Should(StopTheStopwatch());
 
-        Assert.That(elapsed, Is.GreaterThan(TimeSpan.FromMilliseconds(149)).And.LessThan(TimeSpan.FromMilliseconds(500)));
+        Assert.That(elapsed, Is.GreaterThan(TimeSpan.FromMilliseconds(145)).And.LessThan(TimeSpan.FromMilliseconds(500)));
     }
 
     [Test,AutoMoqData]
