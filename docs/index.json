@@ -354,10 +354,10 @@
     "title": "Screenplay & NUnit tutorial | Screenplay docs",
     "keywords": "Screenplay & NUnit tutorial TODO: Write this docco"
   },
-  "docs/screenplayReference/index.html": {
-    "href": "docs/screenplayReference/index.html",
-    "title": "Screenplay reference | Screenplay docs",
-    "keywords": "Screenplay reference TODO: Write this docco Glossary of terms"
+  "docs/performables/index.html": {
+    "href": "docs/performables/index.html",
+    "title": "Performables | Screenplay docs",
+    "keywords": "Performables Screenplay comes with a few pre-created Performables and Builders, for common tasks. Supplementary builders These are not complete performable builders; they are intended to supplement other builders such as those of your own design. They handle commonly-used aspects of building performables in a reusable manner. TimeSpanBuilder<TOtherBuilder>"
   },
   "docs/specFlowTutorial/index.html": {
     "href": "docs/specFlowTutorial/index.html",
@@ -427,6 +427,6 @@
   "index.html": {
     "href": "index.html",
     "title": "Screenplay pattern | Screenplay docs",
-    "keywords": "Screenplay pattern Screenplay is a software design pattern to assist in the automation of complex processes. It is commonly recommended for use in writing tests using the Behaviour Driven Development (BDD) style. CSF.Screenplay is a library and framework for using this design pattern. As a testing tool Screenplay is useful for directing integration and system tests. It is commonly used/recommended for testing web applications via a web browser. In that context, Screenplay is a refinement of the Page Object Pattern. The CSF.Screenplay libraries act as a plugin to a chosen testing framework. At this time there are integrations available for SpecFlow and for NUnit. Using Screenplay Screenplay logic is written and composed using Screenplay's building blocks, which in-turn control the software. As well as improving the reusability of such logic, Screenplay also produces detailed reports. These reports provide step-by-step breakdowns, allowing quick analysis and diagnosis. Reports may also be converted to a number of formats. Tutorial: Your first test There are two step-by-step tutorials available for writing your first Screenplay test. Read the NUnit tutorial Read the SpecFlow tutorial Reference Once you understand the essentials, the Screenplay reference provides more information about how specific APIs are used. You may also be interested in the glossary of Screenplay terminology."
+    "keywords": "Screenplay pattern TODO: Rework and improve this introduction. Screenplay is a software design pattern to assist in the automation of complex processes. It is commonly recommended for use in writing tests using the Behaviour Driven Development (BDD) style. CSF.Screenplay is a library and framework for using this design pattern. As a testing tool Screenplay is useful for directing integration and system tests. It is commonly used/recommended for testing web applications via a web browser. In that context, Screenplay is a refinement of the Page Object Pattern. The CSF.Screenplay libraries act as a plugin to a chosen testing framework. At this time there are integrations available for SpecFlow and for NUnit. Using Screenplay Screenplay logic is written and composed using Screenplay's building blocks, which in-turn control the software. As well as improving the reusability of such logic, Screenplay also produces detailed reports. These reports provide step-by-step breakdowns, allowing quick analysis and diagnosis. Reports may also be converted to a number of formats. Tutorial: Your first test There are two step-by-step tutorials available for writing your first Screenplay test. Read the NUnit tutorial Read the SpecFlow tutorial Reference TODO: Rework this section. Once you understand the essentials, the Screenplay reference provides more information about how specific APIs are used. You may also be interested in the glossary of Screenplay terminology."
   }
 }
