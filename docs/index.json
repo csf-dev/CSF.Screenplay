@@ -399,6 +399,41 @@
     "title": "Screenplay & SpecFlow tutorial | Screenplay docs",
     "keywords": "Screenplay & SpecFlow tutorial TODO: Write this docco"
   },
+  "docs/writingPerformables/AllowCooperativeCancellation.html": {
+    "href": "docs/writingPerformables/AllowCooperativeCancellation.html",
+    "title": "AllowCooperativeCancellation | Screenplay docs",
+    "keywords": "AllowCooperativeCancellation index"
+  },
+  "docs/writingPerformables/DoNotUseDiFrameworks.html": {
+    "href": "docs/writingPerformables/DoNotUseDiFrameworks.html",
+    "title": "DoNotUseDiFrameworks | Screenplay docs",
+    "keywords": "DoNotUseDiFrameworks index"
+  },
+  "docs/writingPerformables/ImplementICanReport.html": {
+    "href": "docs/writingPerformables/ImplementICanReport.html",
+    "title": "ImplementICanReport | Screenplay docs",
+    "keywords": "ImplementICanReport index"
+  },
+  "docs/writingPerformables/ImplementOnePerformableInterface.html": {
+    "href": "docs/writingPerformables/ImplementOnePerformableInterface.html",
+    "title": "ImplementOnePerformableInterface | Screenplay docs",
+    "keywords": "ImplementOnePerformableInterface index"
+  },
+  "docs/writingPerformables/ParameterizeLowLevelPerformables.html": {
+    "href": "docs/writingPerformables/ParameterizeLowLevelPerformables.html",
+    "title": "ParameterizeLowLevelPerformables | Screenplay docs",
+    "keywords": "ParameterizeLowLevelPerformables index"
+  },
+  "docs/writingPerformables/WriteABuilder.html": {
+    "href": "docs/writingPerformables/WriteABuilder.html",
+    "title": "WriteABuilder | Screenplay docs",
+    "keywords": "WriteABuilder index"
+  },
+  "docs/writingPerformables/index.html": {
+    "href": "docs/writingPerformables/index.html",
+    "title": "Writing Performables | Screenplay docs",
+    "keywords": "Writing Performables Screenplay and add-on libraries will ship with pre-created Actions and Questions, two of the three types of Performable. Developers making use of Screenplay might not need to write new Actions or Questions, because they may use and compose the existing ones. On the other hand, it is very likely that developers will need to write Tasks, which are the kind of Performable which composes Actions, Questions and/or other Tasks. Guidelines for writing performables The following list shows some guidelines for writing new performables. These apply equally across ask if the three types of performables, even though developers are mainly expected to be writing tasks. Implement precisely one performable interface Implement ICanReport Parameterize low-level performables Allow cooperative cancellation Write a builder Do not rely on a DI framework"
+  },
   "glossary/Ability.html": {
     "href": "glossary/Ability.html",
     "title": "Ability | Screenplay docs",
