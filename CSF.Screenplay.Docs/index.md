@@ -4,27 +4,33 @@ _layout: landing
 
 # Screenplay pattern
 
-_TODO: Rework and improve this introduction._
-
 Screenplay is a *software design pattern* to assist in the automation of complex processes.
-It is commonly recommended for use in writing tests using the [Behaviour Driven Development] (BDD) style.
+It is particularly useful for writing tests which use a [Behaviour Driven Development] (BDD) style.
 **CSF.Screenplay** is a library and framework for using this design pattern.
 
 [Behaviour Driven Development]: https://en.wikipedia.org/wiki/Behavior-driven_development
 
+## Learn about Screenplay's concepts
+
+* [Makeup of a Performance](docs/MakeupOfAScreenplay.md)
+* [How a Screenplay runs](docs/HowScreenplayAndPerformanceRelate.md)
+* [Using dependency injection](docs/dependencyInjection/index.md)
+
 ## As a testing tool
 
 Screenplay is useful for directing [integration and system tests].
-It is commonly used/recommended for testing web applications via a web browser.
+It may be used for testing web applications via a web browser.
 In that context, Screenplay is a refinement of the [Page Object Pattern].
 
-The CSF.Screenplay libraries [act as a plugin to a chosen testing framework].
-At this time there are [integrations available for SpecFlow and for NUnit].
+* [Screenplay in the testing stack](docs/ScreenplayInTheTestingStack.md)
+* [Test framework integrations](docs/TestFrameworkIntegrations.md)
 
 [integration and system tests]: docs/SuitabilityAsATestingTool.md
 [Page Object Pattern]: https://martinfowler.com/bliki/PageObject.html
-[act as a plugin to a chosen testing framework]: docs/ScreenplayInTheTestingStack.md
-[integrations available for SpecFlow and for NUnit]: docs/TestFrameworkIntegrations.md
+
+---
+
+_Rewrite everything below this line._
 
 ## Using Screenplay
 

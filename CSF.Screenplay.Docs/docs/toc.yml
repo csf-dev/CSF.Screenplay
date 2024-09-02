@@ -1,11 +1,11 @@
 - name: Screenplay concepts
   items:
-    - name: Dependency injection
-      href: dependencyInjection/index.md
     - name: Makeup of a Screenplay
       href: MakeupOfAScreenplay.md
     - name: Screenplay sequence diagram
       href: HowScreenplayAndPerformanceRelate.md
+    - name: Dependency injection
+      href: dependencyInjection/index.md
     - name: Screenplay in the testing stack
       href: ScreenplayInTheTestingStack.md
     - name: Test framework integrations
