@@ -861,6 +861,76 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/AllowCooperativeCancellation.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/AllowCooperativeCancellation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/DoNotUseDiFrameworks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/DoNotUseDiFrameworks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/ImplementICanReport.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/ImplementICanReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/ImplementOnePerformableInterface.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/ImplementOnePerformableInterface.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/ParameterizeLowLevelPerformables.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/ParameterizeLowLevelPerformables.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/WriteABuilder.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/WriteABuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "glossary/Ability.md",
       "output": {
         ".html": {
