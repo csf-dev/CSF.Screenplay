@@ -1,3 +1,28 @@
-# ParameterizeLowLevelPerformables
+# Parameterize low-level Performables
 
-[index](index.md)
+When writing low-level [Performables], these classes should expose parameters which allow the consumer to provide as many of the variables as make sense.
+This _is especially important for [Actions] and/or [Questions]_ but also relevant for lower-level/reusable [Tasks].
+
+Parameters should be accepted via the class' public constructor, the values to these parameters [should then be held `readonly`].
+Accept as many parameters as are reasonable, although avoid going so far that parameterisation makes a Performable unclear as to what it does.
+
+[Performances] are written _a lot like scripts_.
+They very rarely (and should not) contain a lot of branching or looping logic, which means that a performable which changes behaviour based upon a parameter value _is of very little use_.
+It is better to separate the logic into individual performables and to just use the one which is needed at the time.
+
+[Performables]: ../../glossary/Performable.md
+[Actions]: ../../glossary/Action.md
+[Questions]: ../../glossary/Question.md
+[Tasks]: ../../glossary/Task.md
+[should then be held `readonly`]: StatefulButImmutable.md
+[Performances]: xref:CSF.Screenplay.IPerformance
+
+## An example
+
+Imagine we are writing a Task which makes a cup of coffee, ready to serve.
+It would make sense to include parameters which decide the strength of the coffee, how much milk and sweetener to add and similar.
+
+It would usually be a mistake to create a Task which can make _any hot drink_, where the parameters provided decide which hot drink to make.
+The processes for making various hot drinks are often fundamentally different; consider the process for making coffee and then that for brewing tea.
+
+In the most extreme case, where such a Task is required, separate the logic of making of each hot drink into Tasks of their own, and consume/execute the relevant one of these from the _any hot drink_ Task.

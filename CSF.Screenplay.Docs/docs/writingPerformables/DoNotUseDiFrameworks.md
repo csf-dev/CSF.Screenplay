@@ -1,3 +1,3 @@
-# DoNotUseDiFrameworks
+# Do not resolve performables from DI
 
-[index](index.md)
+TODO: Write this docco

@@ -1,28 +1,22 @@
 # Task
 
 A Task is a kind of **[Performable]** which represents a high-level interaction with the application.
-Where **[Actions]** or **[Questions]** are highly granular for maximum reusability, tasks may be as specific as the use-case warrants. 
+Where **[Actions]** or **[Questions]** are highly granular for maximum reusability, tasks may be as specific as the use-case warrants.
 
 Action & question classes are often shipped with Screenplay frameworks.
 Tasks are typically written by the developer who is making use of Screenplay.
 In practice, tasks are just compositions of actions, questions or other lower-level tasks.
 
-Tasks may implement any of the three performable interfaces.
-To maximise their reusability, developers are advised to write tasks in a way which _either_:
-
-* Changes the application's state
-* Gets information from the application without changing its state
-
-This draws from [the lessons that writing pure functions] teaches us.
-
-In a Screenplay which controls a web application, a good example of a task is completing a registration form which involves entering data into multiple input fields.
-
-Generally, the logic of tasks does not interact with the actor's **[Abilities]**, because logic which does this is held within actions and/or questions.
-If a task needed to use an actor's abilities directly then that usage should likely be moved into an action or question class of its own.
-That action or question would then be consumed from the task.
+In a Screenplay which controls a web application, an example of a task is the completion of a registration form which involves entering data into multiple input fields.
 
 [Performable]: Performable.md
 [Actions]: Action.md
 [Questions]: Question.md
-[the lessons that writing pure functions]: https://en.wikipedia.org/wiki/Pure_function
-[Abilities]: Ability.md
+
+## Writing tasks
+
+Tasks may implement [any of the three performable interfaces].
+Developers are encouraged to [follow these best practices] when writing Task classes.
+
+[any of the three performable interfaces]: Performable.md#the-three-performable-interfaces-and-icanreport
+[follow these best practices]: ../docs/writingPerformables/index.md

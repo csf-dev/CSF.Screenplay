@@ -7,12 +7,24 @@ namespace CSF.Screenplay
     /// <summary>A performance represents a self-contained scope of performables which typically results in overall success or failure.</summary>
     /// <remarks>
     /// <para>
-    /// The performance provides a scope for a script involving one or more <see cref="Actor"/> instances, executing
+    /// In .NET code which uses Screenplay, a performance is .NET logic involving one or more <see cref="Actor"/> instances, executing
     /// <xref href="PerformableGlossaryItem?text=one+or+more+performable+items"/>.
-    /// A Screenplay will contain one or more performances.
-    /// A performance is a series of actions/performables with a beginning, middle and end.
-    /// Actors participate in the performance and drive the performables forward.
-    /// Typically a performance will complete in either success or failure.
+    /// A Screenplay will be comprised of one or more performances.
+    /// In practice this means that a performance is a method which would match the delegate
+    /// <c>Func&lt;IServiceProvider, CancellationToken, Task&lt;bool?&gt;&gt;</c>, such as the following.
+    /// </para>
+    /// <code>
+    /// public Task&lt;bool?&gt; SamplePerformance(IServiceProvider services, CancellationToken cancellationToken)
+    /// {
+    ///   // Performance logic goes here ...
+    /// }
+    /// </code>
+    /// <para>
+    /// The performance method is comprised of a series of of performables, performed by one or more actors.
+    /// Particularly when using Screenplay for automated testing, these performables are organised into a beginning, middle and end,
+    /// corresponding with the phases declared in <see cref="Actors.PerformancePhase"/>.
+    /// A performance should complete in either success or failure, as indicated by a <see langword="true" /> or <see langword="false" />
+    /// return value.
     /// </para>
     /// <para>
     /// Where Screenplay is being used for automated testing, a performance corresponds to a single test.
@@ -21,9 +33,11 @@ namespace CSF.Screenplay
     /// <xref href="ScenarioGlossaryItem?text=the+current+Scenario"/>.
     /// </para>
     /// <para>
-    /// The performance object also corresponds to the lifetime of <xref href="DependencyInjectionScopeArticle?text=the+dependency+injection+scope"/>.
-    /// A new scope is created for each performance.
-    /// Within a DI scope, the performance is an injectable service.
+    /// This interface is the representation of the scope of such a performance method in the Screenplay architecture.
+    /// One instance of an object implementing this interface - "the performance object" - corresponds to one execution of such a method.
+    /// The performance object also corresponds to the lifetime of <xref href="DependencyInjectionScopeArticle?text=the+dependency+injection+scope"/>;
+    /// a new scope is created for each performance.
+    /// Within a DI scope, the performance object is an injectable service.
     /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>
