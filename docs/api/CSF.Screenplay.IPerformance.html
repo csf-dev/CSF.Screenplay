@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IPerformance" data-uid="CSF.Screenplay.IPerformance" class="text-break">
-Interface IPerformance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Interface IPerformance  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -136,12 +136,22 @@ Interface IPerformance  <a class="header-action link-secondary" title="View sour
 
   <h2 id="CSF_Screenplay_IPerformance_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-The performance provides a scope for a script involving one or more <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, executing
+In .NET code which uses Screenplay, a performance is .NET logic involving one or more <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, executing
 <a class="xref" href="../glossary/Performable.html">one or more performable items</a>.
-A Screenplay will contain one or more performances.
-A performance is a series of actions/performables with a beginning, middle and end.
-Actors participate in the performance and drive the performables forward.
-Typically a performance will complete in either success or failure.
+A Screenplay will be comprised of one or more performances.
+In practice this means that a performance is a method which would match the delegate
+<code>Func&lt;IServiceProvider, CancellationToken, Task&lt;bool?&gt;&gt;</code>, such as the following.
+</p>
+<pre><code class="lang-csharp">public Task&lt;bool?&gt; SamplePerformance(IServiceProvider services, CancellationToken cancellationToken)
+{
+  // Performance logic goes here ...
+}</code></pre>
+<p>
+The performance method is comprised of a series of of performables, performed by one or more actors.
+Particularly when using Screenplay for automated testing, these performables are organised into a beginning, middle and end,
+corresponding with the phases declared in <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html">PerformancePhase</a>.
+A performance should complete in either success or failure, as indicated by a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+return value.
 </p>
 <p>
 Where Screenplay is being used for automated testing, a performance corresponds to a single test.
@@ -150,9 +160,11 @@ When using Screenplay within a testing integration, the performance corresponds 
 <a class="xref" href="../glossary/Scenario.html">the current Scenario</a>.
 </p>
 <p>
-The performance object also corresponds to the lifetime of <a class="xref" href="../docs/dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.
-A new scope is created for each performance.
-Within a DI scope, the performance is an injectable service.
+This interface is the representation of the scope of such a performance method in the Screenplay architecture.
+One instance of an object implementing this interface - "the performance object" - corresponds to one execution of such a method.
+The performance object also corresponds to the lifetime of <a class="xref" href="../docs/dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>;
+a new scope is created for each performance.
+Within a DI scope, the performance object is an injectable service.
 You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformanceRelate.html">diagram showing how screenplays, performances, actors and performables relate to one another</a>.
 </p>
 </div>
@@ -166,7 +178,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_IPerformance_NamingHierarchy" data-uid="CSF.Screenplay.IPerformance.NamingHierarchy">
   NamingHierarchy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
@@ -226,7 +238,7 @@ feature &amp; scenario names.
 
   <h3 id="CSF_Screenplay_IPerformance_PerformanceState" data-uid="CSF.Screenplay.IPerformance.PerformanceState">
   PerformanceState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>
@@ -264,7 +276,7 @@ feature &amp; scenario names.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L44" class="edit-link">Edit this page</a>
         </div>
 
 

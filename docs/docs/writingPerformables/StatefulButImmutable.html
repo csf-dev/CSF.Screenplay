@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Parameterize low-level Performables | Screenplay docs </title>
+      <title>Performables are stateful, but immutable | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Parameterize low-level Performables | Screenplay docs ">
+      <meta name="title" content="Performables are stateful, but immutable | Screenplay docs ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/StatefulButImmutable.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,26 +85,21 @@
         </div>
 
         <article data-uid="">
-<h1 id="parameterize-low-level-performables">Parameterize low-level Performables</h1>
+<h1 id="performables-are-stateful-but-immutable">Performables are stateful, but immutable</h1>
 
-<p>When writing low-level <a href="../../glossary/Performable.html">Performables</a>, these classes should expose parameters which allow the consumer to provide as many of the variables as make sense.
-This <em>is especially important for <a href="../../glossary/Action.html">Actions</a> and/or <a href="../../glossary/Question.html">Questions</a></em> but also relevant for lower-level/reusable <a href="../../glossary/Task.html">Tasks</a>.</p>
-<p>Parameters should be accepted via the class' public constructor, the values to these parameters <a href="StatefulButImmutable.html">should then be held <code>readonly</code></a>.
-Accept as many parameters as are reasonable, although avoid going so far that parameterisation makes a Performable unclear as to what it does.</p>
-<p><a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a> are written <em>a lot like scripts</em>.
-They very rarely (and should not) contain a lot of branching or looping logic, which means that a performable which changes behaviour based upon a parameter value <em>is of very little use</em>.
-It is better to separate the logic into individual performables and to just use the one which is needed at the time.</p>
-<h2 id="an-example">An example</h2>
-<p>Imagine we are writing a Task which makes a cup of coffee, ready to serve.
-It would make sense to include parameters which decide the strength of the coffee, how much milk and sweetener to add and similar.</p>
-<p>It would usually be a mistake to create a Task which can make <em>any hot drink</em>, where the parameters provided decide which hot drink to make.
-The processes for making various hot drinks are often fundamentally different; consider the process for making coffee and then that for brewing tea.</p>
-<p>In the most extreme case, where such a Task is required, separate the logic of making of each hot drink into Tasks of their own, and consume/execute the relevant one of these from the <em>any hot drink</em> Task.</p>
+<p>Instances of <a href="../../glossary/Performable.html">Performable</a> classes <em>are not intended to be reused</em>.
+A single class may have many instances created, but each instance should be used only once.
+This is because <a href="ParameterizeLowLevelPerformables.html">the 'parameter values'</a> for each performable are provided into that performable object instance.</p>
+<p>Parameters should ideally be provided into the performable class' public constructor.
+Another viable technique could be <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/init"><code>init</code>-only property setters</a>.
+Once these values are set, they should be <code>readonly</code> so that they may not be changed.</p>
+<p>Performable classes should also avoid the use of mutable class-level data such as fields or properties.
+Any temporary state should be scoped only to the relevant <code>PerformAsAsync</code> method.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/StatefulButImmutable.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

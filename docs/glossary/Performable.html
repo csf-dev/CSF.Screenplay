@@ -88,21 +88,30 @@
 <h1 id="performable">Performable</h1>
 
 <p>A 'performable' is a verb in the language of Screenplay; performables are <em>things that <strong><a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a></strong> do</em>.
-Performables are grouped into one of three types, although these are somewhat arbitrary names which do not have direct representation in the framework.</p>
+Performables are logically grouped into one of the following three kinds.
+<em>Do not be mistaken in believing</em> that these three kinds of performable correspond to the three interfaces which are listed later on this page.
+This is entirely coincidental and <em>there is no direct equivalence</em>.</p>
 <ul>
 <li><strong><a href="Action.html">Actions</a></strong> are the most granular of individual interactions with the application, composable to form higher-order interactions</li>
 <li><strong><a href="Question.html">Questions</a></strong> are granular, like actions, but read the application's state to get information instead of making changes</li>
 <li><strong><a href="Task.html">Tasks</a></strong> are higher-order interactions which are formed by composing actions, questions and/or other tasks</li>
 </ul>
-<p>Actions &amp; Questions are typically shipped by a framework; they are the fundamental building blocks from which developers create their own tasks.
-There are typically a discrete number of actions &amp; questions possible for a specified application of Screenplay.</p>
-<p>Tasks, on the other hand, could be unlimited.
-Developers using Screenplay should write as many as they need.
-Tasks may represent any of the - possibly complex - interactions between the actor and the application, composing actions and/or questions and even other lower-level tasks.
-Actions &amp; Questions should interact directly with the Actor's <strong><a href="Ability.html">Abilities</a></strong> to perform their logic; in most cases Tasks should not.</p>
+<h2 id="developers-using-screenplay-will-typically-be-writing-tasks">Developers using Screenplay will typically be writing Tasks</h2>
+<p>Actions &amp; Questions are the smallest/low-level building blocks of a Screenplay <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a>.
+They are parameterized and should make as few assumptions as possible.
+As such, they should be <strong>highly reusable</strong>.
+Actions &amp; Questions <em>rarely need to be written</em> by developers who are using Screenplay.
+That is because most likely, the Action, Question and corresponding <strong><a href="Ability.html">Ability</a></strong> classes will have been provided in a library, such as a NuGet package.</p>
+<p>On the other hand, <strong>Tasks</strong> are higher-level performables which may compose Actions, Questions and/or other lower-level Tasks.
+Developers using Screenplay should write as many Tasks as they need.
+Tasks may represent any of the - possibly complex - interactions performed by the Actor.
+Actions &amp; Questions should interact directly with the Actor's <strong><a href="Ability.html">Abilities</a></strong> to perform their logic; in most cases Tasks should not directly use any Abilities.</p>
+<p>When writing your own performables, consider <a href="../docs/writingPerformables/index.html">these best practices</a> for the best results.</p>
+<h2 id="the-three-performable-interfaces-and-icanreport">The three performable interfaces, and <code>ICanReport</code></h2>
 <p>In Screenplay code, a <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a></strong> is a script of sorts, written from at least one performable, usually several.
 All performables must implement one of the following three interfaces, but it's also <em>strongly recommended</em> to implement <a class="xref" href="../api/CSF.Screenplay.ICanReport.html"><code>ICanReport</code></a> as well.
-It's important to understand that whilst there are three interfaces shown here and three kinds of performable listed above, there is no direct correlation between them.</p>
+As noted above, <em>it is coincidence alone</em> that there are three kinds of performable and three interfaces for performables.
+There is no direct correlation between these interfaces and the kinds of performable.</p>
 <ul>
 <li><a class="xref" href="../api/CSF.Screenplay.IPerformable.html"><code>IPerformable</code></a></li>
 <li><a class="xref" href="../api/CSF.Screenplay.IPerformableWithResult.html"><code>IPerformableWithResult</code></a></li>
