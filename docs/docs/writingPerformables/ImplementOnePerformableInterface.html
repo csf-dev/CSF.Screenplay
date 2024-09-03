@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>ImplementOnePerformableInterface | Screenplay docs </title>
+      <title>Implementing the performable interface | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="ImplementOnePerformableInterface | Screenplay docs ">
+      <meta name="title" content="Implementing the performable interface | Screenplay docs ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -85,9 +85,18 @@
         </div>
 
         <article data-uid="">
-<h1 id="implementoneperformableinterface">ImplementOnePerformableInterface</h1>
+<h1 id="implementing-the-performable-interface">Implementing the performable interface</h1>
 
-<p><a href="index.html">index</a></p>
+<p>A <a href="../../glossary/Performable.html">Performable</a> is a class which implements one of the three performable interfaces:</p>
+<ul>
+<li><a class="xref" href="../../api/CSF.Screenplay.IPerformable.html"><code>IPerformable</code></a></li>
+<li><a class="xref" href="../../api/CSF.Screenplay.IPerformableWithResult.html"><code>IPerformableWithResult</code></a></li>
+<li><a class="xref" href="../../api/CSF.Screenplay.IPerformableWithResult-1.html"><code>IPerformableWithResult&lt;TResult&gt;</code></a></li>
+</ul>
+<p>Performables must implement <em>precisely one</em> of these interfaces.
+Implementing more than one upon a single performable is not recommended or supported.
+Doing so is liable to cause difficulties.</p>
+<p>If you wish to share code then move the reusable logic into <a href="../../glossary/Task.html">a Task</a> and consume that from two separate performable classes.</p>
 
 </article>
 
