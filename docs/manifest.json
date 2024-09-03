@@ -911,6 +911,36 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/PureFunctionalTasks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/PureFunctionalTasks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/StatefulButImmutable.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/StatefulButImmutable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/TasksDoNotUseAbilities.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/TasksDoNotUseAbilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/writingPerformables/WriteABuilder.md",
       "output": {
         ".html": {

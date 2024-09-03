@@ -92,17 +92,10 @@ Where <strong><a href="Action.html">Actions</a></strong> or <strong><a href="Que
 <p>Action &amp; question classes are often shipped with Screenplay frameworks.
 Tasks are typically written by the developer who is making use of Screenplay.
 In practice, tasks are just compositions of actions, questions or other lower-level tasks.</p>
-<p>Tasks may implement any of the three performable interfaces.
-To maximise their reusability, developers are advised to write tasks in a way which <em>either</em>:</p>
-<ul>
-<li>Changes the application's state</li>
-<li>Gets information from the application without changing its state</li>
-</ul>
-<p>This draws from <a href="https://en.wikipedia.org/wiki/Pure_function">the lessons that writing pure functions</a> teaches us.</p>
-<p>In a Screenplay which controls a web application, a good example of a task is completing a registration form which involves entering data into multiple input fields.</p>
-<p>Generally, the logic of tasks does not interact with the actor's <strong><a href="Ability.html">Abilities</a></strong>, because logic which does this is held within actions and/or questions.
-If a task needed to use an actor's abilities directly then that usage should likely be moved into an action or question class of its own.
-That action or question would then be consumed from the task.</p>
+<p>In a Screenplay which controls a web application, an example of a task is the completion of a registration form which involves entering data into multiple input fields.</p>
+<h2 id="writing-tasks">Writing tasks</h2>
+<p>Tasks may implement <a href="Performable.html#the-three-performable-interfaces-and-icanreport">any of the three performable interfaces</a>.
+Developers are encouraged to <a href="../docs/writingPerformables/index.html">follow these best practices</a> when writing Task classes.</p>
 
 </article>
 
