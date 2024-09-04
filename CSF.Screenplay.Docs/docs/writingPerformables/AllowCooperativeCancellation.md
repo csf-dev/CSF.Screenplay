@@ -44,4 +44,23 @@ Use this technique if it's more important that the long-running method is not in
 
 ### Use `Task.Wait` to interrupt the long-running method
 
-TODO: Write this
+An alternative strategy for dealing with long-running synchronous methods is to wrap the method execution in a new `Task` and use [`Task.Wait()`] to interrupt the task if cancellation is requested. 
+
+Here's an example of that technique in action, applied to the `PerformAsAsync` method of a performable. 
+
+```csharp
+public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
+{
+  Task.Run(() => LongRunningMethod())
+    .Wait(cancellationToken);
+  return default;
+}
+```
+
+Use this technique if it's acceptable to send the long-running method into a separate thread and to 'give up waiting' for it to complete if cancellation has been requested.
+
+This technique might provide better responsiveness to cancellation than the one above, albeit it is the most likely to produce unexpected impact on the behaviour of the performable.
+
+Note that, as is standard for usage of `Task.Wait()`, cancelling the wait _does not abort the execution of the long-running method_. The thread which is executing that logic will usually continue and run to completion. Interrupting the wait just means that the main performance thread stops waiting for the other thread to complete.
+
+[`Task.Wait()`]: https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait#system-threading-tasks-task-wait(system-threading-cancellationtoken)

@@ -22,7 +22,7 @@ These apply equally across ask if the three types of performables, even though d
 * [Allow cooperative cancellation]
 * [Write a builder]
 * [Do not rely on a DI framework]
-* [Remember the lessons of Pure Functions]
+* [Aim for Pure Functional tasks]
 * [Do not interact with Abilities from Tasks]
 
 [Implement precisely one performable interface]: ImplementOnePerformableInterface.md
@@ -32,5 +32,5 @@ These apply equally across ask if the three types of performables, even though d
 [Allow cooperative cancellation]: AllowCooperativeCancellation.md
 [Write a builder]: WriteABuilder.md
 [Do not rely on a DI framework]: DoNotUseDiFrameworks.md
-[Remember the lessons of Pure Functions]: PureFunctionalTasks.md
+[Aim for Pure Functional tasks]: PureFunctionalTasks.md
 [Do not interact with Abilities from Tasks]: TasksDoNotUseAbilities.md
