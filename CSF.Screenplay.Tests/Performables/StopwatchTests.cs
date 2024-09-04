@@ -18,7 +18,8 @@ public class StopwatchTests
         var elapsed = await Then(actor).Should(ReadTheStopwatch());
         await Then(actor).Should(StopTheStopwatch());
 
-        Assert.That(elapsed, Is.GreaterThan(TimeSpan.FromMilliseconds(145)).And.LessThan(TimeSpan.FromMilliseconds(500)));
+        // OS precision of Task.Delay is typically 15.6 milliseconds, so we allow ±20ms tolerance
+        Assert.That(elapsed, Is.EqualTo(TimeSpan.FromMilliseconds(150)).Within(TimeSpan.FromMilliseconds(20)));
     }
 
     [Test,AutoMoqData]
