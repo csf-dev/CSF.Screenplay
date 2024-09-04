@@ -33,27 +33,26 @@ It can lead to performances which take a long time to respond to cancellation of
 
 _Here are two suggestions to deal with this._
 
-### Throw if cancellation requested 
+### Throw if cancellation requested
 
 Cancellation token objects have a method [`ThrowIfCancellationRequested()`] which will interrupt and throw an exception if cancellation has been requested.
 You may use this method directly before executing a long-running synchronous (non-cancelable) Ability method.
 
 This won't cancel the long-running method if cancellation is requested after it has started its work, but it will prevent it from being started if cancellation is already requested.
 
-Use this technique if it's more important that the long-running method is not interrupted than it is to support timely cancellation. 
+Use this technique if it's more important that the long-running method is not interrupted than it is to support timely cancellation.
 
-### Use `Task.Wait` to interrupt the long-running method
+### Use `Task.Wait` to make the long-running method interruptible
 
-An alternative strategy for dealing with long-running synchronous methods is to wrap the method execution in a new `Task` and use [`Task.Wait()`] to interrupt the task if cancellation is requested. 
+An alternative strategy for dealing with long-running synchronous methods is to wrap the method execution in a new `Task` and use [`Task.Wait()`] to interrupt the task if cancellation is requested.
 
-Here's an example of that technique in action, applied to the `PerformAsAsync` method of a performable. 
+Here's an example of that technique in action, applied to the `PerformAsAsync` method of a performable.
 
 ```csharp
 public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
 {
-  Task.Run(() => LongRunningMethod())
-    .Wait(cancellationToken);
-  return default;
+    Task.Run(() => LongRunningMethod()).Wait(cancellationToken);
+    return default;
 }
 ```
 
