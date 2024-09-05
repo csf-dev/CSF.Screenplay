@@ -91,12 +91,38 @@
 This cancellation token is <a href="https://learn.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads">to facilitate cooperative cancellation</a>, so that a <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> may be cancelled/terminated gracefully.</p>
 <ul>
 <li>If an <a href="../../glossary/Action.html">Action</a> or <a href="../../glossary/Question.html">Question</a> makes use of an asynchronous method from an <a href="../../glossary/Ability.html">Ability</a> then pass the cancellation token as a parameter to the Ability method that is used.</li>
-<li>Any time a <a href="../../glossary/Task.html">Task</a> executes any other performable, pass the cancellation token down to the consumed performable as a parameter.</li>
-<li>If an Action or Question uses a long-running synchronous method from an Ability then consider using <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.throwifcancellationrequested"><code>ThrowIfCancellationRequested()</code></a> immediately before executing the long-running method.</li>
+<li>Any time a <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> or <a href="../../glossary/Task.html">Task</a> executes a performable, pass the cancellation token down to the consumed performable as a parameter.</li>
+<li>Consider the strategies below for dealing with long-running synchronous methods, which do not natively participate in cooperative cancellation.</li>
 </ul>
 <p>There is no need for every performable (particularly tasks) to execute <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.throwifcancellationrequested"><code>ThrowIfCancellationRequested()</code></a> as a matter of course.
 Many performables complete their logic in microseconds or less, so excess cancellation-checking will bloat the logic for no perceivable gain.</p>
 <p>So long as the cancellation token is passed from <em>'the top of the <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a>'</em> downwards, and any Actions or Questions which perform <code>async</code> or long-running logic are cancellation-enabled, cancellation should work in a timely fashion.</p>
+<h2 id="dealing-with-long-running-synchronous-methods">Dealing with long-running synchronous methods</h2>
+<p>Sometimes an <a href="../../glossary/Action.html">Action</a> or <a href="../../glossary/Question.html">Question</a> will need to make use of functionality from an <a href="../../glossary/Ability.html">Ability</a> which does not support cooperative cancellation.
+If such functionality is long-running then this can interfere with cancellation.
+It can lead to performances which take a long time to respond to cancellation of/when it is requested.</p>
+<ul>
+<li>Perhaps it's legacy code which predates the asynchronous programming model</li>
+<li>Perhaps it doesn't conform to best practice and doesn't accept a cancellation token parameter</li>
+</ul>
+<p><em>Here are two suggestions to deal with this.</em></p>
+<h3 id="throw-if-cancellation-requested">Throw if cancellation requested</h3>
+<p>Cancellation token objects have a method <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken.throwifcancellationrequested"><code>ThrowIfCancellationRequested()</code></a> which will interrupt and throw an exception if cancellation has been requested.
+You may use this method directly before executing a long-running synchronous (non-cancelable) Ability method.</p>
+<p>This won't cancel the long-running method if cancellation is requested after it has started its work, but it will prevent it from being started if cancellation is already requested.</p>
+<p>Use this technique if it's more important that the long-running method is not interrupted than it is to support timely cancellation.</p>
+<h3 id="use-taskwait-to-make-the-long-running-method-interruptible">Use <code>Task.Wait</code> to make the long-running method interruptible</h3>
+<p>An alternative strategy for dealing with long-running synchronous methods is to wrap the method execution in a new <code>Task</code> and use <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.wait#system-threading-tasks-task-wait(system-threading-cancellationtoken)"><code>Task.Wait()</code></a> to interrupt the task if cancellation is requested.</p>
+<p>Here's an example of that technique in action, applied to the <code>PerformAsAsync</code> method of a performable.</p>
+<pre><code class="lang-csharp">public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
+{
+    Task.Run(() =&gt; LongRunningMethod()).Wait(cancellationToken);
+    return default;
+}
+</code></pre>
+<p>Use this technique if it's acceptable to send the long-running method into a separate thread and to 'give up waiting' for it to complete if cancellation has been requested.</p>
+<p>This technique might provide better responsiveness to cancellation than the one above, albeit it is the most likely to produce unexpected impact on the behaviour of the performable.</p>
+<p>Note that, as is standard for usage of <code>Task.Wait()</code>, cancelling the wait <em>does not abort the execution of the long-running method</em>. The thread which is executing that logic will usually continue and run to completion. Interrupting the wait just means that the main performance thread stops waiting for the other thread to complete.</p>
 
 </article>
 
