@@ -10,6 +10,14 @@ On the other hand, it is very likely that developers will need to write [Tasks],
 [Performable]: ../../glossary/Performable.md
 [Tasks]: ../../glossary/Task.md
 
+## A sample Task
+
+Here is an annotated example of a [Task] which makes use of a fictitious Action and a fictitious Question.
+
+TODO: Write this docco
+
+[Task]: ../../glossary/Task.md
+
 ## Guidelines for writing performables
 
 The following list shows some guidelines for writing new performables.

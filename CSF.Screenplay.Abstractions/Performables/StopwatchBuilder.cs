@@ -5,6 +5,13 @@ namespace CSF.Screenplay.Performables
     /// <summary>
     /// A builder for actions relating to the <see cref="UseAStopwatch"/> ability.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// When using this class it is recommended to include <c>using static CSF.Screenplay.Performables.StopwatchBuilder;</c>
+    /// in the source file which uses it.  This will allow you use the method names in this class in a more human-readable
+    /// fashion.
+    /// </para>
+    /// </remarks>
     public static class StopwatchBuilder
     {
         /// <summary>

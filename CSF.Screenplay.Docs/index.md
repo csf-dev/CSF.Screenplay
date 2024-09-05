@@ -37,3 +37,4 @@ In that context, Screenplay is a refinement of the [Page Object Pattern].
 * [Writing builders](docs/builderPattern/index.md)
 * [Getting reports](docs/GettingReports.md)
 * [Using pre-created Abilities & Performables](docs/performables/index.md)
+* [Using Screenplay standalone](docs/StandaloneScreenplay.md)
