@@ -1,19 +1,21 @@
 # Makeup of a Screenplay
 
-_["A Screenplay"]_, when used as a noun, refers to a complete execution of the Screenplay software.
-A screenplay is comprised or one or more [Performances], usually many.
+_A Screenplay_, used as a verb, refers to a complete execution screenplay-based logic, written using this framework.
+[`Screenplay`], when used as a noun, is a class which coordinates the scope & execution of that logic.
+A Screenplay is comprised or one or more [Performances], usually many.
 The diagram below shows the basic building blocks of a performance and how they interact.
 
 ```mermaid
 block-beta
     columns 3
-    Performance["A performance"]:3
+    Screenplay:3
+    Performance["Performance<br>(each Screenplay may contain many)"]:3
     Actor("Actors") space
     block:Perf
         columns 3
         space
         Task["Tasks"]
-        space:4
+        space
         Action["Actions"]
         space
         Question["Questions"]
@@ -24,12 +26,10 @@ block-beta
     Ability -- "Has" --> Actor
     Action -- "Use" --> Ability
     Question -- "Use" --> Ability
-    Task -- "Compose" --> Action
-    Task -- "Compose" --> Question
     style Perf fill:#E0E0F0,stroke:#C0C0E0
 ```
 
-["A Screenplay"]: xref:CSF.Screenplay.Screenplay
+[`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [Performances]: xref:CSF.Screenplay.IPerformance
 
 ## Explanation
