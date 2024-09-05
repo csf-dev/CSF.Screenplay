@@ -8,10 +8,6 @@
       href: HowScreenplayAndPerformanceRelate.md
     - name: Dependency injection
       href: dependencyInjection/index.md
-    - name: Screenplay in the testing stack
-      href: ScreenplayInTheTestingStack.md
-    - name: Test framework integrations
-      href: TestFrameworkIntegrations.md
 - name: Using Screenplay
   items:
     - name: Writing performables
@@ -23,6 +19,10 @@
 - name: As a testing tool
   href: SuitabilityAsATestingTool.md
   items:
+    - name: Screenplay in the testing stack
+      href: ScreenplayInTheTestingStack.md
+    - name: Test framework integrations
+      href: TestFrameworkIntegrations.md
     - name: NUnit tutorial
       href: nUnitTutorial/index.md
     - name: SpecFlow tutorial
