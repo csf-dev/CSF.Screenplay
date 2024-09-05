@@ -87,7 +87,15 @@
         <article data-uid="">
 <h1 id="do-not-resolve-performables-from-di">Do not resolve performables from DI</h1>
 
-<p>TODO: Write this docco</p>
+<p><a href="https://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a> using DI frameworks is usually a recommended best practice in modern software.
+Screenplay recommends the resolution of many services from DI, including <a href="../../glossary/Persona.html">Personas</a>, the <a class="xref" href="../../api/CSF.Screenplay.ICast.html">Cast</a>, <a class="xref" href="../../api/CSF.Screenplay.IStage.html">Stage</a> and <a href="../../glossary/Ability.html">Abilities</a>.</p>
+<p>It is not a good idea to resolve <a href="../../glossary/Performable.html">Performable</a> object instances from DI, though.
+Because performables <a href="StatefulButImmutable.html">should be immutable</a> but stateful, this requires all of their state to be set at the time of their construction, such as via constructor parameters or properties with <code>init</code> setters.
+Unfortunately, this state represents the configuration of how the performable will be used, so it will be entirely down to the particular usage of the performable.
+This would make the use of DI quite cumbersome, as many arbitrary parameter values must be passed to the resolution.</p>
+<p>What's more, performables <em>should not depend upon anything which is resolved from DI</em>.
+At most, <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a> may depend upon an <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actor</a>'s <a href="../../glossary/Ability.html">Abilities</a> but they should access these from the first parameter of the <code>PerformAsAsync</code> method; the <a class="xref" href="../../api/CSF.Screenplay.ICanPerform.html"><code>ICanPerform</code></a> parameter (the actor).</p>
+<p>Instead, it is far better to <a href="../builderPattern/index.html">use the builder pattern</a> to create instances of performables.</p>
 
 </article>
 
