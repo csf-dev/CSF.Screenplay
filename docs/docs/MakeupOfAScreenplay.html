@@ -87,18 +87,20 @@
         <article data-uid="">
 <h1 id="makeup-of-a-screenplay">Makeup of a Screenplay</h1>
 
-<p><em><a class="xref" href="../api/CSF.Screenplay.Screenplay.html">&quot;A Screenplay&quot;</a></em>, when used as a noun, refers to a complete execution of the Screenplay software.
-A screenplay is comprised or one or more <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a>, usually many.
+<p><em>A Screenplay</em>, used as a verb, refers to a complete execution screenplay-based logic, written using this framework.
+<a class="xref" href="../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a>, when used as a noun, is a class which coordinates the scope &amp; execution of that logic.
+A Screenplay is comprised or one or more <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a>, usually many.
 The diagram below shows the basic building blocks of a performance and how they interact.</p>
 <pre><code class="lang-mermaid">block-beta
     columns 3
-    Performance[&quot;A performance&quot;]:3
+    Screenplay:3
+    Performance[&quot;Performance&lt;br&gt;(each Screenplay may contain many)&quot;]:3
     Actor(&quot;Actors&quot;) space
     block:Perf
         columns 3
         space
         Task[&quot;Tasks&quot;]
-        space:4
+        space
         Action[&quot;Actions&quot;]
         space
         Question[&quot;Questions&quot;]
@@ -109,8 +111,6 @@ The diagram below shows the basic building blocks of a performance and how they 
     Ability -- &quot;Has&quot; --&gt; Actor
     Action -- &quot;Use&quot; --&gt; Ability
     Question -- &quot;Use&quot; --&gt; Ability
-    Task -- &quot;Compose&quot; --&gt; Action
-    Task -- &quot;Compose&quot; --&gt; Question
     style Perf fill:#E0E0F0,stroke:#C0C0E0
 </code></pre>
 <h2 id="explanation">Explanation</h2>
