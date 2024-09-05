@@ -24,11 +24,15 @@ namespace CSF.Screenplay
     /// That is because the Screenplay object is generally consumed only by <xref href="IntegrationGlossaryItem?text=integration+logic"/>.
     /// </para>
     /// <para>
+    /// It is recommended to create instances of this type via a <see cref="ScreenplayBuilder"/>.
+    /// </para>
+    /// <para>
     /// The Screenplay object is used to create instances of <see cref="Performance"/> via the <see cref="PerformanceFactory"/>.
     /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>
     /// <seealso cref="Performance"/>
+    /// <seealso cref="ScreenplayBuilder"/>
     public sealed class Screenplay : IHasServiceProvider
     {
         /// <inheritdoc/>
@@ -105,6 +109,20 @@ namespace CSF.Screenplay
         }
 
         /// <summary>Initialises a new instance of <see cref="Screenplay"/></summary>
+        /// <remarks>
+        /// <para>
+        /// This constructor will finalise the service collection, by
+        /// executing <see cref="ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection)"/> upon it.
+        /// Please ensure that all of the desired service descriptors have been added to the service collection before using this
+        /// constructor.
+        /// </para>
+        /// <para>
+        /// Also, please consider using a <see cref="ScreenplayBuilder"/> instead of executing this constructor directly.
+        /// The builder provides a more friendly API for configuring the Screenplay.
+        /// If you just want a default instance of a Screenplay with all of the defaults then use the <see cref="CreateDefault"/>
+        /// method.
+        /// </para>
+        /// </remarks>
         /// <param name="services">A dependency injection service collection</param>
         public Screenplay(IServiceCollection services)
         {
