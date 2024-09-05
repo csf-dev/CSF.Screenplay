@@ -154,6 +154,9 @@ more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> inst
   <div>
       <a class="xref" href="CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Int32_">ScreenplayExtensions.ExecuteAsPerformance(Screenplay, Func&lt;IServiceProvider, bool?&gt;, IList&lt;IdentifierAndName&gt;, int)</a>
   </div>
+  <div>
+      <a class="xref" href="CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_">ScreenplayExtensions.ExecuteAsPerformance(Screenplay, Func&lt;IServiceProvider, bool?&gt;, IList&lt;IdentifierAndName&gt;, CancellationToken)</a>
+  </div>
   </dd></dl>
 
 
@@ -193,13 +196,13 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Screenplay(IServiceCollection services = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Screenplay(IServiceCollection services)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
-    <dd><p>An optional dependency injection service collection</p>
+    <dd><p>A dependency injection service collection</p>
 </dd>
   </dl>
 
@@ -306,6 +309,44 @@ Screenplay is now complete.</p>
 
 
 
+
+
+
+
+  <a id="CSF_Screenplay_Screenplay_CreateDefault_" data-uid="CSF.Screenplay.Screenplay.CreateDefault*"></a>
+
+  <h3 id="CSF_Screenplay_Screenplay_CreateDefault" data-uid="CSF.Screenplay.Screenplay.CreateDefault">
+  CreateDefault()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and returns a default <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Screenplay CreateDefault()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></dt>
+    <dd><p>A default Screenplay instance with all of the default options and no customizations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Screenplay_CreateDefault_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Using this method is equivalent to using <code>new ScreenplayBuilder().BuildScreenplay()</code>.
+</p>
+</div>
 
 
 
