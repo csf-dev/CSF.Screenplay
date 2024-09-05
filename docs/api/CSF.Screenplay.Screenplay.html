@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Screenplay" data-uid="CSF.Screenplay.Screenplay" class="text-break">
-Class Screenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L32"><i class="bi bi-code-slash"></i></a>
+Class Screenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -174,6 +174,9 @@ End-user logic, such as test logic, rarely interacts directly with this class.
 That is because the Screenplay object is generally consumed only by <a class="xref" href="../glossary/Integration.html">integration logic</a>.
 </p>
 <p>
+It is recommended to create instances of this type via a <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a>.
+</p>
+<p>
 The Screenplay object is used to create instances of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> via the <a class="xref" href="CSF.Screenplay.Performances.PerformanceFactory.html">PerformanceFactory</a>.
 You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformanceRelate.html">diagram showing how screenplays, performances, actors and performables relate to one another</a>.
 </p>
@@ -188,7 +191,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Screenplay.Screenplay.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   Screenplay(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></p>
@@ -213,6 +216,20 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Screenplay__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This constructor will finalise the service collection, by
+executing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider#microsoft-extensions-dependencyinjection-servicecollectioncontainerbuilderextensions-buildserviceprovider(microsoft-extensions-dependencyinjection-iservicecollection)">BuildServiceProvider(IServiceCollection)</a> upon it.
+Please ensure that all of the desired service descriptors have been added to the service collection before using this
+constructor.
+</p>
+<p>
+Also, please consider using a <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a> instead of executing this constructor directly.
+The builder provides a more friendly API for configuring the Screenplay.
+If you just want a default instance of a Screenplay with all of the defaults then use the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CreateDefault">CreateDefault()</a>
+method.
+</p>
+</div>
 
 
 
@@ -225,7 +242,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay_ServiceProvider" data-uid="CSF.Screenplay.Screenplay.ServiceProvider">
   ServiceProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a service provider/resolver instance associated with this object.</p>
@@ -261,7 +278,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay_BeginScreenplay" data-uid="CSF.Screenplay.Screenplay.BeginScreenplay">
   BeginScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
@@ -289,7 +306,7 @@ Screenplay has begun.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_CompleteScreenplay" data-uid="CSF.Screenplay.Screenplay.CompleteScreenplay">
   CompleteScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
@@ -317,7 +334,7 @@ Screenplay is now complete.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_CreateDefault" data-uid="CSF.Screenplay.Screenplay.CreateDefault">
   CreateDefault()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and returns a default <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.</p>
@@ -355,7 +372,7 @@ Using this method is equivalent to using <code>new ScreenplayBuilder().BuildScre
 
   <h3 id="CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.IServiceProvider,System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)">
   ExecuteAsPerformanceAsync(Func&lt;IServiceProvider, CancellationToken, Task&lt;bool?&gt;&gt;, IList&lt;IdentifierAndName&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes the specified logic as a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>
@@ -427,12 +444,13 @@ This will contain details of the exception which occurred.
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></div>
+      <div><a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a></div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L32" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L36" class="edit-link">Edit this page</a>
         </div>
 
 
