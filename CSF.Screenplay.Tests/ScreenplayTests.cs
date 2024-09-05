@@ -1,4 +1,3 @@
-using AutoFixture.Kernel;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,9 +7,8 @@ namespace CSF.Screenplay;
 public class ScreenplayTests
 {
     [Test, AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldExecuteTheLogic()
+    public async Task ExecuteAsPerformanceAsyncShouldExecuteTheLogic([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool logicExecuted = false;
         Task<bool?> PerformanceLogic(IServiceProvider services, CancellationToken token)
         {
@@ -22,9 +20,8 @@ public class ScreenplayTests
     }
 
     [Test, AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldInvokeBeginPerformanceOnThePerformable()
+    public async Task ExecuteAsPerformanceAsyncShouldInvokeBeginPerformanceOnThePerformable([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool eventReceived = false;
         void OnPerformanceBegun(object? sender, PerformanceEventArgs ev) => eventReceived = true;
         var eventBus = sut.ServiceProvider.GetRequiredService<PerformanceEventBus>();
@@ -38,9 +35,8 @@ public class ScreenplayTests
     }
 
     [Test, AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldInvokeFinishPerformanceOnThePerformable()
+    public async Task ExecuteAsPerformanceAsyncShouldInvokeFinishPerformanceOnThePerformable([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool eventReceived = false;
         void OnFinishPerformance(object? sender, PerformanceFinishedEventArgs ev) => eventReceived = true;
         var eventBus = sut.ServiceProvider.GetRequiredService<PerformanceEventBus>();

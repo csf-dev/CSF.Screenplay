@@ -10,9 +10,9 @@ public class PerformanceIntegrationTests
     [Test,AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldExecuteThreePerformables(SampleAction sampleAction,
                                                                               SampleQuestion sampleQuestion1,
-                                                                              SampleGenericQuestion sampleQuestion2)
+                                                                              SampleGenericQuestion sampleQuestion2,
+                                                                              [DefaultScreenplay] Screenplay screenplay)
     {
-        var screenplay = new Screenplay();
         object? question1Result = null;
         string? question2Result = null;
 

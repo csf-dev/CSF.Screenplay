@@ -105,10 +105,25 @@ namespace CSF.Screenplay
         }
 
         /// <summary>Initialises a new instance of <see cref="Screenplay"/></summary>
-        /// <param name="services">An optional dependency injection service collection</param>
-        public Screenplay(IServiceCollection services = default)
+        /// <param name="services">A dependency injection service collection</param>
+        public Screenplay(IServiceCollection services)
         {
-            ServiceProvider = DependencyInjectionSetup.SetupDependencyInjection(services, this);
+            if (services is null)
+                throw new ArgumentNullException(nameof(services));
+
+            services.AddSingleton(this);
+            ServiceProvider = services.BuildServiceProvider();
         }
+
+        /// <summary>
+        /// Creates and returns a default <see cref="Screenplay"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Using this method is equivalent to using <c>new ScreenplayBuilder().BuildScreenplay()</c>.
+        /// </para>
+        /// </remarks>
+        /// <returns>A default Screenplay instance with all of the default options and no customizations.</returns>
+        public static Screenplay CreateDefault() => new ScreenplayBuilder().BuildScreenplay();
     }
 }

@@ -1,6 +1,3 @@
-using AutoFixture.NUnit3;
-using Moq;
-
 namespace CSF.Screenplay.Actors;
 
 [TestFixture, Parallelizable]

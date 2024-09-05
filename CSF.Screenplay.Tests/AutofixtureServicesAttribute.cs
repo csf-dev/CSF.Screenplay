@@ -1,6 +1,5 @@
 using System.Reflection;
 using AutoFixture;
-using AutoFixture.NUnit3;
 
 namespace CSF.Screenplay;
 

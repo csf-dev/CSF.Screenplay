@@ -1,3 +1,7 @@
+---
+uid: DependencyInjectionMainArticle
+---
+
 # Dependency injection
 
 The Screenplay design pattern is fundamentally compatible with [dependency injection], aka DI.

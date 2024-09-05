@@ -1,6 +1,4 @@
-using AutoFixture.NUnit3;
 using CSF.Screenplay.Performances;
-using Moq;
 using NUnit.Framework.Internal;
 
 namespace CSF.Screenplay.Actors;

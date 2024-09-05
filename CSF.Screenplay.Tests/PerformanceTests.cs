@@ -1,7 +1,4 @@
-using System.Security.Permissions;
-using AutoFixture.NUnit3;
 using CSF.Screenplay.Performances;
-using Moq;
 
 namespace CSF.Screenplay;
 

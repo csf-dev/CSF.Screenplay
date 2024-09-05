@@ -1,6 +1,5 @@
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performables;
-using Moq;
 
 namespace CSF.Screenplay;
 

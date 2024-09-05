@@ -1,6 +1,4 @@
-using AutoFixture.NUnit3;
 using CSF.Screenplay.Performables;
-using Moq;
 
 namespace CSF.Screenplay;
 

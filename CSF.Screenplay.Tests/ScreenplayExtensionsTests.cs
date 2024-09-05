@@ -7,9 +7,8 @@ namespace CSF.Screenplay;
 public class ScreenplayExtensionsTests
 {
     [Test,AutoMoqData]
-    public void ExecuteAsPerformanceShouldExecuteTheLogic()
+    public void ExecuteAsPerformanceShouldExecuteTheLogic([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool logicExecuted = false;
         bool? PerformanceLogic(IServiceProvider services)
         {
@@ -21,9 +20,8 @@ public class ScreenplayExtensionsTests
     }
 
     [Test,AutoMoqData]
-    public void ExecuteAsPerformanceShouldInvokeBeginPerformanceOnThePerformable()
+    public void ExecuteAsPerformanceShouldInvokeBeginPerformanceOnThePerformable([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool eventReceived = false;
         void OnPerformanceBegun(object? sender, PerformanceEventArgs ev) => eventReceived = true;
         var eventBus = sut.ServiceProvider.GetRequiredService<PerformanceEventBus>();
@@ -37,9 +35,8 @@ public class ScreenplayExtensionsTests
     }
 
     [Test,AutoMoqData]
-    public void ExecuteAsPerformanceShouldInvokeFinishPerformanceOnThePerformable()
+    public void ExecuteAsPerformanceShouldInvokeFinishPerformanceOnThePerformable([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool eventReceived = false;
         void OnFinishPerformance(object? sender, PerformanceFinishedEventArgs ev) => eventReceived = true;
         var eventBus = sut.ServiceProvider.GetRequiredService<PerformanceEventBus>();
@@ -53,9 +50,8 @@ public class ScreenplayExtensionsTests
     }
 
     [Test,AutoMoqData]
-    public void ExecuteAsPerformanceShouldThrowIfTheTaskTakesTooLong()
+    public void ExecuteAsPerformanceShouldThrowIfTheTaskTakesTooLong([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool? PerformanceLogic(IServiceProvider services)
         {
             Task.Delay(1000).Wait();

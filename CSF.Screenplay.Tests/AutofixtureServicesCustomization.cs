@@ -1,7 +1,6 @@
 using AutoFixture;
 using AutoFixture.Kernel;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 
 namespace CSF.Screenplay;
 

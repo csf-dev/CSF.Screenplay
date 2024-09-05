@@ -12,9 +12,9 @@ public class EventBusIntegrationTests
 {
     [Test, AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectPerformanceEvents(SampleAction sampleAction,
-                                                                                  SampleGenericQuestion sampleQuestion)
+                                                                                  SampleGenericQuestion sampleQuestion,
+                                                                                  [DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         string? createdActorName = null;
         bool performanceBegun = false, performanceFinished = false;
         List<object> performablesBegun = [];
@@ -65,9 +65,8 @@ public class EventBusIntegrationTests
     }
 
     [Test,AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectSpotlightEvents()
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectSpotlightEvents([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         string? spotlitActorName = null;
         bool spotlightOff = false;
         void OnActorSpotlit(object? sender, ActorEventArgs e) => spotlitActorName = e.ActorName;
@@ -99,9 +98,9 @@ public class EventBusIntegrationTests
     }
 
     [Test,AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectActorAbilityEvents(object anAbility)
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectActorAbilityEvents(object anAbility,
+                                                                                   [DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         object? capturedAbility = null;
         void OnGainedAbility(object? sender, GainAbilityEventArgs e) => capturedAbility = e.Ability;
 
@@ -124,9 +123,9 @@ public class EventBusIntegrationTests
     }
 
     [Test,AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectPerformableFailureEventsWhenItThrows(ThrowingAction performable)
+    public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectPerformableFailureEventsWhenItThrows(ThrowingAction performable,
+                                                                                                     [DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         Exception? exceptionCaught = null;
         bool? result = null;
         void OnPerformableFailed(object? sender, PerformableFailureEventArgs e) => exceptionCaught = e.Exception;
@@ -159,9 +158,8 @@ public class EventBusIntegrationTests
     }
 
     [Test,AutoMoqData]
-    public async Task ExecuteAsPerformanceAsyncShouldRecordThePerformanceAsAFailureIfItReturnsFalse()
+    public async Task ExecuteAsPerformanceAsyncShouldRecordThePerformanceAsAFailureIfItReturnsFalse([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool? result = null;
         void OnPerformanceFinished(object? sender, PerformanceFinishedEventArgs e) => result = e.Success;
 
@@ -180,9 +178,8 @@ public class EventBusIntegrationTests
     }
 
     [Test,AutoMoqData]
-    public void BeginScreenplayShouldEmitTheCorrectEvent()
+    public void BeginScreenplayShouldEmitTheCorrectEvent([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool started = false;
         void OnScreenplayStarted(object? sender, EventArgs e) => started = true;
         var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
@@ -195,9 +192,8 @@ public class EventBusIntegrationTests
     }
     
     [Test,AutoMoqData]
-    public void CompleteScreenplayShouldEmitTheCorrectEvent()
+    public void CompleteScreenplayShouldEmitTheCorrectEvent([DefaultScreenplay] Screenplay sut)
     {
-        var sut = new Screenplay();
         bool ended = false;
         void OnScreenplayEnded(object? sender, EventArgs e) => ended = true;
         var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
