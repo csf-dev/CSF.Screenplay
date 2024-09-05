@@ -80,12 +80,90 @@ namespace CSF.Screenplay
             return new Screenplay(services);    
         }
 
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="ICast"/>.
+        /// </summary>
+        /// <param name="factory">A factory function for the creation of a cast.</param>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        public ScreenplayBuilder WithCast(Func<IServiceProvider, ICast> factory)
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddScoped(factory);
+            return this;
+        }
+
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="ICast"/>.
+        /// </summary>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        /// <typeparam name="TCast">The concrete type of <see cref="ICast"/> to use.</typeparam>
+        public ScreenplayBuilder WithCast<TCast>() where TCast : class, ICast
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddScoped<ICast,TCast>();
+            return this;
+        }
+
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="IStage"/>.
+        /// </summary>
+        /// <param name="factory">A factory function for the creation of a stage.</param>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        public ScreenplayBuilder WithStage(Func<IServiceProvider, IStage> factory)
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddScoped(factory);
+            return this;
+        }
+
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="IStage"/>.
+        /// </summary>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        /// <typeparam name="TStage">The concrete type of <see cref="IStage"/> to use.</typeparam>
+        public ScreenplayBuilder WithStage<TStage>() where TStage : class, IStage
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddScoped<IStage,TStage>();
+            return this;
+        }
+
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="ICreatesPerformance"/>.
+        /// </summary>
+        /// <param name="factory">A factory function for the creation of a performance factory.</param>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        public ScreenplayBuilder WithPerformanceFactory(Func<IServiceProvider, ICreatesPerformance> factory)
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddTransient(factory);
+            return this;
+        }
+
+        /// <summary>
+        /// Configures this builder to build a <see cref="Screenplay"/> with a custom implementation of <see cref="ICreatesPerformance"/>.
+        /// </summary>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        /// <typeparam name="TPerformanceFactory">The concrete type of <see cref="ICreatesPerformance"/> to use.</typeparam>
+        public ScreenplayBuilder WithPerformanceFactory<TPerformanceFactory>() where TPerformanceFactory : class, ICreatesPerformance
+        {
+            ThrowIfAlreadyBuilt();
+            services.AddTransient<ICreatesPerformance, TPerformanceFactory>();
+            return this;
+        }
+
         void AddStandardDiTypes()
         {
             services.AddSingleton<PerformanceEventBus>();
             services.AddTransient<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
+        }
+
+        void ThrowIfAlreadyBuilt()
+        {
+            if (alreadyUsed)
+                throw new InvalidOperationException("This builder has already been used to build a Screenplay; no further configuration may be performed. Use configuration methods before building the Screenplay instance.");
         }
 
         /// <summary>
