@@ -63,14 +63,7 @@ namespace CSF.Screenplay
         public void BeforeTest(ITest test)
         {
             var performance = GetPerformance(test);
-
-            var namingHierarchy = GetReverseOrderNamingHierarchy(test).ToList();
-            // Reverse it to get it in the correct order
-            namingHierarchy.Reverse();
-            performance.NamingHierarchy.Clear();
-            performance.NamingHierarchy.AddRange(namingHierarchy);
-
-            test.Properties.Add(CurrentPerformanceIdentityKey, performance.PerformanceIdentity);
+            BackfillPerformanceNamingHierarchy(performance, test);
             performance.BeginPerformance();
         }
 
@@ -78,8 +71,7 @@ namespace CSF.Screenplay
         public void AfterTest(ITest test)
         {
             var performance = GetPerformance(test);
-            var outcome = GetOutcome();
-            performance.FinishPerformance(outcome);
+            performance.FinishPerformance(GetOutcome());
 
             var diScope = test.Properties.Get(CurrentDiScopeKey) as IServiceScope;
             diScope?.Dispose();
@@ -94,9 +86,8 @@ namespace CSF.Screenplay
                 throw new ArgumentNullException(nameof(suite));
 
             var screenplay = GetScreenplay(method);
-            var scope = screenplay.ServiceProvider.CreateScope();
-            var performance = scope.ServiceProvider.GetRequiredService<IPerformance>();
-            var testMethod = GetTestMethod(scope, performance, method, suite);
+            var scopeAndPerformance = screenplay.CreateScopedPerformance();
+            var testMethod = GetTestMethod(scopeAndPerformance, method, suite);
             return new[] { testMethod };
         }
 
@@ -106,18 +97,29 @@ namespace CSF.Screenplay
                 ?? throw new ArgumentException($"The specified test must contain a property '{CurrentPerformanceKey}' containing an {nameof(IPerformance)}", nameof(test));
         }
 
-        static TestMethod GetTestMethod(IServiceScope diScope, IPerformance performance, IMethodInfo method, Test suite)
+        static TestMethod GetTestMethod(ScopeAndPerformance scopeAndPerformance, IMethodInfo method, Test suite)
         {
             var builder = new NUnitTestCaseBuilder();
             var resolvedTestMethodParameters = (from parameter in method.GetParameters()
-                                                select performance.ServiceProvider.GetService(parameter.ParameterType))
+                                                select scopeAndPerformance.Performance.ServiceProvider.GetService(parameter.ParameterType))
                 .ToArray();
             var testCaseParameters = new TestCaseParameters(resolvedTestMethodParameters);
 
             var testMethod = builder.BuildTestMethod(method, suite, testCaseParameters);
-            testMethod.Properties.Add(CurrentDiScopeKey, diScope);
-            testMethod.Properties.Add(CurrentPerformanceKey, performance);
+            testMethod.Properties.Add(CurrentPerformanceKey, scopeAndPerformance.Performance);
+            testMethod.Properties.Add(CurrentPerformanceIdentityKey, scopeAndPerformance.Performance.PerformanceIdentity);
+            testMethod.Properties.Add(CurrentDiScopeKey, scopeAndPerformance.Scope);
             return testMethod;
+        }
+
+        static void BackfillPerformanceNamingHierarchy(IPerformance performance, ITest test)
+        {
+            var namingHierarchy = GetReverseOrderNamingHierarchy(test).ToList();
+
+            // Reverse it to get it in the correct order
+            namingHierarchy.Reverse();
+            performance.NamingHierarchy.Clear();
+            performance.NamingHierarchy.AddRange(namingHierarchy);
         }
 
         static IEnumerable<IdentifierAndName> GetReverseOrderNamingHierarchy(ITest suite)

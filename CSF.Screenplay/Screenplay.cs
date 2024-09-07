@@ -87,23 +87,20 @@ namespace CSF.Screenplay
                 throw new ArgumentNullException(nameof(performanceLogic));
             namingHierarchy = namingHierarchy ?? new List<IdentifierAndName>();
 
-            using(var scope = ServiceProvider.CreateScope())
-            using(var performance = scope.ServiceProvider.GetRequiredService<IPerformance>())
+            using(var scopeAndPerformance = this.CreateScopedPerformance(namingHierarchy))
             {
-                performance.NamingHierarchy.Clear();
-                performance.NamingHierarchy.AddRange(namingHierarchy);
-                performance.BeginPerformance();
+                scopeAndPerformance.Performance.BeginPerformance();
 
                 try
                 {
-                    var result = await performanceLogic(scope.ServiceProvider, cancellationToken).ConfigureAwait(false);
-                    performance.FinishPerformance(result);
+                    var result = await performanceLogic(scopeAndPerformance.Performance.ServiceProvider, cancellationToken).ConfigureAwait(false);
+                    scopeAndPerformance.Performance.FinishPerformance(result);
                 }
                 // Only catch performable exceptions; if it's anything else then the root-level logic of the performance logic is at fault,
                 // and that's unrelated to Screenplay, so shouldn't be caught here.
                 catch(PerformableException)
                 {
-                    performance.FinishPerformance(false);
+                    scopeAndPerformance.Performance.FinishPerformance(false);
                 }
             }
         }

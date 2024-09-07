@@ -76,8 +76,6 @@ namespace CSF.Screenplay
         public void Dispose()
         {
             performanceEventBus.UnsubscribeFromAllActors(PerformanceIdentity);
-            
-            if (ServiceProvider is IDisposable disposable) disposable.Dispose();
         }
 
         /// <summary>Initialises a new instance of <see cref="Performance"/></summary>

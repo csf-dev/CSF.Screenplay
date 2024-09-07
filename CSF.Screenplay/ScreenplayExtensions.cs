@@ -118,6 +118,38 @@ namespace CSF.Screenplay
                 .Wait(cancellationToken);
         }
 
+        /// <summary>
+        /// Creates a new <see cref="IPerformance"/> within its own newly-created Dependency Injection scope.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method includes the consequence/side-effect of creating a new dependency injection scope from the
+        /// <see cref="Screenplay.ServiceProvider"/> associated with the specified <see cref="Screenplay"/>.
+        /// That scope will be associated with the created performance and will be returned as part of the return of this method.
+        /// Please use the <see cref="IDisposable.Dispose"/> method the returned object when you are finished with the performance.
+        /// This ensures that the DI scope and all associated resources (including the performance) will also be properly disposed-of.
+        /// </para>
+        /// </remarks>
+        /// <param name="screenplay">The Screenplay from which to create the performance</param>
+        /// <param name="namingHierarchy">An optional collection of identifiers and names providing the hierarchical name of this
+        /// performance; see <see cref="IPerformance.NamingHierarchy"/> for more information.</param>
+        /// <returns>A <see cref="ScopeAndPerformance"/> containing the newly-created performance as well as the newly-started DI scope.</returns>
+        /// <exception cref="ArgumentNullException">If <paramref name="screenplay"/> is <see langword="null" />.</exception>
+        public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay, IList<IdentifierAndName> namingHierarchy = null)
+        {
+            if (screenplay is null)
+                throw new ArgumentNullException(nameof(screenplay));
+
+            var scope = screenplay.ServiceProvider.CreateScope();
+            var performance = scope.ServiceProvider.GetRequiredService<IPerformance>();
+            if(namingHierarchy != null)
+            {
+                performance.NamingHierarchy.Clear();
+                performance.NamingHierarchy.AddRange(namingHierarchy);
+            }
+            return new ScopeAndPerformance(performance, scope);
+        }
+
         static AsyncPerformanceLogic GetAsyncPerformanceLogic(SyncPerformanceLogic syncPerformanceLogic)
         {
             return (services, token) =>

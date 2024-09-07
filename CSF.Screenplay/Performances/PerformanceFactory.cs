@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace CSF.Screenplay.Performances
 {
@@ -9,7 +8,7 @@ namespace CSF.Screenplay.Performances
         readonly IServiceProvider services;
 
         /// <inheritdoc/>
-        public IPerformance CreatePerformance(IList<IdentifierAndName> namingHierarchy = null) => new Performance(services, namingHierarchy, Guid.NewGuid());
+        public IPerformance CreatePerformance() => new Performance(services, performanceIdentity: Guid.NewGuid());
 
         /// <summary>Initialises a new instance of <see cref="PerformanceFactory"/></summary>
         /// <param name="services">Dependency injection services</param>
