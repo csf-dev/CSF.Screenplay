@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace CSF.Screenplay.Actors | Screenplay docs </title>
+      <title>Namespace CSF.Screenplay.Integration | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace CSF.Screenplay.Actors | Screenplay docs ">
+      <meta name="title" content="Namespace CSF.Screenplay.Integration | Screenplay docs ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -84,9 +84,9 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Actors">
+        <article data-uid="CSF.Screenplay.Integration">
 
-  <h1 id="CSF_Screenplay_Actors" data-uid="CSF.Screenplay.Actors" class="text-break">Namespace CSF.Screenplay.Actors</h1>
+  <h1 id="CSF_Screenplay_Integration" data-uid="CSF.Screenplay.Integration" class="text-break">Namespace CSF.Screenplay.Integration</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
@@ -95,80 +95,12 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></dt>
-      <dd><p>A model for event arguments which relate to an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.Cast.html">Cast</a></dt>
-      <dd><p>The default implementation of <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a> which serves as a registry/factory for <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.CastTests.html">CastTests</a></dt>
+      <dt><a class="xref" href="CSF.Screenplay.Integration.EventBusIntegrationTests.html">EventBusIntegrationTests</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.GainAbilityEventArgs.html">GainAbilityEventArgs</a></dt>
-      <dd><p>A model for event arguments which relate to an actor gaining a new ability.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a></dt>
-      <dd><p>A model for event arguments which relate to an actor's use of a performable.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.PerformableFailureEventArgs.html">PerformableFailureEventArgs</a></dt>
-      <dd><p>A specialisation of <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a> which describe the situation where
-an exception halted the execution of the performable item.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.PerformableResultEventArgs.html">PerformableResultEventArgs</a></dt>
-      <dd><p>A specialisation of <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a> which describe a scenario in which the performable
-completed and has returned a result value.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.Stage.html">Stage</a></dt>
-      <dd><p>The default implementation of <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a> which provides a context for which actor is currently active.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.StageTests.html">StageTests</a></dt>
+      <dt><a class="xref" href="CSF.Screenplay.Integration.PerformanceIntegrationTests.html">PerformanceIntegrationTests</a></dt>
       <dd></dd>
-    </dl>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a></dt>
-      <dd><p>An actor which is able to perform in the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html#CSF_Screenplay_Actors_PerformancePhase_Given">Given</a> phase of a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a></dt>
-      <dd><p>An actor which is able to perform in the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html#CSF_Screenplay_Actors_PerformancePhase_Then">Then</a> phase of a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a></dt>
-      <dd><p>An actor which is able to perform in the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html#CSF_Screenplay_Actors_PerformancePhase_When">When</a> phase of a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.IHasPerformableEvents.html">IHasPerformableEvents</a></dt>
-      <dd><p>An actor which may emit events as they participate in a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></p>
-</dd>
-    </dl>
-    <h3 id="enums">
-Enums
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html">PerformancePhase</a></dt>
-      <dd><p>Enumerates the phases of a performance</p>
-</dd>
     </dl>
 
 

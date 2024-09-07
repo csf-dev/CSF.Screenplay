@@ -62,6 +62,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorExtensionsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorExtensionsTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.DisposableAbility2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ActorTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ActorTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Actors.ActorEventArgs.yml",
       "output": {
         ".html": {
@@ -76,6 +116,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Actors.Cast.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Actors.CastTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Actors.CastTests.html"
         }
       },
       "version": ""
@@ -182,6 +232,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Actors.StageTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Actors.StageTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Actors.yml",
       "output": {
         ".html": {
@@ -192,10 +252,60 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.AutoMoqDataAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.AutoMoqDataAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.AutofixtureServicesAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.AutofixtureServicesAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.AutofixtureServicesCustomization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.AutofixtureServicesCustomization.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.CastExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.CastExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.DefaultScreenplayAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.DefaultScreenplayAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.DefaultScreenplayCustomization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.DefaultScreenplayCustomization.html"
         }
       },
       "version": ""
@@ -236,6 +346,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ICast.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.IGetsScreenplay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.IGetsScreenplay.html"
         }
       },
       "version": ""
@@ -336,6 +456,36 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.IStage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Integration.EventBusIntegrationTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Integration.EventBusIntegrationTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Integration.PerformanceIntegrationTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Integration.PerformanceIntegrationTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Integration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Integration.html"
         }
       },
       "version": ""
@@ -482,6 +632,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.StopwatchTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.StopwatchTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder-1.yml",
       "output": {
         ".html": {
@@ -496,6 +656,36 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.EatLunch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.EatLunch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.EatLunchPerformableBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.EatLunchPerformableBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilderTests.html"
         }
       },
       "version": ""
@@ -526,6 +716,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.PerformanceStarter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.PerformanceTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.PerformanceTests.html"
         }
       },
       "version": ""
@@ -652,10 +852,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScopeAndPerformance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScopeAndPerformance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Screenplay.yml",
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Screenplay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayAssemblyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayAttribute.html"
         }
       },
       "version": ""
@@ -672,6 +902,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayBuilderTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayBuilderTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ScreenplayExtensions.yml",
       "output": {
         ".html": {
@@ -682,10 +922,120 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayExtensionsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayExtensionsTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayFactory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayLocator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayLocator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.StageExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.StageExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Stubs.SampleAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Stubs.SampleAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Stubs.SampleGenericQuestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Stubs.SampleGenericQuestion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Stubs.SampleQuestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Stubs.SampleQuestion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Stubs.ThrowingAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Stubs.ThrowingAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Stubs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Stubs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.TestWithDescription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.TestWithDescription.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.TestWithoutDescription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.TestWithoutDescription.html"
         }
       },
       "version": ""
@@ -749,6 +1099,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/ScreenplayInTheTestingStack.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/StandaloneScreenplay.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/StandaloneScreenplay.html"
         }
       },
       "version": ""

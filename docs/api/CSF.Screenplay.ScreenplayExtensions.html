@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayExtensions" data-uid="CSF.Screenplay.ScreenplayExtensions" class="text-break">
-Class ScreenplayExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -153,11 +153,69 @@ Class ScreenplayExtensions  <a class="header-action link-secondary" title="View 
 </h2>
 
 
+  <a id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_" data-uid="CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__" data-uid="CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})">
+  CreateScopedPerformance(Screenplay, IList&lt;IdentifierAndName&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> within its own newly-created Dependency Injection scope.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay, IList&lt;IdentifierAndName&gt; namingHierarchy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>screenplay</code> <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></dt>
+    <dd><p>The Screenplay from which to create the performance</p>
+</dd>
+    <dt><code>namingHierarchy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
+    <dd><p>An optional collection of identifiers and names providing the hierarchical name of this
+performance; see <a class="xref" href="CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy">NamingHierarchy</a> for more information.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ScopeAndPerformance.html">ScopeAndPerformance</a></dt>
+    <dd><p>A <a class="xref" href="CSF.Screenplay.ScopeAndPerformance.html">ScopeAndPerformance</a> containing the newly-created performance as well as the newly-started DI scope.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method includes the consequence/side-effect of creating a new dependency injection scope from the
+<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ServiceProvider">ServiceProvider</a> associated with the specified <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.
+That scope will be associated with the created performance and will be returned as part of the return of this method.
+Please use the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method the returned object when you are finished with the performance.
+This ensures that the DI scope and all associated resources (including the performance) will also be properly disposed-of.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">screenplay</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_" data-uid="CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance*"></a>
 
   <h3 id="CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Int32_" data-uid="CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay,System.Func{System.IServiceProvider,System.Nullable{System.Boolean}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Int32)">
   ExecuteAsPerformance(Screenplay, Func&lt;IServiceProvider, bool?&gt;, IList&lt;IdentifierAndName&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes the specified logic as a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>, synchronously.</p>
@@ -242,7 +300,7 @@ for it.
 
   <h3 id="CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay,System.Func{System.IServiceProvider,System.Nullable{System.Boolean}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)">
   ExecuteAsPerformance(Screenplay, Func&lt;IServiceProvider, bool?&gt;, IList&lt;IdentifierAndName&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes the specified logic as a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a>, synchronously.</p>
@@ -317,7 +375,7 @@ for it.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

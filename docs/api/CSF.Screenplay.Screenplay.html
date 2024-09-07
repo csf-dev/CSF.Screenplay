@@ -152,6 +152,9 @@ more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> inst
     <dt>Extension Methods</dt>
     <dd>
   <div>
+      <a class="xref" href="CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__">ScreenplayExtensions.CreateScopedPerformance(Screenplay, IList&lt;IdentifierAndName&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Int32_">ScreenplayExtensions.ExecuteAsPerformance(Screenplay, Func&lt;IServiceProvider, bool?&gt;, IList&lt;IdentifierAndName&gt;, int)</a>
   </div>
   <div>
@@ -191,7 +194,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Screenplay.Screenplay.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   Screenplay(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></p>
@@ -224,10 +227,11 @@ Please ensure that all of the desired service descriptors have been added to the
 constructor.
 </p>
 <p>
-Also, please consider using a <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a> instead of executing this constructor directly.
+It is strongly recommended to use a <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a> instead of executing this constructor directly.
 The builder provides a more friendly API for configuring the Screenplay.
-If you just want a default instance of a Screenplay with all of the defaults then use the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CreateDefault">CreateDefault()</a>
-method.
+This constructor does not add all of the service descriptors to the service collection which are required in order to
+achieve a functioning Screenplay ecosystem.
+If you want a default instance of a Screenplay then use the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CreateDefault">CreateDefault()</a> static factory method.
 </p>
 </div>
 
@@ -334,7 +338,7 @@ Screenplay is now complete.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_CreateDefault" data-uid="CSF.Screenplay.Screenplay.CreateDefault">
   CreateDefault()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and returns a default <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.</p>
