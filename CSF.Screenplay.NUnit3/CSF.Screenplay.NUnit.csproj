@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <RootNamespace>CSF.Screenplay</RootNamespace>
+    <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <IsTestProject>false</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj" />
+    <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
