@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
@@ -12,24 +13,23 @@ using static CSF.Screenplay.ScreenplayLocator;
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// Applied to an assembly, test class or individual test method, indicates that the tests in the corresponding scope are Screenplay tests.
+    /// Applied to a test method, indicates that decorated test is a Screenplay test.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// When a test method, fixture or assembly is decorated with this attribute then all tests with that scope
-    /// (the test method, all test methods in the fixture, or all test methods in the assembly) are to be executed via Screenplay.
-    /// This means that each affected test method will be executed as an <see cref="IPerformance"/>.
-    /// This means that all parameters to the affected test methods will be provided by resolving them from the current
+    /// When a test method is decorated with this attribute then the test corresponding to that method will be executed via Screenplay.
+    /// This means that the affected test method will be executed as an <see cref="IPerformance"/>.
+    /// It also means that all parameters for the method will be provided by resolving them from the current
     /// performance's <see cref="IHasServiceProvider.ServiceProvider"/>.
     /// See <xref href="DependencyInjectionMainArticle?text=the+article+on+dependency+injection+in+Screenplay"/> for more information
     /// about what may be injected into test logic from DI, via the test method parameters.
     /// </para>
     /// <para>
-    /// Remember that for this attribute to be effective, the <see cref="Assembly"/> which contains the test methods must be decorated with
-    /// <see cref="ScreenplayAssemblyAttribute"/>.  If it is not, then the tests will all fail with exceptions.
+    /// Remember that for this attribute to be effective, the <see cref="Assembly"/> which contains the test method must be decorated with
+    /// <see cref="ScreenplayAssemblyAttribute"/>.  If it is not, then the test will fail with an exception.
     /// </para>
     /// </remarks>
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class | AttributeTargets.Assembly, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
     {
         /// <summary>
@@ -48,6 +48,11 @@ namespace CSF.Screenplay
         internal const string CurrentPerformanceIdentityKey = "Current Screenplay Performance identity";
 
         /// <summary>
+        /// A key for an NUnit3 Property which will hold the current Dependency Injection scope.
+        /// </summary>
+        internal const string CurrentDiScopeKey = "Current Screenplay DI scope";
+
+        /// <summary>
         /// Gets the targets for the attribute (when performing before/after test actions).
         /// </summary>
         /// <value>The targets.</value>
@@ -58,6 +63,13 @@ namespace CSF.Screenplay
         public void BeforeTest(ITest test)
         {
             var performance = GetPerformance(test);
+
+            var namingHierarchy = GetReverseOrderNamingHierarchy(test).ToList();
+            // Reverse it to get it in the correct order
+            namingHierarchy.Reverse();
+            performance.NamingHierarchy.Clear();
+            performance.NamingHierarchy.AddRange(namingHierarchy);
+
             test.Properties.Add(CurrentPerformanceIdentityKey, performance.PerformanceIdentity);
             performance.BeginPerformance();
         }
@@ -68,6 +80,9 @@ namespace CSF.Screenplay
             var performance = GetPerformance(test);
             var outcome = GetOutcome();
             performance.FinishPerformance(outcome);
+
+            var diScope = test.Properties.Get(CurrentDiScopeKey) as IServiceScope;
+            diScope?.Dispose();
         }
 
         /// <inheritdoc/>
@@ -79,17 +94,10 @@ namespace CSF.Screenplay
                 throw new ArgumentNullException(nameof(suite));
 
             var screenplay = GetScreenplay(method);
-            var performance = CreatePerformance(screenplay, method, suite);
-            var testMethod = GetTestMethod(performance, method, suite);
+            var scope = screenplay.ServiceProvider.CreateScope();
+            var performance = scope.ServiceProvider.GetRequiredService<IPerformance>();
+            var testMethod = GetTestMethod(scope, performance, method, suite);
             return new[] { testMethod };
-        }
-
-        static IPerformance CreatePerformance(Screenplay screenplay, IMethodInfo method, Test suite)
-        {
-            var namingHierarchy = GetReverseOrderNamingHierarchy(method, suite).ToList();
-            // Reverse it to get it in the correct order
-            namingHierarchy.Reverse();
-            return screenplay.CreatePerformance(namingHierarchy);
         }
 
         static IPerformance GetPerformance(ITest test)
@@ -98,7 +106,7 @@ namespace CSF.Screenplay
                 ?? throw new ArgumentException($"The specified test must contain a property '{CurrentPerformanceKey}' containing an {nameof(IPerformance)}", nameof(test));
         }
 
-        static TestMethod GetTestMethod(IPerformance performance, IMethodInfo method, Test suite)
+        static TestMethod GetTestMethod(IServiceScope diScope, IPerformance performance, IMethodInfo method, Test suite)
         {
             var builder = new NUnitTestCaseBuilder();
             var resolvedTestMethodParameters = (from parameter in method.GetParameters()
@@ -107,18 +115,19 @@ namespace CSF.Screenplay
             var testCaseParameters = new TestCaseParameters(resolvedTestMethodParameters);
 
             var testMethod = builder.BuildTestMethod(method, suite, testCaseParameters);
+            testMethod.Properties.Add(CurrentDiScopeKey, diScope);
             testMethod.Properties.Add(CurrentPerformanceKey, performance);
             return testMethod;
         }
 
-        static IEnumerable<IdentifierAndName> GetReverseOrderNamingHierarchy(IMethodInfo method, ITest suite)
+        static IEnumerable<IdentifierAndName> GetReverseOrderNamingHierarchy(ITest suite)
         {
-            yield return new IdentifierAndName($"{suite.FullName}.{method.Name}", suite.Properties.Get(DescriptionPropertyName)?.ToString());
-
-            for (var currentSuite = suite.Parent;
-                currentSuite != null;
-                currentSuite = currentSuite.Parent)
+            for (var currentSuite = suite;
+                 currentSuite != null;
+                 currentSuite = currentSuite.Parent)
             {
+                if (!currentSuite.IsSuite || (currentSuite.Method is null && currentSuite.Fixture is null))
+                    continue;
                 yield return new IdentifierAndName(currentSuite.FullName, currentSuite.Properties.Get(DescriptionPropertyName)?.ToString());
             }
         }
