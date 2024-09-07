@@ -5,6 +5,7 @@
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <IsTestProject>false</IsTestProject>
+    <SonarQubeTestProject>false</SonarQubeTestProject>
   </PropertyGroup>
 
   <ItemGroup>
