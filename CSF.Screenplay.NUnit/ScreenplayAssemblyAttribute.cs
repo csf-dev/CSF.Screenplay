@@ -13,17 +13,21 @@ namespace CSF.Screenplay
     /// In order to run tests with Screenplay, the assembly must be decorated with this attribute.
     /// </para>
     /// <para>
-    /// This attribute identifies a concrete implementation of <see cref="IGetsScreenplay"/> which will be used to build and retrieve
-    /// the <see cref="Screenplay"/> instance for running those tests.
+    /// This attribute has one mandatory parameter; that is the <see cref="Type"/> of a concrete implementation of
+    /// <see cref="IGetsScreenplay"/>.  That type will be instantiated by the NUnit3 integration and will be used to
+    /// build and retrieve the <see cref="Screenplay"/> instance for running the Screenplay-based tests within the decorated
+    /// assembly. Each test method must additionally be decorated with the <see cref="ScreenplayAttribute"/> in order to make
+    /// it a Screenplay-based test.
     /// </para>
     /// </remarks>
     /// <example>
     /// <para>
-    /// Decorate your assembly with this attribute using the syntax <c>[assembly: ScreenplayAssembly]</c>.  You may place this
+    /// Decorate your assembly with this attribute using the syntax <c>[assembly: CSF.Screenplay.ScreenplayAssembly]</c>.  You may place this
     /// into any source file, outside of any type declaration.  By convention it would be put into a dedicated source file
     /// within the <c>Properties</c> project directory.
     /// </para>
     /// </example>
+    /// <seealso cref="ScreenplayAttribute"/>
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
     public class ScreenplayAssemblyAttribute : TestActionAttribute
     {

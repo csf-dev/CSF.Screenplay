@@ -29,6 +29,7 @@ namespace CSF.Screenplay
     /// <see cref="ScreenplayAssemblyAttribute"/>.  If it is not, then the test will fail with an exception.
     /// </para>
     /// </remarks>
+    /// <seealso cref="ScreenplayAssemblyAttribute"/>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
     {

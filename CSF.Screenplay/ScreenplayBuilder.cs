@@ -152,6 +152,32 @@ namespace CSF.Screenplay
             return this;
         }
 
+        /// <summary>
+        /// Configures further services into the <see cref="IServiceCollection"/> which is contained within the current builder.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Use this method to add service descriptors to the service collection for services which are not directly part of the Screenplay
+        /// architecture, but which you wish to access from Screenplay.
+        /// Most often these will be types and services which will be used as (or by) <xref href="AbilityGlossaryItem?text=Screenplay+abilities"/>.
+        /// </para>
+        /// <para>
+        /// Abilities added to dependency injection in this way may be constructor-injected into <see cref="IPersona"/> implementations.
+        /// </para>
+        /// </remarks>
+        /// <param name="configurationAction">Logic which may be used to perform further configuration upon the service collection.</param>
+        /// <returns>The same builder instance, so that calls may be chained.</returns>
+        /// <exception cref="ArgumentNullException">If <paramref name="configurationAction"/> is <see langword="null" />.</exception>
+        public ScreenplayBuilder ConfigureServices(Action<IServiceCollection> configurationAction)
+        {
+            if (configurationAction is null)
+                throw new ArgumentNullException(nameof(configurationAction));
+
+            ThrowIfAlreadyBuilt();
+            configurationAction(services);
+            return this;
+        }
+
         void AddStandardDiTypes()
         {
             services.AddSingleton<PerformanceEventBus>();
