@@ -9,6 +9,7 @@ public class AutofixtureServicesCustomization : ICustomization
     public void Customize(IFixture fixture)
     {
         fixture.Customize<IServiceProvider>(c => c.FromFactory(new ServiceProviderBuilder()));
+        fixture.Customize<IServiceScope>(c => c.FromFactory((IServiceProvider s) => Mock.Of<IServiceScope>(x => x.ServiceProvider == s)));
     }
 
     class ServiceProviderBuilder : ISpecimenBuilder
