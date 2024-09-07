@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Docs", "CSF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Abstractions", "CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj", "{F55AA0FF-9796-4202-BFDD-49C262509FC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Tests", "CSF.Screenplay.Tests\CSF.Screenplay.Tests.csproj", "{7369BCFA-DA98-4C05-9708-7949AF3E485B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.Tests", "Tests\CSF.Screenplay.Tests\CSF.Screenplay.Tests.csproj", "{7369BCFA-DA98-4C05-9708-7949AF3E485B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.NUnit", "CSF.Screenplay.NUnit\CSF.Screenplay.NUnit.csproj", "{F02CB7EB-0B53-4CBD-A9DD-57510EC12150}"
 EndProject
