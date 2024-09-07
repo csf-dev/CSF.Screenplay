@@ -47,6 +47,9 @@ namespace CSF.Screenplay.Performances
         /// <inheritdoc/>
         public override int GetHashCode() => Identifier.GetHashCode();
 
+        /// <inheritdoc/>
+        public override string ToString() => $"[{nameof(IdentifierAndName)}: {nameof(Identifier)}={Identifier}, {nameof(Name)}={Name}]";
+
         /// <summary>Initialises a new instance of <see cref="IdentifierAndName"/></summary>
         /// <param name="identifier">The identifier for this item, which might not be human-readable</param>
         /// <param name="name">A human-readable name for this item</param>
