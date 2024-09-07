@@ -24,7 +24,6 @@ It may be used for testing web applications via a web browser.
 In that context, Screenplay is a refinement of the [Page Object Pattern].
 
 * [Screenplay in the testing stack](docs/ScreenplayInTheTestingStack.md)
-* [Test framework integrations](docs/TestFrameworkIntegrations.md)
 * [NUnit & Screenplay tutorial](docs/nUnitTutorial/index.md)
 * [SpecFlow & Screenplay tutorial](docs/specFlowTutorial/index.md)
 

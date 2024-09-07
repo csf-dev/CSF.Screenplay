@@ -21,8 +21,6 @@
   items:
     - name: Screenplay in the testing stack
       href: ScreenplayInTheTestingStack.md
-    - name: Test framework integrations
-      href: TestFrameworkIntegrations.md
     - name: NUnit tutorial
       href: nUnitTutorial/index.md
     - name: SpecFlow tutorial
