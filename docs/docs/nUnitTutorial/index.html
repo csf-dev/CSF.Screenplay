@@ -97,10 +97,67 @@ Further detail is provided below.</p>
 <li>Write your tests, decorating each test method with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a></li>
 <li>Add parameters to your test methods to access the Screenplay architecture</li>
 </ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Developers are encouraged to read <a href="BestPractices.html">these best practices for writing NUnit tests which use Screenplay</a>.</p>
+</div>
 <h2 id="decorating-your-test-assembly-with-screenplayassembly">Decorating your test assembly with <code>[ScreenplayAssembly]</code></h2>
-<p>TODO: Write this docco</p>
+<p>So that your tests may make use of a <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a>, you must install the Screenplay extension to the NUnit testing framework.
+This is <strong>steps 3 &amp; 4</strong> in the list above.
+This is achieved using the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>.
+Place a line of code somewhere in your test project, outside of any type definition like this:</p>
+<pre><code class="lang-csharp">[assembly: CSF.Screenplay.ScreenplayAssembly(typeof(MyScreenplayFactory))]
+</code></pre>
+<p>There is one other thing you must do, and that is to write a screenplay factory class, which configures how the <code>Screenplay</code> should be created for your tests.
+A screenplay factory is a class which must implement <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a>.
+Consider the example below as a starting point for writing your own.</p>
+<pre><code class="lang-csharp">using CSF.Screenplay;
+
+public class MyScreenplayFactory : IGetsScreenplay
+{
+    public Screenplay GetScreenplay()
+    {
+        return new ScreenplayBuilder()
+            .ConfigureServices(services =&gt; {
+                // Add your own dependency injection service descriptors to the service collection here
+                // For example, services which will be used by Screenplay Abilities.
+            })
+            .BuildScreenplay();
+    }
+}
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>When using NUnit with Screenplay, every Screenplay-using test within a test assembly (thus, within a .NET project) must share the same instance of <code>Screenplay</code>.
+This is not expected to be problematic, as all the <code>Screenplay</code> object does is set-up the Screenplay architecture and dependency injection for the tests.</p>
+</div>
 <h2 id="writing-test-methods">Writing test methods</h2>
-<p>TODO: Write this docco</p>
+<p>When writing test methods, the test methods must be decorated with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a>, which activates Screenplay for that particular test method.
+NUnit test methods which are decorated with <code>[Screenplay]</code> may have test parameters; these parameters will be <a href="../dependencyInjection/index.html">provided by dependency injection</a>.
+This covers <strong>steps 5 &amp; 6</strong> in the list above.
+Here is an example of an NUnit test method which is written using Screenplay; it assumes that the assembly has been decorated with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, as noted above.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The ability, performables and <code>DishwashingBuilder</code> used in this test, related to washing dishes, are all fictitious.
+See <a href="../writingPerformables/index.html">the documentation for writing performables</a> to learn about how these could be written.</p>
+</div>
+<pre><code class="lang-csharp">using CSF.Screenplay;
+using static CSF.Screenplay.PerformanceStarter;
+using static WashingTheDishes.DishwashingBuilder;
+
+[Test, Screenplay]
+public async Task TheDishesShouldBeCleanAfterJoeWashesThem(ICast cast, IDishWashingAbility washTheDishes)
+{
+    var joe = cast.GetActor(&quot;Joe&quot;);
+    joe.IsAbleTo(washTheDishes);
+
+    await Given(joe).WasAbleTo(GetSomeDirtyDishes());
+    await When(joe).AttemptsTo(WashTheDishes());
+    var dishesCondition = await Then(joe).Should(LookAtTheDishesCondition());
+
+    Assert.That(dishesCondition, Is.EqualTo(&quot;Clean));
+}
+</code></pre>
 
 </article>
 
