@@ -20,12 +20,6 @@ namespace CSF.Screenplay
     /// If you do not wish to get a result from the performable then implement only <see cref="IPerformable"/> instead.
     /// </para>
     /// <para>
-    /// Objects which implement this interface may be adapted to <see cref="IPerformable"/> via the
-    /// <see cref="PerformableExtensions.ToPerformable{TResult}(IPerformableWithResult{TResult})"/> extension method or to
-    /// the non-generic <see cref="IPerformableWithResult"/> via
-    /// <see cref="PerformableExtensions.ToNonGenericPerformableWithResult{TResult}(IPerformableWithResult{TResult})"/>.
-    /// </para>
-    /// <para>
     /// When implementing this interface, consider also implementing <see cref="ICanReport"/>.
     /// If a performable does not implement <see cref="ICanReport"/> then it will receive default text when the
     /// <see cref="IPerformance"/> report is generated.
@@ -34,8 +28,6 @@ namespace CSF.Screenplay
     /// </remarks>
     /// <seealso cref="IPerformable"/>
     /// <seealso cref="IPerformableWithResult"/>
-    /// <seealso cref="PerformableExtensions.ToPerformable{TResult}(IPerformableWithResult{TResult})"/>
-    /// <seealso cref="PerformableExtensions.ToNonGenericPerformableWithResult{TResult}(IPerformableWithResult{TResult})"/>
     public interface IPerformableWithResult<TResult>
     {
         /// <summary>
