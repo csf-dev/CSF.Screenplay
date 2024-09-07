@@ -157,7 +157,7 @@ Class PerformableExtensions  <a class="header-action link-secondary" title="View
 
   <h3 id="CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)">
   GetReportFragment(IPerformable, IHasName)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a report fragment for the specified performable and actor</p>
@@ -210,7 +210,7 @@ be produced and returned.
 
   <h3 id="CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformableWithResult_CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)">
   GetReportFragment(IPerformableWithResult, IHasName)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a report fragment for the specified performable and actor</p>
@@ -263,7 +263,7 @@ be produced and returned.
 
   <h3 id="CSF_Screenplay_PerformableExtensions_GetReportFragment__1_CSF_Screenplay_IPerformableWithResult___0__CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.PerformableExtensions.GetReportFragment``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)">
   GetReportFragment&lt;T&gt;(IPerformableWithResult&lt;T&gt;, IHasName)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a report fragment for the specified performable and actor</p>
@@ -315,159 +315,6 @@ be produced and returned.
     <dd><p>If <code class="paramref">performable</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></p>
 </dd>
   </dl>
-
-
-
-  <a id="CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult_" data-uid="CSF.Screenplay.PerformableExtensions.ToNonGenericPerformableWithResult*"></a>
-
-  <h3 id="CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult__1_CSF_Screenplay_IPerformableWithResult___0__" data-uid="CSF.Screenplay.PerformableExtensions.ToNonGenericPerformableWithResult``1(CSF.Screenplay.IPerformableWithResult{``0})">
-  ToNonGenericPerformableWithResult&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a> which allows the specified generic performable to be used
-non-generically.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformableWithResult ToNonGenericPerformableWithResult&lt;TResult&gt;(this IPerformableWithResult&lt;TResult&gt; performableWithResult)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>performableWithResult</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;</dt>
-    <dd><p>The performable instance to be wrapped in an adapter</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-  <h4 class="section" id="CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult__1_CSF_Screenplay_IPerformableWithResult___0___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This is implemented by wrapping the performable in an adapter instance, so the object returned will not be the
-original performable. It is not recommended to do so, but if the original performable is required then you may
-cast this object to <a class="xref" href="CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html">NonGenericNoResultPerformableAdapter&lt;T&gt;</a> and use the
-<a class="xref" href="CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html#CSF_Screenplay_Performables_NonGenericNoResultPerformableAdapter_1_PerformableWithResult">PerformableWithResult</a> property to get the original
-wrapped performable instance. Of course, you will need to know &amp; use the correct generic type to do so.
-</p>
-</div>
-
-
-
-
-  <a id="CSF_Screenplay_PerformableExtensions_ToPerformable_" data-uid="CSF.Screenplay.PerformableExtensions.ToPerformable*"></a>
-
-  <h3 id="CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult_" data-uid="CSF.Screenplay.PerformableExtensions.ToPerformable(CSF.Screenplay.IPerformableWithResult)">
-  ToPerformable(IPerformableWithResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L22"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> which allows the specified performable (which returns a result) to be used
-in a manner which discards its result.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformable ToPerformable(this IPerformableWithResult performableWithResult)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>performableWithResult</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></dt>
-    <dd><p>The performable instance to be wrapped in an adapter</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This is implemented by wrapping the performable in an adapter instance, so the object returned will not be the
-original performable. It is not recommended to do so, but if the original performable is required then you may
-cast this object to <a class="xref" href="CSF.Screenplay.NoResultPerformableAdapter.html">NoResultPerformableAdapter</a> and use the
-<a class="xref" href="CSF.Screenplay.NoResultPerformableAdapter.html#CSF_Screenplay_NoResultPerformableAdapter_PerformableWithResult">PerformableWithResult</a> property to get the original wrapped performable instance.
-</p>
-</div>
-
-
-
-
-  <a id="CSF_Screenplay_PerformableExtensions_ToPerformable_" data-uid="CSF.Screenplay.PerformableExtensions.ToPerformable*"></a>
-
-  <h3 id="CSF_Screenplay_PerformableExtensions_ToPerformable__1_CSF_Screenplay_IPerformableWithResult___0__" data-uid="CSF.Screenplay.PerformableExtensions.ToPerformable``1(CSF.Screenplay.IPerformableWithResult{``0})">
-  ToPerformable&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/PerformableExtensions.cs/#L39"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> which allows the specified performable (which returns a generic result) to be used
-non-generically and in a manner which discards its result.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformable ToPerformable&lt;TResult&gt;(this IPerformableWithResult&lt;TResult&gt; performableWithResult)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>performableWithResult</code> <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;</dt>
-    <dd><p>The performable instance to be wrapped in an adapter</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-  <h4 class="section" id="CSF_Screenplay_PerformableExtensions_ToPerformable__1_CSF_Screenplay_IPerformableWithResult___0___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This is implemented by wrapping the performable in an adapter instance, so the object returned will not be the
-original performable. It is not recommended to do so, but if the original performable is required then you may
-cast this object to <a class="xref" href="CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html">NonGenericPerformableWithResultAdapter&lt;T&gt;</a> and use the
-<a class="xref" href="CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html#CSF_Screenplay_NonGenericPerformableWithResultAdapter_1_PerformableWithResult">PerformableWithResult</a> property to get the original
-wrapped performable instance. Of course, you will need to know &amp; use the correct generic type to do so.
-</p>
-</div>
-
 
 
 
