@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IPerformableWithResult" data-uid="CSF.Screenplay.IPerformableWithResult" class="text-break">
-Interface IPerformableWithResult  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L38"><i class="bi bi-code-slash"></i></a>
+Interface IPerformableWithResult  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -118,9 +118,6 @@ Interface IPerformableWithResult  <a class="header-action link-secondary" title=
   <div>
       <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformableWithResult_CSF_Screenplay_IHasName_">PerformableExtensions.GetReportFragment(IPerformableWithResult, IHasName)</a>
   </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult_">PerformableExtensions.ToPerformable(IPerformableWithResult)</a>
-  </div>
   </dd></dl>
 
 
@@ -135,10 +132,6 @@ Objects which implement this interface are questions or tasks which are composed
 If you do not wish to get a result from the performable then implement only <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> instead.
 Alternatively, if you wish to return a strongly-typed result then instead consider implementing
 <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a>.
-</p>
-<p>
-Objects which implement this interface may be adapted to <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> via the
-<a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult_">ToPerformable(IPerformableWithResult)</a> extension method.
 </p>
 <p>
 When implementing this interface, consider also implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a>.
@@ -157,7 +150,7 @@ Implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a
 
   <h3 id="CSF_Screenplay_IPerformableWithResult_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.IPerformableWithResult.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a value.</p>
@@ -199,13 +192,12 @@ Implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></div>
       <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;</div>
-      <div><a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable_CSF_Screenplay_IPerformableWithResult_">ToPerformable</a>(<a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a>)</div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L38" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.cs/#L33" class="edit-link">Edit this page</a>
         </div>
 
 
