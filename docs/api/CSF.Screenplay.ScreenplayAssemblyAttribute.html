@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayAssemblyAttribute" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute" class="text-break">
-Class ScreenplayAssemblyAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L27"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayAssemblyAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -262,7 +262,7 @@ public class ScreenplayAssemblyAttribute : TestActionAttribute, ITestAction</cod
 
   <h2 id="CSF_Screenplay_ScreenplayAssemblyAttribute_examples">Examples</h2>
   <p>
-Decorate your assembly with this attribute using the syntax <code>[assembly: ScreenplayAssembly]</code>.  You may place this
+Decorate your assembly with this attribute using the syntax <code>[assembly: CSF.Screenplay.ScreenplayAssembly]</code>.  You may place this
 into any source file, outside of any type declaration.  By convention it would be put into a dedicated source file
 within the <code>Properties</code> project directory.
 </p>
@@ -274,8 +274,11 @@ This attribute is the core of the NUnit3 <a class="xref" href="../glossary/Integ
 In order to run tests with Screenplay, the assembly must be decorated with this attribute.
 </p>
 <p>
-This attribute identifies a concrete implementation of <a class="xref" href="CSF.Screenplay.IGetsScreenplay.html">IGetsScreenplay</a> which will be used to build and retrieve
-the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance for running those tests.
+This attribute has one mandatory parameter; that is the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of a concrete implementation of
+<a class="xref" href="CSF.Screenplay.IGetsScreenplay.html">IGetsScreenplay</a>.  That type will be instantiated by the NUnit3 integration and will be used to
+build and retrieve the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance for running the Screenplay-based tests within the decorated
+assembly. Each test method must additionally be decorated with the <a class="xref" href="CSF.Screenplay.ScreenplayAttribute.html">ScreenplayAttribute</a> in order to make
+it a Screenplay-based test.
 </p>
 </div>
 
@@ -288,7 +291,7 @@ the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instanc
 
   <h3 id="CSF_Screenplay_ScreenplayAssemblyAttribute__ctor_System_Type_" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute.#ctor(System.Type)">
   ScreenplayAssemblyAttribute(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.ScreenplayAssemblyAttribute.html">ScreenplayAssemblyAttribute</a>.</p>
@@ -331,7 +334,7 @@ The <code class="paramref">factoryType</code> specified in this constructor must
 
   <h3 id="CSF_Screenplay_ScreenplayAssemblyAttribute_Targets" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute.Targets">
   Targets
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides the target for the action attribute</p>
@@ -367,7 +370,7 @@ The <code class="paramref">factoryType</code> specified in this constructor must
 
   <h3 id="CSF_Screenplay_ScreenplayAssemblyAttribute_AfterTest_NUnit_Framework_Interfaces_ITest_" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute.AfterTest(NUnit.Framework.Interfaces.ITest)">
   AfterTest(ITest)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executed after each test is run</p>
@@ -400,7 +403,7 @@ The <code class="paramref">factoryType</code> specified in this constructor must
 
   <h3 id="CSF_Screenplay_ScreenplayAssemblyAttribute_BeforeTest_NUnit_Framework_Interfaces_ITest_" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute.BeforeTest(NUnit.Framework.Interfaces.ITest)">
   BeforeTest(ITest)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executed before each test is run</p>
@@ -433,7 +436,7 @@ The <code class="paramref">factoryType</code> specified in this constructor must
 
   <h3 id="CSF_Screenplay_ScreenplayAssemblyAttribute_GetScreenplay" data-uid="CSF.Screenplay.ScreenplayAssemblyAttribute.GetScreenplay">
   GetScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> which is to be used for tests contained in the current assembly.</p>
@@ -469,11 +472,15 @@ attribute is invalid or fails to return a non-<a href="https://learn.microsoft.c
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.ScreenplayAttribute.html">ScreenplayAttribute</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L27" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayAssemblyAttribute.cs/#L31" class="edit-link">Edit this page</a>
         </div>
 
 

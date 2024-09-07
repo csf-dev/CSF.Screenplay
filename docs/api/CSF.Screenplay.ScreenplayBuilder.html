@@ -175,7 +175,7 @@ For more information, see <a class="xref" href="../docs/dependencyInjection/inde
 
   <h3 id="CSF_Screenplay_ScreenplayBuilder__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Screenplay.ScreenplayBuilder.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   ScreenplayBuilder(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayBuilder.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayBuilder.cs/#L207"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a>.</p>
@@ -262,6 +262,61 @@ from the same builder instance will raise an exception.
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
     <dd><p>If this method has already been used</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ScreenplayBuilder_ConfigureServices_" data-uid="CSF.Screenplay.ScreenplayBuilder.ConfigureServices*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayBuilder_ConfigureServices_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__" data-uid="CSF.Screenplay.ScreenplayBuilder.ConfigureServices(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+  ConfigureServices(Action&lt;IServiceCollection&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayBuilder.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures further services into the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> which is contained within the current builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenplayBuilder ConfigureServices(Action&lt;IServiceCollection&gt; configurationAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configurationAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>&gt;</dt>
+    <dd><p>Logic which may be used to perform further configuration upon the service collection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a></dt>
+    <dd><p>The same builder instance, so that calls may be chained.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayBuilder_ConfigureServices_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Use this method to add service descriptors to the service collection for services which are not directly part of the Screenplay
+architecture, but which you wish to access from Screenplay.
+Most often these will be types and services which will be used as (or by) <a class="xref" href="../glossary/Ability.html">Screenplay abilities</a>.
+</p>
+<p>
+Abilities added to dependency injection in this way may be constructor-injected into <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a> implementations.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">configurationAction</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
   </dl>
 

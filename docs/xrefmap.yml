@@ -3321,6 +3321,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayBuilder.BuildScreenplay
   nameWithType: ScreenplayBuilder.BuildScreenplay
+- uid: CSF.Screenplay.ScreenplayBuilder.ConfigureServices(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
+  name: ConfigureServices(Action<IServiceCollection>)
+  href: api/CSF.Screenplay.ScreenplayBuilder.html#CSF_Screenplay_ScreenplayBuilder_ConfigureServices_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__
+  commentId: M:CSF.Screenplay.ScreenplayBuilder.ConfigureServices(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
+  name.vb: ConfigureServices(Action(Of IServiceCollection))
+  fullName: CSF.Screenplay.ScreenplayBuilder.ConfigureServices(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>)
+  fullName.vb: CSF.Screenplay.ScreenplayBuilder.ConfigureServices(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection))
+  nameWithType: ScreenplayBuilder.ConfigureServices(Action<IServiceCollection>)
+  nameWithType.vb: ScreenplayBuilder.ConfigureServices(Action(Of IServiceCollection))
+- uid: CSF.Screenplay.ScreenplayBuilder.ConfigureServices*
+  name: ConfigureServices
+  href: api/CSF.Screenplay.ScreenplayBuilder.html#CSF_Screenplay_ScreenplayBuilder_ConfigureServices_
+  commentId: Overload:CSF.Screenplay.ScreenplayBuilder.ConfigureServices
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayBuilder.ConfigureServices
+  nameWithType: ScreenplayBuilder.ConfigureServices
 - uid: CSF.Screenplay.ScreenplayBuilder.WithCast(System.Func{System.IServiceProvider,CSF.Screenplay.ICast})
   name: WithCast(Func<IServiceProvider, ICast>)
   href: api/CSF.Screenplay.ScreenplayBuilder.html#CSF_Screenplay_ScreenplayBuilder_WithCast_System_Func_System_IServiceProvider_CSF_Screenplay_ICast__

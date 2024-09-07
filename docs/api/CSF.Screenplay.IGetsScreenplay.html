@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IGetsScreenplay" data-uid="CSF.Screenplay.IGetsScreenplay" class="text-break">
-Interface IGetsScreenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Interface IGetsScreenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -123,8 +123,13 @@ startup logic which affects the entire test run. In those cases, a developer wil
 interface with a class of their own, in order to configure and get the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance.
 </p>
 <p>
-Note that implementations of this type should have a public parameterless constructor, because they will not
-be resolved from dependency injection.
+Types which implement this interface need only implement the <a class="xref" href="CSF.Screenplay.IGetsScreenplay.html#CSF_Screenplay_IGetsScreenplay_GetScreenplay">GetScreenplay()</a> method, which should build
+and return a Screenplay instance. In almost all cases, developers are advised to use <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a>
+to build and return the Screenplay.
+</p>
+<p>
+Note that implementations of this type must have a public parameterless constructor, because they will be instantiated
+via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.activator.createinstance#system-activator-createinstance(system-type)">CreateInstance(Type)</a> and not resolved from dependency injection.
 </p>
 </div>
 
@@ -137,7 +142,7 @@ be resolved from dependency injection.
 
   <h3 id="CSF_Screenplay_IGetsScreenplay_GetScreenplay" data-uid="CSF.Screenplay.IGetsScreenplay.GetScreenplay">
   GetScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the configured Screenplay instance provided by the current type.</p>
@@ -162,6 +167,16 @@ be resolved from dependency injection.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_IGetsScreenplay_GetScreenplay_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Implementors should create and return a new <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance from this method; they are strongly urged
+to consider the use of <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a> for this purpose.
+As well as the creation of the Screenplay instance itself, they should also add to the service collection any
+services which relate to <a class="xref" href="../glossary/Ability.html">abilities which could be used in the Screenplay</a>.
+It is recommended to use <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html#CSF_Screenplay_ScreenplayBuilder_ConfigureServices_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">ConfigureServices(Action&lt;IServiceCollection&gt;)</a>
+to accomplish this.
+</p>
+</div>
 
 
 
@@ -170,7 +185,7 @@ be resolved from dependency injection.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L23" class="edit-link">Edit this page</a>
         </div>
 
 
