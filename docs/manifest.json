@@ -845,6 +845,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/nUnitTutorial/BestPractices.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/nUnitTutorial/BestPractices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/nUnitTutorial/index.md",
       "output": {
         ".html": {
