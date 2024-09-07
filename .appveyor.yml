@@ -39,13 +39,7 @@ build_script:
     - dotnet build --no-incremental
 
 test_script:
-    - cmd: >
-        coverlet
-        .\CSF.Screenplay.Tests\bin\Debug\net8.0\CSF.Screenplay.Tests.dll
-        --target "dotnet"
-        --targetargs "test --no-build --logger:nunit --test-adapter-path:."
-        -f=opencover
-        -o="TestResults\coverage.opencover.xml"
+    - ps: if ($isWindows) { Tools\run-tests-with-coverage.ps1 }
     - sh: >
         dotnet test
         --test-adapter-path:.
