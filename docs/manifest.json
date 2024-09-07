@@ -352,26 +352,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.NoResultPerformableAdapter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.NoResultPerformableAdapter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.NonGenericPerformableWithResultAdapter-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.PerformableExtensions.yml",
       "output": {
         ".html": {
@@ -416,16 +396,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Performables.IProvidesTimeSpan.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Performables.NonGenericNoResultPerformableAdapter-1.html"
         }
       },
       "version": ""

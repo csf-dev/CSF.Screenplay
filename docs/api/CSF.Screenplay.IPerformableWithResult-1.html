@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IPerformableWithResult_1" data-uid="CSF.Screenplay.IPerformableWithResult`1" class="text-break">
-Interface IPerformableWithResult&lt;TResult&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L39"><i class="bi bi-code-slash"></i></a>
+Interface IPerformableWithResult&lt;TResult&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -123,12 +123,6 @@ Interface IPerformableWithResult&lt;TResult&gt;  <a class="header-action link-se
   <div>
       <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment__1_CSF_Screenplay_IPerformableWithResult___0__CSF_Screenplay_IHasName_">PerformableExtensions.GetReportFragment&lt;T&gt;(IPerformableWithResult&lt;T&gt;, IHasName)</a>
   </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult__1_CSF_Screenplay_IPerformableWithResult___0__">PerformableExtensions.ToNonGenericPerformableWithResult&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable__1_CSF_Screenplay_IPerformableWithResult___0__">PerformableExtensions.ToPerformable&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)</a>
-  </div>
   </dd></dl>
 
 
@@ -141,12 +135,6 @@ Performable objects generally fall into one of three categories in Screenplay:
 <p>
 Objects which implement this interface are questions or tasks which are composed (at least in-part) from one or more questions.
 If you do not wish to get a result from the performable then implement only <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> instead.
-</p>
-<p>
-Objects which implement this interface may be adapted to <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> via the
-<a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable__1_CSF_Screenplay_IPerformableWithResult___0__">ToPerformable&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)</a> extension method or to
-the non-generic <a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a> via
-<a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult__1_CSF_Screenplay_IPerformableWithResult___0__">ToNonGenericPerformableWithResult&lt;TResult&gt;(IPerformableWithResult&lt;TResult&gt;)</a>.
 </p>
 <p>
 When implementing this interface, consider also implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a>.
@@ -165,7 +153,7 @@ Implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a
 
   <h3 id="CSF_Screenplay_IPerformableWithResult_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.IPerformableWithResult`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
@@ -207,14 +195,12 @@ Implementing <a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></div>
       <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a></div>
-      <div><a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToPerformable__1_CSF_Screenplay_IPerformableWithResult___0__">ToPerformable</a>&lt;TResult&gt;(<a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;)</div>
-      <div><a class="xref" href="CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_ToNonGenericPerformableWithResult__1_CSF_Screenplay_IPerformableWithResult___0__">ToNonGenericPerformableWithResult</a>&lt;TResult&gt;(<a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;)</div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L39" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformableWithResult.generic.cs/#L31" class="edit-link">Edit this page</a>
         </div>
 
 
