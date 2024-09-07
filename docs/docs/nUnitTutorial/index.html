@@ -87,11 +87,19 @@
         <article data-uid="">
 <h1 id="screenplay--nunit-tutorial">Screenplay &amp; NUnit tutorial</h1>
 
-<p>Begin using Screenplay with NUnit tests with these steps.</p>
+<p>Begin writing NUnit tests using Screenplay by following these steps.
+Further detail is provided below.</p>
 <ol>
 <li>Ensure that your test project uses <a href="https://www.nuget.org/packages/NUnit/3.6.0">NUnit version 3.6.0</a> or higher</li>
-<li>Install the package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.NUnit">CSF.Screenplay.NUnit</a></strong> to your test project</li>
+<li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.NUnit">CSF.Screenplay.NUnit</a></strong> to your test project</li>
+<li>Write a class which implements <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a></li>
+<li>Decorate your test assembly with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, referencing your implementation of <code>IGetsScreenplay</code></li>
+<li>Write your tests, decorating each test method with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a></li>
+<li>Add parameters to your test methods to access the Screenplay architecture</li>
 </ol>
+<h2 id="decorating-your-test-assembly-with-screenplayassembly">Decorating your test assembly with <code>[ScreenplayAssembly]</code></h2>
+<p>TODO: Write this docco</p>
+<h2 id="writing-test-methods">Writing test methods</h2>
 <p>TODO: Write this docco</p>
 
 </article>
