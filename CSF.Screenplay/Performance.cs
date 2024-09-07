@@ -83,13 +83,13 @@ namespace CSF.Screenplay
         /// <summary>Initialises a new instance of <see cref="Performance"/></summary>
         /// <param name="serviceProvider">A dependency injection service provider</param>
         /// <param name="namingHierarchy">A collection of identifiers and names providing the hierarchical name of this
-        /// performance; see <see cref="Performance.NamingHierarchy"/> for more information.</param>
+        /// performance; see <see cref="IPerformance.NamingHierarchy"/> for more information.</param>
         /// <param name="performanceIdentity">A unique identifier for the performance; if omitted (equal to <see cref="Guid.Empty"/>)
         /// then a new Guid will be generated as the identity for this performance</param>
         /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" /></exception>
         public Performance(IServiceProvider serviceProvider,
-                               IList<IdentifierAndName> namingHierarchy = default,
-                               Guid performanceIdentity = default)
+                           IList<IdentifierAndName> namingHierarchy = default,
+                           Guid performanceIdentity = default)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             NamingHierarchy = namingHierarchy?.ToList() ?? new List<IdentifierAndName>();

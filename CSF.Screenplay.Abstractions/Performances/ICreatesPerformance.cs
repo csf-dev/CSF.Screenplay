@@ -6,7 +6,9 @@ namespace CSF.Screenplay.Performances
     public interface ICreatesPerformance
     {
         /// <summary>Creates a new performance instance.</summary>
+        /// <param name="namingHierarchy">A collection of identifiers and names providing the hierarchical name of this
+        /// performance; see <see cref="IPerformance.NamingHierarchy"/> for more information.</param>
         /// <returns>A new performance instance</returns>
-        IPerformance CreatePerformance();
+        IPerformance CreatePerformance(IList<IdentifierAndName> namingHierarchy = null);
     }
 }

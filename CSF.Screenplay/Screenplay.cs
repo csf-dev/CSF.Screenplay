@@ -117,10 +117,11 @@ namespace CSF.Screenplay
         /// constructor.
         /// </para>
         /// <para>
-        /// Also, please consider using a <see cref="ScreenplayBuilder"/> instead of executing this constructor directly.
+        /// It is strongly recommended to use a <see cref="ScreenplayBuilder"/> instead of executing this constructor directly.
         /// The builder provides a more friendly API for configuring the Screenplay.
-        /// If you just want a default instance of a Screenplay with all of the defaults then use the <see cref="CreateDefault"/>
-        /// method.
+        /// This constructor does not add all of the service descriptors to the service collection which are required in order to
+        /// achieve a functioning Screenplay ecosystem.
+        /// If you want a default instance of a Screenplay then use the <see cref="CreateDefault"/> static factory method.
         /// </para>
         /// </remarks>
         /// <param name="services">A dependency injection service collection</param>

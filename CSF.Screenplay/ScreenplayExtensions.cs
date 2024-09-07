@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
 using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
 using SyncPerformanceLogic = System.Func<System.IServiceProvider, bool?>;
 
@@ -115,6 +116,23 @@ namespace CSF.Screenplay
                                                  namingHierarchy,
                                                  cancellationToken)
                 .Wait(cancellationToken);
+        }
+
+        /// <summary>
+        /// Creates and returns a new <see cref="IPerformance"/> from the Screenplay.
+        /// </summary>
+        /// <param name="screenplay">The Screenplay from which to create the performance</param>
+        /// <param name="namingHierarchy">A collection of identifiers and names providing the hierarchical name of this
+        /// performance; see <see cref="IPerformance.NamingHierarchy"/> for more information.</param>
+        /// <returns>A performance</returns>
+        /// <exception cref="ArgumentNullException">If <paramref name="screenplay"/> is <see langword="null" />.</exception>
+        public static IPerformance CreatePerformance(this Screenplay screenplay,
+                                                     IList<IdentifierAndName> namingHierarchy = null)
+        {
+            if (screenplay is null)
+                throw new ArgumentNullException(nameof(screenplay));
+
+            return screenplay.ServiceProvider.GetRequiredService<ICreatesPerformance>().CreatePerformance(namingHierarchy);
         }
 
         static AsyncPerformanceLogic GetAsyncPerformanceLogic(SyncPerformanceLogic syncPerformanceLogic)
