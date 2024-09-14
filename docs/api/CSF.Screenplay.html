@@ -152,8 +152,8 @@ more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> inst
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a></dt>
-      <dd><p>A type which may be used to configure an instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> prior to creating it.</p>
+      <dt><a class="xref" href="CSF.Screenplay.ScreenplayBinding.html">ScreenplayBinding</a></dt>
+      <dd><p>SpecFlow binding which uses hooks to coordinate the relevant <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> &amp; <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> event invokers.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -165,6 +165,32 @@ more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> inst
       <dt><a class="xref" href="CSF.Screenplay.ScreenplayLocator.html">ScreenplayLocator</a></dt>
       <dd><p>A small static service locator of sorts, dedicated to getting an appropriate instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> for
 a specified test object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ScreenplayPlugin.html">ScreenplayPlugin</a></dt>
+      <dd><p>The Screenplay plugin for SpecFlow.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html">ScreenplayServiceCollectionExtensions</a></dt>
+      <dd><p>Extension methods for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> relating to Screenplay.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ScreenplaySteps.html">ScreenplaySteps</a></dt>
+      <dd><p>Convenience subclass of <code>TechTalk.SpecFlow.Steps</code> making it possible to call <code>Given, When &amp; Then</code>
+methods without conflicting with the built-in methods of the same names.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html">ServiceCollectionAdapter</a></dt>
+      <dd><p>Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a></dt>
+      <dd><p>Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">

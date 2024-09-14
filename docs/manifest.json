@@ -672,10 +672,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.ScreenplayBuilder.yml",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayBinding.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.ScreenplayBuilder.html"
+          "relative_path": "api/CSF.Screenplay.ScreenplayBinding.html"
         }
       },
       "version": ""
@@ -696,6 +696,56 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ScreenplayLocator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplaySteps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplaySteps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ServiceCollectionAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ServiceCollectionAdapter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ServiceProviderAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ServiceProviderAdapter.html"
         }
       },
       "version": ""
@@ -789,16 +839,6 @@
       "output": {
         ".html": {
           "relative_path": "docs/SuitabilityAsATestingTool.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/TestFrameworkIntegrations.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/TestFrameworkIntegrations.html"
         }
       },
       "version": ""
