@@ -1,0 +1,716 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ServiceCollectionAdapter | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ServiceCollectionAdapter | Screenplay docs ">
+      
+      <meta name="description" content="Adapter class which allows a SpecFlow/BoDi IObjectContainer to be used as an .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_ServiceCollectionAdapter.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ServiceCollectionAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.ServiceCollectionAdapter">
+
+
+
+  <h1 id="CSF_Screenplay_ServiceCollectionAdapter" data-uid="CSF.Screenplay.ServiceCollectionAdapter" class="text-break">
+Class ServiceCollectionAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.SpecFlowPlugin.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ServiceCollectionAdapter : IServiceCollection, IList&lt;ServiceDescriptor&gt;, ICollection&lt;ServiceDescriptor&gt;, IEnumerable&lt;ServiceDescriptor&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ServiceCollectionAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter__ctor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter__ctor_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.#ctor(BoDi.IObjectContainer)">
+  ServiceCollectionAdapter(IObjectContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html">ServiceCollectionAdapter</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceCollectionAdapter(IObjectContainer wrapped)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>wrapped</code> <span class="xref">IObjectContainer</span></dt>
+    <dd><p>The BoDi object container</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">wrapped</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Count_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Count*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Count" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported, always returns zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_IsReadOnly_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IsReadOnly*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_IsReadOnly" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IsReadOnly">
+  IsReadOnly
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Partially supported, always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Item_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Item*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Item_System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceDescriptor this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Add_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Add*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Add(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
+  Add(ServiceDescriptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Partially-supported, will add the specified service descriptor to the current object container.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ServiceDescriptor item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd><p>The service descriptor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ServiceCollectionAdapter_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method supports only transient or singleton services. If the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor.lifetime">Lifetime</a> present on the item specified
+is <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-scoped">Scoped</a> then the service descriptor will not be added and will be silently ignored.
+</p>
+<p>
+In reality, the Specflow BoDi object container only really supports singleton services at this level. So, any services added as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-transient">Transient</a> will actually become singletons here. Whilst the BoDi container does support scoped services, they
+must be added directly to the scope instance and cannot be added in advance.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">item</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the <code class="paramref">item</code> has a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor.servicetype">ServiceType</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Clear_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Clear*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Clear" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Contains_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Contains*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Contains_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Contains(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
+  Contains(ServiceDescriptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(ServiceDescriptor item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_CopyTo_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.CopyTo*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_CopyTo_Microsoft_Extensions_DependencyInjection_ServiceDescriptor___System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.CopyTo(Microsoft.Extensions.DependencyInjection.ServiceDescriptor[],System.Int32)">
+  CopyTo(ServiceDescriptor[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(ServiceDescriptor[] array, int arrayIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>[]</dt>
+    <dd></dd>
+    <dt><code>arrayIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_GetEnumerator_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.GetEnumerator*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_GetEnumerator" data-uid="CSF.Screenplay.ServiceCollectionAdapter.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;ServiceDescriptor&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_IndexOf_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IndexOf*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_IndexOf_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IndexOf(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
+  IndexOf(ServiceDescriptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(ServiceDescriptor item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Insert_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Insert*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Insert_System_Int32_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Insert(System.Int32,Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
+  Insert(int, ServiceDescriptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, ServiceDescriptor item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_Remove_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Remove*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Remove_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Remove(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
+  Remove(ServiceDescriptor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(ServiceDescriptor item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_ServiceCollectionAdapter_RemoveAt_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.RemoveAt*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceCollectionAdapter_RemoveAt_System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.RemoveAt(System.Int32)">
+  RemoveAt(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Always thrown</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceCollectionAdapter.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
