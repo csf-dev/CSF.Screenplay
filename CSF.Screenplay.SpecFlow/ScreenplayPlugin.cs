@@ -1,5 +1,11 @@
 using System;
+using System.Collections.Concurrent;
+using System.Reflection;
 using System.Threading;
+using BoDi;
+using CSF.Screenplay.Actors;
+using CSF.Screenplay.Performances;
+using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.UnitTestProvider;
 
@@ -34,7 +40,21 @@ namespace CSF.Screenplay
     public class ScreenplayPlugin : IRuntimePlugin
     {
         readonly ReaderWriterLockSlim syncRoot = new ReaderWriterLockSlim();
+        readonly ConcurrentDictionary<FeatureContext, Guid> featureContextIds = new ConcurrentDictionary<FeatureContext, Guid>();
+        readonly ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid>();
+
         bool initialised;
+
+        /// <summary>
+        /// Provides static access to the Screenplay instance.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is required because the bindings for beginning/ending the Screenplay in <see cref="ScreenplayBinding"/> must be <c>static</c>:
+        /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes"/>.
+        /// </para>
+        /// </remarks>
+        static internal Screenplay Screenplay { get; private set; }
 
         /// <inheritdoc/>
         public void Initialize(RuntimePluginEvents runtimePluginEvents,
@@ -42,20 +62,42 @@ namespace CSF.Screenplay
                                UnitTestProviderConfiguration unitTestProviderConfiguration)
         {
             runtimePluginEvents.CustomizeGlobalDependencies += OnCustomizeGlobalDependencies;
-            throw new NotImplementedException();
+            runtimePluginEvents.CustomizeScenarioDependencies += OnCustomizeScenarioDependencies;
+            runtimePluginEvents.ConfigurationDefaults += OnConfigurationDefaults;
         }
 
+        private void OnConfigurationDefaults(object sender, ConfigurationDefaultsEventArgs e)
+        {
+            e.SpecFlowConfiguration.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
+        }
+
+        /// <summary>
+        /// Event handler for the <c>CustomizeGlobalDependencies</c> runtime plugin event.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is a known/documented issue that this event may be triggered more than once in a single run of SpecFlow:
+        /// <see href="https://github.com/techtalk/SpecFlow/issues/948"/>.
+        /// Thus, to prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
+        /// is executed more than once, there is no adverse consequence.
+        /// </para>
+        /// </remarks>
+        /// <param name="sender">The event sender</param>
+        /// <param name="args">Event args to customize the global dependencies</param>
         void OnCustomizeGlobalDependencies(object sender, CustomizeGlobalDependenciesEventArgs args)
         {
             try
             {
                 syncRoot.EnterUpgradeableReadLock();
                 if (initialised) return;
-
                 syncRoot.EnterWriteLock();
-                var serviceCollection = new ServiceCollectionAdapter(args.ObjectContainer);
+                if (initialised) return;
+
+                var container = args.ObjectContainer;
+                var serviceCollection = new ServiceCollectionAdapter(container);
                 serviceCollection.AddScreenplay();
-                args.ObjectContainer.RegisterFactoryAs<IServiceProvider>(container => new ServiceProviderAdapter(container));
+                container.RegisterFactoryAs<IServiceProvider>(c => new ServiceProviderAdapter(c));
+                Screenplay = container.Resolve<Screenplay>();
                 initialised = true;
             }
             finally
@@ -66,5 +108,43 @@ namespace CSF.Screenplay
                     syncRoot.ExitUpgradeableReadLock();
             }
         }
+
+        void OnCustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs args)
+        {
+            var container = args.ObjectContainer;
+            var services = new ServiceProviderAdapter(container);
+            container.RegisterInstanceAs<IServiceProvider>(services);
+            
+            var performanceFactory = container.Resolve<ICreatesPerformance>();
+            var performance = performanceFactory.CreatePerformance();
+            performance.NamingHierarchy.Add(GetFeatureIdAndName(container));
+            performance.NamingHierarchy.Add(GetScenarioIdAndName(container));
+
+            container.RegisterInstanceAs(performance);
+            container.RegisterFactoryAs<ICast>(c => new Cast(c.Resolve<IServiceProvider>(), c.Resolve<IPerformance>().PerformanceIdentity));
+            container.RegisterTypeAs<Stage, IStage>();
+        }
+
+        IdentifierAndName GetFeatureIdAndName(IObjectContainer container)
+        {
+            var featureContext = container.Resolve<FeatureContext>();
+            return new IdentifierAndName(GetFeatureId(featureContext).ToString(),
+                                         featureContext.FeatureInfo.Title,
+                                         true);
+        }
+
+        Guid GetFeatureId(FeatureContext featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
+
+        IdentifierAndName GetScenarioIdAndName(IObjectContainer container)
+        {
+            var featureContext = container.Resolve<FeatureContext>();
+            var scenarioContext = container.Resolve<ScenarioContext>();
+            return new IdentifierAndName(GetScenarioId(featureContext, scenarioContext).ToString(),
+                                         scenarioContext.ScenarioInfo.Title,
+                                         true);
+        }
+
+        Guid GetScenarioId(FeatureContext featureContext, ScenarioContext scenarioContext)
+            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureContextKey(scenarioContext, featureContext), _ => Guid.NewGuid());
     }
 }
