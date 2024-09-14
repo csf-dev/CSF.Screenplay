@@ -21,6 +21,22 @@ namespace CSF.Screenplay
     /// via <see cref="System.Activator.CreateInstance(System.Type)"/> and not resolved from dependency injection.
     /// </para>
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// The smallest example of a valid implementation of this class, which just gets a default <see cref="Screenplay"/> with no
+    /// customizations is:
+    /// </para>
+    /// <code>
+    /// public class ScreenplayFactory : IGetsScreenplay
+    /// {
+    ///     public Screenplay GetScreenplay() => Screenplay.Create();
+    /// }
+    /// </code>
+    /// <para>
+    /// Feel free to customize this example to add a parameter to the <c>Create</c> method, which adds other services to the DI service
+    /// collection which will be used with the Screenplay.  Such services could be those 
+    /// </para>
+    /// </example>
     public interface IGetsScreenplay
     {
         /// <summary>
