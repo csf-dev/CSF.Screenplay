@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net462</TargetFrameworks>
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <IsTestProject>false</IsTestProject>
     <SonarQubeTestProject>false</SonarQubeTestProject>
+    <AssemblyName>CSF.Screenplay.SpecFlowPlugin</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SpecFlow" Version="3.0.188" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
   </ItemGroup>
 
   <ItemGroup>
