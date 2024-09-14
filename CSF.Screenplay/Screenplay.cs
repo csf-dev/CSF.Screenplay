@@ -24,7 +24,11 @@ namespace CSF.Screenplay
     /// That is because the Screenplay object is generally consumed only by <xref href="IntegrationGlossaryItem?text=integration+logic"/>.
     /// </para>
     /// <para>
-    /// It is recommended to create instances of this type via a <see cref="ScreenplayBuilder"/>.
+    /// It is recommended to create instances of this type by adding Screenplay to a dependency injection
+    /// <see cref="IServiceCollection"/> via the extension method <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/>
+    /// and then resolving an instance of this class from the service provider.
+    /// Alternatively, if you do not wish to configure a service collection manually and just want an instance of this type then
+    /// use the static <see cref="Create(Action{IServiceCollection})"/> method.
     /// </para>
     /// <para>
     /// The Screenplay object is used to create instances of <see cref="Performance"/> via the <see cref="PerformanceFactory"/>.
@@ -32,7 +36,7 @@ namespace CSF.Screenplay
     /// </para>
     /// </remarks>
     /// <seealso cref="Performance"/>
-    /// <seealso cref="ScreenplayBuilder"/>
+    /// <seealso cref="ScreenplayServiceCollectionExtensions"/>
     public sealed class Screenplay : IHasServiceProvider
     {
         /// <inheritdoc/>
@@ -105,41 +109,46 @@ namespace CSF.Screenplay
             }
         }
 
-        /// <summary>Initialises a new instance of <see cref="Screenplay"/></summary>
-        /// <remarks>
-        /// <para>
-        /// This constructor will finalise the service collection, by
-        /// executing <see cref="ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection)"/> upon it.
-        /// Please ensure that all of the desired service descriptors have been added to the service collection before using this
-        /// constructor.
-        /// </para>
-        /// <para>
-        /// It is strongly recommended to use a <see cref="ScreenplayBuilder"/> instead of executing this constructor directly.
-        /// The builder provides a more friendly API for configuring the Screenplay.
-        /// This constructor does not add all of the service descriptors to the service collection which are required in order to
-        /// achieve a functioning Screenplay ecosystem.
-        /// If you want a default instance of a Screenplay then use the <see cref="CreateDefault"/> static factory method.
-        /// </para>
-        /// </remarks>
-        /// <param name="services">A dependency injection service collection</param>
-        public Screenplay(IServiceCollection services)
-        {
-            if (services is null)
-                throw new ArgumentNullException(nameof(services));
-
-            services.AddSingleton(this);
-            ServiceProvider = services.BuildServiceProvider();
-        }
-
         /// <summary>
-        /// Creates and returns a default <see cref="Screenplay"/>.
+        /// Initialises a new instance of <see cref="Screenplay"/>.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Using this method is equivalent to using <c>new ScreenplayBuilder().BuildScreenplay()</c>.
+        /// It is unlikely that developers should be executing this constructor directly. Consider using the static factory method
+        /// <see cref="Create(Action{IServiceCollection})"/>.  Alternatively, add Screenplay to an <see cref="IServiceCollection"/> using
+        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/> and then resolve an instance of
+        /// this class from the service provider built from that service collection.
         /// </para>
         /// </remarks>
-        /// <returns>A default Screenplay instance with all of the default options and no customizations.</returns>
-        public static Screenplay CreateDefault() => new ScreenplayBuilder().BuildScreenplay();
+        /// <param name="serviceProvider">A service provider</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" />.</exception>
+        public Screenplay(IServiceProvider serviceProvider)
+        {
+            ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+        }
+
+        /// <summary>
+        /// Creates and returns a <see cref="Screenplay"/>, optionally including some dependency injection service customisations.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Use this method to create an instance of <see cref="Screenplay"/> when you are not already using an <see cref="IServiceCollection"/>.
+        /// This method creates a new service collection instance, adds Screenplay to it and then creates &amp; returns the Screenplay object
+        /// instance.
+        /// </para>
+        /// <para>
+        /// If you already have an <see cref="IServiceCollection"/> and you wish to integrate Screenplay into it, then use the extension method
+        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/> instead.
+        /// </para>
+        /// </remarks>
+        /// <returns>A Screenplay instance created from a new service collection.</returns>
+        public static Screenplay Create(Action<IServiceCollection> serviceCollectionCustomisations = null)
+        {
+            var services = new ServiceCollection();
+            services.AddScreenplay();
+            serviceCollectionCustomisations?.Invoke(services);
+            var serviceProvider = services.BuildServiceProvider();
+            return serviceProvider.GetRequiredService<Screenplay>();
+        }
     }
 }
