@@ -1,0 +1,4 @@
+{
+    "cucumberautocomplete.steps": [ "Tests/CSF.Screenplay.SpecFlow.Tests/StepDefinitions/**/*.cs" ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
+}

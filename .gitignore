@@ -2,3 +2,4 @@ bin/
 obj/
 /CSF.Screenplay.Docs/api/
 TestResults/
+Tests/**/*.feature.cs

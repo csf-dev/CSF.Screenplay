@@ -96,5 +96,30 @@ namespace CSF.Screenplay
                 throw new ArgumentException($"{DefaultStrings.FormatValue(actor)} must implement {nameof(IHasAbilities)}.", nameof(actor));
             abilityActor.IsAbleTo(ability);
         }
+
+        /// <summary>Adds an ability to the specified actor, where the ability has a public parameterless constructor</summary>
+        /// <remarks>
+        /// <para>
+        /// This method is a convenience for manually instantiating the ability instance and adding it to the actor in that manner.
+        /// For abilities which do not have a public parameterless constructor, consider adding them to the actor via dependency injection.
+        /// The recommended technique for accomplishing this is by implementing <see cref="IPersona"/> in a class of your own.
+        /// Implementations of persona are eligible for dependency injection when the actor is retrieved from the persona type
+        /// via the <see cref="ICast"/>: <see cref="CastExtensions.GetActor{TPersona}(ICast)"/>.
+        /// </para>
+        /// </remarks>
+        /// <param name="actor">The actor from whom to get the ability</param>
+        /// <typeparam name="TAbility">The type of the ability to add to the actor</typeparam>
+        /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" /></exception>
+        /// <exception cref="ArgumentException">If the actor does not implement <see cref="IHasAbilities"/></exception>
+        /// <exception cref="InvalidOperationException">If the actor already has an ability of the same type as the
+        /// <typeparamref name="TAbility"/> to add, or which derives from the same type</exception>
+        public static void IsAbleTo<TAbility>(this ICanPerform actor) where TAbility : new()
+        {
+            if(actor is null) throw new ArgumentNullException(nameof(actor));
+
+            if (!(actor is IHasAbilities abilityActor))
+                throw new ArgumentException($"{DefaultStrings.FormatValue(actor)} must implement {nameof(IHasAbilities)}.", nameof(actor));
+            abilityActor.IsAbleTo(new TAbility());
+        }
     }
 }
