@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ScreenplaySteps | Screenplay docs ">
       
-      <meta name="description" content="Convenience subclass of TechTalk.SpecFlow.Steps making it possible to call Given, When &amp;amp; Then methods without conflicting with the built-in methods of the same names.">
+      <meta name="description" content="A subclass of TechTalk.SpecFlow.Steps provided for convenience of SpecFlow 3.x users to avoid naming conflicts.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplaySteps" data-uid="CSF.Screenplay.ScreenplaySteps" class="text-break">
-Class ScreenplaySteps  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class ScreenplaySteps  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,13 +97,12 @@ Class ScreenplaySteps  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.SpecFlowPlugin.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Convenience subclass of <code>TechTalk.SpecFlow.Steps</code> making it possible to call <code>Given, When &amp; Then</code>
-methods without conflicting with the built-in methods of the same names.</p>
+  <div class="markdown summary"><p>A subclass of <code>TechTalk.SpecFlow.Steps</code> provided for convenience of SpecFlow 3.x users to avoid naming conflicts.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ScreenplaySteps : Steps, IContainerDependentObject</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ScreenplaySteps : Steps, IContainerDependentObject</code></pre>
   </div>
 
 
@@ -233,6 +232,27 @@ methods without conflicting with the built-in methods of the same names.</p>
 
 
 
+  <h2 id="CSF_Screenplay_ScreenplaySteps_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+In SpecFlow 3.x, the <code>Steps</code> class has three methods named <code>Given</code>, <code>When</code> &amp; <code>Then</code> which can cause
+a naming conflict with the same-named methods of <a class="xref" href="CSF.Screenplay.PerformanceStarter.html">PerformanceStarter</a>.  If you using the performance starter in
+the recommended way, then the methods of these two types can become ambiguous and force the developer to write additional
+boilerplate which spoils the ease-of-comprehension for Screenplay-based test logic.
+This subclass of <code>Steps</code> provides a workaround to that situation. Instead of deriving from the SpecFlow Steps class and including
+<code>using static CSF.Screenplay.PerformanceStarter;</code> at the top of your source file, have your bindings derive from this
+class instead. This provides Given, When, Then methods which have the same functionality as those in <a class="xref" href="CSF.Screenplay.PerformanceStarter.html">PerformanceStarter</a>
+but in a manner which will not cause a name-resolution conflict.
+</p>
+<p>
+Note that in SpecFlow 4.x and up, this problem is irrelevant; there is no gain in using this subclass over the <code>using static</code> technique.
+As noted here <a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Calling-Steps-from-Step-Definitions.html">https://docs.specflow.org/projects/specflow/en/latest/Bindings/Calling-Steps-from-Step-Definitions.html</a>
+and here <a href="https://github.com/SpecFlowOSS/SpecFlow/issues/1733">https://github.com/SpecFlowOSS/SpecFlow/issues/1733</a> the Give, When &amp; Then methods upon the
+SpecFlow <code>Steps</code> class were removed in v4.x. This means that the naming conflict won't be present and that there is no need
+for your bindings to derive from this class instead of the official Steps class.
+Indeed, Screenplay could be described as a specific implementation of the 'driver pattern', which is noted in the linked Github issue
+as a best-practice alternative to calling-steps-from-steps.
+</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -243,7 +263,7 @@ methods without conflicting with the built-in methods of the same names.</p>
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_Given_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.Given(CSF.Screenplay.Actor)">
   Given(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a>, in order to perform precondition actions.</p>
@@ -251,7 +271,7 @@ methods without conflicting with the built-in methods of the same names.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICanPerformGiven Given(Actor actor)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ICanPerformGiven Given(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -273,6 +293,13 @@ methods without conflicting with the built-in methods of the same names.</p>
 
 
 
+  <h4 class="section" id="CSF_Screenplay_ScreenplaySteps_Given_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is equivalent to <a class="xref" href="CSF.Screenplay.PerformanceStarter.html#CSF_Screenplay_PerformanceStarter_Given_CSF_Screenplay_Actor_">Given(Actor)</a> but is provided as a convenience method
+in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resolution conflicts.  See the remarks on
+<a class="xref" href="CSF.Screenplay.ScreenplaySteps.html">ScreenplaySteps</a> for more info.
+</p>
+</div>
 
 
 
@@ -281,7 +308,7 @@ methods without conflicting with the built-in methods of the same names.</p>
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_Then_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.Then(CSF.Screenplay.Actor)">
   Then(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a>, in order to get information which are required to
@@ -290,7 +317,7 @@ make assertions that the scenario has completed successfully.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICanPerformThen Then(Actor actor)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ICanPerformThen Then(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -312,6 +339,13 @@ make assertions that the scenario has completed successfully.</p>
 
 
 
+  <h4 class="section" id="CSF_Screenplay_ScreenplaySteps_Then_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is equivalent to <a class="xref" href="CSF.Screenplay.PerformanceStarter.html#CSF_Screenplay_PerformanceStarter_Then_CSF_Screenplay_Actor_">Then(Actor)</a> but is provided as a convenience method
+in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resolution conflicts.  See the remarks on
+<a class="xref" href="CSF.Screenplay.ScreenplaySteps.html">ScreenplaySteps</a> for more info.
+</p>
+</div>
 
 
 
@@ -320,7 +354,7 @@ make assertions that the scenario has completed successfully.</p>
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_When_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.When(CSF.Screenplay.Actor)">
   When(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a>, in order to perform actions which exercise the
@@ -329,7 +363,7 @@ system under test.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICanPerformWhen When(Actor actor)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ICanPerformWhen When(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -351,6 +385,13 @@ system under test.</p>
 
 
 
+  <h4 class="section" id="CSF_Screenplay_ScreenplaySteps_When_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is equivalent to <a class="xref" href="CSF.Screenplay.PerformanceStarter.html#CSF_Screenplay_PerformanceStarter_When_CSF_Screenplay_Actor_">When(Actor)</a> but is provided as a convenience method
+in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resolution conflicts.  See the remarks on
+<a class="xref" href="CSF.Screenplay.ScreenplaySteps.html">ScreenplaySteps</a> for more info.
+</p>
+</div>
 
 
 
@@ -359,7 +400,7 @@ system under test.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 
