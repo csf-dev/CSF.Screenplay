@@ -10,12 +10,26 @@ namespace CSF.Screenplay
     /// <summary>
     /// Adapter class which allows a SpecFlow/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceCollection"/>.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This adapter class is highly limited and supports only a tiny subset of <see cref="IServiceCollection"/>'s functionality. For
+    /// many methods, and the indexer for <see cref="ServiceDescriptor"/>, it will raise <see cref="NotSupportedException"/>.
+    /// The only functionality supported is <see cref="IsReadOnly"/> and <see cref="Add(ServiceDescriptor)"/>.
+    /// </para>
+    /// </remarks>
     public class ServiceCollectionAdapter : IServiceCollection
     {
+        const string NotSupportedMessage = "This method is not supported for ServiceCollectionAdapter; a BoDi object container is not a true service collection.";
+
+// Suppress SonarQube issue S3011, I'm using BindingFlags.NonPublic here but only from internally within the same class.
+// The technique calling for reflection is to make an open generic method runtime-generic instead of compile-time. It's
+// not actually bypassing accessibility.
+#pragma warning disable S3011
         static readonly MethodInfo
             OpenGenericRegisterType = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterType), BindingFlags.Instance | BindingFlags.NonPublic),
             OpenGenericRegisterInstance = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterInstance), BindingFlags.Instance | BindingFlags.NonPublic),
             OpenGenericRegisterFactory = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterFactory), BindingFlags.Instance | BindingFlags.NonPublic);
+#pragma warning restore S3011
 
         readonly IObjectContainer wrapped;
 
@@ -71,12 +85,12 @@ namespace CSF.Screenplay
             else if (item.ImplementationInstance != null)
                 OpenGenericRegisterInstance.MakeGenericMethod(item.ServiceType).Invoke(this, new[] { item });
             else if (item.ImplementationType != null)
-                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, new[] { item });
+                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, Array.Empty<object>());
             else
                 throw new ArgumentException($"Unsupported {nameof(ServiceDescriptor)}; one of implementation factory, instance or type must not be null", nameof(item));
         }
 
-        void RegisterType<TSvc,TImpl>(ServiceDescriptor item) where TImpl : class,TSvc
+        void RegisterType<TSvc,TImpl>() where TImpl : class,TSvc
         {
             wrapped.RegisterTypeAs<TImpl, TSvc>();
         }
@@ -95,7 +109,7 @@ namespace CSF.Screenplay
         /// Not supported; always throws <see cref="NotSupportedException"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public void Clear() => throw new NotSupportedException("This method is not supported for this adapter.");
+        public void Clear() => throw new NotSupportedException();
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
@@ -103,7 +117,7 @@ namespace CSF.Screenplay
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public bool Contains(ServiceDescriptor item) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public bool Contains(ServiceDescriptor item) => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
@@ -111,14 +125,14 @@ namespace CSF.Screenplay
         /// <param name="array"></param>
         /// <param name="arrayIndex"></param>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public void CopyTo(ServiceDescriptor[] array, int arrayIndex) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public void CopyTo(ServiceDescriptor[] array, int arrayIndex) => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public IEnumerator<ServiceDescriptor> GetEnumerator() => throw new NotSupportedException("This method is not supported for this adapter.");
+        public IEnumerator<ServiceDescriptor> GetEnumerator() => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
@@ -126,7 +140,7 @@ namespace CSF.Screenplay
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public int IndexOf(ServiceDescriptor item) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public int IndexOf(ServiceDescriptor item) => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
@@ -134,7 +148,7 @@ namespace CSF.Screenplay
         /// <param name="index"></param>
         /// <param name="item"></param>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public void Insert(int index, ServiceDescriptor item) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public void Insert(int index, ServiceDescriptor item) => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
@@ -142,16 +156,16 @@ namespace CSF.Screenplay
         /// <param name="item"></param>
         /// <returns></returns>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public bool Remove(ServiceDescriptor item) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public bool Remove(ServiceDescriptor item) => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.
         /// </summary>
         /// <param name="index"></param>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public void RemoveAt(int index) => throw new NotSupportedException("This method is not supported for this adapter.");
+        public void RemoveAt(int index) => throw new NotSupportedException(NotSupportedMessage);
 
-        IEnumerator IEnumerable.GetEnumerator() => throw new NotSupportedException("This method is not supported for this adapter.");
+        IEnumerator IEnumerable.GetEnumerator() => throw new NotSupportedException(NotSupportedMessage);
         
         /// <summary>
         /// Initialises an instance of <see cref="ServiceCollectionAdapter"/>.

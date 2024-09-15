@@ -39,7 +39,7 @@ namespace CSF.Screenplay
     /// </remarks>
     public class ScreenplayPlugin : IRuntimePlugin
     {
-        readonly ReaderWriterLockSlim syncRoot = new ReaderWriterLockSlim();
+        readonly object syncRoot = new object();
         readonly ConcurrentDictionary<FeatureContext, Guid> featureContextIds = new ConcurrentDictionary<FeatureContext, Guid>();
         readonly ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid>();
 
@@ -66,7 +66,7 @@ namespace CSF.Screenplay
             runtimePluginEvents.ConfigurationDefaults += OnConfigurationDefaults;
         }
 
-        private void OnConfigurationDefaults(object sender, ConfigurationDefaultsEventArgs e)
+        static void OnConfigurationDefaults(object sender, ConfigurationDefaultsEventArgs e)
         {
             e.SpecFlowConfiguration.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
         }
@@ -77,7 +77,7 @@ namespace CSF.Screenplay
         /// <remarks>
         /// <para>
         /// It is a known/documented issue that this event may be triggered more than once in a single run of SpecFlow:
-        /// <see href="https://github.com/techtalk/SpecFlow/issues/948"/>.
+        /// <see href="https://github.com/techtalk/SpecFlow/issues/948"/>, and by more than one thread.
         /// Thus, to prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
         /// is executed more than once, there is no adverse consequence.
         /// </para>
@@ -86,12 +86,19 @@ namespace CSF.Screenplay
         /// <param name="args">Event args to customize the global dependencies</param>
         void OnCustomizeGlobalDependencies(object sender, CustomizeGlobalDependenciesEventArgs args)
         {
-            try
+            // We never become 'uninitialised' after initialising, it's a one-way trip, so if we're already initialised here
+            // then we can immediately exit early.  This check & return is just a performance enhancement, the 'real' check
+            // occurs below inside the lock
+            if (initialised) return;
+
+            lock(syncRoot)
             {
-                syncRoot.EnterUpgradeableReadLock();
+                // Guard against an incredibly-low-likelihood scenario where two or more threads both make it past the first initialised-check
+                // above at the same time. One initialises as normal whilst others are blocked on the lock. Once subsequent threads unblock,
+                // if we already initialised then we must still return early.
+#pragma warning disable S2589
                 if (initialised) return;
-                syncRoot.EnterWriteLock();
-                if (initialised) return;
+#pragma warning restore S2589
 
                 var container = args.ObjectContainer;
                 var serviceCollection = new ServiceCollectionAdapter(container);
@@ -99,13 +106,6 @@ namespace CSF.Screenplay
                 container.RegisterFactoryAs<IServiceProvider>(c => new ServiceProviderAdapter(c));
                 Screenplay = container.Resolve<Screenplay>();
                 initialised = true;
-            }
-            finally
-            {
-                if (syncRoot.IsWriteLockHeld)
-                    syncRoot.ExitWriteLock();
-                if (syncRoot.IsUpgradeableReadLockHeld)
-                    syncRoot.ExitUpgradeableReadLock();
             }
         }
 
