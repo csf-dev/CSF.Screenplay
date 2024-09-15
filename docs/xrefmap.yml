@@ -400,6 +400,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ActorExtensions.IsAbleTo
   nameWithType: ActorExtensions.IsAbleTo
+- uid: CSF.Screenplay.ActorExtensions.IsAbleTo``1(CSF.Screenplay.ICanPerform)
+  name: IsAbleTo<TAbility>(ICanPerform)
+  href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_IsAbleTo__1_CSF_Screenplay_ICanPerform_
+  commentId: M:CSF.Screenplay.ActorExtensions.IsAbleTo``1(CSF.Screenplay.ICanPerform)
+  name.vb: IsAbleTo(Of TAbility)(ICanPerform)
+  fullName: CSF.Screenplay.ActorExtensions.IsAbleTo<TAbility>(CSF.Screenplay.ICanPerform)
+  fullName.vb: CSF.Screenplay.ActorExtensions.IsAbleTo(Of TAbility)(CSF.Screenplay.ICanPerform)
+  nameWithType: ActorExtensions.IsAbleTo<TAbility>(ICanPerform)
+  nameWithType.vb: ActorExtensions.IsAbleTo(Of TAbility)(ICanPerform)
 - uid: CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)
   name: PerformAsync(ICanPerform, IGetsPerformable, CancellationToken)
   href: api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_

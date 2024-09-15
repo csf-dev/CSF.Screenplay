@@ -642,6 +642,67 @@ This method will also return <a href="https://learn.microsoft.com/dotnet/csharp/
 
 
 
+  <a id="CSF_Screenplay_ActorExtensions_IsAbleTo_" data-uid="CSF.Screenplay.ActorExtensions.IsAbleTo*"></a>
+
+  <h3 id="CSF_Screenplay_ActorExtensions_IsAbleTo__1_CSF_Screenplay_ICanPerform_" data-uid="CSF.Screenplay.ActorExtensions.IsAbleTo``1(CSF.Screenplay.ICanPerform)">
+  IsAbleTo&lt;TAbility&gt;(ICanPerform)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ActorExtensions.abilities.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an ability to the specified actor, where the ability has a public parameterless constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsAbleTo&lt;TAbility&gt;(this ICanPerform actor) where TAbility : new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
+    <dd><p>The actor from whom to get the ability</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAbility</code></dt>
+    <dd><p>The type of the ability to add to the actor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ActorExtensions_IsAbleTo__1_CSF_Screenplay_ICanPerform__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is a convenience for manually instantiating the ability instance and adding it to the actor in that manner.
+For abilities which do not have a public parameterless constructor, consider adding them to the actor via dependency injection.
+The recommended technique for accomplishing this is by implementing <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a> in a class of your own.
+Implementations of persona are eligible for dependency injection when the actor is retrieved from the persona type
+via the <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a>: <a class="xref" href="CSF.Screenplay.CastExtensions.html#CSF_Screenplay_CastExtensions_GetActor__1_CSF_Screenplay_ICast_">GetActor&lt;TPersona&gt;(ICast)</a>.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If any parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the actor does not implement <a class="xref" href="CSF.Screenplay.IHasAbilities.html">IHasAbilities</a></p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>If the actor already has an ability of the same type as the
+<code class="typeparamref">TAbility</code> to add, or which derives from the same type</p>
+</dd>
+  </dl>
+
+
+
   <a id="CSF_Screenplay_ActorExtensions_PerformAsync_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync*"></a>
 
   <h3 id="CSF_Screenplay_ActorExtensions_PerformAsync_CSF_Screenplay_ICanPerform_CSF_Screenplay_Performables_IGetsPerformable_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.ActorExtensions.PerformAsync(CSF.Screenplay.ICanPerform,CSF.Screenplay.Performables.IGetsPerformable,System.Threading.CancellationToken)">
