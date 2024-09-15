@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IGetsScreenplay" data-uid="CSF.Screenplay.IGetsScreenplay" class="text-break">
-Interface IGetsScreenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L23"><i class="bi bi-code-slash"></i></a>
+Interface IGetsScreenplay  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -114,6 +114,20 @@ Interface IGetsScreenplay  <a class="header-action link-secondary" title="View s
 
 
 
+  <h2 id="CSF_Screenplay_IGetsScreenplay_examples">Examples</h2>
+  <p>
+The smallest example of a valid implementation of this class, which just gets a default <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> with no
+customizations is:
+</p>
+<pre><code class="lang-csharp">public class ScreenplayFactory : IGetsScreenplay
+{
+    public Screenplay GetScreenplay() =&gt; Screenplay.Create();
+}</code></pre>
+<p>
+Feel free to customize this example to add a parameter to the <code>Create</code> method, which adds other services to the DI service
+collection which will be used with the Screenplay.  Such services could be those 
+</p>
+
 
   <h2 id="CSF_Screenplay_IGetsScreenplay_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
@@ -124,8 +138,9 @@ interface with a class of their own, in order to configure and get the <a class=
 </p>
 <p>
 Types which implement this interface need only implement the <a class="xref" href="CSF.Screenplay.IGetsScreenplay.html#CSF_Screenplay_IGetsScreenplay_GetScreenplay">GetScreenplay()</a> method, which should build
-and return a Screenplay instance. In almost all cases, developers are advised to use <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a>
-to build and return the Screenplay.
+and return a Screenplay instance. Developers are advised to use
+<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">Create(Action&lt;IServiceCollection&gt;)</a>
+to create and return the Screenplay.
 </p>
 <p>
 Note that implementations of this type must have a public parameterless constructor, because they will be instantiated
@@ -142,7 +157,7 @@ via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.activato
 
   <h3 id="CSF_Screenplay_IGetsScreenplay_GetScreenplay" data-uid="CSF.Screenplay.IGetsScreenplay.GetScreenplay">
   GetScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the configured Screenplay instance provided by the current type.</p>
@@ -170,11 +185,12 @@ via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.activato
   <h4 class="section" id="CSF_Screenplay_IGetsScreenplay_GetScreenplay_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementors should create and return a new <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance from this method; they are strongly urged
-to consider the use of <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html">ScreenplayBuilder</a> for this purpose.
+to consider the use of <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">Create(Action&lt;IServiceCollection&gt;)</a>
+for this purpose.
 As well as the creation of the Screenplay instance itself, they should also add to the service collection any
 services which relate to <a class="xref" href="../glossary/Ability.html">abilities which could be used in the Screenplay</a>.
-It is recommended to use <a class="xref" href="CSF.Screenplay.ScreenplayBuilder.html#CSF_Screenplay_ScreenplayBuilder_ConfigureServices_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">ConfigureServices(Action&lt;IServiceCollection&gt;)</a>
-to accomplish this.
+It is recommended to use the parameter to the <code>Create</code> method (above) to configure such services into the DI
+container.
 </p>
 </div>
 
@@ -185,7 +201,7 @@ to accomplish this.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L23" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/IGetsScreenplay.cs/#L40" class="edit-link">Edit this page</a>
         </div>
 
 
