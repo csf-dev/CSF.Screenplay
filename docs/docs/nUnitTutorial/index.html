@@ -117,12 +117,10 @@ public class MyScreenplayFactory : IGetsScreenplay
 {
     public Screenplay GetScreenplay()
     {
-        return new ScreenplayBuilder()
-            .ConfigureServices(services =&gt; {
+        return Screenplay.Create(services =&gt; {
                 // Add your own dependency injection service descriptors to the service collection here
                 // For example, services which will be used by Screenplay Abilities.
-            })
-            .BuildScreenplay();
+            });
     }
 }
 </code></pre>
@@ -155,7 +153,7 @@ public async Task TheDishesShouldBeCleanAfterJoeWashesThem(ICast cast, IDishWash
     await When(joe).AttemptsTo(WashTheDishes());
     var dishesCondition = await Then(joe).Should(LookAtTheDishesCondition());
 
-    Assert.That(dishesCondition, Is.EqualTo(&quot;Clean));
+    Assert.That(dishesCondition, Is.EqualTo(&quot;Clean&quot;));
 }
 </code></pre>
 
