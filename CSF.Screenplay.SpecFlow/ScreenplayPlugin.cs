@@ -86,19 +86,9 @@ namespace CSF.Screenplay
         /// <param name="args">Event args to customize the global dependencies</param>
         void OnCustomizeGlobalDependencies(object sender, CustomizeGlobalDependenciesEventArgs args)
         {
-            // We never become 'uninitialised' after initialising, it's a one-way trip, so if we're already initialised here
-            // then we can immediately exit early.  This check & return is just a performance enhancement, the 'real' check
-            // occurs below inside the lock
-            if (initialised) return;
-
             lock(syncRoot)
             {
-                // Guard against an incredibly-low-likelihood scenario where two or more threads both make it past the first initialised-check
-                // above at the same time. One initialises as normal whilst others are blocked on the lock. Once subsequent threads unblock,
-                // if we already initialised then we must still return early.
-#pragma warning disable S2589
                 if (initialised) return;
-#pragma warning restore S2589
 
                 var container = args.ObjectContainer;
                 var serviceCollection = new ServiceCollectionAdapter(container);
