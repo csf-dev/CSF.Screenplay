@@ -66,6 +66,27 @@ namespace CSF.Screenplay.Performances
         void InvokeActorCreated(string actorName, Guid performanceIdentity);
 
         /// <summary>
+        /// Invokes an event indicating that a new <see cref="Actor"/> has gained an ability.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Use this method only when an actor gains one or more abilities before the the <see cref="SubscribeTo(Actor)"/> method
+        /// has been used to subscribe to the actor.  Once the actor has been subscribed-to by an implementation of this instance,
+        /// their newly-added abilities will automatically be captured.
+        /// </para>
+        /// <para>
+        /// In some circumstances where the actor is fully created and has their abilities granted BEFORE there has been an opportunity
+        /// to subscribe to them, then this method is required to retrospectively trigger the abilitiy-granted event.
+        /// This is applicable for actors who are created by an <see cref="IPersona"/>, which might grant the actors one or more abilities
+        /// immediately, as part of their creation.
+        /// </para>
+        /// </remarks>
+        /// <param name="actorName">The actor's human-readable name.</param>
+        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
+        /// <param name="ability">The ability that the actor has gained.</param>
+        void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability);
+
+        /// <summary>
         /// Invokes an event indicating that an <see cref="Actor"/> has been placed into the Spotlight of an <see cref="IStage"/>.
         /// </summary>
         /// <param name="actorName">The actor's human-readable name.</param>

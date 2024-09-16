@@ -146,6 +146,10 @@ namespace CSF.Screenplay.Performances
             => ActorCreated?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
 
         /// <inheritdoc/>
+        public void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability)
+            => GainedAbility?.Invoke(this, new GainAbilityEventArgs(actorName, performanceIdentity, ability));
+
+        /// <inheritdoc/>
         public void InvokeActorSpotlit(string actorName, Guid performanceIdentity)
             => ActorSpotlit?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
 

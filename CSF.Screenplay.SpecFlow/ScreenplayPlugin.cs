@@ -54,7 +54,7 @@ namespace CSF.Screenplay
         /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes"/>.
         /// </para>
         /// </remarks>
-        static internal Screenplay Screenplay { get; private set; }
+        static public Screenplay Screenplay { get; private set; }
 
         /// <inheritdoc/>
         public void Initialize(RuntimePluginEvents runtimePluginEvents,

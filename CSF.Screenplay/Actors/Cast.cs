@@ -27,6 +27,12 @@ namespace CSF.Screenplay.Actors
             return actors.GetOrAdd(persona.Name, name => {
                 var actor = persona.GetActor(PerformanceIdentity);
                 performanceEventBus.InvokeActorCreated(name, PerformanceIdentity);
+
+                // Because the persona creates the actor with abilities already-loaded, we must manually trigger the gain ability event for
+                // each ability that they already have.
+                foreach (var ability in ((IHasAbilities)actor).Abilities)
+                    performanceEventBus.InvokeGainedAbility(name, PerformanceIdentity, ability);
+                
                 performanceEventBus.SubscribeTo(actor);
                 return actor;
             });
