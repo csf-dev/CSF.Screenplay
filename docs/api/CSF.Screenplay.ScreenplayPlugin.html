@@ -178,6 +178,48 @@ If using a third-party DI container then you should use that container's appropr
 </div>
 
 
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_ScreenplayPlugin_Screenplay_" data-uid="CSF.Screenplay.ScreenplayPlugin.Screenplay*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayPlugin_Screenplay" data-uid="CSF.Screenplay.ScreenplayPlugin.Screenplay">
+  Screenplay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplayPlugin.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides static access to the Screenplay instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Screenplay Screenplay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayPlugin_Screenplay_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is required because the bindings for beginning/ending the Screenplay in <a class="xref" href="CSF.Screenplay.ScreenplayBinding.html">ScreenplayBinding</a> must be <code>static</code>:
+<a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes">https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes</a>.
+</p>
+</div>
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 

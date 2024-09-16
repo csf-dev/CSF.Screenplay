@@ -2370,6 +2370,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit
   nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(System.String,System.Guid,System.Object)
+  name: InvokeGainedAbility(string, Guid, object)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_System_String_System_Guid_System_Object_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(System.String,System.Guid,System.Object)
+  name.vb: InvokeGainedAbility(String, Guid, Object)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(string, System.Guid, object)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(String, System.Guid, Object)
+  nameWithType: IRelaysPerformanceEvents.InvokeGainedAbility(string, Guid, object)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokeGainedAbility(String, Guid, Object)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility*
+  name: InvokeGainedAbility
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_
+  commentId: Overload:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility
+  nameWithType: IRelaysPerformanceEvents.InvokeGainedAbility
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
   name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
@@ -2698,6 +2714,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit
   nameWithType: PerformanceEventBus.InvokeActorSpotlit
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(System.String,System.Guid,System.Object)
+  name: InvokeGainedAbility(string, Guid, object)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_System_String_System_Guid_System_Object_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(System.String,System.Guid,System.Object)
+  name.vb: InvokeGainedAbility(String, Guid, Object)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(string, System.Guid, object)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(String, System.Guid, Object)
+  nameWithType: PerformanceEventBus.InvokeGainedAbility(string, Guid, object)
+  nameWithType.vb: PerformanceEventBus.InvokeGainedAbility(String, Guid, Object)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility*
+  name: InvokeGainedAbility
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_
+  commentId: Overload:CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility
+  nameWithType: PerformanceEventBus.InvokeGainedAbility
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
   name: InvokePerformanceBegun(Guid, IList<IdentifierAndName>)
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__
@@ -3469,6 +3501,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayPlugin.Initialize
   nameWithType: ScreenplayPlugin.Initialize
+- uid: CSF.Screenplay.ScreenplayPlugin.Screenplay
+  name: Screenplay
+  href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Screenplay
+  commentId: P:CSF.Screenplay.ScreenplayPlugin.Screenplay
+  fullName: CSF.Screenplay.ScreenplayPlugin.Screenplay
+  nameWithType: ScreenplayPlugin.Screenplay
+- uid: CSF.Screenplay.ScreenplayPlugin.Screenplay*
+  name: Screenplay
+  href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Screenplay_
+  commentId: Overload:CSF.Screenplay.ScreenplayPlugin.Screenplay
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayPlugin.Screenplay
+  nameWithType: ScreenplayPlugin.Screenplay
 - uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions
   name: ScreenplayServiceCollectionExtensions
   href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html
