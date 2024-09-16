@@ -14,6 +14,7 @@ Detailed information about Screenplay & how it is used is [available on the docu
 
 ## Continuous integration status
 
-CI builds are configured via **AppVeyor**.
+CI builds are configured via **AppVeyor**, with static code analysis & reporting in **SonarCloud**.
 
 [![AppVeyor status](https://ci.appveyor.com/api/projects/status/y9ejfko3kflosava?svg=true)](https://ci.appveyor.com/project/craigfowler/csf-screenplay)
+[![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=csf-dev_CSF.Screenplay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=csf-dev_CSF.Screenplay)
