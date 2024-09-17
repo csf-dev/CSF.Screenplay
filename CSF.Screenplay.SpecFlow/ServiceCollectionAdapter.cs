@@ -84,10 +84,8 @@ namespace CSF.Screenplay
                 OpenGenericRegisterFactory.MakeGenericMethod(item.ServiceType).Invoke(this, new[] { item });
             else if (item.ImplementationInstance != null)
                 OpenGenericRegisterInstance.MakeGenericMethod(item.ServiceType).Invoke(this, new[] { item });
-            else if (item.ImplementationType != null)
-                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, Array.Empty<object>());
             else
-                throw new ArgumentException($"Unsupported {nameof(ServiceDescriptor)}; one of implementation factory, instance or type must not be null", nameof(item));
+                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, Array.Empty<object>());
         }
 
         void RegisterType<TSvc,TImpl>() where TImpl : class,TSvc
