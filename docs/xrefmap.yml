@@ -1130,6 +1130,45 @@ references:
   commentId: T:CSF.Screenplay.HttpRequestMessageBuilder
   fullName: CSF.Screenplay.HttpRequestMessageBuilder
   nameWithType: HttpRequestMessageBuilder
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Content
+  name: Content
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Content
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Content
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Content
+  nameWithType: HttpRequestMessageBuilder.Content
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Content*
+  name: Content
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Content_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Content
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Content
+  nameWithType: HttpRequestMessageBuilder.Content
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
+  name: CreateRequestMessage()
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage
+  commentId: M:CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage()
+  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage()
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage*
+  name: CreateRequestMessage
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
+  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Headers
+  name: Headers
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Headers
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Headers
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Headers
+  nameWithType: HttpRequestMessageBuilder.Headers
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Headers*
+  name: Headers
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Headers_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Headers
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Headers
+  nameWithType: HttpRequestMessageBuilder.Headers
 - uid: CSF.Screenplay.HttpRequestMessageBuilder.Method
   name: Method
   href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Method
@@ -1143,6 +1182,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.HttpRequestMessageBuilder.Method
   nameWithType: HttpRequestMessageBuilder.Method
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Options
+  name: Options
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Options
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Options
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Options
+  nameWithType: HttpRequestMessageBuilder.Options
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Options*
+  name: Options
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Options_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Options
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Options
+  nameWithType: HttpRequestMessageBuilder.Options
 - uid: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
   name: RequestUri
   href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_RequestUri
@@ -1156,6 +1208,32 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
   nameWithType: HttpRequestMessageBuilder.RequestUri
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Version
+  name: Version
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Version
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Version
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Version
+  nameWithType: HttpRequestMessageBuilder.Version
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Version*
+  name: Version
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Version_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Version
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Version
+  nameWithType: HttpRequestMessageBuilder.Version
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
+  name: VersionPolicy
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
+  nameWithType: HttpRequestMessageBuilder.VersionPolicy
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy*
+  name: VersionPolicy
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
+  nameWithType: HttpRequestMessageBuilder.VersionPolicy
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -1546,6 +1624,70 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IStage.TurnSpotlightOff
   nameWithType: IStage.TurnSpotlightOff
+- uid: CSF.Screenplay.NameValueRecordCollection`2
+  name: NameValueRecordCollection<TKey, TValue>
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html
+  commentId: T:CSF.Screenplay.NameValueRecordCollection`2
+  name.vb: NameValueRecordCollection(Of TKey, TValue)
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue)
+  nameWithType: NameValueRecordCollection<TKey, TValue>
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue)
+- uid: CSF.Screenplay.NameValueRecordCollection`2.#ctor
+  name: NameValueRecordCollection()
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2__ctor
+  commentId: M:CSF.Screenplay.NameValueRecordCollection`2.#ctor
+  name.vb: New()
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).New()
+  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New()
+- uid: CSF.Screenplay.NameValueRecordCollection`2.#ctor*
+  name: NameValueRecordCollection
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2__ctor_
+  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).New
+  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New
+- uid: CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
+  name: GetEnumerator()
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_GetEnumerator
+  commentId: M:CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.GetEnumerator()
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator()
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
+- uid: CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator*
+  name: GetEnumerator
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_GetEnumerator_
+  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
+  isSpec: "True"
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.GetEnumerator
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).GetEnumerator
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator
+- uid: CSF.Screenplay.NameValueRecordCollection`2.Item(`0)
+  name: this[TKey]
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_Item__0_
+  commentId: P:CSF.Screenplay.NameValueRecordCollection`2.Item(`0)
+  name.vb: this[](TKey)
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.this[TKey]
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).this[](TKey)
+  nameWithType: NameValueRecordCollection<TKey, TValue>.this[TKey]
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[](TKey)
+- uid: CSF.Screenplay.NameValueRecordCollection`2.Item*
+  name: this
+  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_Item_
+  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.this
+  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).this[]
+  nameWithType: NameValueRecordCollection<TKey, TValue>.this
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[]
 - uid: CSF.Screenplay.PerformableExtensions
   name: PerformableExtensions
   href: api/CSF.Screenplay.PerformableExtensions.html
