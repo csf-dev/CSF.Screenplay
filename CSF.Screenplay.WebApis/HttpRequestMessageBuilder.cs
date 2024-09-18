@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 
 namespace CSF.Screenplay
@@ -170,7 +169,7 @@ namespace CSF.Screenplay
 
 #if NET5_0_OR_GREATER
             foreach (var optionKvp in Options)
-                ((IDictionary<string,object>) message.Options).Add(optionKvp.Key, optionKvp.Value);
+                ((System.Collections.Generic.IDictionary<string,object>) message.Options).Add(optionKvp.Key, optionKvp.Value);
 #endif
 
             return message;
