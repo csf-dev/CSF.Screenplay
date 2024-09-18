@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Action | Screenplay docs </title>
+      <title>Interface ICreatesHttpRequestMessage | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Action | Screenplay docs ">
+      <meta name="title" content="Interface ICreatesHttpRequestMessage | Screenplay docs ">
       
-      
+      <meta name="description" content="An object which can create an  for use with an HTTP client.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/glossary/Action.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/203-webapi-rewrite/apiSpec/new?filename=CSF_Screenplay_ICreatesHttpRequestMessage.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ICreatesHttpRequestMessage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -39,7 +39,7 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -84,25 +84,83 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="action">Action</h1>
+        <article data-uid="CSF.Screenplay.ICreatesHttpRequestMessage">
 
-<p>An Action is a kind of <strong><a href="Performable.html">Performable</a></strong> in which an <strong><a class="xref" href="../api/CSF.Screenplay.Actor.html">Actor</a></strong> does something or interacts with the application in such as way as to change its state.
-Specifically, an action should be the smallest, most granular change or interaction possible; something which cannot reasonably be split into constituent parts.</p>
-<p>In an application of Screenplay which controls a web browser, an action might be a single mouse click, or entering some specified text into an input field.
-To create higher-level interactions, use <strong><a href="Task.html">Tasks</a></strong> to compose actions.
-Out of the kinds of performable, actions are the smallest building blocks available.</p>
-<p>Actions don't have a direct representation in Screenplay code because they are really just an arbitrary category of performable.
-Actions <em>most commonly</em> implement the <a class="xref" href="../api/CSF.Screenplay.IPerformable.html"><code>IPerformable</code></a> interface though, as they usually do not return any results.</p>
-<p>Generally, the logic of actions interacts directly with the actor's <strong><a href="Ability.html">Abilities</a></strong> in order to provide the functionality required to perform the action.</p>
+
+
+  <h1 id="CSF_Screenplay_ICreatesHttpRequestMessage" data-uid="CSF.Screenplay.ICreatesHttpRequestMessage" class="text-break">
+Interface ICreatesHttpRequestMessage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/ICreatesHttpRequestMessage.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.WebApis.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An object which can create an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a> for use with an HTTP client.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICreatesHttpRequestMessage</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage_" data-uid="CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage*"></a>
+
+  <h3 id="CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage" data-uid="CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage">
+  CreateRequestMessage()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/ICreatesHttpRequestMessage.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and returns an HTTP request message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HttpRequestMessage CreateRequestMessage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></dt>
+    <dd><p>An HTTP request message</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/glossary/Action.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/ICreatesHttpRequestMessage.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 

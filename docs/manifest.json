@@ -212,6 +212,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.HttpRequestMessageBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.HttpRequestMessageBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ICanPerform.yml",
       "output": {
         ".html": {
@@ -236,6 +246,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ICast.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ICreatesHttpRequestMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ICreatesHttpRequestMessage.html"
         }
       },
       "version": ""
