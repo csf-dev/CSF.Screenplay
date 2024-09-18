@@ -24,9 +24,9 @@ namespace CSF.Screenplay
     /// </para>
     /// </remarks>
 #if NET5_0_OR_GREATER
-    public record
+    public sealed record
 #else
-    public class
+    public sealed class
 #endif
         HttpRequestMessageBuilder : ICreatesHttpRequestMessage
     {
