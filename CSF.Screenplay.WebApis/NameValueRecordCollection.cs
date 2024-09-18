@@ -73,12 +73,8 @@ namespace CSF.Screenplay
             set
             {
 #endif
-                if (value is null && data.ContainsKey(key))
-                    data.Remove(key);
-                else if (value is null)
-                    return;
-                else
-                    data[key] = value;
+                if (value is null) data.Remove(key);
+                else data[key] = value;
             }
         }
 
