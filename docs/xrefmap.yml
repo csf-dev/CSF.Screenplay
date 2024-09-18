@@ -1124,6 +1124,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.DefaultStrings.GetReport
   nameWithType: DefaultStrings.GetReport
+- uid: CSF.Screenplay.HttpRequestMessageBuilder
+  name: HttpRequestMessageBuilder
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html
+  commentId: T:CSF.Screenplay.HttpRequestMessageBuilder
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder
+  nameWithType: HttpRequestMessageBuilder
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Method
+  name: Method
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Method
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Method
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Method
+  nameWithType: HttpRequestMessageBuilder.Method
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.Method*
+  name: Method
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Method_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Method
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Method
+  nameWithType: HttpRequestMessageBuilder.Method
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
+  name: RequestUri
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_RequestUri
+  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
+  nameWithType: HttpRequestMessageBuilder.RequestUri
+- uid: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri*
+  name: RequestUri
+  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_RequestUri_
+  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
+  isSpec: "True"
+  fullName: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
+  nameWithType: HttpRequestMessageBuilder.RequestUri
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -1205,6 +1237,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ICast.GetActor
   nameWithType: ICast.GetActor
+- uid: CSF.Screenplay.ICreatesHttpRequestMessage
+  name: ICreatesHttpRequestMessage
+  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html
+  commentId: T:CSF.Screenplay.ICreatesHttpRequestMessage
+  fullName: CSF.Screenplay.ICreatesHttpRequestMessage
+  nameWithType: ICreatesHttpRequestMessage
+- uid: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
+  name: CreateRequestMessage()
+  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html#CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage
+  commentId: M:CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
+  fullName: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage()
+  nameWithType: ICreatesHttpRequestMessage.CreateRequestMessage()
+- uid: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage*
+  name: CreateRequestMessage
+  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html#CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage_
+  commentId: Overload:CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
+  isSpec: "True"
+  fullName: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
+  nameWithType: ICreatesHttpRequestMessage.CreateRequestMessage
 - uid: CSF.Screenplay.IGetsScreenplay
   name: IGetsScreenplay
   href: api/CSF.Screenplay.IGetsScreenplay.html
