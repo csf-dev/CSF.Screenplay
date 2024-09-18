@@ -1,6 +1,12 @@
 $ErrorActionPreference = "Stop"
 
 $BaseDir = "docs"
+
+if($Env:APPVEYOR -eq "True" -and ($Env:APPVEYOR_REPO_BRANCH -ne "master" -or $Env:APPVEYOR_PULL_REQUEST_NUMBER -ne "")) {
+    Write-Host "Skipping publishing docs; we are not building on master"
+    Exit 0;
+}
+
 Write-Host "Publishing the docs site to $BaseDir"
 
 if($Env:APPVEYOR -eq "True") {
