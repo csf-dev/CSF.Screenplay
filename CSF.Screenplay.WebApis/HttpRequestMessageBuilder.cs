@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http;
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.WebApis
 {
     /// <summary>
     /// An object which can create an <see cref="HttpRequestMessage"/> for use with an HTTP client.
@@ -24,13 +24,13 @@ namespace CSF.Screenplay
     /// </para>
     /// </remarks>
 #if NET5_0_OR_GREATER
-    public sealed record
+    public record
 #else
-    public sealed class
+    public class
 #endif
-        HttpRequestMessageBuilder : ICreatesHttpRequestMessage
+        HttpRequestMessageBuilder
     {
-        HttpMethod method = HttpMethod.Get;
+        HttpMethod method;
         Version version = new Version(1, 1);
         NameValueRecordCollection<string,string> headers = new NameValueRecordCollection<string, string>();
 
@@ -58,7 +58,7 @@ namespace CSF.Screenplay
 #else
             set
 #endif
-                => method = value ?? throw new ArgumentNullException(nameof(value));
+                => method = value;
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace CSF.Screenplay
 #else
             set
 #endif
-                => version = value ?? throw new ArgumentNullException(nameof(value));
+                => version = value;
         }
 
         /// <summary>
@@ -115,6 +115,12 @@ namespace CSF.Screenplay
         /// <summary>
         /// Gets or sets the HTTP version policy, corresponding to <see cref="HttpRequestMessage.VersionPolicy"/>.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note that this property is supported only for .NET 5 and above.  It is unavailable in lower .NET versions,
+        /// including .NET Standard and .NET Framework.
+        /// </para>
+        /// </remarks>
         public HttpVersionPolicy VersionPolicy { get; init; }
 
         NameValueRecordCollection<string, object> options = new();
@@ -122,6 +128,12 @@ namespace CSF.Screenplay
         /// <summary>
         /// Gets or sets the HTTP web request options, corresponding to <see cref="HttpRequestMessage.Options"/>.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note that this property is supported only for .NET 5 and above.  It is unavailable in lower .NET versions,
+        /// including .NET Standard and .NET Framework.
+        /// </para>
+        /// </remarks>
         public NameValueRecordCollection<string,object> Options
         {
             get => options;
@@ -135,6 +147,11 @@ namespace CSF.Screenplay
         /// <para>
         /// This is mainly a shallow copy, although the <see cref="Headers"/> will be shallow-copied via
         /// <see cref="NameValueRecordCollection{TKey, TValue}.Clone()"/>.
+        /// </para>
+        /// <para>
+        /// Note that this property is supported only for .NET versions below 5.  It is available for .NET Standard
+        /// and .NET Framework but it is unavailable for target frameworks in which this is a <see langword="record" />
+        /// type. Records come with their own cloning mechanism, in the form of non-destructive mutation.
         /// </para>
         /// </remarks>
         public HttpRequestMessageBuilder Clone()
@@ -150,14 +167,27 @@ namespace CSF.Screenplay
         }
 #endif
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Creates and returns an HTTP request message.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The request message is typically created from the state of the current object instance.
+        /// Multiple usages of this method must create a new request message each time.
+        /// Unless some state has been altered between usages, though, each of these messages is likely to have
+        /// the same data/property values.
+        /// </para>
+        /// <para>
+        /// If the state of the current instance does not specify a <see cref="Method"/>; IE the method is <see langword="null" />,
+        /// then <see cref="HttpMethod.Get"/> will be used.
+        /// </para>
+        /// </remarks>
+        /// <returns>An HTTP request message</returns>
         public HttpRequestMessage CreateRequestMessage()
         {
             var message = new HttpRequestMessage(Method ?? HttpMethod.Get, RequestUri)
             {
                 Content = Content,
-                Method = Method,
-                RequestUri = RequestUri,
                 Version = Version,
 #if NET5_0_OR_GREATER
                 VersionPolicy = VersionPolicy,

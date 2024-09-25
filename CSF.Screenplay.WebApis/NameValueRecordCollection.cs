@@ -6,7 +6,7 @@ using System.Collections.Generic;
 #nullable enable
 #endif
 
-namespace CSF.Screenplay
+namespace CSF.Screenplay.WebApis
 {
     /// <summary>
     /// A simple name/value collection with an indexer, backed by a <see cref="Dictionary{TKey, TValue}"/>.

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CSF.Screenplay;
+namespace CSF.Screenplay.WebApis;
 
 [TestFixture,Parallelizable]
 public class NameValueRecordCollectionTests

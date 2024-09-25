@@ -1,6 +1,6 @@
 using System.Net.Http;
 
-namespace CSF.Screenplay;
+namespace CSF.Screenplay.WebApis;
 
 [TestFixture,Parallelizable]
 public class HttpRequestMessageBuilderTests
