@@ -23,7 +23,12 @@ TODO: Below this line is copy-paste from the NUnit tutorial so far.
 
 ## Writing step bindings
 
+When using Screenplay with SpecFlow, `.feature` files are written as normal.
+The only difference in writing your tests is that **Step Binding** classes should inject Screenplay architecture and use it within the bindings. 
 
+Recommended services to consider injecting into your bindings are: 
+
+* Either [`IStage`] or [`ICast`]
 
 > [!TIP]
 > The ability, performables and `DishwashingBuilder` used in this test, related to washing dishes, are all fictitious.
