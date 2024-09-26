@@ -6,6 +6,9 @@ namespace CSF.Screenplay.WebApis;
 [TestFixture,Parallelizable]
 public class MakeWebApiRequestsTests
 {
+    // Note that the following assignment could fail and break the test if Microsoft change their impl of HttpClient.
+    static readonly FieldInfo disposedField = typeof(HttpClient).GetField("_disposed", BindingFlags.Instance | BindingFlags.NonPublic)!;
+
     [Test,AutoMoqData]
     public void DisposeShouldDisposeEachClient([SendsMockHttpRequests] Actor actor)
     {
@@ -25,10 +28,7 @@ public class MakeWebApiRequestsTests
 
     static bool IsDisposed(HttpClient client)
     {
-        if (client is null)
-            throw new ArgumentNullException(nameof(client));
-        // Note that the following line of code could break if Microsoft change their impl of HttpClient.
-        var field = typeof(HttpClient).GetField("_disposed", BindingFlags.Instance | BindingFlags.NonPublic);
-        return (bool) field!.GetValue(client)!;
+        ArgumentNullException.ThrowIfNull(client);
+        return (bool) disposedField.GetValue(client)!;
     }
 }
