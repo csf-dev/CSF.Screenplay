@@ -26,6 +26,7 @@ These apply equally across ask if the three types of performables, even though d
 * [Implement precisely one performable interface]
 * [Implement `ICanReport`]
 * [Parameterize low-level performables]
+* [Avoid branching logic]
 * [Performables should be stateful but immutable]
 * [Allow cooperative cancellation]
 * [Write a builder]
@@ -36,6 +37,7 @@ These apply equally across ask if the three types of performables, even though d
 [Implement precisely one performable interface]: ImplementOnePerformableInterface.md
 [Implement `ICanReport`]: ImplementICanReport.md
 [Parameterize low-level performables]: ParameterizeLowLevelPerformables.md
+[Avoid branching logic]: AvoidBranchingLogic.md
 [Performables should be stateful but immutable]: StatefulButImmutable.md
 [Allow cooperative cancellation]: AllowCooperativeCancellation.md
 [Write a builder]: WriteABuilder.md
