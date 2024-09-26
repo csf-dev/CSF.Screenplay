@@ -66,7 +66,7 @@ namespace CSF.Screenplay.WebApis
         /// </remarks>
         /// <param name="relativeUri">A relative URI string for the current endpoint.</param>
         /// <param name="method">An optional HTTP method.</param>
-        public ParameterizedEndpoint(string relativeUri, HttpMethod method = null) : this(new Uri(relativeUri, UriKind.Relative), method) {}
+        protected ParameterizedEndpoint(string relativeUri, HttpMethod method = null) : this(new Uri(relativeUri, UriKind.Relative), method) {}
         
         /// <summary>
         /// Initializes a new instance of <see cref="ParameterizedEndpoint{TParameters,TResult}"/> with a URI and an optional HTTP method.
@@ -79,7 +79,7 @@ namespace CSF.Screenplay.WebApis
         /// </remarks>
         /// <param name="uri">A URI for the current endpoint; this may be relative or absolute.</param>
         /// <param name="method">An optional HTTP method.</param>
-        public ParameterizedEndpoint(Uri uri, HttpMethod method = null)
+        protected ParameterizedEndpoint(Uri uri, HttpMethod method = null)
         {
             Builder = new HttpRequestMessageBuilder
             {

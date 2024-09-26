@@ -7,7 +7,11 @@ namespace CSF.Screenplay.WebApis
     /// from that message.
     /// </summary>
     /// <typeparam name="TResponse">The expected response type.</typeparam>
+#pragma warning disable S2326
+// TResponse is unused in impl logic; it is used elsewhere for generic type inference,
+// as it allows logic to indicate its intention.
     public class HttpResponseMessageAndResponseType<TResponse>
+#pragma warning restore S2326
     {
         /// <summary>
         /// Gets the HTTP response message.

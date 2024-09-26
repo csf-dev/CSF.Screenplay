@@ -33,7 +33,11 @@ namespace CSF.Screenplay.WebApis
 #else
     public class
 #endif
+#pragma warning disable S2326
+// TResponse is unused in impl logic; it is used elsewhere for generic type inference,
+// as it allows the developer to indicate their intentions.
         HttpRequestMessageBuilder<TResponse> : HttpRequestMessageBuilder
+#pragma warning restore S2326
     {
 #if !NET5_0_OR_GREATER
         /// <summary>Creates a clone of the current instance.</summary>

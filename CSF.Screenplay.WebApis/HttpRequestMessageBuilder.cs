@@ -30,8 +30,6 @@ namespace CSF.Screenplay.WebApis
 #endif
         HttpRequestMessageBuilder
     {
-        HttpMethod method;
-        Version version = new Version(1, 1);
         NameValueRecordCollection<string,string> headers = new NameValueRecordCollection<string, string>();
 
         /// <summary>
@@ -52,13 +50,12 @@ namespace CSF.Screenplay.WebApis
         /// </summary>
         public HttpMethod Method
         {
-            get => method;
+            get;
 #if NET5_0_OR_GREATER
-            init
+            init;
 #else
-            set
+            set;
 #endif
-                => method = value;
         }
 
         /// <summary>
@@ -81,19 +78,18 @@ namespace CSF.Screenplay.WebApis
         /// <para>
         /// The documentation for the <see cref="HttpRequestMessage.Version"/> property notes that it would default to <c>2.0</c> for
         /// .NET Core 2.1 or 2.2, and defaults to <c>1.1</c> for all other versions of .NET or .NET Framework.
-        /// This property will always default to <c>1.1</c> regardless.
+        /// This property will always default to <c>1.1</c> regardless of the target framework.
         /// </para>
         /// </remarks>
         public Version Version
         {
-            get => version;
+            get;
 #if NET5_0_OR_GREATER
-            init
+            init;
 #else
-            set
+            set;
 #endif
-                => version = value;
-        }
+        } = new Version(1, 1);
 
         /// <summary>
         /// Gets or sets the HTTP headers which will be sent with the request, corresponding to <see cref="HttpRequestMessage.Headers"/>.
