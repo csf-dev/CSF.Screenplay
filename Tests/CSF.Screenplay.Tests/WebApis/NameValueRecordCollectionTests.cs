@@ -21,4 +21,19 @@ public class NameValueRecordCollectionTests
 
         Assert.That(addedValues.ToList(), Is.EquivalentTo(new KeyValuePair<string, string>[] { new("wibble", "wobble"), new("spong", "blah") }));
     }
+
+    [Test,AutoMoqData]
+    public void GetHashCodeShouldReturnTheSameValueIfUsedTwice()
+    {
+        var sut = new NameValueRecordCollection<string, string>
+        {
+            ["foo"] = "bar",
+            ["wibble"] = "wobble",
+        };
+
+        var firstHashCode = sut.GetHashCode();
+        var secondHashCode = sut.GetHashCode();
+
+        Assert.That(firstHashCode, Is.EqualTo(secondHashCode));
+    }
 }

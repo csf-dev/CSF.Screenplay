@@ -44,6 +44,11 @@ namespace CSF.Screenplay.WebApis
         /// <see langword="null" /> may not be stored in this collection as a value. An attempt to store a null value will result in the removal
         /// of the item at the specified key.
         /// </para>
+        /// <para>
+        /// As a type which is intended to be immutable, it goes without saying that ideally both <typeparamref name="TKey"/> and
+        /// <typeparamref name="TValue"/> should ideally also be immutable types. If they are not, developers must be careful to avoid
+        /// mutating them, as doing so could adulterate the state of the current instance.
+        /// </para>
         /// </remarks>
         /// <example>
         /// <para>
