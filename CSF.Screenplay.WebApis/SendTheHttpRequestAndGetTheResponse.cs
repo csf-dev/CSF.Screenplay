@@ -15,7 +15,9 @@ namespace CSF.Screenplay.WebApis
 
         /// <inheritdoc/>
         public string GetReportFragment(IHasName actor)
-            => $"{actor.Name} sends an HTTP {untypedSender.MethodName} request to {untypedSender.Url} and reads the response as {typeof(TResponse).Name}";
+            =>  $"{actor.Name} sends an HTTP {untypedSender.MessageBuilder.Method} request to " +
+                $"{untypedSender.MessageBuilder.Name ?? untypedSender.MessageBuilder.RequestUri.ToString()} " +
+                $"and reads the response as {typeof(TResponse).Name}";
 
         /// <inheritdoc/>
         public async ValueTask<HttpResponseMessageAndResponseType<TResponse>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

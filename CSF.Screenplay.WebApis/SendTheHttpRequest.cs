@@ -11,15 +11,12 @@ namespace CSF.Screenplay.WebApis
     /// </summary>
     public class SendTheHttpRequest : IPerformableWithResult<HttpResponseMessage>, ICanReport
     {
-        readonly HttpRequestMessageBuilder messageBuilder;
         readonly string clientName;
 
-        internal string Url { get; private set; }
-
-        internal string MethodName { get; private set; }
+        internal HttpRequestMessageBuilder MessageBuilder { get; }
 
         /// <inheritdoc/>
-        public string GetReportFragment(IHasName actor) => $"{actor.Name} sends an HTTP {MethodName} request to {Url}";
+        public string GetReportFragment(IHasName actor) => $"{actor.Name} sends an HTTP {MessageBuilder.Method} request to {MessageBuilder.Name ?? MessageBuilder.RequestUri.ToString()}";
 
         /// <inheritdoc/>
         public async ValueTask<HttpResponseMessage> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
@@ -28,10 +25,16 @@ namespace CSF.Screenplay.WebApis
             var client = clientName is null
                 ? ability.DefaultClient
                 : (ability[clientName] ?? throw new InvalidOperationException($"The actor must have an HTTP client for name '{clientName}'."));
-            var request = messageBuilder.CreateRequestMessage();
-            Url = request.RequestUri.ToString();
-            MethodName = request.Method.ToString();
-            return await client.SendAsync(request, cancellationToken);
+            var request = MessageBuilder.CreateRequestMessage();
+            var sendToken = GetCancellationToken(cancellationToken);
+            return await client.SendAsync(request, sendToken);
+        }
+
+        CancellationToken GetCancellationToken(CancellationToken externalToken)
+        {
+            var timeoutToken = MessageBuilder.Timeout != null ? new CancellationTokenSource(MessageBuilder.Timeout.Value).Token : CancellationToken.None;
+            var linkedSource = CancellationTokenSource.CreateLinkedTokenSource(externalToken, timeoutToken);
+            return linkedSource.Token;
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace CSF.Screenplay.WebApis
         /// <exception cref="ArgumentNullException">If <paramref name="messageBuilder"/> is <see langword="null" />.</exception>
         public SendTheHttpRequest(HttpRequestMessageBuilder messageBuilder, string clientName = null)
         {
-            this.messageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
+            MessageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
             this.clientName = clientName;
         }
     }

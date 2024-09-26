@@ -22,9 +22,14 @@ namespace CSF.Screenplay.WebApis
     /// Simply <see langword="override" /> the <see cref="GetHttpRequestMessageBuilder"/> method and configure the message builder
     /// as desired.
     /// </para>
+    /// <para>
+    /// When deriving from this class, developers are strongly encouraged to set the <see cref="EndpointBase.Name"/> property to a human-readable
+    /// name for this endpoint. The same goes for overriding <see cref="GetHttpRequestMessageBuilder(TParameters)"/>; the
+    /// <see cref="HttpRequestMessageBuilder"/> returned should use that same name as its own name. This will improve the readability of reports.
+    /// </para>
     /// </remarks>
     /// <typeparam name="TParameters">The type of the parameters object which is required to create an HTTP request message</typeparam>
-    public abstract class ParameterizedEndpoint<TParameters>
+    public abstract class ParameterizedEndpoint<TParameters> : EndpointBase
     {
         /// <summary>
         /// Gets the HTTP request message builder for the current instance, which has been set up by the constructor.
@@ -39,6 +44,10 @@ namespace CSF.Screenplay.WebApis
         /// <para>
         /// When overriding/implementing this method, do not mutate the <see cref="Builder"/> which is stored within the current instance,
         /// instead copy it using non-destructive mutation and return the mutated copy.
+        /// </para>
+        /// <para>
+        /// When implementing this method, do not forget to include the values of both the <see cref="EndpointBase.Name"/> and <see cref="EndpointBase.Timeout"/>
+        /// properties in the request builder which is returned.
         /// </para>
         /// </remarks>
         /// <param name="parameters">The parameters required to create an HTTP request builder</param>

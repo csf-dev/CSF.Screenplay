@@ -18,9 +18,13 @@ namespace CSF.Screenplay.WebApis
     /// Simply <see langword="override" /> the <see cref="GetHttpRequestMessageBuilder"/> method and configure the message builder
     /// as desired.
     /// </para>
+    /// <para>
+    /// When using or deriving from this class, developers are strongly encouraged to set the <see cref="EndpointBase.Name"/> property to a human-readable
+    /// name for this endpoint. This will improve the readability of reports.
+    /// </para>
     /// </remarks>
     /// <seealso cref="Endpoint{TResult}"/>
-    public class Endpoint
+    public class Endpoint : EndpointBase
     {
         readonly HttpRequestMessageBuilder builder;
 
@@ -30,9 +34,14 @@ namespace CSF.Screenplay.WebApis
         /// <returns>An HTTP request message builder</returns>
         public virtual HttpRequestMessageBuilder GetHttpRequestMessageBuilder()
 #if NET5_0_OR_GREATER
-            => builder;
+            => builder with { Name = Name, Timeout = Timeout };
 #else
-            => builder.Clone();
+        {
+            var output = builder.Clone();
+            output.Name = Name;
+            output.Timeout = Timeout;
+            return output;
+        }
 #endif
         
         /// <summary>

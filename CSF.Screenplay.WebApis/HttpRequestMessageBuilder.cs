@@ -28,7 +28,7 @@ namespace CSF.Screenplay.WebApis
 #else
     public class
 #endif
-        HttpRequestMessageBuilder
+        HttpRequestMessageBuilder : IHasName
     {
         NameValueRecordCollection<string,string> headers = new NameValueRecordCollection<string, string>();
 
@@ -105,7 +105,37 @@ namespace CSF.Screenplay.WebApis
                 => headers = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <inheritdoc/>
+        public string Name
+        {
+            get;
+#if NET5_0_OR_GREATER
+            init;
+#else
+            set;
+#endif
+        }
 
+        /// <summary>
+        /// Gets or sets an optional timeout duration for requests built from this builder.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If this set to a non-<see langword="null" /> value, then the HTTP client used to make the request will include cancellation
+        /// after an amount of time (equal to this timespan) has passed.
+        /// This logic is handled within the <see cref="MakeWebApiRequests"/> action.  If this action is not used then this timeout might
+        /// not be honoured.
+        /// </para>
+        /// </remarks>
+        public TimeSpan? Timeout
+        {
+            get;
+#if NET5_0_OR_GREATER
+            init;
+#else
+            set;
+#endif
+        }
 
 #if NET5_0_OR_GREATER
         /// <summary>
@@ -159,6 +189,8 @@ namespace CSF.Screenplay.WebApis
                 RequestUri = RequestUri,
                 Version = Version,
                 Headers = Headers.Clone(),
+                Name = Name,
+                Timeout = Timeout,
             };
         }
 #endif
