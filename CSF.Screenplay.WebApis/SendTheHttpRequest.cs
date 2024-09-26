@@ -26,15 +26,16 @@ namespace CSF.Screenplay.WebApis
                 ? ability.DefaultClient
                 : (ability[clientName] ?? throw new InvalidOperationException($"The actor must have an HTTP client for name '{clientName}'."));
             var request = MessageBuilder.CreateRequestMessage();
-            var sendToken = GetCancellationToken(cancellationToken);
-            return await client.SendAsync(request, sendToken);
+            using (var sendTokenSource = GetCancellationTokenSource(cancellationToken))
+            {
+                return await client.SendAsync(request, sendTokenSource.Token);
+            }
         }
 
-        CancellationToken GetCancellationToken(CancellationToken externalToken)
+        CancellationTokenSource GetCancellationTokenSource(CancellationToken externalToken)
         {
             var timeoutToken = MessageBuilder.Timeout != null ? new CancellationTokenSource(MessageBuilder.Timeout.Value).Token : CancellationToken.None;
-            var linkedSource = CancellationTokenSource.CreateLinkedTokenSource(externalToken, timeoutToken);
-            return linkedSource.Token;
+            return CancellationTokenSource.CreateLinkedTokenSource(externalToken, timeoutToken);
         }
 
         /// <summary>
