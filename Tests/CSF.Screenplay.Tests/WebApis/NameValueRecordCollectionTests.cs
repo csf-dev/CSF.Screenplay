@@ -36,4 +36,28 @@ public class NameValueRecordCollectionTests
 
         Assert.That(firstHashCode, Is.EqualTo(secondHashCode));
     }
+
+    [Test,AutoMoqData]
+    public void GetFromIndexerShouldReturnExpectedResult()
+    {
+        var sut = new NameValueRecordCollection<string, string>
+        {
+            ["foo"] = "bar",
+            ["wibble"] = "wobble",
+        };
+
+        Assert.That(sut["foo"], Is.EqualTo("bar"));
+    }
+
+    [Test,AutoMoqData]
+    public void GetFromNonexistentIndexerShouldReturnExpectedResult()
+    {
+        var sut = new NameValueRecordCollection<string, string>
+        {
+            ["foo"] = "bar",
+            ["wibble"] = "wobble",
+        };
+
+        Assert.That(sut["nope"], Is.Null);
+    }
 }
