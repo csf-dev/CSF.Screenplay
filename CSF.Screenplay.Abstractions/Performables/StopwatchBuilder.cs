@@ -11,6 +11,10 @@ namespace CSF.Screenplay.Performables
     /// in the source file which uses it.  This will allow you use the method names in this class in a more human-readable
     /// fashion.
     /// </para>
+    /// <para>
+    /// The actions and the question exposed by this builder allow an actor to accurately
+    /// track and measure time elapsed during a Performance.
+    /// </para>
     /// </remarks>
     public static class StopwatchBuilder
     {
