@@ -12,30 +12,17 @@ namespace CSF.Screenplay.WebApis
     public class SendTheHttpRequest : IPerformableWithResult<HttpResponseMessage>, ICanReport
     {
         readonly string clientName;
-
-        internal HttpRequestMessageBuilder MessageBuilder { get; }
+        readonly HttpRequestMessageBuilder messageBuilder;
 
         /// <inheritdoc/>
-        public string GetReportFragment(IHasName actor) => $"{actor.Name} sends an HTTP {MessageBuilder.Method} request to {MessageBuilder.Name ?? MessageBuilder.RequestUri.ToString()}";
+        public string GetReportFragment(IHasName actor)
+            => $"{actor.Name} sends an HTTP {messageBuilder.Method} request to {messageBuilder.Name ?? messageBuilder.RequestUri.ToString()}";
 
         /// <inheritdoc/>
         public async ValueTask<HttpResponseMessage> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<MakeWebApiRequests>();
-            var client = clientName is null
-                ? ability.DefaultClient
-                : (ability[clientName] ?? throw new InvalidOperationException($"The actor must have an HTTP client for name '{clientName}'."));
-            var request = MessageBuilder.CreateRequestMessage();
-            using (var sendTokenSource = GetCancellationTokenSource(cancellationToken))
-            {
-                return await client.SendAsync(request, sendTokenSource.Token);
-            }
-        }
-
-        CancellationTokenSource GetCancellationTokenSource(CancellationToken externalToken)
-        {
-            var timeoutToken = MessageBuilder.Timeout != null ? new CancellationTokenSource(MessageBuilder.Timeout.Value).Token : CancellationToken.None;
-            return CancellationTokenSource.CreateLinkedTokenSource(externalToken, timeoutToken);
+            return await CommonHttpRequestLogic.SendRequestAsync(ability, messageBuilder, clientName, cancellationToken);
         }
 
         /// <summary>
@@ -46,7 +33,7 @@ namespace CSF.Screenplay.WebApis
         /// <exception cref="ArgumentNullException">If <paramref name="messageBuilder"/> is <see langword="null" />.</exception>
         public SendTheHttpRequest(HttpRequestMessageBuilder messageBuilder, string clientName = null)
         {
-            MessageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
+            this.messageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
             this.clientName = clientName;
         }
     }

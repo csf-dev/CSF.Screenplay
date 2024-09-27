@@ -66,5 +66,45 @@ namespace CSF.Screenplay.WebApis
             foreach (var client in clients.Values)
                 client.Dispose();
         }
+
+        /// <summary>
+        /// Gets an HTTP client with the specified name.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If <paramref name="clientName"/> is <see langword="null" /> then the <see cref="DefaultClient"/> will be returned.
+        /// </para>
+        /// </remarks>
+        /// <param name="clientName">An optional client name, if omitted then the default client will be returned.</param>
+        /// <returns>An HTTP client</returns>
+        /// <exception cref="InvalidOperationException">If <paramref name="clientName"/> is specified &amp; non-<see langword="null" /> but the current instance has no client of that name.</exception>
+        public HttpClient GetClient(string clientName = null)
+        {
+            return clientName is null
+                ? DefaultClient
+                : (this[clientName] ?? throw new InvalidOperationException($"The actor must have an HTTP client for name '{clientName}'."));
+        }
+
+        /// <summary>
+        /// Adds a new HTTP client to the current instance, with an optional base URI and client name.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method is a shorthand for adding a new item to either <see cref="DefaultClient"/> or the class indexer.
+        /// It allows the convenient configuration of a new <see cref="HttpClient"/> with just a base URI to which requests should be sent.
+        /// </para>
+        /// </remarks>
+        /// <param name="baseUri">Optional, the base URI to which requests should be sent</param>
+        /// <param name="clientName">Optional, the name of the client. If omitted then the new client will be the <see cref="DefaultClient"/></param>
+        public void AddClient(string baseUri = null, string clientName = null)
+        {
+            var client = new HttpClient();
+
+            if (!string.IsNullOrEmpty(baseUri))
+                client.BaseAddress = new Uri(baseUri);
+
+            if (clientName is null) DefaultClient = client;
+            else this[clientName] = client;
+        }
     }
 }

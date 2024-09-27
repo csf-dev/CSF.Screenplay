@@ -41,7 +41,7 @@ namespace CSF.Screenplay.WebApis
         /// <summary>
         /// Gets the HTTP request message builder for the current instance, which has been set up by the constructor.
         /// </summary>
-        protected HttpRequestMessageBuilder Builder { get; }
+        protected HttpRequestMessageBuilder<TResponse> Builder { get; }
 
         /// <summary>
         /// Gets a <see cref="HttpRequestMessageBuilder{TResponse}"/> from the state of the current instance
@@ -90,7 +90,7 @@ namespace CSF.Screenplay.WebApis
         /// <param name="method">An optional HTTP method.</param>
         protected ParameterizedEndpoint(Uri uri, HttpMethod method = null)
         {
-            Builder = new HttpRequestMessageBuilder
+            Builder = new HttpRequestMessageBuilder<TResponse>
             {
                 RequestUri = uri,
                 Method = method,

@@ -29,6 +29,7 @@ namespace CSF.Screenplay.WebApis
     /// </remarks>
     /// <typeparam name="TResult">The type of response that the endpoint is expected to return.</typeparam>
     /// <seealso cref="Endpoint"/>
+    /// <seealso cref="JsonEndpoint{TResult}"/>
     public class Endpoint<TResult> : EndpointBase
     {
         readonly HttpRequestMessageBuilder<TResult> builder;

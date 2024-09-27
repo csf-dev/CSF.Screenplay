@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" Condition="'$(TargetFramework)' != 'net5.0'" />
   </ItemGroup>
 
   <ItemGroup>

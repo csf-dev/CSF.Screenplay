@@ -11,19 +11,21 @@ namespace CSF.Screenplay.WebApis
     /// </summary>
     public class SendTheHttpRequestAndGetTheResponse<TResponse> : IPerformableWithResult<HttpResponseMessageAndResponseType<TResponse>>, ICanReport
     {
-        readonly SendTheHttpRequest untypedSender;
+        readonly string clientName;
+        readonly HttpRequestMessageBuilder messageBuilder;
 
         /// <inheritdoc/>
         public string GetReportFragment(IHasName actor)
-            =>  $"{actor.Name} sends an HTTP {untypedSender.MessageBuilder.Method} request to " +
-                $"{untypedSender.MessageBuilder.Name ?? untypedSender.MessageBuilder.RequestUri.ToString()} " +
-                $"and reads the response as {typeof(TResponse).Name}";
+            =>  $"{actor.Name} sends an HTTP {messageBuilder.Method} request to {messageBuilder.Name ?? messageBuilder.RequestUri.ToString()}, " +
+                $"expecting the response to be {typeof(TResponse).Name}";
 
         /// <inheritdoc/>
         public async ValueTask<HttpResponseMessageAndResponseType<TResponse>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            var untypedResult = await untypedSender.PerformAsAsync(actor, cancellationToken);
-            return new HttpResponseMessageAndResponseType<TResponse>(untypedResult);
+            var ability = actor.GetAbility<MakeWebApiRequests>();
+            var httpResponse = await CommonHttpRequestLogic.SendRequestAsync(ability, messageBuilder, clientName, cancellationToken);
+            httpResponse.EnsureSuccessStatusCode();
+            return new HttpResponseMessageAndResponseType<TResponse>(httpResponse);
         }
 
         /// <summary>
@@ -34,7 +36,8 @@ namespace CSF.Screenplay.WebApis
         /// <exception cref="ArgumentNullException">If <paramref name="messageBuilder"/> is <see langword="null" />.</exception>
         public SendTheHttpRequestAndGetTheResponse(HttpRequestMessageBuilder<TResponse> messageBuilder, string clientName = null)
         {
-            untypedSender = new SendTheHttpRequest(messageBuilder, clientName);
+            this.messageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
+            this.clientName = clientName;
         }
     }
 }
