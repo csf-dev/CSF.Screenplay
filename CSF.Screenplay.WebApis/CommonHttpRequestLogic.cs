@@ -33,7 +33,7 @@ namespace CSF.Screenplay.WebApis
 #else
             var builder = messageBuilder.Clone();
             builder.Content = content;
-            return builder;
+            return (TResult) builder;
 #endif
         }
     }
