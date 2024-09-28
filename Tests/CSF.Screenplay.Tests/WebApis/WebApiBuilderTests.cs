@@ -1,6 +1,8 @@
 using System.Net;
 using System.Net.Http;
 using static CSF.Screenplay.WebApis.WebApiBuilder;
+using static CSF.Screenplay.PerformanceStarter;
+using System.Net.Http.Json;
 
 namespace CSF.Screenplay.WebApis;
 
@@ -74,6 +76,47 @@ public class WebApiBuilderTests
                     Times.Once);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
     }
+
+    [Test,AutoMoqData]
+    public async Task GetTheJsonResultShouldGetAnActionWhichYieldsTheExpectedPayload([Frozen] SerializableObject expectedPayload,
+                                                                                     [SendsMockHttpRequests] Actor actor)
+    {
+        var endpoint = new Endpoint<SerializableObject>("api/json");
+        var ability = actor.GetAbility<MakeWebApiRequests>();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        Mock.Get(ability.DefaultClient)
+            .Setup(x => x.SendAsync(It.IsAny<HttpRequestMessage>(), It.IsAny<CancellationToken>()))
+            .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = JsonContent.Create(expectedPayload) }));
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+        var result = await When(actor).AttemptsTo(GetTheJsonResult(endpoint));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(result, Is.Not.SameAs(expectedPayload), "Result and expected payload are not the same object (it has been through a serialization roundtrip)");
+            Assert.That(result, Is.EqualTo(expectedPayload), "Result is equal to expected payload");
+        });
+    }
+
+    [Test,AutoMoqData]
+    public async Task GetTheJsonResultWithParametersShouldGetAnActionWhichYieldsTheExpectedPayload([Frozen] SerializableObject expectedPayload,
+                                                                                                   [SendsMockHttpRequests] Actor actor,
+                                                                                                   string parameters)
+    {
+        var endpoint = new JsonEndpoint<string, SerializableObject>("api/json");
+        var ability = actor.GetAbility<MakeWebApiRequests>();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+        Mock.Get(ability.DefaultClient)
+            .Setup(x => x.SendAsync(It.IsAny<HttpRequestMessage>(), It.IsAny<CancellationToken>()))
+            .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = JsonContent.Create(expectedPayload) }));
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+        var result = await When(actor).AttemptsTo(GetTheJsonResult(endpoint, parameters));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(result, Is.Not.SameAs(expectedPayload), "Result and expected payload are not the same object (it has been through a serialization roundtrip)");
+            Assert.That(result, Is.EqualTo(expectedPayload), "Result is equal to expected payload");
+        });
+    }
 }
 
 #pragma warning disable CS9107 // Parameter is captured into the state of the enclosing type and its value is also passed to the base constructor. The value might be captured by the base class as well.
@@ -105,3 +148,4 @@ public class IntegerGenericParameterizedEndpoint(string relativeUri, HttpMethod?
         };
     }
 }
+

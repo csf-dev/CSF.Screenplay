@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Reflection;
 using AutoFixture;
 
@@ -28,3 +29,5 @@ public class SendsMockHttpRequestsCustomization : ICustomization
         }));
     }
 }
+
+public record SerializableObject(string StringProperty, int NumericProperty);
