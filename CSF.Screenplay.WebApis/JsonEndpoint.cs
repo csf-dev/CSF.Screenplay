@@ -4,37 +4,50 @@ using System.Net.Http;
 namespace CSF.Screenplay.WebApis
 {
     /// <summary>
-    /// Represents a Web API endpoint which expects a request body sent with a strongly typed value, serialized to JSON; a URI and HTTP request method.
+    /// Base type for a Web API endpoint which accepts a request payload in the form of a strongly typed object serialized to JSON string,
+    /// but which is not expected to return a response body.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This type may be used to get an HTTP request message builder.
-    /// It is intended to describe an endpoint to a web API.
-    /// At its simplest this is a URL and optionally an HTTP method (aka "verb") and information about the expected type of the response.
+    /// There are several concrete types of endpoint available, all of which derive from <see cref="EndpointBase"/>, for more information
+    /// about the purpose of endpoints and how they are used, see the documentation for that base type.
     /// </para>
     /// <para>
-    /// This type is very similar to <see cref="ParameterizedEndpoint{TParameters}"/>, except that the parameter value is to be serialized as JSON.
-    /// The parameters value is typically serialized into the HTTP request body.
+    /// Developers are welcome to create specialized derived types based upon this or other subclasses of <see cref="EndpointBase"/> if they
+    /// have specific needs. Derived classes should <see langword="override"/> <see cref="GetHttpRequestMessageBuilder"/> with a method that
+    /// calls the base implementation and then further manipulates the message builder before returning it.
     /// </para>
     /// <para>
-    /// Developers are free to create derived classes based upon this type, for endpoints which are more complex and require
-    /// manipulation of other aspects of the <see cref="HttpRequestMessageBuilder"/> which is returned.
-    /// Simply <see langword="override" /> the <see cref="Endpoint.GetHttpRequestMessageBuilder"/> method and configure the message builder
-    /// as desired.
-    /// </para>
-    /// <para>
-    /// When using or deriving from this class, developers are strongly encouraged to set the <see cref="EndpointBase.Name"/> property to a human-readable
+    /// When deriving from this class, developers are strongly encouraged to set the <see cref="EndpointBase.Name"/> property to a human-readable
     /// name for this endpoint. This will improve the readability of reports.
     /// </para>
+    /// <para>
+    /// For more information, see the documentation article for <xref href="WebApisArticle?text=using+web+APIs"/>.
+    /// </para>
     /// </remarks>
-    /// <typeparam name="TParameters">The type of parameters value which should be sent with the request body.</typeparam>
+    /// <seealso cref="EndpointBase"/>
+    /// <seealso cref="Endpoint"/>
+    /// <seealso cref="Endpoint{TResult}"/>
+    /// <seealso cref="ParameterizedEndpoint{TParameters, TResponse}"/>
     /// <seealso cref="ParameterizedEndpoint{TParameters}"/>
-    /// <seealso cref="JsonEndpoint{TParameters,TResult}"/>
+    /// <seealso cref="JsonEndpoint{TParameters, TResult}"/>
+    /// <typeparam name="TParameters">The type of the parameters object which is required to create an HTTP request message</typeparam>
     public class JsonEndpoint<TParameters> : ParameterizedEndpoint<TParameters>
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Gets a <see cref="HttpRequestMessageBuilder"/> from the state of the current instance
+        /// and the specified parameters value.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method serializes the <paramref name="parameters"/> value into a JSON string and sets it into the HTTP request content:
+        /// <see cref="HttpRequestMessageBuilder.Content"/>.
+        /// </para>
+        /// </remarks>
+        /// <param name="parameters">The parameters required to create an HTTP request builder</param>
+        /// <returns>An HTTP request message builder</returns>
         public override HttpRequestMessageBuilder GetHttpRequestMessageBuilder(TParameters parameters)
-            => CommonHttpRequestLogic.GetMessageBuilderWithJsonContent(parameters, Builder);
+            => CommonHttpRequestLogic.GetMessageBuilderWithJsonContent(parameters, GetBaseHttpRequestMessageBuilder());
 
         /// <summary>
         /// Initializes a new instance of <see cref="JsonEndpoint{TParameters}"/> with a relative URI and an optional HTTP method.

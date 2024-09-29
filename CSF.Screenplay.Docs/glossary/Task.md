@@ -1,3 +1,7 @@
+---
+uid: TaskGlossaryItem
+---
+
 # Task
 
 A Task is a kind of **[Performable]** which represents a high-level interaction with the application.

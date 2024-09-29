@@ -232,5 +232,30 @@ namespace CSF.Screenplay.WebApis
 
             return message;
         }
+
+        /// <summary>
+        /// Gets a copy of the current request message builder instance, but with information about the expected type of response.
+        /// </summary>
+        /// <typeparam name="T">The expected type associated with the response from this message.</typeparam>
+        /// <returns>A request message builder with response-type information.</returns>
+        internal HttpRequestMessageBuilder<T> ToBuilderWithResponseType<T>()
+        {
+            return new HttpRequestMessageBuilder<T>
+            {
+                Content = Content,
+                Method = Method,
+                RequestUri = RequestUri,
+                Version = Version,
+                Name = Name,
+                Timeout = Timeout,
+#if NET5_0_OR_GREATER
+                Headers = Headers,
+                VersionPolicy = VersionPolicy,
+                Options = Options,
+#else
+                Headers = Headers.Clone(),
+#endif
+            };
+        }
     }
 }

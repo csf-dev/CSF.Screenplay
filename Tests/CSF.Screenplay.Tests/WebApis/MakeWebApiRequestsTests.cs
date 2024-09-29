@@ -26,6 +26,24 @@ public class MakeWebApiRequestsTests
         });
     }
 
+    [Test,AutoMoqData]
+    public void AddClientShouldAddADefaultClientWithAUriWhenUsedWithoutAClientName(Actor actor)
+    {
+        actor.IsAbleTo<MakeWebApiRequests>();
+        var sut = actor.GetAbility<MakeWebApiRequests>();
+        sut.AddClient("https://example.com/foo");
+        Assert.That(sut.DefaultClient?.BaseAddress?.AbsoluteUri, Is.EqualTo("https://example.com/foo"));
+    }
+
+    [Test,AutoMoqData]
+    public void AddClientShouldAddANamedClientWithAUriWhenUsedWithAClientName(Actor actor)
+    {
+        actor.IsAbleTo<MakeWebApiRequests>();
+        var sut = actor.GetAbility<MakeWebApiRequests>();
+        sut.AddClient("https://example.com/foo", "bar");
+        Assert.That(sut["bar"]?.BaseAddress?.AbsoluteUri, Is.EqualTo("https://example.com/foo"));
+    }
+
     static bool IsDisposed(HttpClient client)
     {
         ArgumentNullException.ThrowIfNull(client);

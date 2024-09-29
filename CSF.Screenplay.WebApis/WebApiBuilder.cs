@@ -60,18 +60,18 @@ namespace CSF.Screenplay.WebApis
 #region JSON
 
         /// <summary>
-        /// Gets an instance of <see cref="SendTheJsonRequestAndGetTheResponse{TResponse}"/> from an endpoint and optional client name.
+        /// Gets an instance of <see cref="SendTheHttpRequestAndGetJsonResponse{TResponse}"/> from an endpoint and optional client name.
         /// </summary>
         /// <param name="endpoint">The endpoint from which to get an action.</param>
         /// <param name="clientName">An optional client name, for actors who must maintain multiple HTTP clients.</param>
         /// <returns>A performable that will send the HTTP request and await its result and deserialize that result as .</returns>
         /// <typeparam name="TResponse">The type of the expected result value</typeparam>
-        public static SendTheJsonRequestAndGetTheResponse<TResponse> GetTheJsonResult<TResponse>(Endpoint<TResponse> endpoint,
+        public static SendTheHttpRequestAndGetJsonResponse<TResponse> GetTheJsonResult<TResponse>(Endpoint<TResponse> endpoint,
                                                                                                  string clientName = null)
-            => new SendTheJsonRequestAndGetTheResponse<TResponse>(endpoint.GetHttpRequestMessageBuilder(), clientName);
+            => new SendTheHttpRequestAndGetJsonResponse<TResponse>(endpoint.GetHttpRequestMessageBuilder(), clientName);
 
         /// <summary>
-        /// Gets an instance of <see cref="SendTheJsonRequestAndGetTheResponse{TResponse}"/> from a parameterized endpoint, its parameters and an optional client name.
+        /// Gets an instance of <see cref="SendTheHttpRequestAndGetJsonResponse{TResponse}"/> from a parameterized endpoint, its parameters and an optional client name.
         /// </summary>
         /// <param name="endpoint">The endpoint from which to get an action.</param>
         /// <param name="parameters">The parameters required by the endpoint.</param>
@@ -79,10 +79,10 @@ namespace CSF.Screenplay.WebApis
         /// <returns>A performable that will send the HTTP request and await its result.</returns>
         /// <typeparam name="TParameters">The type of the parameters expected by the endpoint</typeparam>
         /// <typeparam name="TResponse">The type of the expected result value</typeparam>
-        public static SendTheJsonRequestAndGetTheResponse<TResponse> GetTheJsonResult<TParameters,TResponse>(ParameterizedEndpoint<TParameters,TResponse> endpoint,
+        public static SendTheHttpRequestAndGetJsonResponse<TResponse> GetTheJsonResult<TParameters,TResponse>(ParameterizedEndpoint<TParameters,TResponse> endpoint,
                                                                                                              TParameters parameters,
                                                                                                              string clientName = null)
-            => new SendTheJsonRequestAndGetTheResponse<TResponse>(endpoint.GetHttpRequestMessageBuilder(parameters), clientName);
+            => new SendTheHttpRequestAndGetJsonResponse<TResponse>(endpoint.GetHttpRequestMessageBuilder(parameters), clientName);
 
 #endregion
     }

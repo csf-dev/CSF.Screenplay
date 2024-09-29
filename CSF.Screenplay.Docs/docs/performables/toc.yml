@@ -2,5 +2,7 @@
   href: index.md
 - name: Stopwatch
   uid: CSF.Screenplay.Performables.StopwatchBuilder
+- name: Web APIs
+  href: WebApis.md
 - name: TimeSpan builder
   uid: CSF.Screenplay.Performables.TimeSpanBuilder`1

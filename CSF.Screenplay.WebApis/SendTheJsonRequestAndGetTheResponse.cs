@@ -10,7 +10,7 @@ namespace CSF.Screenplay.WebApis
     /// <see cref="HttpRequestMessageBuilder{TResponse}"/> and returns a strongly-typed result deserialized from
     /// a JSON HTTP response.
     /// </summary>
-    public class SendTheJsonRequestAndGetTheResponse<TResponse> : IPerformableWithResult<TResponse>, ICanReport
+    public class SendTheHttpRequestAndGetJsonResponse<TResponse> : IPerformableWithResult<TResponse>, ICanReport
     {
         readonly string clientName;
         readonly HttpRequestMessageBuilder<TResponse> messageBuilder;
@@ -27,12 +27,12 @@ namespace CSF.Screenplay.WebApis
         }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="SendTheJsonRequestAndGetTheResponse{TResponse}"/>.
+        /// Initializes a new instance of <see cref="SendTheHttpRequestAndGetJsonResponse{TResponse}"/>.
         /// </summary>
         /// <param name="messageBuilder">The HTTP request message builder.</param>
         /// <param name="clientName">An optional client name, when actors must maintain more than one HTTP client.</param>
         /// <exception cref="ArgumentNullException">If <paramref name="messageBuilder"/> is <see langword="null" />.</exception>
-        public SendTheJsonRequestAndGetTheResponse(HttpRequestMessageBuilder<TResponse> messageBuilder, string clientName = null)
+        public SendTheHttpRequestAndGetJsonResponse(HttpRequestMessageBuilder<TResponse> messageBuilder, string clientName = null)
         {
             this.messageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
             this.clientName = clientName;
