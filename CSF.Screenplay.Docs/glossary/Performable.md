@@ -18,6 +18,17 @@ This is entirely coincidental and _there is no direct equivalence_.
 [Tasks]: Task.md
 [Questions]: Question.md
 
+## Performables are _not reusable_
+
+Implementations of any of the performable interfaces (below) are _stateful_ objects which _must not be reused_.
+Performable objects are often mutable and their mutable state forms the parameters by which they will operate.
+
+Typically, performables are _created [using a builder]_ which configures their state.
+Each performable object is used precisely once by an actor and then discarded.
+Even if you would like to perform the same operation twice, do not attempt to reuse a performable; use the builder twice to create two (identical) instances of the same performable type.
+
+[using a builder]: ../docs/builderPattern/index.md
+
 ## Developers using Screenplay will typically be writing Tasks
 
 Actions & Questions are the smallest/low-level building blocks of a Screenplay [Performance].

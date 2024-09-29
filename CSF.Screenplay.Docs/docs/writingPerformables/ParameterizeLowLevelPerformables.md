@@ -6,16 +6,11 @@ This _is especially important for [Actions] and/or [Questions]_ but also relevan
 Parameters should be accepted via the class' public constructor, the values to these parameters [should then be held `readonly`].
 Accept as many parameters as are reasonable, although avoid going so far that parameterisation makes a Performable unclear as to what it does.
 
-[Performances] are written _a lot like scripts_.
-They very rarely (and should not) contain a lot of branching or looping logic, which means that a performable which changes behaviour based upon a parameter value _is of very little use_.
-It is better to separate the logic into individual performables and to just use the one which is needed at the time.
-
 [Performables]: ../../glossary/Performable.md
 [Actions]: ../../glossary/Action.md
 [Questions]: ../../glossary/Question.md
 [Tasks]: ../../glossary/Task.md
 [should then be held `readonly`]: StatefulButImmutable.md
-[Performances]: xref:CSF.Screenplay.IPerformance
 
 ## An example
 
