@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/feature/203-webapi-rewrite/apiSpec/new?filename=CSF_Screenplay_HttpRequestMessageBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.HttpRequestMessageBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_WebApis_HttpRequestMessageBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.WebApis.HttpRequestMessageBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.HttpRequestMessageBuilder">
+        <article data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder">
 
 
 
-  <h1 id="CSF_Screenplay_HttpRequestMessageBuilder" data-uid="CSF.Screenplay.HttpRequestMessageBuilder" class="text-break">
-Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder" class="text-break">
+Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.WebApis.html">WebApis</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.WebApis.dll</dd></dl>
   </div>
 
@@ -102,7 +102,7 @@ Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder : ICreatesHttpRequestMessage, IEquatable&lt;HttpRequestMessageBuilder&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder : IHasName, IEquatable&lt;HttpRequestMessageBuilder&gt;</code></pre>
   </div>
 
 
@@ -119,11 +119,17 @@ Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.ICreatesHttpRequestMessage.html">ICreatesHttpRequestMessage</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a>&gt;</div>
+      <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a>&gt;</div>
     </dd>
   </dl>
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder&lt;TResponse&gt;</a></div>
+    </dd>
+  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
@@ -154,7 +160,7 @@ Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="
 
 
 
-  <h2 id="CSF_Screenplay_HttpRequestMessageBuilder_remarks">Remarks</h2>
+  <h2 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 Please note that this type differs in form depending upon the .NET version under which it is consumed.
 If consuming this type from logic which targets .NET Standard 2.0 or .NET Framework 4.6.2 then this type is a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/class">class</a>.
@@ -177,11 +183,11 @@ the current instance but with some differences.
 </h2>
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_Content_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Content*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Content_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_Content" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Content">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Content" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content">
   Content
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the content which will be sent with the request: the request body.</p>
@@ -209,11 +215,11 @@ the current instance but with some differences.
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_Headers_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Headers*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_Headers" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Headers">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers">
   Headers
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the HTTP headers which will be sent with the request, corresponding to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage.headers">Headers</a>.</p>
@@ -230,7 +236,7 @@ the current instance but with some differences.
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.NameValueRecordCollection-2.html">NameValueRecordCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.WebApis.NameValueRecordCollection-2.html">NameValueRecordCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -241,11 +247,11 @@ the current instance but with some differences.
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_Method_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Method*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Method_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_Method" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Method">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Method" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method">
   Method
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the HTTP method (aka &quot;verb&quot;) which shall be used to send the request.</p>
@@ -273,11 +279,49 @@ the current instance but with some differences.
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_Options_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Options*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_Options" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Options">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement this interface
+should return a non-null response from this property.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Options_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options*"></a>
+
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Options" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options">
   Options
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the HTTP web request options, corresponding to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage.options">Options</a>.</p>
@@ -294,22 +338,28 @@ the current instance but with some differences.
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.NameValueRecordCollection-2.html">NameValueRecordCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.WebApis.NameValueRecordCollection-2.html">NameValueRecordCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd></dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Options_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this property is supported only for .NET 5 and above.  It is unavailable in lower .NET versions,
+including .NET Standard and .NET Framework.
+</p>
+</div>
 
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_RequestUri_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.RequestUri*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_RequestUri_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_RequestUri" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.RequestUri">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_RequestUri" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri">
   RequestUri
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a> to which the HTTP request shall be sent.</p>
@@ -337,11 +387,51 @@ the current instance but with some differences.
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_Version_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Version*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Timeout_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_Version" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.Version">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Timeout" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout">
+  Timeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets an optional timeout duration for requests built from this builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? Timeout { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Timeout_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If this set to a non-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value, then the HTTP client used to make the request will include cancellation
+after an amount of time (equal to this timespan) has passed.
+This logic is handled within the <a class="xref" href="CSF.Screenplay.WebApis.MakeWebApiRequests.html">MakeWebApiRequests</a> action.  If this action is not used then this timeout might
+not be honoured.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Version_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version*"></a>
+
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Version" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the HTTP version which shall be used by the message.</p>
@@ -365,22 +455,22 @@ the current instance but with some differences.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_HttpRequestMessageBuilder_Version_remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Version_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The documentation for the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage.version">Version</a> property notes that it would default to <code>2.0</code> for
 .NET Core 2.1 or 2.2, and defaults to <code>1.1</code> for all other versions of .NET or .NET Framework.
-This property will always default to <code>1.1</code> regardless.
+This property will always default to <code>1.1</code> regardless of the target framework.
 </p>
 </div>
 
 
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_VersionPolicy_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_VersionPolicy" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy">
   VersionPolicy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the HTTP version policy, corresponding to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage.versionpolicy">VersionPolicy</a>.</p>
@@ -404,6 +494,12 @@ This property will always default to <code>1.1</code> regardless.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_VersionPolicy_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this property is supported only for .NET 5 and above.  It is unavailable in lower .NET versions,
+including .NET Standard and .NET Framework.
+</p>
+</div>
 
 
 
@@ -412,11 +508,11 @@ This property will always default to <code>1.1</code> regardless.
 </h2>
 
 
-  <a id="CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage_" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage*"></a>
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage*"></a>
 
-  <h3 id="CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage" data-uid="CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage">
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage">
   CreateRequestMessage()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and returns an HTTP request message.</p>
@@ -441,12 +537,16 @@ This property will always default to <code>1.1</code> regardless.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage_remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The request message is typically created from the state of the current object instance.
 Multiple usages of this method must create a new request message each time.
 Unless some state has been altered between usages, though, each of these messages is likely to have
 the same data/property values.
+</p>
+<p>
+If the state of the current instance does not specify a <a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Method">Method</a>; IE the method is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>,
+then <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod.get">Get</a> will be used.
 </p>
 </div>
 
@@ -457,7 +557,7 @@ the same data/property values.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L28" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L27" class="edit-link">Edit this page</a>
         </div>
 
 

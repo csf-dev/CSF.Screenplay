@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -91,9 +91,6 @@
 This <em>is especially important for <a href="../../glossary/Action.html">Actions</a> and/or <a href="../../glossary/Question.html">Questions</a></em> but also relevant for lower-level/reusable <a href="../../glossary/Task.html">Tasks</a>.</p>
 <p>Parameters should be accepted via the class' public constructor, the values to these parameters <a href="StatefulButImmutable.html">should then be held <code>readonly</code></a>.
 Accept as many parameters as are reasonable, although avoid going so far that parameterisation makes a Performable unclear as to what it does.</p>
-<p><a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a> are written <em>a lot like scripts</em>.
-They very rarely (and should not) contain a lot of branching or looping logic, which means that a performable which changes behaviour based upon a parameter value <em>is of very little use</em>.
-It is better to separate the logic into individual performables and to just use the one which is needed at the time.</p>
 <h2 id="an-example">An example</h2>
 <p>Imagine we are writing a Task which makes a cup of coffee, ready to serve.
 It would make sense to include parameters which decide the strength of the coffee, how much milk and sweetener to add and similar.</p>
@@ -104,7 +101,7 @@ The processes for making various hot drinks are often fundamentally different; c
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/writingPerformables/ParameterizeLowLevelPerformables.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
