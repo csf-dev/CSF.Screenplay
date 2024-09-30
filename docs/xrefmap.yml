@@ -1124,116 +1124,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.DefaultStrings.GetReport
   nameWithType: DefaultStrings.GetReport
-- uid: CSF.Screenplay.HttpRequestMessageBuilder
-  name: HttpRequestMessageBuilder
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html
-  commentId: T:CSF.Screenplay.HttpRequestMessageBuilder
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder
-  nameWithType: HttpRequestMessageBuilder
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Content
-  name: Content
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Content
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Content
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Content
-  nameWithType: HttpRequestMessageBuilder.Content
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Content*
-  name: Content
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Content_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Content
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Content
-  nameWithType: HttpRequestMessageBuilder.Content
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
-  name: CreateRequestMessage()
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage
-  commentId: M:CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage()
-  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage()
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage*
-  name: CreateRequestMessage
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_CreateRequestMessage_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.CreateRequestMessage
-  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Headers
-  name: Headers
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Headers
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Headers
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Headers
-  nameWithType: HttpRequestMessageBuilder.Headers
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Headers*
-  name: Headers
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Headers_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Headers
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Headers
-  nameWithType: HttpRequestMessageBuilder.Headers
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Method
-  name: Method
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Method
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Method
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Method
-  nameWithType: HttpRequestMessageBuilder.Method
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Method*
-  name: Method
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Method_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Method
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Method
-  nameWithType: HttpRequestMessageBuilder.Method
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Options
-  name: Options
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Options
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Options
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Options
-  nameWithType: HttpRequestMessageBuilder.Options
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Options*
-  name: Options
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Options_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Options
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Options
-  nameWithType: HttpRequestMessageBuilder.Options
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
-  name: RequestUri
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_RequestUri
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
-  nameWithType: HttpRequestMessageBuilder.RequestUri
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri*
-  name: RequestUri
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_RequestUri_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.RequestUri
-  nameWithType: HttpRequestMessageBuilder.RequestUri
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Version
-  name: Version
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Version
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.Version
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Version
-  nameWithType: HttpRequestMessageBuilder.Version
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.Version*
-  name: Version
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_Version_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.Version
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.Version
-  nameWithType: HttpRequestMessageBuilder.Version
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
-  name: VersionPolicy
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy
-  commentId: P:CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
-  nameWithType: HttpRequestMessageBuilder.VersionPolicy
-- uid: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy*
-  name: VersionPolicy
-  href: api/CSF.Screenplay.HttpRequestMessageBuilder.html#CSF_Screenplay_HttpRequestMessageBuilder_VersionPolicy_
-  commentId: Overload:CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
-  isSpec: "True"
-  fullName: CSF.Screenplay.HttpRequestMessageBuilder.VersionPolicy
-  nameWithType: HttpRequestMessageBuilder.VersionPolicy
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -1315,25 +1205,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ICast.GetActor
   nameWithType: ICast.GetActor
-- uid: CSF.Screenplay.ICreatesHttpRequestMessage
-  name: ICreatesHttpRequestMessage
-  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html
-  commentId: T:CSF.Screenplay.ICreatesHttpRequestMessage
-  fullName: CSF.Screenplay.ICreatesHttpRequestMessage
-  nameWithType: ICreatesHttpRequestMessage
-- uid: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
-  name: CreateRequestMessage()
-  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html#CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage
-  commentId: M:CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
-  fullName: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage()
-  nameWithType: ICreatesHttpRequestMessage.CreateRequestMessage()
-- uid: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage*
-  name: CreateRequestMessage
-  href: api/CSF.Screenplay.ICreatesHttpRequestMessage.html#CSF_Screenplay_ICreatesHttpRequestMessage_CreateRequestMessage_
-  commentId: Overload:CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
-  isSpec: "True"
-  fullName: CSF.Screenplay.ICreatesHttpRequestMessage.CreateRequestMessage
-  nameWithType: ICreatesHttpRequestMessage.CreateRequestMessage
 - uid: CSF.Screenplay.IGetsScreenplay
   name: IGetsScreenplay
   href: api/CSF.Screenplay.IGetsScreenplay.html
@@ -1624,70 +1495,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IStage.TurnSpotlightOff
   nameWithType: IStage.TurnSpotlightOff
-- uid: CSF.Screenplay.NameValueRecordCollection`2
-  name: NameValueRecordCollection<TKey, TValue>
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html
-  commentId: T:CSF.Screenplay.NameValueRecordCollection`2
-  name.vb: NameValueRecordCollection(Of TKey, TValue)
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue)
-  nameWithType: NameValueRecordCollection<TKey, TValue>
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue)
-- uid: CSF.Screenplay.NameValueRecordCollection`2.#ctor
-  name: NameValueRecordCollection()
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2__ctor
-  commentId: M:CSF.Screenplay.NameValueRecordCollection`2.#ctor
-  name.vb: New()
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).New()
-  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New()
-- uid: CSF.Screenplay.NameValueRecordCollection`2.#ctor*
-  name: NameValueRecordCollection
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2__ctor_
-  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).New
-  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New
-- uid: CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
-  name: GetEnumerator()
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_GetEnumerator
-  commentId: M:CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.GetEnumerator()
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
-  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator()
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
-- uid: CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator*
-  name: GetEnumerator
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_GetEnumerator_
-  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.GetEnumerator
-  isSpec: "True"
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.GetEnumerator
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).GetEnumerator
-  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator
-- uid: CSF.Screenplay.NameValueRecordCollection`2.Item(`0)
-  name: this[TKey]
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_Item__0_
-  commentId: P:CSF.Screenplay.NameValueRecordCollection`2.Item(`0)
-  name.vb: this[](TKey)
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.this[TKey]
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).this[](TKey)
-  nameWithType: NameValueRecordCollection<TKey, TValue>.this[TKey]
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[](TKey)
-- uid: CSF.Screenplay.NameValueRecordCollection`2.Item*
-  name: this
-  href: api/CSF.Screenplay.NameValueRecordCollection-2.html#CSF_Screenplay_NameValueRecordCollection_2_Item_
-  commentId: Overload:CSF.Screenplay.NameValueRecordCollection`2.Item
-  isSpec: "True"
-  name.vb: this[]
-  fullName: CSF.Screenplay.NameValueRecordCollection<TKey, TValue>.this
-  fullName.vb: CSF.Screenplay.NameValueRecordCollection(Of TKey, TValue).this[]
-  nameWithType: NameValueRecordCollection<TKey, TValue>.this
-  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[]
 - uid: CSF.Screenplay.PerformableExtensions
   name: PerformableExtensions
   href: api/CSF.Screenplay.PerformableExtensions.html
@@ -4027,6 +3834,1077 @@ references:
   fullName.vb: CSF.Screenplay.StageExtensions.Spotlight(Of TPersona)(CSF.Screenplay.IStage)
   nameWithType: StageExtensions.Spotlight<TPersona>(IStage)
   nameWithType.vb: StageExtensions.Spotlight(Of TPersona)(IStage)
+- uid: CSF.Screenplay.WebApis
+  name: CSF.Screenplay.WebApis
+  href: api/CSF.Screenplay.WebApis.html
+  commentId: N:CSF.Screenplay.WebApis
+  fullName: CSF.Screenplay.WebApis
+  nameWithType: CSF.Screenplay.WebApis
+- uid: CSF.Screenplay.WebApis.Endpoint
+  name: Endpoint
+  href: api/CSF.Screenplay.WebApis.Endpoint.html
+  commentId: T:CSF.Screenplay.WebApis.Endpoint
+  fullName: CSF.Screenplay.WebApis.Endpoint
+  nameWithType: Endpoint
+- uid: CSF.Screenplay.WebApis.Endpoint.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: Endpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.Endpoint.html#CSF_Screenplay_WebApis_Endpoint__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.Endpoint.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.Endpoint.Endpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint.New(String, System.Net.Http.HttpMethod)
+  nameWithType: Endpoint.Endpoint(string, HttpMethod)
+  nameWithType.vb: Endpoint.New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.Endpoint.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: Endpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.Endpoint.html#CSF_Screenplay_WebApis_Endpoint__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.Endpoint.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.Endpoint.Endpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint.New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: Endpoint.Endpoint(Uri, HttpMethod)
+  nameWithType.vb: Endpoint.New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.Endpoint.#ctor*
+  name: Endpoint
+  href: api/CSF.Screenplay.WebApis.Endpoint.html#CSF_Screenplay_WebApis_Endpoint__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.Endpoint.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.Endpoint.Endpoint
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint.New
+  nameWithType: Endpoint.Endpoint
+  nameWithType.vb: Endpoint.New
+- uid: CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder
+  name: GetHttpRequestMessageBuilder()
+  href: api/CSF.Screenplay.WebApis.Endpoint.html#CSF_Screenplay_WebApis_Endpoint_GetHttpRequestMessageBuilder
+  commentId: M:CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder
+  fullName: CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder()
+  nameWithType: Endpoint.GetHttpRequestMessageBuilder()
+- uid: CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.Endpoint.html#CSF_Screenplay_WebApis_Endpoint_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.Endpoint.GetHttpRequestMessageBuilder
+  nameWithType: Endpoint.GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.EndpointBase
+  name: EndpointBase
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html
+  commentId: T:CSF.Screenplay.WebApis.EndpointBase
+  fullName: CSF.Screenplay.WebApis.EndpointBase
+  nameWithType: EndpointBase
+- uid: CSF.Screenplay.WebApis.EndpointBase.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: EndpointBase(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.EndpointBase.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.EndpointBase.EndpointBase(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.EndpointBase.New(String, System.Net.Http.HttpMethod)
+  nameWithType: EndpointBase.EndpointBase(string, HttpMethod)
+  nameWithType.vb: EndpointBase.New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.EndpointBase.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: EndpointBase(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.EndpointBase.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.EndpointBase.EndpointBase(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.EndpointBase.New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: EndpointBase.EndpointBase(Uri, HttpMethod)
+  nameWithType.vb: EndpointBase.New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.EndpointBase.#ctor*
+  name: EndpointBase
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.EndpointBase.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.EndpointBase.EndpointBase
+  fullName.vb: CSF.Screenplay.WebApis.EndpointBase.New
+  nameWithType: EndpointBase.EndpointBase
+  nameWithType.vb: EndpointBase.New
+- uid: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder
+  name: GetBaseHttpRequestMessageBuilder()
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_GetBaseHttpRequestMessageBuilder
+  commentId: M:CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder
+  fullName: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder()
+  nameWithType: EndpointBase.GetBaseHttpRequestMessageBuilder()
+- uid: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder*
+  name: GetBaseHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_GetBaseHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder
+  nameWithType: EndpointBase.GetBaseHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder``1
+  name: GetBaseHttpRequestMessageBuilder<TResponse>()
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_GetBaseHttpRequestMessageBuilder__1
+  commentId: M:CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder``1
+  name.vb: GetBaseHttpRequestMessageBuilder(Of TResponse)()
+  fullName: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder<TResponse>()
+  fullName.vb: CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder(Of TResponse)()
+  nameWithType: EndpointBase.GetBaseHttpRequestMessageBuilder<TResponse>()
+  nameWithType.vb: EndpointBase.GetBaseHttpRequestMessageBuilder(Of TResponse)()
+- uid: CSF.Screenplay.WebApis.EndpointBase.Name
+  name: Name
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Name
+  commentId: P:CSF.Screenplay.WebApis.EndpointBase.Name
+  fullName: CSF.Screenplay.WebApis.EndpointBase.Name
+  nameWithType: EndpointBase.Name
+- uid: CSF.Screenplay.WebApis.EndpointBase.Name*
+  name: Name
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Name_
+  commentId: Overload:CSF.Screenplay.WebApis.EndpointBase.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.EndpointBase.Name
+  nameWithType: EndpointBase.Name
+- uid: CSF.Screenplay.WebApis.EndpointBase.Timeout
+  name: Timeout
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Timeout
+  commentId: P:CSF.Screenplay.WebApis.EndpointBase.Timeout
+  fullName: CSF.Screenplay.WebApis.EndpointBase.Timeout
+  nameWithType: EndpointBase.Timeout
+- uid: CSF.Screenplay.WebApis.EndpointBase.Timeout*
+  name: Timeout
+  href: api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Timeout_
+  commentId: Overload:CSF.Screenplay.WebApis.EndpointBase.Timeout
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.EndpointBase.Timeout
+  nameWithType: EndpointBase.Timeout
+- uid: CSF.Screenplay.WebApis.Endpoint`1
+  name: Endpoint<TResult>
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html
+  commentId: T:CSF.Screenplay.WebApis.Endpoint`1
+  name.vb: Endpoint(Of TResult)
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult)
+  nameWithType: Endpoint<TResult>
+  nameWithType.vb: Endpoint(Of TResult)
+- uid: CSF.Screenplay.WebApis.Endpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: Endpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html#CSF_Screenplay_WebApis_Endpoint_1__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.Endpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>.Endpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult).New(String, System.Net.Http.HttpMethod)
+  nameWithType: Endpoint<TResult>.Endpoint(string, HttpMethod)
+  nameWithType.vb: Endpoint(Of TResult).New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.Endpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: Endpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html#CSF_Screenplay_WebApis_Endpoint_1__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.Endpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>.Endpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: Endpoint<TResult>.Endpoint(Uri, HttpMethod)
+  nameWithType.vb: Endpoint(Of TResult).New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.Endpoint`1.#ctor*
+  name: Endpoint
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html#CSF_Screenplay_WebApis_Endpoint_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.Endpoint`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>.Endpoint
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult).New
+  nameWithType: Endpoint<TResult>.Endpoint
+  nameWithType.vb: Endpoint(Of TResult).New
+- uid: CSF.Screenplay.WebApis.Endpoint`1.GetHttpRequestMessageBuilder
+  name: GetHttpRequestMessageBuilder()
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html#CSF_Screenplay_WebApis_Endpoint_1_GetHttpRequestMessageBuilder
+  commentId: M:CSF.Screenplay.WebApis.Endpoint`1.GetHttpRequestMessageBuilder
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>.GetHttpRequestMessageBuilder()
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult).GetHttpRequestMessageBuilder()
+  nameWithType: Endpoint<TResult>.GetHttpRequestMessageBuilder()
+  nameWithType.vb: Endpoint(Of TResult).GetHttpRequestMessageBuilder()
+- uid: CSF.Screenplay.WebApis.Endpoint`1.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.Endpoint-1.html#CSF_Screenplay_WebApis_Endpoint_1_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.Endpoint`1.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.Endpoint<TResult>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.Endpoint(Of TResult).GetHttpRequestMessageBuilder
+  nameWithType: Endpoint<TResult>.GetHttpRequestMessageBuilder
+  nameWithType.vb: Endpoint(Of TResult).GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder
+  name: HttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html
+  commentId: T:CSF.Screenplay.WebApis.HttpRequestMessageBuilder
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder
+  nameWithType: HttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content
+  name: Content
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Content
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content
+  nameWithType: HttpRequestMessageBuilder.Content
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content*
+  name: Content
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Content_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Content
+  nameWithType: HttpRequestMessageBuilder.Content
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
+  name: CreateRequestMessage()
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage
+  commentId: M:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage()
+  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage()
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage*
+  name: CreateRequestMessage
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
+  nameWithType: HttpRequestMessageBuilder.CreateRequestMessage
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
+  name: Headers
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
+  nameWithType: HttpRequestMessageBuilder.Headers
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers*
+  name: Headers
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
+  nameWithType: HttpRequestMessageBuilder.Headers
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method
+  name: Method
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Method
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method
+  nameWithType: HttpRequestMessageBuilder.Method
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method*
+  name: Method
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Method_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Method
+  nameWithType: HttpRequestMessageBuilder.Method
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name
+  name: Name
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name
+  nameWithType: HttpRequestMessageBuilder.Name
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name*
+  name: Name
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Name
+  nameWithType: HttpRequestMessageBuilder.Name
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options
+  name: Options
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Options
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options
+  nameWithType: HttpRequestMessageBuilder.Options
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options*
+  name: Options
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Options_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Options
+  nameWithType: HttpRequestMessageBuilder.Options
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri
+  name: RequestUri
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_RequestUri
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri
+  nameWithType: HttpRequestMessageBuilder.RequestUri
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri*
+  name: RequestUri
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_RequestUri_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.RequestUri
+  nameWithType: HttpRequestMessageBuilder.RequestUri
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout
+  name: Timeout
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Timeout
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout
+  nameWithType: HttpRequestMessageBuilder.Timeout
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout*
+  name: Timeout
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Timeout_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Timeout
+  nameWithType: HttpRequestMessageBuilder.Timeout
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version
+  name: Version
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Version
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version
+  nameWithType: HttpRequestMessageBuilder.Version
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version*
+  name: Version
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Version_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Version
+  nameWithType: HttpRequestMessageBuilder.Version
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy
+  name: VersionPolicy
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_VersionPolicy
+  commentId: P:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy
+  nameWithType: HttpRequestMessageBuilder.VersionPolicy
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy*
+  name: VersionPolicy
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_VersionPolicy_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.VersionPolicy
+  nameWithType: HttpRequestMessageBuilder.VersionPolicy
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder`1
+  name: HttpRequestMessageBuilder<TResponse>
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html
+  commentId: T:CSF.Screenplay.WebApis.HttpRequestMessageBuilder`1
+  name.vb: HttpRequestMessageBuilder(Of TResponse)
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder<TResponse>
+  fullName.vb: CSF.Screenplay.WebApis.HttpRequestMessageBuilder(Of TResponse)
+  nameWithType: HttpRequestMessageBuilder<TResponse>
+  nameWithType.vb: HttpRequestMessageBuilder(Of TResponse)
+- uid: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1
+  name: HttpResponseMessageAndResponseType<TResponse>
+  href: api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html
+  commentId: T:CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1
+  name.vb: HttpResponseMessageAndResponseType(Of TResponse)
+  fullName: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType<TResponse>
+  fullName.vb: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType(Of TResponse)
+  nameWithType: HttpResponseMessageAndResponseType<TResponse>
+  nameWithType.vb: HttpResponseMessageAndResponseType(Of TResponse)
+- uid: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.#ctor(System.Net.Http.HttpResponseMessage)
+  name: HttpResponseMessageAndResponseType(HttpResponseMessage)
+  href: api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html#CSF_Screenplay_WebApis_HttpResponseMessageAndResponseType_1__ctor_System_Net_Http_HttpResponseMessage_
+  commentId: M:CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.#ctor(System.Net.Http.HttpResponseMessage)
+  name.vb: New(HttpResponseMessage)
+  fullName: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType<TResponse>.HttpResponseMessageAndResponseType(System.Net.Http.HttpResponseMessage)
+  fullName.vb: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType(Of TResponse).New(System.Net.Http.HttpResponseMessage)
+  nameWithType: HttpResponseMessageAndResponseType<TResponse>.HttpResponseMessageAndResponseType(HttpResponseMessage)
+  nameWithType.vb: HttpResponseMessageAndResponseType(Of TResponse).New(HttpResponseMessage)
+- uid: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.#ctor*
+  name: HttpResponseMessageAndResponseType
+  href: api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html#CSF_Screenplay_WebApis_HttpResponseMessageAndResponseType_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType<TResponse>.HttpResponseMessageAndResponseType
+  fullName.vb: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType(Of TResponse).New
+  nameWithType: HttpResponseMessageAndResponseType<TResponse>.HttpResponseMessageAndResponseType
+  nameWithType.vb: HttpResponseMessageAndResponseType(Of TResponse).New
+- uid: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.ResponseMessage
+  name: ResponseMessage
+  href: api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html#CSF_Screenplay_WebApis_HttpResponseMessageAndResponseType_1_ResponseMessage
+  commentId: P:CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.ResponseMessage
+  fullName: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType<TResponse>.ResponseMessage
+  fullName.vb: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType(Of TResponse).ResponseMessage
+  nameWithType: HttpResponseMessageAndResponseType<TResponse>.ResponseMessage
+  nameWithType.vb: HttpResponseMessageAndResponseType(Of TResponse).ResponseMessage
+- uid: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.ResponseMessage*
+  name: ResponseMessage
+  href: api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html#CSF_Screenplay_WebApis_HttpResponseMessageAndResponseType_1_ResponseMessage_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType`1.ResponseMessage
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType<TResponse>.ResponseMessage
+  fullName.vb: CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType(Of TResponse).ResponseMessage
+  nameWithType: HttpResponseMessageAndResponseType<TResponse>.ResponseMessage
+  nameWithType.vb: HttpResponseMessageAndResponseType(Of TResponse).ResponseMessage
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1
+  name: JsonEndpoint<TParameters>
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html
+  commentId: T:CSF.Screenplay.WebApis.JsonEndpoint`1
+  name.vb: JsonEndpoint(Of TParameters)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters)
+  nameWithType: JsonEndpoint<TParameters>
+  nameWithType.vb: JsonEndpoint(Of TParameters)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: JsonEndpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html#CSF_Screenplay_WebApis_JsonEndpoint_1__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>.JsonEndpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters).New(String, System.Net.Http.HttpMethod)
+  nameWithType: JsonEndpoint<TParameters>.JsonEndpoint(string, HttpMethod)
+  nameWithType.vb: JsonEndpoint(Of TParameters).New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: JsonEndpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html#CSF_Screenplay_WebApis_JsonEndpoint_1__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>.JsonEndpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: JsonEndpoint<TParameters>.JsonEndpoint(Uri, HttpMethod)
+  nameWithType.vb: JsonEndpoint(Of TParameters).New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor*
+  name: JsonEndpoint
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html#CSF_Screenplay_WebApis_JsonEndpoint_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.JsonEndpoint`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>.JsonEndpoint
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters).New
+  nameWithType: JsonEndpoint<TParameters>.JsonEndpoint
+  nameWithType.vb: JsonEndpoint(Of TParameters).New
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1.GetHttpRequestMessageBuilder(`0)
+  name: GetHttpRequestMessageBuilder(TParameters)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html#CSF_Screenplay_WebApis_JsonEndpoint_1_GetHttpRequestMessageBuilder__0_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`1.GetHttpRequestMessageBuilder(`0)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>.GetHttpRequestMessageBuilder(TParameters)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters).GetHttpRequestMessageBuilder(TParameters)
+  nameWithType: JsonEndpoint<TParameters>.GetHttpRequestMessageBuilder(TParameters)
+  nameWithType.vb: JsonEndpoint(Of TParameters).GetHttpRequestMessageBuilder(TParameters)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`1.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-1.html#CSF_Screenplay_WebApis_JsonEndpoint_1_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.JsonEndpoint`1.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters).GetHttpRequestMessageBuilder
+  nameWithType: JsonEndpoint<TParameters>.GetHttpRequestMessageBuilder
+  nameWithType.vb: JsonEndpoint(Of TParameters).GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2
+  name: JsonEndpoint<TParameters, TResult>
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html
+  commentId: T:CSF.Screenplay.WebApis.JsonEndpoint`2
+  name.vb: JsonEndpoint(Of TParameters, TResult)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult)
+  nameWithType: JsonEndpoint<TParameters, TResult>
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: JsonEndpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html#CSF_Screenplay_WebApis_JsonEndpoint_2__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>.JsonEndpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult).New(String, System.Net.Http.HttpMethod)
+  nameWithType: JsonEndpoint<TParameters, TResult>.JsonEndpoint(string, HttpMethod)
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult).New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: JsonEndpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html#CSF_Screenplay_WebApis_JsonEndpoint_2__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>.JsonEndpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: JsonEndpoint<TParameters, TResult>.JsonEndpoint(Uri, HttpMethod)
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult).New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor*
+  name: JsonEndpoint
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html#CSF_Screenplay_WebApis_JsonEndpoint_2__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.JsonEndpoint`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>.JsonEndpoint
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult).New
+  nameWithType: JsonEndpoint<TParameters, TResult>.JsonEndpoint
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult).New
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2.GetHttpRequestMessageBuilder(`0)
+  name: GetHttpRequestMessageBuilder(TParameters)
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html#CSF_Screenplay_WebApis_JsonEndpoint_2_GetHttpRequestMessageBuilder__0_
+  commentId: M:CSF.Screenplay.WebApis.JsonEndpoint`2.GetHttpRequestMessageBuilder(`0)
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder(TParameters)
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder(TParameters)
+  nameWithType: JsonEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder(TParameters)
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder(TParameters)
+- uid: CSF.Screenplay.WebApis.JsonEndpoint`2.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.JsonEndpoint-2.html#CSF_Screenplay_WebApis_JsonEndpoint_2_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.JsonEndpoint`2.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.JsonEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.JsonEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder
+  nameWithType: JsonEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder
+  nameWithType.vb: JsonEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests
+  name: MakeWebApiRequests
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html
+  commentId: T:CSF.Screenplay.WebApis.MakeWebApiRequests
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests
+  nameWithType: MakeWebApiRequests
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient(System.String,System.String)
+  name: AddClient(string, string)
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_AddClient_System_String_System_String_
+  commentId: M:CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient(System.String,System.String)
+  name.vb: AddClient(String, String)
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient(string, string)
+  fullName.vb: CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient(String, String)
+  nameWithType: MakeWebApiRequests.AddClient(string, string)
+  nameWithType.vb: MakeWebApiRequests.AddClient(String, String)
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient*
+  name: AddClient
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_AddClient_
+  commentId: Overload:CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.AddClient
+  nameWithType: MakeWebApiRequests.AddClient
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient
+  name: DefaultClient
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_DefaultClient
+  commentId: P:CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient
+  nameWithType: MakeWebApiRequests.DefaultClient
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient*
+  name: DefaultClient
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_DefaultClient_
+  commentId: Overload:CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.DefaultClient
+  nameWithType: MakeWebApiRequests.DefaultClient
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_Dispose
+  commentId: M:CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose()
+  nameWithType: MakeWebApiRequests.Dispose()
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_Dispose_
+  commentId: Overload:CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.Dispose
+  nameWithType: MakeWebApiRequests.Dispose
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient(System.String)
+  name: GetClient(string)
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_GetClient_System_String_
+  commentId: M:CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient(System.String)
+  name.vb: GetClient(String)
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient(string)
+  fullName.vb: CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient(String)
+  nameWithType: MakeWebApiRequests.GetClient(string)
+  nameWithType.vb: MakeWebApiRequests.GetClient(String)
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient*
+  name: GetClient
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_GetClient_
+  commentId: Overload:CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.GetClient
+  nameWithType: MakeWebApiRequests.GetClient
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.Item(System.String)
+  name: this[string]
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_Item_System_String_
+  commentId: P:CSF.Screenplay.WebApis.MakeWebApiRequests.Item(System.String)
+  name.vb: this[](String)
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.this[string]
+  fullName.vb: CSF.Screenplay.WebApis.MakeWebApiRequests.this[](String)
+  nameWithType: MakeWebApiRequests.this[string]
+  nameWithType.vb: MakeWebApiRequests.this[](String)
+- uid: CSF.Screenplay.WebApis.MakeWebApiRequests.Item*
+  name: this
+  href: api/CSF.Screenplay.WebApis.MakeWebApiRequests.html#CSF_Screenplay_WebApis_MakeWebApiRequests_Item_
+  commentId: Overload:CSF.Screenplay.WebApis.MakeWebApiRequests.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: CSF.Screenplay.WebApis.MakeWebApiRequests.this
+  fullName.vb: CSF.Screenplay.WebApis.MakeWebApiRequests.this[]
+  nameWithType: MakeWebApiRequests.this
+  nameWithType.vb: MakeWebApiRequests.this[]
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2
+  name: NameValueRecordCollection<TKey, TValue>
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html
+  commentId: T:CSF.Screenplay.WebApis.NameValueRecordCollection`2
+  name.vb: NameValueRecordCollection(Of TKey, TValue)
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue)
+  nameWithType: NameValueRecordCollection<TKey, TValue>
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue)
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.#ctor
+  name: NameValueRecordCollection()
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2__ctor
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.#ctor
+  name.vb: New()
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).New()
+  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection()
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New()
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.#ctor*
+  name: NameValueRecordCollection
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).New
+  nameWithType: NameValueRecordCollection<TKey, TValue>.NameValueRecordCollection
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).New
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals(CSF.Screenplay.WebApis.NameValueRecordCollection{`0,`1})
+  name: Equals(NameValueRecordCollection<TKey, TValue>?)
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_Equals_CSF_Screenplay_WebApis_NameValueRecordCollection__0__1__
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals(CSF.Screenplay.WebApis.NameValueRecordCollection{`0,`1})
+  name.vb: Equals(NameValueRecordCollection(Of TKey, TValue))
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.Equals(CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>?)
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).Equals(CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue))
+  nameWithType: NameValueRecordCollection<TKey, TValue>.Equals(NameValueRecordCollection<TKey, TValue>?)
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).Equals(NameValueRecordCollection(Of TKey, TValue))
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals(System.Object)
+  name: Equals(object?)
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_Equals_System_Object_
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.Equals(object?)
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).Equals(Object)
+  nameWithType: NameValueRecordCollection<TKey, TValue>.Equals(object?)
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).Equals(Object)
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals*
+  name: Equals
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_Equals_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.Equals
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.Equals
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).Equals
+  nameWithType: NameValueRecordCollection<TKey, TValue>.Equals
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).Equals
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetEnumerator
+  name: GetEnumerator()
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_GetEnumerator
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetEnumerator
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.GetEnumerator()
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator()
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator()
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetEnumerator*
+  name: GetEnumerator
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_GetEnumerator_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetEnumerator
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.GetEnumerator
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).GetEnumerator
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetEnumerator
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetEnumerator
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetHashCode
+  name: GetHashCode()
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_GetHashCode
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetHashCode
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.GetHashCode()
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).GetHashCode()
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetHashCode()
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetHashCode()
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetHashCode*
+  name: GetHashCode
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_GetHashCode_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.GetHashCode
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.GetHashCode
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).GetHashCode
+  nameWithType: NameValueRecordCollection<TKey, TValue>.GetHashCode
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).GetHashCode
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.Item(`0)
+  name: this[TKey]
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_Item__0_
+  commentId: P:CSF.Screenplay.WebApis.NameValueRecordCollection`2.Item(`0)
+  name.vb: this[](TKey)
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.this[TKey]
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).this[](TKey)
+  nameWithType: NameValueRecordCollection<TKey, TValue>.this[TKey]
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[](TKey)
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.Item*
+  name: this
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_Item_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.this
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).this[]
+  nameWithType: NameValueRecordCollection<TKey, TValue>.this
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).this[]
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItem(`0,`1)
+  name: WithItem(TKey, TValue?)
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_WithItem__0__1_
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItem(`0,`1)
+  name.vb: WithItem(TKey, TValue)
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.WithItem(TKey, TValue?)
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).WithItem(TKey, TValue)
+  nameWithType: NameValueRecordCollection<TKey, TValue>.WithItem(TKey, TValue?)
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).WithItem(TKey, TValue)
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItem*
+  name: WithItem
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_WithItem_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItem
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.WithItem
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).WithItem
+  nameWithType: NameValueRecordCollection<TKey, TValue>.WithItem
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).WithItem
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItems(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})
+  name: WithItems(IEnumerable<KeyValuePair<TKey, TValue?>>)
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_WithItems_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair__0__1___
+  commentId: M:CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItems(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})
+  name.vb: WithItems(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.WithItems(System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<TKey, TValue?>>)
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).WithItems(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)))
+  nameWithType: NameValueRecordCollection<TKey, TValue>.WithItems(IEnumerable<KeyValuePair<TKey, TValue?>>)
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).WithItems(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
+- uid: CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItems*
+  name: WithItems
+  href: api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html#CSF_Screenplay_WebApis_NameValueRecordCollection_2_WithItems_
+  commentId: Overload:CSF.Screenplay.WebApis.NameValueRecordCollection`2.WithItems
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.NameValueRecordCollection<TKey, TValue>.WithItems
+  fullName.vb: CSF.Screenplay.WebApis.NameValueRecordCollection(Of TKey, TValue).WithItems
+  nameWithType: NameValueRecordCollection<TKey, TValue>.WithItems
+  nameWithType.vb: NameValueRecordCollection(Of TKey, TValue).WithItems
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1
+  name: ParameterizedEndpoint<TParameters>
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html
+  commentId: T:CSF.Screenplay.WebApis.ParameterizedEndpoint`1
+  name.vb: ParameterizedEndpoint(Of TParameters)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters)
+  nameWithType: ParameterizedEndpoint<TParameters>
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: ParameterizedEndpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_1__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>.ParameterizedEndpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters).New(String, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters>.ParameterizedEndpoint(string, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters).New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: ParameterizedEndpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_1__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>.ParameterizedEndpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters>.ParameterizedEndpoint(Uri, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters).New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor*
+  name: ParameterizedEndpoint
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>.ParameterizedEndpoint
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters).New
+  nameWithType: ParameterizedEndpoint<TParameters>.ParameterizedEndpoint
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters).New
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1.GetHttpRequestMessageBuilder(`0)
+  name: GetHttpRequestMessageBuilder(TParameters)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_1_GetHttpRequestMessageBuilder__0_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`1.GetHttpRequestMessageBuilder(`0)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>.GetHttpRequestMessageBuilder(TParameters)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters).GetHttpRequestMessageBuilder(TParameters)
+  nameWithType: ParameterizedEndpoint<TParameters>.GetHttpRequestMessageBuilder(TParameters)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters).GetHttpRequestMessageBuilder(TParameters)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`1.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_1_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`1.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters).GetHttpRequestMessageBuilder
+  nameWithType: ParameterizedEndpoint<TParameters>.GetHttpRequestMessageBuilder
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters).GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2
+  name: ParameterizedEndpoint<TParameters, TResponse>
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html
+  commentId: T:CSF.Screenplay.WebApis.ParameterizedEndpoint`2
+  name.vb: ParameterizedEndpoint(Of TParameters, TResponse)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse)
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
+  name: ParameterizedEndpoint(string, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_System_String_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
+  name.vb: New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New(String, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(string, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New(String, HttpMethod)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name: ParameterizedEndpoint(Uri, HttpMethod)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_System_Uri_System_Net_Http_HttpMethod_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
+  name.vb: New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(Uri, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New(Uri, HttpMethod)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor*
+  name: ParameterizedEndpoint
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder(`0)
+  name: GetHttpRequestMessageBuilder(TParameters)
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2_GetHttpRequestMessageBuilder__0_
+  commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder(`0)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder(TParameters)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder(TParameters)
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder(TParameters)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder(TParameters)
+- uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder*
+  name: GetHttpRequestMessageBuilder
+  href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2_GetHttpRequestMessageBuilder_
+  commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder
+  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest
+  name: SendTheHttpRequest
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html
+  commentId: T:CSF.Screenplay.WebApis.SendTheHttpRequest
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest
+  nameWithType: SendTheHttpRequest
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder,System.String)
+  name: SendTheHttpRequest(HttpRequestMessageBuilder, string)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest__ctor_CSF_Screenplay_WebApis_HttpRequestMessageBuilder_System_String_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequest.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder,System.String)
+  name.vb: New(HttpRequestMessageBuilder, String)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.SendTheHttpRequest(CSF.Screenplay.WebApis.HttpRequestMessageBuilder, string)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequest.New(CSF.Screenplay.WebApis.HttpRequestMessageBuilder, String)
+  nameWithType: SendTheHttpRequest.SendTheHttpRequest(HttpRequestMessageBuilder, string)
+  nameWithType.vb: SendTheHttpRequest.New(HttpRequestMessageBuilder, String)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.#ctor*
+  name: SendTheHttpRequest
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequest.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.SendTheHttpRequest
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequest.New
+  nameWithType: SendTheHttpRequest.SendTheHttpRequest
+  nameWithType.vb: SendTheHttpRequest.New
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: SendTheHttpRequest.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment
+  nameWithType: SendTheHttpRequest.GetReportFragment
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: SendTheHttpRequest.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.PerformAsAsync
+  nameWithType: SendTheHttpRequest.PerformAsAsync
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1
+  name: SendTheHttpRequestAndGetJsonResponse<TResponse>
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html
+  commentId: T:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1
+  name.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse)
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder{`0},System.String)
+  name: SendTheHttpRequestAndGetJsonResponse(HttpRequestMessageBuilder<TResponse>, string)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1__ctor_CSF_Screenplay_WebApis_HttpRequestMessageBuilder__0__System_String_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder{`0},System.String)
+  name.vb: New(HttpRequestMessageBuilder(Of TResponse), String)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.SendTheHttpRequestAndGetJsonResponse(CSF.Screenplay.WebApis.HttpRequestMessageBuilder<TResponse>, string)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).New(CSF.Screenplay.WebApis.HttpRequestMessageBuilder(Of TResponse), String)
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.SendTheHttpRequestAndGetJsonResponse(HttpRequestMessageBuilder<TResponse>, string)
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).New(HttpRequestMessageBuilder(Of TResponse), String)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.#ctor*
+  name: SendTheHttpRequestAndGetJsonResponse
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.SendTheHttpRequestAndGetJsonResponse
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).New
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.SendTheHttpRequestAndGetJsonResponse
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).New
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(IHasName)
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.PerformAsAsync(ICanPerform, CancellationToken)
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.PerformAsAsync
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).PerformAsAsync
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.PerformAsAsync
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).PerformAsAsync
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1
+  name: SendTheHttpRequestAndGetTheResponse<TResponse>
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html
+  commentId: T:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1
+  name.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse)
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder{`0},System.String)
+  name: SendTheHttpRequestAndGetTheResponse(HttpRequestMessageBuilder<TResponse>, string)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1__ctor_CSF_Screenplay_WebApis_HttpRequestMessageBuilder__0__System_String_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder{`0},System.String)
+  name.vb: New(HttpRequestMessageBuilder(Of TResponse), String)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.SendTheHttpRequestAndGetTheResponse(CSF.Screenplay.WebApis.HttpRequestMessageBuilder<TResponse>, string)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).New(CSF.Screenplay.WebApis.HttpRequestMessageBuilder(Of TResponse), String)
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.SendTheHttpRequestAndGetTheResponse(HttpRequestMessageBuilder<TResponse>, string)
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).New(HttpRequestMessageBuilder(Of TResponse), String)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.#ctor*
+  name: SendTheHttpRequestAndGetTheResponse
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1__ctor_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.SendTheHttpRequestAndGetTheResponse
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).New
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.SendTheHttpRequestAndGetTheResponse
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).New
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
+  name: GetReportFragment(IHasName)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName)
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(IHasName)
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.PerformAsAsync(ICanPerform, CancellationToken)
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.PerformAsAsync
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).PerformAsAsync
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.PerformAsAsync
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).PerformAsAsync
+- uid: CSF.Screenplay.WebApis.WebApiBuilder
+  name: WebApiBuilder
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html
+  commentId: T:CSF.Screenplay.WebApis.WebApiBuilder
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder
+  nameWithType: WebApiBuilder
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult*
+  name: GetTheJsonResult
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_GetTheJsonResult_
+  commentId: Overload:CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult
+  nameWithType: WebApiBuilder.GetTheJsonResult
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult``1(CSF.Screenplay.WebApis.Endpoint{``0},System.String)
+  name: GetTheJsonResult<TResponse>(Endpoint<TResponse>, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_GetTheJsonResult__1_CSF_Screenplay_WebApis_Endpoint___0__System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult``1(CSF.Screenplay.WebApis.Endpoint{``0},System.String)
+  name.vb: GetTheJsonResult(Of TResponse)(Endpoint(Of TResponse), String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult<TResponse>(CSF.Screenplay.WebApis.Endpoint<TResponse>, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult(Of TResponse)(CSF.Screenplay.WebApis.Endpoint(Of TResponse), String)
+  nameWithType: WebApiBuilder.GetTheJsonResult<TResponse>(Endpoint<TResponse>, string)
+  nameWithType.vb: WebApiBuilder.GetTheJsonResult(Of TResponse)(Endpoint(Of TResponse), String)
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult``2(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0,``1},``0,System.String)
+  name: GetTheJsonResult<TParameters, TResponse>(ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_GetTheJsonResult__2_CSF_Screenplay_WebApis_ParameterizedEndpoint___0___1____0_System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult``2(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0,``1},``0,System.String)
+  name.vb: GetTheJsonResult(Of TParameters, TResponse)(ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult<TParameters, TResponse>(CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.GetTheJsonResult(Of TParameters, TResponse)(CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
+  nameWithType: WebApiBuilder.GetTheJsonResult<TParameters, TResponse>(ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  nameWithType.vb: WebApiBuilder.GetTheJsonResult(Of TParameters, TResponse)(ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(CSF.Screenplay.WebApis.Endpoint,System.String)
+  name: SendTheHttpRequest(Endpoint, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_SendTheHttpRequest_CSF_Screenplay_WebApis_Endpoint_System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(CSF.Screenplay.WebApis.Endpoint,System.String)
+  name.vb: SendTheHttpRequest(Endpoint, String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(CSF.Screenplay.WebApis.Endpoint, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(CSF.Screenplay.WebApis.Endpoint, String)
+  nameWithType: WebApiBuilder.SendTheHttpRequest(Endpoint, string)
+  nameWithType.vb: WebApiBuilder.SendTheHttpRequest(Endpoint, String)
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest*
+  name: SendTheHttpRequest
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_SendTheHttpRequest_
+  commentId: Overload:CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest
+  nameWithType: WebApiBuilder.SendTheHttpRequest
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``1(CSF.Screenplay.WebApis.Endpoint{``0},System.String)
+  name: SendTheHttpRequest<TResponse>(Endpoint<TResponse>, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_SendTheHttpRequest__1_CSF_Screenplay_WebApis_Endpoint___0__System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``1(CSF.Screenplay.WebApis.Endpoint{``0},System.String)
+  name.vb: SendTheHttpRequest(Of TResponse)(Endpoint(Of TResponse), String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest<TResponse>(CSF.Screenplay.WebApis.Endpoint<TResponse>, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(Of TResponse)(CSF.Screenplay.WebApis.Endpoint(Of TResponse), String)
+  nameWithType: WebApiBuilder.SendTheHttpRequest<TResponse>(Endpoint<TResponse>, string)
+  nameWithType.vb: WebApiBuilder.SendTheHttpRequest(Of TResponse)(Endpoint(Of TResponse), String)
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``1(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0},``0,System.String)
+  name: SendTheHttpRequest<TParameters>(ParameterizedEndpoint<TParameters>, TParameters, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_SendTheHttpRequest__1_CSF_Screenplay_WebApis_ParameterizedEndpoint___0____0_System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``1(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0},``0,System.String)
+  name.vb: SendTheHttpRequest(Of TParameters)(ParameterizedEndpoint(Of TParameters), TParameters, String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest<TParameters>(CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters>, TParameters, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(Of TParameters)(CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters), TParameters, String)
+  nameWithType: WebApiBuilder.SendTheHttpRequest<TParameters>(ParameterizedEndpoint<TParameters>, TParameters, string)
+  nameWithType.vb: WebApiBuilder.SendTheHttpRequest(Of TParameters)(ParameterizedEndpoint(Of TParameters), TParameters, String)
+- uid: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``2(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0,``1},``0,System.String)
+  name: SendTheHttpRequest<TParameters, TResponse>(ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  href: api/CSF.Screenplay.WebApis.WebApiBuilder.html#CSF_Screenplay_WebApis_WebApiBuilder_SendTheHttpRequest__2_CSF_Screenplay_WebApis_ParameterizedEndpoint___0___1____0_System_String_
+  commentId: M:CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest``2(CSF.Screenplay.WebApis.ParameterizedEndpoint{``0,``1},``0,System.String)
+  name.vb: SendTheHttpRequest(Of TParameters, TResponse)(ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
+  fullName: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest<TParameters, TResponse>(CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  fullName.vb: CSF.Screenplay.WebApis.WebApiBuilder.SendTheHttpRequest(Of TParameters, TResponse)(CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
+  nameWithType: WebApiBuilder.SendTheHttpRequest<TParameters, TResponse>(ParameterizedEndpoint<TParameters, TResponse>, TParameters, string)
+  nameWithType.vb: WebApiBuilder.SendTheHttpRequest(Of TParameters, TResponse)(ParameterizedEndpoint(Of TParameters, TResponse), TParameters, String)
 - uid: DependencyInjectionMainArticle
   name: Dependency injection
   href: docs/dependencyInjection/index.html
@@ -4048,3 +4926,9 @@ references:
 - uid: ScenarioGlossaryItem
   name: Scenario
   href: glossary/Scenario.html
+- uid: TaskGlossaryItem
+  name: Task
+  href: glossary/Task.html
+- uid: WebApisArticle
+  name: Web APIs
+  href: docs/performables/WebApis.html

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/glossary/Performable.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Performable.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -96,6 +96,12 @@ This is entirely coincidental and <em>there is no direct equivalence</em>.</p>
 <li><strong><a href="Question.html">Questions</a></strong> are granular, like actions, but read the application's state to get information instead of making changes</li>
 <li><strong><a href="Task.html">Tasks</a></strong> are higher-order interactions which are formed by composing actions, questions and/or other tasks</li>
 </ul>
+<h2 id="performables-are-not-reusable">Performables are <em>not reusable</em></h2>
+<p>Implementations of any of the performable interfaces (below) are <em>stateful</em> objects which <em>must not be reused</em>.
+Performable objects are often mutable and their mutable state forms the parameters by which they will operate.</p>
+<p>Typically, performables are <em>created <a href="../docs/builderPattern/index.html">using a builder</a></em> which configures their state.
+Each performable object is used precisely once by an actor and then discarded.
+Even if you would like to perform the same operation twice, do not attempt to reuse a performable; use the builder twice to create two (identical) instances of the same performable type.</p>
 <h2 id="developers-using-screenplay-will-typically-be-writing-tasks">Developers using Screenplay will typically be writing Tasks</h2>
 <p>Actions &amp; Questions are the smallest/low-level building blocks of a Screenplay <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a>.
 They are parameterized and should make as few assumptions as possible.
@@ -121,7 +127,7 @@ There is no direct correlation between these interfaces and the kinds of perform
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/feature/203-webapi-rewrite/CSF.Screenplay.Docs/glossary/Performable.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Performable.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

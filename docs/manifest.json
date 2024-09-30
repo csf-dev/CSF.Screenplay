@@ -212,16 +212,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.HttpRequestMessageBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.HttpRequestMessageBuilder.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ICanPerform.yml",
       "output": {
         ".html": {
@@ -246,16 +236,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ICast.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.ICreatesHttpRequestMessage.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.ICreatesHttpRequestMessage.html"
         }
       },
       "version": ""
@@ -366,16 +346,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.IStage.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.NameValueRecordCollection-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.NameValueRecordCollection-2.html"
         }
       },
       "version": ""
@@ -792,6 +762,176 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.Endpoint-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.Endpoint-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.Endpoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.Endpoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.EndpointBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.EndpointBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.JsonEndpoint-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.JsonEndpoint-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.JsonEndpoint-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.JsonEndpoint-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.MakeWebApiRequests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.MakeWebApiRequests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.NameValueRecordCollection-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.WebApiBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.WebApiBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.WebApis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.WebApis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.yml",
       "output": {
         ".html": {
@@ -935,6 +1075,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/performables/WebApis.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/performables/WebApis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/performables/index.md",
       "output": {
         ".html": {
@@ -985,6 +1135,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/writingPerformables/AllowCooperativeCancellation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/writingPerformables/AvoidBranchingLogic.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/writingPerformables/AvoidBranchingLogic.html"
         }
       },
       "version": ""
