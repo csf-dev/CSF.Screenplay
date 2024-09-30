@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace CSF.Screenplay.WebApis | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace CSF.Screenplay.WebApis | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.WebApis">
+
+  <h1 id="CSF_Screenplay_WebApis" data-uid="CSF.Screenplay.WebApis" class="text-break">Namespace CSF.Screenplay.WebApis</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.Endpoint.html">Endpoint</a></dt>
+      <dd><p>A Web API endpoint which has no expected request payload and which is not expected to return a response body.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.EndpointBase.html">EndpointBase</a></dt>
+      <dd><p>Abstract base class for types which represent web API endpoints.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.Endpoint-1.html">Endpoint&lt;TResult&gt;</a></dt>
+      <dd><p>A Web API endpoint which has no expected request payload and which is expected to return a response body that exposes a strongly-typed object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a></dt>
+      <dd><p>An object which can create an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a> for use with an HTTP client.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder&lt;TResponse&gt;</a></dt>
+      <dd><p>An object which can create an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a> for use with an HTTP client,
+which is expected to expose a response of a particular type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.HttpResponseMessageAndResponseType-1.html">HttpResponseMessageAndResponseType&lt;TResponse&gt;</a></dt>
+      <dd><p>Wraps an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a> but also provides information about the expected response type
+from that message.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-1.html">JsonEndpoint&lt;TParameters&gt;</a></dt>
+      <dd><p>Base type for a Web API endpoint which accepts a request payload in the form of a strongly typed object serialized to JSON string,
+but which is not expected to return a response body.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-2.html">JsonEndpoint&lt;TParameters, TResult&gt;</a></dt>
+      <dd><p>Base type for a Web API endpoint which accepts a request payload in the form of a strongly typed object serialized to JSON string,
+and which is expected to return a response body that exposes a strongly-typed object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.MakeWebApiRequests.html">MakeWebApiRequests</a></dt>
+      <dd><p>An ability class which allows Actors to make HTTP web API requests using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.NameValueRecordCollection-2.html">NameValueRecordCollection&lt;TKey, TValue&gt;</a></dt>
+      <dd><p>A simple name/value collection with an indexer, backed by a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey, TValue&gt;</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html">ParameterizedEndpoint&lt;TParameters&gt;</a></dt>
+      <dd><p>Base type for a Web API endpoint which has a strongly-typed request payload but which is not expected to return a response body.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</a></dt>
+      <dd><p>Base type for a Web API endpoint which has a strongly-typed request payload and which is expected to return a response body that exposes a strongly-typed object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequest.html">SendTheHttpRequest</a></dt>
+      <dd><p>An action which creates &amp; sends an HTTP request using the specification within an
+<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html">SendTheHttpRequestAndGetJsonResponse&lt;TResponse&gt;</a></dt>
+      <dd><p>An action which creates &amp; sends an HTTP request, using the specification within an
+<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder&lt;TResponse&gt;</a> and returns a strongly-typed result deserialized from
+a JSON HTTP response.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html">SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</a></dt>
+      <dd><p>An action which creates &amp; sends an HTTP request using the specification within an
+<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder&lt;TResponse&gt;</a> and returns a result which preserves the intended
+response type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.WebApis.WebApiBuilder.html">WebApiBuilder</a></dt>
+      <dd><p>A builder for the performables <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequest.html">SendTheHttpRequest</a> and <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html">SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</a>.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
