@@ -87,7 +87,17 @@
         <article data-uid="">
 <h1 id="using-screenplay-standalone">Using Screenplay standalone</h1>
 
-<p>TODO: Write this docco about how to use Screenplay without a Testing Framework Integration</p>
+<p>Screenplay is often used <a href="SuitabilityAsATestingTool.html">as a tool for automating software tests</a>, but it is not limited to only this usage.
+Screenplay may be added to any application or library, <em>via dependency injection</em>.</p>
+<p>Adding the Screenplay architecture to your apps DI is as simple as installing the <strong><a href="https://www.nuget.org/packages/CSF.Screenplay">CSF.Screenplay</a></strong> NuGet package and:</p>
+<pre><code class="lang-csharp">using CSF.Screenplay;
+// IServiceCollection services; 
+services.AddScreenplay();
+</code></pre>
+<p>For more information, see the documentation for <a class="xref" href="../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html"><code>ScreenplayServiceCollectionExtensions</code></a>.</p>
+<h2 id="abstractions-package">Abstractions package</h2>
+<p>If your solution is separated into multiple projects/assemblies then only your entry-point project needs the full CSF.Screenplay NuGet package.
+Once Screenplay has been added to DI, other projects in the solution may consume its logic, only requiring the <a href="https://www.nuget.org/packages/CSF.Screenplay.Abstractions">CSF.Screenplay.Abstractions</a> package.</p>
 
 </article>
 
