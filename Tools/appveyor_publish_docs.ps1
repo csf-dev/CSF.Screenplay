@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $BaseDir = "docs"
 
-if($Env:APPVEYOR -eq "True" -and ($Env:APPVEYOR_REPO_BRANCH -ne "master" -or $Env:APPVEYOR_PULL_REQUEST_NUMBER -ne "")) {
+if($Env:APPVEYOR -eq "True" -and ($Env:APPVEYOR_PULL_REQUEST_NUMBER -or $Env:APPVEYOR_REPO_BRANCH -ne "master")) {
     Write-Host "Skipping publishing docs; we are not building on master"
     Exit 0;
 }
@@ -28,3 +28,4 @@ git checkout $Env:APPVEYOR_REPO_BRANCH
 git pull
 git merge temp/publish-docs --no-ff -m "Auto: Merge docs website via CI [skip ci]"
 git push origin $Env:APPVEYOR_REPO_BRANCH
+BRANCH
