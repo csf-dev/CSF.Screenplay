@@ -139,7 +139,7 @@ the event sink.
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ActorCreated" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ActorCreated">
   ActorCreated
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when a new <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> is created and added to the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
@@ -170,7 +170,7 @@ the event sink.
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ActorSpotlit" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ActorSpotlit">
   ActorSpotlit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> is placed into the Spotlight of an <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>.</p>
@@ -263,7 +263,7 @@ the event sink.
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_GainedAbility" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.GainedAbility">
   GainedAbility
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> gains a new ability.</p>
@@ -416,6 +416,37 @@ the event sink.
 
 
 
+  <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_RecordsAsset" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset">
+  RecordsAsset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when an actor records the presence of a new file asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;PerformableAssetEventArgs&gt; RecordsAsset</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="CSF.Screenplay.Actors.PerformableAssetEventArgs.html">PerformableAssetEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayEnded" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded">
   ScreenplayEnded
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L37"><i class="bi bi-code-slash"></i></a>
@@ -480,7 +511,7 @@ the event sink.
 
   <h3 id="CSF_Screenplay_Performances_IHasPerformanceEvents_SpotlightTurnedOff" data-uid="CSF.Screenplay.Performances.IHasPerformanceEvents.SpotlightTurnedOff">
   SpotlightTurnedOff
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IHasPerformanceEvents.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Occurs when the Spotlight of an <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a> is 'turned off'; the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> who is currently spotlit is removed without being replaced.</p>

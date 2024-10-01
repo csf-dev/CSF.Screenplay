@@ -209,6 +209,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actor.InvokePerformableResult
   nameWithType: Actor.InvokePerformableResult
+- uid: CSF.Screenplay.Actor.InvokeRecordsAsset(System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name: InvokeRecordsAsset(object, string, string, PerformancePhase)
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeRecordsAsset_System_Object_System_String_System_String_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actor.InvokeRecordsAsset(System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: InvokeRecordsAsset(Object, String, String, PerformancePhase)
+  fullName: CSF.Screenplay.Actor.InvokeRecordsAsset(object, string, string, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actor.InvokeRecordsAsset(Object, String, String, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: Actor.InvokeRecordsAsset(object, string, string, PerformancePhase)
+  nameWithType.vb: Actor.InvokeRecordsAsset(Object, String, String, PerformancePhase)
+- uid: CSF.Screenplay.Actor.InvokeRecordsAsset*
+  name: InvokeRecordsAsset
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_InvokeRecordsAsset_
+  commentId: Overload:CSF.Screenplay.Actor.InvokeRecordsAsset
+  isSpec: "True"
+  fullName: CSF.Screenplay.Actor.InvokeRecordsAsset
+  nameWithType: Actor.InvokeRecordsAsset
 - uid: CSF.Screenplay.Actor.IsAbleTo(System.Object)
   name: IsAbleTo(object)
   href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_IsAbleTo_System_Object_
@@ -291,6 +307,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Actor.PerformanceIdentity
   nameWithType: Actor.PerformanceIdentity
+- uid: CSF.Screenplay.Actor.RecordsAsset
+  name: RecordsAsset
+  href: api/CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_RecordsAsset
+  commentId: E:CSF.Screenplay.Actor.RecordsAsset
+  fullName: CSF.Screenplay.Actor.RecordsAsset
+  nameWithType: Actor.RecordsAsset
 - uid: CSF.Screenplay.ActorExtensions
   name: ActorExtensions
   href: api/CSF.Screenplay.ActorExtensions.html
@@ -795,6 +817,63 @@ references:
   commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
   fullName: CSF.Screenplay.Actors.IHasPerformableEvents.PerformableResult
   nameWithType: IHasPerformableEvents.PerformableResult
+- uid: CSF.Screenplay.Actors.IHasPerformableEvents.RecordsAsset
+  name: RecordsAsset
+  href: api/CSF.Screenplay.Actors.IHasPerformableEvents.html#CSF_Screenplay_Actors_IHasPerformableEvents_RecordsAsset
+  commentId: E:CSF.Screenplay.Actors.IHasPerformableEvents.RecordsAsset
+  fullName: CSF.Screenplay.Actors.IHasPerformableEvents.RecordsAsset
+  nameWithType: IHasPerformableEvents.RecordsAsset
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs
+  name: PerformableAssetEventArgs
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html
+  commentId: T:CSF.Screenplay.Actors.PerformableAssetEventArgs
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs
+  nameWithType: PerformableAssetEventArgs
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(System.String,System.Guid,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableAssetEventArgs(string, Guid, object, string, string, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_System_String_System_Guid_System_Object_System_String_System_String_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(System.String,System.Guid,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(String, Guid, Object, String, String, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.PerformableAssetEventArgs(string, System.Guid, object, string, string, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableAssetEventArgs.New(String, System.Guid, Object, String, String, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableAssetEventArgs.PerformableAssetEventArgs(string, Guid, object, string, string, PerformancePhase)
+  nameWithType.vb: PerformableAssetEventArgs.New(String, Guid, Object, String, String, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor*
+  name: PerformableAssetEventArgs
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_
+  commentId: Overload:CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.PerformableAssetEventArgs
+  fullName.vb: CSF.Screenplay.Actors.PerformableAssetEventArgs.New
+  nameWithType: PerformableAssetEventArgs.PerformableAssetEventArgs
+  nameWithType.vb: PerformableAssetEventArgs.New
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath
+  name: FilePath
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs_FilePath
+  commentId: P:CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath
+  nameWithType: PerformableAssetEventArgs.FilePath
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath*
+  name: FilePath
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs_FilePath_
+  commentId: Overload:CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath
+  isSpec: "True"
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath
+  nameWithType: PerformableAssetEventArgs.FilePath
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary
+  name: FileSummary
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs_FileSummary
+  commentId: P:CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary
+  nameWithType: PerformableAssetEventArgs.FileSummary
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary*
+  name: FileSummary
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs_FileSummary_
+  commentId: Overload:CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary
+  isSpec: "True"
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary
+  nameWithType: PerformableAssetEventArgs.FileSummary
 - uid: CSF.Screenplay.Actors.PerformableEventArgs
   name: PerformableEventArgs
   href: api/CSF.Screenplay.Actors.PerformableEventArgs.html
@@ -1158,6 +1237,22 @@ references:
   fullName.vb: CSF.Screenplay.ICanPerform.PerformAsync(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), System.Threading.CancellationToken)
   nameWithType: ICanPerform.PerformAsync<T>(IPerformableWithResult<T>, CancellationToken)
   nameWithType.vb: ICanPerform.PerformAsync(Of T)(IPerformableWithResult(Of T), CancellationToken)
+- uid: CSF.Screenplay.ICanPerform.RecordAsset(System.Object,System.String,System.String)
+  name: RecordAsset(object, string, string)
+  href: api/CSF.Screenplay.ICanPerform.html#CSF_Screenplay_ICanPerform_RecordAsset_System_Object_System_String_System_String_
+  commentId: M:CSF.Screenplay.ICanPerform.RecordAsset(System.Object,System.String,System.String)
+  name.vb: RecordAsset(Object, String, String)
+  fullName: CSF.Screenplay.ICanPerform.RecordAsset(object, string, string)
+  fullName.vb: CSF.Screenplay.ICanPerform.RecordAsset(Object, String, String)
+  nameWithType: ICanPerform.RecordAsset(object, string, string)
+  nameWithType.vb: ICanPerform.RecordAsset(Object, String, String)
+- uid: CSF.Screenplay.ICanPerform.RecordAsset*
+  name: RecordAsset
+  href: api/CSF.Screenplay.ICanPerform.html#CSF_Screenplay_ICanPerform_RecordAsset_
+  commentId: Overload:CSF.Screenplay.ICanPerform.RecordAsset
+  isSpec: "True"
+  fullName: CSF.Screenplay.ICanPerform.RecordAsset
+  nameWithType: ICanPerform.RecordAsset
 - uid: CSF.Screenplay.ICanReport
   name: ICanReport
   href: api/CSF.Screenplay.ICanReport.html
@@ -2314,6 +2409,12 @@ references:
   commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   nameWithType: IHasPerformanceEvents.PerformanceFinished
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
+  name: RecordsAsset
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_RecordsAsset
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
+  nameWithType: IHasPerformanceEvents.RecordsAsset
 - uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded
   name: ScreenplayEnded
   href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayEnded
@@ -2825,6 +2926,12 @@ references:
   commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   nameWithType: PerformanceEventBus.PerformanceFinished
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
+  name: RecordsAsset
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_RecordsAsset
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
+  nameWithType: PerformanceEventBus.RecordsAsset
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayEnded
   name: ScreenplayEnded
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ScreenplayEnded

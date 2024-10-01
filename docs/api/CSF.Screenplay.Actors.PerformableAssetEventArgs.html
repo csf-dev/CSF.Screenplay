@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class PerformableEventArgs | Screenplay docs </title>
+      <title>Class PerformableAssetEventArgs | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class PerformableEventArgs | Screenplay docs ">
+      <meta name="title" content="Class PerformableAssetEventArgs | Screenplay docs ">
       
-      <meta name="description" content="A model for event arguments which relate to an actor&#39;s use of a performable.">
+      <meta name="description" content="Event arguments which represent the revealing of a file asset which relates to a performable.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Actors_PerformableEventArgs.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Actors.PerformableEventArgs%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Actors_PerformableAssetEventArgs.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Actors.PerformableAssetEventArgs%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Actors.PerformableEventArgs">
+        <article data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs">
 
 
 
-  <h1 id="CSF_Screenplay_Actors_PerformableEventArgs" data-uid="CSF.Screenplay.Actors.PerformableEventArgs" class="text-break">
-Class PerformableEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableEventArgs.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Actors_PerformableAssetEventArgs" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs" class="text-break">
+Class PerformableAssetEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableAssetEventArgs.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A model for event arguments which relate to an actor's use of a performable.</p>
+  <div class="markdown summary"><p>Event arguments which represent the revealing of a file asset which relates to a performable.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PerformableEventArgs : ActorEventArgs, IHasPerformanceIdentity</code></pre>
+    <pre><code class="lang-csharp hljs">public class PerformableAssetEventArgs : PerformableEventArgs, IHasPerformanceIdentity</code></pre>
   </div>
 
 
@@ -115,7 +115,8 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
       <div><a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html">PerformanceScopeEventArgs</a></div>
       <div><a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html">ActorEventArgs</a></div>
-      <div><span class="xref">PerformableEventArgs</span></div>
+      <div><a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a></div>
+      <div><span class="xref">PerformableAssetEventArgs</span></div>
     </dd>
   </dl>
 
@@ -126,18 +127,16 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
     </dd>
   </dl>
 
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="CSF.Screenplay.Actors.PerformableAssetEventArgs.html">PerformableAssetEventArgs</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Actors.PerformableFailureEventArgs.html">PerformableFailureEventArgs</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Actors.PerformableResultEventArgs.html">PerformableResultEventArgs</a></div>
-    </dd>
-  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs_Performable">PerformableEventArgs.Performable</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs_Phase">PerformableEventArgs.Phase</a>
+    </div>
     <div>
       <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName">ActorEventArgs.ActorName</a>
     </div>
@@ -179,19 +178,19 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 </h2>
 
 
-  <a id="CSF_Screenplay_Actors_PerformableEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.#ctor*"></a>
+  <a id="CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_PerformableEventArgs__ctor_System_String_System_Guid_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.#ctor(System.String,System.Guid,System.Object,CSF.Screenplay.Actors.PerformancePhase)">
-  PerformableEventArgs(string, Guid, object, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableEventArgs.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_System_String_System_Guid_System_Object_System_String_System_String_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(System.String,System.Guid,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)">
+  PerformableAssetEventArgs(string, Guid, object, string, string, PerformancePhase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableAssetEventArgs.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html">PerformableEventArgs</a>.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.PerformableAssetEventArgs.html">PerformableAssetEventArgs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PerformableEventArgs(string actorName, Guid performanceIdentity, object performable, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
+    <pre><code class="lang-csharp hljs">public PerformableAssetEventArgs(string actorName, Guid performanceIdentity, object performable, string filePath, string fileSummary = null, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -204,6 +203,12 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 </dd>
     <dt><code>performable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>The performable item</p>
+</dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The full absolute path to the asset file</p>
+</dd>
+    <dt><code>fileSummary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An optional human-readable summary of the asset file</p>
 </dd>
     <dt><code>phase</code> <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html">PerformancePhase</a></dt>
     <dd><p>The phase of performance</p>
@@ -225,19 +230,19 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 </h2>
 
 
-  <a id="CSF_Screenplay_Actors_PerformableEventArgs_Performable_" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.Performable*"></a>
+  <a id="CSF_Screenplay_Actors_PerformableAssetEventArgs_FilePath_" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_PerformableEventArgs_Performable" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.Performable">
-  Performable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableEventArgs.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_PerformableAssetEventArgs_FilePath" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.FilePath">
+  FilePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableAssetEventArgs.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the performable item to which these event arguments relate.</p>
+  <div class="markdown level1 summary"><p>Gets a full/absolute path to the asset file.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object Performable { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string FilePath { get; }</code></pre>
   </div>
 
 
@@ -246,7 +251,7 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -257,19 +262,20 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 
 
 
-  <a id="CSF_Screenplay_Actors_PerformableEventArgs_Phase_" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.Phase*"></a>
+  <a id="CSF_Screenplay_Actors_PerformableAssetEventArgs_FileSummary_" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_PerformableEventArgs_Phase" data-uid="CSF.Screenplay.Actors.PerformableEventArgs.Phase">
-  Phase
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableEventArgs.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_PerformableAssetEventArgs_FileSummary" data-uid="CSF.Screenplay.Actors.PerformableAssetEventArgs.FileSummary">
+  FileSummary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableAssetEventArgs.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the performance phase to which these event arguments relate.</p>
+  <div class="markdown level1 summary"><p>Gets an optional human-readable summary of what this asset represents.  This should be one sentence at most, suitable
+for display in a UI tool-tip.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PerformancePhase Phase { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string FileSummary { get; }</code></pre>
   </div>
 
 
@@ -278,7 +284,7 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html">PerformancePhase</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -289,11 +295,15 @@ Class PerformableEventArgs  <a class="header-action link-secondary" title="View 
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.ICanPerform.html#CSF_Screenplay_ICanPerform_RecordAsset_System_Object_System_String_System_String_">RecordAsset</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableEventArgs.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableAssetEventArgs.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 
