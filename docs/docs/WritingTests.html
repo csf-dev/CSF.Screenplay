@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Advice for writing tests with Screenplay | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Advice for writing tests with Screenplay | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/WritingTests.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="advice-for-writing-tests-with-screenplay">Advice for writing tests with Screenplay</h1>
+
+<p>Whichever testing integration you choose to use, there are some general pieces of advice and best practice which apply.</p>
+<h2 id="use-high-level-tasks">Use high-level tasks</h2>
+<p>Avoid the use of too many tasks/performables in each test.
+Too many <a href="../glossary/Performable.html">performables</a> in a single test makes it hard to comprehend at-a-glance and forces the reader to commit too much detail to memory.</p>
+<p>Rather than using many performables at the top-level of your tests, create <a href="../glossary/Task.html">high-level tasks</a> which compose and simplify some of that detail into a single logical step.</p>
+<p>When using a method-driven testing framework like NUnit, 5 performables in a single method is a reasonable number.
+More than around 10 performables is too many.</p>
+<p>When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.</p>
+<h2 id="use-the-performance-starter">Use the Performance Starter</h2>
+<p>Your top-level test logic should consume its <a href="../glossary/Performable.html">performables</a> via the class <a class="xref" href="../api/CSF.Screenplay.PerformanceStarter.html"><code>PerformanceStarter</code></a>.
+This provides for a clear given/when/then appearance to your top-level test logic.</p>
+<h2 id="consider-a-fluent-style-assertions-library">Consider a fluent-style assertions library</h2>
+<p>Depending upon the testing framework you have chosen, you may or may not have access to fluent-style assertions functionality.</p>
+<p>NUnit, for example, provides assertions based upon <a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html">the constraint model</a>, which is an extensible fluent-style syntax.</p>
+<p>If your chosen testing framework does not provide easy-to-read assertions, consider an external assertion library such as <a href="https://github.com/shouldly/shouldly">Shouldly</a> or <a href="https://fluentassertions.com/">Fluent Assertions</a> or similar.</p>
+<h2 id="do-not-include-assertions-in-performables">Do not include assertions in performables</h2>
+<p>It might be tempting to include assertion syntax within <a href="../glossary/Performable.html">performables</a> such as <a href="../glossary/Task.html">tasks</a>.
+This is not recommended.
+Where assertions appear within performables:</p>
+<ul>
+<li>They reduce the reusability of the performables</li>
+<li>They create a dependency between your performables and your testing framework/assertion library</li>
+<li>They can make test logic harder to read and understand</li>
+</ul>
+<p>It is recommended to keep your performables/tasks free from assertions.
+In your test code, use <a href="../glossary/Question.html">questions</a> or question-like tasks to get values/data from the system under test.
+Write your assertions in your main test logic, asserting that the values retrieved are as-expected.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/WritingTests.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1015,6 +1015,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/WritingTests.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/WritingTests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/builderPattern/index.md",
       "output": {
         ".html": {
