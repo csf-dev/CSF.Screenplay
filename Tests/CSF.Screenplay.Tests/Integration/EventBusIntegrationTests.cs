@@ -223,7 +223,7 @@ public class EventBusIntegrationTests
         {
             var cast = s.GetRequiredService<ICast>();
             var joe = cast.GetActor("Joe");
-            joe.RecordAsset(performable, expectedPath, expectedSummary);
+            ((ICanPerform) joe).RecordAsset(performable, expectedPath, expectedSummary);
 
             return Task.FromResult<bool?>(true);
         });
