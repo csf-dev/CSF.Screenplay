@@ -75,5 +75,22 @@ namespace CSF.Screenplay
             var args = new GainAbilityEventArgs(Name, PerformanceIdentity, ability);
             GainedAbility?.Invoke(this, args);
         }
+
+        /// <inheritdoc/>
+        public event EventHandler<PerformableAssetEventArgs> RecordsAsset;
+
+        /// <summary>
+        /// Invokes the <see cref="RecordsAsset"/> event.
+        /// </summary>
+        /// <param name="performable">The performable item</param>
+        /// <param name="filePath">The full absolute path to the asset file</param>
+        /// <param name="fileSummary">An optional human-readable summary of the asset file</param>
+        /// <param name="phase">The performance phase to which this event relates</param>
+        protected virtual void InvokeRecordsAsset(object performable, string filePath, string fileSummary = null, PerformancePhase phase = PerformancePhase.Unspecified)
+        {
+            var args = new PerformableAssetEventArgs(Name, PerformanceIdentity, performable, filePath, fileSummary, phase);
+            RecordsAsset?.Invoke(this, args);
+        }
+
     }
 }

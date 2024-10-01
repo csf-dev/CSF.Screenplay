@@ -77,6 +77,12 @@ namespace CSF.Screenplay.Performances
         void OnPerformableFailed(object sender, PerformableFailureEventArgs args)
             => PerformableFailed?.Invoke(sender, args);
 
+        /// <inheritdoc/>
+        public event EventHandler<PerformableAssetEventArgs> RecordsAsset;
+
+        void OnRecordsAsset(object sender, PerformableAssetEventArgs args)
+            => RecordsAsset?.Invoke(sender, args);
+
         #endregion
 
         #region Pub: Actors
@@ -114,6 +120,7 @@ namespace CSF.Screenplay.Performances
             actor.PerformableResult += OnPerformableResult;
             actor.PerformableFailed += OnPerformableFailed;
             actor.GainedAbility += OnGainedAbility;
+            actor.RecordsAsset += OnRecordsAsset;
         }
 
         /// <inheritdoc/>
@@ -127,6 +134,7 @@ namespace CSF.Screenplay.Performances
             actor.PerformableResult -= OnPerformableResult;
             actor.PerformableFailed -= OnPerformableFailed;
             actor.GainedAbility -= OnGainedAbility;
+            actor.RecordsAsset -= OnRecordsAsset;
 
             if(!subscribedActors.TryGetValue(((IHasPerformanceIdentity)actor).PerformanceIdentity, out var actorsForPerformance)) return;
             actorsForPerformance.Remove(actor);

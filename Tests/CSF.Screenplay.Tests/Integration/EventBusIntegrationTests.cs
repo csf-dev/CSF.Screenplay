@@ -205,4 +205,35 @@ public class EventBusIntegrationTests
 
         Assert.That(ended, Is.True);
     }
+
+    [Test,AutoMoqData]
+    public async Task RecordAssetShouldEmitTheCorrectEvent([DefaultScreenplay] Screenplay sut, string expectedPath, string expectedSummary, object performable)
+    {
+        string? filePath = null, fileSummary = null;
+        void OnRecordsAsset(object? sender, PerformableAssetEventArgs e)
+        {
+            filePath = e.FilePath;
+            fileSummary = e.FileSummary;
+        };
+
+        var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+        eventPublisher.RecordsAsset += OnRecordsAsset;
+        
+        await sut.ExecuteAsPerformanceAsync((s, c) =>
+        {
+            var cast = s.GetRequiredService<ICast>();
+            var joe = cast.GetActor("Joe");
+            joe.RecordAsset(performable, expectedPath, expectedSummary);
+
+            return Task.FromResult<bool?>(true);
+        });
+
+        eventPublisher.RecordsAsset -= OnRecordsAsset;
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(filePath, Is.EqualTo(expectedPath), "File path");
+            Assert.That(fileSummary, Is.EqualTo(expectedSummary), "File summary");
+        });
+    }
 }

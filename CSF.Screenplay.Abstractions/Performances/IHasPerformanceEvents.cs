@@ -74,6 +74,11 @@ namespace CSF.Screenplay.Performances
         /// </summary>
         event EventHandler<PerformableFailureEventArgs> PerformableFailed;
 
+        /// <summary>
+        /// Occurs when an actor records the presence of a new file asset.
+        /// </summary>
+        event EventHandler<PerformableAssetEventArgs> RecordsAsset;
+
         #endregion
 
         #region Actors

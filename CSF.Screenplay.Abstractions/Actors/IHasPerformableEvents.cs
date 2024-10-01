@@ -29,5 +29,10 @@ namespace CSF.Screenplay.Actors
         /// Occurs when an actor gains a new ability.
         /// </summary>
         event EventHandler<GainAbilityEventArgs> GainedAbility;
+
+        /// <summary>
+        /// Occurs when an actor records the presence of a new file asset.
+        /// </summary>
+        event EventHandler<PerformableAssetEventArgs> RecordsAsset;
     }
 }

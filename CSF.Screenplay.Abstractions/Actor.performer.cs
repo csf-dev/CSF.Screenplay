@@ -37,63 +37,39 @@ namespace CSF.Screenplay
         }
 
         /// <summary>
-        /// Performs an action or task which returns an untyped result.
+        /// Performs a question or question-like task which returns an untyped result.
         /// </summary>
         /// <param name="performable">The performable item</param>
         /// <param name="cancellationToken">An optional token to cancel the performable</param>
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async ValueTask<object> PerformAsync(IPerformableWithResult performable,
-                                             PerformancePhase phase = PerformancePhase.Unspecified,
-                                             CancellationToken cancellationToken = default)
+        protected virtual ValueTask<object> PerformAsync(IPerformableWithResult performable,
+                                                         PerformancePhase phase = PerformancePhase.Unspecified,
+                                                         CancellationToken cancellationToken = default)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
             AssertNotDisposed();
 
-            try
-            {
-                InvokeBeginPerformable(performable, phase);
-                var result = await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
-                InvokePerformableResult(performable, result);
-                InvokeEndPerformable(performable, phase);
-                return result;
-            }
-            catch(Exception ex)
-            {
-                InvokePerformableFailed(performable, ex, phase);
-                throw GetPerformableException(performable, ex);
-            }
+            return PerformAsync(performable, phase, () => performable.PerformAsAsync(this, cancellationToken));
         }
 
         /// <summary>
-        /// Performs an action or task which returns a strongly typed result.
+        /// Performs a question or question-like task which returns a strongly typed result.
         /// </summary>
         /// <param name="performable">The performable item</param>
         /// <param name="cancellationToken">An optional token to cancel the performable</param>
         /// <param name="phase">The performance phase to which the performable belongs</param>
         /// <returns>A task which completes when the performable is complete</returns>
         /// <exception cref="ArgumentNullException">If the performable is <see langword="null" /></exception>
-        protected virtual async ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
-                                           PerformancePhase phase = PerformancePhase.Unspecified,
-                                           CancellationToken cancellationToken = default)
+        protected virtual ValueTask<T> PerformAsync<T>(IPerformableWithResult<T> performable,
+                                                       PerformancePhase phase = PerformancePhase.Unspecified,
+                                                       CancellationToken cancellationToken = default)
         {
             if(performable is null) throw new ArgumentNullException(nameof(performable));
             AssertNotDisposed();
 
-            try
-            {
-                InvokeBeginPerformable(performable, phase);
-                var result = await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
-                InvokePerformableResult(performable, result);
-                InvokeEndPerformable(performable, phase);
-                return result;
-            }
-            catch(Exception ex)
-            {
-                InvokePerformableFailed(performable, ex, phase);
-                throw GetPerformableException(performable, ex);
-            }
+            return PerformAsync(performable, phase, () => performable.PerformAsAsync(this, cancellationToken));
         }
 
         PerformableException GetPerformableException(object performable, Exception ex)
@@ -104,6 +80,23 @@ namespace CSF.Screenplay
             };
         }
 
+        async ValueTask<T> PerformAsync<T>(object performable, PerformancePhase phase, Func<ValueTask<T>> performableFunc)
+        {
+            try
+            {
+                InvokeBeginPerformable(performable, phase);
+                var result = await performableFunc().ConfigureAwait(false);    
+                InvokePerformableResult(performable, result);
+                InvokeEndPerformable(performable, phase);
+                return result;
+            }
+            catch(Exception ex)
+            {
+                InvokePerformableFailed(performable, ex, phase);
+                throw GetPerformableException(performable, ex);
+            }
+        }
+
         ValueTask ICanPerform.PerformAsync(IPerformable performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken: cancellationToken);
 
@@ -112,5 +105,8 @@ namespace CSF.Screenplay
 
         ValueTask<T> ICanPerform.PerformAsync<T>(IPerformableWithResult<T> performable, CancellationToken cancellationToken)
             => PerformAsync(performable, cancellationToken: cancellationToken);
+
+        void ICanPerform.RecordAsset(object performable, string filePath, string fileSummary)
+            => InvokeRecordsAsset(performable, filePath, fileSummary);
     }
 }
