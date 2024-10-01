@@ -6,11 +6,10 @@ Whichever testing integration you choose to use, there are some general pieces o
 
 Avoid the use of too many tasks/performables in each test.
 Too many [performables] in a single test makes it hard to comprehend at-a-glance and forces the reader to commit too much detail to memory.
-
 Rather than using many performables at the top-level of your tests, create [high-level tasks] which compose and simplify some of that detail into a single logical step.
 
-When using a method-driven testing framework like NUnit, 5 performables in a single method is a reasonable number.
-More than around 10 performables is too many.
+When using a method-driven testing framework, such as NUnit, five performables in a single test method is a reasonable number.
+More than approximately ten performables is too many.
 
 When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.
 
@@ -26,11 +25,11 @@ This provides for a clear given/when/then appearance to your top-level test logi
 
 ## Consider a fluent-style assertions library
 
-Depending upon the testing framework you have chosen, you may or may not have access to fluent-style assertions functionality. 
-
+Depending upon the testing framework you have chosen, you may or may not have access to fluent-style assertions functionality.
 NUnit, for example, provides assertions based upon [the constraint model], which is an extensible fluent-style syntax.
 
-If your chosen testing framework does not provide easy-to-read assertions, consider an external assertion library such as [Shouldly] or [Fluent Assertions] or similar.
+If your chosen testing framework does not provide easy-to-read assertions, consider an external assertion library.
+Assertion libraries to consider include [Shouldly] and [Fluent Assertions].
 
 [the constraint model]: https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html
 [Shouldly]: https://github.com/shouldly/shouldly
