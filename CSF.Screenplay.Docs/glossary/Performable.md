@@ -18,14 +18,14 @@ This is entirely coincidental and _there is no direct equivalence_.
 [Tasks]: Task.md
 [Questions]: Question.md
 
-## Performables are _not reusable_
+## Performable instances are _not reusable_
 
-Implementations of any of the performable interfaces (below) are _stateful_ objects which _must not be reused_.
-Performable objects are often mutable and their mutable state forms the parameters by which they will operate.
+Types which implement the performable interfaces (below) are _stateful_ objects which are often mutable.
+Their state defines their configuration, as such, instances of any performable type _must not be reused_.
 
 Typically, performables are _created [using a builder]_ which configures their state.
 Each performable object is used precisely once by an actor and then discarded.
-Even if you would like to perform the same operation twice, do not attempt to reuse a performable; use the builder twice to create two (identical) instances of the same performable type.
+Even if you would like to perform the same operation twice, do not attempt to reuse an object instance; use the builder twice to create two (identical) instances of the same performable type.
 
 [using a builder]: ../docs/builderPattern/index.md
 
