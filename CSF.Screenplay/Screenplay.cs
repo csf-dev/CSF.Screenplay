@@ -66,17 +66,21 @@ namespace CSF.Screenplay
         /// may be identified. This parameter has the same semantics as <see cref="Performance.NamingHierarchy"/>.
         /// </para>
         /// <para>
-        /// Note that if the <paramref name="performanceLogic"/> raises a <see cref="PerformableException"/> then this method will 'swallow'
-        /// that exception and not rethrow.  That's not particularly bad though because:
+        /// Note that if the <paramref name="performanceLogic"/> raises a <see cref="PerformableException"/> then this method will catch
+        /// that exception and not rethrow.  In that case:
         /// </para>
         /// <list type="bullet">
         /// <item><description>
-        /// An event will be raised with the event bus: <see cref="IHasPerformanceEvents"/>, specifically
-        /// <see cref="IHasPerformanceEvents.PerformableFailed"/>.
-        /// This will contain details of the exception which occurred.
+        /// An event will be raised with the event bus: <see cref="IHasPerformanceEvents"/>, specifically <see cref="IHasPerformanceEvents.PerformableFailed"/>.
+        /// This will contain details of the exception which occurred; subscribers to be informed that the performance has failed.
         /// </description></item>
         /// <item><description>The performance will be immediately terminated and placed into the <see cref="PerformanceState.Failed"/> state.</description></item>
         /// </list>
+        /// <para>
+        /// Any other exception, which does not derive from <see cref="PerformableException"/>, will not be caught by this method and will propagate outward.
+        /// These exceptions will be interpreted as an error within the Screenplay architecture, since the <see cref="Actor"/> class will always catch and rethrow
+        /// any exception encountered from any overload of <c>PerformAsync</c>, wrapped as the inner exception of a <see cref="PerformableException"/>.
+        /// </para>
         /// </remarks>
         /// <param name="performanceLogic">The logic to be executed by the performance.</param>
         /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
