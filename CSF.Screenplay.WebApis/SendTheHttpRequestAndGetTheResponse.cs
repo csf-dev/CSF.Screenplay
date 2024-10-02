@@ -15,10 +15,9 @@ namespace CSF.Screenplay.WebApis
         readonly HttpRequestMessageBuilder messageBuilder;
 
         /// <inheritdoc/>
-        public string GetReportFragment(IHasName actor)
-            =>  $"{actor.Name} sends an HTTP {messageBuilder.Method} request to {messageBuilder.Name ?? messageBuilder.RequestUri.ToString()}, " +
-                $"expecting the response to be {typeof(TResponse).Name}";
-
+        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+            => formatter.Format(Resources.PerformableReportStrings.SendTheHttpRequestAndGetTheResponseFormat, actor, messageBuilder.Method, messageBuilder, typeof(TResponse).Name);
+        
         /// <inheritdoc/>
         public async ValueTask<HttpResponseMessageAndResponseType<TResponse>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {

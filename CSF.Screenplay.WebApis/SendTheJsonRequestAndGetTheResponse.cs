@@ -16,8 +16,8 @@ namespace CSF.Screenplay.WebApis
         readonly HttpRequestMessageBuilder<TResponse> messageBuilder;
 
         /// <inheritdoc/>
-        public string GetReportFragment(IHasName actor)
-            => $"{actor.Name} sends a web request and deserializes the JSON response as {typeof(TResponse).Name}";
+        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+            => formatter.Format(Resources.PerformableReportStrings.SendTheHttpRequestAndGetJsonResponseFormat, actor, typeof(TResponse).Name);
 
         /// <inheritdoc/>
         public async ValueTask<TResponse> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
