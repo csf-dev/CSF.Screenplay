@@ -3,7 +3,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// An object which has its own functionality for generating a human-readable representation of itself for a Screenplay report.
     /// </summary>
-    public interface IFormattable
+    public interface IFormattableValue
     {
         /// <summary>
         /// Gets a formatted string which represents the current object instance.

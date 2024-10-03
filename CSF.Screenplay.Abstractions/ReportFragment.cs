@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay
 {
@@ -33,6 +34,7 @@ namespace CSF.Screenplay
     /// A sample <see cref="FormattedFragment"/> which might result from this could be <c>"Joe washes 5 dishes"</c>.
     /// </para>
     /// </example>
+    /// <seealso cref="IFormatsReportFragment"/>
     public sealed class ReportFragment
     {
         /// <summary>
@@ -48,7 +50,7 @@ namespace CSF.Screenplay
         /// <summary>
         /// Gets a collection of the placeholder values, and the placeholder names to which those values correspond.
         /// </summary>
-        public IReadOnlyDictionary<string, object> PlaceholderValues { get; }
+        public IReadOnlyList<NameAndValue> PlaceholderValues { get; }
 
         /// <inheritdoc/>
         public override string ToString() => FormattedFragment;
@@ -60,11 +62,11 @@ namespace CSF.Screenplay
         /// <param name="formattedFragment">The formatted report fragment</param>
         /// <param name="placeholderValues">The placeholder values</param>
         /// <exception cref="System.ArgumentNullException">If any parameter is <see langword="null" />.</exception>
-        public ReportFragment(string originalTemplate, string formattedFragment, IDictionary<string,object> placeholderValues)
+        public ReportFragment(string originalTemplate, string formattedFragment, IReadOnlyList<NameAndValue> placeholderValues)
         {
             OriginalTemplate = originalTemplate ?? throw new System.ArgumentNullException(nameof(originalTemplate));
             FormattedFragment = formattedFragment ?? throw new System.ArgumentNullException(nameof(formattedFragment));
-            PlaceholderValues = new ReadOnlyDictionary<string,object>(placeholderValues ?? throw new System.ArgumentNullException(nameof(placeholderValues)));
+            PlaceholderValues = placeholderValues ?? throw new System.ArgumentNullException(nameof(placeholderValues));
         }
     }
 }

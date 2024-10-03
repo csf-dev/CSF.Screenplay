@@ -28,7 +28,7 @@ namespace CSF.Screenplay.WebApis
 #else
     public class
 #endif
-        HttpRequestMessageBuilder : IHasName, Reporting.IFormattable
+        HttpRequestMessageBuilder : IHasName, Reporting.IFormattableValue
     {
         NameValueRecordCollection<string,string> headers = new NameValueRecordCollection<string, string>();
 

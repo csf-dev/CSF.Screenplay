@@ -3,7 +3,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// An object which can format a value which appears within a Screenplay report.
     /// </summary>
-    public interface IFormatter
+    public interface IValueFormatter
     {
         /// <summary>
         /// Gets a value indicating whether this object is suitable for formatting the specified value.
