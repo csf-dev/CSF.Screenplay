@@ -18,20 +18,24 @@ namespace CSF.Screenplay
         /// <para>
         /// Use this method to add Screenplay to an existing service collection; if you just want an instance of <see cref="Screenplay"/>
         /// and do not care for integrating it with a service collection of your own then consider the convenience method
-        /// <see cref="Screenplay.Create(Action{IServiceCollection})"/>.
+        /// <see cref="Screenplay.Create(Action{IServiceCollection}, Action{ScreenplayOptions})"/>.
         /// </para>
         /// </remarks>
         /// <param name="services">An <see cref="IServiceCollection"/></param>
+        /// <param name="options">An optional configuration action, used to configure Screenplay in DI</param>
         /// <returns>The service collection, so that calls may be chained</returns>
         /// <exception cref="ArgumentNullException">If <paramref name="services"/> is <see langword="null" />.</exception>
-        public static IServiceCollection AddScreenplay(this IServiceCollection services)
+        public static IServiceCollection AddScreenplay(this IServiceCollection services, Action<ScreenplayOptions> options = null)
         {
             if (services is null)
                 throw new ArgumentNullException(nameof(services));
+            var optionsModel = new ScreenplayOptions();
+            options?.Invoke(optionsModel);
 
             services.AddSingleton<Screenplay>();
             services.AddSingleton<PerformanceEventBus>();
-            services.AddSingleton<IFormatterRegistry, ValueFormatterRegistry>();
+            services.AddSingleton(optionsModel);
+            services.AddSingleton(s => s.GetRequiredService<ScreenplayOptions>().ValueFormatters);
 
             services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
             services.AddScoped<IStage, Stage>();
@@ -40,11 +44,10 @@ namespace CSF.Screenplay
             services.AddTransient<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<ICreatesPerformance, PerformanceFactory>();
-            services.AddTransient<FormattableFormatter>();
-            services.AddTransient<NameFormatter>();
-            services.AddTransient<ToStringFormatter>();
             services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
             services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
+            foreach(var type in optionsModel.ValueFormatters)
+                services.AddTransient(type);
             
             return services;
         }
