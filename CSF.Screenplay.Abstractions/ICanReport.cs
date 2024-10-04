@@ -1,28 +1,26 @@
-﻿using CSF.Screenplay.Reporting;
-
-namespace CSF.Screenplay
+﻿namespace CSF.Screenplay
 {
-  /// <summary>
-  /// A type which can provide a human-readable report fragment when it is used in a <see cref="IPerformance"/>.
-  /// </summary>
-  /// <remarks>
-  /// <para>
-  /// It is recommended for all types for Actions, Questions, Tasks (broadly "Performables") as well as
-  /// Abilities to implement this interface.
-  /// Implementing this interface permits the type to emit a human-readable value for when the type is
-  /// used in a Performance.
-  /// </para>
-  /// <para>
-  /// For Performables implementing this interface, the report fragment indicates that the performable has been
-  /// executed in the Performance.
-  /// For abilities which implement this interface, the report fragment is used when an Actor gains/is granted
-  /// the ability.
-  /// </para>
-  /// </remarks>
-  /// <seealso cref="IPerformable"/>
-  /// <seealso cref="IPerformableWithResult"/>
-  /// <seealso cref="IPerformableWithResult{TResult}"/>
-  public interface ICanReport
+    /// <summary>
+    /// A type which can provide a human-readable report fragment when it is used in a <see cref="IPerformance"/>.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// It is recommended for all types for Actions, Questions, Tasks (broadly "Performables") as well as
+    /// Abilities to implement this interface.
+    /// Implementing this interface permits the type to emit a human-readable value for when the type is
+    /// used in a Performance.
+    /// </para>
+    /// <para>
+    /// For Performables implementing this interface, the report fragment indicates that the performable has been
+    /// executed in the Performance.
+    /// For abilities which implement this interface, the report fragment is used when an Actor gains/is granted
+    /// the ability.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="IPerformable"/>
+    /// <seealso cref="IPerformableWithResult"/>
+    /// <seealso cref="IPerformableWithResult{TResult}"/>
+    public interface ICanReport
   {
         /// <summary>
         /// Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining

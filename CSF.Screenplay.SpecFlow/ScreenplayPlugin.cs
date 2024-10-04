@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
-using System.Threading;
 using BoDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
