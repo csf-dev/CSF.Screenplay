@@ -29,7 +29,7 @@ public class ValueFormatterRegistryTests
     [Test,AutoMoqData]
     public void CountSouldReturnCountFromWrapped([DefaultRegistry] ValueFormatterRegistry sut)
     {
-        Assert.That(sut.Count, Is.EqualTo(1));
+        Assert.That(sut, Has.Count.EqualTo(1));
     }
 
     [Test,AutoMoqData]
@@ -55,7 +55,7 @@ public class ValueFormatterRegistryTests
     public void ClearShouldEmptyTheCollection([DefaultRegistry] ValueFormatterRegistry sut)
     {
         sut.Clear();
-        Assert.That(sut.Count, Is.Zero);
+        Assert.That(sut, Has.Count.Zero);
     }
 
     [Test,AutoMoqData]
@@ -95,14 +95,14 @@ public class ValueFormatterRegistryTests
     public void RemoveShouldRemoveAnItem([DefaultRegistry] ValueFormatterRegistry sut)
     {
         sut.Remove(typeof(SampleFormatter1));
-        Assert.That(sut.Count, Is.Zero);
+        Assert.That(sut, Has.Count.Zero);
     }
 
     [Test,AutoMoqData]
     public void RemoveAtShouldRemoveAnItem([DefaultRegistry] ValueFormatterRegistry sut)
     {
         sut.RemoveAt(0);
-        Assert.That(sut.Count, Is.Zero);
+        Assert.That(sut, Has.Count.Zero);
     }
 
     [Test,AutoMoqData]
