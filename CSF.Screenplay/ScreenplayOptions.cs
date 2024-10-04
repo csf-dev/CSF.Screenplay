@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
 
 namespace CSF.Screenplay
@@ -48,5 +51,49 @@ namespace CSF.Screenplay
                 typeof(NameFormatter),
                 typeof(FormattableFormatter),
             };
+
+        /// <summary>
+        /// Gets a file system path at which a Screenplay report file will be written.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// As a <see cref="Screenplay"/> executes each <see cref="IPerformance"/>, it accumulates data relating to those performances, via its reporting
+        /// mechanism. This information is then written to a JSON-formatted report file, which is saved at the path specified by this property.
+        /// Once the Screenplay has completed this file may be inspected, converted into a different format and otherwise used to learn-about and diagnose the
+        /// Screenplay.
+        /// </para>
+        /// <para>
+        /// If this value is set to a relative file path, then it will be relative to the current working directory.
+        /// If using Screenplay with a software testing integration, then this directory might not be easily determined.
+        /// </para>
+        /// <para>
+        /// The default value for this property is a relative file path in the current working directory, using the filename <c>ScreenplayReport_[timestamp].json</c>
+        /// where <c>[timestamp]</c> is replaced by the current UTC date &amp; time in ISO 8601 format.  A sample of a Screenplay Report filename using this default
+        /// path is <c>ScreenplayReport_2024-10-04T19:23:45Z.json</c>.
+        /// </para>
+        /// <para>
+        /// If this property is set to <see langword="null" />, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
+        /// will be disabled and no report will be written.
+        /// </para>
+        /// </remarks>
+        public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture)}.json";
+
+        /// <summary>
+        /// An optional callback/action which exposes the various <see cref="IHasPerformanceEvents"/> which may be subscribed-to in order to be notified
+        /// of the progress of a screenplay.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The implementation of <see cref="IHasPerformanceEvents"/> is an event publisher which emits notifications when key evens occur during the lifetime
+        /// of a <see cref="Screenplay"/> and its performances: <see cref="IPerformance"/>.
+        /// If you wish, you may subscribe to these events from your own logic in order to develop new functionality or extend Screenplay.
+        /// </para>
+        /// <para>
+        /// There is no need to add an explicit subscription to any events for the reporting infrastructure.
+        /// Screenplay will automatically subscribe to this object from the reporting mechanism, unless the value of <see cref="ReportPath"/> means that
+        /// reporting is disabled.
+        /// </para>
+        /// </remarks>
+        public Action<IHasPerformanceEvents> PerformanceEventsConfig { get; set; }
     }
 }
