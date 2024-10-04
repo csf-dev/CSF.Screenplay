@@ -1,6 +1,7 @@
 using System;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
+using CSF.Screenplay.Reporting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay
@@ -30,6 +31,7 @@ namespace CSF.Screenplay
 
             services.AddSingleton<Screenplay>();
             services.AddSingleton<PerformanceEventBus>();
+            services.AddSingleton<IFormatterRegistry, ValueFormatterRegistry>();
 
             services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
             services.AddScoped<IStage, Stage>();
@@ -38,7 +40,12 @@ namespace CSF.Screenplay
             services.AddTransient<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddTransient<ICreatesPerformance, PerformanceFactory>();
-
+            services.AddTransient<FormattableFormatter>();
+            services.AddTransient<NameFormatter>();
+            services.AddTransient<ToStringFormatter>();
+            services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
+            services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
+            
             return services;
         }
     }
