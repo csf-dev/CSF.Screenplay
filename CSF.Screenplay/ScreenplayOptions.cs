@@ -36,6 +36,7 @@ namespace CSF.Screenplay
         /// </para>
         /// <list type="number">
         /// <item><description><see cref="ToStringFormatter"/> - a default/fallback implementation which may format any value at all</description></item>
+        /// <item><description><see cref="HumanizerFormatter"/> - a formatter for dates, times &amp; time spans which uses the Humanizer library</description></item>
         /// <item><description><see cref="NameFormatter"/> - which formats values that implement <see cref="IHasName"/> by emitting their name</description></item>
         /// <item><description><see cref="FormattableFormatter"/> - which formats values that implement <see cref="IFormattableValue"/></description></item>
         /// </list>
@@ -48,6 +49,7 @@ namespace CSF.Screenplay
         public IFormatterRegistry ValueFormatters { get; } = new ValueFormatterRegistry
             {
                 typeof(ToStringFormatter),
+                typeof(HumanizerFormatter),
                 typeof(NameFormatter),
                 typeof(FormattableFormatter),
             };

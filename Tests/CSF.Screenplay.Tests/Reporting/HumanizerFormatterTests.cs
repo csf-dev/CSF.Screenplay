@@ -1,0 +1,74 @@
+namespace CSF.Screenplay.Reporting;
+
+[TestFixture,Parallelizable]
+public class HumanizerFormatterTests
+{
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForADateTime(HumanizerFormatter sut, DateTime value)
+    {
+        Assert.That(sut.CanFormat(value), Is.True);
+    }
+
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForANonNullNullableDateTime(HumanizerFormatter sut, DateTime value)
+    {
+        DateTime? nullableValue = value;
+        Assert.That(sut.CanFormat(nullableValue), Is.True);
+    }
+
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForATimeSpan(HumanizerFormatter sut, TimeSpan value)
+    {
+        Assert.That(sut.CanFormat(value), Is.True);
+    }
+    
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForANonNullNullableTimeSpan(HumanizerFormatter sut, TimeSpan value)
+    {
+        TimeSpan? nullableValue = value;
+        Assert.That(sut.CanFormat(nullableValue), Is.True);
+    }
+
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnFalseForANullReference(HumanizerFormatter sut)
+    {
+        Assert.That(sut.CanFormat(null), Is.False);
+    }
+
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnFalseForAPlainObject(HumanizerFormatter sut, object value)
+    {
+        Assert.That(sut.CanFormat(value), Is.False);
+    }
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForADateTime(HumanizerFormatter sut, DateTime value)
+    {
+        Assert.That(sut.Format(value), Is.Not.Null);
+    }
+
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForANonNullNullableDateTime(HumanizerFormatter sut, DateTime value)
+    {
+        DateTime? nullableValue = value;
+        Assert.That(sut.Format(nullableValue), Is.Not.Null);
+    }
+
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForATimeSpan(HumanizerFormatter sut, TimeSpan value)
+    {
+        Assert.That(sut.Format(value), Is.Not.Null);
+    }
+    
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForANonNullNullableTimeSpan(HumanizerFormatter sut, TimeSpan value)
+    {
+        TimeSpan? nullableValue = value;
+        Assert.That(sut.Format(nullableValue), Is.Not.Null);
+    }
+
+    [Test,AutoMoqData]
+    public void FormatShouldThrowForAnUnsupportedValue(HumanizerFormatter sut, object value)
+    {
+        Assert.That(() => sut.Format(value), Throws.ArgumentException);
+    }
+}
