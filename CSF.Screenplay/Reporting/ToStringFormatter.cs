@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Reporting
     public class ToStringFormatter : IValueFormatter
     {
         /// <inheritdoc/>
-        public bool CanFormat(object value) => value is IFormattableValue;
+        public bool CanFormat(object value) => true;
 
         /// <inheritdoc/>
         public string Format(object value) => value is null ? FormatterStrings.NullValue : value.ToString();

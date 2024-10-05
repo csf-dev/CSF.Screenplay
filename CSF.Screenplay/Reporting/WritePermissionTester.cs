@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace CSF.Screenplay.Reporting
@@ -5,12 +6,15 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// Helper class to determine whether or not we have write permission to a specified file path.
     /// </summary>
-    public static class WritePermissionTester
+    public class WritePermissionTester : ITestsPathForWritePermissions
     {
         /// <summary>
         /// Gets a value indicating whether or not the current process has write permission to the specified file path.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// The path may be relative or absolute; if relative then it is treated as relative to the current working directory.
+        /// </para>
         /// <para>
         /// This method will recurse in order to test the permissions for parent directories, if it finds a file or directory
         /// which does not exist.
@@ -25,8 +29,14 @@ namespace CSF.Screenplay.Reporting
         /// </remarks>
         /// <param name="path">An absolute or relative file path.</param>
         /// <returns><see langword="true" /> if the current process is able to write to the specified path; <see langword="false" /> if not.</returns>
-        public static bool HasWritePermission(string path)
+        public bool HasWritePermission(string path)
         {
+            if (string.IsNullOrWhiteSpace(path))
+                return false;
+
+            if (!Path.IsPathRooted(path))
+                path = Path.Combine(Environment.CurrentDirectory, path);
+            
             try
             {
                 if (File.Exists(path))

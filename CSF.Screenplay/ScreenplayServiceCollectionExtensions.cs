@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
@@ -52,28 +54,36 @@ namespace CSF.Screenplay
 
             services.AddTransient<ICreatesPerformance, PerformanceFactory>();
 
-            if (ShouldEnableReporting(optionsModel))
-                AddReporting(services, optionsModel, eventBus);
+            if (ShouldEnableReporting(optionsModel, out var reportPath))
+                AddReporting(services, optionsModel.ValueFormatters, reportPath, eventBus);
             
             return services;
         }
 
-        static bool ShouldEnableReporting(ScreenplayOptions optionsModel)
+        static bool ShouldEnableReporting(ScreenplayOptions optionsModel, out string reportPath)
         {
             if (string.IsNullOrWhiteSpace(optionsModel.ReportPath))
+            {
+                reportPath = null;
                 return false;
-            return WritePermissionTester.HasWritePermission(optionsModel.ReportPath);
+            }
+
+            reportPath = Path.IsPathRooted(optionsModel.ReportPath)
+                ? optionsModel.ReportPath
+                : Path.Combine(Environment.CurrentDirectory, optionsModel.ReportPath);
+            var permissionsTester = new WritePermissionTester();
+            return permissionsTester.HasWritePermission(reportPath);
         }
 
-        static void AddReporting(IServiceCollection services, ScreenplayOptions optionsModel, PerformanceEventBus eventBus)
+        static void AddReporting(IServiceCollection services, IList<Type> valueFormatters, string reportPath, PerformanceEventBus eventBus)
         {
             services.AddSingleton(s => s.GetRequiredService<ScreenplayOptions>().ValueFormatters);
             services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
             services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
-            foreach(var type in optionsModel.ValueFormatters)
+            foreach(var type in valueFormatters)
                 services.AddTransient(type);
 
-            var reporter = new JsonScreenplayReporter(optionsModel.ReportPath);
+            var reporter = new JsonScreenplayReporter(reportPath);
             reporter.SubscribeTo(eventBus);
         }
     }
