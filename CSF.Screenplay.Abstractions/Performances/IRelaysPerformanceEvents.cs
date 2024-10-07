@@ -61,9 +61,8 @@ namespace CSF.Screenplay.Performances
         /// <summary>
         /// Invokes an event indicating that a new <see cref="Actor"/> has been created and added to the <see cref="IPerformance"/>.
         /// </summary>
-        /// <param name="actorName">The actor's human-readable name.</param>
-        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
-        void InvokeActorCreated(string actorName, Guid performanceIdentity);
+        /// <param name="actor">The actor</param>
+        void InvokeActorCreated(Actor actor);
 
         /// <summary>
         /// Invokes an event indicating that a new <see cref="Actor"/> has gained an ability.
@@ -81,17 +80,15 @@ namespace CSF.Screenplay.Performances
         /// immediately, as part of their creation.
         /// </para>
         /// </remarks>
-        /// <param name="actorName">The actor's human-readable name.</param>
-        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
+        /// <param name="actor">The actor</param>
         /// <param name="ability">The ability that the actor has gained.</param>
-        void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability);
+        void InvokeGainedAbility(Actor actor, object ability);
 
         /// <summary>
         /// Invokes an event indicating that an <see cref="Actor"/> has been placed into the Spotlight of an <see cref="IStage"/>.
         /// </summary>
-        /// <param name="actorName">The actor's human-readable name.</param>
-        /// <param name="performanceIdentity">A unique identifier for the current <see cref="IPerformance"/>.</param>
-        void InvokeActorSpotlit(string actorName, Guid performanceIdentity);
+        /// <param name="actor">The actor</param>
+        void InvokeActorSpotlit(Actor actor);
 
         /// <summary>
         /// Invokes an event indicating that the Spotlight of the <see cref="IStage"/> has been 'turned off'.

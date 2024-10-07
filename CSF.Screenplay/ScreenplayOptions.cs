@@ -70,15 +70,16 @@ namespace CSF.Screenplay
         /// </para>
         /// <para>
         /// The default value for this property is a relative file path in the current working directory, using the filename <c>ScreenplayReport_[timestamp].json</c>
-        /// where <c>[timestamp]</c> is replaced by the current UTC date &amp; time in ISO 8601 format.  A sample of a Screenplay Report filename using this default
-        /// path is <c>ScreenplayReport_2024-10-04T19:23:45Z.json</c>.
+        /// where <c>[timestamp]</c> is replaced by the current UTC date &amp; time in a format which is similar to ISO 8601, except that the <c>:</c> characters separating
+        /// the hours, minutes and second are omitted.  This is because they are typically not legal filename characters.  A sample of a Screenplay Report filename using
+        /// this default path is <c>ScreenplayReport_2024-10-04T192345Z.json</c>.
         /// </para>
         /// <para>
         /// If this property is set to <see langword="null" />, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
         /// will be disabled and no report will be written.
         /// </para>
         /// </remarks>
-        public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture)}.json";
+        public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture)}.json";
 
         /// <summary>
         /// An optional callback/action which exposes the various <see cref="IHasPerformanceEvents"/> which may be subscribed-to in order to be notified

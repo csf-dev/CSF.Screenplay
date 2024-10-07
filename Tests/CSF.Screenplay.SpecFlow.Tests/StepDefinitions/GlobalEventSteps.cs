@@ -56,12 +56,12 @@ public class GlobalEventSteps
 
     static void OnActorCreated(object? sender, ActorEventArgs e)
     {
-        Console.Error.WriteLine($"{nameof(OnActorCreated)}: {e.ActorName}");
+        Console.Error.WriteLine($"{nameof(OnActorCreated)}: {e.Actor}");
     }
 
     static void OnGainedAbility(object? sender, GainAbilityEventArgs e)
     {
-        Console.Error.WriteLine($"{nameof(OnGainedAbility)}: {e.ActorName}, {e.Ability.GetType()}");
+        Console.Error.WriteLine($"{nameof(OnGainedAbility)}: {e.Actor}, {e.Ability.GetType()}");
     }
 
     [BeforeTestRun]

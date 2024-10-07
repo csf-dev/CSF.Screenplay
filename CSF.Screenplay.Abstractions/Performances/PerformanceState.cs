@@ -1,6 +1,6 @@
 namespace CSF.Screenplay.Performances
 {
-    /// <summary>Enumerates the states of a <see cref="IPerformance"/>.</summary>
+    /// <summary>Enumerates the states of an <see cref="IPerformance"/>.</summary>
     /// <remarks>
     /// <para>
     /// When Screenplay is being used with <xref href="IntegrationGlossaryItem?an+automated+testing+integration"/> then

@@ -78,10 +78,10 @@ namespace CSF.Screenplay.Performances
             => PerformableFailed?.Invoke(sender, args);
 
         /// <inheritdoc/>
-        public event EventHandler<PerformableAssetEventArgs> RecordsAsset;
+        public event EventHandler<PerformableAssetEventArgs> RecordAsset;
 
         void OnRecordsAsset(object sender, PerformableAssetEventArgs args)
-            => RecordsAsset?.Invoke(sender, args);
+            => RecordAsset?.Invoke(sender, args);
 
         #endregion
 
@@ -150,16 +150,16 @@ namespace CSF.Screenplay.Performances
         }
 
         /// <inheritdoc/>
-        public void InvokeActorCreated(string actorName, Guid performanceIdentity)
-            => ActorCreated?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
+        public void InvokeActorCreated(Actor actor)
+            => ActorCreated?.Invoke(this, new ActorEventArgs(actor));
 
         /// <inheritdoc/>
-        public void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability)
-            => GainedAbility?.Invoke(this, new GainAbilityEventArgs(actorName, performanceIdentity, ability));
+        public void InvokeGainedAbility(Actor actor, object ability)
+            => GainedAbility?.Invoke(this, new GainAbilityEventArgs(actor, ability));
 
         /// <inheritdoc/>
-        public void InvokeActorSpotlit(string actorName, Guid performanceIdentity)
-            => ActorSpotlit?.Invoke(this, new ActorEventArgs(actorName, performanceIdentity));
+        public void InvokeActorSpotlit(Actor actor)
+            => ActorSpotlit?.Invoke(this, new ActorEventArgs(actor));
 
         /// <inheritdoc/>
         public void InvokeSpotlightTurnedOff(Guid performanceIdentity)

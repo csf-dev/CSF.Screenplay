@@ -1,3 +1,7 @@
+---
+uid: SpotlightGlossaryItem
+---
+
 # Spotlight
 
 When the [Stage] is used to get an [Actor], that actor is placed _in the **Spotlight**_.

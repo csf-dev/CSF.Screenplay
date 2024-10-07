@@ -16,12 +16,12 @@ public class EventBusIntegrationTests
                                                                                   SampleGenericQuestion sampleQuestion,
                                                                                   [DefaultScreenplay] Screenplay sut)
     {
-        string? createdActorName = null;
+        Actor? createdActor = null;
         bool performanceBegun = false, performanceFinished = false;
         List<object> performablesBegun = [];
         List<object> performablesEnded = [];
         List<object> performableResults = [];
-        void OnActorCreated(object? sender, ActorEventArgs ev) => createdActorName = ev.ActorName;
+        void OnActorCreated(object? sender, ActorEventArgs ev) => createdActor = ev.Actor;
         void OnBeginPerformable(object? sender, PerformableEventArgs ev) => performablesBegun.Add(ev.Performable);
         void OnEndPerformable(object? sender, PerformableEventArgs ev) => performablesEnded.Add(ev.Performable);
         void OnPerformableResult(object? sender, PerformableResultEventArgs ev) => performableResults.Add(ev.Result);
@@ -58,7 +58,7 @@ public class EventBusIntegrationTests
         {
             Assert.That(performanceBegun, Is.True, $"{nameof(OnPerformanceBegun)} was triggered");
             Assert.That(performanceFinished, Is.True, $"{nameof(OnPerformanceFinished)} was triggered");
-            Assert.That(createdActorName, Is.EqualTo("Joe"), $"{nameof(OnActorCreated)} was triggered");
+            Assert.That(createdActor, Has.Property(nameof(IHasName.Name)).EqualTo("Joe"), $"{nameof(OnActorCreated)} was triggered");
             Assert.That(performablesBegun, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnBeginPerformable)} was triggered with the right performables");
             Assert.That(performablesEnded, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnEndPerformable)} was triggered with the right performables");
             Assert.That(performableResults, Is.EqualTo(new object[] { "Joe" }),  $"{nameof(OnPerformableResult)} was triggered with the right performables");
@@ -68,9 +68,9 @@ public class EventBusIntegrationTests
     [Test,AutoMoqData]
     public async Task ExecuteAsPerformanceAsyncShouldEmitCorrectSpotlightEvents([DefaultScreenplay] Screenplay sut)
     {
-        string? spotlitActorName = null;
+        Actor? spotlitActor = null;
         bool spotlightOff = false;
-        void OnActorSpotlit(object? sender, ActorEventArgs e) => spotlitActorName = e.ActorName;
+        void OnActorSpotlit(object? sender, ActorEventArgs e) => spotlitActor = e.Actor;
         void OnSpotlightTurnedOff(object? sender, PerformanceScopeEventArgs e) => spotlightOff = true;
 
         var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
@@ -93,7 +93,7 @@ public class EventBusIntegrationTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(spotlitActorName, Is.EqualTo("Joe"), $"{nameof(OnActorSpotlit)} was triggered");
+            Assert.That(spotlitActor, Has.Property(nameof(IHasName.Name)).EqualTo("Joe"), $"{nameof(OnActorSpotlit)} was triggered");
             Assert.That(spotlightOff, Is.True, $"{nameof(OnSpotlightTurnedOff)} was triggered");
         });
     }
@@ -217,7 +217,7 @@ public class EventBusIntegrationTests
         };
 
         var eventPublisher = sut.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
-        eventPublisher.RecordsAsset += OnRecordsAsset;
+        eventPublisher.RecordAsset += OnRecordsAsset;
         
         await sut.ExecuteAsPerformanceAsync((s, c) =>
         {
@@ -228,7 +228,7 @@ public class EventBusIntegrationTests
             return Task.FromResult<bool?>(true);
         });
 
-        eventPublisher.RecordsAsset -= OnRecordsAsset;
+        eventPublisher.RecordAsset -= OnRecordsAsset;
 
         Assert.Multiple(() =>
         {

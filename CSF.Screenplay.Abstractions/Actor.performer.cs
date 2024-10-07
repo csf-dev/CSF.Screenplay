@@ -29,6 +29,11 @@ namespace CSF.Screenplay
                 await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
                 InvokeEndPerformable(performable, phase);
             }
+            catch(PerformableException ex)
+            {
+                InvokePerformableFailed(performable, ex, phase);
+                throw;
+            }
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
@@ -89,6 +94,11 @@ namespace CSF.Screenplay
                 InvokePerformableResult(performable, result);
                 InvokeEndPerformable(performable, phase);
                 return result;
+            }
+            catch(PerformableException ex)
+            {
+                InvokePerformableFailed(performable, ex, phase);
+                throw;
             }
             catch(Exception ex)
             {
