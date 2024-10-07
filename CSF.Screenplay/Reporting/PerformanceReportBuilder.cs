@@ -78,7 +78,7 @@ namespace CSF.Screenplay.Reporting
         /// <param name="actor">The actor</param>
         public void ActorCreated(Actor actor)
         {
-            CurrentPerformable.Reportables.Add(new ActorCreatedReport
+            NewPerformableList.Add(new ActorCreatedReport
             {
                 ActorName = ((IHasName) actor).Name,
                 Report = string.Format(ReportStrings.ActorCreatedFormat, ((IHasName) actor).Name),
@@ -96,7 +96,7 @@ namespace CSF.Screenplay.Reporting
                 ? reporter.GetReportFragment(actor, formatter).FormattedFragment
                 : string.Format(ReportStrings.ActorGainedAbilityFormat, ((IHasName) actor).Name, valueFormatterProvider.FormatValue(ability));
 
-            CurrentPerformable.Reportables.Add(new ActorGainedAbilityReport
+            NewPerformableList.Add(new ActorGainedAbilityReport
             {
                 ActorName = ((IHasName) actor).Name,
                 Report = report,
@@ -114,7 +114,7 @@ namespace CSF.Screenplay.Reporting
         /// <param name="actor">The actor</param>
         public void ActorSpotlit(Actor actor)
         {
-            CurrentPerformable.Reportables.Add(new ActorSpotlitReport
+            NewPerformableList.Add(new ActorSpotlitReport
             {
                 ActorName = ((IHasName) actor).Name,
                 Report = string.Format(ReportStrings.ActorSpotlitFormat, ((IHasName) actor).Name),
@@ -131,7 +131,7 @@ namespace CSF.Screenplay.Reporting
         /// </remarks>
         public void SpotlightTurnedOff()
         {
-            CurrentPerformable.Reportables.Add(new SpotlightTurnedOffReport
+            NewPerformableList.Add(new SpotlightTurnedOffReport
             {
                 Report = ReportStrings.SpotlightTurnedOff,
             });

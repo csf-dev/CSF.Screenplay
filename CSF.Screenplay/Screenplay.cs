@@ -44,7 +44,14 @@ namespace CSF.Screenplay
 
         /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
         /// Screenplay has begun.</summary>
-        public void BeginScreenplay() => ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayStarted();
+        public void BeginScreenplay()
+        {
+            var config = ServiceProvider.GetRequiredService<ScreenplayOptions>();
+            foreach (var callback in config.OnBeginScreenplayActions)
+                callback(ServiceProvider);
+
+            ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayStarted();
+        }
 
         /// <summary>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
         /// Screenplay is now complete.</summary>

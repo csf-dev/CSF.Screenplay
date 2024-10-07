@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay
 {
@@ -98,5 +100,55 @@ namespace CSF.Screenplay
         /// </para>
         /// </remarks>
         public Action<IHasPerformanceEvents> PerformanceEventsConfig { get; set; }
+
+        /// <summary>
+        /// Gets an ordered collection of actions which should be executed when the <see cref="Screenplay"/> begins, before the first
+        /// <see cref="IPerformance"/> starts.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Each of the actions in this configuration parameter are executed when the <see cref="Screenplay.BeginScreenplay"/> method is invoked.
+        /// </para>
+        /// <para>
+        /// By default this collection contains one item, which configures reporting if enabled by the options in the current class.
+        /// This will initialise an instance of <see cref="JsonScreenplayReporter"/> and subscribe it to the event bus: <see cref="IHasPerformanceEvents"/>.
+        /// </para>
+        /// <para>
+        /// You may add further callbacks if you wish, to extend Screenplay; they are executed in the order in which they appear in this collection.
+        /// </para>
+        /// <para>
+        /// There is intentionally no counterpart list of 'OnEndScreenplayActions' actions.  This is because it is usual for the end of a Screenplay to
+        /// be triggered by the unloading of the the assemblies in the current process.  If we attempted to process logic in this event, it's very likely
+        /// that the logic would be terminated early by the ending of the process.
+        /// </para>
+        /// </remarks>
+        public List<Action<IServiceProvider>> OnBeginScreenplayActions { get; } = new List<Action<IServiceProvider>>
+            {
+                services => {
+                    if(!ShouldEnableReporting(services.GetRequiredService<ScreenplayOptions>(), out var reportPath))
+                        return;
+                    
+                    var reporter = ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(services, reportPath);
+                    var eventBus = services.GetRequiredService<IHasPerformanceEvents>();
+                    reporter.SubscribeTo(eventBus);
+                },
+            };
+        
+        
+        static bool ShouldEnableReporting(ScreenplayOptions optionsModel, out string reportPath)
+        {
+            if (string.IsNullOrWhiteSpace(optionsModel.ReportPath))
+            {
+                reportPath = null;
+                return false;
+            }
+
+            reportPath = Path.IsPathRooted(optionsModel.ReportPath)
+                ? optionsModel.ReportPath
+                : Path.Combine(Environment.CurrentDirectory, optionsModel.ReportPath);
+            var permissionsTester = new WritePermissionTester();
+            return permissionsTester.HasWritePermission(reportPath);
+        }
+
     }
 }

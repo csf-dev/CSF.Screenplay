@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
+using CSF.Screenplay.ReportModel;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay
@@ -47,44 +47,27 @@ namespace CSF.Screenplay
             services.AddSingleton<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddSingleton<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
             services.AddSingleton(optionsModel);
+            services.AddSingleton(s => s.GetRequiredService<ScreenplayOptions>().ValueFormatters);
+            services.AddSingleton<JsonScreenplayReporter>();
+            services.AddSingleton<ScreenplayReportBuilder>();
 
             services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
             services.AddScoped<IStage, Stage>();
             services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
 
             services.AddTransient<ICreatesPerformance, PerformanceFactory>();
-
-            if (ShouldEnableReporting(optionsModel, out var reportPath))
-                AddReporting(services, optionsModel.ValueFormatters, reportPath, eventBus);
-            
-            return services;
-        }
-
-        static bool ShouldEnableReporting(ScreenplayOptions optionsModel, out string reportPath)
-        {
-            if (string.IsNullOrWhiteSpace(optionsModel.ReportPath))
-            {
-                reportPath = null;
-                return false;
-            }
-
-            reportPath = Path.IsPathRooted(optionsModel.ReportPath)
-                ? optionsModel.ReportPath
-                : Path.Combine(Environment.CurrentDirectory, optionsModel.ReportPath);
-            var permissionsTester = new WritePermissionTester();
-            return permissionsTester.HasWritePermission(reportPath);
-        }
-
-        static void AddReporting(IServiceCollection services, IList<Type> valueFormatters, string reportPath, PerformanceEventBus eventBus)
-        {
-            services.AddSingleton(s => s.GetRequiredService<ScreenplayOptions>().ValueFormatters);
             services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
             services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
-            foreach(var type in valueFormatters)
+            services.AddTransient<IFormatsReportFragment, ReportFragmentFormatter>();
+            services.AddTransient<PerformanceReportBuilder>();
+            services.AddTransient<Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>>(s =>
+            {
+                return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);
+            });
+            foreach(var type in optionsModel.ValueFormatters)
                 services.AddTransient(type);
-
-            var reporter = new JsonScreenplayReporter(reportPath);
-            reporter.SubscribeTo(eventBus);
+            
+            return services;
         }
     }
 }

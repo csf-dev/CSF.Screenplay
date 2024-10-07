@@ -40,7 +40,7 @@ namespace CSF.Screenplay.Reporting
     /// </remarks>
     public sealed class JsonScreenplayReporter : IDisposable
     {
-        readonly ScreenplayReportBuilder builder; //= new ScreenplayReportBuilder();
+        readonly ScreenplayReportBuilder builder;
         readonly Utf8JsonWriter jsonWriter;
         readonly object syncRoot = new object();
 
@@ -178,11 +178,13 @@ namespace CSF.Screenplay.Reporting
         /// Initializes a new instance of <see cref="JsonScreenplayReporter"/> for a specified file path.
         /// </summary>
         /// <param name="filePath">The file path at which to write the report.</param>
+        /// <param name="builder">The Screenplay report builder</param>
         /// <exception cref="ArgumentNullException">If <paramref name="filePath"/> is <see langword="null" />.</exception>
-        public JsonScreenplayReporter(string filePath)
+        public JsonScreenplayReporter(string filePath, ScreenplayReportBuilder builder)
         {
             var stream = File.Create(filePath);
             jsonWriter = new Utf8JsonWriter(stream);
+            this.builder = builder ?? throw new ArgumentNullException(nameof(builder));
         }
     }
 }
