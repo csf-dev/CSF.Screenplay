@@ -110,46 +110,48 @@ namespace CSF.Screenplay
         /// Each of the actions in this configuration parameter are executed when the <see cref="Screenplay.BeginScreenplay"/> method is invoked.
         /// </para>
         /// <para>
-        /// By default this collection contains one item, which configures reporting if enabled by the options in the current class.
-        /// This will initialise an instance of <see cref="JsonScreenplayReporter"/> and subscribe it to the event bus: <see cref="IHasPerformanceEvents"/>.
+        /// By default this collection contains one item.
+        /// This will initialise an instance of <see cref="IReporter"/> and subscribe it to the event bus: <see cref="IHasPerformanceEvents"/>,
+        /// which will activate Screenplay reporting.
         /// </para>
         /// <para>
         /// You may add further callbacks if you wish, to extend Screenplay; they are executed in the order in which they appear in this collection.
-        /// </para>
-        /// <para>
-        /// There is intentionally no counterpart list of 'OnEndScreenplayActions' actions.  This is because it is usual for the end of a Screenplay to
-        /// be triggered by the unloading of the the assemblies in the current process.  If we attempted to process logic in this event, it's very likely
-        /// that the logic would be terminated early by the ending of the process.
         /// </para>
         /// </remarks>
         public List<Action<IServiceProvider>> OnBeginScreenplayActions { get; } = new List<Action<IServiceProvider>>
             {
                 services => {
-                    if(!ShouldEnableReporting(services.GetRequiredService<ScreenplayOptions>(), out var reportPath))
-                        return;
-                    
-                    var stream = File.Create(reportPath);
-                    var reporter = ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(services, stream);
+                    var reporter = services.GetRequiredService<IReporter>();
                     var eventBus = services.GetRequiredService<IHasPerformanceEvents>();
                     reporter.SubscribeTo(eventBus);
                 },
             };
         
-        
-        static bool ShouldEnableReporting(ScreenplayOptions optionsModel, out string reportPath)
-        {
-            if (string.IsNullOrWhiteSpace(optionsModel.ReportPath))
+        /// <summary>
+        /// Gets an ordered collection of actions which should be executed when the <see cref="Screenplay"/> finished, after the last
+        /// <see cref="IPerformance"/> ends.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Each of the actions in this configuration parameter are executed when the <see cref="Screenplay.CompleteScreenplay"/> method is invoked.
+        /// </para>
+        /// <para>
+        /// By default this collection contains one item, which disposes of the reporting infrastructure.
+        /// </para>
+        /// <para>
+        /// You may add further callbacks if you wish, to extend Screenplay; they are executed in the order in which they appear in this collection.
+        /// </para>
+        /// <para>
+        /// Be very wary of the use of this property.  This is because it is usual for the end of a Screenplay to
+        /// be triggered by the unloading of the the assemblies in the current process.  If the logic triggered by this is nontrivial, it's very likely
+        /// that it will be terminated early by the ending of the overall process.
+        /// </para>
+        /// </remarks>
+        public List<Action<IServiceProvider>> OnEndScreenplayActions { get; } = new List<Action<IServiceProvider>>
             {
-                reportPath = null;
-                return false;
-            }
+                services => services.GetRequiredService<IReporter>().Dispose(),
+            };
 
-            reportPath = Path.IsPathRooted(optionsModel.ReportPath)
-                ? optionsModel.ReportPath
-                : Path.Combine(Environment.CurrentDirectory, optionsModel.ReportPath);
-            var permissionsTester = new WritePermissionTester();
-            return permissionsTester.HasWritePermission(reportPath);
-        }
 
     }
 }

@@ -38,25 +38,22 @@ namespace CSF.Screenplay.Reporting
     /// This means that all that is left to be done when the Screenplay completes is to write a few closing symbols and then close the file.
     /// </para>
     /// </remarks>
-    public sealed class JsonScreenplayReporter : IDisposable
+    public sealed class JsonScreenplayReporter : IReporter
     {
         readonly ScreenplayReportBuilder builder;
         readonly Utf8JsonWriter jsonWriter;
         readonly object syncRoot = new object();
+        IHasPerformanceEvents subscribed;
+        bool disposed;
 
-        /// <summary>
-        /// Subscribes to the events emitted by the specified Screenplay event notifier.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// As events are received, the JSON object model will be accumulated and written incrementally to file.
-        /// </para>
-        /// </remarks>
-        /// <param name="events">A Screenplay event notifier</param>
+        /// <inheritdoc/>
         public void SubscribeTo(IHasPerformanceEvents events)
         {
             if (events is null)
                 throw new ArgumentNullException(nameof(events));
+            if (subscribed != null)
+                throw new InvalidOperationException($"{nameof(SubscribeTo)} may be called only once; instances of {nameof(JsonScreenplayReporter)} are not reusable.");
+            subscribed = events;
 
             events.ScreenplayStarted += OnScreenplayStarted;
             events.ScreenplayEnded += OnScreenplayEnded;
@@ -72,17 +69,8 @@ namespace CSF.Screenplay.Reporting
             events.ActorSpotlit += OnActorSpotlit;
             events.SpotlightTurnedOff += OnSpotlightTurnedOff;
         }
-        /// <summary>
-        /// Unsubscribes from the specified Screenplay event notifier.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// Use this method only after the event notifier has emitted the <see cref="IHasPerformanceEvents.ScreenplayEnded"/> event.
-        /// If this reporter unsubscribes from Screenplay events before the Screenplay has ended then the results are undefined.
-        /// This could lead to a corrupt report file.
-        /// </para>
-        /// </remarks>
-        /// <param name="events">A Screenplay event notifier</param>
+        
+        /// <inheritdoc/>
         public void UnsubscribeFrom(IHasPerformanceEvents events)
         {
             events.ScreenplayStarted -= OnScreenplayStarted;
@@ -101,7 +89,15 @@ namespace CSF.Screenplay.Reporting
         }
 
         /// <inheritdoc/>
-        public void Dispose() => jsonWriter.Dispose();
+        public void Dispose()
+        {
+            if(disposed) return;
+
+            jsonWriter.Dispose();
+            if(subscribed != null)
+                UnsubscribeFrom(subscribed);
+            disposed = true;
+        }
 
         #region event handlers
 
@@ -145,7 +141,7 @@ namespace CSF.Screenplay.Reporting
             jsonWriter.Flush();
         }
 
-        private void OnScreenplayEnded(object sender, EventArgs e)
+        void OnScreenplayEnded(object sender, EventArgs e)
         {
             jsonWriter.WriteEndArray();
             jsonWriter.WriteEndObject();
