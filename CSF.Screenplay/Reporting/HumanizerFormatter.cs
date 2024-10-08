@@ -54,7 +54,10 @@ namespace CSF.Screenplay.Reporting
     /// </remarks>
     public class HumanizerFormatter : IValueFormatter
     {
-        static readonly MethodInfo tryHumanizeAsEnumOpenGeneric = typeof(HumanizerFormatter).GetMethod(nameof(TryHumanizeAsEnum), BindingFlags.Static | BindingFlags.NonPublic);
+#pragma warning disable S3011 // Accessibility bypass is safe because it's a private method in this same class
+        static readonly MethodInfo tryHumanizeAsEnumOpenGeneric
+            = typeof(HumanizerFormatter).GetMethod(nameof(TryHumanizeAsEnum), BindingFlags.Static | BindingFlags.NonPublic);
+#pragma warning restore S3011
 
         static readonly Type[] supportedTypes = {
             typeof(DateTime),
