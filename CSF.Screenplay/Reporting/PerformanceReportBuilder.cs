@@ -92,14 +92,14 @@ namespace CSF.Screenplay.Reporting
         /// <param name="ability">The ability which was granted</param>
         public void ActorGainedAbility(Actor actor, object ability)
         {
-            var report = ability is ICanReport reporter
+            var reportText = ability is ICanReport reporter
                 ? reporter.GetReportFragment(actor, formatter).FormattedFragment
                 : string.Format(ReportStrings.ActorGainedAbilityFormat, ((IHasName) actor).Name, valueFormatterProvider.FormatValue(ability));
 
             NewPerformableList.Add(new ActorGainedAbilityReport
             {
                 ActorName = ((IHasName) actor).Name,
-                Report = report,
+                Report = reportText,
             });
         }
 

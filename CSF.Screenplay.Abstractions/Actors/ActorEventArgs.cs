@@ -14,23 +14,13 @@ namespace CSF.Screenplay.Actors
         /// </summary>
         public Actor Actor { get; }
 
-        // /// <summary>
-        // /// Initializes a new instance of <see cref="ActorEventArgs"/>
-        // /// </summary>
-        // /// <param name="actorName">The actor's name</param>
-        // /// <param name="performanceIdentity">The actor's performance identity</param>
-        // public ActorEventArgs(string actorName, Guid performanceIdentity) : base(performanceIdentity)
-        // {
-        //     ActorName = actorName ?? throw new ArgumentNullException(nameof(actorName));
-        // }
-
         /// <summary>
         /// Initializes a new instance of <see cref="ActorEventArgs"/>
         /// </summary>
         /// <param name="actor">The actor</param>
-        public ActorEventArgs(Actor actor) : base(((IHasPerformanceIdentity) actor).PerformanceIdentity)
+        public ActorEventArgs(Actor actor) : base(((IHasPerformanceIdentity) actor ?? throw new ArgumentNullException(nameof(actor))).PerformanceIdentity)
         {
-            Actor = actor ?? throw new ArgumentNullException(nameof(actor));
+            Actor = actor;
         }
     }
 }

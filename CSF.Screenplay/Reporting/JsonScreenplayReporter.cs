@@ -170,7 +170,7 @@ namespace CSF.Screenplay.Reporting
         PerformanceReportBuilder GetPerformanceBuilder(PerformanceScopeEventArgs e)
             => builder.GetPerformanceBuilder(e.PerformanceIdentity);
 
-        string GetPhaseString(PerformancePhase phase)
+        static string GetPhaseString(PerformancePhase phase)
             => phase == PerformancePhase.Unspecified ? string.Empty : phase.ToString();
 
 
