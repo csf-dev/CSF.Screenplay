@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Reporting
     /// <summary>
     /// A no-op implementation of <see cref="IReporter"/> which does nothing.
     /// </summary>
-    public class NoOpReporter : IReporter
+    public sealed class NoOpReporter : IReporter
     {
         /// <inheritdoc/>
         public void SubscribeTo(IHasPerformanceEvents events) {}
