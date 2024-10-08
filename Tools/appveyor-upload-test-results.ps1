@@ -7,5 +7,5 @@ $wc = New-Object 'System.Net.WebClient'
 
 foreach($project in $TestProjects)
 {
-    $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $SolutionRoot\Tests\$project\TestResults\TestResults.xml))
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$env:APPVEYOR_JOB_ID", (Resolve-Path $SolutionRoot\Tests\$project\TestResults\TestResults.xml))
 }
