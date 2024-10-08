@@ -99,14 +99,11 @@ namespace CSF.Screenplay.Reporting
             events.ActorSpotlit -= OnActorSpotlit;
             events.SpotlightTurnedOff -= OnSpotlightTurnedOff;
         }
-        
-        /// <inheritdoc/>
-        public void Dispose()
-        {
-            jsonWriter.Dispose();
-        }
 
-#region event handlers
+        /// <inheritdoc/>
+        public void Dispose() => jsonWriter.Dispose();
+
+        #region event handlers
 
         void OnSpotlightTurnedOff(object sender, PerformanceScopeEventArgs e)
             => GetPerformanceBuilder(e).SpotlightTurnedOff();
@@ -177,13 +174,15 @@ namespace CSF.Screenplay.Reporting
         /// <summary>
         /// Initializes a new instance of <see cref="JsonScreenplayReporter"/> for a specified file path.
         /// </summary>
-        /// <param name="filePath">The file path at which to write the report.</param>
+        /// <param name="writeStream">The stream to which the JSON report shall be written.</param>
         /// <param name="builder">The Screenplay report builder</param>
-        /// <exception cref="ArgumentNullException">If <paramref name="filePath"/> is <see langword="null" />.</exception>
-        public JsonScreenplayReporter(string filePath, ScreenplayReportBuilder builder)
+        /// <exception cref="ArgumentNullException">If <paramref name="writeStream"/> is <see langword="null" />.</exception>
+        public JsonScreenplayReporter(Stream writeStream, ScreenplayReportBuilder builder)
         {
-            var stream = File.Create(filePath);
-            jsonWriter = new Utf8JsonWriter(stream);
+            if (writeStream is null)
+                throw new ArgumentNullException(nameof(writeStream));
+
+            jsonWriter = new Utf8JsonWriter(writeStream);
             this.builder = builder ?? throw new ArgumentNullException(nameof(builder));
         }
     }

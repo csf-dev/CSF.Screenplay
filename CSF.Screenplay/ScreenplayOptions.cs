@@ -128,7 +128,8 @@ namespace CSF.Screenplay
                     if(!ShouldEnableReporting(services.GetRequiredService<ScreenplayOptions>(), out var reportPath))
                         return;
                     
-                    var reporter = ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(services, reportPath);
+                    var stream = File.Create(reportPath);
+                    var reporter = ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(services, stream);
                     var eventBus = services.GetRequiredService<IHasPerformanceEvents>();
                     reporter.SubscribeTo(eventBus);
                 },
