@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace CSF.Screenplay.Reporting;
 
 [TestFixture,Parallelizable]
@@ -27,6 +29,18 @@ public class HumanizerFormatterTests
     {
         TimeSpan? nullableValue = value;
         Assert.That(sut.CanFormat(nullableValue), Is.True);
+    }
+    
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForAnEnumType(HumanizerFormatter sut)
+    {
+        Assert.That(sut.CanFormat(MyEnumType.ThisIsTheFirst), Is.True);
+    }
+    
+    [Test,AutoMoqData]
+    public void CanFormatShouldReturnTrueForAStringCollection(HumanizerFormatter sut)
+    {
+        Assert.That(sut.CanFormat(new [] { "Foo", "Bar", "Baz" }), Is.True);
     }
 
     [Test,AutoMoqData]
@@ -65,10 +79,36 @@ public class HumanizerFormatterTests
         TimeSpan? nullableValue = value;
         Assert.That(sut.Format(nullableValue), Is.Not.Null);
     }
+    
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForAnEnumValue(HumanizerFormatter sut)
+    {
+        Assert.That(sut.Format(MyEnumType.ThisIsTheFirst), Is.EqualTo("This is the first"));
+    }
+    
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForAnEnumValueRespectingTheDescription(HumanizerFormatter sut)
+    {
+        Assert.That(sut.Format(MyEnumType.ThisIsTheThird), Is.EqualTo("This member has a custom description"));
+    }
+        
+    [Test,AutoMoqData]
+    public void FormatShouldReturnAStringForAStringCollection(HumanizerFormatter sut)
+    {
+        Assert.That(sut.Format(new [] { "Foo", "Bar", "Baz" }), Is.EqualTo("Foo, Bar, and Baz"));
+    }
 
     [Test,AutoMoqData]
     public void FormatShouldThrowForAnUnsupportedValue(HumanizerFormatter sut, object value)
     {
         Assert.That(() => sut.Format(value), Throws.ArgumentException);
+    }
+
+    public enum MyEnumType
+    {
+        ThisIsTheFirst,
+        ThisIsTheSecond,
+        [System.ComponentModel.Description("This member has a custom description")]
+        ThisIsTheThird
     }
 }
