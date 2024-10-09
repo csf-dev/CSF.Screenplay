@@ -16,16 +16,14 @@ namespace CSF.Screenplay.Actors
         /// <summary>
         /// Initializes a new instance of <see cref="PerformableFailureEventArgs"/>.
         /// </summary>
-        /// <param name="actorName">The actor's name</param>
-        /// <param name="performanceIdentity">The actor's performance identity</param>
+        /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item which raised the exception</param>
         /// <param name="exception">The exception which occurred</param>
         /// <param name="phase">The phase of performance which was underway when the exception occurred</param>
-        public PerformableFailureEventArgs(string actorName,
-                                           Guid performanceIdentity,
+        public PerformableFailureEventArgs(Actor actor,
                                            object performable,
                                            Exception exception,
-                                           PerformancePhase phase = PerformancePhase.Unspecified) : base(actorName, performanceIdentity, performable, phase)
+                                           PerformancePhase phase = PerformancePhase.Unspecified) : base(actor, performable, phase)
         {
             Exception = exception ?? throw new ArgumentNullException(nameof(exception));
         }

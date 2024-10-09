@@ -1,0 +1,650 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PerformanceReportBuilder | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PerformanceReportBuilder | Screenplay docs ">
+      
+      <meta name="description" content="Builder for an instance of .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Reporting_PerformanceReportBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Reporting.PerformanceReportBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder">
+
+
+
+  <h1 id="CSF_Screenplay_Reporting_PerformanceReportBuilder" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder" class="text-break">
+Class PerformanceReportBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Reporting.html">Reporting</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builder for an instance of <a class="xref" href="CSF.Screenplay.ReportModel.PerformanceReport.html">PerformanceReport</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PerformanceReportBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PerformanceReportBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This is a stateful builder, so instances of this type are not reusable for more than one <a class="xref" href="CSF.Screenplay.ReportModel.PerformanceReport.html">PerformanceReport</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment)">
+  PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt;, IGetsValueFormatter, IFormatsReportFragment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt; namingHierarchy, IGetsValueFormatter valueFormatterProvider, IFormatsReportFragment formatter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>namingHierarchy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.ReportModel.IdentifierAndNameModel.html">IdentifierAndNameModel</a>&gt;</dt>
+    <dd><p>The naming hierarchy of the performance; see <a class="xref" href="CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy">NamingHierarchy</a></p>
+</dd>
+    <dt><code>valueFormatterProvider</code> <a class="xref" href="CSF.Screenplay.Reporting.IGetsValueFormatter.html">IGetsValueFormatter</a></dt>
+    <dd><p>A value formatter factory</p>
+</dd>
+    <dt><code>formatter</code> <a class="xref" href="CSF.Screenplay.IFormatsReportFragment.html">IFormatsReportFragment</a></dt>
+    <dd><p>A report-fragment formatter</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If any parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorCreated_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorCreated_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated(CSF.Screenplay.Actor)">
+  ActorCreated(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has been created/added to the performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ActorCreated(Actor actor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorGainedAbility_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorGainedAbility_CSF_Screenplay_Actor_System_Object_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor,System.Object)">
+  ActorGainedAbility(Actor, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has gained/been granted a new ability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ActorGainedAbility(Actor actor, object ability)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
+</dd>
+    <dt><code>ability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The ability which was granted</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit(CSF.Screenplay.Actor)">
+  ActorSpotlit(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has been placed into the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ActorSpotlit(Actor actor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+For more information, see <a class="xref" href="../glossary/Spotlight.html">the spotlight glossary item</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_System_Object_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(System.Object,CSF.Screenplay.Actor,System.String)">
+  BeginPerformable(object, Actor, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a new report within the current performance, that a new performable has been begun.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginPerformable(object performable, Actor actor, string performancePhase)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The performable obeject which has begun</p>
+</dd>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor executing the performable</p>
+</dd>
+    <dt><code>performancePhase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The performance phase in which the performable occurs</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_System_Object_CSF_Screenplay_Actor_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This might be a new performable at the root of the performance, or it might be nested within
+another performable which is already in progress.
+</p>
+<p>
+When this method is executed, the <code class="paramref">performable</code> becomes the 'current' performable for this
+builder.  The current performable is tracked as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1">Stack&lt;T&gt;</a>, as a performable may contain a
+hierarchy of further performables, each of which becomes the current performable in its turn. This method
+pushes a new performable onto the stack. Once all of the consumed performables have finished, the current
+performable will return to this one.
+Thus, as performables begin and end, the current performable stack will be pushed and popped many times.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_System_Object_CSF_Screenplay_Actor_">EndPerformable(object, Actor)</a></div>
+    <div><a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_">RecordFailureForCurrentPerformable(Exception)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_System_Object_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(System.Object,CSF.Screenplay.Actor)">
+  EndPerformable(object, Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates that the current performable has finished normally and that it should no longer be current.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndPerformable(object performable, Actor actor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The performable which is ending</p>
+</dd>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor which was executing the performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_System_Object_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method will 'pop' the current performable from the current performable stack.
+The current performable will become either the performable which directly consumed/composed the one which is ending,
+or perhaps this will lead to there being no current performable (if the ending performable was at the root of the
+performance).
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_System_Object_CSF_Screenplay_Actor_System_String_">BeginPerformable(object, Actor, string)</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(System.Nullable{System.Boolean})">
+  GetReport(bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Records the outcome of this performance and gets the report.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PerformanceReport GetReport(bool? success)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>A value indicating the outcome of the performance, this has the same semantics as
+the parameter to <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_System_Nullable_System_Boolean__">FinishPerformance(bool?)</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ReportModel.PerformanceReport.html">PerformanceReport</a></dt>
+    <dd><p>The completed performance report.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_System_Nullable_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Use this method when the performance has completed.  Once this method has been used, it is normal
+that this builder instance will not be used any further.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_System_String_System_String_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(System.String,System.String)">
+  RecordAssetForCurrentPerformable(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enriches the current performable with information about a file asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecordAssetForCurrentPerformable(string assetPath, string assetSummary)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assetPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path to the asset</p>
+</dd>
+    <dt><code>assetSummary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The human readable summary of the asset</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method may be called many times for the same performable, or it might not be used at all.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)">
+  RecordFailureForCurrentPerformable(Exception)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Records the current performable as a failure, due to an uncaught exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecordFailureForCurrentPerformable(Exception exception)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exception</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>The exception which lead to the failure</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method will 'pop' the current performable from the current performable stack.
+The current performable will become either the performable which directly consumed/composed the one which is ending,
+or perhaps this will lead to there being no current performable (if the ending performable was at the root of the
+performance).
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_System_Object_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(System.Object)">
+  RecordResultForCurrentPerformable(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enriches the current performable with information about its result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RecordResultForCurrentPerformable(object result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The result of the performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_System_Object__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is only applicable to performables which may return a result.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff*"></a>
+
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff">
+  SpotlightTurnedOff()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that the spotlight has been turned off.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SpotlightTurnedOff()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+For more information, see <a class="xref" href="../glossary/Spotlight.html">the spotlight glossary item</a>.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -15,7 +15,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which this event relates</param>
         protected virtual void InvokeBeginPerformable(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformableEventArgs(Name, PerformanceIdentity, performable, phase);
+            var args = new PerformableEventArgs(this, performable, phase);
             BeginPerformable?.Invoke(this, args);
         }
 
@@ -29,7 +29,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which this event relates</param>
         protected virtual void InvokeEndPerformable(object performable, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformableEventArgs(Name, PerformanceIdentity, performable, phase);
+            var args = new PerformableEventArgs(this, performable, phase);
             EndPerformable?.Invoke(this, args);
         }
 
@@ -44,7 +44,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which this event relates</param>
         protected virtual void InvokePerformableResult(object performable, object result, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformableResultEventArgs(Name, PerformanceIdentity, performable, result, phase);
+            var args = new PerformableResultEventArgs(this, performable, result, phase);
             PerformableResult?.Invoke(this, args);
         }
 
@@ -59,7 +59,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which this event relates</param>
         protected virtual void InvokePerformableFailed(object performable, Exception exception, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformableFailureEventArgs(Name, PerformanceIdentity, performable, exception, phase);
+            var args = new PerformableFailureEventArgs(this, performable, exception, phase);
             PerformableFailed?.Invoke(this, args);
         }
 
@@ -72,7 +72,7 @@ namespace CSF.Screenplay
         /// <param name="ability">The ability which this actor gained</param>
         protected virtual void InvokeGainedAbility(object ability)
         {
-            var args = new GainAbilityEventArgs(Name, PerformanceIdentity, ability);
+            var args = new GainAbilityEventArgs(this, ability);
             GainedAbility?.Invoke(this, args);
         }
 
@@ -88,7 +88,7 @@ namespace CSF.Screenplay
         /// <param name="phase">The performance phase to which this event relates</param>
         protected virtual void InvokeRecordsAsset(object performable, string filePath, string fileSummary = null, PerformancePhase phase = PerformancePhase.Unspecified)
         {
-            var args = new PerformableAssetEventArgs(Name, PerformanceIdentity, performable, filePath, fileSummary, phase);
+            var args = new PerformableAssetEventArgs(this, performable, filePath, fileSummary, phase);
             RecordsAsset?.Invoke(this, args);
         }
 

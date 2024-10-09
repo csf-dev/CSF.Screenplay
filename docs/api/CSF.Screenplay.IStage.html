@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IStage" data-uid="CSF.Screenplay.IStage" class="text-break">
-Interface IStage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L59"><i class="bi bi-code-slash"></i></a>
+Interface IStage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -149,7 +149,7 @@ frequently repeat the <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Scr
 <p>
 It is often more consise and easier to understand performances when some of the steps use the passive voice.
 In order to do this, there must be a concept which allows us to discern "which actor is acting at the moment".
-The stage provides this via the concept of <span class="xref">a Spotlight</span>.
+The stage provides this via the concept of <a class="xref" href="../glossary/Spotlight.html">a Spotlight</a>.
 Either zero or one actor may be in the spotlight at any given time.
 If a new actor is placed in the spotlight then the previous actor is removed from it.
 </p>
@@ -180,7 +180,7 @@ implicitly be retrieved using the cast, via <a class="xref" href="CSF.Screenplay
 
   <h3 id="CSF_Screenplay_IStage_Cast" data-uid="CSF.Screenplay.IStage.Cast">
   Cast
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the cast to which the current stage is linked.</p>
@@ -216,7 +216,7 @@ implicitly be retrieved using the cast, via <a class="xref" href="CSF.Screenplay
 
   <h3 id="CSF_Screenplay_IStage_GetSpotlitActor" data-uid="CSF.Screenplay.IStage.GetSpotlitActor">
   GetSpotlitActor()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor which is currently in the spotlight.</p>
@@ -250,7 +250,7 @@ reference if there is presently no actor in the spotlight.</p>
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.Actor)">
   Spotlight(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places the specified actor into the spotlight, making them 'the current actor' on this stage.</p>
@@ -300,7 +300,7 @@ in the spotlight.
 
   <h3 id="CSF_Screenplay_IStage_Spotlight_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.IStage.Spotlight(CSF.Screenplay.IPersona)">
   Spotlight(IPersona)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
@@ -364,7 +364,7 @@ care of resolving the persona instance from dependency injection for you.
 
   <h3 id="CSF_Screenplay_IStage_TurnSpotlightOff" data-uid="CSF.Screenplay.IStage.TurnSpotlightOff">
   TurnSpotlightOff()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</p>
@@ -408,7 +408,7 @@ effect, the spotlight will remain empty and this method will return <a href="htt
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L59" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IStage.cs/#L57" class="edit-link">Edit this page</a>
         </div>
 
 

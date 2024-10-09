@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ScreenplayOptions | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ScreenplayOptions | Screenplay docs ">
+      
+      <meta name="description" content="Options model which permits the customization/configuration of Screenplay in DI.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_ScreenplayOptions.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ScreenplayOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.ScreenplayOptions">
+
+
+
+  <h1 id="CSF_Screenplay_ScreenplayOptions" data-uid="CSF.Screenplay.ScreenplayOptions" class="text-break">
+Class ScreenplayOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Options model which permits the customization/configuration of Screenplay in DI.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ScreenplayOptions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ScreenplayOptions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_ScreenplayOptions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Developer note:  In an ideal world, this type would be registered into DI via the Options pattern:
+<a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/options">https://learn.microsoft.com/en-us/dotnet/core/extensions/options</a>.
+Unfortunately, the BoDi DI container used by SpecFlow (which I wish to support with Screenplay) does not support
+the appropriate methods/logic to register the neccesary services for Options.
+This is why this object uses a somewhat homebrew version of options, without making use of the official libraries.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions_" data-uid="CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions">
+  OnBeginScreenplayActions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> begins, before the first
+<a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Action&lt;IServiceProvider&gt;&gt; OnBeginScreenplayActions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Each of the actions in this configuration parameter are executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_BeginScreenplay">BeginScreenplay()</a> method is invoked.
+</p>
+<p>
+By default this collection contains one item.
+This will initialise an instance of <a class="xref" href="CSF.Screenplay.Reporting.IReporter.html">IReporter</a> and subscribe it to the event bus: <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a>,
+which will activate Screenplay reporting.
+</p>
+<p>
+You may add further callbacks if you wish, to extend Screenplay; they are executed in the order in which they appear in this collection.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions_" data-uid="CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions">
+  OnEndScreenplayActions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> finished, after the last
+<a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Action&lt;IServiceProvider&gt;&gt; OnEndScreenplayActions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Each of the actions in this configuration parameter are executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompleteScreenplay">CompleteScreenplay()</a> method is invoked.
+</p>
+<p>
+By default this collection contains one item, which disposes of the reporting infrastructure.
+</p>
+<p>
+You may add further callbacks if you wish, to extend Screenplay; they are executed in the order in which they appear in this collection.
+</p>
+<p>
+Be very wary of the use of this property.  This is because it is usual for the end of a Screenplay to
+be triggered by the unloading of the the assemblies in the current process.  If the logic triggered by this is nontrivial, it's very likely
+that it will be terminated early by the ending of the overall process.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig">
+  PerformanceEventsConfig
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An optional callback/action which exposes the various <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> which may be subscribed-to in order to be notified
+of the progress of a screenplay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;IHasPerformanceEvents&gt; PerformanceEventsConfig { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The implementation of <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> is an event publisher which emits notifications when key evens occur during the lifetime
+of a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> and its performances: <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
+If you wish, you may subscribe to these events from your own logic in order to develop new functionality or extend Screenplay.
+</p>
+<p>
+There is no need to add an explicit subscription to any events for the reporting infrastructure.
+Screenplay will automatically subscribe to this object from the reporting mechanism, unless the value of <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath">ReportPath</a> means that
+reporting is disabled.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayOptions_ReportPath_" data-uid="CSF.Screenplay.ScreenplayOptions.ReportPath*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayOptions_ReportPath" data-uid="CSF.Screenplay.ScreenplayOptions.ReportPath">
+  ReportPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a file system path at which a Screenplay report file will be written.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ReportPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_ReportPath_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+As a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> executes each <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>, it accumulates data relating to those performances, via its reporting
+mechanism. This information is then written to a JSON-formatted report file, which is saved at the path specified by this property.
+Once the Screenplay has completed this file may be inspected, converted into a different format and otherwise used to learn-about and diagnose the
+Screenplay.
+</p>
+<p>
+If this value is set to a relative file path, then it will be relative to the current working directory.
+If using Screenplay with a software testing integration, then this directory might not be easily determined.
+</p>
+<p>
+The default value for this property is a relative file path in the current working directory, using the filename <code>ScreenplayReport_[timestamp].json</code>
+where <code>[timestamp]</code> is replaced by the current UTC date &amp; time in a format which is similar to ISO 8601, except that the <code>:</code> characters separating
+the hours, minutes and second are omitted.  This is because they are typically not legal filename characters.  A sample of a Screenplay Report filename using
+this default path is <code>ScreenplayReport_2024-10-04T192345Z.json</code>.
+</p>
+<p>
+If this property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
+will be disabled and no report will be written.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayOptions_ValueFormatters_" data-uid="CSF.Screenplay.ScreenplayOptions.ValueFormatters*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayOptions_ValueFormatters" data-uid="CSF.Screenplay.ScreenplayOptions.ValueFormatters">
+  ValueFormatters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> which implement <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a>, which will be used
+to format values which are to appear in Screenplay reports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFormatterRegistry ValueFormatters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_ValueFormatters_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+As noted in the documentation for <a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a>, the types in this collection are considered for use in reverse-collection-order.
+In other words, they will be tested using <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_CanFormat_System_Object_">CanFormat(object)</a> from last-to-first in this collection.
+Thus, generalized formatters should be placed at the beginning of this collection, where more specialized formatters should be placed toward the end.
+</p>
+<p>
+Make use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">Add(T)</a> to add new formatters to the end of this collection.
+It comes pre-loaded with three generalised formatters by default, in the following order.
+</p>
+<ol><li>
+      <a class="xref" href="CSF.Screenplay.Reporting.ToStringFormatter.html">ToStringFormatter</a> - a default/fallback implementation which may format any value at all</li><li>
+      <a class="xref" href="CSF.Screenplay.Reporting.HumanizerFormatter.html">HumanizerFormatter</a> - a formatter for dates, times &amp; time spans which uses the Humanizer library</li><li>
+      <a class="xref" href="CSF.Screenplay.Reporting.NameFormatter.html">NameFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a> by emitting their name</li><li>
+      <a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></li></ol>
+<p>
+There is no need to register/add any types listed in this registry into dependency injection.
+The methods which accept a configuration action of <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a> will iterate through this collection and add every one of the
+implementation types found as transient-lifetime services in dependency injection.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,6 +1,3 @@
-using System;
-using CSF.Screenplay.Actors;
-
 namespace CSF.Screenplay
 {
     /// <summary>A combined registry and factory for <see cref="Actor"/> instances, useful when coordinating multiple

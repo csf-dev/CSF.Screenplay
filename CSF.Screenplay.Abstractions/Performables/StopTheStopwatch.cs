@@ -17,7 +17,8 @@ namespace CSF.Screenplay.Performables
     public class StopTheStopwatch : IPerformable, ICanReport
     {
         /// <inheritdoc/>
-        public string GetReportFragment(IHasName actor) => string.Format(PerformableReportStrings.StopTheStopwatchFormat, DefaultStrings.FormatValue(actor));
+        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+            => formatter.Format(PerformableReportStrings.StopTheStopwatchFormat, actor);
 
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

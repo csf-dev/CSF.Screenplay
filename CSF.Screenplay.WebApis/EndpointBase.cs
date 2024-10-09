@@ -47,8 +47,27 @@ namespace CSF.Screenplay.WebApis
     {
         readonly HttpRequestMessageBuilder requestMessageBuilder;
 
-        /// <inheritdoc/>
-        public string Name
+        /// <summary>
+        /// Gets the human-readable name of the current object.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// <see langword="null"/> is strongly discouraged here.  All types which implement <see cref="IHasName"/>
+        /// should return a non-null response from this property.
+        /// </para>
+        /// <para>
+        /// Where it comes to endpoints, it is normal that the human-readable name might be influenced by state which is held within
+        /// the specific endpoint implementation.
+        /// In these cases, developers are encouraged to override this property, providing a name which includes the relevant values.
+        /// </para>
+        /// </remarks>
+        /// <example>
+        /// <para>
+        /// For an endpoint implementation which represents a GET request to a user profile API, this property could be overridden
+        /// so that it includes the user ID of the user which is requested.
+        /// </para>
+        /// </example>
+        public virtual string Name
         {
             get;
 #if NET5_0_OR_GREATER

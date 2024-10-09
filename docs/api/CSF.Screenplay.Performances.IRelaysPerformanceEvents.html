@@ -136,9 +136,9 @@ as many of the events published are derived by subscribing to an <a class="xref"
 
   <a id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_System_String_System_Guid_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(System.String,System.Guid)">
-  InvokeActorCreated(string, Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(CSF.Screenplay.Actor)">
+  InvokeActorCreated(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a new <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> has been created and added to the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
@@ -146,16 +146,13 @@ as many of the events published are derived by subscribing to an <a class="xref"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void InvokeActorCreated(string actorName, Guid performanceIdentity)</code></pre>
+    <pre><code class="lang-csharp hljs">void InvokeActorCreated(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
   </dl>
 
@@ -172,9 +169,9 @@ as many of the events published are derived by subscribing to an <a class="xref"
 
   <a id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_System_String_System_Guid_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(System.String,System.Guid)">
-  InvokeActorSpotlit(string, Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(CSF.Screenplay.Actor)">
+  InvokeActorSpotlit(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> has been placed into the Spotlight of an <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a>.</p>
@@ -182,16 +179,13 @@ as many of the events published are derived by subscribing to an <a class="xref"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void InvokeActorSpotlit(string actorName, Guid performanceIdentity)</code></pre>
+    <pre><code class="lang-csharp hljs">void InvokeActorSpotlit(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
   </dl>
 
@@ -208,9 +202,9 @@ as many of the events published are derived by subscribing to an <a class="xref"
 
   <a id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_System_String_System_Guid_System_Object_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(System.String,System.Guid,System.Object)">
-  InvokeGainedAbility(string, Guid, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)">
+  InvokeGainedAbility(Actor, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a new <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> has gained an ability.</p>
@@ -218,16 +212,13 @@ as many of the events published are derived by subscribing to an <a class="xref"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability)</code></pre>
+    <pre><code class="lang-csharp hljs">void InvokeGainedAbility(Actor actor, object ability)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
     <dt><code>ability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>The ability that the actor has gained.</p>
@@ -241,7 +232,7 @@ as many of the events published are derived by subscribing to an <a class="xref"
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_System_String_System_Guid_System_Object__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Use this method only when an actor gains one or more abilities before the the <a class="xref" href="CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_SubscribeTo_CSF_Screenplay_Actor_">SubscribeTo(Actor)</a> method
 has been used to subscribe to the actor.  Once the actor has been subscribed-to by an implementation of this instance,
@@ -262,7 +253,7 @@ immediately, as part of their creation.
 
   <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceBegun_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceBegun(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})">
   InvokePerformanceBegun(Guid, IList&lt;IdentifierAndName&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> has begun.</p>
@@ -298,7 +289,7 @@ immediately, as part of their creation.
 
   <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokePerformanceFinished_System_Guid_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokePerformanceFinished(System.Guid,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})">
   InvokePerformanceFinished(Guid, IList&lt;IdentifierAndName&gt;, bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> has finished.</p>
@@ -337,7 +328,7 @@ immediately, as part of their creation.
 
   <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayEnded" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayEnded">
   InvokeScreenplayEnded()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a Screenplay has ended.</p>
@@ -364,7 +355,7 @@ immediately, as part of their creation.
 
   <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeScreenplayStarted" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeScreenplayStarted">
   InvokeScreenplayStarted()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that a Screenplay has started.</p>
@@ -391,7 +382,7 @@ immediately, as part of their creation.
 
   <h3 id="CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeSpotlightTurnedOff_System_Guid_" data-uid="CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeSpotlightTurnedOff(System.Guid)">
   InvokeSpotlightTurnedOff(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/IRelaysPerformanceEvents.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Invokes an event indicating that the Spotlight of the <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a> has been 'turned off'.</p>

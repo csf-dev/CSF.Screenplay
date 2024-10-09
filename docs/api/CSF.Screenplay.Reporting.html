@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace CSF.Screenplay.Reporting | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace CSF.Screenplay.Reporting | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Reporting">
+
+  <h1 id="CSF_Screenplay_Reporting" data-uid="CSF.Screenplay.Reporting" class="text-break">Namespace CSF.Screenplay.Reporting</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which formats objects that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.HumanizerFormatter.html">HumanizerFormatter</a></dt>
+      <dd><p>A formatter which makes use of the Humanizer: <a href="https://github.com/Humanizr/Humanizer">https://github.com/Humanizr/Humanizer</a> library to format a limited number of
+value types.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.JsonScreenplayReporter.html">JsonScreenplayReporter</a></dt>
+      <dd><p>An object which subscribes/listens to the events of <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> and which
+produces a JSON-formatted report from them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.NameAndValue.html">NameAndValue</a></dt>
+      <dd><p>A simple model for a value that is to be included in a formatted <a class="xref" href="CSF.Screenplay.ReportFragment.html">ReportFragment</a>, which has an associated name.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.NameFormatter.html">NameFormatter</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which formats objects that implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.NoOpReporter.html">NoOpReporter</a></dt>
+      <dd><p>A no-op implementation of <a class="xref" href="CSF.Screenplay.Reporting.IReporter.html">IReporter</a> which does nothing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a></dt>
+      <dd><p>Builder for an instance of <a class="xref" href="CSF.Screenplay.ReportModel.PerformanceReport.html">PerformanceReport</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ReportFormat.html">ReportFormat</a></dt>
+      <dd><p>Model used for creating a <a class="xref" href="CSF.Screenplay.ReportFragment.html">ReportFragment</a>, which includes the original report fragment template string,
+a reworked template string suitable for use with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(string, params object[])</a> and the placeholder values
+to be inserted into that format.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ReportFormatCreator.html">ReportFormatCreator</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsReportFormat.html">IGetsReportFormat</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a></dt>
+      <dd><p>Builder type accumulates <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a> as performances occur within the Screenplay.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ToStringFormatter.html">ToStringFormatter</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which formats any object by using its default <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">ToString()</a> method,
+or returns the string <code>&lt;null&gt;</code> if the value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ValueFormatterExtensions.html">ValueFormatterExtensions</a></dt>
+      <dd><p>Extension methods for <a class="xref" href="CSF.Screenplay.Reporting.IGetsValueFormatter.html">IGetsValueFormatter</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ValueFormatterProvider.html">ValueFormatterProvider</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsValueFormatter.html">IGetsValueFormatter</a> which uses dependency injection services.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ValueFormatterRegistry.html">ValueFormatterRegistry</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a> which also serves as an object factory, by virtue of a service provider.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.WritePermissionTester.html">WritePermissionTester</a></dt>
+      <dd><p>Helper class to determine whether or not we have write permission to a specified file path.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></dt>
+      <dd><p>An object which has its own functionality for generating a human-readable representation of itself for a Screenplay report.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a></dt>
+      <dd><p>A registry of the concrete types of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which are available for use by the Screenplay reporting functionality.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsReportFormat.html">IGetsReportFormat</a></dt>
+      <dd><p>An object which can get a <a class="xref" href="CSF.Screenplay.Reporting.ReportFormat.html">ReportFormat</a> from a report format template and the associated values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsValueFormatter.html">IGetsValueFormatter</a></dt>
+      <dd><p>An object which can select the most appropriate implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> from a <a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IReporter.html">IReporter</a></dt>
+      <dd><p>Defines a reporter that subscribes to and processes events from a Screenplay event notifier.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html">ITestsPathForWritePermissions</a></dt>
+      <dd><p>An object which may test a file system path for writability.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a></dt>
+      <dd><p>An object which can format a value which appears within a Screenplay report.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

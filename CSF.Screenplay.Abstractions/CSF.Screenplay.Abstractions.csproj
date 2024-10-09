@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.restext" />
+  </ItemGroup>
+
 </Project>

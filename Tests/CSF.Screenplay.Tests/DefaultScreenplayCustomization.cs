@@ -6,6 +6,6 @@ public class DefaultScreenplayCustomization : ICustomization
 {
     public void Customize(IFixture fixture)
     {
-        fixture.Customize<Screenplay>(c => c.FromFactory(() => Screenplay.Create()));
+        fixture.Customize<Screenplay>(c => c.FromFactory(() => Screenplay.Create(options: o => o.ReportPath = null)));
     }
 }

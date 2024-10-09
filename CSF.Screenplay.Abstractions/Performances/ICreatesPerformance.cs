@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace CSF.Screenplay.Performances
 {
     /// <summary>An object which creates instances of <see cref="IPerformance"/>; a factory service.</summary>

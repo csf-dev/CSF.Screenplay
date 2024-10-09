@@ -110,16 +110,6 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.DefaultStrings.html">DefaultStrings</a></dt>
-      <dd><p>An object which provides default human readable strings</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.PerformableExtensions.html">PerformableExtensions</a></dt>
-      <dd><p>Extension methods for performable types</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></dt>
       <dd><p>Primary implementation type of <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
 </dd>
@@ -128,6 +118,16 @@ Classes
       <dt><a class="xref" href="CSF.Screenplay.PerformanceStarter.html">PerformanceStarter</a></dt>
       <dd><p>Helper class for beginning the functionality of a Screenplay <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> from your
 own logic, using a fluent interface</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ReportFragment.html">ReportFragment</a></dt>
+      <dd><p>A model for a fragment of a report upon a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ReportFragmentFormatter.html">ReportFragmentFormatter</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Screenplay.IFormatsReportFragment.html">IFormatsReportFragment</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -165,6 +165,11 @@ more <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> inst
       <dt><a class="xref" href="CSF.Screenplay.ScreenplayLocator.html">ScreenplayLocator</a></dt>
       <dd><p>A small static service locator of sorts, dedicated to getting an appropriate instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> for
 a specified test object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a></dt>
+      <dd><p>Options model which permits the customization/configuration of Screenplay in DI.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -214,6 +219,11 @@ Interfaces
       <dt><a class="xref" href="CSF.Screenplay.ICast.html">ICast</a></dt>
       <dd><p>A combined registry and factory for <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> instances, useful when coordinating multiple
 actors across a <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.IFormatsReportFragment.html">IFormatsReportFragment</a></dt>
+      <dd><p>A service which produces formatted report fragments from a template and a collection of parameter values.</p>
 </dd>
     </dl>
     <dl class="jumplist">

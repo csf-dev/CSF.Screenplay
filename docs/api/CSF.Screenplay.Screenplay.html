@@ -178,10 +178,10 @@ That is because the Screenplay object is generally consumed only by <a class="xr
 </p>
 <p>
 It is recommended to create instances of this type by adding Screenplay to a dependency injection
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> via the extension method <a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_">AddScreenplay(IServiceCollection)</a>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> via the extension method <a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__">AddScreenplay(IServiceCollection, Action&lt;ScreenplayOptions&gt;)</a>
 and then resolving an instance of this class from the service provider.
 Alternatively, if you do not wish to configure a service collection manually and just want an instance of this type then
-use the static <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">Create(Action&lt;IServiceCollection&gt;)</a> method.
+use the static <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__">Create(Action&lt;IServiceCollection&gt;, Action&lt;ScreenplayOptions&gt;)</a> method.
 </p>
 <p>
 The Screenplay object is used to create instances of <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a> via the <a class="xref" href="CSF.Screenplay.Performances.PerformanceFactory.html">PerformanceFactory</a>.
@@ -198,7 +198,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_Screenplay__ctor_System_IServiceProvider_" data-uid="CSF.Screenplay.Screenplay.#ctor(System.IServiceProvider)">
   Screenplay(IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.</p>
@@ -226,8 +226,8 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
   <h4 class="section" id="CSF_Screenplay_Screenplay__ctor_System_IServiceProvider__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 It is unlikely that developers should be executing this constructor directly. Consider using the static factory method
-<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">Create(Action&lt;IServiceCollection&gt;)</a>.  Alternatively, add Screenplay to an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> using
-<a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_">AddScreenplay(IServiceCollection)</a> and then resolve an instance of
+<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__">Create(Action&lt;IServiceCollection&gt;, Action&lt;ScreenplayOptions&gt;)</a>.  Alternatively, add Screenplay to an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> using
+<a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__">AddScreenplay(IServiceCollection, Action&lt;ScreenplayOptions&gt;)</a> and then resolve an instance of
 this class from the service provider built from that service collection.
 </p>
 </div>
@@ -313,7 +313,7 @@ Screenplay has begun.</p>
 
   <h3 id="CSF_Screenplay_Screenplay_CompleteScreenplay" data-uid="CSF.Screenplay.Screenplay.CompleteScreenplay">
   CompleteScreenplay()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Execute this method from the consuming logic in order to inform the Screenplay architecture that the
@@ -339,9 +339,9 @@ Screenplay is now complete.</p>
 
   <a id="CSF_Screenplay_Screenplay_Create_" data-uid="CSF.Screenplay.Screenplay.Create*"></a>
 
-  <h3 id="CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__" data-uid="CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
-  Create(Action&lt;IServiceCollection&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__" data-uid="CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})">
+  Create(Action&lt;IServiceCollection&gt;, Action&lt;ScreenplayOptions&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and returns a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>, optionally including some dependency injection service customisations.</p>
@@ -349,13 +349,17 @@ Screenplay is now complete.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Screenplay Create(Action&lt;IServiceCollection&gt; serviceCollectionCustomisations = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Screenplay Create(Action&lt;IServiceCollection&gt; serviceCollectionCustomisations = null, Action&lt;ScreenplayOptions&gt; options = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>serviceCollectionCustomisations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>An optional action which permits further customization of the service collection that is implicitly created by this method.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a>&gt;</dt>
+    <dd><p>An optional action to configure the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> which is created by this method.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -371,7 +375,7 @@ Screenplay is now complete.</p>
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection___remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Use this method to create an instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> when you are not already using an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.
 This method creates a new service collection instance, adds Screenplay to it and then creates &amp; returns the Screenplay object
@@ -379,7 +383,7 @@ instance.
 </p>
 <p>
 If you already have an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a> and you wish to integrate Screenplay into it, then use the extension method
-<a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_">AddScreenplay(IServiceCollection)</a> instead.
+<a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__">AddScreenplay(IServiceCollection, Action&lt;ScreenplayOptions&gt;)</a> instead.
 </p>
 </div>
 
@@ -390,7 +394,7 @@ If you already have an <a class="xref" href="https://learn.microsoft.com/dotnet/
 
   <h3 id="CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.IServiceProvider,System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)">
   ExecuteAsPerformanceAsync(Func&lt;IServiceProvider, CancellationToken, Task&lt;bool?&gt;&gt;, IList&lt;IdentifierAndName&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Screenplay.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes the specified logic as a <a class="xref" href="CSF.Screenplay.Performance.html">Performance</a></p>

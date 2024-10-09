@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Actors
                 spotlitActor = actor;
             }
 
-            performanceEventBus.InvokeActorSpotlit(((IHasName)actor).Name, PerformanceIdentity);
+            performanceEventBus.InvokeActorSpotlit(actor);
         }
 
         /// <inheritdoc/>

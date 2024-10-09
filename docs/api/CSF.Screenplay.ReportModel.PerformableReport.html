@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PerformableReport | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PerformableReport | Screenplay docs ">
+      
+      <meta name="description" content="An implementation of  which represents the execution of a .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_ReportModel_PerformableReport.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ReportModel.PerformableReport%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.ReportModel.PerformableReport">
+
+
+
+  <h1 id="CSF_Screenplay_ReportModel_PerformableReport" data-uid="CSF.Screenplay.ReportModel.PerformableReport" class="text-break">
+Class PerformableReport  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.ReportModel.html">ReportModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An implementation of <a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html">ReportableModelBase</a> which represents the execution of a <a class="xref" href="../glossary/Performable.html">performable item</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PerformableReport : ReportableModelBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html">ReportableModelBase</a></div>
+      <div><span class="xref">PerformableReport</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Report">ReportableModelBase.Report</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_ActorName">ReportableModelBase.ActorName</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_ReportModel_PerformableReport_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Reports about performables may themselves contain further reportables.
+This may create a hierarchical structure of reports which contain further reports, and so on.
+This represents the use of high-level performables which consume/compose lower-level performables.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_Assets_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Assets*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_Assets" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Assets">
+  Assets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a collection of the assets which were recorded by the current performable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;PerformableAsset&gt; Assets { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html">PerformableAsset</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_Exception_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Exception*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_Exception" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Exception">
+  Exception
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value which is the string representation of any <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a> which occurred, causing
+the performable to fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Exception { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_Exception_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If this property is non-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then the performable has failed with an exception, and this property will
+contain the result of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception.tostring">ToString()</a> for that error.
+</p>
+<p>If this property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then the performable did not raise an exception and completed successfully.</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_ExceptionIsFromConsumedPerformable_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_ExceptionIsFromConsumedPerformable" data-uid="CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable">
+  ExceptionIsFromConsumedPerformable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates whether or not the <a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception">Exception</a> is one which was originally thrown from a consumed performable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ExceptionIsFromConsumedPerformable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_ExceptionIsFromConsumedPerformable_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If <a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception">Exception</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then the value of this property is meaningless and undefined.
+If the exception is not null then - if this property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then it means that exception which
+is recorded for this performable was originally thrown from a performable which was consumed by the current one.
+In other words, it indicates whether or not the reason for the current performable's error was because a consumed/child
+performable encountered an error.
+</p>
+<p>
+If, on the other hand, <a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception">Exception</a> is not <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> and this property value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+then it indicates that the current performable is the original source of the error.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_HasResult_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.HasResult*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_HasResult" data-uid="CSF.Screenplay.ReportModel.PerformableReport.HasResult">
+  HasResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value that indicates whether or not the performable (which generated this report) emitted a result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasResult { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_HasResult_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property will be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the original performable which lead to this report derived from either
+<a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a> or <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a> (and did not fail).
+For performables which do not emit a result, this value will always be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Result">Result</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_PerformableType_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.PerformableType*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_PerformableType" data-uid="CSF.Screenplay.ReportModel.PerformableReport.PerformableType">
+  PerformableType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.fullname">FullName</a> of the <a class="xref" href="../glossary/Performable.html">performable item</a> to which this report model relates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PerformableType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_PerformancePhase_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_PerformancePhase" data-uid="CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase">
+  PerformancePhase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corresponds to the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html">PerformancePhase</a> to which the current reportable is part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PerformancePhase { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_PerformancePhase_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property contains the string representation of that performance phase.
+It is quite rare for this property to be unset (IE: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>), typically it is only unset for the
+initial creation/setup of Actors at the beginning of a performance.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_Reportables_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Reportables*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_Reportables" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Reportables">
+  Reportables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a collection of the reportable items which have been composed by the current performable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ReportableModelBase&gt; Reportables { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html">ReportableModelBase</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_Reportables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This collection is commonly populated for <a class="xref" href="../glossary/Task.html">task performables</a>, because the nature of tasks is to
+consume and compose other performables.
+This collection can create a hierarchical structure of performables composing other performables.
+That structure could be deeply nested.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableReport_Result_" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Result*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableReport_Result" data-uid="CSF.Screenplay.ReportModel.PerformableReport.Result">
+  Result
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a string representation of the result which was emitted by the corresponding performable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Result { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformableReport_Result_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property is only relevant if the original performable which lead to this report derived from either
+<a class="xref" href="CSF.Screenplay.IPerformableWithResult.html">IPerformableWithResult</a> or <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a>.
+For performables which do not emit a result, this value will always be null.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_HasResult">HasResult</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableReport.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

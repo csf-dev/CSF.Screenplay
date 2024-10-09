@@ -208,7 +208,7 @@ For more information, see the documentation article for <a class="xref" href="..
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase__ctor_System_String_System_Net_Http_HttpMethod_" data-uid="CSF.Screenplay.WebApis.EndpointBase.#ctor(System.String,System.Net.Http.HttpMethod)">
   EndpointBase(string, HttpMethod)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of a type which derives from <a class="xref" href="CSF.Screenplay.WebApis.EndpointBase.html">EndpointBase</a> with a relative URI and an optional HTTP method.</p>
@@ -253,7 +253,7 @@ If you omit the HTTP method, then the created builder will also not specify an H
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase__ctor_System_Uri_System_Net_Http_HttpMethod_" data-uid="CSF.Screenplay.WebApis.EndpointBase.#ctor(System.Uri,System.Net.Http.HttpMethod)">
   EndpointBase(Uri, HttpMethod)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of a type which derives from <a class="xref" href="CSF.Screenplay.WebApis.EndpointBase.html">EndpointBase</a> with a URI and an optional HTTP method.</p>
@@ -299,7 +299,7 @@ If you omit the HTTP method, then the created builder will also not specify an H
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase_Name" data-uid="CSF.Screenplay.WebApis.EndpointBase.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -307,7 +307,7 @@ If you omit the HTTP method, then the created builder will also not specify an H
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual string Name { get; init; }</code></pre>
   </div>
 
 
@@ -322,11 +322,22 @@ If you omit the HTTP method, then the created builder will also not specify an H
 
 
 
+  <h4 class="section" id="CSF_Screenplay_WebApis_EndpointBase_Name_examples">Examples</h4>
+  <p>
+For an endpoint implementation which represents a GET request to a user profile API, this property could be overridden
+so that it includes the user ID of the user which is requested.
+</p>
+
 
   <h4 class="section" id="CSF_Screenplay_WebApis_EndpointBase_Name_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement this interface
+  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
 should return a non-null response from this property.
+</p>
+<p>
+Where it comes to endpoints, it is normal that the human-readable name might be influenced by state which is held within
+the specific endpoint implementation.
+In these cases, developers are encouraged to override this property, providing a name which includes the relevant values.
 </p>
 </div>
 
@@ -337,7 +348,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase_Timeout" data-uid="CSF.Screenplay.WebApis.EndpointBase.Timeout">
   Timeout
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets an optional timeout duration for requests built from this endpoint.</p>
@@ -395,7 +406,7 @@ timeout-related logic themselves, or else this value will not be honoured.
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase_GetBaseHttpRequestMessageBuilder" data-uid="CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder">
   GetBaseHttpRequestMessageBuilder()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a> from the state of the current instance.</p>
@@ -436,7 +447,7 @@ The message builder returned from this method will respect the following state f
 
   <h3 id="CSF_Screenplay_WebApis_EndpointBase_GetBaseHttpRequestMessageBuilder__1" data-uid="CSF.Screenplay.WebApis.EndpointBase.GetBaseHttpRequestMessageBuilder``1">
   GetBaseHttpRequestMessageBuilder&lt;TResponse&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/EndpointBase.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder&lt;TResponse&gt;</a> from the state of the current instance, with information about
