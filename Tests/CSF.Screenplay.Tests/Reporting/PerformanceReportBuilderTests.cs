@@ -126,7 +126,7 @@ public class PerformanceReportBuilderTest
         Assert.Multiple(() =>
         {
             Assert.That(report.Reportables, Has.Count.EqualTo(1), "Only one reportable should be present at root level");
-            
+
             var taskReport = report.Reportables.OfType<PerformableReport>().Single();
             Assert.That(taskReport.Reportables, Has.Count.EqualTo(2), "Two child reports should be present");
             Assert.That(taskReport.Reportables.OfType<PerformableReport>().Select(x => x.PerformableType),
@@ -224,9 +224,9 @@ public class PerformanceReportBuilderTest
 
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            await actor.PerformAsync(new StartTheStopwatch());
-            await Task.Delay(50);
-            await actor.PerformAsync(new StopTheStopwatch());
+            await actor.PerformAsync(new StartTheStopwatch(), cancellationToken);
+            await Task.Delay(50, cancellationToken);
+            await actor.PerformAsync(new StopTheStopwatch(), cancellationToken);
         }
     }
 }
