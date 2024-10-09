@@ -79,7 +79,7 @@ namespace CSF.Screenplay
 
         PerformableException GetPerformableException(object performable, Exception ex)
         {
-            return new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+            return new PerformableException($"{Name} encountered an unexpected exception whilst performing a performable of type {performable.GetType().FullName}", ex)
             {
                 Performable = performable,
             };

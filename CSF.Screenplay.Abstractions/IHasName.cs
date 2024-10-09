@@ -18,7 +18,7 @@
         /// </summary>
         /// <remarks>
         /// <para>
-        /// <see langword="null"/> is strongly discouraged here.  All types which implement this interface
+        /// <see langword="null"/> is strongly discouraged here.  All types which implement <see cref="IHasName"/>
         /// should return a non-null response from this property.
         /// </para>
         /// </remarks>

@@ -23,6 +23,6 @@ namespace CSF.Screenplay.Abilities
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
-            => formatter.Format(AbilityReportStrings.UseAStopwatchFormat, DefaultStrings.FormatValue(actor));
+            => formatter.Format(AbilityReportStrings.UseAStopwatchFormat, actor);
     }
 }

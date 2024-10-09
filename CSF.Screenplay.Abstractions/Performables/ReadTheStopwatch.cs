@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Performables
     {
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
-            => formatter.Format(PerformableReportStrings.ReadTheStopwatchFormat, DefaultStrings.FormatValue(actor));
+            => formatter.Format(PerformableReportStrings.ReadTheStopwatchFormat, actor);
 
         /// <inheritdoc/>
         public ValueTask<TimeSpan> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

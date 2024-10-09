@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Resources
     /// <summary>Provides access to localisable string values which relate to performables.</summary>
     internal static class PerformableReportStrings
     {
-        static readonly ResourceManager resourceManager = new ResourceManager(nameof(PerformableReportStrings), typeof(PerformableReportStrings).Assembly);
+        static readonly ResourceManager resourceManager = new ResourceManager(typeof(PerformableReportStrings).FullName, typeof(PerformableReportStrings).Assembly);
 
         /// <summary>Gets a string which is the report format for <see cref="Performables.StopTheStopwatch"/>.</summary>
         internal static string StopTheStopwatchFormat => resourceManager.GetString("StopTheStopwatchFormat");

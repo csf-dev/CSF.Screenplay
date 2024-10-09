@@ -80,8 +80,8 @@ namespace CSF.Screenplay.Reporting
         {
             NewPerformableList.Add(new ActorCreatedReport
             {
-                ActorName = ((IHasName) actor).Name,
-                Report = string.Format(ReportStrings.ActorCreatedFormat, ((IHasName) actor).Name),
+                ActorName = actor.Name,
+                Report = string.Format(ReportStrings.ActorCreatedFormat, actor.Name),
             });
         }
 
@@ -94,11 +94,11 @@ namespace CSF.Screenplay.Reporting
         {
             var reportText = ability is ICanReport reporter
                 ? reporter.GetReportFragment(actor, formatter).FormattedFragment
-                : string.Format(ReportStrings.ActorGainedAbilityFormat, ((IHasName) actor).Name, valueFormatterProvider.FormatValue(ability));
+                : string.Format(ReportStrings.ActorGainedAbilityFormat, actor.Name, valueFormatterProvider.FormatValue(ability));
 
             NewPerformableList.Add(new ActorGainedAbilityReport
             {
-                ActorName = ((IHasName) actor).Name,
+                ActorName = actor.Name,
                 Report = reportText,
             });
         }
@@ -116,8 +116,8 @@ namespace CSF.Screenplay.Reporting
         {
             NewPerformableList.Add(new ActorSpotlitReport
             {
-                ActorName = ((IHasName) actor).Name,
-                Report = string.Format(ReportStrings.ActorSpotlitFormat, ((IHasName) actor).Name),
+                ActorName = actor.Name,
+                Report = string.Format(ReportStrings.ActorSpotlitFormat, actor.Name),
             });
         }
 
@@ -168,7 +168,7 @@ namespace CSF.Screenplay.Reporting
             var performableReport = new PerformableReport
             {
                 PerformableType = performable.GetType().FullName,
-                ActorName = ((IHasName) actor).Name,
+                ActorName = actor.Name,
                 PerformancePhase = performancePhase,
             };
 
@@ -219,7 +219,7 @@ namespace CSF.Screenplay.Reporting
         {
             CurrentPerformable.Report = performable is ICanReport reporter
                 ? reporter.GetReportFragment(actor, formatter).FormattedFragment
-                : string.Format(ReportStrings.FallbackReportFormat, ((IHasName)actor).Name, performable.GetType().Name);
+                : string.Format(ReportStrings.FallbackReportFormat, actor.Name, performable.GetType().FullName);
             performableStack.Pop();
         }
 

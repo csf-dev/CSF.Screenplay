@@ -77,7 +77,7 @@ namespace CSF.Screenplay
                 throw new ArgumentException($"The actor must implement {nameof(IHasAbilities)}.", nameof(actor));
             
             return abilityActor.Abilities.FirstOrDefault(abilityType.IsInstanceOfType)
-                ?? throw new InvalidOperationException($"{DefaultStrings.FormatValue(actor)} must have an ability of type {abilityType.FullName}");
+                ?? throw new InvalidOperationException($"{((IHasName) actor).Name} must have an ability of type {abilityType.FullName}");
         }
 
         /// <summary>Adds an ability to the specified actor</summary>
@@ -93,7 +93,7 @@ namespace CSF.Screenplay
             if(ability is null) throw new ArgumentNullException(nameof(ability));
 
             if (!(actor is IHasAbilities abilityActor))
-                throw new ArgumentException($"{DefaultStrings.FormatValue(actor)} must implement {nameof(IHasAbilities)}.", nameof(actor));
+                throw new ArgumentException($"{((IHasName) actor).Name} must implement {nameof(IHasAbilities)}.", nameof(actor));
             abilityActor.IsAbleTo(ability);
         }
 
@@ -118,7 +118,7 @@ namespace CSF.Screenplay
             if(actor is null) throw new ArgumentNullException(nameof(actor));
 
             if (!(actor is IHasAbilities abilityActor))
-                throw new ArgumentException($"{DefaultStrings.FormatValue(actor)} must implement {nameof(IHasAbilities)}.", nameof(actor));
+                throw new ArgumentException($"{((IHasName) actor).Name} must implement {nameof(IHasAbilities)}.", nameof(actor));
             abilityActor.IsAbleTo(new TAbility());
         }
     }

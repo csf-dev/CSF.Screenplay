@@ -1,4 +1,0 @@
-FallbackReportFormat = {Actor} performs {PerformableType}
-FallbackAbilityReportFormat = {Actor} is able to {AbilityType}
-ExceptionFormattingFormat = Unexpected exception formatting value of type {ValueType}: {Exception}
-UnnamedActor = Unnamed actor
