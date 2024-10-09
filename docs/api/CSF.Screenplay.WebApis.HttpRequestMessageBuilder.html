@@ -102,7 +102,7 @@ Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder : IHasName, IEquatable&lt;HttpRequestMessageBuilder&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder : IHasName, IFormattableValue, IEquatable&lt;HttpRequestMessageBuilder&gt;</code></pre>
   </div>
 
 
@@ -120,6 +120,7 @@ Class HttpRequestMessageBuilder  <a class="header-action link-secondary" title="
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a>&gt;</div>
     </dd>
   </dl>
@@ -309,7 +310,7 @@ the current instance but with some differences.
 
   <h4 class="section" id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Name_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement this interface
+  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
 should return a non-null response from this property.
 </p>
 </div>
@@ -549,6 +550,39 @@ If the state of the current instance does not specify a <a class="xref" href="CS
 then <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod.get">Get</a> will be used.
 </p>
 </div>
+
+
+
+
+  <a id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format_" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format*"></a>
+
+  <h3 id="CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format" data-uid="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format">
+  Format()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/HttpRequestMessageBuilder.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a formatted string which represents the current object instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Format()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A formatted string which represents the current instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 

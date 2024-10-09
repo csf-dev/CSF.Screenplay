@@ -103,7 +103,7 @@ which is expected to expose a response of a particular type.</p>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder&lt;TResponse&gt; : HttpRequestMessageBuilder, IHasName, IEquatable&lt;HttpRequestMessageBuilder&gt;, IEquatable&lt;HttpRequestMessageBuilder&lt;TResponse&gt;&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public record HttpRequestMessageBuilder&lt;TResponse&gt; : HttpRequestMessageBuilder, IHasName, IFormattableValue, IEquatable&lt;HttpRequestMessageBuilder&gt;, IEquatable&lt;HttpRequestMessageBuilder&lt;TResponse&gt;&gt;</code></pre>
   </div>
 
 
@@ -128,6 +128,7 @@ which is expected to expose a response of a particular type.</p>
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html">HttpRequestMessageBuilder</a>&gt;</div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder</a>&lt;TResponse&gt;&gt;</div>
     </dd>
@@ -166,6 +167,9 @@ which is expected to expose a response of a particular type.</p>
     </div>
     <div>
       <a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_CreateRequestMessage">HttpRequestMessageBuilder.CreateRequestMessage()</a>
+    </div>
+    <div>
+      <a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format">HttpRequestMessageBuilder.Format()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>

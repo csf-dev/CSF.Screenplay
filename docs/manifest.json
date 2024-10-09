@@ -212,16 +212,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.DefaultStrings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.DefaultStrings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ICanPerform.yml",
       "output": {
         ".html": {
@@ -246,6 +236,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ICast.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.IFormatsReportFragment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.IFormatsReportFragment.html"
         }
       },
       "version": ""
@@ -356,16 +356,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.IStage.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.PerformableExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.PerformableExtensions.html"
         }
       },
       "version": ""
@@ -642,6 +632,366 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportFragment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportFragment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportFragmentFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportFragmentFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ActorCreatedReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ActorCreatedReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ActorGainedAbilityReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ActorGainedAbilityReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ActorSpotlitReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ActorSpotlitReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.PerformableAsset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.PerformableAsset.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.PerformableReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.PerformableReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.PerformanceReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.PerformanceReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ReportMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ReportMetadata.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ReportableModelBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ReportableModelBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.SpotlightTurnedOffReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.SpotlightTurnedOffReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.FormattableFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.FormattableFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.HumanizerFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.HumanizerFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IFormattableValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IFormattableValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IFormatterRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IFormatterRegistry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IGetsReportFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IGetsReportFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IGetsValueFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IGetsValueFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IReporter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IValueFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IValueFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.NameAndValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.NameAndValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.NameFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.NameFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.NoOpReporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.NoOpReporter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.PerformanceReportBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ReportFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ReportFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ReportFormatCreator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ReportFormatCreator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ToStringFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ToStringFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.WritePermissionTester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.WritePermissionTester.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ScopeAndPerformance.yml",
       "output": {
         ".html": {
@@ -706,6 +1056,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.ScreenplayLocator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ScreenplayOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ScreenplayOptions.html"
         }
       },
       "version": ""

@@ -180,8 +180,8 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
 
   <a id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_System_String_System_Guid_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(System.String,System.Guid)">
-  InvokeActorCreated(string, Guid)
+  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(CSF.Screenplay.Actor)">
+  InvokeActorCreated(Actor)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Performances/PerformanceEventBus.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -190,16 +190,13 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InvokeActorCreated(string actorName, Guid performanceIdentity)</code></pre>
+    <pre><code class="lang-csharp hljs">public void InvokeActorCreated(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
   </dl>
 
@@ -216,8 +213,8 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
 
   <a id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_System_String_System_Guid_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(System.String,System.Guid)">
-  InvokeActorSpotlit(string, Guid)
+  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(CSF.Screenplay.Actor)">
+  InvokeActorSpotlit(Actor)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Performances/PerformanceEventBus.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -226,16 +223,13 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InvokeActorSpotlit(string actorName, Guid performanceIdentity)</code></pre>
+    <pre><code class="lang-csharp hljs">public void InvokeActorSpotlit(Actor actor)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
   </dl>
 
@@ -252,8 +246,8 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
 
   <a id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_System_String_System_Guid_System_Object_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(System.String,System.Guid,System.Object)">
-  InvokeGainedAbility(string, Guid, object)
+  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object_" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)">
+  InvokeGainedAbility(Actor, object)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Performances/PerformanceEventBus.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -262,16 +256,13 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InvokeGainedAbility(string actorName, Guid performanceIdentity, object ability)</code></pre>
+    <pre><code class="lang-csharp hljs">public void InvokeGainedAbility(Actor actor, object ability)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's human-readable name.</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>A unique identifier for the current <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
     <dt><code>ability</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>The ability that the actor has gained.</p>
@@ -285,7 +276,7 @@ to the events upon an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_System_String_System_Guid_System_Object__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Use this method only when an actor gains one or more abilities before the the <a class="xref" href="CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_SubscribeTo_CSF_Screenplay_Actor_">SubscribeTo(Actor)</a> method
 has been used to subscribe to the actor.  Once the actor has been subscribed-to by an implementation of this instance,
@@ -863,8 +854,8 @@ Use this method when ending a performance, as a convenience to unsubscribe from 
 
 
 
-  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_RecordsAsset" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset">
-  RecordsAsset
+  <h3 id="CSF_Screenplay_Performances_PerformanceEventBus_RecordAsset" data-uid="CSF.Screenplay.Performances.PerformanceEventBus.RecordAsset">
+  RecordAsset
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Performances/PerformanceEventBus.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -873,7 +864,7 @@ Use this method when ending a performance, as a convenience to unsubscribe from 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PerformableAssetEventArgs&gt; RecordsAsset</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PerformableAssetEventArgs&gt; RecordAsset</code></pre>
   </div>
 
 
