@@ -1,6 +1,6 @@
 namespace CSF.Screenplay.Reporting;
 
-[TestFixture,Parallelizable,SetCulture("en-GB")]
+[TestFixture,Parallelizable,SetUICulture("en-GB")]
 public class HumanizerFormatterTests
 {
     [Test,AutoMoqData]
