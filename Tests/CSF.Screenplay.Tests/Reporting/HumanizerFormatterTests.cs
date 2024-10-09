@@ -1,8 +1,6 @@
-using System.ComponentModel;
-
 namespace CSF.Screenplay.Reporting;
 
-[TestFixture,Parallelizable]
+[TestFixture,Parallelizable,Culture("en-GB")]
 public class HumanizerFormatterTests
 {
     [Test,AutoMoqData]
