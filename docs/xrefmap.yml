@@ -25,12 +25,12 @@ references:
   commentId: T:CSF.Screenplay.Abilities.UseAStopwatch
   fullName: CSF.Screenplay.Abilities.UseAStopwatch
   nameWithType: UseAStopwatch
-- uid: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: UseAStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: UseAStopwatch.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.Abilities.UseAStopwatch.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Abilities.UseAStopwatch.html#CSF_Screenplay_Abilities_UseAStopwatch_GetReportFragment_
@@ -536,15 +536,6 @@ references:
   fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New(CSF.Screenplay.Actor)
   nameWithType: ActorEventArgs.ActorEventArgs(Actor)
   nameWithType.vb: ActorEventArgs.New(Actor)
-- uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor(System.String,System.Guid)
-  name: ActorEventArgs(string, Guid)
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_System_String_System_Guid_
-  commentId: M:CSF.Screenplay.Actors.ActorEventArgs.#ctor(System.String,System.Guid)
-  name.vb: New(String, Guid)
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorEventArgs(string, System.Guid)
-  fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New(String, System.Guid)
-  nameWithType: ActorEventArgs.ActorEventArgs(string, Guid)
-  nameWithType.vb: ActorEventArgs.New(String, Guid)
 - uid: CSF.Screenplay.Actors.ActorEventArgs.#ctor*
   name: ActorEventArgs
   href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs__ctor_
@@ -555,19 +546,19 @@ references:
   fullName.vb: CSF.Screenplay.Actors.ActorEventArgs.New
   nameWithType: ActorEventArgs.ActorEventArgs
   nameWithType.vb: ActorEventArgs.New
-- uid: CSF.Screenplay.Actors.ActorEventArgs.ActorName
-  name: ActorName
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName
-  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.ActorName
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorName
-  nameWithType: ActorEventArgs.ActorName
-- uid: CSF.Screenplay.Actors.ActorEventArgs.ActorName*
-  name: ActorName
-  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName_
-  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.ActorName
+- uid: CSF.Screenplay.Actors.ActorEventArgs.Actor
+  name: Actor
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor
+  commentId: P:CSF.Screenplay.Actors.ActorEventArgs.Actor
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.Actor
+  nameWithType: ActorEventArgs.Actor
+- uid: CSF.Screenplay.Actors.ActorEventArgs.Actor*
+  name: Actor
+  href: api/CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor_
+  commentId: Overload:CSF.Screenplay.Actors.ActorEventArgs.Actor
   isSpec: "True"
-  fullName: CSF.Screenplay.Actors.ActorEventArgs.ActorName
-  nameWithType: ActorEventArgs.ActorName
+  fullName: CSF.Screenplay.Actors.ActorEventArgs.Actor
+  nameWithType: ActorEventArgs.Actor
 - uid: CSF.Screenplay.Actors.Cast
   name: Cast
   href: api/CSF.Screenplay.Actors.Cast.html
@@ -647,15 +638,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.GainAbilityEventArgs
   fullName: CSF.Screenplay.Actors.GainAbilityEventArgs
   nameWithType: GainAbilityEventArgs
-- uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(System.String,System.Guid,System.Object)
-  name: GainAbilityEventArgs(string, Guid, object)
-  href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_System_String_System_Guid_System_Object_
-  commentId: M:CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(System.String,System.Guid,System.Object)
-  name.vb: New(String, Guid, Object)
-  fullName: CSF.Screenplay.Actors.GainAbilityEventArgs.GainAbilityEventArgs(string, System.Guid, object)
-  fullName.vb: CSF.Screenplay.Actors.GainAbilityEventArgs.New(String, System.Guid, Object)
-  nameWithType: GainAbilityEventArgs.GainAbilityEventArgs(string, Guid, object)
-  nameWithType.vb: GainAbilityEventArgs.New(String, Guid, Object)
+- uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(CSF.Screenplay.Actor,System.Object)
+  name: GainAbilityEventArgs(Actor, object)
+  href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_CSF_Screenplay_Actor_System_Object_
+  commentId: M:CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor(CSF.Screenplay.Actor,System.Object)
+  name.vb: New(Actor, Object)
+  fullName: CSF.Screenplay.Actors.GainAbilityEventArgs.GainAbilityEventArgs(CSF.Screenplay.Actor, object)
+  fullName.vb: CSF.Screenplay.Actors.GainAbilityEventArgs.New(CSF.Screenplay.Actor, Object)
+  nameWithType: GainAbilityEventArgs.GainAbilityEventArgs(Actor, object)
+  nameWithType.vb: GainAbilityEventArgs.New(Actor, Object)
 - uid: CSF.Screenplay.Actors.GainAbilityEventArgs.#ctor*
   name: GainAbilityEventArgs
   href: api/CSF.Screenplay.Actors.GainAbilityEventArgs.html#CSF_Screenplay_Actors_GainAbilityEventArgs__ctor_
@@ -829,15 +820,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableAssetEventArgs
   fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs
   nameWithType: PerformableAssetEventArgs
-- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(System.String,System.Guid,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableAssetEventArgs(string, Guid, object, string, string, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_System_String_System_Guid_System_Object_System_String_System_String_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(System.String,System.Guid,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(String, Guid, Object, String, String, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.PerformableAssetEventArgs(string, System.Guid, object, string, string, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableAssetEventArgs.New(String, System.Guid, Object, String, String, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableAssetEventArgs.PerformableAssetEventArgs(string, Guid, object, string, string, PerformancePhase)
-  nameWithType.vb: PerformableAssetEventArgs.New(String, Guid, Object, String, String, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableAssetEventArgs(Actor, object, string, string, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_CSF_Screenplay_Actor_System_Object_System_String_System_String_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.String,System.String,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(Actor, Object, String, String, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableAssetEventArgs.PerformableAssetEventArgs(CSF.Screenplay.Actor, object, string, string, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableAssetEventArgs.New(CSF.Screenplay.Actor, Object, String, String, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableAssetEventArgs.PerformableAssetEventArgs(Actor, object, string, string, PerformancePhase)
+  nameWithType.vb: PerformableAssetEventArgs.New(Actor, Object, String, String, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableAssetEventArgs.#ctor*
   name: PerformableAssetEventArgs
   href: api/CSF.Screenplay.Actors.PerformableAssetEventArgs.html#CSF_Screenplay_Actors_PerformableAssetEventArgs__ctor_
@@ -880,15 +871,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableEventArgs
   fullName: CSF.Screenplay.Actors.PerformableEventArgs
   nameWithType: PerformableEventArgs
-- uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor(System.String,System.Guid,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableEventArgs(string, Guid, object, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_System_String_System_Guid_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableEventArgs.#ctor(System.String,System.Guid,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(String, Guid, Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableEventArgs.PerformableEventArgs(string, System.Guid, object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableEventArgs.New(String, System.Guid, Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableEventArgs.PerformableEventArgs(string, Guid, object, PerformancePhase)
-  nameWithType.vb: PerformableEventArgs.New(String, Guid, Object, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableEventArgs(Actor, object, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_CSF_Screenplay_Actor_System_Object_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(Actor, Object, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableEventArgs.PerformableEventArgs(CSF.Screenplay.Actor, object, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableEventArgs.New(CSF.Screenplay.Actor, Object, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableEventArgs.PerformableEventArgs(Actor, object, PerformancePhase)
+  nameWithType.vb: PerformableEventArgs.New(Actor, Object, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableEventArgs.#ctor*
   name: PerformableEventArgs
   href: api/CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs__ctor_
@@ -931,15 +922,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableFailureEventArgs
   fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs
   nameWithType: PerformableFailureEventArgs
-- uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(System.String,System.Guid,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableFailureEventArgs(string, Guid, object, Exception, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_System_String_System_Guid_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(System.String,System.Guid,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(String, Guid, Object, Exception, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs.PerformableFailureEventArgs(string, System.Guid, object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableFailureEventArgs.New(String, System.Guid, Object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableFailureEventArgs.PerformableFailureEventArgs(string, Guid, object, Exception, PerformancePhase)
-  nameWithType.vb: PerformableFailureEventArgs.New(String, Guid, Object, Exception, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableFailureEventArgs(Actor, object, Exception, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_CSF_Screenplay_Actor_System_Object_System_Exception_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.Exception,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(Actor, Object, Exception, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableFailureEventArgs.PerformableFailureEventArgs(CSF.Screenplay.Actor, object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableFailureEventArgs.New(CSF.Screenplay.Actor, Object, System.Exception, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableFailureEventArgs.PerformableFailureEventArgs(Actor, object, Exception, PerformancePhase)
+  nameWithType.vb: PerformableFailureEventArgs.New(Actor, Object, Exception, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableFailureEventArgs.#ctor*
   name: PerformableFailureEventArgs
   href: api/CSF.Screenplay.Actors.PerformableFailureEventArgs.html#CSF_Screenplay_Actors_PerformableFailureEventArgs__ctor_
@@ -969,15 +960,15 @@ references:
   commentId: T:CSF.Screenplay.Actors.PerformableResultEventArgs
   fullName: CSF.Screenplay.Actors.PerformableResultEventArgs
   nameWithType: PerformableResultEventArgs
-- uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(System.String,System.Guid,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name: PerformableResultEventArgs(string, Guid, object, object, PerformancePhase)
-  href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_System_String_System_Guid_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_
-  commentId: M:CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(System.String,System.Guid,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
-  name.vb: New(String, Guid, Object, Object, PerformancePhase)
-  fullName: CSF.Screenplay.Actors.PerformableResultEventArgs.PerformableResultEventArgs(string, System.Guid, object, object, CSF.Screenplay.Actors.PerformancePhase)
-  fullName.vb: CSF.Screenplay.Actors.PerformableResultEventArgs.New(String, System.Guid, Object, Object, CSF.Screenplay.Actors.PerformancePhase)
-  nameWithType: PerformableResultEventArgs.PerformableResultEventArgs(string, Guid, object, object, PerformancePhase)
-  nameWithType.vb: PerformableResultEventArgs.New(String, Guid, Object, Object, PerformancePhase)
+- uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name: PerformableResultEventArgs(Actor, object, object, PerformancePhase)
+  href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_CSF_Screenplay_Actor_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_
+  commentId: M:CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)
+  name.vb: New(Actor, Object, Object, PerformancePhase)
+  fullName: CSF.Screenplay.Actors.PerformableResultEventArgs.PerformableResultEventArgs(CSF.Screenplay.Actor, object, object, CSF.Screenplay.Actors.PerformancePhase)
+  fullName.vb: CSF.Screenplay.Actors.PerformableResultEventArgs.New(CSF.Screenplay.Actor, Object, Object, CSF.Screenplay.Actors.PerformancePhase)
+  nameWithType: PerformableResultEventArgs.PerformableResultEventArgs(Actor, object, object, PerformancePhase)
+  nameWithType.vb: PerformableResultEventArgs.New(Actor, Object, Object, PerformancePhase)
 - uid: CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor*
   name: PerformableResultEventArgs
   href: api/CSF.Screenplay.Actors.PerformableResultEventArgs.html#CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_
@@ -1149,60 +1140,6 @@ references:
   fullName.vb: CSF.Screenplay.CastExtensions.GetActor(Of TPersona)(CSF.Screenplay.ICast)
   nameWithType: CastExtensions.GetActor<TPersona>(ICast)
   nameWithType.vb: CastExtensions.GetActor(Of TPersona)(ICast)
-- uid: CSF.Screenplay.DefaultStrings
-  name: DefaultStrings
-  href: api/CSF.Screenplay.DefaultStrings.html
-  commentId: T:CSF.Screenplay.DefaultStrings
-  fullName: CSF.Screenplay.DefaultStrings
-  nameWithType: DefaultStrings
-- uid: CSF.Screenplay.DefaultStrings.FormatValue(System.Object)
-  name: FormatValue(object)
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_FormatValue_System_Object_
-  commentId: M:CSF.Screenplay.DefaultStrings.FormatValue(System.Object)
-  name.vb: FormatValue(Object)
-  fullName: CSF.Screenplay.DefaultStrings.FormatValue(object)
-  fullName.vb: CSF.Screenplay.DefaultStrings.FormatValue(Object)
-  nameWithType: DefaultStrings.FormatValue(object)
-  nameWithType.vb: DefaultStrings.FormatValue(Object)
-- uid: CSF.Screenplay.DefaultStrings.FormatValue*
-  name: FormatValue
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_FormatValue_
-  commentId: Overload:CSF.Screenplay.DefaultStrings.FormatValue
-  isSpec: "True"
-  fullName: CSF.Screenplay.DefaultStrings.FormatValue
-  nameWithType: DefaultStrings.FormatValue
-- uid: CSF.Screenplay.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name: GetAbilityReport(object, object)
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetAbilityReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.DefaultStrings.GetAbilityReport(System.Object,System.Object)
-  name.vb: GetAbilityReport(Object, Object)
-  fullName: CSF.Screenplay.DefaultStrings.GetAbilityReport(object, object)
-  fullName.vb: CSF.Screenplay.DefaultStrings.GetAbilityReport(Object, Object)
-  nameWithType: DefaultStrings.GetAbilityReport(object, object)
-  nameWithType.vb: DefaultStrings.GetAbilityReport(Object, Object)
-- uid: CSF.Screenplay.DefaultStrings.GetAbilityReport*
-  name: GetAbilityReport
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetAbilityReport_
-  commentId: Overload:CSF.Screenplay.DefaultStrings.GetAbilityReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.DefaultStrings.GetAbilityReport
-  nameWithType: DefaultStrings.GetAbilityReport
-- uid: CSF.Screenplay.DefaultStrings.GetReport(System.Object,System.Object)
-  name: GetReport(object, object)
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetReport_System_Object_System_Object_
-  commentId: M:CSF.Screenplay.DefaultStrings.GetReport(System.Object,System.Object)
-  name.vb: GetReport(Object, Object)
-  fullName: CSF.Screenplay.DefaultStrings.GetReport(object, object)
-  fullName.vb: CSF.Screenplay.DefaultStrings.GetReport(Object, Object)
-  nameWithType: DefaultStrings.GetReport(object, object)
-  nameWithType.vb: DefaultStrings.GetReport(Object, Object)
-- uid: CSF.Screenplay.DefaultStrings.GetReport*
-  name: GetReport
-  href: api/CSF.Screenplay.DefaultStrings.html#CSF_Screenplay_DefaultStrings_GetReport_
-  commentId: Overload:CSF.Screenplay.DefaultStrings.GetReport
-  isSpec: "True"
-  fullName: CSF.Screenplay.DefaultStrings.GetReport
-  nameWithType: DefaultStrings.GetReport
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -1259,12 +1196,12 @@ references:
   commentId: T:CSF.Screenplay.ICanReport
   fullName: CSF.Screenplay.ICanReport
   nameWithType: ICanReport
-- uid: CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: ICanReport.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.ICanReport.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ICanReport.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.ICanReport.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_
@@ -1300,6 +1237,28 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ICast.GetActor
   nameWithType: ICast.GetActor
+- uid: CSF.Screenplay.IFormatsReportFragment
+  name: IFormatsReportFragment
+  href: api/CSF.Screenplay.IFormatsReportFragment.html
+  commentId: T:CSF.Screenplay.IFormatsReportFragment
+  fullName: CSF.Screenplay.IFormatsReportFragment
+  nameWithType: IFormatsReportFragment
+- uid: CSF.Screenplay.IFormatsReportFragment.Format(System.String,System.Object[])
+  name: Format(string, params object[])
+  href: api/CSF.Screenplay.IFormatsReportFragment.html#CSF_Screenplay_IFormatsReportFragment_Format_System_String_System_Object___
+  commentId: M:CSF.Screenplay.IFormatsReportFragment.Format(System.String,System.Object[])
+  name.vb: Format(String, ParamArray Object())
+  fullName: CSF.Screenplay.IFormatsReportFragment.Format(string, params object[])
+  fullName.vb: CSF.Screenplay.IFormatsReportFragment.Format(String, ParamArray Object())
+  nameWithType: IFormatsReportFragment.Format(string, params object[])
+  nameWithType.vb: IFormatsReportFragment.Format(String, ParamArray Object())
+- uid: CSF.Screenplay.IFormatsReportFragment.Format*
+  name: Format
+  href: api/CSF.Screenplay.IFormatsReportFragment.html#CSF_Screenplay_IFormatsReportFragment_Format_
+  commentId: Overload:CSF.Screenplay.IFormatsReportFragment.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.IFormatsReportFragment.Format
+  nameWithType: IFormatsReportFragment.Format
 - uid: CSF.Screenplay.IGetsScreenplay
   name: IGetsScreenplay
   href: api/CSF.Screenplay.IGetsScreenplay.html
@@ -1590,40 +1549,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IStage.TurnSpotlightOff
   nameWithType: IStage.TurnSpotlightOff
-- uid: CSF.Screenplay.PerformableExtensions
-  name: PerformableExtensions
-  href: api/CSF.Screenplay.PerformableExtensions.html
-  commentId: T:CSF.Screenplay.PerformableExtensions
-  fullName: CSF.Screenplay.PerformableExtensions
-  nameWithType: PerformableExtensions
-- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
-  name: GetReportFragment(IPerformable, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformable_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable,CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformable, CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReportFragment(IPerformable, IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
-  name: GetReportFragment(IPerformableWithResult, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_CSF_Screenplay_IPerformableWithResult_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult,CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment(CSF.Screenplay.IPerformableWithResult, CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReportFragment(IPerformableWithResult, IHasName)
-- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment*
-  name: GetReportFragment
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.PerformableExtensions.GetReportFragment
-  isSpec: "True"
-  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment
-  nameWithType: PerformableExtensions.GetReportFragment
-- uid: CSF.Screenplay.PerformableExtensions.GetReportFragment``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
-  name: GetReportFragment<T>(IPerformableWithResult<T>, IHasName)
-  href: api/CSF.Screenplay.PerformableExtensions.html#CSF_Screenplay_PerformableExtensions_GetReportFragment__1_CSF_Screenplay_IPerformableWithResult___0__CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.PerformableExtensions.GetReportFragment``1(CSF.Screenplay.IPerformableWithResult{``0},CSF.Screenplay.IHasName)
-  name.vb: GetReportFragment(Of T)(IPerformableWithResult(Of T), IHasName)
-  fullName: CSF.Screenplay.PerformableExtensions.GetReportFragment<T>(CSF.Screenplay.IPerformableWithResult<T>, CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.PerformableExtensions.GetReportFragment(Of T)(CSF.Screenplay.IPerformableWithResult(Of T), CSF.Screenplay.IHasName)
-  nameWithType: PerformableExtensions.GetReportFragment<T>(IPerformableWithResult<T>, IHasName)
-  nameWithType.vb: PerformableExtensions.GetReportFragment(Of T)(IPerformableWithResult(Of T), IHasName)
 - uid: CSF.Screenplay.Performables
   name: CSF.Screenplay.Performables
   href: api/CSF.Screenplay.Performables.html
@@ -1775,12 +1700,12 @@ references:
   commentId: T:CSF.Screenplay.Performables.ReadTheStopwatch
   fullName: CSF.Screenplay.Performables.ReadTheStopwatch
   nameWithType: ReadTheStopwatch
-- uid: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: ReadTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ReadTheStopwatch.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Performables.ReadTheStopwatch.html#CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_
@@ -1807,12 +1732,12 @@ references:
   commentId: T:CSF.Screenplay.Performables.ResetTheStopwatch
   fullName: CSF.Screenplay.Performables.ResetTheStopwatch
   nameWithType: ResetTheStopwatch
-- uid: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: ResetTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ResetTheStopwatch.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.Performables.ResetTheStopwatch.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Performables.ResetTheStopwatch.html#CSF_Screenplay_Performables_ResetTheStopwatch_GetReportFragment_
@@ -1839,12 +1764,12 @@ references:
   commentId: T:CSF.Screenplay.Performables.StartTheStopwatch
   fullName: CSF.Screenplay.Performables.StartTheStopwatch
   nameWithType: StartTheStopwatch
-- uid: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: StartTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: StartTheStopwatch.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Performables.StartTheStopwatch.html#CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_
@@ -1871,12 +1796,12 @@ references:
   commentId: T:CSF.Screenplay.Performables.StopTheStopwatch
   fullName: CSF.Screenplay.Performables.StopTheStopwatch
   nameWithType: StopTheStopwatch
-- uid: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: StopTheStopwatch.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: StopTheStopwatch.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.Performables.StopTheStopwatch.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Performables.StopTheStopwatch.html#CSF_Screenplay_Performables_StopTheStopwatch_GetReportFragment_
@@ -2409,12 +2334,12 @@ references:
   commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.PerformanceFinished
   nameWithType: IHasPerformanceEvents.PerformanceFinished
-- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
-  name: RecordsAsset
-  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_RecordsAsset
-  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
-  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordsAsset
-  nameWithType: IHasPerformanceEvents.RecordsAsset
+- uid: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordAsset
+  name: RecordAsset
+  href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_RecordAsset
+  commentId: E:CSF.Screenplay.Performances.IHasPerformanceEvents.RecordAsset
+  fullName: CSF.Screenplay.Performances.IHasPerformanceEvents.RecordAsset
+  nameWithType: IHasPerformanceEvents.RecordAsset
 - uid: CSF.Screenplay.Performances.IHasPerformanceEvents.ScreenplayEnded
   name: ScreenplayEnded
   href: api/CSF.Screenplay.Performances.IHasPerformanceEvents.html#CSF_Screenplay_Performances_IHasPerformanceEvents_ScreenplayEnded
@@ -2439,15 +2364,12 @@ references:
   commentId: T:CSF.Screenplay.Performances.IRelaysPerformanceEvents
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents
   nameWithType: IRelaysPerformanceEvents
-- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(System.String,System.Guid)
-  name: InvokeActorCreated(string, Guid)
-  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_System_String_System_Guid_
-  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(System.String,System.Guid)
-  name.vb: InvokeActorCreated(String, Guid)
-  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(string, System.Guid)
-  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(String, System.Guid)
-  nameWithType: IRelaysPerformanceEvents.InvokeActorCreated(string, Guid)
-  nameWithType.vb: IRelaysPerformanceEvents.InvokeActorCreated(String, Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(CSF.Screenplay.Actor)
+  name: InvokeActorCreated(Actor)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated(CSF.Screenplay.Actor)
+  nameWithType: IRelaysPerformanceEvents.InvokeActorCreated(Actor)
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated*
   name: InvokeActorCreated
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorCreated_
@@ -2455,15 +2377,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorCreated
   nameWithType: IRelaysPerformanceEvents.InvokeActorCreated
-- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(System.String,System.Guid)
-  name: InvokeActorSpotlit(string, Guid)
-  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_System_String_System_Guid_
-  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(System.String,System.Guid)
-  name.vb: InvokeActorSpotlit(String, Guid)
-  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(string, System.Guid)
-  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(String, System.Guid)
-  nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit(string, Guid)
-  nameWithType.vb: IRelaysPerformanceEvents.InvokeActorSpotlit(String, Guid)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  name: InvokeActorSpotlit(Actor)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit(Actor)
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit*
   name: InvokeActorSpotlit
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeActorSpotlit_
@@ -2471,15 +2390,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeActorSpotlit
   nameWithType: IRelaysPerformanceEvents.InvokeActorSpotlit
-- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(System.String,System.Guid,System.Object)
-  name: InvokeGainedAbility(string, Guid, object)
-  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_System_String_System_Guid_System_Object_
-  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(System.String,System.Guid,System.Object)
-  name.vb: InvokeGainedAbility(String, Guid, Object)
-  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(string, System.Guid, object)
-  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(String, System.Guid, Object)
-  nameWithType: IRelaysPerformanceEvents.InvokeGainedAbility(string, Guid, object)
-  nameWithType.vb: IRelaysPerformanceEvents.InvokeGainedAbility(String, Guid, Object)
+- uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name: InvokeGainedAbility(Actor, object)
+  href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object_
+  commentId: M:CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name.vb: InvokeGainedAbility(Actor, Object)
+  fullName: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(CSF.Screenplay.Actor, object)
+  fullName.vb: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility(CSF.Screenplay.Actor, Object)
+  nameWithType: IRelaysPerformanceEvents.InvokeGainedAbility(Actor, object)
+  nameWithType.vb: IRelaysPerformanceEvents.InvokeGainedAbility(Actor, Object)
 - uid: CSF.Screenplay.Performances.IRelaysPerformanceEvents.InvokeGainedAbility*
   name: InvokeGainedAbility
   href: api/CSF.Screenplay.Performances.IRelaysPerformanceEvents.html#CSF_Screenplay_Performances_IRelaysPerformanceEvents_InvokeGainedAbility_
@@ -2783,15 +2702,12 @@ references:
   commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.GainedAbility
   nameWithType: PerformanceEventBus.GainedAbility
-- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(System.String,System.Guid)
-  name: InvokeActorCreated(string, Guid)
-  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_System_String_System_Guid_
-  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(System.String,System.Guid)
-  name.vb: InvokeActorCreated(String, Guid)
-  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(string, System.Guid)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(String, System.Guid)
-  nameWithType: PerformanceEventBus.InvokeActorCreated(string, Guid)
-  nameWithType.vb: PerformanceEventBus.InvokeActorCreated(String, Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(CSF.Screenplay.Actor)
+  name: InvokeActorCreated(Actor)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated(CSF.Screenplay.Actor)
+  nameWithType: PerformanceEventBus.InvokeActorCreated(Actor)
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated*
   name: InvokeActorCreated
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorCreated_
@@ -2799,15 +2715,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorCreated
   nameWithType: PerformanceEventBus.InvokeActorCreated
-- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(System.String,System.Guid)
-  name: InvokeActorSpotlit(string, Guid)
-  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_System_String_System_Guid_
-  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(System.String,System.Guid)
-  name.vb: InvokeActorSpotlit(String, Guid)
-  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(string, System.Guid)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(String, System.Guid)
-  nameWithType: PerformanceEventBus.InvokeActorSpotlit(string, Guid)
-  nameWithType.vb: PerformanceEventBus.InvokeActorSpotlit(String, Guid)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  name: InvokeActorSpotlit(Actor)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit(CSF.Screenplay.Actor)
+  nameWithType: PerformanceEventBus.InvokeActorSpotlit(Actor)
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit*
   name: InvokeActorSpotlit
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeActorSpotlit_
@@ -2815,15 +2728,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeActorSpotlit
   nameWithType: PerformanceEventBus.InvokeActorSpotlit
-- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(System.String,System.Guid,System.Object)
-  name: InvokeGainedAbility(string, Guid, object)
-  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_System_String_System_Guid_System_Object_
-  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(System.String,System.Guid,System.Object)
-  name.vb: InvokeGainedAbility(String, Guid, Object)
-  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(string, System.Guid, object)
-  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(String, System.Guid, Object)
-  nameWithType: PerformanceEventBus.InvokeGainedAbility(string, Guid, object)
-  nameWithType.vb: PerformanceEventBus.InvokeGainedAbility(String, Guid, Object)
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name: InvokeGainedAbility(Actor, object)
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_CSF_Screenplay_Actor_System_Object_
+  commentId: M:CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name.vb: InvokeGainedAbility(Actor, Object)
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(CSF.Screenplay.Actor, object)
+  fullName.vb: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility(CSF.Screenplay.Actor, Object)
+  nameWithType: PerformanceEventBus.InvokeGainedAbility(Actor, object)
+  nameWithType.vb: PerformanceEventBus.InvokeGainedAbility(Actor, Object)
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.InvokeGainedAbility*
   name: InvokeGainedAbility
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_InvokeGainedAbility_
@@ -2926,12 +2839,12 @@ references:
   commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   fullName: CSF.Screenplay.Performances.PerformanceEventBus.PerformanceFinished
   nameWithType: PerformanceEventBus.PerformanceFinished
-- uid: CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
-  name: RecordsAsset
-  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_RecordsAsset
-  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
-  fullName: CSF.Screenplay.Performances.PerformanceEventBus.RecordsAsset
-  nameWithType: PerformanceEventBus.RecordsAsset
+- uid: CSF.Screenplay.Performances.PerformanceEventBus.RecordAsset
+  name: RecordAsset
+  href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_RecordAsset
+  commentId: E:CSF.Screenplay.Performances.PerformanceEventBus.RecordAsset
+  fullName: CSF.Screenplay.Performances.PerformanceEventBus.RecordAsset
+  nameWithType: PerformanceEventBus.RecordAsset
 - uid: CSF.Screenplay.Performances.PerformanceEventBus.ScreenplayEnded
   name: ScreenplayEnded
   href: api/CSF.Screenplay.Performances.PerformanceEventBus.html#CSF_Screenplay_Performances_PerformanceEventBus_ScreenplayEnded
@@ -3139,6 +3052,1520 @@ references:
   commentId: F:CSF.Screenplay.Performances.PerformanceState.Success
   fullName: CSF.Screenplay.Performances.PerformanceState.Success
   nameWithType: PerformanceState.Success
+- uid: CSF.Screenplay.ReportFragment
+  name: ReportFragment
+  href: api/CSF.Screenplay.ReportFragment.html
+  commentId: T:CSF.Screenplay.ReportFragment
+  fullName: CSF.Screenplay.ReportFragment
+  nameWithType: ReportFragment
+- uid: CSF.Screenplay.ReportFragment.#ctor(System.String,System.String,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Reporting.NameAndValue})
+  name: ReportFragment(string, string, IReadOnlyList<NameAndValue>)
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment__ctor_System_String_System_String_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Reporting_NameAndValue__
+  commentId: M:CSF.Screenplay.ReportFragment.#ctor(System.String,System.String,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Reporting.NameAndValue})
+  name.vb: New(String, String, IReadOnlyList(Of NameAndValue))
+  fullName: CSF.Screenplay.ReportFragment.ReportFragment(string, string, System.Collections.Generic.IReadOnlyList<CSF.Screenplay.Reporting.NameAndValue>)
+  fullName.vb: CSF.Screenplay.ReportFragment.New(String, String, System.Collections.Generic.IReadOnlyList(Of CSF.Screenplay.Reporting.NameAndValue))
+  nameWithType: ReportFragment.ReportFragment(string, string, IReadOnlyList<NameAndValue>)
+  nameWithType.vb: ReportFragment.New(String, String, IReadOnlyList(Of NameAndValue))
+- uid: CSF.Screenplay.ReportFragment.#ctor*
+  name: ReportFragment
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment__ctor_
+  commentId: Overload:CSF.Screenplay.ReportFragment.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.ReportFragment.ReportFragment
+  fullName.vb: CSF.Screenplay.ReportFragment.New
+  nameWithType: ReportFragment.ReportFragment
+  nameWithType.vb: ReportFragment.New
+- uid: CSF.Screenplay.ReportFragment.FormattedFragment
+  name: FormattedFragment
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_FormattedFragment
+  commentId: P:CSF.Screenplay.ReportFragment.FormattedFragment
+  fullName: CSF.Screenplay.ReportFragment.FormattedFragment
+  nameWithType: ReportFragment.FormattedFragment
+- uid: CSF.Screenplay.ReportFragment.FormattedFragment*
+  name: FormattedFragment
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_FormattedFragment_
+  commentId: Overload:CSF.Screenplay.ReportFragment.FormattedFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportFragment.FormattedFragment
+  nameWithType: ReportFragment.FormattedFragment
+- uid: CSF.Screenplay.ReportFragment.OriginalTemplate
+  name: OriginalTemplate
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_OriginalTemplate
+  commentId: P:CSF.Screenplay.ReportFragment.OriginalTemplate
+  fullName: CSF.Screenplay.ReportFragment.OriginalTemplate
+  nameWithType: ReportFragment.OriginalTemplate
+- uid: CSF.Screenplay.ReportFragment.OriginalTemplate*
+  name: OriginalTemplate
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_OriginalTemplate_
+  commentId: Overload:CSF.Screenplay.ReportFragment.OriginalTemplate
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportFragment.OriginalTemplate
+  nameWithType: ReportFragment.OriginalTemplate
+- uid: CSF.Screenplay.ReportFragment.PlaceholderValues
+  name: PlaceholderValues
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_PlaceholderValues
+  commentId: P:CSF.Screenplay.ReportFragment.PlaceholderValues
+  fullName: CSF.Screenplay.ReportFragment.PlaceholderValues
+  nameWithType: ReportFragment.PlaceholderValues
+- uid: CSF.Screenplay.ReportFragment.PlaceholderValues*
+  name: PlaceholderValues
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_PlaceholderValues_
+  commentId: Overload:CSF.Screenplay.ReportFragment.PlaceholderValues
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportFragment.PlaceholderValues
+  nameWithType: ReportFragment.PlaceholderValues
+- uid: CSF.Screenplay.ReportFragment.ToString
+  name: ToString()
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_ToString
+  commentId: M:CSF.Screenplay.ReportFragment.ToString
+  fullName: CSF.Screenplay.ReportFragment.ToString()
+  nameWithType: ReportFragment.ToString()
+- uid: CSF.Screenplay.ReportFragment.ToString*
+  name: ToString
+  href: api/CSF.Screenplay.ReportFragment.html#CSF_Screenplay_ReportFragment_ToString_
+  commentId: Overload:CSF.Screenplay.ReportFragment.ToString
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportFragment.ToString
+  nameWithType: ReportFragment.ToString
+- uid: CSF.Screenplay.ReportFragmentFormatter
+  name: ReportFragmentFormatter
+  href: api/CSF.Screenplay.ReportFragmentFormatter.html
+  commentId: T:CSF.Screenplay.ReportFragmentFormatter
+  fullName: CSF.Screenplay.ReportFragmentFormatter
+  nameWithType: ReportFragmentFormatter
+- uid: CSF.Screenplay.ReportFragmentFormatter.#ctor(CSF.Screenplay.Reporting.IGetsReportFormat,CSF.Screenplay.Reporting.IGetsValueFormatter)
+  name: ReportFragmentFormatter(IGetsReportFormat, IGetsValueFormatter)
+  href: api/CSF.Screenplay.ReportFragmentFormatter.html#CSF_Screenplay_ReportFragmentFormatter__ctor_CSF_Screenplay_Reporting_IGetsReportFormat_CSF_Screenplay_Reporting_IGetsValueFormatter_
+  commentId: M:CSF.Screenplay.ReportFragmentFormatter.#ctor(CSF.Screenplay.Reporting.IGetsReportFormat,CSF.Screenplay.Reporting.IGetsValueFormatter)
+  name.vb: New(IGetsReportFormat, IGetsValueFormatter)
+  fullName: CSF.Screenplay.ReportFragmentFormatter.ReportFragmentFormatter(CSF.Screenplay.Reporting.IGetsReportFormat, CSF.Screenplay.Reporting.IGetsValueFormatter)
+  fullName.vb: CSF.Screenplay.ReportFragmentFormatter.New(CSF.Screenplay.Reporting.IGetsReportFormat, CSF.Screenplay.Reporting.IGetsValueFormatter)
+  nameWithType: ReportFragmentFormatter.ReportFragmentFormatter(IGetsReportFormat, IGetsValueFormatter)
+  nameWithType.vb: ReportFragmentFormatter.New(IGetsReportFormat, IGetsValueFormatter)
+- uid: CSF.Screenplay.ReportFragmentFormatter.#ctor*
+  name: ReportFragmentFormatter
+  href: api/CSF.Screenplay.ReportFragmentFormatter.html#CSF_Screenplay_ReportFragmentFormatter__ctor_
+  commentId: Overload:CSF.Screenplay.ReportFragmentFormatter.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.ReportFragmentFormatter.ReportFragmentFormatter
+  fullName.vb: CSF.Screenplay.ReportFragmentFormatter.New
+  nameWithType: ReportFragmentFormatter.ReportFragmentFormatter
+  nameWithType.vb: ReportFragmentFormatter.New
+- uid: CSF.Screenplay.ReportFragmentFormatter.Format(System.String,System.Object[])
+  name: Format(string, params object[])
+  href: api/CSF.Screenplay.ReportFragmentFormatter.html#CSF_Screenplay_ReportFragmentFormatter_Format_System_String_System_Object___
+  commentId: M:CSF.Screenplay.ReportFragmentFormatter.Format(System.String,System.Object[])
+  name.vb: Format(String, ParamArray Object())
+  fullName: CSF.Screenplay.ReportFragmentFormatter.Format(string, params object[])
+  fullName.vb: CSF.Screenplay.ReportFragmentFormatter.Format(String, ParamArray Object())
+  nameWithType: ReportFragmentFormatter.Format(string, params object[])
+  nameWithType.vb: ReportFragmentFormatter.Format(String, ParamArray Object())
+- uid: CSF.Screenplay.ReportFragmentFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.ReportFragmentFormatter.html#CSF_Screenplay_ReportFragmentFormatter_Format_
+  commentId: Overload:CSF.Screenplay.ReportFragmentFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportFragmentFormatter.Format
+  nameWithType: ReportFragmentFormatter.Format
+- uid: CSF.Screenplay.ReportModel
+  name: CSF.Screenplay.ReportModel
+  href: api/CSF.Screenplay.ReportModel.html
+  commentId: N:CSF.Screenplay.ReportModel
+  fullName: CSF.Screenplay.ReportModel
+  nameWithType: CSF.Screenplay.ReportModel
+- uid: CSF.Screenplay.ReportModel.ActorCreatedReport
+  name: ActorCreatedReport
+  href: api/CSF.Screenplay.ReportModel.ActorCreatedReport.html
+  commentId: T:CSF.Screenplay.ReportModel.ActorCreatedReport
+  fullName: CSF.Screenplay.ReportModel.ActorCreatedReport
+  nameWithType: ActorCreatedReport
+- uid: CSF.Screenplay.ReportModel.ActorGainedAbilityReport
+  name: ActorGainedAbilityReport
+  href: api/CSF.Screenplay.ReportModel.ActorGainedAbilityReport.html
+  commentId: T:CSF.Screenplay.ReportModel.ActorGainedAbilityReport
+  fullName: CSF.Screenplay.ReportModel.ActorGainedAbilityReport
+  nameWithType: ActorGainedAbilityReport
+- uid: CSF.Screenplay.ReportModel.ActorSpotlitReport
+  name: ActorSpotlitReport
+  href: api/CSF.Screenplay.ReportModel.ActorSpotlitReport.html
+  commentId: T:CSF.Screenplay.ReportModel.ActorSpotlitReport
+  fullName: CSF.Screenplay.ReportModel.ActorSpotlitReport
+  nameWithType: ActorSpotlitReport
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel
+  name: IdentifierAndNameModel
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html
+  commentId: T:CSF.Screenplay.ReportModel.IdentifierAndNameModel
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel
+  nameWithType: IdentifierAndNameModel
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier
+  name: Identifier
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_Identifier
+  commentId: P:CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier
+  nameWithType: IdentifierAndNameModel.Identifier
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier*
+  name: Identifier
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_Identifier_
+  commentId: Overload:CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Identifier
+  nameWithType: IdentifierAndNameModel.Identifier
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name
+  name: Name
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_Name
+  commentId: P:CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name
+  nameWithType: IdentifierAndNameModel.Name
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name*
+  name: Name
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_Name_
+  commentId: Overload:CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.Name
+  nameWithType: IdentifierAndNameModel.Name
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated
+  name: WasIdentifierAutoGenerated
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_WasIdentifierAutoGenerated
+  commentId: P:CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated
+  nameWithType: IdentifierAndNameModel.WasIdentifierAutoGenerated
+- uid: CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated*
+  name: WasIdentifierAutoGenerated
+  href: api/CSF.Screenplay.ReportModel.IdentifierAndNameModel.html#CSF_Screenplay_ReportModel_IdentifierAndNameModel_WasIdentifierAutoGenerated_
+  commentId: Overload:CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.IdentifierAndNameModel.WasIdentifierAutoGenerated
+  nameWithType: IdentifierAndNameModel.WasIdentifierAutoGenerated
+- uid: CSF.Screenplay.ReportModel.PerformableAsset
+  name: PerformableAsset
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html
+  commentId: T:CSF.Screenplay.ReportModel.PerformableAsset
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset
+  nameWithType: PerformableAsset
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FilePath
+  name: FilePath
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FilePath
+  commentId: P:CSF.Screenplay.ReportModel.PerformableAsset.FilePath
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FilePath
+  nameWithType: PerformableAsset.FilePath
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FilePath*
+  name: FilePath
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FilePath_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableAsset.FilePath
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FilePath
+  nameWithType: PerformableAsset.FilePath
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileSummary
+  name: FileSummary
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileSummary
+  commentId: P:CSF.Screenplay.ReportModel.PerformableAsset.FileSummary
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileSummary
+  nameWithType: PerformableAsset.FileSummary
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileSummary*
+  name: FileSummary
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileSummary_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableAsset.FileSummary
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileSummary
+  nameWithType: PerformableAsset.FileSummary
+- uid: CSF.Screenplay.ReportModel.PerformableReport
+  name: PerformableReport
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html
+  commentId: T:CSF.Screenplay.ReportModel.PerformableReport
+  fullName: CSF.Screenplay.ReportModel.PerformableReport
+  nameWithType: PerformableReport
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Assets
+  name: Assets
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Assets
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.Assets
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Assets
+  nameWithType: PerformableReport.Assets
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Assets*
+  name: Assets
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Assets_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.Assets
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Assets
+  nameWithType: PerformableReport.Assets
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Exception
+  name: Exception
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.Exception
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Exception
+  nameWithType: PerformableReport.Exception
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Exception*
+  name: Exception
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.Exception
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Exception
+  nameWithType: PerformableReport.Exception
+- uid: CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable
+  name: ExceptionIsFromConsumedPerformable
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_ExceptionIsFromConsumedPerformable
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable
+  nameWithType: PerformableReport.ExceptionIsFromConsumedPerformable
+- uid: CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable*
+  name: ExceptionIsFromConsumedPerformable
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_ExceptionIsFromConsumedPerformable_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.ExceptionIsFromConsumedPerformable
+  nameWithType: PerformableReport.ExceptionIsFromConsumedPerformable
+- uid: CSF.Screenplay.ReportModel.PerformableReport.HasResult
+  name: HasResult
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_HasResult
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.HasResult
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.HasResult
+  nameWithType: PerformableReport.HasResult
+- uid: CSF.Screenplay.ReportModel.PerformableReport.HasResult*
+  name: HasResult
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_HasResult_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.HasResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.HasResult
+  nameWithType: PerformableReport.HasResult
+- uid: CSF.Screenplay.ReportModel.PerformableReport.PerformableType
+  name: PerformableType
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_PerformableType
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.PerformableType
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.PerformableType
+  nameWithType: PerformableReport.PerformableType
+- uid: CSF.Screenplay.ReportModel.PerformableReport.PerformableType*
+  name: PerformableType
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_PerformableType_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.PerformableType
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.PerformableType
+  nameWithType: PerformableReport.PerformableType
+- uid: CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase
+  name: PerformancePhase
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_PerformancePhase
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase
+  nameWithType: PerformableReport.PerformancePhase
+- uid: CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase*
+  name: PerformancePhase
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_PerformancePhase_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.PerformancePhase
+  nameWithType: PerformableReport.PerformancePhase
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Reportables
+  name: Reportables
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Reportables
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.Reportables
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Reportables
+  nameWithType: PerformableReport.Reportables
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Reportables*
+  name: Reportables
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Reportables_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.Reportables
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Reportables
+  nameWithType: PerformableReport.Reportables
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Result
+  name: Result
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Result
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.Result
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Result
+  nameWithType: PerformableReport.Result
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Result*
+  name: Result
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Result_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.Result
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Result
+  nameWithType: PerformableReport.Result
+- uid: CSF.Screenplay.ReportModel.PerformanceReport
+  name: PerformanceReport
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html
+  commentId: T:CSF.Screenplay.ReportModel.PerformanceReport
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport
+  nameWithType: PerformanceReport
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy
+  name: NamingHierarchy
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_NamingHierarchy
+  commentId: P:CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy
+  nameWithType: PerformanceReport.NamingHierarchy
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy*
+  name: NamingHierarchy
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_NamingHierarchy_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.NamingHierarchy
+  nameWithType: PerformanceReport.NamingHierarchy
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Outcome
+  name: Outcome
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Outcome
+  commentId: P:CSF.Screenplay.ReportModel.PerformanceReport.Outcome
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Outcome
+  nameWithType: PerformanceReport.Outcome
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Outcome*
+  name: Outcome
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Outcome_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformanceReport.Outcome
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Outcome
+  nameWithType: PerformanceReport.Outcome
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Reportables
+  name: Reportables
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Reportables
+  commentId: P:CSF.Screenplay.ReportModel.PerformanceReport.Reportables
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Reportables
+  nameWithType: PerformanceReport.Reportables
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Reportables*
+  name: Reportables
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Reportables_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformanceReport.Reportables
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Reportables
+  nameWithType: PerformanceReport.Reportables
+- uid: CSF.Screenplay.ReportModel.ReportMetadata
+  name: ReportMetadata
+  href: api/CSF.Screenplay.ReportModel.ReportMetadata.html
+  commentId: T:CSF.Screenplay.ReportModel.ReportMetadata
+  fullName: CSF.Screenplay.ReportModel.ReportMetadata
+  nameWithType: ReportMetadata
+- uid: CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion
+  name: ReportFormatVersion
+  href: api/CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_ReportFormatVersion
+  commentId: P:CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion
+  fullName: CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion
+  nameWithType: ReportMetadata.ReportFormatVersion
+- uid: CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion*
+  name: ReportFormatVersion
+  href: api/CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_ReportFormatVersion_
+  commentId: Overload:CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ReportMetadata.ReportFormatVersion
+  nameWithType: ReportMetadata.ReportFormatVersion
+- uid: CSF.Screenplay.ReportModel.ReportMetadata.Timestamp
+  name: Timestamp
+  href: api/CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp
+  commentId: P:CSF.Screenplay.ReportModel.ReportMetadata.Timestamp
+  fullName: CSF.Screenplay.ReportModel.ReportMetadata.Timestamp
+  nameWithType: ReportMetadata.Timestamp
+- uid: CSF.Screenplay.ReportModel.ReportMetadata.Timestamp*
+  name: Timestamp
+  href: api/CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp_
+  commentId: Overload:CSF.Screenplay.ReportModel.ReportMetadata.Timestamp
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ReportMetadata.Timestamp
+  nameWithType: ReportMetadata.Timestamp
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase
+  name: ReportableModelBase
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html
+  commentId: T:CSF.Screenplay.ReportModel.ReportableModelBase
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase
+  nameWithType: ReportableModelBase
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.ActorName
+  name: ActorName
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_ActorName
+  commentId: P:CSF.Screenplay.ReportModel.ReportableModelBase.ActorName
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.ActorName
+  nameWithType: ReportableModelBase.ActorName
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.ActorName*
+  name: ActorName
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_ActorName_
+  commentId: Overload:CSF.Screenplay.ReportModel.ReportableModelBase.ActorName
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.ActorName
+  nameWithType: ReportableModelBase.ActorName
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.Report
+  name: Report
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Report
+  commentId: P:CSF.Screenplay.ReportModel.ReportableModelBase.Report
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Report
+  nameWithType: ReportableModelBase.Report
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.Report*
+  name: Report
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Report_
+  commentId: Overload:CSF.Screenplay.ReportModel.ReportableModelBase.Report
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Report
+  nameWithType: ReportableModelBase.Report
+- uid: CSF.Screenplay.ReportModel.SpotlightTurnedOffReport
+  name: SpotlightTurnedOffReport
+  href: api/CSF.Screenplay.ReportModel.SpotlightTurnedOffReport.html
+  commentId: T:CSF.Screenplay.ReportModel.SpotlightTurnedOffReport
+  fullName: CSF.Screenplay.ReportModel.SpotlightTurnedOffReport
+  nameWithType: SpotlightTurnedOffReport
+- uid: CSF.Screenplay.Reporting
+  name: CSF.Screenplay.Reporting
+  href: api/CSF.Screenplay.Reporting.html
+  commentId: N:CSF.Screenplay.Reporting
+  fullName: CSF.Screenplay.Reporting
+  nameWithType: CSF.Screenplay.Reporting
+- uid: CSF.Screenplay.Reporting.FormattableFormatter
+  name: FormattableFormatter
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.FormattableFormatter
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter
+  nameWithType: FormattableFormatter
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.FormattableFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat(Object)
+  nameWithType: FormattableFormatter.CanFormat(object)
+  nameWithType.vb: FormattableFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.FormattableFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat
+  nameWithType: FormattableFormatter.CanFormat
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.Format(System.Object)
+  name: Format(object)
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_Format_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.FormattableFormatter.Format(System.Object)
+  name.vb: Format(Object)
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.Format(object)
+  fullName.vb: CSF.Screenplay.Reporting.FormattableFormatter.Format(Object)
+  nameWithType: FormattableFormatter.Format(object)
+  nameWithType.vb: FormattableFormatter.Format(Object)
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.FormattableFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.Format
+  nameWithType: FormattableFormatter.Format
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter
+  name: HumanizerFormatter
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.HumanizerFormatter
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter
+  nameWithType: HumanizerFormatter
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat(Object)
+  nameWithType: HumanizerFormatter.CanFormat(object)
+  nameWithType.vb: HumanizerFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat
+  nameWithType: HumanizerFormatter.CanFormat
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.Format(System.Object)
+  name: Format(object)
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_Format_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.HumanizerFormatter.Format(System.Object)
+  name.vb: Format(Object)
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.Format(object)
+  fullName.vb: CSF.Screenplay.Reporting.HumanizerFormatter.Format(Object)
+  nameWithType: HumanizerFormatter.Format(object)
+  nameWithType.vb: HumanizerFormatter.Format(Object)
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.HumanizerFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.Format
+  nameWithType: HumanizerFormatter.Format
+- uid: CSF.Screenplay.Reporting.IFormattableValue
+  name: IFormattableValue
+  href: api/CSF.Screenplay.Reporting.IFormattableValue.html
+  commentId: T:CSF.Screenplay.Reporting.IFormattableValue
+  fullName: CSF.Screenplay.Reporting.IFormattableValue
+  nameWithType: IFormattableValue
+- uid: CSF.Screenplay.Reporting.IFormattableValue.Format
+  name: Format()
+  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_Format
+  commentId: M:CSF.Screenplay.Reporting.IFormattableValue.Format
+  fullName: CSF.Screenplay.Reporting.IFormattableValue.Format()
+  nameWithType: IFormattableValue.Format()
+- uid: CSF.Screenplay.Reporting.IFormattableValue.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.IFormattableValue.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IFormattableValue.Format
+  nameWithType: IFormattableValue.Format
+- uid: CSF.Screenplay.Reporting.IFormatterRegistry
+  name: IFormatterRegistry
+  href: api/CSF.Screenplay.Reporting.IFormatterRegistry.html
+  commentId: T:CSF.Screenplay.Reporting.IFormatterRegistry
+  fullName: CSF.Screenplay.Reporting.IFormatterRegistry
+  nameWithType: IFormatterRegistry
+- uid: CSF.Screenplay.Reporting.IGetsReportFormat
+  name: IGetsReportFormat
+  href: api/CSF.Screenplay.Reporting.IGetsReportFormat.html
+  commentId: T:CSF.Screenplay.Reporting.IGetsReportFormat
+  fullName: CSF.Screenplay.Reporting.IGetsReportFormat
+  nameWithType: IGetsReportFormat
+- uid: CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat(System.String,System.Collections.Generic.IList{System.Object})
+  name: GetReportFormat(string, IList<object>)
+  href: api/CSF.Screenplay.Reporting.IGetsReportFormat.html#CSF_Screenplay_Reporting_IGetsReportFormat_GetReportFormat_System_String_System_Collections_Generic_IList_System_Object__
+  commentId: M:CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat(System.String,System.Collections.Generic.IList{System.Object})
+  name.vb: GetReportFormat(String, IList(Of Object))
+  fullName: CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat(string, System.Collections.Generic.IList<object>)
+  fullName.vb: CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat(String, System.Collections.Generic.IList(Of Object))
+  nameWithType: IGetsReportFormat.GetReportFormat(string, IList<object>)
+  nameWithType.vb: IGetsReportFormat.GetReportFormat(String, IList(Of Object))
+- uid: CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat*
+  name: GetReportFormat
+  href: api/CSF.Screenplay.Reporting.IGetsReportFormat.html#CSF_Screenplay_Reporting_IGetsReportFormat_GetReportFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IGetsReportFormat.GetReportFormat
+  nameWithType: IGetsReportFormat.GetReportFormat
+- uid: CSF.Screenplay.Reporting.IGetsValueFormatter
+  name: IGetsValueFormatter
+  href: api/CSF.Screenplay.Reporting.IGetsValueFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.IGetsValueFormatter
+  fullName: CSF.Screenplay.Reporting.IGetsValueFormatter
+  nameWithType: IGetsValueFormatter
+- uid: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter(System.Object)
+  name: GetValueFormatter(object)
+  href: api/CSF.Screenplay.Reporting.IGetsValueFormatter.html#CSF_Screenplay_Reporting_IGetsValueFormatter_GetValueFormatter_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter(System.Object)
+  name.vb: GetValueFormatter(Object)
+  fullName: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter(object)
+  fullName.vb: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter(Object)
+  nameWithType: IGetsValueFormatter.GetValueFormatter(object)
+  nameWithType.vb: IGetsValueFormatter.GetValueFormatter(Object)
+- uid: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter*
+  name: GetValueFormatter
+  href: api/CSF.Screenplay.Reporting.IGetsValueFormatter.html#CSF_Screenplay_Reporting_IGetsValueFormatter_GetValueFormatter_
+  commentId: Overload:CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter
+  nameWithType: IGetsValueFormatter.GetValueFormatter
+- uid: CSF.Screenplay.Reporting.IReporter
+  name: IReporter
+  href: api/CSF.Screenplay.Reporting.IReporter.html
+  commentId: T:CSF.Screenplay.Reporting.IReporter
+  fullName: CSF.Screenplay.Reporting.IReporter
+  nameWithType: IReporter
+- uid: CSF.Screenplay.Reporting.IReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: SubscribeTo(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.IReporter.html#CSF_Screenplay_Reporting_IReporter_SubscribeTo_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.IReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.IReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: IReporter.SubscribeTo(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.IReporter.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.Reporting.IReporter.html#CSF_Screenplay_Reporting_IReporter_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.Reporting.IReporter.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IReporter.SubscribeTo
+  nameWithType: IReporter.SubscribeTo
+- uid: CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: UnsubscribeFrom(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.IReporter.html#CSF_Screenplay_Reporting_IReporter_UnsubscribeFrom_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: IReporter.UnsubscribeFrom(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom*
+  name: UnsubscribeFrom
+  href: api/CSF.Screenplay.Reporting.IReporter.html#CSF_Screenplay_Reporting_IReporter_UnsubscribeFrom_
+  commentId: Overload:CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom
+  nameWithType: IReporter.UnsubscribeFrom
+- uid: CSF.Screenplay.Reporting.ITestsPathForWritePermissions
+  name: ITestsPathForWritePermissions
+  href: api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html
+  commentId: T:CSF.Screenplay.Reporting.ITestsPathForWritePermissions
+  fullName: CSF.Screenplay.Reporting.ITestsPathForWritePermissions
+  nameWithType: ITestsPathForWritePermissions
+- uid: CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission(System.String)
+  name: HasWritePermission(string)
+  href: api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html#CSF_Screenplay_Reporting_ITestsPathForWritePermissions_HasWritePermission_System_String_
+  commentId: M:CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission(System.String)
+  name.vb: HasWritePermission(String)
+  fullName: CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission(string)
+  fullName.vb: CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission(String)
+  nameWithType: ITestsPathForWritePermissions.HasWritePermission(string)
+  nameWithType.vb: ITestsPathForWritePermissions.HasWritePermission(String)
+- uid: CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission*
+  name: HasWritePermission
+  href: api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html#CSF_Screenplay_Reporting_ITestsPathForWritePermissions_HasWritePermission_
+  commentId: Overload:CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ITestsPathForWritePermissions.HasWritePermission
+  nameWithType: ITestsPathForWritePermissions.HasWritePermission
+- uid: CSF.Screenplay.Reporting.IValueFormatter
+  name: IValueFormatter
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.IValueFormatter
+  fullName: CSF.Screenplay.Reporting.IValueFormatter
+  nameWithType: IValueFormatter
+- uid: CSF.Screenplay.Reporting.IValueFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.IValueFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Reporting.IValueFormatter.CanFormat(Object)
+  nameWithType: IValueFormatter.CanFormat(object)
+  nameWithType.vb: IValueFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Reporting.IValueFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.IValueFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.CanFormat
+  nameWithType: IValueFormatter.CanFormat
+- uid: CSF.Screenplay.Reporting.IValueFormatter.Format(System.Object)
+  name: Format(object)
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_Format_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.IValueFormatter.Format(System.Object)
+  name.vb: Format(Object)
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.Format(object)
+  fullName.vb: CSF.Screenplay.Reporting.IValueFormatter.Format(Object)
+  nameWithType: IValueFormatter.Format(object)
+  nameWithType.vb: IValueFormatter.Format(Object)
+- uid: CSF.Screenplay.Reporting.IValueFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.IValueFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.Format
+  nameWithType: IValueFormatter.Format
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter
+  name: JsonScreenplayReporter
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html
+  commentId: T:CSF.Screenplay.Reporting.JsonScreenplayReporter
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter
+  nameWithType: JsonScreenplayReporter
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,CSF.Screenplay.Reporting.ScreenplayReportBuilder)
+  name: JsonScreenplayReporter(Stream, ScreenplayReportBuilder)
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_System_IO_Stream_CSF_Screenplay_Reporting_ScreenplayReportBuilder_
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,CSF.Screenplay.Reporting.ScreenplayReportBuilder)
+  name.vb: New(Stream, ScreenplayReportBuilder)
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.JsonScreenplayReporter(System.IO.Stream, CSF.Screenplay.Reporting.ScreenplayReportBuilder)
+  fullName.vb: CSF.Screenplay.Reporting.JsonScreenplayReporter.New(System.IO.Stream, CSF.Screenplay.Reporting.ScreenplayReportBuilder)
+  nameWithType: JsonScreenplayReporter.JsonScreenplayReporter(Stream, ScreenplayReportBuilder)
+  nameWithType.vb: JsonScreenplayReporter.New(Stream, ScreenplayReportBuilder)
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor*
+  name: JsonScreenplayReporter
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.JsonScreenplayReporter
+  fullName.vb: CSF.Screenplay.Reporting.JsonScreenplayReporter.New
+  nameWithType: JsonScreenplayReporter.JsonScreenplayReporter
+  nameWithType.vb: JsonScreenplayReporter.New
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_Dispose
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose()
+  nameWithType: JsonScreenplayReporter.Dispose()
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_Dispose_
+  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose
+  nameWithType: JsonScreenplayReporter.Dispose
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: SubscribeTo(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_SubscribeTo_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: JsonScreenplayReporter.SubscribeTo(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo
+  nameWithType: JsonScreenplayReporter.SubscribeTo
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: UnsubscribeFrom(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_UnsubscribeFrom_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: JsonScreenplayReporter.UnsubscribeFrom(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom*
+  name: UnsubscribeFrom
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter_UnsubscribeFrom_
+  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom
+  nameWithType: JsonScreenplayReporter.UnsubscribeFrom
+- uid: CSF.Screenplay.Reporting.NameAndValue
+  name: NameAndValue
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html
+  commentId: T:CSF.Screenplay.Reporting.NameAndValue
+  fullName: CSF.Screenplay.Reporting.NameAndValue
+  nameWithType: NameAndValue
+- uid: CSF.Screenplay.Reporting.NameAndValue.#ctor(System.String,System.Object)
+  name: NameAndValue(string, object)
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue__ctor_System_String_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.NameAndValue.#ctor(System.String,System.Object)
+  name.vb: New(String, Object)
+  fullName: CSF.Screenplay.Reporting.NameAndValue.NameAndValue(string, object)
+  fullName.vb: CSF.Screenplay.Reporting.NameAndValue.New(String, Object)
+  nameWithType: NameAndValue.NameAndValue(string, object)
+  nameWithType.vb: NameAndValue.New(String, Object)
+- uid: CSF.Screenplay.Reporting.NameAndValue.#ctor*
+  name: NameAndValue
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.NameAndValue.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.NameAndValue.NameAndValue
+  fullName.vb: CSF.Screenplay.Reporting.NameAndValue.New
+  nameWithType: NameAndValue.NameAndValue
+  nameWithType.vb: NameAndValue.New
+- uid: CSF.Screenplay.Reporting.NameAndValue.Name
+  name: Name
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue_Name
+  commentId: P:CSF.Screenplay.Reporting.NameAndValue.Name
+  fullName: CSF.Screenplay.Reporting.NameAndValue.Name
+  nameWithType: NameAndValue.Name
+- uid: CSF.Screenplay.Reporting.NameAndValue.Name*
+  name: Name
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue_Name_
+  commentId: Overload:CSF.Screenplay.Reporting.NameAndValue.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NameAndValue.Name
+  nameWithType: NameAndValue.Name
+- uid: CSF.Screenplay.Reporting.NameAndValue.Value
+  name: Value
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue_Value
+  commentId: P:CSF.Screenplay.Reporting.NameAndValue.Value
+  fullName: CSF.Screenplay.Reporting.NameAndValue.Value
+  nameWithType: NameAndValue.Value
+- uid: CSF.Screenplay.Reporting.NameAndValue.Value*
+  name: Value
+  href: api/CSF.Screenplay.Reporting.NameAndValue.html#CSF_Screenplay_Reporting_NameAndValue_Value_
+  commentId: Overload:CSF.Screenplay.Reporting.NameAndValue.Value
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NameAndValue.Value
+  nameWithType: NameAndValue.Value
+- uid: CSF.Screenplay.Reporting.NameFormatter
+  name: NameFormatter
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.NameFormatter
+  fullName: CSF.Screenplay.Reporting.NameFormatter
+  nameWithType: NameFormatter
+- uid: CSF.Screenplay.Reporting.NameFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.NameFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Reporting.NameFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Reporting.NameFormatter.CanFormat(Object)
+  nameWithType: NameFormatter.CanFormat(object)
+  nameWithType.vb: NameFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Reporting.NameFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.NameFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NameFormatter.CanFormat
+  nameWithType: NameFormatter.CanFormat
+- uid: CSF.Screenplay.Reporting.NameFormatter.Format(System.Object)
+  name: Format(object)
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_Format_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.NameFormatter.Format(System.Object)
+  name.vb: Format(Object)
+  fullName: CSF.Screenplay.Reporting.NameFormatter.Format(object)
+  fullName.vb: CSF.Screenplay.Reporting.NameFormatter.Format(Object)
+  nameWithType: NameFormatter.Format(object)
+  nameWithType.vb: NameFormatter.Format(Object)
+- uid: CSF.Screenplay.Reporting.NameFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.NameFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NameFormatter.Format
+  nameWithType: NameFormatter.Format
+- uid: CSF.Screenplay.Reporting.NoOpReporter
+  name: NoOpReporter
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html
+  commentId: T:CSF.Screenplay.Reporting.NoOpReporter
+  fullName: CSF.Screenplay.Reporting.NoOpReporter
+  nameWithType: NoOpReporter
+- uid: CSF.Screenplay.Reporting.NoOpReporter.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_Dispose
+  commentId: M:CSF.Screenplay.Reporting.NoOpReporter.Dispose
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.Dispose()
+  nameWithType: NoOpReporter.Dispose()
+- uid: CSF.Screenplay.Reporting.NoOpReporter.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_Dispose_
+  commentId: Overload:CSF.Screenplay.Reporting.NoOpReporter.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.Dispose
+  nameWithType: NoOpReporter.Dispose
+- uid: CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: SubscribeTo(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_SubscribeTo_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: NoOpReporter.SubscribeTo(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo*
+  name: SubscribeTo
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_SubscribeTo_
+  commentId: Overload:CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.SubscribeTo
+  nameWithType: NoOpReporter.SubscribeTo
+- uid: CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  name: UnsubscribeFrom(IHasPerformanceEvents)
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_UnsubscribeFrom_CSF_Screenplay_Performances_IHasPerformanceEvents_
+  commentId: M:CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)
+  nameWithType: NoOpReporter.UnsubscribeFrom(IHasPerformanceEvents)
+- uid: CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom*
+  name: UnsubscribeFrom
+  href: api/CSF.Screenplay.Reporting.NoOpReporter.html#CSF_Screenplay_Reporting_NoOpReporter_UnsubscribeFrom_
+  commentId: Overload:CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.NoOpReporter.UnsubscribeFrom
+  nameWithType: NoOpReporter.UnsubscribeFrom
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder
+  name: PerformanceReportBuilder
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html
+  commentId: T:CSF.Screenplay.Reporting.PerformanceReportBuilder
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder
+  nameWithType: PerformanceReportBuilder
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment)
+  name: PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment)
+  name.vb: New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder(System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New(System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment)
+  nameWithType.vb: PerformanceReportBuilder.New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor*
+  name: PerformanceReportBuilder
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New
+  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder
+  nameWithType.vb: PerformanceReportBuilder.New
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated(CSF.Screenplay.Actor)
+  name: ActorCreated(Actor)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorCreated_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated(CSF.Screenplay.Actor)
+  nameWithType: PerformanceReportBuilder.ActorCreated(Actor)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated*
+  name: ActorCreated
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorCreated_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated
+  nameWithType: PerformanceReportBuilder.ActorCreated
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name: ActorGainedAbility(Actor, object)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorGainedAbility_CSF_Screenplay_Actor_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor,System.Object)
+  name.vb: ActorGainedAbility(Actor, Object)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor, object)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor, Object)
+  nameWithType: PerformanceReportBuilder.ActorGainedAbility(Actor, object)
+  nameWithType.vb: PerformanceReportBuilder.ActorGainedAbility(Actor, Object)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility*
+  name: ActorGainedAbility
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorGainedAbility_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility
+  nameWithType: PerformanceReportBuilder.ActorGainedAbility
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit(CSF.Screenplay.Actor)
+  name: ActorSpotlit(Actor)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit(CSF.Screenplay.Actor)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit(CSF.Screenplay.Actor)
+  nameWithType: PerformanceReportBuilder.ActorSpotlit(Actor)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit*
+  name: ActorSpotlit
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit
+  nameWithType: PerformanceReportBuilder.ActorSpotlit
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(System.Object,CSF.Screenplay.Actor,System.String)
+  name: BeginPerformable(object, Actor, string)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_System_Object_CSF_Screenplay_Actor_System_String_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(System.Object,CSF.Screenplay.Actor,System.String)
+  name.vb: BeginPerformable(Object, Actor, String)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(object, CSF.Screenplay.Actor, string)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(Object, CSF.Screenplay.Actor, String)
+  nameWithType: PerformanceReportBuilder.BeginPerformable(object, Actor, string)
+  nameWithType.vb: PerformanceReportBuilder.BeginPerformable(Object, Actor, String)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable*
+  name: BeginPerformable
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable
+  nameWithType: PerformanceReportBuilder.BeginPerformable
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(System.Object,CSF.Screenplay.Actor)
+  name: EndPerformable(object, Actor)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_System_Object_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(System.Object,CSF.Screenplay.Actor)
+  name.vb: EndPerformable(Object, Actor)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(object, CSF.Screenplay.Actor)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(Object, CSF.Screenplay.Actor)
+  nameWithType: PerformanceReportBuilder.EndPerformable(object, Actor)
+  nameWithType.vb: PerformanceReportBuilder.EndPerformable(Object, Actor)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable*
+  name: EndPerformable
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable
+  nameWithType: PerformanceReportBuilder.EndPerformable
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(System.Nullable{System.Boolean})
+  name: GetReport(bool?)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(System.Nullable{System.Boolean})
+  name.vb: GetReport(Boolean?)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(bool?)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(Boolean?)
+  nameWithType: PerformanceReportBuilder.GetReport(bool?)
+  nameWithType.vb: PerformanceReportBuilder.GetReport(Boolean?)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport*
+  name: GetReport
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport
+  nameWithType: PerformanceReportBuilder.GetReport
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(System.String,System.String)
+  name: RecordAssetForCurrentPerformable(string, string)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_System_String_System_String_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(System.String,System.String)
+  name.vb: RecordAssetForCurrentPerformable(String, String)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(string, string)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(String, String)
+  nameWithType: PerformanceReportBuilder.RecordAssetForCurrentPerformable(string, string)
+  nameWithType.vb: PerformanceReportBuilder.RecordAssetForCurrentPerformable(String, String)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable*
+  name: RecordAssetForCurrentPerformable
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable
+  nameWithType: PerformanceReportBuilder.RecordAssetForCurrentPerformable
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
+  name: RecordFailureForCurrentPerformable(Exception)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
+  nameWithType: PerformanceReportBuilder.RecordFailureForCurrentPerformable(Exception)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable*
+  name: RecordFailureForCurrentPerformable
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable
+  nameWithType: PerformanceReportBuilder.RecordFailureForCurrentPerformable
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(System.Object)
+  name: RecordResultForCurrentPerformable(object)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(System.Object)
+  name.vb: RecordResultForCurrentPerformable(Object)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(object)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(Object)
+  nameWithType: PerformanceReportBuilder.RecordResultForCurrentPerformable(object)
+  nameWithType.vb: PerformanceReportBuilder.RecordResultForCurrentPerformable(Object)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable*
+  name: RecordResultForCurrentPerformable
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable
+  nameWithType: PerformanceReportBuilder.RecordResultForCurrentPerformable
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff
+  name: SpotlightTurnedOff()
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff()
+  nameWithType: PerformanceReportBuilder.SpotlightTurnedOff()
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff*
+  name: SpotlightTurnedOff
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff_
+  commentId: Overload:CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff
+  nameWithType: PerformanceReportBuilder.SpotlightTurnedOff
+- uid: CSF.Screenplay.Reporting.ReportFormat
+  name: ReportFormat
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html
+  commentId: T:CSF.Screenplay.Reporting.ReportFormat
+  fullName: CSF.Screenplay.Reporting.ReportFormat
+  nameWithType: ReportFormat
+- uid: CSF.Screenplay.Reporting.ReportFormat.#ctor(System.String,System.String,System.Collections.Generic.IList{CSF.Screenplay.Reporting.NameAndValue})
+  name: ReportFormat(string, string, IList<NameAndValue>)
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat__ctor_System_String_System_String_System_Collections_Generic_IList_CSF_Screenplay_Reporting_NameAndValue__
+  commentId: M:CSF.Screenplay.Reporting.ReportFormat.#ctor(System.String,System.String,System.Collections.Generic.IList{CSF.Screenplay.Reporting.NameAndValue})
+  name.vb: New(String, String, IList(Of NameAndValue))
+  fullName: CSF.Screenplay.Reporting.ReportFormat.ReportFormat(string, string, System.Collections.Generic.IList<CSF.Screenplay.Reporting.NameAndValue>)
+  fullName.vb: CSF.Screenplay.Reporting.ReportFormat.New(String, String, System.Collections.Generic.IList(Of CSF.Screenplay.Reporting.NameAndValue))
+  nameWithType: ReportFormat.ReportFormat(string, string, IList<NameAndValue>)
+  nameWithType.vb: ReportFormat.New(String, String, IList(Of NameAndValue))
+- uid: CSF.Screenplay.Reporting.ReportFormat.#ctor*
+  name: ReportFormat
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportFormat.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.ReportFormat.ReportFormat
+  fullName.vb: CSF.Screenplay.Reporting.ReportFormat.New
+  nameWithType: ReportFormat.ReportFormat
+  nameWithType.vb: ReportFormat.New
+- uid: CSF.Screenplay.Reporting.ReportFormat.FormatTemplate
+  name: FormatTemplate
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_FormatTemplate
+  commentId: P:CSF.Screenplay.Reporting.ReportFormat.FormatTemplate
+  fullName: CSF.Screenplay.Reporting.ReportFormat.FormatTemplate
+  nameWithType: ReportFormat.FormatTemplate
+- uid: CSF.Screenplay.Reporting.ReportFormat.FormatTemplate*
+  name: FormatTemplate
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_FormatTemplate_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportFormat.FormatTemplate
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportFormat.FormatTemplate
+  nameWithType: ReportFormat.FormatTemplate
+- uid: CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate
+  name: OriginalTemplate
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_OriginalTemplate
+  commentId: P:CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate
+  fullName: CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate
+  nameWithType: ReportFormat.OriginalTemplate
+- uid: CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate*
+  name: OriginalTemplate
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_OriginalTemplate_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportFormat.OriginalTemplate
+  nameWithType: ReportFormat.OriginalTemplate
+- uid: CSF.Screenplay.Reporting.ReportFormat.Values
+  name: Values
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_Values
+  commentId: P:CSF.Screenplay.Reporting.ReportFormat.Values
+  fullName: CSF.Screenplay.Reporting.ReportFormat.Values
+  nameWithType: ReportFormat.Values
+- uid: CSF.Screenplay.Reporting.ReportFormat.Values*
+  name: Values
+  href: api/CSF.Screenplay.Reporting.ReportFormat.html#CSF_Screenplay_Reporting_ReportFormat_Values_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportFormat.Values
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportFormat.Values
+  nameWithType: ReportFormat.Values
+- uid: CSF.Screenplay.Reporting.ReportFormatCreator
+  name: ReportFormatCreator
+  href: api/CSF.Screenplay.Reporting.ReportFormatCreator.html
+  commentId: T:CSF.Screenplay.Reporting.ReportFormatCreator
+  fullName: CSF.Screenplay.Reporting.ReportFormatCreator
+  nameWithType: ReportFormatCreator
+- uid: CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat(System.String,System.Collections.Generic.IList{System.Object})
+  name: GetReportFormat(string, IList<object>)
+  href: api/CSF.Screenplay.Reporting.ReportFormatCreator.html#CSF_Screenplay_Reporting_ReportFormatCreator_GetReportFormat_System_String_System_Collections_Generic_IList_System_Object__
+  commentId: M:CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat(System.String,System.Collections.Generic.IList{System.Object})
+  name.vb: GetReportFormat(String, IList(Of Object))
+  fullName: CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat(string, System.Collections.Generic.IList<object>)
+  fullName.vb: CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat(String, System.Collections.Generic.IList(Of Object))
+  nameWithType: ReportFormatCreator.GetReportFormat(string, IList<object>)
+  nameWithType.vb: ReportFormatCreator.GetReportFormat(String, IList(Of Object))
+- uid: CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat*
+  name: GetReportFormat
+  href: api/CSF.Screenplay.Reporting.ReportFormatCreator.html#CSF_Screenplay_Reporting_ReportFormatCreator_GetReportFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportFormatCreator.GetReportFormat
+  nameWithType: ReportFormatCreator.GetReportFormat
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder
+  name: ScreenplayReportBuilder
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html
+  commentId: T:CSF.Screenplay.Reporting.ScreenplayReportBuilder
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder
+  nameWithType: ScreenplayReportBuilder
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.PerformanceReportBuilder})
+  name: ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_System_Func_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_PerformanceReportBuilder__
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.PerformanceReportBuilder})
+  name.vb: New(Func(Of List(Of IdentifierAndNameModel), PerformanceReportBuilder))
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.ScreenplayReportBuilder(System.Func<System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.PerformanceReportBuilder>)
+  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.New(System.Func(Of System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.PerformanceReportBuilder))
+  nameWithType: ScreenplayReportBuilder.ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>)
+  nameWithType.vb: ScreenplayReportBuilder.New(Func(Of List(Of IdentifierAndNameModel), PerformanceReportBuilder))
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor*
+  name: ScreenplayReportBuilder
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.ScreenplayReportBuilder
+  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.New
+  nameWithType: ScreenplayReportBuilder.ScreenplayReportBuilder
+  nameWithType.vb: ScreenplayReportBuilder.New
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName})
+  name: BeginPerformance(Guid, IReadOnlyList<IdentifierAndName>)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_BeginPerformance_System_Guid_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Performances_IdentifierAndName__
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName})
+  name.vb: BeginPerformance(Guid, IReadOnlyList(Of IdentifierAndName))
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance(System.Guid, System.Collections.Generic.IReadOnlyList<CSF.Screenplay.Performances.IdentifierAndName>)
+  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance(System.Guid, System.Collections.Generic.IReadOnlyList(Of CSF.Screenplay.Performances.IdentifierAndName))
+  nameWithType: ScreenplayReportBuilder.BeginPerformance(Guid, IReadOnlyList<IdentifierAndName>)
+  nameWithType.vb: ScreenplayReportBuilder.BeginPerformance(Guid, IReadOnlyList(Of IdentifierAndName))
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance*
+  name: BeginPerformance
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_BeginPerformance_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance
+  nameWithType: ScreenplayReportBuilder.BeginPerformance
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport(System.Guid,System.Nullable{System.Boolean})
+  name: EndPerformanceAndGetReport(Guid, bool?)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_EndPerformanceAndGetReport_System_Guid_System_Nullable_System_Boolean__
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport(System.Guid,System.Nullable{System.Boolean})
+  name.vb: EndPerformanceAndGetReport(Guid, Boolean?)
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport(System.Guid, bool?)
+  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport(System.Guid, Boolean?)
+  nameWithType: ScreenplayReportBuilder.EndPerformanceAndGetReport(Guid, bool?)
+  nameWithType.vb: ScreenplayReportBuilder.EndPerformanceAndGetReport(Guid, Boolean?)
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport*
+  name: EndPerformanceAndGetReport
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_EndPerformanceAndGetReport_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport
+  nameWithType: ScreenplayReportBuilder.EndPerformanceAndGetReport
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder(System.Guid)
+  name: GetPerformanceBuilder(Guid)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_GetPerformanceBuilder_System_Guid_
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder(System.Guid)
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder(System.Guid)
+  nameWithType: ScreenplayReportBuilder.GetPerformanceBuilder(Guid)
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder*
+  name: GetPerformanceBuilder
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder_GetPerformanceBuilder_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder
+  nameWithType: ScreenplayReportBuilder.GetPerformanceBuilder
+- uid: CSF.Screenplay.Reporting.ToStringFormatter
+  name: ToStringFormatter
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html
+  commentId: T:CSF.Screenplay.Reporting.ToStringFormatter
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter
+  nameWithType: ToStringFormatter
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.ToStringFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat(Object)
+  nameWithType: ToStringFormatter.CanFormat(object)
+  nameWithType.vb: ToStringFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Reporting.ToStringFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat
+  nameWithType: ToStringFormatter.CanFormat
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.Format(System.Object)
+  name: Format(object)
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_Format_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.ToStringFormatter.Format(System.Object)
+  name.vb: Format(Object)
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.Format(object)
+  fullName.vb: CSF.Screenplay.Reporting.ToStringFormatter.Format(Object)
+  nameWithType: ToStringFormatter.Format(object)
+  nameWithType.vb: ToStringFormatter.Format(Object)
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.Format*
+  name: Format
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_Format_
+  commentId: Overload:CSF.Screenplay.Reporting.ToStringFormatter.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.Format
+  nameWithType: ToStringFormatter.Format
+- uid: CSF.Screenplay.Reporting.ValueFormatterExtensions
+  name: ValueFormatterExtensions
+  href: api/CSF.Screenplay.Reporting.ValueFormatterExtensions.html
+  commentId: T:CSF.Screenplay.Reporting.ValueFormatterExtensions
+  fullName: CSF.Screenplay.Reporting.ValueFormatterExtensions
+  nameWithType: ValueFormatterExtensions
+- uid: CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue(CSF.Screenplay.Reporting.IGetsValueFormatter,System.Object)
+  name: FormatValue(IGetsValueFormatter, object)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterExtensions.html#CSF_Screenplay_Reporting_ValueFormatterExtensions_FormatValue_CSF_Screenplay_Reporting_IGetsValueFormatter_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue(CSF.Screenplay.Reporting.IGetsValueFormatter,System.Object)
+  name.vb: FormatValue(IGetsValueFormatter, Object)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue(CSF.Screenplay.Reporting.IGetsValueFormatter, object)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue(CSF.Screenplay.Reporting.IGetsValueFormatter, Object)
+  nameWithType: ValueFormatterExtensions.FormatValue(IGetsValueFormatter, object)
+  nameWithType.vb: ValueFormatterExtensions.FormatValue(IGetsValueFormatter, Object)
+- uid: CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue*
+  name: FormatValue
+  href: api/CSF.Screenplay.Reporting.ValueFormatterExtensions.html#CSF_Screenplay_Reporting_ValueFormatterExtensions_FormatValue_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterExtensions.FormatValue
+  nameWithType: ValueFormatterExtensions.FormatValue
+- uid: CSF.Screenplay.Reporting.ValueFormatterProvider
+  name: ValueFormatterProvider
+  href: api/CSF.Screenplay.Reporting.ValueFormatterProvider.html
+  commentId: T:CSF.Screenplay.Reporting.ValueFormatterProvider
+  fullName: CSF.Screenplay.Reporting.ValueFormatterProvider
+  nameWithType: ValueFormatterProvider
+- uid: CSF.Screenplay.Reporting.ValueFormatterProvider.#ctor(System.IServiceProvider,CSF.Screenplay.Reporting.IFormatterRegistry)
+  name: ValueFormatterProvider(IServiceProvider, IFormatterRegistry)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterProvider.html#CSF_Screenplay_Reporting_ValueFormatterProvider__ctor_System_IServiceProvider_CSF_Screenplay_Reporting_IFormatterRegistry_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterProvider.#ctor(System.IServiceProvider,CSF.Screenplay.Reporting.IFormatterRegistry)
+  name.vb: New(IServiceProvider, IFormatterRegistry)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterProvider.ValueFormatterProvider(System.IServiceProvider, CSF.Screenplay.Reporting.IFormatterRegistry)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterProvider.New(System.IServiceProvider, CSF.Screenplay.Reporting.IFormatterRegistry)
+  nameWithType: ValueFormatterProvider.ValueFormatterProvider(IServiceProvider, IFormatterRegistry)
+  nameWithType.vb: ValueFormatterProvider.New(IServiceProvider, IFormatterRegistry)
+- uid: CSF.Screenplay.Reporting.ValueFormatterProvider.#ctor*
+  name: ValueFormatterProvider
+  href: api/CSF.Screenplay.Reporting.ValueFormatterProvider.html#CSF_Screenplay_Reporting_ValueFormatterProvider__ctor_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterProvider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Reporting.ValueFormatterProvider.ValueFormatterProvider
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterProvider.New
+  nameWithType: ValueFormatterProvider.ValueFormatterProvider
+  nameWithType.vb: ValueFormatterProvider.New
+- uid: CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter(System.Object)
+  name: GetValueFormatter(object)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterProvider.html#CSF_Screenplay_Reporting_ValueFormatterProvider_GetValueFormatter_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter(System.Object)
+  name.vb: GetValueFormatter(Object)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter(object)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter(Object)
+  nameWithType: ValueFormatterProvider.GetValueFormatter(object)
+  nameWithType.vb: ValueFormatterProvider.GetValueFormatter(Object)
+- uid: CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter*
+  name: GetValueFormatter
+  href: api/CSF.Screenplay.Reporting.ValueFormatterProvider.html#CSF_Screenplay_Reporting_ValueFormatterProvider_GetValueFormatter_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterProvider.GetValueFormatter
+  nameWithType: ValueFormatterProvider.GetValueFormatter
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry
+  name: ValueFormatterRegistry
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html
+  commentId: T:CSF.Screenplay.Reporting.ValueFormatterRegistry
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry
+  nameWithType: ValueFormatterRegistry
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Add(System.Type)
+  name: Add(Type)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Add_System_Type_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.Add(System.Type)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Add(System.Type)
+  nameWithType: ValueFormatterRegistry.Add(Type)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Add*
+  name: Add
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Add_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Add
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Add
+  nameWithType: ValueFormatterRegistry.Add
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear
+  name: Clear()
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Clear
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear()
+  nameWithType: ValueFormatterRegistry.Clear()
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear*
+  name: Clear
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Clear_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Clear
+  nameWithType: ValueFormatterRegistry.Clear
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains(System.Type)
+  name: Contains(Type)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Contains_System_Type_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains(System.Type)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains(System.Type)
+  nameWithType: ValueFormatterRegistry.Contains(Type)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains*
+  name: Contains
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Contains_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Contains
+  nameWithType: ValueFormatterRegistry.Contains
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo(System.Type[],System.Int32)
+  name: CopyTo(Type[], int)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_CopyTo_System_Type___System_Int32_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo(System.Type[],System.Int32)
+  name.vb: CopyTo(Type(), Integer)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo(System.Type[], int)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo(System.Type(), Integer)
+  nameWithType: ValueFormatterRegistry.CopyTo(Type[], int)
+  nameWithType.vb: ValueFormatterRegistry.CopyTo(Type(), Integer)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo*
+  name: CopyTo
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_CopyTo_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.CopyTo
+  nameWithType: ValueFormatterRegistry.CopyTo
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Count
+  name: Count
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Count
+  commentId: P:CSF.Screenplay.Reporting.ValueFormatterRegistry.Count
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Count
+  nameWithType: ValueFormatterRegistry.Count
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Count*
+  name: Count
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Count_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Count
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Count
+  nameWithType: ValueFormatterRegistry.Count
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator
+  name: GetEnumerator()
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_GetEnumerator
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator()
+  nameWithType: ValueFormatterRegistry.GetEnumerator()
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator*
+  name: GetEnumerator
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_GetEnumerator_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.GetEnumerator
+  nameWithType: ValueFormatterRegistry.GetEnumerator
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf(System.Type)
+  name: IndexOf(Type)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_IndexOf_System_Type_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf(System.Type)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf(System.Type)
+  nameWithType: ValueFormatterRegistry.IndexOf(Type)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf*
+  name: IndexOf
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_IndexOf_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.IndexOf
+  nameWithType: ValueFormatterRegistry.IndexOf
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert(System.Int32,System.Type)
+  name: Insert(int, Type)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Insert_System_Int32_System_Type_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert(System.Int32,System.Type)
+  name.vb: Insert(Integer, Type)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert(int, System.Type)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert(Integer, System.Type)
+  nameWithType: ValueFormatterRegistry.Insert(int, Type)
+  nameWithType.vb: ValueFormatterRegistry.Insert(Integer, Type)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert*
+  name: Insert
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Insert_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Insert
+  nameWithType: ValueFormatterRegistry.Insert
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly
+  name: IsReadOnly
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_IsReadOnly
+  commentId: P:CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly
+  nameWithType: ValueFormatterRegistry.IsReadOnly
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly*
+  name: IsReadOnly
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_IsReadOnly_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.IsReadOnly
+  nameWithType: ValueFormatterRegistry.IsReadOnly
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Item(System.Int32)
+  name: this[int]
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Item_System_Int32_
+  commentId: P:CSF.Screenplay.Reporting.ValueFormatterRegistry.Item(System.Int32)
+  name.vb: this[](Integer)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.this[int]
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterRegistry.this[](Integer)
+  nameWithType: ValueFormatterRegistry.this[int]
+  nameWithType.vb: ValueFormatterRegistry.this[](Integer)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Item*
+  name: this
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Item_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.this
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterRegistry.this[]
+  nameWithType: ValueFormatterRegistry.this
+  nameWithType.vb: ValueFormatterRegistry.this[]
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove(System.Type)
+  name: Remove(Type)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Remove_System_Type_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove(System.Type)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove(System.Type)
+  nameWithType: ValueFormatterRegistry.Remove(Type)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove*
+  name: Remove
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_Remove_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.Remove
+  nameWithType: ValueFormatterRegistry.Remove
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt(System.Int32)
+  name: RemoveAt(int)
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_RemoveAt_System_Int32_
+  commentId: M:CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt(System.Int32)
+  name.vb: RemoveAt(Integer)
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt(int)
+  fullName.vb: CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt(Integer)
+  nameWithType: ValueFormatterRegistry.RemoveAt(int)
+  nameWithType.vb: ValueFormatterRegistry.RemoveAt(Integer)
+- uid: CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt*
+  name: RemoveAt
+  href: api/CSF.Screenplay.Reporting.ValueFormatterRegistry.html#CSF_Screenplay_Reporting_ValueFormatterRegistry_RemoveAt_
+  commentId: Overload:CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ValueFormatterRegistry.RemoveAt
+  nameWithType: ValueFormatterRegistry.RemoveAt
+- uid: CSF.Screenplay.Reporting.WritePermissionTester
+  name: WritePermissionTester
+  href: api/CSF.Screenplay.Reporting.WritePermissionTester.html
+  commentId: T:CSF.Screenplay.Reporting.WritePermissionTester
+  fullName: CSF.Screenplay.Reporting.WritePermissionTester
+  nameWithType: WritePermissionTester
+- uid: CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission(System.String)
+  name: HasWritePermission(string)
+  href: api/CSF.Screenplay.Reporting.WritePermissionTester.html#CSF_Screenplay_Reporting_WritePermissionTester_HasWritePermission_System_String_
+  commentId: M:CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission(System.String)
+  name.vb: HasWritePermission(String)
+  fullName: CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission(string)
+  fullName.vb: CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission(String)
+  nameWithType: WritePermissionTester.HasWritePermission(string)
+  nameWithType.vb: WritePermissionTester.HasWritePermission(String)
+- uid: CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission*
+  name: HasWritePermission
+  href: api/CSF.Screenplay.Reporting.WritePermissionTester.html#CSF_Screenplay_Reporting_WritePermissionTester_HasWritePermission_
+  commentId: Overload:CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.WritePermissionTester.HasWritePermission
+  nameWithType: WritePermissionTester.HasWritePermission
 - uid: CSF.Screenplay.ScopeAndPerformance
   name: ScopeAndPerformance
   href: api/CSF.Screenplay.ScopeAndPerformance.html
@@ -3254,15 +4681,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Screenplay.CompleteScreenplay
   nameWithType: Screenplay.CompleteScreenplay
-- uid: CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
-  name: Create(Action<IServiceCollection>)
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__
-  commentId: M:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
-  name.vb: Create(Action(Of IServiceCollection))
-  fullName: CSF.Screenplay.Screenplay.Create(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>)
-  fullName.vb: CSF.Screenplay.Screenplay.Create(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection))
-  nameWithType: Screenplay.Create(Action<IServiceCollection>)
-  nameWithType.vb: Screenplay.Create(Action(Of IServiceCollection))
+- uid: CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+  name: Create(Action<IServiceCollection>, Action<ScreenplayOptions>)
+  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__
+  commentId: M:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+  name.vb: Create(Action(Of IServiceCollection), Action(Of ScreenplayOptions))
+  fullName: CSF.Screenplay.Screenplay.Create(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>, System.Action<CSF.Screenplay.ScreenplayOptions>)
+  fullName.vb: CSF.Screenplay.Screenplay.Create(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection), System.Action(Of CSF.Screenplay.ScreenplayOptions))
+  nameWithType: Screenplay.Create(Action<IServiceCollection>, Action<ScreenplayOptions>)
+  nameWithType.vb: Screenplay.Create(Action(Of IServiceCollection), Action(Of ScreenplayOptions))
 - uid: CSF.Screenplay.Screenplay.Create*
   name: Create
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_
@@ -3589,6 +5016,77 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayLocator.GetScreenplay
   nameWithType: ScreenplayLocator.GetScreenplay
+- uid: CSF.Screenplay.ScreenplayOptions
+  name: ScreenplayOptions
+  href: api/CSF.Screenplay.ScreenplayOptions.html
+  commentId: T:CSF.Screenplay.ScreenplayOptions
+  fullName: CSF.Screenplay.ScreenplayOptions
+  nameWithType: ScreenplayOptions
+- uid: CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions
+  name: OnBeginScreenplayActions
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions
+  commentId: P:CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions
+  fullName: CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions
+  nameWithType: ScreenplayOptions.OnBeginScreenplayActions
+- uid: CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions*
+  name: OnBeginScreenplayActions
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions
+  nameWithType: ScreenplayOptions.OnBeginScreenplayActions
+- uid: CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
+  name: OnEndScreenplayActions
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions
+  commentId: P:CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
+  fullName: CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
+  nameWithType: ScreenplayOptions.OnEndScreenplayActions
+- uid: CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions*
+  name: OnEndScreenplayActions
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
+  nameWithType: ScreenplayOptions.OnEndScreenplayActions
+- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+  name: PerformanceEventsConfig
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig
+  commentId: P:CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+  nameWithType: ScreenplayOptions.PerformanceEventsConfig
+- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig*
+  name: PerformanceEventsConfig
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+  nameWithType: ScreenplayOptions.PerformanceEventsConfig
+- uid: CSF.Screenplay.ScreenplayOptions.ReportPath
+  name: ReportPath
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath
+  commentId: P:CSF.Screenplay.ScreenplayOptions.ReportPath
+  fullName: CSF.Screenplay.ScreenplayOptions.ReportPath
+  nameWithType: ScreenplayOptions.ReportPath
+- uid: CSF.Screenplay.ScreenplayOptions.ReportPath*
+  name: ReportPath
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.ReportPath
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayOptions.ReportPath
+  nameWithType: ScreenplayOptions.ReportPath
+- uid: CSF.Screenplay.ScreenplayOptions.ValueFormatters
+  name: ValueFormatters
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ValueFormatters
+  commentId: P:CSF.Screenplay.ScreenplayOptions.ValueFormatters
+  fullName: CSF.Screenplay.ScreenplayOptions.ValueFormatters
+  nameWithType: ScreenplayOptions.ValueFormatters
+- uid: CSF.Screenplay.ScreenplayOptions.ValueFormatters*
+  name: ValueFormatters
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ValueFormatters_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.ValueFormatters
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayOptions.ValueFormatters
+  nameWithType: ScreenplayOptions.ValueFormatters
 - uid: CSF.Screenplay.ScreenplayPlugin
   name: ScreenplayPlugin
   href: api/CSF.Screenplay.ScreenplayPlugin.html
@@ -3627,12 +5125,15 @@ references:
   commentId: T:CSF.Screenplay.ScreenplayServiceCollectionExtensions
   fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions
   nameWithType: ScreenplayServiceCollectionExtensions
-- uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: AddScreenplay(IServiceCollection)
-  href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)
+- uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
+  name: AddScreenplay(IServiceCollection, Action<ScreenplayOptions>)
+  href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__
+  commentId: M:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
+  name.vb: AddScreenplay(IServiceCollection, Action(Of ScreenplayOptions))
+  fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<CSF.Screenplay.ScreenplayOptions>)
+  fullName.vb: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of CSF.Screenplay.ScreenplayOptions))
+  nameWithType: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action<ScreenplayOptions>)
+  nameWithType.vb: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action(Of ScreenplayOptions))
 - uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay*
   name: AddScreenplay
   href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_
@@ -4162,6 +5663,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
   nameWithType: HttpRequestMessageBuilder.CreateRequestMessage
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
+  name: Format()
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format
+  commentId: M:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format()
+  nameWithType: HttpRequestMessageBuilder.Format()
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format*
+  name: Format
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
+  isSpec: "True"
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
+  nameWithType: HttpRequestMessageBuilder.Format
 - uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
   name: Headers
   href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers
@@ -4788,12 +6302,12 @@ references:
   fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequest.New
   nameWithType: SendTheHttpRequest.SendTheHttpRequest
   nameWithType.vb: SendTheHttpRequest.New
-- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: SendTheHttpRequest.GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SendTheHttpRequest.GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.WebApis.SendTheHttpRequest.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html#CSF_Screenplay_WebApis_SendTheHttpRequest_GetReportFragment_
@@ -4842,14 +6356,14 @@ references:
   fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).New
   nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.SendTheHttpRequestAndGetJsonResponse
   nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).New
-- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(IHasName)
-  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SendTheHttpRequestAndGetJsonResponse<TResponse>.GetReportFragment(IHasName, IFormatsReportFragment)
+  nameWithType.vb: SendTheHttpRequestAndGetJsonResponse(Of TResponse).GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse`1.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetJsonResponse_1_GetReportFragment_
@@ -4904,14 +6418,14 @@ references:
   fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).New
   nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.SendTheHttpRequestAndGetTheResponse
   nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).New
-- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
-  name: GetReportFragment(IHasName)
-  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_
-  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName)
-  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName)
-  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(IHasName)
-  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(IHasName)
+- uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(IHasName, IFormatsReportFragment)
+  href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(CSF.Screenplay.IHasName, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SendTheHttpRequestAndGetTheResponse<TResponse>.GetReportFragment(IHasName, IFormatsReportFragment)
+  nameWithType.vb: SendTheHttpRequestAndGetTheResponse(Of TResponse).GetReportFragment(IHasName, IFormatsReportFragment)
 - uid: CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html#CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_
@@ -5033,6 +6547,9 @@ references:
 - uid: ScenarioGlossaryItem
   name: Scenario
   href: glossary/Scenario.html
+- uid: SpotlightGlossaryItem
+  name: Spotlight
+  href: glossary/Spotlight.html
 - uid: TaskGlossaryItem
   name: Task
   href: glossary/Task.html

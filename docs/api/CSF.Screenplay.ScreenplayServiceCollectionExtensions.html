@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayServiceCollectionExtensions" data-uid="CSF.Screenplay.ScreenplayServiceCollectionExtensions" class="text-break">
-Class ScreenplayServiceCollectionExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayServiceCollectionExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@ Class ScreenplayServiceCollectionExtensions  <a class="header-action link-second
 
   <a id="CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_" data-uid="CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay*"></a>
 
-  <h3 id="CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-  AddScreenplay(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__" data-uid="CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})">
+  AddScreenplay(IServiceCollection, Action&lt;ScreenplayOptions&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds the Screenplay framework to the specified service collection.</p>
@@ -165,13 +165,16 @@ Class ScreenplayServiceCollectionExtensions  <a class="header-action link-second
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddScreenplay(this IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddScreenplay(this IServiceCollection services, Action&lt;ScreenplayOptions&gt; options = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
     <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a>&gt;</dt>
+    <dd><p>An optional configuration action, used to configure Screenplay in DI</p>
 </dd>
   </dl>
 
@@ -188,11 +191,16 @@ Class ScreenplayServiceCollectionExtensions  <a class="header-action link-second
 
 
 
-  <h4 class="section" id="CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Use this method to add Screenplay to an existing service collection; if you just want an instance of <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>
 and do not care for integrating it with a service collection of your own then consider the convenience method
-<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__">Create(Action&lt;IServiceCollection&gt;)</a>.
+<a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__">Create(Action&lt;IServiceCollection&gt;, Action&lt;ScreenplayOptions&gt;)</a>.
+</p>
+<p>
+If you choose to provide any configuration via the <code class="paramref">options</code> parameter, do not 'capture' the <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a>
+object outside the closure.  This object is added to dependency injection as a singleton, and so if it is modified outside of
+this configuration action then the integrity of the Screenplay dependency injection may be compromised.
 </p>
 </div>
 
@@ -209,7 +217,7 @@ and do not care for integrating it with a service collection of your own then co
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayServiceCollectionExtensions.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

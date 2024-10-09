@@ -139,7 +139,7 @@ completed and has returned a result value.</p>
       <a class="xref" href="CSF.Screenplay.Actors.PerformableEventArgs.html#CSF_Screenplay_Actors_PerformableEventArgs_Phase">PerformableEventArgs.Phase</a>
     </div>
     <div>
-      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_ActorName">ActorEventArgs.ActorName</a>
+      <a class="xref" href="CSF.Screenplay.Actors.ActorEventArgs.html#CSF_Screenplay_Actors_ActorEventArgs_Actor">ActorEventArgs.Actor</a>
     </div>
     <div>
       <a class="xref" href="CSF.Screenplay.Performances.PerformanceScopeEventArgs.html#CSF_Screenplay_Performances_PerformanceScopeEventArgs_PerformanceIdentity">PerformanceScopeEventArgs.PerformanceIdentity</a>
@@ -181,9 +181,9 @@ completed and has returned a result value.</p>
 
   <a id="CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_" data-uid="CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_System_String_System_Guid_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(System.String,System.Guid,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)">
-  PerformableResultEventArgs(string, Guid, object, object, PerformancePhase)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableResultEventArgs.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Actors_PerformableResultEventArgs__ctor_CSF_Screenplay_Actor_System_Object_System_Object_CSF_Screenplay_Actors_PerformancePhase_" data-uid="CSF.Screenplay.Actors.PerformableResultEventArgs.#ctor(CSF.Screenplay.Actor,System.Object,System.Object,CSF.Screenplay.Actors.PerformancePhase)">
+  PerformableResultEventArgs(Actor, object, object, PerformancePhase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Actors/PerformableResultEventArgs.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Actors.PerformableResultEventArgs.html">PerformableResultEventArgs</a>.</p>
@@ -191,16 +191,13 @@ completed and has returned a result value.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PerformableResultEventArgs(string actorName, Guid performanceIdentity, object performable, object result, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
+    <pre><code class="lang-csharp hljs">public PerformableResultEventArgs(Actor actor, object performable, object result, PerformancePhase phase = PerformancePhase.Unspecified)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The actor's name</p>
-</dd>
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>The actor's performance identity</p>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor</p>
 </dd>
     <dt><code>performable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd><p>The performable item</p>

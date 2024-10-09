@@ -171,7 +171,7 @@ response type.</p>
 
   <h3 id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1__ctor_CSF_Screenplay_WebApis_HttpRequestMessageBuilder__0__System_String_" data-uid="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.#ctor(CSF.Screenplay.WebApis.HttpRequestMessageBuilder{`0},System.String)">
   SendTheHttpRequestAndGetTheResponse(HttpRequestMessageBuilder&lt;TResponse&gt;, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/SendTheHttpRequestAndGetTheResponse.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/SendTheHttpRequestAndGetTheResponse.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html">SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</a>.</p>
@@ -215,8 +215,8 @@ response type.</p>
 
   <a id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_" data-uid="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_" data-uid="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName)">
-  GetReportFragment(IHasName)
+  <h3 id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)">
+  GetReportFragment(IHasName, IFormatsReportFragment)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/SendTheHttpRequestAndGetTheResponse.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -226,7 +226,7 @@ response type.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetReportFragment(IHasName actor)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -234,11 +234,14 @@ response type.</p>
     <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></dt>
     <dd><p>An actor for whom to write the report fragment</p>
 </dd>
+    <dt><code>formatter</code> <a class="xref" href="CSF.Screenplay.IFormatsReportFragment.html">IFormatsReportFragment</a></dt>
+    <dd><p>A report-formatting service</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><a class="xref" href="CSF.Screenplay.ReportFragment.html">ReportFragment</a></dt>
     <dd><p>A human-readable report fragment.</p>
 </dd>
   </dl>
@@ -248,7 +251,7 @@ response type.</p>
 
 
 
-  <h4 class="section" id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -266,7 +269,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -297,7 +300,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_WebApis_SendTheHttpRequestAndGetTheResponse_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/SendTheHttpRequestAndGetTheResponse.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/SendTheHttpRequestAndGetTheResponse.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
