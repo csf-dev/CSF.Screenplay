@@ -15,4 +15,8 @@
     <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.restext" />
+  </ItemGroup>
+
 </Project>
