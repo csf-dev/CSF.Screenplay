@@ -29,6 +29,11 @@ namespace CSF.Screenplay
                 await performable.PerformAsAsync(this, cancellationToken).ConfigureAwait(false);    
                 InvokeEndPerformable(performable, phase);
             }
+            catch(PerformableException ex)
+            {
+                InvokePerformableFailed(performable, ex, phase);
+                throw;
+            }
             catch(Exception ex)
             {
                 InvokePerformableFailed(performable, ex, phase);
@@ -74,7 +79,7 @@ namespace CSF.Screenplay
 
         PerformableException GetPerformableException(object performable, Exception ex)
         {
-            return new PerformableException($"{Name} encountered an unexpected exception whilst performing {DefaultStrings.FormatValue(performable)}", ex)
+            return new PerformableException($"{Name} encountered an unexpected exception whilst performing a performable of type {performable.GetType().FullName}", ex)
             {
                 Performable = performable,
             };
@@ -89,6 +94,11 @@ namespace CSF.Screenplay
                 InvokePerformableResult(performable, result);
                 InvokeEndPerformable(performable, phase);
                 return result;
+            }
+            catch(PerformableException ex)
+            {
+                InvokePerformableFailed(performable, ex, phase);
+                throw;
             }
             catch(Exception ex)
             {

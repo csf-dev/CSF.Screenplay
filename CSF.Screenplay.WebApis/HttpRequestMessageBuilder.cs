@@ -28,7 +28,7 @@ namespace CSF.Screenplay.WebApis
 #else
     public class
 #endif
-        HttpRequestMessageBuilder : IHasName
+        HttpRequestMessageBuilder : IHasName, Reporting.IFormattableValue
     {
         NameValueRecordCollection<string,string> headers = new NameValueRecordCollection<string, string>();
 
@@ -232,6 +232,9 @@ namespace CSF.Screenplay.WebApis
 
             return message;
         }
+
+        /// <inheritdoc/>
+        public string Format() => Name ?? RequestUri.ToString();
 
         /// <summary>
         /// Gets a copy of the current request message builder instance, but with information about the expected type of response.

@@ -22,18 +22,16 @@ namespace CSF.Screenplay.Actors
         /// <summary>
         /// Initializes a new instance of <see cref="PerformableAssetEventArgs"/>.
         /// </summary>
-        /// <param name="actorName">The actor's name</param>
-        /// <param name="performanceIdentity">The actor's performance identity</param>
+        /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item</param>
         /// <param name="filePath">The full absolute path to the asset file</param>
         /// <param name="fileSummary">An optional human-readable summary of the asset file</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformableAssetEventArgs(string actorName,
-                                         Guid performanceIdentity,
+        public PerformableAssetEventArgs(Actor actor,
                                          object performable,
                                          string filePath,
                                          string fileSummary = null,
-                                         PerformancePhase phase = PerformancePhase.Unspecified) : base(actorName, performanceIdentity, performable, phase)
+                                         PerformancePhase phase = PerformancePhase.Unspecified) : base(actor, performable, phase)
         {
             FilePath = filePath ?? throw new ArgumentNullException(nameof(filePath));
             FileSummary = fileSummary;

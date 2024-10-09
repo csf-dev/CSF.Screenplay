@@ -44,13 +44,14 @@ namespace CSF.Screenplay
     /// <seealso cref="IStage"/>
     public partial class Actor : IHasName, IHasPerformanceIdentity
     {
+        const string unnamedActor = "<Unnamed actor>";
+
         readonly string name;
         readonly Guid performanceIdentity;
 
         /// <summary>Gets the actor's name</summary>
-        protected virtual string Name => name;
-
-        string IHasName.Name => Name;
+        /// <seealso cref="IHasName"/>
+        public virtual string Name => name;
 
         /// <summary>Gets the unique identity for the performance in which this actor is participating</summary>
         protected virtual Guid PerformanceIdentity => performanceIdentity;
@@ -58,12 +59,16 @@ namespace CSF.Screenplay
         Guid IHasPerformanceIdentity.PerformanceIdentity => PerformanceIdentity;
 
         /// <summary>Initialises a new instance of <see cref="Actor"/></summary>
+        /// <remarks>
+        /// <para>
+        /// In line with <see cref="IHasName"/>, it is strongly recommended that <paramref name="name"/> is not <see langword="null"/>.
+        /// </para>
+        /// </remarks>
         /// <param name="name">The actor's name</param>
         /// <param name="performanceIdentity">A unique identity for the performance</param>
-        public Actor(string name,
-                     Guid performanceIdentity)
+        public Actor(string name, Guid performanceIdentity)
         {
-            this.name = name ?? ReportStrings.UnnamedActor;
+            this.name = name ?? unnamedActor;
             this.performanceIdentity = performanceIdentity;
         }
     }

@@ -6,7 +6,7 @@ public class SampleAction : IPerformable
 
     public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
     {
-        ActorName = ((IHasName)actor).Name;
+        ActorName = ((IHasName) actor).Name;
         return ValueTask.CompletedTask;
     }
 }

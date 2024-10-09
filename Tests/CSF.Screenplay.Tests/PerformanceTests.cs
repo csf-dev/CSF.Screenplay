@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using CSF.Screenplay.Performances;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay;
 

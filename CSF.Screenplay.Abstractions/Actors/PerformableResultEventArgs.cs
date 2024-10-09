@@ -16,16 +16,14 @@ namespace CSF.Screenplay.Actors
         /// <summary>
         /// Initializes a new instance of <see cref="PerformableResultEventArgs"/>.
         /// </summary>
-        /// <param name="actorName">The actor's name</param>
-        /// <param name="performanceIdentity">The actor's performance identity</param>
+        /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item</param>
         /// <param name="result">The result from the performable</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformableResultEventArgs(string actorName,
-                                          Guid performanceIdentity,
+        public PerformableResultEventArgs(Actor actor,
                                           object performable,
                                           object result,
-                                          PerformancePhase phase = PerformancePhase.Unspecified) : base(actorName, performanceIdentity, performable, phase)
+                                          PerformancePhase phase = PerformancePhase.Unspecified) : base(actor, performable, phase)
         {
             Result = result;
         }

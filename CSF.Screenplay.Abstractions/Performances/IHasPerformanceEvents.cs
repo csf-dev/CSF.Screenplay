@@ -77,7 +77,7 @@ namespace CSF.Screenplay.Performances
         /// <summary>
         /// Occurs when an actor records the presence of a new file asset.
         /// </summary>
-        event EventHandler<PerformableAssetEventArgs> RecordsAsset;
+        event EventHandler<PerformableAssetEventArgs> RecordAsset;
 
         #endregion
 

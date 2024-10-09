@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
-using System.Threading;
 using BoDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
@@ -25,7 +24,7 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// This may be easily worked-around, though.  If you are using a third-party DI plugin then do not use this plugin.
-    /// Instead use the <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
+    /// Instead use the <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, Action{ScreenplayOptions})"/>
     /// method to add Screenplay to that third-party DI system, when customising the dependency registrations.
     /// Adding Screenplay in that way is equivalent to the work done by this plugin.
     /// </para>

@@ -169,6 +169,15 @@ public class ActorTests
     }
 
     [Test,AutoMoqData]
+    public void PerformAsyncWithoutResultShouldRethrowTheSameExceptionIfItIsPerformableException(Actor sut, IPerformable performable)
+    {
+        var exception = new PerformableException();
+        Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws(exception);
+
+        Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.Exception.SameAs(exception));
+    }
+
+    [Test,AutoMoqData]
     public async Task PerformAsyncWithNongenericResultShouldExecuteThePerformable(Actor sut, IPerformableWithResult performable)
     {
         await ((ICanPerform) sut).PerformAsync(performable);
@@ -222,6 +231,15 @@ public class ActorTests
     }
 
     [Test,AutoMoqData]
+    public void PerformAsyncWithNongenericResultShouldRethrowTheSameExceptionIfItIsPerformableException(Actor sut, IPerformableWithResult performable)
+    {
+        var exception = new PerformableException();
+        Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws(exception);
+
+        Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.Exception.SameAs(exception));
+    }
+
+    [Test,AutoMoqData]
     public async Task PerformAsyncWithGenericResultShouldExecuteThePerformable(Actor sut, IPerformableWithResult<string> performable)
     {
         await ((ICanPerform) sut).PerformAsync(performable);
@@ -272,6 +290,15 @@ public class ActorTests
             sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
         });
+    }
+
+    [Test,AutoMoqData]
+    public void PerformAsyncWithGenericResultShouldRethrowTheSameExceptionIfItIsPerformableException(Actor sut, IPerformableWithResult<string> performable)
+    {
+        var exception = new PerformableException();
+        Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws(exception);
+
+        Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.Exception.SameAs(exception));
     }
 
     #endregion

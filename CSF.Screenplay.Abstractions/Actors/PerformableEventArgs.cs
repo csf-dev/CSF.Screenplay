@@ -20,14 +20,12 @@ namespace CSF.Screenplay.Actors
         /// <summary>
         /// Initializes a new instance of <see cref="PerformableEventArgs"/>.
         /// </summary>
-        /// <param name="actorName">The actor's name</param>
-        /// <param name="performanceIdentity">The actor's performance identity</param>
+        /// <param name="actor">The actor</param>
         /// <param name="performable">The performable item</param>
         /// <param name="phase">The phase of performance</param>
-        public PerformableEventArgs(string actorName,
-                                    Guid performanceIdentity,
+        public PerformableEventArgs(Actor actor,
                                     object performable,
-                                    PerformancePhase phase = PerformancePhase.Unspecified) : base(actorName, performanceIdentity)
+                                    PerformancePhase phase = PerformancePhase.Unspecified) : base(actor)
         {
             Performable = performable ?? throw new ArgumentNullException(nameof(performable));
             Phase = Enum.IsDefined(typeof(PerformancePhase), phase)
