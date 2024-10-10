@@ -1,30 +1,66 @@
 # Report value formtters
 
-To get the best results [when Screenplay writes a report], it's important to format relevant values in a human-readable manner.
-
-Getting human-readable reports from [performables] and abilities may be achieved by implementing the [`ICanReport`] interface, and is strongly recommended.
-[Actors] implement [`IHasName`]; this might be suitable for types which you create for extending Screenplay. 
-
-For other types, to see human-readable formatted values in reports, use one of the following two approaches: 
-
-* If you are able, you may have your type implement [`IFormattableValue`]
-* If that is unsuitable, create and register an implementation of [`IValueFormatter`] for the type
+To get the best results [when Screenplay writes a report], it's best when the report is human-readable and does not use language that relates to .NET.
+Reports are built from [report fragments], accumulated during each [performance].
 
 [when Screenplay writes a report]: ../GettingReports.md
+[report fragments]: xref:CSF.Screenplay.Reporting.ReportFragment
+[performance]: xref:CSF.Screenplay.Performances.IPerformance
+
+## Baseline reporting functionality
+
+It's strongly recommended that all [performables] and all [abilities] implement the [`ICanReport`] interface.
+This allows these types to generate report fragments when they are performed-by or granted-to to [Actors].
+Performables and abilities _which do not_ implement `ICanReport` will use a default/fallback report template which might be very useful.
+
 [performables]: ../../glossary/Performable.md
+[abilities]: ../../glossary/Ability.md
 [`ICanReport`]: xref:CSF.Screenplay.ICanReport
 [Actors]: xref:CSF.Screenplay.Actor
+
+## Formatting values
+
+As noted in the syntax for [report fragments], they are written using _a placeholder syntax_.
+Values must be inserted into these placeholders to get the final report; this is performed by [`IFormatsReportFragment`].
+There are a few mechanisms by which `IFormatsReportFragments` converts values to human-readable strings; you are encouraged to pick the most suitable for each scenario.
+
+You may **extend Screenplay** with new implementations of [`IHasName`], [`IFormattableValue`] and/or [`IValueFormatter`].
+
+[`IFormatsReportFragment`]: xref:CSF.Screenplay.IFormatsReportFragment
+
+### Objects with names
+
+[Actors] and some other types implement the interface [`IHasName`].
+This is suitable for objects which would always appear the same in any report.
+For example, the Actor "Joe" is always "Joe"; there's nothing more to their name than that.
+
 [`IHasName`]: xref:CSF.Screenplay.IHasName
-[`IFormattableValue`]: xref:
-[`IValueFormatter`]: xref:
 
-## Formattable values
+### Self-formattable values
 
-Formattable values are types which are able to format themselves in a report. 
-This technique is most suitable for types over which you have full control, and are able to add an additional interface. 
+Types which implement [`IFormattableValue`] have a `Format()` method which returns a human-readable formatted representation of that object, suitable for appearance in reports.
 
-Built-in functionality of the reporting architecture will detect values in reports which implement [`IFormattableValue`] and will format them using their `Format()` method.
+Use this if the object's state must be used to get the reporting representation, but does not require any external dependencies or services.
+Obviously, you must have control over the type - the ability to add `IFormattableValue` to its interfaces - in order to use this technique.
 
-## Value formatters 
+[`IFormattableValue`]: xref:CSF.Screenplay.Reporting.IFormattableValue
 
-A value formatter is a type which is [added to DI] to format values which it is able. 
+### Value formatters
+
+Value formatters are external objects which are able to format objects, without needing to make any changes to the object-to-be-formatted.
+Value formatters implement the interface [`IValueFormatter`] and must be added to [dependency injection], as well as registered with the [`IFormatterRegistry`].
+
+Use this technique when either you require external services from dependendency injection to format the object, or if you are unable/unwilling to have the type to be formatted implement [`IFormattableValue`].
+
+[`IValueFormatter`]: xref:CSF.Screenplay.Reporting.IValueFormatter
+[dependency injection]: ../dependencyInjection/index.md
+[`IFormatterRegistry`]: xref:CSF.Screenplay.Reporting.IFormatterRegistry
+
+### Use `ToString()`
+
+The least optimal mechanism of formatting values in a report is to rely on the built-in (or an overridden) [`ToString()`] method.
+Whilst this will work in reports, it is intended as fallback functionality for types which are not covered by any of the techniques above.
+
+The results of the `ToString()` method are often a very poor choice for reports.
+
+[`ToString()`]: System.Object.ToString()
