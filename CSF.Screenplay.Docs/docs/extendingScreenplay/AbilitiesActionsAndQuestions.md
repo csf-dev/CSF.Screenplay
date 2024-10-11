@@ -1,8 +1,15 @@
 # Abilities, Actions & Questions
 
 Screenplay ships [with a small number of Abilities and performables] but it is designed to be extended with new ones.
+New [Abilities], [Actions] and [Questions] extend [Screenplay] by allowing [Actors] to interact with new APIs, services and libraries.
+
+Broadly-speaking to extend Screenplay in this way you must: 
+
+* Write one or more new ability types which provide access to the API of the service or library with which you'd like to interact
+* Write one or more Action and/or Question [Performables] which make use of that ability
 
 [with a small number of Abilities and performables]: ../performables/index.md
+[Screenplay]: xref:CSF.Screenplay.Screenplay
 
 ## Writing abilities
 
@@ -28,5 +35,8 @@ Continue to follow [best practice for performables], though.
 
 [Action]: ../../glossary/Action.md
 [Question]: ../../glossary/Question.md
+[Actions]: ../../glossary/Action.md
+[Questions]: ../../glossary/Question.md
+[Performables]: ../../glossary/Performable.md
 [an appropriate Performable interface]: ../../glossary/Performable.md
 [best practice for performables]: ../writingPerformables/index.md
