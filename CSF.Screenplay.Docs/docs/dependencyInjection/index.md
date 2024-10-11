@@ -31,4 +31,5 @@ As a consequence there may be _at most one_ Screenplay object per dependency inj
 TODO: Write this section!
 
 * [Injecting services](InjectingServices.md)
+* [Adding services](AddingServices.md)
 * [Abilities as a form of DI](../../glossary/Ability.md)
