@@ -14,7 +14,10 @@
           ]
         }
       ],
-      "dest": "api"
+      "dest": "api",
+      "properties": {
+        "ProduceReferenceAssembly": true
+      }
     }
   ],
   "build": {

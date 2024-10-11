@@ -9,7 +9,7 @@ Screenplay has numerous extension points available for developers to add their o
 * [Test integrations]
 
 [Abilities, Actions & Questions]: AbilitiesActionsAndQuestions.md
-[Dependency services]: DependencyServices.md
+[Dependency services]: ../dependencyInjection/AddingServices.md
 [Event handlers]: EventHandlers.md
 [Report value formatters]: ReportFormtters.md
 [Test integrations]: TestIntegrations.md

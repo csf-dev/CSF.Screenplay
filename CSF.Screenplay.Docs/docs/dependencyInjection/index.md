@@ -5,10 +5,11 @@ uid: DependencyInjectionMainArticle
 # Dependency injection
 
 The Screenplay design pattern is fundamentally compatible with and based upon [dependency injection], aka DI.
-You may add Screenplay to an existing container of you wish, via the [`AddScreenplay`] extension method.
-Alternatively you may create an instance of [`Screenplay`] which uses its own self-contained DI container with the `static` [`Screenplay.Create`] helper method.
+You may add Screenplay to an existing [container] if you wish, via the [`AddScreenplay`] extension method.
+Alternatively you may create an instance of [`Screenplay`] which uses its own self-contained DI container with the static [`Screenplay.Create`] helper method.
 
 [dependency injection]: https://en.wikipedia.org/wiki/Dependency_injection
+[container]: xref:Microsoft.Extensions.DependencyInjection.IServiceCollection
 [`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [`Screenplay.Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
@@ -16,7 +17,7 @@ Alternatively you may create an instance of [`Screenplay`] which uses its own se
 ## Scopes
 
 Screenplay makes use of [Dependency Injection Scopes].
-As you can see on [the diagram of how Actors, Abilities and Performables relate to one another], each [`Screenplay`] and executes contains many [Performances].
+As you can see on [the diagram of how Actors, Abilities and Performables relate to one another], each [`Screenplay`] contains and executes many [Performances].
 Each performance is executed within its own DI scope, thus scoped services will have _one shared instance per performance_.
 
 It is also important to note that within DI, the [`Screenplay`] object _must be added_ as a singleton (the mechanisms described above all do this for you).

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
 using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
@@ -116,6 +117,58 @@ namespace CSF.Screenplay
                                                  namingHierarchy,
                                                  cancellationToken)
                 .Wait(cancellationToken);
+        }
+
+        /// <summary>
+        /// Executes the logic with a specified imlpementation of <see cref="IHostsPerformance"/> as a <see cref="Performance"/>
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method is a convenient way to execute performances, where the logic for the performance is contained within a concrete type.
+        /// This method begins a new Dependency Injection Scope, and within that scope starts the performance.
+        /// It resolves an instance of the specified <typeparamref name="T"/> from the DI container, and executes its
+        /// <see cref="IHostsPerformance.ExecutePerformanceAsync(CancellationToken)"/> method to get the performance result.
+        /// </para>
+        /// <para>
+        /// An advantage of using this method is that the performance logic is encapsulated within a class, and that the service provider is
+        /// used to resolve only a single object instance, thus avoiding the service locator anti-pattern.
+        /// </para>
+        /// <para>
+        /// The <paramref name="namingHierarchy"/> may be used to give the performance a name, so that its results (and subsequent report)
+        /// may be identified. This parameter has the same semantics as <see cref="Performance.NamingHierarchy"/>.
+        /// </para>
+        /// <para>
+        /// Note that if the specified implementation of <see cref="IHostsPerformance"/> raises a <see cref="PerformableException"/> then
+        /// this method will catch that exception and not rethrow.  In that case:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>
+        /// An event will be raised with the event bus: <see cref="IHasPerformanceEvents"/>, specifically <see cref="IHasPerformanceEvents.PerformableFailed"/>.
+        /// This will contain details of the exception which occurred; subscribers to be informed that the performance has failed.
+        /// </description></item>
+        /// <item><description>The performance will be immediately terminated and placed into the <see cref="PerformanceState.Failed"/> state.</description></item>
+        /// </list>
+        /// <para>
+        /// Any other exception, which does not derive from <see cref="PerformableException"/>, will not be caught by this method and will propagate outward.
+        /// These exceptions will be interpreted as an error within the Screenplay architecture, since the <see cref="Actor"/> class will always catch and rethrow
+        /// any exception encountered from any overload of <c>PerformAsync</c>, wrapped as the inner exception of a <see cref="PerformableException"/>.
+        /// </para>
+        /// </remarks>
+        /// <param name="screenplay">The screenplay with which to execute the logic.</param>
+        /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
+        /// <param name="cancellationToken">An optional cancellation token to abort the performance logic.</param>
+        /// <returns>A task which completes when the performance's logic has completed.</returns>
+        /// <exception cref="ArgumentNullException">If the <paramref name="screenplay"/> is <see langword="null" />.</exception>
+        /// <typeparam name="T">The concrete type of an implementation of <see cref="IHostsPerformance"/> which contains the performance logic.</typeparam>
+        /// <seealso cref="IHostsPerformance"/>
+        public static Task ExecuteAsPerformanceAsync<T>(this Screenplay screenplay,
+                                                        IList<IdentifierAndName> namingHierarchy,
+                                                        CancellationToken cancellationToken) where T : IHostsPerformance
+        {
+            if (screenplay is null)
+                throw new ArgumentNullException(nameof(screenplay));
+            
+            return screenplay.ExecuteAsPerformanceAsync((s, c) => s.GetRequiredService<T>().ExecutePerformanceAsync(c), namingHierarchy, cancellationToken);
         }
 
         /// <summary>
