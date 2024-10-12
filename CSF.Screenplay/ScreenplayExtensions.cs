@@ -162,8 +162,8 @@ namespace CSF.Screenplay
         /// <typeparam name="T">The concrete type of an implementation of <see cref="IHostsPerformance"/> which contains the performance logic.</typeparam>
         /// <seealso cref="IHostsPerformance"/>
         public static Task ExecuteAsPerformanceAsync<T>(this Screenplay screenplay,
-                                                        IList<IdentifierAndName> namingHierarchy,
-                                                        CancellationToken cancellationToken) where T : IHostsPerformance
+                                                        IList<IdentifierAndName> namingHierarchy = default,
+                                                        CancellationToken cancellationToken = default) where T : IHostsPerformance
         {
             if (screenplay is null)
                 throw new ArgumentNullException(nameof(screenplay));

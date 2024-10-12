@@ -60,4 +60,26 @@ public class ScreenplayExtensionsTests
         
         Assert.That(() => sut.ExecuteAsPerformance(PerformanceLogic, timeoutMiliseconds: 50), Throws.InstanceOf<OperationCanceledException>());
     }
+
+    [Test,AutoMoqData]
+    public void ExecuteAsPerformanceGenericShouldExecuteThePerformanceHostLogic()
+    {
+        var sut = Screenplay.Create(s => s.AddSingleton<SamplePerformanceHost>(), o => o.ReportPath = null);
+
+        sut.ExecuteAsPerformanceAsync<SamplePerformanceHost>();
+
+        Assert.That(sut.ServiceProvider.GetRequiredService<SamplePerformanceHost>().HasExecuted, Is.True);
+    }
+
+    public class SamplePerformanceHost : IHostsPerformance
+    {
+        public bool HasExecuted { get; set; }
+        
+        
+        public Task<bool?> ExecutePerformanceAsync(CancellationToken cancellationToken)
+        {
+            HasExecuted = true;
+            return Task.FromResult<bool?>(true);
+        }
+    }
 }
