@@ -1,4 +1,4 @@
-# Report value formtters
+# Writing new Report value formtters
 
 To get the best results [when Screenplay writes a report], the wording in the reports should be human-readable and avoid language that relates to .NET.
 Reports are built from [report fragments], accumulated during each [performance].

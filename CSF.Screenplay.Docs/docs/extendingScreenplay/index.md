@@ -1,6 +1,6 @@
 # Extending Screenplay
 
-Screenplay has numerous extension points available for developers to add their own functionality. 
+Screenplay has numerous extension points available for developers to add their own functionality.
 
 * [Abilities, Actions & Questions]
 * [Dependency services]
