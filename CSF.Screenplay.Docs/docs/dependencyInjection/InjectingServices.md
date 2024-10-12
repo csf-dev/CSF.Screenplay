@@ -60,24 +60,6 @@ Use constructor-injected dependencies in persona classes to provide access to th
 
 ## Into performables
 
-Crucially, [Performable] types _do not participate in dependency injection from the container_.
-Performables are [created using the builder pattern] and do not hold references to any dependency services.
-Instead, the state of the performable - set either via constructor parameters or a public settable property - represents the _'parameters'_ for that performable.
+_See the article explaining [how performables get their dependencies]_.
 
-For example, a [Task] which adds an item to the user's shopping basket might have a constructor parameter which is the unique ID of the product to be added to the basket.
-
-Performables, specifcally [Actions] and [Questions], should access their dependencies via the Actor's **[Abilities]**.
-In this sense, Abilities are a form of dependency injection or service locator (for a specific use case).
-Whilst service locators are usually considered an anti-pattern, the benefits of this pattern outweigh the disadvantages.
-That is - being able to create performables from builders which includes all of their 'parameters' in their state, thus executable from one of three interface methods.
-By ensuring performables are unencumbered by their dependencies, they become composable in almost any configuration that you can imagine.
-
-Importantly, _[Tasks] should never make use of [Abilities]_.
-Only Actions and Questions should use Abilities.
-
-[Performable]: ../../glossary/Performable.md
-[created using the builder pattern]: ../builderPattern/index.md
-[Task]: ../../glossary/Task.md
-[Actions]: ../../glossary/Action.md
-[Questions]: ../../glossary/Question.md
-[Tasks]: ../../glossary/Task.md
+[how performables get their dependencies]: Performables.md
