@@ -7,8 +7,16 @@ For more information, see the documentation for [`ScreenplayServiceCollectionExt
 
 ```csharp
 using CSF.Screenplay;
+
 // IServiceCollection services; 
 services.AddScreenplay();
+
+// ... then, after the service collection is built:
+// IServiceProvider serviceProvider;
+var screenplay = serviceProvider.GetService<Screenplay>();
+
+// Or you may constructor-inject an instance of Screenplay into
+// any type which was resolved from the service provider
 ```
 
 Once Screenplay has been added to your DI, [you may resolve and use Screenplay-related services from dependency injection].
