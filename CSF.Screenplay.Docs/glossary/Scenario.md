@@ -4,14 +4,32 @@ uid: ScenarioGlossaryItem
 
 # Scenario
 
-A **Scenario** is a concept which is relevant when the Screenplay library is being used to perform automated tests.
-A scenario refers to a lifetime within such a testing framework or **[Integration]**.
-That lifetime is that of a single test, which might be called a "test case" or "theory" or perhaps "example" in your chosen testing framework.
+A **Scenario** is a single test within a testing framework.
+Testing frameworks differ between one another in the terminology that they use to name their individual tests.
+Screenplay uses the name "Scenario" because this [matches the name used in Cucumber].
+Scenarios _are only relevant_ when Screenplay is used in conjunction with a [test framework integration].
+It is irrelevant when [using Screenplay standalone].
 
-The lifetime of a scenario very closely corresponds to that of a **[Performance]**.
+A Scenario represents the lifetime of each individual test; when using Screenplay as a testing tool, the lifetime of the Scenario corresponds _very closely_ to the lifetime of a **[Performance]**.
+When using Screenplay, each Performance (and thus Scenario) is executed [within its own Dependency Injection Lifetime Scope].
 
-Every scenario is contained within a **[Feature]**.
+Every scenario is typically contained within a **[Feature]**.
+The structure of scenarios-within-features may be represented in the [Performance] using the [`NamingHierarchy`].
 
-[Integration]: Integration.md
+## Other names for Scenarios
+
+Various testing frameworks have established different naming conventions for what is - fundamentally - the same thing.
+Here are some other names which you might see in different testing frameworks.
+
+* Test
+* Test case
+* Theory
+* Example
+
+[matches the name used in Cucumber]: https://cucumber.io/docs/gherkin/reference/#examples
+[test framework integration]: Integration.md
+[using Screenplay standalone]: ../docs/StandaloneScreenplay.md
 [Performance]: xref:CSF.Screenplay.IPerformance
+[within its own Dependency Injection Lifetime Scope]: ../docs/dependencyInjection/DependencyInjectionScope.md
 [Feature]: Feature.md
+[`NamingHierarchy`]: xref:CSF.Screenplay.IPerformance.NamingHierarchy

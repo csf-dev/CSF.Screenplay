@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "alexkrechik.cucumberautocomplete",
+        "ms-dotnettools.csdevkit",
+        "bierner.markdown-mermaid",
+        "davidanson.vscode-markdownlint",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+    ]
+}

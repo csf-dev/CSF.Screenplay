@@ -1,6 +1,7 @@
 # Performables
 
 Screenplay comes with a few pre-created [Abilities], [Performables] and [Builders], for common tasks.
+Some of these require the installation of additional **NuGet packages**.
 
 [Abilities]: ../../glossary/Ability.md
 [Performables]: ../../glossary/Performable.md
