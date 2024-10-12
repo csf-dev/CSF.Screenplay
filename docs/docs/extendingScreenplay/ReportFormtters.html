@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Writing new Report value formtters | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Writing new Report value formtters | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/ReportFormtters.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="writing-new-report-value-formtters">Writing new Report value formtters</h1>
+
+<p>To get the best results <a href="../GettingReports.html">when Screenplay writes a report</a>, the wording in the reports should be human-readable and avoid language that relates to .NET.
+Reports are built from <a class="xref" href="../../api/CSF.Screenplay.ReportFragment.html">report fragments</a>, accumulated during each <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">performance</a>.</p>
+<h2 id="baseline-reporting-functionality">Baseline reporting functionality</h2>
+<p>It's strongly recommended that all <a href="../../glossary/Performable.html">performables</a> and all <a href="../../glossary/Ability.html">abilities</a> implement the <a class="xref" href="../../api/CSF.Screenplay.ICanReport.html"><code>ICanReport</code></a> interface.
+This allows these types to generate report fragments when they are performed-by or granted-to to <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a>.
+Performables and abilities <em>which do not</em> implement <code>ICanReport</code> will use a default/fallback report template which is likely to produce sub-optimal results.</p>
+<h2 id="formatting-values">Formatting values</h2>
+<p>As noted in the documentation for <a class="xref" href="../../api/CSF.Screenplay.ReportFragment.html">report fragments</a>, they are written using template strings which include <em>a placeholder syntax</em>.
+Values must be inserted into these placeholders to get the final report; this is performed by <a class="xref" href="../../api/CSF.Screenplay.IFormatsReportFragment.html"><code>IFormatsReportFragment</code></a>.
+There are a few mechanisms by which <code>IFormatsReportFragments</code> converts values to human-readable strings; you are encouraged to pick the most suitable for each scenario.</p>
+<p>You may <strong>extend Screenplay</strong> with new implementations of <a class="xref" href="../../api/CSF.Screenplay.IHasName.html"><code>IHasName</code></a>, <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a> and/or <a class="xref" href="../../api/CSF.Screenplay.Reporting.IValueFormatter.html"><code>IValueFormatter</code></a>.</p>
+<h3 id="objects-with-names">Objects with names</h3>
+<p><a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a> and some other types implement the interface <a class="xref" href="../../api/CSF.Screenplay.IHasName.html"><code>IHasName</code></a>.
+This is suitable for objects which would always appear the same in any report.
+For example, the Actor &quot;Joe&quot; is always &quot;Joe&quot;; there's nothing more to their name than that.</p>
+<h3 id="self-formattable-values">Self-formattable values</h3>
+<p>Types which implement <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a> have a <code>Format()</code> method which returns a human-readable formatted representation of that object, suitable for appearance in reports.</p>
+<p>Use this if the object's state must be used to get the reporting representation, but does not require any external dependencies or services.
+Obviously, you must have control over the type - the ability to add <code>IFormattableValue</code> to its interfaces - in order to use this technique.</p>
+<h3 id="value-formatters">Value formatters</h3>
+<p>Value formatters are external objects which are able to format objects, without needing to make any changes to the object-to-be-formatted.
+Value formatters implement the interface <a class="xref" href="../../api/CSF.Screenplay.Reporting.IValueFormatter.html"><code>IValueFormatter</code></a> and must be added to <a href="../dependencyInjection/index.html">dependency injection</a>, as well as registered with the <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormatterRegistry.html"><code>IFormatterRegistry</code></a>.</p>
+<p>Use this technique when either you require external services from dependendency injection to format the object, or if you are unable/unwilling to have the type to be formatted implement <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a>.</p>
+<h3 id="use-tostring">Use <code>ToString()</code></h3>
+<p>The least optimal mechanism of formatting values in a report is to rely on the built-in (or an overridden) <code>Object.ToString()</code> method.
+Whilst this will work in reports, it is intended as fallback functionality for types which are not covered by any of the techniques above.</p>
+<p>The results of the <code>ToString()</code> method are often a very poor choice for reports.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/ReportFormtters.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

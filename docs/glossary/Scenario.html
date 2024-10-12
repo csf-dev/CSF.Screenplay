@@ -87,11 +87,24 @@
         <article data-uid="ScenarioGlossaryItem">
 <h1 id="scenario">Scenario</h1>
 
-<p>A <strong>Scenario</strong> is a concept which is relevant when the Screenplay library is being used to perform automated tests.
-A scenario refers to a lifetime within such a testing framework or <strong><a href="Integration.html">Integration</a></strong>.
-That lifetime is that of a single test, which might be called a &quot;test case&quot; or &quot;theory&quot; or perhaps &quot;example&quot; in your chosen testing framework.</p>
-<p>The lifetime of a scenario very closely corresponds to that of a <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a></strong>.</p>
-<p>Every scenario is contained within a <strong><a href="Feature.html">Feature</a></strong>.</p>
+<p>A <strong>Scenario</strong> is a single test within a testing framework.
+Testing frameworks differ between one another in the terminology that they use to name their individual tests.
+Screenplay uses the name &quot;Scenario&quot; because this <a href="https://cucumber.io/docs/gherkin/reference/#examples">matches the name used in Cucumber</a>.
+Scenarios <em>are only relevant</em> when Screenplay is used in conjunction with a <a href="Integration.html">test framework integration</a>.
+It is irrelevant when <a href="../docs/StandaloneScreenplay.html">using Screenplay standalone</a>.</p>
+<p>A Scenario represents the lifetime of each individual test; when using Screenplay as a testing tool, the lifetime of the Scenario corresponds <em>very closely</em> to the lifetime of a <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a></strong>.
+When using Screenplay, each Performance (and thus Scenario) is executed <a href="../docs/dependencyInjection/DependencyInjectionScope.html">within its own Dependency Injection Lifetime Scope</a>.</p>
+<p>Every scenario is typically contained within a <strong><a href="Feature.html">Feature</a></strong>.
+The structure of scenarios-within-features may be represented in the <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a> using the <a class="xref" href="../api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy"><code>NamingHierarchy</code></a>.</p>
+<h2 id="other-names-for-scenarios">Other names for Scenarios</h2>
+<p>Various testing frameworks have established different naming conventions for what is - fundamentally - the same thing.
+Here are some other names which you might see in different testing frameworks.</p>
+<ul>
+<li>Test</li>
+<li>Test case</li>
+<li>Theory</li>
+<li>Example</li>
+</ul>
 
 </article>
 

@@ -1370,6 +1370,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IHasServiceProvider.ServiceProvider
   nameWithType: IHasServiceProvider.ServiceProvider
+- uid: CSF.Screenplay.IHostsPerformance
+  name: IHostsPerformance
+  href: api/CSF.Screenplay.IHostsPerformance.html
+  commentId: T:CSF.Screenplay.IHostsPerformance
+  fullName: CSF.Screenplay.IHostsPerformance
+  nameWithType: IHostsPerformance
+- uid: CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync(System.Threading.CancellationToken)
+  name: ExecutePerformanceAsync(CancellationToken)
+  href: api/CSF.Screenplay.IHostsPerformance.html#CSF_Screenplay_IHostsPerformance_ExecutePerformanceAsync_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync(System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync(System.Threading.CancellationToken)
+  nameWithType: IHostsPerformance.ExecutePerformanceAsync(CancellationToken)
+- uid: CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync*
+  name: ExecutePerformanceAsync
+  href: api/CSF.Screenplay.IHostsPerformance.html#CSF_Screenplay_IHostsPerformance_ExecutePerformanceAsync_
+  commentId: Overload:CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.IHostsPerformance.ExecutePerformanceAsync
+  nameWithType: IHostsPerformance.ExecutePerformanceAsync
 - uid: CSF.Screenplay.IPerformable
   name: IPerformable
   href: api/CSF.Screenplay.IPerformable.html
@@ -4985,6 +5004,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance
   nameWithType: ScreenplayExtensions.ExecuteAsPerformance
+- uid: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync*
+  name: ExecuteAsPerformanceAsync
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync_
+  commentId: Overload:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync
+  nameWithType: ScreenplayExtensions.ExecuteAsPerformanceAsync
+- uid: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync``1(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
+  name: ExecuteAsPerformanceAsync<T>(Screenplay, IList<IdentifierAndName>, CancellationToken)
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync__1_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync``1(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
+  name.vb: ExecuteAsPerformanceAsync(Of T)(Screenplay, IList(Of IdentifierAndName), CancellationToken)
+  fullName: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync<T>(CSF.Screenplay.Screenplay, System.Collections.Generic.IList<CSF.Screenplay.Performances.IdentifierAndName>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync(Of T)(CSF.Screenplay.Screenplay, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), System.Threading.CancellationToken)
+  nameWithType: ScreenplayExtensions.ExecuteAsPerformanceAsync<T>(Screenplay, IList<IdentifierAndName>, CancellationToken)
+  nameWithType.vb: ScreenplayExtensions.ExecuteAsPerformanceAsync(Of T)(Screenplay, IList(Of IdentifierAndName), CancellationToken)
 - uid: CSF.Screenplay.ScreenplayLocator
   name: ScreenplayLocator
   href: api/CSF.Screenplay.ScreenplayLocator.html

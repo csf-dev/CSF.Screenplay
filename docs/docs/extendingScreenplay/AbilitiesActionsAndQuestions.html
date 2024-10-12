@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Dependency injection | Screenplay docs </title>
+      <title>Writing new Abilities, Actions &amp; Questions | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Dependency injection | Screenplay docs ">
+      <meta name="title" content="Writing new Abilities, Actions &amp; Questions | Screenplay docs ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/AbilitiesActionsAndQuestions.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,30 +84,32 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="DependencyInjectionMainArticle">
-<h1 id="dependency-injection">Dependency injection</h1>
+        <article data-uid="">
+<h1 id="writing-new-abilities-actions--questions">Writing new Abilities, Actions &amp; Questions</h1>
 
-<p>The Screenplay design pattern is fundamentally compatible with and based upon <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>, aka DI.
-You may add Screenplay to an existing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">container</a> if you wish, via the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__"><code>AddScreenplay</code></a> extension method.
-Alternatively you may create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> which uses its own self-contained DI container with the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Screenplay.Create</code></a> helper method.</p>
-<h2 id="scopes">Scopes</h2>
-<p>Screenplay makes use of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped">Dependency Injection Scopes</a>.
-As you can see on <a href="../MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>.
-Each performance is executed within its own DI scope, thus scoped services will have <em>one shared instance per performance</em>.</p>
-<p>It is also important to note that within DI, the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object <em>must be added</em> as a singleton (the mechanisms described above all do this for you).
-As a consequence there may be <em>at most one</em> Screenplay object per dependency injection container.</p>
-<h2 id="using-di-in-screenplay">Using DI in Screenplay</h2>
-<p>TODO: Write this section!</p>
+<p>Screenplay ships <a href="../performables/index.html">with a small number of Abilities and performables</a> but it is designed to be extended with new ones.
+New <a href="../../glossary/Ability.html">Abilities</a>, <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a> extend <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html">Screenplay</a> by allowing <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a> to interact with new APIs, services and libraries.</p>
+<p>Broadly-speaking to extend Screenplay in this way you must:</p>
 <ul>
-<li><a href="InjectingServices.html">Injecting services</a></li>
-<li><a href="AddingServices.html">Adding services</a></li>
-<li><a href="../../glossary/Ability.html">Abilities as a form of DI</a></li>
+<li>Write one or more new ability types which provide access to the API of the service or library with which you'd like to interact</li>
+<li>Write one or more Action and/or Question <a href="../../glossary/Performable.html">Performables</a> which make use of that ability</li>
 </ul>
+<h2 id="writing-abilities">Writing abilities</h2>
+<p>Recall that <a href="../../glossary/Ability.html">Abilities</a> represent capabilities &amp; dependencies granted to or associated with <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a>.
+It is normal for developers to want to write new Ability classes in order to provide capabilities/dependencies which are not yet catered-for.</p>
+<p>Ability classes do not <em>need to derive</em> from any particular base type, although it is strongly recommended that they implement <a class="xref" href="../../api/CSF.Screenplay.ICanReport.html"><code>ICanReport</code></a>.
+Ability classes <a href="../dependencyInjection/index.html">may constructor-inject dependencies</a> and should declare whatever API is appropriate.</p>
+<h2 id="writing-actions-andor-questions">Writing Actions and/or Questions</h2>
+<p>Hand-in-hand with writing new ability classes, comes writing new <a href="../../glossary/Action.html">Action</a> and/or <a href="../../glossary/Question.html">Question</a> performables.
+These classes must derive from <a href="../../glossary/Performable.html">an appropriate Performable interface</a> and <em>should also implement <a class="xref" href="../../api/CSF.Screenplay.ICanReport.html"><code>ICanReport</code></a></em>.
+These actions/questions should interact with the ability and make use of its functionality or return a value accordingly.</p>
+<p>Recall that actions &amp; questions should be <em>as granular as reasonably possible</em>, accepting whatever parameters are appropriate for the usage of the ability.
+Continue to follow <a href="../writingPerformables/index.html">best practice for performables</a>, though.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/AbilitiesActionsAndQuestions.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

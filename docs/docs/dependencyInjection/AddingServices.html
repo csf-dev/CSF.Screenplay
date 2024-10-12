@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Dependency injection | Screenplay docs </title>
+      <title>Adding dependency services to Screenplay | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Dependency injection | Screenplay docs ">
+      <meta name="title" content="Adding dependency services to Screenplay | Screenplay docs ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/AddingServices.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,30 +84,36 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="DependencyInjectionMainArticle">
-<h1 id="dependency-injection">Dependency injection</h1>
+        <article data-uid="">
+<h1 id="adding-dependency-services-to-screenplay">Adding dependency services to Screenplay</h1>
 
-<p>The Screenplay design pattern is fundamentally compatible with and based upon <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>, aka DI.
-You may add Screenplay to an existing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">container</a> if you wish, via the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__"><code>AddScreenplay</code></a> extension method.
-Alternatively you may create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> which uses its own self-contained DI container with the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Screenplay.Create</code></a> helper method.</p>
-<h2 id="scopes">Scopes</h2>
-<p>Screenplay makes use of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped">Dependency Injection Scopes</a>.
-As you can see on <a href="../MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>.
-Each performance is executed within its own DI scope, thus scoped services will have <em>one shared instance per performance</em>.</p>
-<p>It is also important to note that within DI, the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object <em>must be added</em> as a singleton (the mechanisms described above all do this for you).
-As a consequence there may be <em>at most one</em> Screenplay object per dependency injection container.</p>
-<h2 id="using-di-in-screenplay">Using DI in Screenplay</h2>
-<p>TODO: Write this section!</p>
+<p>There are two techniques to add dependency services to Screenplay.
+You may either integrate Screenplay into an existing container for your application or tests or you may add additional services via the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Create</code></a> factory method.</p>
+<h2 id="integrating-with-an-existing-container">Integrating with an existing container</h2>
+<p>When using an existing <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection"><code>IServiceCollection</code></a> for you application, either <a href="../StandaloneScreenplay.html">using Screenplay standalone</a> or <a href="../ScreenplayInTheTestingStack.html">with a test framework</a> that integrates with dependency injection, then adding services is simple.
+Just add your services to the container (the service collection) as normal; they will be available <a href="InjectingServices.html">to resolve and inject</a> over the course of the Screenplay.</p>
+<h2 id="using-the-static-create-factory">Using the static <code>Create</code> factory</h2>
+<p>If you do not wish to integrate Screenplay into an existing dependency injection container then the simplest way to create an instance of Screenplay is to use the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Screenplay.Create</code></a> factory method.
+This method offers an optional parameter to provide an <code>Action&lt;IServiceCollection&gt;</code>.
+If you do so, then you may provide a customization action which adds additional services to the container.
+These services will be integrated into the self-contained service collection which the <code>Create</code> method creates for Screenplay.</p>
+<pre><code class="lang-csharp">var screenplay = Screenplay.Create(services =&gt; {
+    services.AddTransient&lt;MyCustomService&gt;();
+    // ... and anything further you want here
+});
+</code></pre>
+<h2 id="a-reminder-on-lifetime-scopes">A reminder on lifetime scopes</h2>
+<p>Remember that Screenplay imposes <a href="DependencyInjectionScope.html">some requirements upon service lifetime</a>:</p>
 <ul>
-<li><a href="InjectingServices.html">Injecting services</a></li>
-<li><a href="AddingServices.html">Adding services</a></li>
-<li><a href="../../glossary/Ability.html">Abilities as a form of DI</a></li>
+<li>The <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object is <em>always a singleton</em></li>
+<li>Each <a href="xref:CSf.Screenplay.IPerformance">Performance</a> <em>is always executed within its own lifetime scope</em></li>
 </ul>
+<p>Add your own services to dependency injection accordingly.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/AddingServices.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
