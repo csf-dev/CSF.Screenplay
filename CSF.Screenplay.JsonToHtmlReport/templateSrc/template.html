@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screenplay report template</title>
+</head>
+<body>
+    <div id="pageMask">
+        <div id="spinnerContainer"><div id="loadingSpinner"></div></div>
+    </div>
+    <header>
+        <h1>Screenplay report</h1>
+    </header>
+    <main>
+        <section id="summary">
+            <h2>Summary</h2>
+            <table id="summaryTable">
+                <colgroup>
+                    <col class="type">
+                    <col span="3" class="count">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="type"><span>Type</span></th>
+                        <th>Success</th>
+                        <th>Failure</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="type">Features</th>
+                        <td id="featureSuccess">0</td>
+                        <td id="featureFailure">0</td>
+                        <td id="featureTotal">0</td>
+                    </tr>
+                    <tr>
+                        <th class="type">Scenarios</th>
+                        <td id="scenarioSuccess">0</td>
+                        <td id="scenarioFailure">0</td>
+                        <td id="scenarioTotal">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="features">
+            <h2>Features</h2>
+            <ul id="featureList">
+                <li>
+                    <h3 class="featureName">Feature name</h3>
+                    <ul class="scenarioList">
+                        <li>
+                            <h4 class="scenarioName">Scenario name</h4>
+                            <ol class="reportableList">
+                                <li>
+                                    <span class="type"><i>Reportable type name</i></span>
+                                    <span class="phase">Phase</span>
+                                    <span class="report">Report text</span>
+                                    <span class="result">Result</span>
+                                    <code class="exception">Exception</code>
+                                    <span class="performableType">Performable type</span>
+                                    <ul class="assets">
+                                        <li><a href="Asset path" class="image">Asset description</a></li>
+                                    </ul>
+                                    <ol class="reportableList"></ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Generated on
+            <span id="reportGeneratedOn"></span>,
+            using <a href="https://csf-dev.github.io/CSF.Screenplay/">CSF.Screenplay</a>
+        </p>
+    </footer>
+    <script type="application/json" id="reportSrc">{}</script>
+</body>
+</html>

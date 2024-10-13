@@ -1,0 +1,25 @@
+@layer layout {
+    html, body {
+        height: 100%;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        background: #f0fcff;
+    }
+    body > header {
+        flex: none;
+        background: #FFF;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    body > main {
+        flex: 1 auto;
+        padding: 0 1em;
+    }
+    body > footer {
+        flex: none;
+        background: #dfecf1;
+        border-top: 1px solid #DDD;
+        padding: 0.3em 1em;
+    }
+}

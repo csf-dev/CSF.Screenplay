@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.SpecFlow.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebApis", "CSF.Screenplay.WebApis\CSF.Screenplay.WebApis.csproj", "{D992314A-DA59-4D5E-B58C-810AB38E7935}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.JsonToHtmlReport", "CSF.Screenplay.JsonToHtmlReport\CSF.Screenplay.JsonToHtmlReport.csproj", "{906AF119-8F73-4350-A99C-D3EDEFD169F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,12 @@ Global
 		{D992314A-DA59-4D5E-B58C-810AB38E7935}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D992314A-DA59-4D5E-B58C-810AB38E7935}.Docs|Any CPU.ActiveCfg = Debug|Any CPU
 		{D992314A-DA59-4D5E-B58C-810AB38E7935}.Docs|Any CPU.Build.0 = Debug|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Docs|Any CPU.ActiveCfg = Debug|Any CPU
+		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Docs|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7369BCFA-DA98-4C05-9708-7949AF3E485B} = {2C3ABE29-B5F7-404E-B20A-E3679E2ECEC5}
