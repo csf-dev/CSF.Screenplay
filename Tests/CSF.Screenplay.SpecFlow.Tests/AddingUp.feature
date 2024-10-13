@@ -12,3 +12,8 @@ Scenario: Mathias should be able to add three numbers together and get the corre
      When he adds 70
       And he adds 20
      Then he should have the total 140
+
+Scenario: Mathias should be able to add three numbers in a single step
+    Given Mathias has the number 50
+     When he adds 40, 30 and 20
+     Then he should have the total 140

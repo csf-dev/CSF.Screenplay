@@ -20,6 +20,13 @@ namespace CSF.Screenplay.StepDefinitions
             await When(actor).AttemptsTo(Add(number));
         }
 
+        [When(@"(?:he|she|they) adds? (\d+), (\d+) and (\d+)")]
+        public async Task Whenheaddsthreenumbers(int number1, int number2, int number3)
+        {
+            var actor = stage.GetSpotlitActor();
+            await When(actor).AttemptsTo(AddThreeNumbers(number1, number2, number3));
+        }
+
         [Then(@"(?:he|she|they) should have the total (\d+)")]
         public async Task Thenheshouldhavethetotal(int number)
         {
