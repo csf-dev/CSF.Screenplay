@@ -79,7 +79,7 @@ namespace CSF.Screenplay.Reporting
         }
 
         /// <inheritdoc/>
-        public string Format(object value)
+        public string FormatForReport(object value)
         {
             if (value is DateTime dateTime)
                 return dateTime.Humanize();

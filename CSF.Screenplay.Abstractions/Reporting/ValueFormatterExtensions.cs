@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Reporting
         /// <remarks>
         /// <para>
         /// This extension method is a convenience, equivalent to using <see cref="IGetsValueFormatter.GetValueFormatter(object)"/>,
-        /// followed by <see cref="IValueFormatter.Format(object)"/>, both using <paramref name="value"/> as the parameter.
+        /// followed by <see cref="IValueFormatter.FormatForReport(object)"/>, both using <paramref name="value"/> as the parameter.
         /// </para>
         /// </remarks>
         /// <param name="formatterProvider">A value formatter factory</param>
@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Reporting
         {
             if (formatterProvider is null)
                 throw new ArgumentNullException(nameof(formatterProvider));
-            return formatterProvider.GetValueFormatter(value).Format(value);
+            return formatterProvider.GetValueFormatter(value).FormatForReport(value);
         }
     }
 }

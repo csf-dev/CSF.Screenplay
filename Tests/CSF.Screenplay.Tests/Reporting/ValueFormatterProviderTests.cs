@@ -39,7 +39,7 @@ public class ValueFormatterProviderTests
     {
         public bool CanFormat(object value) => false;
 
-        public string Format(object value)
+        public string FormatForReport(object value)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +49,7 @@ public class ValueFormatterProviderTests
     {
         public bool CanFormat(object value) => true;
 
-        public string Format(object value)
+        public string FormatForReport(object value)
         {
             throw new NotImplementedException();
         }
@@ -59,7 +59,7 @@ public class ValueFormatterProviderTests
     {
         public bool CanFormat(object value) => true;
 
-        public string Format(object value)
+        public string FormatForReport(object value)
         {
             throw new NotImplementedException();
         }

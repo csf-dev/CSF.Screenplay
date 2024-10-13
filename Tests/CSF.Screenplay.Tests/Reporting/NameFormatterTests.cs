@@ -19,6 +19,6 @@ public class NameFormatterTests
     public void FormatShouldReturnACorrectlyFormattedString(NameFormatter sut, IHasName value, string name)
     {
         Mock.Get(value).SetupGet(x => x.Name).Returns(name);
-        Assert.That(sut.Format(value), Is.EqualTo(name));
+        Assert.That(sut.FormatForReport(value), Is.EqualTo(name));
     }
 }

@@ -1,3 +1,7 @@
+---
+uid: ReportFormattingArticle
+---
+
 # Writing new Report value formtters
 
 To get the best results [when Screenplay writes a report], the wording in the reports should be human-readable and avoid language that relates to .NET.
@@ -38,7 +42,7 @@ For example, the Actor "Joe" is always "Joe"; there's nothing more to their name
 
 ### Self-formattable values
 
-Types which implement [`IFormattableValue`] have a `Format()` method which returns a human-readable formatted representation of that object, suitable for appearance in reports.
+Types which implement [`IFormattableValue`] have a `FormatForReport()` method which returns a human-readable formatted representation of that object, suitable for appearance in reports.
 
 Use this if the object's state must be used to get the reporting representation, but does not require any external dependencies or services.
 Obviously, you must have control over the type - the ability to add `IFormattableValue` to its interfaces - in order to use this technique.
@@ -49,11 +53,15 @@ Obviously, you must have control over the type - the ability to add `IFormattabl
 
 Value formatters are external objects which are able to format objects, without needing to make any changes to the object-to-be-formatted.
 Value formatters implement the interface [`IValueFormatter`] and must be added to [dependency injection], as well as registered with the [`IFormatterRegistry`].
+The easiest way to perform both of these is to add the `Type` of the value formatter implementation to [`ScreenplayOptions.ValueFormatters`] when creating the Screenplay.
+Any types added here will automatically be included in the formatter registry and added to DI when the [`Screenplay`] is built.
 
 Use this technique when either you require external services from dependendency injection to format the object, or if you are unable/unwilling to have the type to be formatted implement [`IFormattableValue`].
 
 [`IValueFormatter`]: xref:CSF.Screenplay.Reporting.IValueFormatter
 [dependency injection]: ../dependencyInjection/index.md
+[`ScreenplayOptions.ValueFormatters`]: xref:CSF.Screenplay.ScreenplayOptions.ValueFormatters
+[`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [`IFormatterRegistry`]: xref:CSF.Screenplay.Reporting.IFormatterRegistry
 
 ### Use `ToString()`

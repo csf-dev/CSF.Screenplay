@@ -30,6 +30,6 @@ Only Actions and Questions should use Abilities.
 [Task]: ../../glossary/Task.md
 [Actions]: ../../glossary/Action.md
 [Questions]: ../../glossary/Question.md
-[`GetAbility<T>`]: CSF.Screenplay.ActorExtensions.GetAbility``1(CSF.Screenplay.ICanPerform)
+[`GetAbility<T>`]: xref:CSF.Screenplay.ActorExtensions.GetAbility``1(CSF.Screenplay.ICanPerform)
 [the ability to create performables from static builders]: ../builderPattern/index.md
 [Tasks]: ../../glossary/Task.md

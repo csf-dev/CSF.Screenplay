@@ -6,11 +6,17 @@
     /// <remarks>
     /// <para>
     /// Use this interface for any object within an <see cref="IPerformance"/> which could benefit from having a human-readable name.
-    /// For example, static parameter values like Web API endpoints, web page URLs, elements on a web UI, dates/times in a calendar.
+    /// For example, static parameter values like Web API endpoints, web page URLs or elements on a web UI.
     /// By referring to an object by its name, and using that name in report-generating logic, reports generated from a Screenplay can
     /// become much easier to read and comprehend.
     /// </para>
+    /// <para>
+    /// The <see cref="Name"/> property is used to provide a human-readable string which represents the object in the report text.
+    /// This interface is a part of the mechanism for <xref href="ReportFormattingArticle?text=formatting+values+in+reports" /> in Screenplay.
+    /// </para>
     /// </remarks>
+    /// <seealso cref="Reporting.IFormattableValue"/>
+    /// <seealso cref="Reporting.IValueFormatter"/>
     public interface IHasName
     {
         /// <summary>

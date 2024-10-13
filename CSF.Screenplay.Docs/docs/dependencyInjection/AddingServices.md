@@ -42,4 +42,4 @@ Add your own services to dependency injection accordingly.
 
 [some requirements upon service lifetime]: DependencyInjectionScope.md
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
-[Performance]: xref:CSf.Screenplay.IPerformance
+[Performance]: xref:CSF.Screenplay.IPerformance

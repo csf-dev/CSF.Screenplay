@@ -17,7 +17,7 @@ public class ReportFragmentFormatterTests
         Mock.Get(formatProvider)
             .Setup(x => x.GetReportFormat(template, values))
             .Returns(new ReportFormat(template, expectedFormat, [new ("Actor", "Joe"), new ("Count", 5)]));
-        Mock.Get(formatter).Setup(x => x.Format(It.IsAny<object>())).Returns((object obj) => obj.ToString()!);
+        Mock.Get(formatter).Setup(x => x.FormatForReport(It.IsAny<object>())).Returns((object obj) => obj.ToString()!);
         Mock.Get(formatterProvider).Setup(x => x.GetValueFormatter(It.IsAny<object>())).Returns(formatter);
 
         var result = sut.Format(template, values);

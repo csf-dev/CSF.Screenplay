@@ -18,7 +18,7 @@ public class FormattableFormatterTests
     [Test,AutoMoqData]
     public void FormatShouldReturnACorrectlyFormattedString(FormattableFormatter sut, IFormattableValue value, string format)
     {
-        Mock.Get(value).Setup(x => x.Format()).Returns(format);
-        Assert.That(sut.Format(value), Is.EqualTo(format));
+        Mock.Get(value).Setup(x => x.FormatForReport()).Returns(format);
+        Assert.That(sut.FormatForReport(value), Is.EqualTo(format));
     }
 }

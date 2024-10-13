@@ -17,6 +17,6 @@ namespace CSF.Screenplay.Reporting
         public bool CanFormat(object value) => true;
 
         /// <inheritdoc/>
-        public string Format(object value) => value is null ? FormatterStrings.NullValue : value.ToString();
+        public string FormatForReport(object value) => value is null ? FormatterStrings.NullValue : value.ToString();
     }
 }

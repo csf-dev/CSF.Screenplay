@@ -234,7 +234,7 @@ namespace CSF.Screenplay.WebApis
         }
 
         /// <inheritdoc/>
-        public string Format() => Name ?? RequestUri.ToString();
+        public string FormatForReport() => Name ?? RequestUri.ToString();
 
         /// <summary>
         /// Gets a copy of the current request message builder instance, but with information about the expected type of response.

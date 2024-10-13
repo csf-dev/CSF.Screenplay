@@ -16,7 +16,7 @@ namespace CSF.Screenplay
         {
             var format = formatCreator.GetReportFormat(template, values);
             var formattedValues = format.Values
-                .Select(x => formatterFactory.GetValueFormatter(x.Value).Format(x.Value))
+                .Select(x => formatterFactory.GetValueFormatter(x.Value).FormatForReport(x.Value))
                 .Cast<object>()
                 .ToArray();
             var fragment = string.Format(format.FormatTemplate, formattedValues);

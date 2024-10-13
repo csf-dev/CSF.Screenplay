@@ -136,12 +136,12 @@ public class SampleFormatter1 : IValueFormatter
 {
     public bool CanFormat(object value) => false;
 
-    public string Format(object value) => string.Empty;
+    public string FormatForReport(object value) => string.Empty;
 }
 
 public class SampleFormatter2 : IValueFormatter
 {
     public bool CanFormat(object value) => false;
 
-    public string Format(object value) => string.Empty;
+    public string FormatForReport(object value) => string.Empty;
 }

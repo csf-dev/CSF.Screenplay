@@ -18,12 +18,12 @@ public class ToStringFormatterTests
     [Test,AutoMoqData]
     public void FormatShouldReturnACorrectlyFormattedStringForAnObject(ToStringFormatter sut, object value)
     {
-        Assert.That(sut.Format(value), Is.EqualTo(typeof(object).FullName));
+        Assert.That(sut.FormatForReport(value), Is.EqualTo(typeof(object).FullName));
     }
 
     [Test,AutoMoqData]
     public void FormatShouldReturnACorrectlyFormattedStringForNull(ToStringFormatter sut)
     {
-        Assert.That(sut.Format(null), Is.EqualTo("<null>"));
+        Assert.That(sut.FormatForReport(null), Is.EqualTo("<null>"));
     }
 }

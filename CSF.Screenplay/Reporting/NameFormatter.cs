@@ -9,6 +9,6 @@ namespace CSF.Screenplay.Reporting
         public bool CanFormat(object value) => value is IHasName;
 
         /// <inheritdoc/>
-        public string Format(object value) => ((IHasName)value).Name;
+        public string FormatForReport(object value) => ((IHasName)value).Name;
     }
 }

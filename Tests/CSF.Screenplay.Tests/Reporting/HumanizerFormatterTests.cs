@@ -55,51 +55,51 @@ public class HumanizerFormatterTests
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForADateTime(HumanizerFormatter sut, DateTime value)
     {
-        Assert.That(sut.Format(value), Is.Not.Null);
+        Assert.That(sut.FormatForReport(value), Is.Not.Null);
     }
 
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForANonNullNullableDateTime(HumanizerFormatter sut, DateTime value)
     {
         DateTime? nullableValue = value;
-        Assert.That(sut.Format(nullableValue), Is.Not.Null);
+        Assert.That(sut.FormatForReport(nullableValue), Is.Not.Null);
     }
 
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForATimeSpan(HumanizerFormatter sut, TimeSpan value)
     {
-        Assert.That(sut.Format(value), Is.Not.Null);
+        Assert.That(sut.FormatForReport(value), Is.Not.Null);
     }
     
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForANonNullNullableTimeSpan(HumanizerFormatter sut, TimeSpan value)
     {
         TimeSpan? nullableValue = value;
-        Assert.That(sut.Format(nullableValue), Is.Not.Null);
+        Assert.That(sut.FormatForReport(nullableValue), Is.Not.Null);
     }
     
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForAnEnumValue(HumanizerFormatter sut)
     {
-        Assert.That(sut.Format(MyEnumType.ThisIsTheFirst), Is.EqualTo("This is the first"));
+        Assert.That(sut.FormatForReport(MyEnumType.ThisIsTheFirst), Is.EqualTo("This is the first"));
     }
     
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForAnEnumValueRespectingTheDescription(HumanizerFormatter sut)
     {
-        Assert.That(sut.Format(MyEnumType.ThisIsTheThird), Is.EqualTo("This member has a custom description"));
+        Assert.That(sut.FormatForReport(MyEnumType.ThisIsTheThird), Is.EqualTo("This member has a custom description"));
     }
         
     [Test,AutoMoqData]
     public void FormatShouldReturnAStringForAStringCollection(HumanizerFormatter sut)
     {
-        Assert.That(sut.Format(new [] { "Foo", "Bar", "Baz" }), Is.EqualTo("Foo, Bar, and Baz"));
+        Assert.That(sut.FormatForReport(new [] { "Foo", "Bar", "Baz" }), Is.EqualTo("Foo, Bar, and Baz"));
     }
 
     [Test,AutoMoqData]
     public void FormatShouldThrowForAnUnsupportedValue(HumanizerFormatter sut, object value)
     {
-        Assert.That(() => sut.Format(value), Throws.ArgumentException);
+        Assert.That(() => sut.FormatForReport(value), Throws.ArgumentException);
     }
 
     public enum MyEnumType

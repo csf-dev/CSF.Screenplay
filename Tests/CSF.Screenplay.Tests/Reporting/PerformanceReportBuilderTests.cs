@@ -60,7 +60,7 @@ public class PerformanceReportBuilderTest
                                                                                                             [NamedActor("Joe")] Actor actor)
     {
         Mock.Get(valueFormatterProvider).Setup(x => x.GetValueFormatter(ability)).Returns(valueFormatter);
-        Mock.Get(valueFormatter).Setup(x => x.Format(ability)).Returns("Ability Name");
+        Mock.Get(valueFormatter).Setup(x => x.FormatForReport(ability)).Returns("Ability Name");
         sut.ActorGainedAbility(actor, ability);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables, Has.One.Matches<ActorGainedAbilityReport>(x => x.ActorName == "Joe" && x.Report == "Joe is able to Ability Name"));
@@ -180,7 +180,7 @@ public class PerformanceReportBuilderTest
                                                                                             string resultText)
     {
         Mock.Get(valueFormatterProvider).Setup(x => x.GetValueFormatter(It.IsAny<object>())).Returns(valueFormatter);
-        Mock.Get(valueFormatter).Setup(x => x.Format(result)).Returns(resultText);
+        Mock.Get(valueFormatter).Setup(x => x.FormatForReport(result)).Returns(resultText);
         sut.BeginPerformable(performable, actor, performancePhase);
         sut.RecordResultForCurrentPerformable(result);
         sut.EndPerformable(performable, actor);

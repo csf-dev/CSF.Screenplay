@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +22,7 @@ namespace CSF.Screenplay
     public sealed class ScreenplayOptions
     {
         /// <summary>
-        /// Gets a collection of concrete <see cref="System.Type"/> which implement <see cref="IValueFormatter"/>, which will be used
+        /// Gets a collection of concrete <see cref="Type"/> which implement <see cref="IValueFormatter"/>, which will be used
         /// to format values which are to appear in Screenplay reports.
         /// </summary>
         /// <remarks>
