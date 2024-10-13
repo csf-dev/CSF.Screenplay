@@ -3509,6 +3509,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Report
   nameWithType: ReportableModelBase.Report
+- uid: CSF.Screenplay.ReportModel.ScreenplayReport
+  name: ScreenplayReport
+  href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html
+  commentId: T:CSF.Screenplay.ReportModel.ScreenplayReport
+  fullName: CSF.Screenplay.ReportModel.ScreenplayReport
+  nameWithType: ScreenplayReport
+- uid: CSF.Screenplay.ReportModel.ScreenplayReport.Metadata
+  name: Metadata
+  href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html#CSF_Screenplay_ReportModel_ScreenplayReport_Metadata
+  commentId: P:CSF.Screenplay.ReportModel.ScreenplayReport.Metadata
+  fullName: CSF.Screenplay.ReportModel.ScreenplayReport.Metadata
+  nameWithType: ScreenplayReport.Metadata
+- uid: CSF.Screenplay.ReportModel.ScreenplayReport.Metadata*
+  name: Metadata
+  href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html#CSF_Screenplay_ReportModel_ScreenplayReport_Metadata_
+  commentId: Overload:CSF.Screenplay.ReportModel.ScreenplayReport.Metadata
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ScreenplayReport.Metadata
+  nameWithType: ScreenplayReport.Metadata
+- uid: CSF.Screenplay.ReportModel.ScreenplayReport.Performances
+  name: Performances
+  href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html#CSF_Screenplay_ReportModel_ScreenplayReport_Performances
+  commentId: P:CSF.Screenplay.ReportModel.ScreenplayReport.Performances
+  fullName: CSF.Screenplay.ReportModel.ScreenplayReport.Performances
+  nameWithType: ScreenplayReport.Performances
+- uid: CSF.Screenplay.ReportModel.ScreenplayReport.Performances*
+  name: Performances
+  href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html#CSF_Screenplay_ReportModel_ScreenplayReport_Performances_
+  commentId: Overload:CSF.Screenplay.ReportModel.ScreenplayReport.Performances
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ScreenplayReport.Performances
+  nameWithType: ScreenplayReport.Performances
 - uid: CSF.Screenplay.ReportModel.SpotlightTurnedOffReport
   name: SpotlightTurnedOffReport
   href: api/CSF.Screenplay.ReportModel.SpotlightTurnedOffReport.html
@@ -3597,6 +3629,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport
   nameWithType: HumanizerFormatter.FormatForReport
+- uid: CSF.Screenplay.Reporting.IDeserializesReport
+  name: IDeserializesReport
+  href: api/CSF.Screenplay.Reporting.IDeserializesReport.html
+  commentId: T:CSF.Screenplay.Reporting.IDeserializesReport
+  fullName: CSF.Screenplay.Reporting.IDeserializesReport
+  nameWithType: IDeserializesReport
+- uid: CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync(System.IO.Stream)
+  name: DeserializeAsync(Stream)
+  href: api/CSF.Screenplay.Reporting.IDeserializesReport.html#CSF_Screenplay_Reporting_IDeserializesReport_DeserializeAsync_System_IO_Stream_
+  commentId: M:CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync(System.IO.Stream)
+  fullName: CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync(System.IO.Stream)
+  nameWithType: IDeserializesReport.DeserializeAsync(Stream)
+- uid: CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/CSF.Screenplay.Reporting.IDeserializesReport.html#CSF_Screenplay_Reporting_IDeserializesReport_DeserializeAsync_
+  commentId: Overload:CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IDeserializesReport.DeserializeAsync
+  nameWithType: IDeserializesReport.DeserializeAsync
 - uid: CSF.Screenplay.Reporting.IFormattableValue
   name: IFormattableValue
   href: api/CSF.Screenplay.Reporting.IFormattableValue.html
@@ -3758,6 +3809,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport
   nameWithType: IValueFormatter.FormatForReport
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader
+  name: JsonScreenplayReportReader
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html
+  commentId: T:CSF.Screenplay.Reporting.JsonScreenplayReportReader
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader
+  nameWithType: JsonScreenplayReportReader
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
+  name: DeserializeAsync(Stream)
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html#CSF_Screenplay_Reporting_JsonScreenplayReportReader_DeserializeAsync_System_IO_Stream_
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
+  nameWithType: JsonScreenplayReportReader.DeserializeAsync(Stream)
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html#CSF_Screenplay_Reporting_JsonScreenplayReportReader_DeserializeAsync_
+  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync
+  nameWithType: JsonScreenplayReportReader.DeserializeAsync
 - uid: CSF.Screenplay.Reporting.JsonScreenplayReporter
   name: JsonScreenplayReporter
   href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html

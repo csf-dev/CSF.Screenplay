@@ -752,6 +752,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ReportModel.ScreenplayReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ReportModel.ScreenplayReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ReportModel.SpotlightTurnedOffReport.yml",
       "output": {
         ".html": {
@@ -786,6 +796,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Reporting.HumanizerFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IDeserializesReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IDeserializesReport.html"
         }
       },
       "version": ""
@@ -856,6 +876,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Screenplay.Reporting.IValueFormatter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html"
         }
       },
       "version": ""
