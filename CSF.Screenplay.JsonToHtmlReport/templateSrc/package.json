@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Interactive viewer for Screenplay reports",
   "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/csf-dev/CSF.Screenplay/issues"
   },
-  "homepage": "https://github.com/csf-dev/CSF.Screenplay#readme",
+  "homepage": "https://csf-dev.github.io/CSF.Screenplay/",
   "devDependencies": {
     "html-inline-css-webpack-plugin": "^1.11.2",
     "html-inline-script-webpack-plugin": "^3.2.1",
