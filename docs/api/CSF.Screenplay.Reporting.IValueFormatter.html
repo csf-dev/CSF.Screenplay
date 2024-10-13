@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Reporting_IValueFormatter" data-uid="CSF.Screenplay.Reporting.IValueFormatter" class="text-break">
-Interface IValueFormatter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Interface IValueFormatter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -115,6 +115,24 @@ Interface IValueFormatter  <a class="header-action link-secondary" title="View s
 
 
 
+  <h2 id="CSF_Screenplay_Reporting_IValueFormatter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Implement this interface in your own types in order to create a service which may externally format values for inclusion in
+a Screenplay report.
+</p>
+<p>
+A typical Screenplay solution will include many implementations of this interface, each of which is responsible for formatting a specific
+subset of values.  Before an implementation of this type is used to format a value, the <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_CanFormat_System_Object_">CanFormat(object)</a> method should be called
+in order to determine whether the formatter is suitable for the value in question. This is an application of the strategy pattern:
+<a href="https://en.wikipedia.org/wiki/Strategy_pattern">https://en.wikipedia.org/wiki/Strategy_pattern</a>.
+For any concrete implementation of this interface to be considered in formatting a value with a report, its type must first be registered
+with the <a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a>.
+</p>
+<p>
+The <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_System_Object_">FormatForReport(object)</a> method should be used to create a human-readable string which represents the object in the report text.
+This interface is a part of the mechanism for <a class="xref" href="../docs/extendingScreenplay/ReportFormtters.html">formatting values in reports</a> in Screenplay.
+</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -125,7 +143,7 @@ Interface IValueFormatter  <a class="header-action link-secondary" title="View s
 
   <h3 id="CSF_Screenplay_Reporting_IValueFormatter_CanFormat_System_Object_" data-uid="CSF.Screenplay.Reporting.IValueFormatter.CanFormat(System.Object)">
   CanFormat(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value indicating whether this object is suitable for formatting the specified value.</p>
@@ -160,11 +178,11 @@ Interface IValueFormatter  <a class="header-action link-secondary" title="View s
 
 
 
-  <a id="CSF_Screenplay_Reporting_IValueFormatter_Format_" data-uid="CSF.Screenplay.Reporting.IValueFormatter.Format*"></a>
+  <a id="CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_" data-uid="CSF.Screenplay.Reporting.IValueFormatter.FormatForReport*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_IValueFormatter_Format_System_Object_" data-uid="CSF.Screenplay.Reporting.IValueFormatter.Format(System.Object)">
-  Format(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_System_Object_" data-uid="CSF.Screenplay.Reporting.IValueFormatter.FormatForReport(System.Object)">
+  FormatForReport(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a formatted string which represents the specified value.</p>
@@ -172,7 +190,7 @@ Interface IValueFormatter  <a class="header-action link-secondary" title="View s
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string Format(object value)</code></pre>
+    <pre><code class="lang-csharp hljs">string FormatForReport(object value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -195,7 +213,7 @@ Interface IValueFormatter  <a class="header-action link-secondary" title="View s
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Reporting_IValueFormatter_Format_System_Object__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_System_Object__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Ensure that the <code class="paramref">value</code> has been tested with <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_CanFormat_System_Object_">CanFormat(object)</a> before executing this method.
 The behaviour of this method is undefined for any value for which the can-format method does not return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
@@ -206,11 +224,17 @@ It may lead to exceptions or garbage output.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IFormatterRegistry.html">IFormatterRegistry</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IValueFormatter.cs/#L27" class="edit-link">Edit this page</a>
         </div>
 
 

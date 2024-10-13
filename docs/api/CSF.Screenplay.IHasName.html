@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IHasName" data-uid="CSF.Screenplay.IHasName" class="text-break">
-Interface IHasName  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Interface IHasName  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -118,9 +118,13 @@ Interface IHasName  <a class="header-action link-secondary" title="View source" 
   <h2 id="CSF_Screenplay_IHasName_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 Use this interface for any object within an <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> which could benefit from having a human-readable name.
-For example, static parameter values like Web API endpoints, web page URLs, elements on a web UI, dates/times in a calendar.
+For example, static parameter values like Web API endpoints, web page URLs or elements on a web UI.
 By referring to an object by its name, and using that name in report-generating logic, reports generated from a Screenplay can
 become much easier to read and comprehend.
+</p>
+<p>
+The <a class="xref" href="CSF.Screenplay.IHasName.html#CSF_Screenplay_IHasName_Name">Name</a> property is used to provide a human-readable string which represents the object in the report text.
+This interface is a part of the mechanism for <a class="xref" href="../docs/extendingScreenplay/ReportFormtters.html">formatting values in reports</a> in Screenplay.
 </p>
 </div>
 
@@ -133,7 +137,7 @@ become much easier to read and comprehend.
 
   <h3 id="CSF_Screenplay_IHasName_Name" data-uid="CSF.Screenplay.IHasName.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -167,11 +171,16 @@ should return a non-null response from this property.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IHasName.cs/#L20" class="edit-link">Edit this page</a>
         </div>
 
 
