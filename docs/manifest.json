@@ -302,6 +302,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.IHostsPerformance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.IHostsPerformance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.IPerformable.yml",
       "output": {
         ".html": {
@@ -1405,10 +1415,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/AddingServices.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/AddingServices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/dependencyInjection/DependencyInjectionScope.md",
       "output": {
         ".html": {
           "relative_path": "docs/dependencyInjection/DependencyInjectionScope.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/InjectableServices.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/InjectableServices.html"
         }
       },
       "version": ""
@@ -1425,10 +1455,70 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/Performables.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/Performables.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/dependencyInjection/index.md",
       "output": {
         ".html": {
           "relative_path": "docs/dependencyInjection/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/AbilitiesActionsAndQuestions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/AbilitiesActionsAndQuestions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/EventHandlers.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/EventHandlers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/ReportFormtters.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/ReportFormtters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/TestIntegrations.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/TestIntegrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/index.html"
         }
       },
       "version": ""

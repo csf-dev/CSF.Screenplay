@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Writing new Test framework integrations | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Writing new Test framework integrations | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/TestIntegrations.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="writing-new-test-framework-integrations">Writing new Test framework integrations</h1>
+
+<p>A way in which Screenplay is available for extension is the integration of Screenplay with other Test frameworks.
+Screenplay currently ships with integrations for <a href="https://nunit.org">NUnit</a> and <a href="https://specflow.org">SpecFlow</a> but developers are free to integrate it into other frameworks if they wish.
+Developers who are interested in this may use the source code to these two integrations as inspiration.</p>
+<h2 id="requirements">Requirements</h2>
+<p>To integrate with a test framework, the minimum requirements are as follows.
+Requirements which <strong>must</strong> be fulfilled are crucial to the operation of Screenplay; the integration will malfunction if they are not satisfied.
+Requirements which <strong>should</strong> be fulfilled are not crucial, but are strongly recommended for a good developer experience when using the integration.
+Terminologies differ between testing frameworks; the word <a href="../../glossary/Scenario.html">Scenario</a> is used to refer to the individual tests that the testing framework executes.</p>
+<ul>
+<li>The test framework <strong>must</strong> create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> before it runs any <a href="../../glossary/Scenario.html">Scenarios</a>
+<ul>
+<li>If the test framework uses dependency injection then it is advantageous to integrate Screenplay with that, via <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__"><code>AddScreenplay</code></a></li>
+<li>If not then consider the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Create</code></a> factory method</li>
+<li>Consider permitting extensibility here, using the <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a> interface</li>
+</ul>
+</li>
+<li>Before any <a href="../../glossary/Scenario.html">Scenarios</a> run, the framework <strong>must</strong> execute <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_BeginScreenplay"><code>BeginScreenplay()</code></a> from the Screenplay instance</li>
+<li>After all <a href="../../glossary/Scenario.html">Scenarios</a> have completed it <strong>must</strong> execute <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompleteScreenplay"><code>CompleteScreenplay()</code></a> from the Screenplay instance</li>
+<li>Each <a href="../../glossary/Scenario.html">Scenario</a> in the test framework <strong>must</strong> have its own <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a>, within its own a DI lifetime scope
+<ul>
+<li>Consider using the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__"><code>CreateScopedPerformance</code></a> method to achieve this</li>
+</ul>
+</li>
+<li>The <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> associated with each <a href="../../glossary/Scenario.html">Scenario</a> <strong>should</strong> have its <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy"><code>NamingHierarchy</code></a> set according to the name of the Scenario
+<ul>
+<li>Typically this is done via parameter when creating the Performance</li>
+<li>It may alternatively be updated after creation</li>
+<li>Test frameworks have different conventions, so the precise semantics of this name is up to the framework itself</li>
+<li>The purpose of setting this is to clearly match the Performance to the Scenario to which it relates, when reading reports; if missing then the information will not be present in the report</li>
+</ul>
+</li>
+<li>Before the logic of each <a href="../../glossary/Scenario.html">Scenario</a> starts, the <a class="xref" href="../../api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_BeginPerformance"><code>BeginPerformance()</code></a> method <strong>must</strong> be executed from the corresponding <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a></li>
+<li>After the logic of each <a href="../../glossary/Scenario.html">Scenario</a> ends, the <a class="xref" href="../../api/CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_System_Nullable_System_Boolean__"><code>FinishPerformance(bool?)</code></a> method <strong>must</strong> be executed from the corresponding <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a></li>
+<li>After the logic of each <a href="../../glossary/Scenario.html">Scenario</a> ends, the dependency injection scope associated with the <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> <strong>should</strong> be disposed
+<ul>
+<li>Failure to do this could lead to memory leaks or unnecesarily high resource usage whilst the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html">Screenplay</a> is in-progress</li>
+</ul>
+</li>
+<li>The test framework <strong>must</strong> provide access to at least the <a class="xref" href="../../api/CSF.Screenplay.ICast.html"><code>ICast</code></a> and <a class="xref" href="../../api/CSF.Screenplay.IStage.html"><code>IStage</code></a>, resolved from the <a href="../../glossary/Scenario.html">Scenario</a>'s dependency injection scope, to the <a href="../../glossary/Scenario.html">Scenario</a> logic
+<ul>
+<li>The manner of doing this depends entirely on the test framework</li>
+<li>By way of example, in NUnit this is performed by providing the values of parameters to the test method, in SpecFlow this is performed by resolving step bindng classes from that same DI scope, allowing constructor injection</li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extendingScreenplay/TestIntegrations.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

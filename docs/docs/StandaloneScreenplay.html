@@ -92,8 +92,16 @@ Screenplay may be added to any application or library, <em>via dependency inject
 This is as simple as installing the <strong><a href="https://www.nuget.org/packages/CSF.Screenplay">CSF.Screenplay</a></strong> NuGet package and adding Screenplay to your service collection.
 For more information, see the documentation for <a class="xref" href="../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html"><code>ScreenplayServiceCollectionExtensions</code></a>.</p>
 <pre><code class="lang-csharp">using CSF.Screenplay;
+
 // IServiceCollection services; 
 services.AddScreenplay();
+
+// ... then, after the service collection is built:
+// IServiceProvider serviceProvider;
+var screenplay = serviceProvider.GetService&lt;Screenplay&gt;();
+
+// Or you may constructor-inject an instance of Screenplay into
+// any type which was resolved from the service provider
 </code></pre>
 <p>Once Screenplay has been added to your DI, <a href="dependencyInjection/InjectingServices.html">you may resolve and use Screenplay-related services from dependency injection</a>.
 To execute some logic in the scope of a <a class="xref" href="../api/CSF.Screenplay.IPerformance.html"><code>Performance</code></a>, consider using the method <a class="xref" href="../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a>.</p>

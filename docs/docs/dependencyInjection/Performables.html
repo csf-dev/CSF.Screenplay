@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Ability | Screenplay docs </title>
+      <title>How Performables get their dependencies | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Ability | Screenplay docs ">
+      <meta name="title" content="How Performables get their dependencies | Screenplay docs ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Ability.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/Performables.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,34 +84,31 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="AbilityGlossaryItem">
-<h1 id="ability">Ability</h1>
+        <article data-uid="">
+<h1 id="how-performables-get-their-dependencies">How Performables get their dependencies</h1>
 
-<p>An ability is an arbitrary object which may be granted to <strong><a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a></strong> in order to allow them to interact with the application as part of a <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a></strong>.
-Unlike many other Screenplay object-types, there is no particular interface which Abilities must implement, as their functionality, capabilities and very nature are specific to them alone.
-That said - it is recommended for Abilities to implement <a class="xref" href="../api/CSF.Screenplay.ICanReport.html"><code>ICanReport</code></a> if possible, as this allows for the production of a more pleasant human-readable report.</p>
-<p><strong><a href="Action.html">Actions</a></strong> and/or <strong><a href="Question.html">Questions</a></strong> may interact directly with an actor's abilities in order to perform their functionality.
-<strong><a href="Task.html">Tasks</a></strong>, on the other hand, should not.</p>
-<h2 id="the-purpose-of-abilities">The purpose of abilities</h2>
-<p>Abilities typically have one (or more) of the following purposes.</p>
-<ul>
-<li>They provide a <a href="https://martinfowler.com/articles/gateway-pattern.html">Gateway</a> or Façade to external functionality</li>
-<li>They provide access to <em><a href="../docs/dependencyInjection/Performables.html">dependency services</a></em></li>
-<li>They provide a model of data, such as:
-<ul>
-<li>Secrets/access tokens for an API to be consumed by abilities</li>
-<li>Contextual per-<a class="xref" href="../api/CSF.Screenplay.IPerformance.html">performance</a> state</li>
-</ul>
-</li>
-</ul>
-<p>Abilities are intended to be used by <a href="Action.html">Actions</a> and/or <a href="Question.html">Questions</a>, not <a href="Task.html">Tasks</a>.
-Abilities provide the dependencies that those performables require, because <a href="../docs/dependencyInjection/Performables.html">performables cannot participate in constructor-injected dependency injection</a>.
-Abilities can receive constructor-injected dependencies from DI, making them an ideal technique to provide dependencies to performables.</p>
+<p>Importantly, <a href="../../glossary/Performable.html">Performable</a> types <em>do not participate in dependency injection from the container</em>.
+This means that dependency services <em>cannot be constructor-injected</em> into performable types.</p>
+<h2 id="performables-state-represents-parameters">Performables' state represents parameters</h2>
+<p>Performables are <a href="../builderPattern/index.html">created using the builder pattern</a> and do not hold references to any dependency services.
+Instead, the state of the performable represents the <em>'parameters'</em> for that performable.
+This state is typically set via constructor parameters or public settable properties.</p>
+<h3 id="an-example">An example</h3>
+<p>For example, a <a href="../../glossary/Task.html">Task</a> which adds an item to the user's shopping basket might accept a constructor parameter representing the unique ID of the product to be added to the basket.
+That unique ID would be stored within the performable instance, in a field or property for example.
+When the relevant <code>ExecuteAsync</code> method is executed, the unique ID stored in the performable instance is used to conduct whatever logic is appropriate.</p>
+<h2 id="use-abilities-to-get-dependencies">Use abilities to get dependencies</h2>
+<p>Performables, specifcally <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a>, should access their dependencies via the Actor's <strong>[Abilities]</strong> by using the <a href="CSF.Screenplay.ActorExtensions.GetAbility%60%601(CSF.Screenplay.ICanPerform)"><code>GetAbility&lt;T&gt;</code></a> method or similar.
+In this sense, Abilities are a form of dependency injection or service locator (for a specific use case).
+Whilst service locators are usually considered an anti-pattern, the benefits in this specific case outweigh the disadvantages.
+The primary benefit is <a href="../builderPattern/index.html">the ability to create performables from static builders</a>.</p>
+<p>Importantly, <em><strong><a href="../../glossary/Task.html">Tasks</a></strong> should never make use of [Abilities]</em>.
+Only Actions and Questions should use Abilities.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Ability.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/Performables.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
