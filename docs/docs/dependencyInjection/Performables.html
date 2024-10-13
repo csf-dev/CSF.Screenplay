@@ -98,7 +98,7 @@ This state is typically set via constructor parameters or public settable proper
 That unique ID would be stored within the performable instance, in a field or property for example.
 When the relevant <code>ExecuteAsync</code> method is executed, the unique ID stored in the performable instance is used to conduct whatever logic is appropriate.</p>
 <h2 id="use-abilities-to-get-dependencies">Use abilities to get dependencies</h2>
-<p>Performables, specifcally <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a>, should access their dependencies via the Actor's <strong>[Abilities]</strong> by using the <a href="CSF.Screenplay.ActorExtensions.GetAbility%60%601(CSF.Screenplay.ICanPerform)"><code>GetAbility&lt;T&gt;</code></a> method or similar.
+<p>Performables, specifcally <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a>, should access their dependencies via the Actor's <strong>[Abilities]</strong> by using the <a class="xref" href="../../api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_GetAbility__1_CSF_Screenplay_ICanPerform_"><code>GetAbility&lt;T&gt;</code></a> method or similar.
 In this sense, Abilities are a form of dependency injection or service locator (for a specific use case).
 Whilst service locators are usually considered an anti-pattern, the benefits in this specific case outweigh the disadvantages.
 The primary benefit is <a href="../builderPattern/index.html">the ability to create performables from static builders</a>.</p>

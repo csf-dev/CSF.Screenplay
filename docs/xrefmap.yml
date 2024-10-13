@@ -3543,22 +3543,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.FormattableFormatter.CanFormat
   nameWithType: FormattableFormatter.CanFormat
-- uid: CSF.Screenplay.Reporting.FormattableFormatter.Format(System.Object)
-  name: Format(object)
-  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_Format_System_Object_
-  commentId: M:CSF.Screenplay.Reporting.FormattableFormatter.Format(System.Object)
-  name.vb: Format(Object)
-  fullName: CSF.Screenplay.Reporting.FormattableFormatter.Format(object)
-  fullName.vb: CSF.Screenplay.Reporting.FormattableFormatter.Format(Object)
-  nameWithType: FormattableFormatter.Format(object)
-  nameWithType.vb: FormattableFormatter.Format(Object)
-- uid: CSF.Screenplay.Reporting.FormattableFormatter.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.FormattableFormatter.Format
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport(Object)
+  nameWithType: FormattableFormatter.FormatForReport(object)
+  nameWithType.vb: FormattableFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.FormattableFormatter.html#CSF_Screenplay_Reporting_FormattableFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.FormattableFormatter.Format
-  nameWithType: FormattableFormatter.Format
+  fullName: CSF.Screenplay.Reporting.FormattableFormatter.FormatForReport
+  nameWithType: FormattableFormatter.FormatForReport
 - uid: CSF.Screenplay.Reporting.HumanizerFormatter
   name: HumanizerFormatter
   href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html
@@ -3581,41 +3581,41 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.HumanizerFormatter.CanFormat
   nameWithType: HumanizerFormatter.CanFormat
-- uid: CSF.Screenplay.Reporting.HumanizerFormatter.Format(System.Object)
-  name: Format(object)
-  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_Format_System_Object_
-  commentId: M:CSF.Screenplay.Reporting.HumanizerFormatter.Format(System.Object)
-  name.vb: Format(Object)
-  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.Format(object)
-  fullName.vb: CSF.Screenplay.Reporting.HumanizerFormatter.Format(Object)
-  nameWithType: HumanizerFormatter.Format(object)
-  nameWithType.vb: HumanizerFormatter.Format(Object)
-- uid: CSF.Screenplay.Reporting.HumanizerFormatter.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.HumanizerFormatter.Format
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport(Object)
+  nameWithType: HumanizerFormatter.FormatForReport(object)
+  nameWithType.vb: HumanizerFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.HumanizerFormatter.html#CSF_Screenplay_Reporting_HumanizerFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.Format
-  nameWithType: HumanizerFormatter.Format
+  fullName: CSF.Screenplay.Reporting.HumanizerFormatter.FormatForReport
+  nameWithType: HumanizerFormatter.FormatForReport
 - uid: CSF.Screenplay.Reporting.IFormattableValue
   name: IFormattableValue
   href: api/CSF.Screenplay.Reporting.IFormattableValue.html
   commentId: T:CSF.Screenplay.Reporting.IFormattableValue
   fullName: CSF.Screenplay.Reporting.IFormattableValue
   nameWithType: IFormattableValue
-- uid: CSF.Screenplay.Reporting.IFormattableValue.Format
-  name: Format()
-  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_Format
-  commentId: M:CSF.Screenplay.Reporting.IFormattableValue.Format
-  fullName: CSF.Screenplay.Reporting.IFormattableValue.Format()
-  nameWithType: IFormattableValue.Format()
-- uid: CSF.Screenplay.Reporting.IFormattableValue.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.IFormattableValue.Format
+- uid: CSF.Screenplay.Reporting.IFormattableValue.FormatForReport
+  name: FormatForReport()
+  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_FormatForReport
+  commentId: M:CSF.Screenplay.Reporting.IFormattableValue.FormatForReport
+  fullName: CSF.Screenplay.Reporting.IFormattableValue.FormatForReport()
+  nameWithType: IFormattableValue.FormatForReport()
+- uid: CSF.Screenplay.Reporting.IFormattableValue.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.IFormattableValue.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.IFormattableValue.Format
-  nameWithType: IFormattableValue.Format
+  fullName: CSF.Screenplay.Reporting.IFormattableValue.FormatForReport
+  nameWithType: IFormattableValue.FormatForReport
 - uid: CSF.Screenplay.Reporting.IFormatterRegistry
   name: IFormatterRegistry
   href: api/CSF.Screenplay.Reporting.IFormatterRegistry.html
@@ -3742,22 +3742,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IValueFormatter.CanFormat
   nameWithType: IValueFormatter.CanFormat
-- uid: CSF.Screenplay.Reporting.IValueFormatter.Format(System.Object)
-  name: Format(object)
-  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_Format_System_Object_
-  commentId: M:CSF.Screenplay.Reporting.IValueFormatter.Format(System.Object)
-  name.vb: Format(Object)
-  fullName: CSF.Screenplay.Reporting.IValueFormatter.Format(object)
-  fullName.vb: CSF.Screenplay.Reporting.IValueFormatter.Format(Object)
-  nameWithType: IValueFormatter.Format(object)
-  nameWithType.vb: IValueFormatter.Format(Object)
-- uid: CSF.Screenplay.Reporting.IValueFormatter.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.IValueFormatter.Format
+- uid: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.IValueFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport(Object)
+  nameWithType: IValueFormatter.FormatForReport(object)
+  nameWithType.vb: IValueFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.IValueFormatter.html#CSF_Screenplay_Reporting_IValueFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.IValueFormatter.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.IValueFormatter.Format
-  nameWithType: IValueFormatter.Format
+  fullName: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport
+  nameWithType: IValueFormatter.FormatForReport
 - uid: CSF.Screenplay.Reporting.JsonScreenplayReporter
   name: JsonScreenplayReporter
   href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html
@@ -3895,22 +3895,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.NameFormatter.CanFormat
   nameWithType: NameFormatter.CanFormat
-- uid: CSF.Screenplay.Reporting.NameFormatter.Format(System.Object)
-  name: Format(object)
-  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_Format_System_Object_
-  commentId: M:CSF.Screenplay.Reporting.NameFormatter.Format(System.Object)
-  name.vb: Format(Object)
-  fullName: CSF.Screenplay.Reporting.NameFormatter.Format(object)
-  fullName.vb: CSF.Screenplay.Reporting.NameFormatter.Format(Object)
-  nameWithType: NameFormatter.Format(object)
-  nameWithType.vb: NameFormatter.Format(Object)
-- uid: CSF.Screenplay.Reporting.NameFormatter.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.NameFormatter.Format
+- uid: CSF.Screenplay.Reporting.NameFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.NameFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Reporting.NameFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Reporting.NameFormatter.FormatForReport(Object)
+  nameWithType: NameFormatter.FormatForReport(object)
+  nameWithType.vb: NameFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Reporting.NameFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.NameFormatter.html#CSF_Screenplay_Reporting_NameFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.NameFormatter.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.NameFormatter.Format
-  nameWithType: NameFormatter.Format
+  fullName: CSF.Screenplay.Reporting.NameFormatter.FormatForReport
+  nameWithType: NameFormatter.FormatForReport
 - uid: CSF.Screenplay.Reporting.NoOpReporter
   name: NoOpReporter
   href: api/CSF.Screenplay.Reporting.NoOpReporter.html
@@ -4307,22 +4307,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.ToStringFormatter.CanFormat
   nameWithType: ToStringFormatter.CanFormat
-- uid: CSF.Screenplay.Reporting.ToStringFormatter.Format(System.Object)
-  name: Format(object)
-  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_Format_System_Object_
-  commentId: M:CSF.Screenplay.Reporting.ToStringFormatter.Format(System.Object)
-  name.vb: Format(Object)
-  fullName: CSF.Screenplay.Reporting.ToStringFormatter.Format(object)
-  fullName.vb: CSF.Screenplay.Reporting.ToStringFormatter.Format(Object)
-  nameWithType: ToStringFormatter.Format(object)
-  nameWithType.vb: ToStringFormatter.Format(Object)
-- uid: CSF.Screenplay.Reporting.ToStringFormatter.Format*
-  name: Format
-  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_Format_
-  commentId: Overload:CSF.Screenplay.Reporting.ToStringFormatter.Format
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport(Object)
+  nameWithType: ToStringFormatter.FormatForReport(object)
+  nameWithType.vb: ToStringFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Reporting.ToStringFormatter.html#CSF_Screenplay_Reporting_ToStringFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.ToStringFormatter.Format
-  nameWithType: ToStringFormatter.Format
+  fullName: CSF.Screenplay.Reporting.ToStringFormatter.FormatForReport
+  nameWithType: ToStringFormatter.FormatForReport
 - uid: CSF.Screenplay.Reporting.ValueFormatterExtensions
   name: ValueFormatterExtensions
   href: api/CSF.Screenplay.Reporting.ValueFormatterExtensions.html
@@ -5698,19 +5698,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.CreateRequestMessage
   nameWithType: HttpRequestMessageBuilder.CreateRequestMessage
-- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
-  name: Format()
-  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format
-  commentId: M:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
-  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format()
-  nameWithType: HttpRequestMessageBuilder.Format()
-- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format*
-  name: Format
-  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Format_
-  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport
+  name: FormatForReport()
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_FormatForReport
+  commentId: M:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport()
+  nameWithType: HttpRequestMessageBuilder.FormatForReport()
+- uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_FormatForReport_
+  commentId: Overload:CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport
   isSpec: "True"
-  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Format
-  nameWithType: HttpRequestMessageBuilder.Format
+  fullName: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.FormatForReport
+  nameWithType: HttpRequestMessageBuilder.FormatForReport
 - uid: CSF.Screenplay.WebApis.HttpRequestMessageBuilder.Headers
   name: Headers
   href: api/CSF.Screenplay.WebApis.HttpRequestMessageBuilder.html#CSF_Screenplay_WebApis_HttpRequestMessageBuilder_Headers
@@ -6579,6 +6579,9 @@ references:
 - uid: PerformableGlossaryItem
   name: Performable
   href: glossary/Performable.html
+- uid: ReportFormattingArticle
+  name: Writing new Report value formtters
+  href: docs/extendingScreenplay/ReportFormtters.html
 - uid: ScenarioGlossaryItem
   name: Scenario
   href: glossary/Scenario.html

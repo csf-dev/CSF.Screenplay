@@ -84,7 +84,7 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
+        <article data-uid="ReportFormattingArticle">
 <h1 id="writing-new-report-value-formtters">Writing new Report value formtters</h1>
 
 <p>To get the best results <a href="../GettingReports.html">when Screenplay writes a report</a>, the wording in the reports should be human-readable and avoid language that relates to .NET.
@@ -103,12 +103,14 @@ There are a few mechanisms by which <code>IFormatsReportFragments</code> convert
 This is suitable for objects which would always appear the same in any report.
 For example, the Actor &quot;Joe&quot; is always &quot;Joe&quot;; there's nothing more to their name than that.</p>
 <h3 id="self-formattable-values">Self-formattable values</h3>
-<p>Types which implement <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a> have a <code>Format()</code> method which returns a human-readable formatted representation of that object, suitable for appearance in reports.</p>
+<p>Types which implement <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a> have a <code>FormatForReport()</code> method which returns a human-readable formatted representation of that object, suitable for appearance in reports.</p>
 <p>Use this if the object's state must be used to get the reporting representation, but does not require any external dependencies or services.
 Obviously, you must have control over the type - the ability to add <code>IFormattableValue</code> to its interfaces - in order to use this technique.</p>
 <h3 id="value-formatters">Value formatters</h3>
 <p>Value formatters are external objects which are able to format objects, without needing to make any changes to the object-to-be-formatted.
-Value formatters implement the interface <a class="xref" href="../../api/CSF.Screenplay.Reporting.IValueFormatter.html"><code>IValueFormatter</code></a> and must be added to <a href="../dependencyInjection/index.html">dependency injection</a>, as well as registered with the <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormatterRegistry.html"><code>IFormatterRegistry</code></a>.</p>
+Value formatters implement the interface <a class="xref" href="../../api/CSF.Screenplay.Reporting.IValueFormatter.html"><code>IValueFormatter</code></a> and must be added to <a href="../dependencyInjection/index.html">dependency injection</a>, as well as registered with the <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormatterRegistry.html"><code>IFormatterRegistry</code></a>.
+The easiest way to perform both of these is to add the <code>Type</code> of the value formatter implementation to <a class="xref" href="../../api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ValueFormatters"><code>ScreenplayOptions.ValueFormatters</code></a> when creating the Screenplay.
+Any types added here will automatically be included in the formatter registry and added to DI when the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> is built.</p>
 <p>Use this technique when either you require external services from dependendency injection to format the object, or if you are unable/unwilling to have the type to be formatted implement <a class="xref" href="../../api/CSF.Screenplay.Reporting.IFormattableValue.html"><code>IFormattableValue</code></a>.</p>
 <h3 id="use-tostring">Use <code>ToString()</code></h3>
 <p>The least optimal mechanism of formatting values in a report is to rely on the built-in (or an overridden) <code>Object.ToString()</code> method.

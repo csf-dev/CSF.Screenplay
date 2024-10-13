@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Reporting_IFormattableValue" data-uid="CSF.Screenplay.Reporting.IFormattableValue" class="text-break">
-Interface IFormattableValue  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Interface IFormattableValue  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -115,25 +115,33 @@ Interface IFormattableValue  <a class="header-action link-secondary" title="View
 
 
 
+  <h2 id="CSF_Screenplay_Reporting_IFormattableValue_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Implement this interface in your own types in order to provide a custom representation of the object when it is included in
+a Screenplay report.
+The <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html#CSF_Screenplay_Reporting_IFormattableValue_FormatForReport">FormatForReport()</a> method should be used to create a human-readable string which represents the object in the report text.
+This interface is a part of the mechanism for <a class="xref" href="../docs/extendingScreenplay/ReportFormtters.html">formatting values in reports</a> in Screenplay.
+</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="CSF_Screenplay_Reporting_IFormattableValue_Format_" data-uid="CSF.Screenplay.Reporting.IFormattableValue.Format*"></a>
+  <a id="CSF_Screenplay_Reporting_IFormattableValue_FormatForReport_" data-uid="CSF.Screenplay.Reporting.IFormattableValue.FormatForReport*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_IFormattableValue_Format" data-uid="CSF.Screenplay.Reporting.IFormattableValue.Format">
-  Format()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_IFormattableValue_FormatForReport" data-uid="CSF.Screenplay.Reporting.IFormattableValue.FormatForReport">
+  FormatForReport()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a formatted string which represents the current object instance.</p>
+  <div class="markdown level1 summary"><p>Gets a human-readable formatted string which represents the current object instance, suitable to be used in a Screenplay report.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string Format()</code></pre>
+    <pre><code class="lang-csharp hljs">string FormatForReport()</code></pre>
   </div>
 
 
@@ -154,11 +162,16 @@ Interface IFormattableValue  <a class="header-action link-secondary" title="View
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Reporting/IFormattableValue.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 
