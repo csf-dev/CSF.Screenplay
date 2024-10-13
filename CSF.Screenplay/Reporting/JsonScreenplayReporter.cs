@@ -135,9 +135,9 @@ namespace CSF.Screenplay.Reporting
         {
             jsonWriter.WriteStartObject();
             var metadata = new ReportMetadata();
-            jsonWriter.WritePropertyName("Metadata");
+            jsonWriter.WritePropertyName(nameof(ScreenplayReport.Metadata));
             JsonSerializer.Serialize(jsonWriter, metadata);
-            jsonWriter.WriteStartArray("Performances");
+            jsonWriter.WriteStartArray(nameof(ScreenplayReport.Performances));
             jsonWriter.Flush();
         }
 
