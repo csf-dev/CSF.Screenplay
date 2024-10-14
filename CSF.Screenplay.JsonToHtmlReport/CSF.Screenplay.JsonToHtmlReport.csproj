@@ -1,9 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net2.1;net462;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <OutputType Condition="'$(TargetFramework)' != 'netstandard2.0'">Exe</OutputType>
+    <OutputType Condition="'$(TargetFramework)' == 'netstandard2.0'">Library</OutputType>
+    <NoWarn>NU1903,NU1902</NoWarn>
     <RootNamespace>CSF.Screenplay.JsonToHtmlReport</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" Condition="'$(TargetFramework)' != 'netstandard2.0'" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+  </ItemGroup>
+
+  <Target Name="BuildTemplate" BeforeTargets="DispatchToInnerBuilds">
+    <PropertyGroup>
+      <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
+      <WebpackTask Condition="'$(Configuration)' != 'Debug'">buildProd</WebpackTask>
+      <NodeCommand>npm</NodeCommand>
+    </PropertyGroup>
+    <Exec Command="$(NodeCommand) run $(WebpackTask)"
+          WorkingDirectory="$(MSBuildProjectDirectory)\templateSrc" />
+    <ItemGroup>
+      <EmbeddedResource Include="$(MSBuildProjectDirectory)\template\template.html" />
+    </ItemGroup>
+  </Target>
 </Project>

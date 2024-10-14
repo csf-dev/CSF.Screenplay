@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require('path');
 
 const res = (p) => path.resolve(__dirname, p);
@@ -13,15 +14,21 @@ module.exports = {
         path: res('../template'),
     },
     module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader"
-          ]
-        }
-      ]
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader"
+                ]
+            }
+        ]
+    },
+    optimization: {
+        minimizer: [
+            `...`,
+            new CssMinimizerPlugin()
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
