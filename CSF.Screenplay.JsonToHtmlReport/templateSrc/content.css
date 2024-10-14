@@ -22,7 +22,7 @@
     h3 {
         font-size: 1.1em;
         line-height: 1.35em;
-        margin: 0.4em 0 0;
+        margin: 0;
         font-weight: bold;
     }
     h4 {
@@ -47,5 +47,115 @@
     #summaryTable th.type,
     #summaryTable td {
         text-align: right;
+    }
+    #featureList > li {
+        background: #FFFFFFEE;
+        border: 1px solid #00000044;
+        border-top-width: 0;
+        padding: 1em;
+    }
+    #featureList > li:first-child {
+        border-top-width: 1px;
+    }
+    .reportableList li {
+        position: relative;
+    }
+    .reportableList .type {
+        display: inline-block;
+        margin: 0 0.1em;
+        width: 1em;
+        height: 1em;
+        background: #CCC;
+        vertical-align: middle;
+    }
+    .reportableList .type i {
+        display: none;
+    }
+    .reportableList .phase {
+        font-style: italic;
+        color: #888;
+        display: inline-block;
+        width: 3em;
+        text-align: right;
+        padding-right: 0.4em;
+    }
+    .reportableList .result,
+    .reportableList .exception {
+        margin-left: 4.6em;
+    }
+    .reportableList .result::before {
+        content: "Result: ";
+        color: #888;
+    }
+    .reportableList .exception {
+        white-space: pre;
+        display: block;
+        text-indent: -3em;
+        padding-left: 3em;
+        background: #FF000022;
+    }
+    .reportableList .exception::before {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        content: "Error: ";
+        color: #888;
+    }
+    .reportableList aside {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .reportableList .performableType {
+        display: inline-block;
+        margin: 0 0.1em;
+        width: 1em;
+        height: 1em;
+        background: #CCC;
+        vertical-align: middle;
+    }
+    .reportableList .performableType i {
+        display: none;
+    }
+    .assets {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin: 0 0.1em;
+        background: #CCC;
+        vertical-align: middle;
+        position: relative;
+        z-index: 5;
+    }
+    .assets ul {
+        display: none;
+        top: 1em;
+        right: 0;
+        position: absolute;
+        width: auto;
+    }
+    .assets:hover {
+        z-index: 10;
+    }
+    .assets:hover ul {
+        display: inline-block;
+    }
+    .assets li {
+        background: #FFFFFF88;
+        backdrop-filter: blur(3px);
+        border: 1px solid #00000022;
+        border-top-width: 0;
+    }
+    .assets li:first-child {
+        border-top-width: 1px;
+    }
+    .assets li a {
+        white-space: nowrap;
+        display: block;
+        color: #000;
+        text-decoration: none;
+        padding: 0.2em 0.4em;
+    }
+    .assets li a:hover {
+        background: #666;
+        color: #FFF;
     }
 }
