@@ -15,6 +15,10 @@ install:
     - cmd: dotnet tool install --global dotnet-sonarscanner
     - cmd: dotnet tool install --global coverlet.console
     - cmd: dotnet tool update -g docfx
+    - ps: >
+        cd CSF.Screenplay.JsonToHtmlReport\templateSrc
+        npm ci
+        cd ..\..
 
 before_build:
     - dotnet --version
