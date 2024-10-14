@@ -372,6 +372,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.Program.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ServiceRegistrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.ServiceRegistrations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformable.yml",
       "output": {
         ".html": {
