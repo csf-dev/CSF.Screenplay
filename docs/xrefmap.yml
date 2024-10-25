@@ -1593,6 +1593,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.ConvertAsync
   nameWithType: IConvertsReportJsonToHtml.ConvertAsync
+- uid: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate
+  name: IGetsHtmlTemplate
+  href: api/CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.html
+  commentId: T:CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate
+  fullName: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate
+  nameWithType: IGetsHtmlTemplate
+- uid: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate
+  name: ReadTemplate()
+  href: api/CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.html#CSF_Screenplay_JsonToHtmlReport_IGetsHtmlTemplate_ReadTemplate
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate
+  fullName: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate()
+  nameWithType: IGetsHtmlTemplate.ReadTemplate()
+- uid: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate*
+  name: ReadTemplate
+  href: api/CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.html#CSF_Screenplay_JsonToHtmlReport_IGetsHtmlTemplate_ReadTemplate_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.ReadTemplate
+  nameWithType: IGetsHtmlTemplate.ReadTemplate
 - uid: CSF.Screenplay.JsonToHtmlReport.Program
   name: Program
   href: api/CSF.Screenplay.JsonToHtmlReport.Program.html
@@ -1621,6 +1640,25 @@ references:
   commentId: T:CSF.Screenplay.JsonToHtmlReport.ReportConverter
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter
   nameWithType: ReportConverter
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
+  name: ReportConverter(IGetsHtmlTemplate)
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter__ctor_CSF_Screenplay_JsonToHtmlReport_IGetsHtmlTemplate_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
+  name.vb: New(IGetsHtmlTemplate)
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter.ReportConverter(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
+  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverter.New(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
+  nameWithType: ReportConverter.ReportConverter(IGetsHtmlTemplate)
+  nameWithType.vb: ReportConverter.New(IGetsHtmlTemplate)
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor*
+  name: ReportConverter
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter__ctor_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter.ReportConverter
+  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverter.New
+  nameWithType: ReportConverter.ReportConverter
+  nameWithType.vb: ReportConverter.New
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.ConvertAsync(CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
   name: ConvertAsync(ReportConverterOptions)
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter_ConvertAsync_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_
@@ -1678,6 +1716,19 @@ references:
   commentId: T:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions
   nameWithType: ReportConverterOptions
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
+  name: OutputPath
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_OutputPath
+  commentId: P:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
+  nameWithType: ReportConverterOptions.OutputPath
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath*
+  name: OutputPath
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_OutputPath_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
+  nameWithType: ReportConverterOptions.OutputPath
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ReportPath
   name: ReportPath
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ReportPath
@@ -1710,6 +1761,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.JsonToHtmlReport.ServiceRegistrations.RegisterServices
   nameWithType: ServiceRegistrations.RegisterServices
+- uid: CSF.Screenplay.JsonToHtmlReport.TemplateReader
+  name: TemplateReader
+  href: api/CSF.Screenplay.JsonToHtmlReport.TemplateReader.html
+  commentId: T:CSF.Screenplay.JsonToHtmlReport.TemplateReader
+  fullName: CSF.Screenplay.JsonToHtmlReport.TemplateReader
+  nameWithType: TemplateReader
+- uid: CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate
+  name: ReadTemplate()
+  href: api/CSF.Screenplay.JsonToHtmlReport.TemplateReader.html#CSF_Screenplay_JsonToHtmlReport_TemplateReader_ReadTemplate
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate
+  fullName: CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate()
+  nameWithType: TemplateReader.ReadTemplate()
+- uid: CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate*
+  name: ReadTemplate
+  href: api/CSF.Screenplay.JsonToHtmlReport.TemplateReader.html#CSF_Screenplay_JsonToHtmlReport_TemplateReader_ReadTemplate_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate
+  nameWithType: TemplateReader.ReadTemplate
 - uid: CSF.Screenplay.Performables
   name: CSF.Screenplay.Performables
   href: api/CSF.Screenplay.Performables.html
