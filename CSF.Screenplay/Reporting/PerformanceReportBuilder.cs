@@ -199,7 +199,10 @@ namespace CSF.Screenplay.Reporting
         /// </remarks>
         /// <param name="result">The result of the performable</param>
         public void RecordResultForCurrentPerformable(object result)
-            => CurrentPerformable.Result = valueFormatterProvider.FormatValue(result);
+        {
+            CurrentPerformable.HasResult = true;
+            CurrentPerformable.Result = valueFormatterProvider.FormatValue(result);
+        }
 
         /// <summary>
         /// Indicates that the current performable has finished normally and that it should no longer be current.

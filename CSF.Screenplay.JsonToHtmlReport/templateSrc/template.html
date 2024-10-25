@@ -13,125 +13,77 @@
         <h1>Screenplay report</h1>
     </header>
     <main>
-        <section id="summary">
-            <h2>Summary</h2>
-            <table id="summaryTable">
-                <colgroup>
-                    <col class="type">
-                    <col span="3" class="count">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th class="type"><span>Type</span></th>
-                        <th>Success</th>
-                        <th>Failure</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="type">Features</th>
-                        <td id="featureSuccess">0</td>
-                        <td id="featureFailure">0</td>
-                        <td id="featureTotal">0</td>
-                    </tr>
-                    <tr>
-                        <th class="type">Scenarios</th>
-                        <td id="scenarioSuccess">0</td>
-                        <td id="scenarioFailure">0</td>
-                        <td id="scenarioTotal">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <section id="summary"></section>
         <section id="features" class="hidden">
             <h2>Features</h2>
-            <ul id="featureList">
-                <li>
-                    <h3 class="featureName">Feature name</h3>
-                    <ul class="scenarioList">
-                        <li>
-                            <h4 class="scenarioName">Scenario name</h4>
-                            <ol class="reportableList">
-                                <li>
-                                    <span class="type ActorCreatedReport"><i>Reportable type name</i></span><span class="phase">Given</span><span class="report">Report text</span>
-                                    <div class="result">Result</div>
-                                    <code class="exception">Exception</code>
-                                    <aside>
-                                        <span class="performableType"><i>Performable type</i></span>
-                                        <div class="assets">
-                                            <ul>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                                <li><a href="Asset path" class="file">Asset description</a></li>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                            </ul>
-                                        </div>
-                                    </aside>
-                                    <ol class="reportableList"></ol>
-                                </li>
-                                <li>
-                                    <span class="type PerformableReport"><i>Reportable type name</i></span><span class="phase">When</span><span class="report">Report text</span>
-                                    <div class="result">Result</div>
-                                    <code class="exception">Exception</code>
-                                    <aside>
-                                        <span class="performableType"><i>Performable type</i></span>
-                                        <div class="assets">
-                                            <ul>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                                <li><a href="Asset path" class="file">Asset description</a></li>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                            </ul>
-                                        </div>
-                                    </aside>
-                                    <ol class="reportableList">
-                                        <li>
-                                            <span class="type ActorSpotlitReport"><i>Reportable type name</i></span><span class="phase">Given</span><span class="report">Report text</span>
-                                            <div class="result">Result</div>
-                                            <code class="exception">Exception</code>
-                                            <aside>
-                                                <span class="performableType"><i>Performable type</i></span>
-                                                <div class="assets">
-                                                    <ul>
-                                                        <li><a href="Asset path" class="image">Asset description</a></li>
-                                                        <li><a href="Asset path" class="file">Asset description</a></li>
-                                                        <li><a href="Asset path" class="image">Asset description</a></li>
-                                                    </ul>
-                                                </div>
-                                            </aside>
-                                            <ol class="reportableList"></ol>
-                                        </li>        
-                                    </ol>
-                                </li>
-                                <li>
-                                    <span class="type SpotlightTurnedOffReport"><i>Reportable type name</i></span><span class="phase">Then</span><span class="report">Report text</span>
-                                    <div class="result">Result</div>
-                                    <code class="exception">Exception</code>
-                                    <aside>
-                                        <span class="performableType"><i>Performable type</i></span>
-                                        <div class="assets">
-                                            <ul>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                                <li><a href="Asset path" class="file">Asset description</a></li>
-                                                <li><a href="Asset path" class="image">Asset description</a></li>
-                                            </ul>
-                                        </div>
-                                    </aside>
-                                    <ol class="reportableList"></ol>
-                                </li>
-                            </ol>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul id="featureList"></ul>
         </section>
     </main>
     <footer>
         <p>
             Generated on
-            <span id="reportGeneratedOn"></span>,
+            <span id="reportGeneratedOn">Report generated timestamp</span>,
             using <a href="https://csf-dev.github.io/CSF.Screenplay/">CSF.Screenplay</a>
         </p>
     </footer>
-    <script type="application/json" id="reportSrc">{"Metadata":{"Timestamp":"2024-10-13T15:24:27.3198881Z","ReportFormatVersion":"2.0.0"},"Performances":[{"NamingHierarchy":[],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddThreeNumbers","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 40 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 30 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 20 to the running total","ActorName":"Mathias"}],"Report":"Mathias adds three numbers to the running total: 40, 30 \u0026 20","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"140","HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]},{"NamingHierarchy":[{"Identifier":"3af2333b-7221-4728-9e57-9f6a792ab51f","Name":"Adding up numbers","WasIdentifierAutoGenerated":true},{"Identifier":"131aa322-5b73-4edc-8355-e978c6034c3e","Name":"Mathias should be able to add three numbers together and get the correct result","WasIdentifierAutoGenerated":true}],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 70 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 20 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"140","HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]},{"NamingHierarchy":[{"Identifier":"3af2333b-7221-4728-9e57-9f6a792ab51f","Name":"Adding up numbers","WasIdentifierAutoGenerated":true},{"Identifier":"3551277d-63cc-4879-9f43-c2aefd9069a7","Name":"Mathias should be able to add two numbers together and get the correct result","WasIdentifierAutoGenerated":true}],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 70 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"120","HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]}]}</script>
+    <script type="application/json" id="reportSrc">{"Metadata":{"Timestamp":"2024-10-13T15:24:27.3198881Z","ReportFormatVersion":"2.0.0"},"Performances":[{"NamingHierarchy":[],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddThreeNumbers","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 40 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 30 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 20 to the running total","ActorName":"Mathias"}],"Report":"Mathias adds three numbers to the running total: 40, 30 \u0026 20","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"140","HasResult":true,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]},{"NamingHierarchy":[{"Identifier":"3af2333b-7221-4728-9e57-9f6a792ab51f","Name":"Adding up numbers","WasIdentifierAutoGenerated":true},{"Identifier":"131aa322-5b73-4edc-8355-e978c6034c3e","Name":"Mathias should be able to add three numbers together and get the correct result","WasIdentifierAutoGenerated":true}],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 70 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 20 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"140","HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]},{"NamingHierarchy":[{"Identifier":"3af2333b-7221-4728-9e57-9f6a792ab51f","Name":"Adding up numbers","WasIdentifierAutoGenerated":true},{"Identifier":"3551277d-63cc-4879-9f43-c2aefd9069a7","Name":"Mathias should be able to add two numbers together and get the correct result","WasIdentifierAutoGenerated":true}],"Outcome":"Success","Reportables":[{"Type":"ActorCreatedReport","Report":"Mathias joined the performance","ActorName":"Mathias"},{"Type":"ActorGainedAbilityReport","Report":"Mathias is able to add numbers to a running total","ActorName":"Mathias"},{"Type":"ActorSpotlitReport","Report":"Mathias was put into the spotlight","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.SetTheNumber","PerformancePhase":"Given","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias sets the running total to 50","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.AddTheNumber","PerformancePhase":"When","Result":null,"HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias adds 70 to the running total","ActorName":"Mathias"},{"Type":"PerformableReport","PerformableType":"CSF.Screenplay.AddingUp.GetTheNumber","PerformancePhase":"Then","Result":"120","HasResult":false,"Exception":null,"ExceptionIsFromConsumedPerformable":false,"Assets":[],"Reportables":[],"Report":"Mathias gets the running total","ActorName":"Mathias"}]}]}</script>
+    <template id="summaryTableTemplate">
+        <h2>Summary</h2>
+        <table id="summaryTable">
+            <colgroup>
+                <col class="type">
+                <col span="3" class="count">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="type"><span>Type</span></th>
+                    <th>Success</th>
+                    <th>Failure</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="type">Features</th>
+                    <td id="featureSuccess">0</td>
+                    <td id="featureFailure">0</td>
+                    <td id="featureTotal">0</td>
+                </tr>
+                <tr>
+                    <th class="type">Scenarios</th>
+                    <td id="scenarioSuccess">0</td>
+                    <td id="scenarioFailure">0</td>
+                    <td id="scenarioTotal">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="featureTemplate">
+        <li>
+            <h3 class="featureName">Feature name</h3>
+            <ul class="scenarioList"></ul>
+        </li>
+    </template>
+    <template id="scenarioTemplate">
+        <li>
+            <h4 class="scenarioName">Scenario name</h4>
+            <ol class="reportableList"></ol>
+        </li>
+    </template>
+    <template id="reportableTemplate">
+        <li>
+            <span class="type"><i>Reportable type name</i></span><span class="phase">Given</span><span class="report">Report text</span>
+            <div class="result">Result</div>
+            <code class="exception">Exception</code>
+            <aside>
+                <span class="performableType"><i>Performable .NET type name</i></span>
+                <div class="assets"><ul></ul></div>
+            </aside>
+            <ol class="reportableList"></ol>
+        </li>
+    </template>
+    <template id="assetTemplate">
+        <li><a href="Asset path" class="image">Asset summary</a></li>
+    </template>
 </body>
 </html>

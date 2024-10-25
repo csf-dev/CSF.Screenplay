@@ -27,3 +27,7 @@ export class ScenarioAggregator {
         }, {features: {}, noFeatureScenarios: []});
     }
 }
+
+export function getScenarioAggregator(performances) {
+    return new ScenarioAggregator(performances);
+}

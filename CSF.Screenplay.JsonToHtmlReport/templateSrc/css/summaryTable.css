@@ -1,0 +1,20 @@
+@layer content {
+    #summaryTable {
+        border-collapse: collapse;
+        margin: 0.4em 0;
+    }
+    #summaryTable th, #summaryTable td {
+        border: 1px solid #00000066;
+        padding: 0.2em 0.5em;
+    }
+    #summaryTable th {
+        background: #00000022;
+    }
+    #summaryTable thead th.type span {
+        display: none;
+    }
+    #summaryTable th.type,
+    #summaryTable td {
+        text-align: right;
+    }
+}

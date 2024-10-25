@@ -1,4 +1,13 @@
-export const activatePage = () => {
+const summaryElementId = 'summary', featuresElementId = 'features';
+
+
+export const activatePage = (summaryTable, featureList) => {
+    const summaryElement = document.getElementById(summaryElementId);
+    summaryElement.appendChild(summaryTable);
+    
+    const featuresElement = document.getElementById(featuresElementId);
+    featuresElement.appendChild(featureList);
+
     hideSpinner();
     showFeatures();
 };

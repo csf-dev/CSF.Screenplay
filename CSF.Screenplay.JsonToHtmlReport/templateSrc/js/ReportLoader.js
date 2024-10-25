@@ -1,3 +1,5 @@
+const reportContentId = 'reportSrc';
+
 export class ReportLoader {
     scriptId;
 
@@ -15,7 +17,12 @@ export class ReportLoader {
             const jsonData = JSON.parse(scriptElement.textContent);
             return jsonData;
         } catch (error) {
+            console.error(error);
             throw new Error('Failed to parse JSON content');
         }
     }
+}
+
+export function getReportLoader() {
+    return new ReportLoader(reportContentId);
 }

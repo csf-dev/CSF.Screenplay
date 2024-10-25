@@ -3,22 +3,31 @@ import "./css/reset.css";
 import "./css/spinner.css"
 import "./css/layout.css";
 import "./css/content.css";
-import { ReportLoader } from "./js/ReportLoader.js";
+import "./css/summaryTable.css";
+import "./css/scenarioList.css";
+import { getReportLoader } from "./js/ReportLoader.js";
 import { activatePage } from "./js/activatePage.js";
 import { updateReportTime } from "./js/updateReportTime.js";
-import { ScenarioAggregator } from "./js/ScenarioAggregator.js";
+import { getScenarioAggregator } from "./js/ScenarioAggregator.js";
+import { getSummaryGenerator } from "./js/SummaryGenerator.js";
+import { getReportWriter } from "./js/ReportWriter.js";
 
 document.onreadystatechange = () => {
     if (document.readyState !== "complete") return;
 
-    const loader = new ReportLoader('reportSrc');
+    const loader = getReportLoader();
     const report = loader.loadJson();
 
     updateReportTime(report.Metadata.Timestamp);
-    const aggregator = new ScenarioAggregator(report.Performances);
+    
+    const aggregator = getScenarioAggregator(report.Performances);
     const scenariosByFeature = aggregator.getScenariosByFeature();
-    console.log(scenariosByFeature);
+    console.debug(scenariosByFeature);
+    const summaryGenerator = getSummaryGenerator(scenariosByFeature);
+    const summary = summaryGenerator.generateSummary();
+    const reportWriter = getReportWriter();
+    const featureReport = reportWriter.getReport(scenariosByFeature);
 
-    activatePage();
+    activatePage(summary, featureReport);
 }
 

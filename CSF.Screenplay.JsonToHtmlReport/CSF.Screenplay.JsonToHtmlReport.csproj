@@ -14,6 +14,12 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="templateSrc\**\*" Exclude="templateSrc\node_modules\**\*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
   <Target Name="BuildTemplate" BeforeTargets="DispatchToInnerBuilds">
     <PropertyGroup>
       <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
