@@ -1,17 +1,80 @@
 @layer content {
+    #featureList {
+        margin-bottom: 1em;
+    }
     #featureList > li {
         background: #FFFFFFEE;
         border: 1px solid #00000044;
         border-top-width: 0;
         padding: 1em;
+        list-style: none;
     }
     #featureList > li:first-child {
         margin-top: 0;
         border-top-width: 1px;
     }
+    #featureList > li > h3 {
+        cursor: pointer;
+    }
+    #featureList > li > h3::before {
+        content: '▼';
+        display: inline-block;
+        width: 12px;
+        font-size: 0.65em;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    #featureList > li.collapsed > h3::before {
+        content: '▶';
+        font-size: 0.6em;
+    }
+    .scenarioList {
+        clear: both;
+    }
+    .scenarioList > li > h4 {
+        cursor: pointer;
+    }
+    .scenarioList > li > h4::before {
+        content: '▼';
+        display: inline-block;
+        width: 12px;
+        font-size: 0.65em;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    .scenarioList > li.collapsed > h4::before {
+        content: '▶';
+        font-size: 0.6em;
+    }
+    .featureIdentifier, .scenarioIdentifier {
+        font-size: 0.80em;
+        font-style: italic;
+        float: right;
+        color: #888;
+    }
+    .scenarioList > li > .reportableList {
+        margin-left: 20px;
+    }
     .reportableList > li {
         position: relative;
         margin-top: 0.2em;
+    }
+    .reportableList > li > .type::before {
+        content: '▼';
+        display: inline-block;
+        width: 12px;
+        top: 0.2em;
+        font-size: 0.65em;
+        position: absolute;
+        left: -20px;
+        vertical-align: middle;
+    }
+    .reportableList > li.collapsed > .type::before {
+        content: '▶';
+        font-size: 0.6em;
+    }
+    .reportableList > li.non-collapsible > .type::before {
+        display: none;
     }
     .reportableList .type {
         display: inline-block;
@@ -24,6 +87,8 @@
         border-radius: 5px;
         vertical-align: middle;
         opacity: 0.5;
+        position: relative;
+        cursor: help;
     }
     .reportableList .type.ActorCreatedReport {
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHN0cm9rZS13aWR0aD0iMS41IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY29sb3I9IiMwMDAwMDAiPjxwYXRoIGQ9Ik01IDIwVjE5QzUgMTUuMTM0IDguMTM0MDEgMTIgMTIgMTJWMTJDMTUuODY2IDEyIDE5IDE1LjEzNCAxOSAxOVYyMCIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48L3BhdGg+PHBhdGggZD0iTTEyIDEyQzE0LjIwOTEgMTIgMTYgMTAuMjA5MSAxNiA4QzE2IDUuNzkwODYgMTQuMjA5MSA0IDEyIDRDOS43OTA4NiA0IDggNS43OTA4NiA4IDhDOCAxMC4yMDkxIDkuNzkwODYgMTIgMTIgMTJaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L3N2Zz4=);
@@ -54,6 +119,15 @@
     .reportableList .result,
     .reportableList .exception {
         margin-left: 5em;
+    }
+    .reportableList .type+.report {
+        margin-left: 3.4em;
+    }
+    .reportableList > li > .report {
+        cursor: pointer;
+    }
+    .reportableList > li.non-collapsible > .report {
+        cursor: text;
     }
     .reportableList .result::before {
         content: "Result: ";
@@ -89,9 +163,31 @@
         opacity: 0.5;
         vertical-align: middle;
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiIHN0cm9rZS13aWR0aD0iMS41IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY29sb3I9IiMwMDAwMDAiPjxwYXRoIGQ9Ik0xMiAxMS41VjE2LjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiA3LjUxTDEyLjAxIDcuNDk4ODkiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiAyMkMxNy41MjI4IDIyIDIyIDE3LjUyMjggMjIgMTJDMjIgNi40NzcxNSAxNy41MjI4IDIgMTIgMkM2LjQ3NzE1IDIgMiA2LjQ3NzE1IDIgMTJDMiAxNy41MjI4IDYuNDc3MTUgMjIgMTIgMjJaIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD48L3N2Zz4=);
+        cursor: help;
+        position: relative;
+        z-index: 5;
     }
     .reportableList .performableType i {
         display: none;
+        position: absolute;
+        top: 2em;
+        right: 0;
+        padding: 0.2em;
+        background: #FFFFFF88;
+        backdrop-filter: blur(3px);
+        border: 1px solid #00000022;
+        font-size: 0.8em;
+    }
+    .reportableList .performableType i::before {
+        content: 'Performable .NET type ';
+        color: #888;
+    }
+    .reportableList .performableType:hover {
+        opacity: 1;
+        z-index: 10;
+    }
+    .reportableList .performableType:hover i {
+        display: inline-block;
     }
     .assets {
         display: inline-block;
@@ -141,5 +237,8 @@
     .assets li a:hover {
         background: #666;
         color: #FFF;
+    }
+    .collapsed > .collapsible {
+        display: none;
     }
 }

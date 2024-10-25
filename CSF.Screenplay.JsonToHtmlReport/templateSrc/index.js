@@ -22,7 +22,7 @@ document.onreadystatechange = () => {
     
     const aggregator = getScenarioAggregator(report.Performances);
     const scenariosByFeature = aggregator.getScenariosByFeature();
-    console.debug(scenariosByFeature);
+    console.debug('Raw scenario data', scenariosByFeature);
     const summaryGenerator = getSummaryGenerator(scenariosByFeature);
     const summary = summaryGenerator.generateSummary();
     const reportWriter = getReportWriter();

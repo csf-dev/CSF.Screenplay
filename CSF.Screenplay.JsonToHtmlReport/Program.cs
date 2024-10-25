@@ -1,5 +1,6 @@
 #if !NETSTANDARD2_0
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -34,10 +35,17 @@ namespace CSF.Screenplay.JsonToHtmlReport
                 {
                     logging.ClearProviders();
                     logging.AddConsole();
-                });
+                    logging.AddFilter("Microsoft.Hosting", LogLevel.Warning);
+                })
+                .ConfigureAppConfiguration((hostContext, config) => config.AddCommandLine(args));
 
         static void RegisterServices(HostBuilderContext hostContext, IServiceCollection services)
-            => new ServiceRegistrations().RegisterServices(services);
+        {
+            services.AddHostedService<ReportConverterApplication>();
+            services.AddOptions<ReportConverterOptions>();
+            services.Configure<ReportConverterOptions>(hostContext.Configuration);
+            new ServiceRegistrations().RegisterServices(services);
+        }
     }
 }
 

@@ -17,13 +17,10 @@ namespace CSF.Screenplay.JsonToHtmlReport
         /// Registers the services required for the JsonToHtmlReport application (or library).
         /// </summary>
         /// <param name="services">The service collection to which the services will be added.</param>
-        public virtual void RegisterServices(IServiceCollection services)
+        public void RegisterServices(IServiceCollection services)
         {
-#if !NETSTANDARD2_0
-            services.AddHostedService<ReportConverterApplication>();
-            services.AddOptions<ReportConverterOptions>();
-#endif
             services.AddTransient<IConvertsReportJsonToHtml, ReportConverter>();
+            services.AddTransient<IGetsHtmlTemplate, TemplateReader>();
         }
     }
 }

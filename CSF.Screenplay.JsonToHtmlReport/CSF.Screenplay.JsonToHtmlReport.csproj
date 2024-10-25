@@ -28,8 +28,11 @@
     </PropertyGroup>
     <Exec Command="$(NodeCommand) run $(WebpackTask)"
           WorkingDirectory="$(MSBuildProjectDirectory)\templateSrc" />
+  </Target>
+
+  <Target Name="EmbedTemplate" AfterTargets="BeforeResGen">
     <ItemGroup>
-      <EmbeddedResource Include="$(MSBuildProjectDirectory)\template\template.html" />
+      <EmbeddedResource Include="$(MSBuildProjectDirectory)\template\template.html" Type="Non-Resx" WithCulture="false" />
     </ItemGroup>
   </Target>
 </Project>

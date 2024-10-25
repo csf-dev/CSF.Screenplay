@@ -1,5 +1,4 @@
-const summaryElementId = 'summary', featuresElementId = 'features';
-
+const summaryElementId = 'summary', featuresElementId = 'featureList';
 
 export const activatePage = (summaryTable, featureList) => {
     const summaryElement = document.getElementById(summaryElementId);

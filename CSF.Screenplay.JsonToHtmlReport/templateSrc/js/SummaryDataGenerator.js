@@ -13,8 +13,8 @@ export class SummaryDataGenerator {
     }
 
     #getScenarioSummary(features, noFeatureScenarios) {
-        const featureScenarios = Object.values(features).flat();
-        const allScenarios = [...featureScenarios, ...noFeatureScenarios];
+        const featureScenarios = Object.values(features).map(x => x.scenarios).flat();
+        const allScenarios = [...featureScenarios, ...noFeatureScenarios.scenarios];
 
         return allScenarios.reduce((accumulator, scenarioContainer) => {
             const outcome = scenarioContainer.performance.Outcome;
@@ -30,13 +30,13 @@ export class SummaryDataGenerator {
     }
 
     #getFeatureSummary(features) {
-        return Object.entries(features).reduce((accumulator, [_, scenarios]) => {
-            if (!scenarios.length) return accumulator;
+        return Object.entries(features).reduce((accumulator, [_, feature]) => {
+            if (!feature.scenarios.length) return accumulator;
             
-            if (scenarios.every(scenario => scenario.performance.Outcome === successOutcome)) {
+            if (feature.scenarios.every(scenario => scenario.performance.Outcome === successOutcome)) {
                 return { ...accumulator, successCount: accumulator.successCount + 1, totalCount: accumulator.totalCount + 1 };
             }
-            else if(scenarios.some(scenario => scenario.performance.Outcome === failOutcome)) {
+            else if(feature.scenarios.some(scenario => scenario.performance.Outcome === failOutcome)) {
                 return { ...accumulator, failCount: accumulator.failCount + 1, totalCount: accumulator.totalCount + 1 };
             }
 

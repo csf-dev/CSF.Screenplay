@@ -1,5 +1,6 @@
 #if !NETSTANDARD2_0
 
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
@@ -32,8 +33,12 @@ namespace CSF.Screenplay.JsonToHtmlReport
         /// </summary>
         /// <param name="stoppingToken">A token that can be used to stop the operation.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
-            => reportConverter.ConvertAsync(options.Value);
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            await reportConverter.ConvertAsync(options.Value);
+            Console.WriteLine("Conversion complete; HTML report available at {0}", options.Value.OutputPath);
+            Environment.Exit(0);
+        }
     }
 }
 
