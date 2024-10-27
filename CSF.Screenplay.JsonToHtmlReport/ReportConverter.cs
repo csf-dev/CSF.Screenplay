@@ -14,13 +14,13 @@ namespace CSF.Screenplay.JsonToHtmlReport
         /// <inheritdoc/>
         public async Task ConvertAsync(ReportConverterOptions options)
         {
-            var report = await ReadReport(options.ReportPath).ConfigureAwait(false);
+            var report = await ReportConverter.ReadReport(options.ReportPath).ConfigureAwait(false);
             var template = await templateReader.ReadTemplate().ConfigureAwait(false);
             var assembledTemplate = template.Replace("<!-- REPORT_PLACEHOLDER -->", report);
-            await WriteReport(options.OutputPath, assembledTemplate).ConfigureAwait(false);
+            await ReportConverter.WriteReport(options.OutputPath, assembledTemplate).ConfigureAwait(false);
         }
 
-        async Task<string> ReadReport(string path)
+        static async Task<string> ReadReport(string path)
         {
             using (var stream = File.OpenRead(path))
             using (var reader = new StreamReader(stream))
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
             }
         }
 
-        async Task WriteReport(string path, string report)
+        static async Task WriteReport(string path, string report)
         {
             using (var stream = File.Create(path))
             using (var writer = new StreamWriter(stream))

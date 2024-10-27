@@ -10,7 +10,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
     /// <summary>
     /// The main entry point class for the JSON to HTML report converter application.
     /// </summary>
-    public class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point method for the JSON to HTML report converter application.
@@ -44,7 +44,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
             services.AddHostedService<ReportConverterApplication>();
             services.AddOptions<ReportConverterOptions>();
             services.Configure<ReportConverterOptions>(hostContext.Configuration);
-            new ServiceRegistrations().RegisterServices(services);
+            ServiceRegistrations.RegisterServices(services);
         }
     }
 }

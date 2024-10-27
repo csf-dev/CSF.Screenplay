@@ -9,9 +9,9 @@ namespace CSF.Screenplay.AddingUp
 
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            await actor.PerformAsync(Add(number1));
-            await actor.PerformAsync(Add(number2));
-            await actor.PerformAsync(Add(number3));
+            await actor.PerformAsync(Add(number1), cancellationToken);
+            await actor.PerformAsync(Add(number2), cancellationToken);
+            await actor.PerformAsync(Add(number3), cancellationToken);
         }
     }
 }
