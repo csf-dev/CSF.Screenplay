@@ -14,10 +14,10 @@ namespace CSF.Screenplay.JsonToHtmlReport
         /// <inheritdoc/>
         public async Task ConvertAsync(ReportConverterOptions options)
         {
-            var report = await ReportConverter.ReadReport(options.ReportPath).ConfigureAwait(false);
+            var report = await ReadReport(options.ReportPath).ConfigureAwait(false);
             var template = await templateReader.ReadTemplate().ConfigureAwait(false);
             var assembledTemplate = template.Replace("<!-- REPORT_PLACEHOLDER -->", report);
-            await ReportConverter.WriteReport(options.OutputPath, assembledTemplate).ConfigureAwait(false);
+            await WriteReport(options.OutputPath, assembledTemplate).ConfigureAwait(false);
         }
 
         static async Task<string> ReadReport(string path)

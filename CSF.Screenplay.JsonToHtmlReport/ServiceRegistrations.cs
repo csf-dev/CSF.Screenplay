@@ -11,7 +11,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
     /// but it may also be used when consuming this project as a library, for integrating it into other solutions.
     /// </para>
     /// </remarks>
-    public class ServiceRegistrations
+    public static class ServiceRegistrations
     {
         /// <summary>
         /// Registers the services required for the JsonToHtmlReport application (or library).

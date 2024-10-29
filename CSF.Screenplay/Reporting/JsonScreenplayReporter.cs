@@ -178,7 +178,7 @@ namespace CSF.Screenplay.Reporting
             if (writeStream is null)
                 throw new ArgumentNullException(nameof(writeStream));
 
-            jsonWriter = new Utf8JsonWriter(writeStream);
+            jsonWriter = new Utf8JsonWriter(writeStream, new JsonWriterOptions { Indented = false });
             this.builder = builder ?? throw new ArgumentNullException(nameof(builder));
         }
     }

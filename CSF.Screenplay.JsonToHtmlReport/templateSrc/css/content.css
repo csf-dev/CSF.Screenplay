@@ -20,15 +20,15 @@
         margin: 1em 0 0;
     }
     h3 {
-        font-size: 1.1em;
+        font-size: 1.2em;
         line-height: 1.35em;
         margin: 0;
         font-weight: bold;
     }
     h4 {
-        font-size: 1.1em;
         line-height: 1.35em;
         margin: 0.4em 0 0;
+        font-weight: bold;
     }
     body > footer {
         color: #666;

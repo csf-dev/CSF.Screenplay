@@ -5,12 +5,12 @@ import "./css/layout.css";
 import "./css/content.css";
 import "./css/summaryTable.css";
 import "./css/scenarioList.css";
-import { getReportLoader } from "./js/ReportLoader.js";
-import { activatePage } from "./js/activatePage.js";
-import { updateReportTime } from "./js/updateReportTime.js";
-import { getScenarioAggregator } from "./js/ScenarioAggregator.js";
-import { getSummaryGenerator } from "./js/SummaryGenerator.js";
-import { getReportWriter } from "./js/ReportWriter.js";
+import { getReportLoader } from "./js/ReportLoader";
+import { activatePage } from "./js/activatePage";
+import { updateReportTime } from "./js/updateReportTime";
+import { getScenarioAggregator } from "./js/ScenarioAggregator";
+import { getSummaryGenerator } from "./js/SummaryGenerator";
+import { getReportWriter } from "./js/ReportWriter";
 
 document.onreadystatechange = () => {
     if (document.readyState !== "complete") return;
