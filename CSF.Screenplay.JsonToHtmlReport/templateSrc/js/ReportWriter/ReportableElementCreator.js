@@ -69,7 +69,7 @@ export class ReportableElementCreator {
             const assetsElement = assetsRootElement.querySelector('ul');
 
             for (const asset of reportable.Assets) {
-                const assetElement = this.assetTemplate.cloneNode(true);
+                const assetElement = this.assetTemplate.content.cloneNode(true);
                 const assetLinkElement = assetElement.querySelector('a');
                 assetLinkElement.textContent = asset.FileSummary;
                 assetLinkElement.href = asset.FilePath;
