@@ -1,4 +1,5 @@
 import { getScenarioElementCreator } from './ScenarioElementCreator';
+import { getElementById } from '../getElementById';
 
 export class FeatureElementCreator {
     constructor(featureTemplate, scenarioElementCreator) {
@@ -30,5 +31,5 @@ export class FeatureElementCreator {
 }
 
 export function getFeatureElementCreator() {
-    return new FeatureElementCreator(document.getElementById('featureTemplate'), getScenarioElementCreator());
+    return new FeatureElementCreator(getElementById('featureTemplate'), getScenarioElementCreator());
 }

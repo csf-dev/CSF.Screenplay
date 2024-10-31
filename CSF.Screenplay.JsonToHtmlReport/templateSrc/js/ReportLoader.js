@@ -1,3 +1,5 @@
+import { getElementById } from './getElementById';
+
 const reportContentId = 'reportSrc';
 
 export class ReportLoader {
@@ -8,7 +10,7 @@ export class ReportLoader {
     }
 
     loadJson() {
-        const scriptElement = document.getElementById(this.scriptId);
+        const scriptElement = getElementById(this.scriptId);
         if (!scriptElement) {
             throw new Error(`Element with id ${this.scriptId} not found`);
         }

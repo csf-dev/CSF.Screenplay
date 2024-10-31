@@ -1,15 +1,17 @@
+import { getElementById } from "./getElementById";
+
 const summaryElementId = 'summary', featuresElementId = 'featureList';
 
 export const activatePage = (summaryTable, featureList) => {
-    const summaryElement = document.getElementById(summaryElementId);
+    const summaryElement = getElementById(summaryElementId);
     summaryElement.appendChild(summaryTable);
     
-    const featuresElement = document.getElementById(featuresElementId);
+    const featuresElement = getElementById(featuresElementId);
     featuresElement.appendChild(featureList);
 
     hideSpinner();
     showFeatures();
 };
 
-const hideSpinner = () => document.getElementById("pageMask").classList.add("hidden");
-const showFeatures = () => document.getElementById("features").classList.remove("hidden");
+const hideSpinner = () => getElementById("pageMask").classList.add("hidden");
+const showFeatures = () => getElementById("features").classList.remove("hidden");

@@ -1,4 +1,5 @@
 import { setContentOrRemove } from './setContentOrRemove';
+import { getElementById } from '../getElementById';
 
 export class ReportableElementCreator {
     constructor(templateElement, assetTemplateElement) {
@@ -56,12 +57,12 @@ export class ReportableElementCreator {
     #setupPerformableType(reportableElement, reportable) {
         const performableTypeElement = reportableElement.querySelector('.performableType');
         if (reportable.PerformableType) performableTypeElement.querySelector('i').textContent = reportable.PerformableType;
-        else performableTypeElement.remove
+        else performableTypeElement.remove()
     }
 
     #setupAssets(reportableElement, reportable) {
         const assetsRootElement = reportableElement.querySelector('.assets');
-        if (!reportable.Assets || !reportable.Assets.length) {
+        if (!reportable.Assets?.length) {
             assetsRootElement.remove();
         }
         else {
@@ -79,7 +80,7 @@ export class ReportableElementCreator {
 
     #setupContainedReportables(reportableElement, reportable) {
         const containedReportablesElement = reportableElement.querySelector('.reportableList');
-        if (!reportable.Reportables || !reportable.Reportables.length) {
+        if (!reportable.Reportables?.length) {
             reportableElement.firstElementChild.classList.remove('collapsed');
             reportableElement.firstElementChild.classList.add('non-collapsible');
             return;
@@ -97,6 +98,6 @@ export class ReportableElementCreator {
 }
 
 export function getReportableElementCreator() {
-    return new ReportableElementCreator(document.getElementById('reportableTemplate'),
-                                        document.getElementById('assetTemplate'));                                      
+    return new ReportableElementCreator(getElementById('reportableTemplate'),
+                                        getElementById('assetTemplate'));                                      
 }

@@ -1,5 +1,6 @@
 import { getReportableElementCreator } from './ReportableElementCreator';
 import { setContentOrRemove } from './setContentOrRemove';
+import { getElementById } from '../getElementById';
 
 export class ScenarioElementCreator {
     constructor(scenarioTemplate, reportableElementCreator) {
@@ -26,5 +27,5 @@ export class ScenarioElementCreator {
 }
 
 export function getScenarioElementCreator() {
-    return new ScenarioElementCreator(document.getElementById('scenarioTemplate'), getReportableElementCreator());
+    return new ScenarioElementCreator(getElementById('scenarioTemplate'), getReportableElementCreator());
 }

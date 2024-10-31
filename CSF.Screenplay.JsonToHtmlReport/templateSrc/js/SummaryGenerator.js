@@ -1,4 +1,5 @@
 import { getSummaryDataGenerator } from "./SummaryDataGenerator";
+import { getElementById } from './getElementById';
 
 const templateId = 'summaryTableTemplate';
 
@@ -9,7 +10,7 @@ export class SummaryGenerator {
     }
 
     generateSummary() {
-        const template = document.getElementById(templateId);
+        const template = getElementById(templateId);
         if (!template) {
             throw new Error(`Element with id ${templateId} not found`);
         }
