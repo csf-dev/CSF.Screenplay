@@ -47,9 +47,19 @@
           
     <Error Text="Template file was not generated at $(TemplateOutputFile)" 
            Condition="!Exists('$(TemplateOutputFile)')" />
-    
+
+  </Target>
+
+  <Target Name="AddTemplateResource"
+          AfterTargets="BuildTemplate"
+          BeforeTargets="PrepareResources">
+    <Error Text="Template file missing: $(TemplateOutputFile)"
+           Condition="!Exists('$(TemplateOutputFile)')" />
     <ItemGroup>
-      <EmbeddedResource Include="$(TemplateOutputFile)" Type="Non-Resx" WithCulture="false" />
+      <EmbeddedResource Include="$(TemplateOutputFile)"
+                        LogicalName="template.html"
+                        Type="Non-Resx"
+                        WithCulture="false" />
     </ItemGroup>
   </Target>
 
