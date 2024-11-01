@@ -47,20 +47,17 @@
           
     <Error Text="Template file was not generated at $(TemplateOutputFile)" 
            Condition="!Exists('$(TemplateOutputFile)')" />
-
   </Target>
 
-  <Target Name="AddTemplateResource"
-          AfterTargets="BuildTemplate"
-          BeforeTargets="PrepareResources">
-    <Error Text="Template file missing: $(TemplateOutputFile)"
-           Condition="!Exists('$(TemplateOutputFile)')" />
+  <Target Name="EmbedTemplate" 
+          AfterTargets="BeforeResGen"
+          DependsOnTargets="BuildTemplate">
+    <!--  This configuration of build targets provides a consistently working build, but I'm disappointed
+          that it results in Webpack being run once for each TFM. That's somewhat needless because the
+          template only needs to be built once. But, other configurations I tried resulted in the template
+          file not being embedded correctly, causing build or runtime failures. -->
     <ItemGroup>
-      <EmbeddedResource Include="$(TemplateOutputFile)"
-                        LogicalName="template.html"
-                        Type="Non-Resx"
-                        WithCulture="false" />
+      <EmbeddedResource Include="$(TemplateOutputFile)" Type="Non-Resx" WithCulture="false" />
     </ItemGroup>
   </Target>
-
 </Project>
