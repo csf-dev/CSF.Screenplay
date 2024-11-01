@@ -7,6 +7,9 @@
     <NoWarn>NU1903,NU1902</NoWarn>
     <RootNamespace>CSF.Screenplay.JsonToHtmlReport</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <TemplateSourceDir>$(MSBuildProjectDirectory)\templateSrc</TemplateSourceDir>
+    <TemplateOutputDir>$(MSBuildProjectDirectory)\template</TemplateOutputDir>
+    <TemplateOutputFile>$(TemplateOutputDir)\template.html</TemplateOutputFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,24 +18,39 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="templateSrc\**\*" Exclude="templateSrc\node_modules\**\*">
+    <Content Include="$(TemplateSourceDir)\**\*" Exclude="$(TemplateSourceDir)\node_modules\**\*">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
-  <Target Name="BuildTemplate" BeforeTargets="DispatchToInnerBuilds">
+  <Target Name="EnsureTemplateDirectories">
+    <MakeDir Directories="$(TemplateOutputDir)" Condition="!Exists('$(TemplateOutputDir)')" />
+  </Target>
+
+  <Target Name="BuildTemplate" 
+          BeforeTargets="DispatchToInnerBuilds"
+          DependsOnTargets="EnsureTemplateDirectories"
+          Inputs="$(TemplateSourceDir)\**\*"
+          Outputs="$(TemplateOutputFile)">
     <PropertyGroup>
       <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
       <WebpackTask Condition="'$(Configuration)' != 'Debug'">buildProd</WebpackTask>
       <NodeCommand>npm</NodeCommand>
     </PropertyGroup>
+    
+    <Error Text="Template source directory not found at $(TemplateSourceDir)" 
+           Condition="!Exists('$(TemplateSourceDir)')" />
+           
     <Exec Command="$(NodeCommand) run $(WebpackTask)"
-          WorkingDirectory="$(MSBuildProjectDirectory)\templateSrc" />
-  </Target>
-
-  <Target Name="EmbedTemplate" AfterTargets="BeforeResGen" DependsOnTargets="BuildTemplate">
+          WorkingDirectory="$(TemplateSourceDir)"
+          ContinueOnError="false" />
+          
+    <Error Text="Template file was not generated at $(TemplateOutputFile)" 
+           Condition="!Exists('$(TemplateOutputFile)')" />
+    
     <ItemGroup>
-      <EmbeddedResource Include="$(MSBuildProjectDirectory)\template\template.html" Type="Non-Resx" WithCulture="false" />
+      <EmbeddedResource Include="$(TemplateOutputFile)" Type="Non-Resx" WithCulture="false" />
     </ItemGroup>
   </Target>
+
 </Project>
