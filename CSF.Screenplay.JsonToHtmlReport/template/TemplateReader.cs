@@ -17,9 +17,14 @@ namespace CSF.Screenplay.JsonToHtmlReport
         public async Task<string> ReadTemplate()
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("template.html"))
-            using (var reader = new StreamReader(stream))
             {
-                return await reader.ReadToEndAsync().ConfigureAwait(false);
+                if(stream is null)
+                    throw new InvalidOperationException("The embedded HTML template could not be found; this indicates a serious build error.");
+                
+                using (var reader = new StreamReader(stream))
+                {
+                    return await reader.ReadToEndAsync().ConfigureAwait(false);
+                }
             }
         }
     }
