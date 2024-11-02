@@ -16,7 +16,7 @@ install:
     - cmd: dotnet tool install --global coverlet.console
     - cmd: dotnet tool update -g docfx
     - ps: |
-        cd CSF.Screenplay.JsonToHtmlReport\templateSrc
+        cd CSF.Screenplay.JsonToHtmlReport.Template\src
         npm ci
         cd ..\..
 
