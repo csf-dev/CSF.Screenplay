@@ -5,6 +5,5 @@
   <Property Name="sonar.coverage.exclusions">Tests/**/*,**/*Exception.cs,*_old/**/*</Property>
   <Property Name="sonar.cs.nunit.reportsPaths">Tests\**\TestResults.xml</Property>
   <Property Name="sonar.cs.opencover.reportsPaths">TestResults\*.opencover.xml</Property>
-  <Property Name="sonar.javascript.lcov.reportPaths">CSF.Screenplay.JsonToHtmlReport.Template\src\TestResults\lcov.info</Property>
   <Property Name="sonar.scanner.scanAll">false</Property>
 </SonarQubeAnalysisProperties>
