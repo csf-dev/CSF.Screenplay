@@ -52,6 +52,19 @@
 			"args": ["CSF.Screenplay.Docs/docfx.json", "--serve"],
 			"problemMatcher": [],
 			"label": "Serve docs website"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"type": "shell",
+			"command": "npm",
+			"args": ["i"],
+			"problemMatcher": [],
+			"label": "npm: install (Javascript)",
+			"options": {
+				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
+			}
 		}
 	]
 }
