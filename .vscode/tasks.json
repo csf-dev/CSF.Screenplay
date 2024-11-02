@@ -23,6 +23,19 @@
 		},
 		{
 			"group": {
+				"kind": "test"
+			},
+			"type": "shell",
+			"command": "npm",
+			"args": ["test"],
+			"problemMatcher": [],
+			"label": "npm: test (Javascript)",
+			"options": {
+				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
+			}
+		},
+		{
+			"group": {
 				"kind": "build"
 			},
 			"command": "dotnet",
