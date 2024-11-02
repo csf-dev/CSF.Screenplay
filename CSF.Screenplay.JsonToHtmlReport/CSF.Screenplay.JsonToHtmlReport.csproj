@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="template/template.html" Type="Non-Resx" WithCulture="false" />
+    <EmbeddedResource Include="template/template.html" Type="Non-Resx" WithCulture="false">
+      <LogicalName>template.html</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
