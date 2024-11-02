@@ -46,6 +46,10 @@ test_script:
         dotnet test
         --test-adapter-path:.
         --logger:nunit
+    - ps:
+        - cd CSF.Screenplay.JsonToHtmlReport.Template\src
+        - npm test
+        - cd ..\..
 
 after_test:
     - cmd: >
