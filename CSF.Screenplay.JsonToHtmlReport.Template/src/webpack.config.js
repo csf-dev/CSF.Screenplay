@@ -11,7 +11,7 @@ module.exports = {
     entry: './index.js',
     mode: 'development',
     output: {
-        path: res('../template'),
+        path: res('./output'),
     },
     module: {
         rules: [

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.WebApis", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.JsonToHtmlReport", "CSF.Screenplay.JsonToHtmlReport\CSF.Screenplay.JsonToHtmlReport.csproj", "{906AF119-8F73-4350-A99C-D3EDEFD169F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Screenplay.JsonToHtmlReport.Template", "CSF.Screenplay.JsonToHtmlReport.Template\CSF.Screenplay.JsonToHtmlReport.Template.proj", "{607631EB-020B-45B3-A558-9B65663D7527}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,12 @@ Global
 		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Docs|Any CPU.ActiveCfg = Debug|Any CPU
 		{906AF119-8F73-4350-A99C-D3EDEFD169F6}.Docs|Any CPU.Build.0 = Debug|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Docs|Any CPU.ActiveCfg = Docs|Any CPU
+		{607631EB-020B-45B3-A558-9B65663D7527}.Docs|Any CPU.Build.0 = Docs|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7369BCFA-DA98-4C05-9708-7949AF3E485B} = {2C3ABE29-B5F7-404E-B20A-E3679E2ECEC5}
