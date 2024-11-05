@@ -5,6 +5,8 @@ environment:
         - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
           JAVA_HOME: /usr/lib/jvm/jdk15
 
+skip_branch_with_pr: true
+
 # A note/reminder for readers: Script items prefixed "cmd:" are executed on Windows-only environments.
 # Items with no prefix (or "ps:" prefix) are run on all environments (Windows & Linux)
 
