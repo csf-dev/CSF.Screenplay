@@ -31,12 +31,11 @@ before_build:
             SET BranchName=%APPVEYOR_REPO_BRANCH%
             SET BranchParam=sonar.branch.name
             SET "PRParam="
-            )
-        ELSE (
+        ) ELSE (
             SET BranchName=%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%
             SET BranchParam=sonar.pullrequest.branch
             SET "PRParam=/d:sonar.pullrequest.key=%APPVEYOR_PULL_REQUEST_NUMBER%"
-            )
+        )
     - cmd: >
         dotnet-sonarscanner begin 
         /k:"csf-dev_CSF.Screenplay"
