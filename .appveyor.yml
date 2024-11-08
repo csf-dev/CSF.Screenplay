@@ -26,7 +26,7 @@ before_build:
     - dotnet --version
     - dotnet restore --verbosity m
     - dotnet clean
-    - cmd: >
+    - cmd: |
         IF NOT DEFINED APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH (
             SET BranchName=%APPVEYOR_REPO_BRANCH%
             SET BranchParam=sonar.branch.name
