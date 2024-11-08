@@ -27,8 +27,14 @@ before_build:
     - dotnet restore --verbosity m
     - dotnet clean
     - cmd: >
-        IF NOT DEFINED APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH (SET BranchName=%APPVEYOR_REPO_BRANCH%)
-        ELSE (SET BranchName=%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%)
+        IF NOT DEFINED APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH
+            SET BranchName=%APPVEYOR_REPO_BRANCH%
+            SET BranchParam=sonar.branch.name
+            SET PRParam=
+        ELSE
+            SET BranchName=%APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%
+            SET BranchParam=sonar.pullrequest.branch
+            SET PRParam=/d:sonar.pullrequest.key=%APPVEYOR_PULL_REQUEST_NUMBER%
     - cmd: >
         dotnet-sonarscanner begin 
         /k:"csf-dev_CSF.Screenplay"
@@ -36,9 +42,8 @@ before_build:
         /o:craigfowler-github
         /d:sonar.host.url=https://sonarcloud.io
         /d:sonar.token=%SONARCLOUD_SECRET_KEY%
-        /d:sonar.branch.name=%BranchName%
-        /d:sonar.pullrequest.key=%APPVEYOR_PULL_REQUEST_NUMBER%
-        /d:sonar.pullrequest.branch=%BranchName%
+        /d:%BranchParam%=%BranchName%
+        %PRParam%
         /d:sonar.javascript.lcov.reportPaths=%APPVEYOR_BUILD_FOLDER%\CSF.Screenplay.JsonToHtmlReport.Template\src\TestResults\lcov.info
         /s:%APPVEYOR_BUILD_FOLDER%\.sonarqube-analysisproperties.xml
 
