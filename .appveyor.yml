@@ -37,6 +37,8 @@ before_build:
         /d:sonar.host.url=https://sonarcloud.io
         /d:sonar.token=%SONARCLOUD_SECRET_KEY%
         /d:sonar.branch.name=%BranchName%
+        /d:sonar.pullrequest.key=%APPVEYOR_PULL_REQUEST_NUMBER%
+        /d:sonar.pullrequest.branch=%BranchName%
         /d:sonar.javascript.lcov.reportPaths=%APPVEYOR_BUILD_FOLDER%\CSF.Screenplay.JsonToHtmlReport.Template\src\TestResults\lcov.info
         /s:%APPVEYOR_BUILD_FOLDER%\.sonarqube-analysisproperties.xml
 
