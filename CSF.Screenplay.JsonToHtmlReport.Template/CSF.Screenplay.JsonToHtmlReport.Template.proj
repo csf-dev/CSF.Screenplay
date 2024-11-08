@@ -1,0 +1,47 @@
+﻿<Project DefaultTargets="Build">
+
+  <PropertyGroup>
+    <TemplateSourceDir>$(MSBuildProjectDirectory)\src</TemplateSourceDir>
+    <OutputPath>$(MSBuildProjectDirectory)\..\CSF.Screenplay.JsonToHtmlReport\template</OutputPath>
+    <TemplateOutputFile>$(OutputPath)\template.html</TemplateOutputFile>
+  </PropertyGroup>
+
+  <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+
+  <ItemGroup>
+    <Content Include="$(TemplateSourceDir)\**\*" Exclude="$(TemplateSourceDir)\node_modules\**\*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="EnsureTemplateDirectories">
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+  </Target>
+
+  <Target Name="Build"
+          DependsOnTargets="EnsureTemplateDirectories"
+          Inputs="$(TemplateSourceDir)\**\*"
+          Outputs="$(OutputPath)">
+    <PropertyGroup>
+      <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
+      <WebpackTask Condition="'$(Configuration)' != 'Debug'">buildProd</WebpackTask>
+      <NodeCommand>npm</NodeCommand>
+    </PropertyGroup>
+    
+    <Error Text="Template source directory not found at $(TemplateSourceDir)" 
+           Condition="!Exists('$(TemplateSourceDir)')" />
+           
+    <Exec Command="$(NodeCommand) run $(WebpackTask) -- --output-path $(OutputPath)"
+          WorkingDirectory="$(TemplateSourceDir)"
+          ContinueOnError="false" />
+          
+    <Error Text="Template file was not generated at $(TemplateOutputFile)" 
+           Condition="!Exists('$(TemplateOutputFile)')" />
+  </Target>
+
+  <Target Name="Clean">
+      <RemoveDir Directories="$(OutputPath)" />
+  </Target>
+
+</Project>

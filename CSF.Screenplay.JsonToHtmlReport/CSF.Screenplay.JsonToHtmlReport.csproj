@@ -7,9 +7,6 @@
     <NoWarn>NU1903,NU1902</NoWarn>
     <RootNamespace>CSF.Screenplay.JsonToHtmlReport</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <TemplateSourceDir>$(MSBuildProjectDirectory)\templateSrc</TemplateSourceDir>
-    <TemplateOutputDir>$(MSBuildProjectDirectory)\template</TemplateOutputDir>
-    <TemplateOutputFile>$(TemplateOutputDir)\template.html</TemplateOutputFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,46 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="$(TemplateSourceDir)\**\*" Exclude="$(TemplateSourceDir)\node_modules\**\*">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    <ProjectReference Include="..\CSF.Screenplay.JsonToHtmlReport.Template\CSF.Screenplay.JsonToHtmlReport.Template.proj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
-  <Target Name="EnsureTemplateDirectories">
-    <MakeDir Directories="$(TemplateOutputDir)" Condition="!Exists('$(TemplateOutputDir)')" />
-  </Target>
+  <ItemGroup>
+    <EmbeddedResource Include="template/template.html" Type="Non-Resx" WithCulture="false">
+      <LogicalName>template.html</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
 
-  <Target Name="BuildTemplate" 
-          BeforeTargets="DispatchToInnerBuilds"
-          DependsOnTargets="EnsureTemplateDirectories"
-          Inputs="$(TemplateSourceDir)\**\*"
-          Outputs="$(TemplateOutputFile)">
-    <PropertyGroup>
-      <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
-      <WebpackTask Condition="'$(Configuration)' != 'Debug'">buildProd</WebpackTask>
-      <NodeCommand>npm</NodeCommand>
-    </PropertyGroup>
-    
-    <Error Text="Template source directory not found at $(TemplateSourceDir)" 
-           Condition="!Exists('$(TemplateSourceDir)')" />
-           
-    <Exec Command="$(NodeCommand) run $(WebpackTask)"
-          WorkingDirectory="$(TemplateSourceDir)"
-          ContinueOnError="false" />
-          
-    <Error Text="Template file was not generated at $(TemplateOutputFile)" 
-           Condition="!Exists('$(TemplateOutputFile)')" />
-  </Target>
-
-  <Target Name="EmbedTemplate" 
-          AfterTargets="BeforeResGen"
-          DependsOnTargets="BuildTemplate">
-    <!--  This configuration of build targets provides a consistently working build, but I'm disappointed
-          that it results in Webpack being run once for each TFM. That's somewhat needless because the
-          template only needs to be built once. But, other configurations I tried resulted in the template
-          file not being embedded correctly, causing build or runtime failures. -->
-    <ItemGroup>
-      <EmbeddedResource Include="$(TemplateOutputFile)" Type="Non-Resx" WithCulture="false" />
-    </ItemGroup>
-  </Target>
 </Project>

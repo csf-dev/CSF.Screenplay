@@ -5,8 +5,10 @@ environment:
         - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
           JAVA_HOME: /usr/lib/jvm/jdk15
 
+skip_branch_with_pr: true
+
 # A note/reminder for readers: Script items prefixed "cmd:" are executed on Windows-only environments.
-# Items with no prefix are run on all environments (Windows & Linux)
+# Items with no prefix (or "ps:" prefix) are run on all environments (Windows & Linux)
 
 init:
     - cmd: git config --global core.autocrlf true
@@ -16,7 +18,7 @@ install:
     - cmd: dotnet tool install --global coverlet.console
     - cmd: dotnet tool update -g docfx
     - ps: |
-        cd CSF.Screenplay.JsonToHtmlReport\templateSrc
+        cd CSF.Screenplay.JsonToHtmlReport.Template\src
         npm ci
         cd ..\..
 
@@ -32,12 +34,10 @@ before_build:
         /k:"csf-dev_CSF.Screenplay"
         /v:AppVeyor_build_%APPVEYOR_BUILD_NUMBER%
         /o:craigfowler-github
-        /d:sonar.host.url="https://sonarcloud.io"
+        /d:sonar.host.url=https://sonarcloud.io
         /d:sonar.token=%SONARCLOUD_SECRET_KEY%
-        /d:sonar.cs.nunit.reportsPaths=%APPVEYOR_BUILD_FOLDER%\Tests\**\TestResults.xml
-        /d:sonar.cs.opencover.reportsPaths=%APPVEYOR_BUILD_FOLDER%\TestResults\*.opencover.xml
         /d:sonar.branch.name=%BranchName%
-        /d:sonar.scanner.scanAll=false
+        /d:sonar.javascript.lcov.reportPaths=%APPVEYOR_BUILD_FOLDER%\CSF.Screenplay.JsonToHtmlReport.Template\src\TestResults\lcov.info
         /s:%APPVEYOR_BUILD_FOLDER%\.sonarqube-analysisproperties.xml
 
 build_script:
@@ -49,6 +49,10 @@ test_script:
         dotnet test
         --test-adapter-path:.
         --logger:nunit
+    - ps: |
+        cd CSF.Screenplay.JsonToHtmlReport.Template\src
+        npm test
+        cd ..\..
 
 after_test:
     - cmd: >
