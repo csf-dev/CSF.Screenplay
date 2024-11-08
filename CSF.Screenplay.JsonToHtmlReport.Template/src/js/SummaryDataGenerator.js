@@ -33,7 +33,8 @@ export class SummaryDataGenerator {
         return Object.entries(features).reduce((accumulator, [_, feature]) => {
             if (!feature.scenarios.length) return accumulator;
             
-            if (feature.scenarios.every(scenario => scenario.performance.Outcome === successOutcome)) {
+            if (feature.scenarios.some(scenario => scenario.performance.Outcome === successOutcome)
+                && !feature.scenarios.some(scenario => scenario.performance.Outcome === failOutcome)) {
                 return { ...accumulator, successCount: accumulator.successCount + 1, totalCount: accumulator.totalCount + 1 };
             }
             else if(feature.scenarios.some(scenario => scenario.performance.Outcome === failOutcome)) {

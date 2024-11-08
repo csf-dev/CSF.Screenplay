@@ -4,6 +4,6 @@ obj/
 TestResults/
 Tests/**/*.feature.cs
 node_modules/
-/CSF.Screenplay.JsonToHtmlReport/template/template.html
 *.orig
-
+/CSF.Screenplay.JsonToHtmlReport/template/
+/CSF.Screenplay.JsonToHtmlReport.Template/src/output/
