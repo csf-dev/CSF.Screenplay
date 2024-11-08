@@ -1,5 +1,5 @@
 ﻿//
-// ArgumentsArrayConverter.cs
+// GetALocalisedDate.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,37 +24,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-namespace CSF.Screenplay.Selenium.StoredScripts
+using CSF.Screenplay.Selenium.StoredScripts;
+
+namespace CSF.Screenplay.Selenium.ScriptResources
 {
   /// <summary>
-  /// A special stored JavaScript which is used to invoke other JavaScripts.
+  /// Script resource for getting a localised date string
   /// </summary>
-  public class ScriptInvokerFactory : ICreatesInvocationScript
+  public class GetALocalisedDate : ScriptResource
   {
-    readonly ScriptResourceLoader loader;
+    readonly ScriptResource argsValidator;
 
     /// <summary>
-    /// Gets an invocation script for the given entry point name.
+    /// Gets the name of this script.
     /// </summary>
-    /// <returns>The invocation script.</returns>
-    /// <param name="entryPoint">The name of the entry point which should be invoked.</param>
-    public string GetScript(string entryPoint)
-    {
-      var invokerService = loader.GetScriptFor<ScriptInvokerFactory>();
-      var invocationLine = GetInvocationLine(entryPoint);
-
-      return String.Concat(invokerService, Environment.NewLine, invocationLine);
-    }
-
-    string GetInvocationLine(string entryPoint)
-      => $"return invoker.invoke({entryPoint}, arguments);";
+    /// <value>The name.</value>
+    public override string Name => "a JavaScript which converts a date to a locale-formatted string";
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptInvoker"/> class.
+    /// Gets a collection of scripts which the current script instance depends upon.
     /// </summary>
-    public ScriptInvokerFactory()
+    /// <returns>The dependencies.</returns>
+    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
+    /// </summary>
+    public GetALocalisedDate() : this(null) {}
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
+    /// </summary>
+    /// <param name="argsValidator">Arguments validator.</param>
+    public GetALocalisedDate(ScriptResource argsValidator)
     {
-      loader = new ScriptResourceLoader();
+      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
     }
   }
 }

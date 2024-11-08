@@ -1,5 +1,5 @@
 ﻿//
-// SetAnElementValue.cs
+// ArgumentsArrayValidator.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -29,36 +29,29 @@ using CSF.Screenplay.Selenium.StoredScripts;
 namespace CSF.Screenplay.Selenium.ScriptResources
 {
   /// <summary>
-  /// A stored JavaScript which sets the value of an HTML element and then triggers the 'change' event for that element.
+  /// A stored JavaScript which validates a collection of arguments passed as an array.
   /// </summary>
-  public class SetAnElementValue : ScriptResource
+  public class ArgumentsArrayValidator : ScriptResource
   {
-    readonly ScriptResource argsValidator;
+    const string EntryPointNameConst = "validateArgumentsArray";
+
+    /// <summary>
+    /// Gets the name of the entry point for this script (which differs from the default).
+    /// </summary>
+    /// <value>The name of the entry point.</value>
+    public static string EntryPointName => EntryPointNameConst;
 
     /// <summary>
     /// Gets the name of this script.
     /// </summary>
     /// <value>The name.</value>
-    public override string Name => "a JavaScript to set the value of an HTML element";
+    public override string Name => "a JavaScript which validates function arguments arrays";
 
     /// <summary>
-    /// Gets a collection of scripts which the current script instance depends upon.
+    /// Gets the name of the entry point to the script - this is the function exposed by
+    /// <see cref="M:CSF.Screenplay.Selenium.StoredScripts.IProvidesScript.GetScript" />.
     /// </summary>
-    /// <returns>The dependencies.</returns>
-    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.SetAnElementValue"/> class.
-    /// </summary>
-    public SetAnElementValue() : this(null) {}
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.SetAnElementValue"/> class.
-    /// </summary>
-    /// <param name="argsValidator">Arguments validator.</param>
-    public SetAnElementValue(ScriptResource argsValidator)
-    {
-      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
-    }
+    /// <returns>The name of the entry point function.</returns>
+    public override string GetEntryPointName() => EntryPointName;
   }
 }

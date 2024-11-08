@@ -1,5 +1,5 @@
 ﻿//
-// GetALocalisedDate.cs
+// ScreenshotSaver.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,41 +24,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using CSF.Screenplay.Selenium.StoredScripts;
+using System.IO;
+using CSF.IO;
+using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.ScriptResources
+namespace CSF.Screenplay.Selenium.Screenshots
 {
   /// <summary>
-  /// Script resource for getting a localised date string
+  /// Default implementation of <see cref="ISavesScreenshotsToFile"/>.
   /// </summary>
-  public class GetALocalisedDate : ScriptResource
+  public class ScreenshotSaver : ISavesScreenshotsToFile
   {
-    readonly ScriptResource argsValidator;
-
     /// <summary>
-    /// Gets the name of this script.
+    /// Saves the screenshot to the given file location.
     /// </summary>
-    /// <value>The name.</value>
-    public override string Name => "a JavaScript which converts a date to a locale-formatted string";
-
-    /// <summary>
-    /// Gets a collection of scripts which the current script instance depends upon.
-    /// </summary>
-    /// <returns>The dependencies.</returns>
-    protected override ScriptResource[] GetDependencies() => new [] { argsValidator };
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    public GetALocalisedDate() : this(null) {}
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.ScriptResources.GetALocalisedDate"/> class.
-    /// </summary>
-    /// <param name="argsValidator">Arguments validator.</param>
-    public GetALocalisedDate(ScriptResource argsValidator)
+    /// <param name="screenshot">Screenshot.</param>
+    /// <param name="file">File.</param>
+    public void Save(Screenshot screenshot, FileInfo file)
     {
-      this.argsValidator = argsValidator ?? new ArgumentsArrayValidator();
+      if(screenshot == null)
+        throw new ArgumentNullException(nameof(screenshot));
+      if(file == null)
+        throw new ArgumentNullException(nameof(file));
+
+      file.Directory.CreateRecursively();
+      screenshot.SaveAsFile(file.FullName, ScreenshotImageFormat.Png);
     }
   }
 }

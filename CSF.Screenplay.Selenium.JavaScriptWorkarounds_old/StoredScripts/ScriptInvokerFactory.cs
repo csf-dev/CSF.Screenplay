@@ -1,5 +1,5 @@
 ﻿//
-// ScreenshotSaver.cs
+// ArgumentsArrayConverter.cs
 //
 // Author:
 //       Craig Fowler <craig@csf-dev.com>
@@ -24,31 +24,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.IO;
-using CSF.IO;
-using OpenQA.Selenium;
-
-namespace CSF.Screenplay.Selenium.Screenshots
+namespace CSF.Screenplay.Selenium.StoredScripts
 {
   /// <summary>
-  /// Default implementation of <see cref="ISavesScreenshotsToFile"/>.
+  /// A special stored JavaScript which is used to invoke other JavaScripts.
   /// </summary>
-  public class ScreenshotSaver : ISavesScreenshotsToFile
+  public class ScriptInvokerFactory : ICreatesInvocationScript
   {
-    /// <summary>
-    /// Saves the screenshot to the given file location.
-    /// </summary>
-    /// <param name="screenshot">Screenshot.</param>
-    /// <param name="file">File.</param>
-    public void Save(Screenshot screenshot, FileInfo file)
-    {
-      if(screenshot == null)
-        throw new ArgumentNullException(nameof(screenshot));
-      if(file == null)
-        throw new ArgumentNullException(nameof(file));
+    readonly ScriptResourceLoader loader;
 
-      file.Directory.CreateRecursively();
-      screenshot.SaveAsFile(file.FullName, ScreenshotImageFormat.Png);
+    /// <summary>
+    /// Gets an invocation script for the given entry point name.
+    /// </summary>
+    /// <returns>The invocation script.</returns>
+    /// <param name="entryPoint">The name of the entry point which should be invoked.</param>
+    public string GetScript(string entryPoint)
+    {
+      var invokerService = loader.GetScriptFor<ScriptInvokerFactory>();
+      var invocationLine = GetInvocationLine(entryPoint);
+
+      return String.Concat(invokerService, Environment.NewLine, invocationLine);
+    }
+
+    string GetInvocationLine(string entryPoint)
+      => $"return invoker.invoke({entryPoint}, arguments);";
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:CSF.Screenplay.Selenium.StoredScripts.ScriptInvoker"/> class.
+    /// </summary>
+    public ScriptInvokerFactory()
+    {
+      loader = new ScriptResourceLoader();
     }
   }
 }
