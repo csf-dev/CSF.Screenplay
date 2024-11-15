@@ -80,6 +80,42 @@ namespace CSF.Screenplay
                 ?? throw new InvalidOperationException($"{((IHasName) actor).Name} must have an ability of type {abilityType.FullName}");
         }
 
+        /// <summary>Tries to get the first ability which the actor has of the specified type</summary>
+        /// <param name="actor">The actor from whom to get the ability</param>
+        /// <param name="ability">If this method returns <see langword="true" /> then this exposes the strongly-typed ability; if not then this value is undefined</param>
+        /// <typeparam name="T">The type of ability desired</typeparam>
+        /// <returns><see langword="true" /> if the actor has an ability of the specified type; <see langword="false" /> if not.</returns>
+        /// <exception cref="ArgumentNullException">If the <paramref name="actor"/> is <see langword="null" /></exception>
+        /// <exception cref="ArgumentException">If the actor does not implement <see cref="IHasAbilities"/></exception>
+        public static bool TryGetAbility<T>(this ICanPerform actor, out T ability)
+        {
+            ability = default;
+            if (!TryGetAbility(actor, typeof(T), out var untypedAbility)) return false;
+            ability = (T) untypedAbility;
+            return true;
+        }
+
+        /// <summary>Gets the first ability which the actor has of the specified type</summary>
+        /// <param name="actor">The actor from whom to get the ability</param>
+        /// <param name="abilityType">The type of ability desired</param>
+        /// <param name="ability">If this method returns <see langword="true" /> then this exposes the strongly-typed ability; if not then this value is undefined</param>
+        /// <returns><see langword="true" /> if the actor has an ability of the specified type; <see langword="false" /> if not.</returns>
+        /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" /></exception>
+        public static bool TryGetAbility(this ICanPerform actor, Type abilityType, out object ability)
+        {
+            if(actor is null) throw new ArgumentNullException(nameof(actor));
+            if(abilityType is null) throw new ArgumentNullException(nameof(abilityType));
+
+            if(!actor.HasAbility(abilityType))
+            {
+                ability = default;
+                return false;
+            }
+
+            ability = actor.GetAbility(abilityType);
+            return true;
+        }
+
         /// <summary>Adds an ability to the specified actor</summary>
         /// <param name="actor">The actor from whom to get the ability</param>
         /// <param name="ability">The ability to add to the actor</param>
