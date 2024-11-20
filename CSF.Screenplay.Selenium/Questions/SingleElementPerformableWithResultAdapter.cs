@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Selenium.Elements;
 
-namespace CSF.Screenplay.Selenium.Actions
+namespace CSF.Screenplay.Selenium.Questions
 {
     /// <summary>
     /// Adapter class which allows a <see cref="ISingleElementPerformableWithResult{TResult}"/> to be used as an <see cref="IPerformableWithResult{TResult}"/>.

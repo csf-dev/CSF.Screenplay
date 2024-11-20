@@ -1,10 +1,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
 
-namespace CSF.Screenplay.Selenium.Actions
+namespace CSF.Screenplay.Selenium.Questions
 {
     /// <summary>
     /// Similar to <see cref="IPerformableWithResult{TResult}"/> but provides access to a Selenium WebDriver and a Selenium element.

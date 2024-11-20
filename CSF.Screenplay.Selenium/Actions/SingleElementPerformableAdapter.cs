@@ -48,5 +48,14 @@ namespace CSF.Screenplay.Selenium.Actions
             this.performable = performable ?? throw new ArgumentNullException(nameof(performable));
             this.target = target ?? throw new ArgumentNullException(nameof(target));
         }
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="SingleElementPerformableAdapter"/> class with the specified performable and target.
+        /// </summary>
+        /// <param name="performable">The performable to be adapted.</param>
+        /// <param name="target">The target element for the performable.</param>
+        /// <returns>A new instance of <see cref="SingleElementPerformableAdapter"/>.</returns>
+        public static IPerformable From(ISingleElementPerformable performable, ITarget target)
+            => new SingleElementPerformableAdapter(performable, target);
     }
 }

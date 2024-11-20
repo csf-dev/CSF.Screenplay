@@ -79,6 +79,9 @@ namespace CSF.Screenplay
         /// If this property is set to <see langword="null" />, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
         /// will be disabled and no report will be written.
         /// </para>
+        /// <para>
+        /// At runtime, do not read this value directly; instead use an implementation of <see cref="IGetsReportPath"/> service to get the report path.
+        /// </para>
         /// </remarks>
         public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture)}.json";
 
