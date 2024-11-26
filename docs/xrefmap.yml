@@ -4,6 +4,9 @@ references:
 - uid: AbilityGlossaryItem
   name: Ability
   href: glossary/Ability.html
+- uid: AssetGlossaryItem
+  name: Asset
+  href: glossary/Asset.html
 - uid: BuilderPatternMainArticle
   name: The builder pattern
   href: docs/builderPattern/index.html

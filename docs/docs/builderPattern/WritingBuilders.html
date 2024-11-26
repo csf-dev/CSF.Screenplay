@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Writing builders | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Writing builders | Screenplay docs ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/builderPattern/WritingBuilders.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="writing-builders">Writing builders</h1>
+
+<p>The first step toward writing builders for Screenplay <a href="../../glossary/Performable.html">Performables</a> is to create a <code>static</code> class.
+This static class will act as the entry point to building performables and is typically consumed via <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#the-static-modifier">a <code>using static</code> directive</a>.</p>
+<p>Such a class may have many methods, each representing a different use case.
+Normally, it would be bad practice to fill a class with a large number of methods.
+Because (as shown below) the methods tend to be very short - typically only one line - and because of the convenience, consider using one static class for all related builders/performables in a logical package.</p>
+<h2 id="performables-with-no-parameters">Performables with no parameters</h2>
+<p>To build a performable which requires no parameters, only the static method is required.
+Here is an example for a fictitious <code>MakeACupOfTea</code> performable.</p>
+<pre><code class="lang-csharp">public static IPerformble MakeTheTea()
+    =&gt; new MakeACupOfTea();
+</code></pre>
+<p>Substitute the performable interface (the return type) as applicable.</p>
+<h2 id="performables-with-one-parameter">Performables with one parameter</h2>
+<p>If a performable requires one constructor-injected parameter then it is often possible to work this into the method name of a simple static method, similar to above.
+Consider this fictitious example.</p>
+<pre><code class="lang-csharp">public static IPerformble MakeACupOf(string hotDrink)
+    =&gt; new MakeACupOfHotDrink(hotDrink);
+</code></pre>
+<p>This might be consumed as <code>MakeACupOf(&quot;Coffee&quot;)</code>, for example.
+This is still very readable.</p>
+<h2 id="performables-with-many-parameters">Performables with many parameters</h2>
+<p>Where it comes to performables which have more than one parameter then it is often best for the static entry point method to instead return a specialised builder for that performable.
+That specialised builder type exposes further methods which may be used to provide the other parameters in a human-readable manner.</p>
+<p>Particularly if one or more of the parameters is optional, consider writing <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators">an implicit conversion operator overload</a> for your specialised builder type, to the appropriate performable interface.
+Such an operator would allow the use of the builder to get the performable without needing an explicit <code>.Build()</code> method.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Beware of <a href="../writingPerformables/ParameterizeLowLevelPerformables.html">writing performables with too many parameters</a>; this can make them difficult to consume.
+Consider writing high-level performables with fewer parameters, representing actual use cases.</p>
+</div>
+<h3 id="example">Example</h3>
+<p>Here is an example of a fictitious builder.</p>
+<pre><code class="lang-csharp">public class MakeAHotDrinkBuilder
+{
+  readonly string drinkType;
+  string whitener;
+  int sugars;
+
+  public MakeAHotDrinkBuilder WithMilk()
+  {
+    whitener = &quot;Milk&quot;;
+    return this;
+  }
+  
+  public MakeAHotDrinkBuilder WithCream()
+  {
+    whitener = &quot;Cream&quot;;
+    return this;
+  }
+
+  public MakeAHotDrinkBuilder WithSugars(int howMany)
+  {
+    sugars = howMany;
+    return this;
+  }
+
+  public static implicit operator MakeACupOfHotDrink(MakeAHotDrinkBuilder builder) =&gt; new MakeACupOfHotDrink(builder.drinkType, builder.whitener, sugars);
+}
+
+// Separately, in a static entry-point class: 
+public static MakeAHotDrinkBuilder MakeACupOf(string drinkType)
+  =&gt; new MakeAHotDrinkBuilder(drinkType);
+</code></pre>
+<p>The above example might be consumed from a <a href="../../glossary/Task.html">Task</a> in the following manner:</p>
+<pre><code class="lang-csharp">await actor.PerformAsync(MakeACupOf(&quot;Tea&quot;).WithMilk().WithSugars(2));
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/builderPattern/WritingBuilders.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
