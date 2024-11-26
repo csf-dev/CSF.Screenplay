@@ -16,7 +16,7 @@
       ],
       "dest": "api",
       "properties": {
-        "ProduceReferenceAssembly": true
+        "ProduceReferenceAssembly": "true"
       }
     }
   ],
