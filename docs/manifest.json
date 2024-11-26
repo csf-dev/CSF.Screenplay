@@ -1525,6 +1525,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/builderPattern/ConsumingBuilders.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/builderPattern/ConsumingBuilders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/builderPattern/WritingBuilders.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/builderPattern/WritingBuilders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/builderPattern/index.md",
       "output": {
         ".html": {
@@ -1845,6 +1865,16 @@
       "output": {
         ".html": {
           "relative_path": "glossary/Action.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "glossary/Asset.md",
+      "output": {
+        ".html": {
+          "relative_path": "glossary/Asset.html"
         }
       },
       "version": ""
