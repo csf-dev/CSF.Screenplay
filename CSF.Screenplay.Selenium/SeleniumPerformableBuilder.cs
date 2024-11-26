@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
 using CSF.Screenplay.Selenium.Tasks;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Events;
 
 namespace CSF.Screenplay.Selenium
 {
@@ -39,9 +41,30 @@ namespace CSF.Screenplay.Selenium
         /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot(string)"/>
         /// instead of this method.
         /// </para>
+        /// <para>
+        /// This method will raise an exception if the WebDriver is not capable of taking screenshots. If you want to avoid this, consider
+        /// using <see cref="TakeAScreenshotIfSupported"/> instead.
+        /// </para>
         /// </remarks>
         /// <returns>A performable</returns>
         public static IPerformableWithResult<Screenshot> TakeAScreenshot() => new TakeScreenshot();
+
+        /// <summary>
+        /// Gets a performable question which takes a screenshot of the current web page and returns it, if the WebDriver is capable of doing so.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot(string)"/>
+        /// instead of this method.
+        /// </para>
+        /// <para>
+        /// This method will not raise an exception if the WebDriver is not capable of taking screenshots.  Instead, it will return a value task
+        /// of <see langword="null" />. If you wish to use a performable which will raise an exception if the WebDriver is not capable of taking
+        /// screenshots, consider using <see cref="TakeAScreenshot"/> instead.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable</returns>
+        public static IPerformableWithResult<Screenshot> TakeAScreenshotIfSupported() => new TakeScreenshot(false);
 
         /// <summary>
         /// Gets a performable action which saves a screenshot to a file.
@@ -68,10 +91,32 @@ namespace CSF.Screenplay.Selenium
         /// This method may be used to specify a short name for the screenshot.
         /// This allows it to be quickly identified in the report.
         /// </para>
+        /// <para>
+        /// This method will raise an exception if the WebDriver is not capable of taking screenshots. If you want to avoid this, consider
+        /// using <see cref="TakeAndSaveAScreenshotIfSupported"/> instead.
+        /// </para>
         /// </remarks>
         /// <param name="name">A short name to identify the Screenshot when it is saved as a file</param>
         /// <returns>A performable</returns>
         public static IPerformable TakeAndSaveAScreenshot(string name = null) => new TakeAndSaveScreenshot(name);
+
+        /// <summary>
+        /// Gets a performable taek which takes a screenshot and saves it to a file, using an optional short name.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method may be used to specify a short name for the screenshot.
+        /// This allows it to be quickly identified in the report.
+        /// </para>
+        /// <para>
+        /// This method will not raise an exception if the WebDriver is not capable of taking screenshots.  Instead, it will do nothing.
+        /// If you wish to use a performable which will raise an exception if the WebDriver is not capable of taking
+        /// screenshots, consider using <see cref="TakeAndSaveAScreenshot"/> instead.
+        /// </para>
+        /// </remarks>
+        /// <param name="name">A short name to identify the Screenshot when it is saved as a file</param>
+        /// <returns>A performable</returns>
+        public static IPerformable TakeAndSaveAScreenshotIfSupported(string name = null) => new TakeAndSaveScreenshot(name, false);
 
         /// <summary>
         /// Gets a performable action which represents an actor clicking on a specified target element.
@@ -207,5 +252,80 @@ namespace CSF.Screenplay.Selenium
         /// <returns>A builder by which a target element is chosen</returns>
         public static FromTargetActionBuilder SelectTheOptionWithValue(string optionValue)
             => new FromTargetActionBuilder(new SelectByValue(optionValue));
+
+        /// <summary>
+        /// Gets a performable action which clears all cookies for the current domain.
+        /// </summary>
+        /// <returns>A performable action</returns>
+        public static IPerformable ClearAllDomainCookies() => new ClearCookies();
+
+        /// <summary>
+        /// Gets a performable action which deletes a single named cookie.
+        /// </summary>
+        /// <returns>A performable action</returns>
+        public static IPerformable DeleteTheCookieNamed(string cookieName) => new DeleteTheCookie(cookieName);
+
+        /// <summary>
+        /// Gets a performable action which clears the local storage for the current domain.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method gets a performable which will throw an exception if the WebDriver does not support HTML5 Web Storage.
+        /// To avoid this, consider using <see cref="ClearLocalStorageIfSupported"/> instead.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable action</returns>
+        public static IPerformable ClearLocalStorage() => new ClearLocalStorage();
+
+        /// <summary>
+        /// Gets a performable action which clears the local storage for the current domain if the WebDriver supports it.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method gets a performable which will do nothing if the WebDriver does not support HTML5 Web Storage.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable action</returns>
+        public static IPerformable ClearLocalStorageIfSupported() => new ClearLocalStorage(false);
+
+        /// <summary>
+        /// Gets a performable action which clears the contents of the specified target element.
+        /// </summary>
+        /// <param name="target">The target element whose contents will be cleared.</param>
+        /// <returns>A performable action</returns>
+        public static IPerformable ClearTheContentsOf(ITarget target) => SingleElementPerformableAdapter.From(new ClearTheContents(), target);
+
+        /// <summary>
+        /// Gets a builder which may be used to create a performable action which finds a collection of elements within a specified target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If you only want to find elements within the <c>&lt;body&gt;</c> element of the page, consider using <see cref="FindElementsInThePageBody"/>
+        /// instead.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target within which to find HTML elements</param>
+        /// <returns>A builder, which may be used to configure/get a question that finds elements</returns>
+        public static FindElementsBuilder FindElementsWithin(ITarget target) => new FindElementsBuilder(target);
+
+        /// <summary>
+        /// Gets a builder which may be used to create a performable action which finds a collection of elements within the body of the page.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If you want to find elements which are descendents of a specified target, consider using <see cref="FindElementsWithin(ITarget)"/>
+        /// instead.
+        /// </para>
+        /// </remarks>
+        /// <returns>A builder, which may be used to configure/get a question that finds elements</returns>
+        public static FindElementsBuilder FindElementsInThePageBody() => new FindElementsBuilder(CssSelector.BodyElement);
+
+        /// <summary>
+        /// Gets a builder which may be used to create a performable question which filters a collection of elements for those which match a specification.
+        /// </summary>
+        /// <param name="elements">The collection of elements to filter.</param>
+        /// <returns>A builder with which consuming logic must provide a specification.</returns>
+        public static FilterElementsBuilder FilterTheElements(IReadOnlyCollection<SeleniumElement> elements)
+            => new FilterElementsBuilder(elements);
     }
 }

@@ -9,6 +9,26 @@ namespace CSF.Screenplay.Selenium.Elements
     {
         const string defaultNameFormat = "element(s) matching the selector '{0}'";
 
+        /// <summary>
+        /// Gets a CSS-based locator which matches all/any descendent elements.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This locator is equivalent to the CSS selector <c>*</c>, which matches any &amp; all descendent elements.
+        /// </para>
+        /// </remarks>
+        public static readonly CssSelector AnyElement = new CssSelector("*", "any element");
+
+        /// <summary>
+        /// Gets a CSS-based locator which matches the HTML <c>body</c> element.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This locator is equivalent to the CSS selector <c>body</c>, which matches the root of the rendered page.
+        /// </para>
+        /// </remarks>
+        public static readonly CssSelector BodyElement = new CssSelector("body", "the page body");
+
         /// <inheritdoc/>
         public override By GetLocator() => By.CssSelector(Specification);
 

@@ -13,8 +13,8 @@ namespace CSF.Screenplay.Selenium.Questions
         /// <typeparam name="TResult">The type of the result.</typeparam>
         /// <param name="performable">The performable to be adapted.</param>
         /// <param name="target">The target element for the performable.</param>
-        /// <returns>A new instance of <see cref="IPerformableWithResult{TResult}"/>.</returns>
-        public static IPerformableWithResult<TResult> From<TResult>(ISingleElementPerformableWithResult<TResult> performable, ITarget target)
+        /// <returns>A new instance of <see cref="SingleElementPerformableWithResultAdapter{TResult}"/>.</returns>
+        public static SingleElementPerformableWithResultAdapter<TResult> From<TResult>(ISingleElementPerformableWithResult<TResult> performable, ITarget target)
             => new SingleElementPerformableWithResultAdapter<TResult>(performable, target);
     }
 }

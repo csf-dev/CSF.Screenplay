@@ -81,5 +81,12 @@ namespace CSF.Screenplay.Selenium.Elements
             Specification = specification;
             this.name = name;
         }
+
+        /// <summary>
+        /// Implicitly converts a <see cref="Locator"/> to a Selenium <see cref="By"/> object.
+        /// </summary>
+        /// <param name="locator">The locator to convert.</param>
+        /// <returns>A Selenium <see cref="By"/> object.</returns>
+        public static implicit operator By(Locator locator) => locator.GetLocator();
     }
 }

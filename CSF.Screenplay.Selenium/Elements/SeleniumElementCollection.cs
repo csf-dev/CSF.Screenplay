@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// </remarks>
     public class SeleniumElementCollection : ITarget, IHasName, IReadOnlyList<SeleniumElement>
     {
-        const string unknownNameFormat = "a collection of {0} HTML element(s)";
+        internal const string UnknownNameFormat = "a collection of {0} HTML element(s)";
 
         readonly IList<SeleniumElement> elements;
 
@@ -57,7 +57,7 @@ namespace CSF.Screenplay.Selenium.Elements
             if(elements.Any(x => x is null)) throw new ArgumentException("The collection of elements must not contain any null references.", nameof(elements));
 
             this.elements = elements;
-            Name = name ?? string.Format(unknownNameFormat, elements.Count);
+            Name = name ?? string.Format(UnknownNameFormat, elements.Count);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace CSF.Screenplay.Selenium.Elements
             if(elements.Any(x => x is null)) throw new ArgumentException("The collection of elements must not contain any null references.", nameof(elements));
 
             this.elements = elements.Select(x => new SeleniumElement(x)).ToList();
-            Name = name ?? string.Format(unknownNameFormat, elements.Count);
+            Name = name ?? string.Format(UnknownNameFormat, elements.Count);
         }
     }
 }

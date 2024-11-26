@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Selenium.Actions
         /// <param name="performable">The performable to be adapted.</param>
         /// <param name="target">The target element for the performable.</param>
         /// <returns>A new instance of <see cref="SingleElementPerformableAdapter"/>.</returns>
-        public static IPerformable From(ISingleElementPerformable performable, ITarget target)
+        public static SingleElementPerformableAdapter From(ISingleElementPerformable performable, ITarget target)
             => new SingleElementPerformableAdapter(performable, target);
     }
 }

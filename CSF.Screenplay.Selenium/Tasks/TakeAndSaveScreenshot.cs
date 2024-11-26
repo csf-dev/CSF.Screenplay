@@ -1,5 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Performables;
+using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks
@@ -19,6 +21,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     public class TakeAndSaveScreenshot : IPerformable, ICanReport
     {
         readonly string name;
+        readonly bool throwIfUnsupported;
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
@@ -27,17 +30,23 @@ namespace CSF.Screenplay.Selenium.Tasks
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            var screenshot = await actor.PerformAsync(TakeAScreenshot());
-            await actor.PerformAsync(SaveTheScreenshot(screenshot).WithTheName(name));
+            var screenshot = await actor.PerformAsync(GetTakeAScreenshotPerformable(), cancellationToken);
+            if(screenshot == null) return;
+            await actor.PerformAsync(SaveTheScreenshot(screenshot).WithTheName(name), cancellationToken);
         }
+
+        IPerformableWithResult<Screenshot> GetTakeAScreenshotPerformable()
+            => throwIfUnsupported ? TakeAScreenshot() : TakeAScreenshotIfSupported();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TakeAndSaveScreenshot"/> class.
         /// </summary>
         /// <param name="name">The name of the screenshot.</param>
-        public TakeAndSaveScreenshot(string name = null)
+        /// <param name="throwIfUnsupported">If set to <c>true</c>, throws an exception if the WebDriver does not support taking screenshots.</param>
+        public TakeAndSaveScreenshot(string name = null, bool throwIfUnsupported = true)
         {
             this.name = name ?? "screenshot";
+            this.throwIfUnsupported = throwIfUnsupported;
         }
     }
 }
