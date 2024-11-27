@@ -7,6 +7,9 @@
     <NoWarn>NU1903,NU1902</NoWarn>
     <RootNamespace>CSF.Screenplay.JsonToHtmlReport</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <!-- It's true that netcoreapp3.1 is already long out of support and net6.0 will be soon, but these are only here for backwards compatibility.
+         This project is multi-targeted and includes up-to-date TFMs -->
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

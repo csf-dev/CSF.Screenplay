@@ -1,12 +1,11 @@
-using System;
 using System.Collections.Generic;
+using System.Threading;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
 using CSF.Screenplay.Selenium.Tasks;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Events;
 
 namespace CSF.Screenplay.Selenium
 {
@@ -323,8 +322,26 @@ namespace CSF.Screenplay.Selenium
         /// <summary>
         /// Gets a builder which may be used to create a performable question which filters a collection of elements for those which match a specification.
         /// </summary>
+        /// <example>
+        /// <para>
+        /// Here is a sample usage which combines both the <see cref="FilterSpecificationBuilder"/> and <see cref="FilterElementsBuilder"/> classes:
+        /// </para>
+        /// <code>
+        /// using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
+        /// using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;
+        /// 
+        /// await actor.PerformAsync(FilterTheElements(someElements).ForThoseWhichAre(Clickable(x => x).And(TheText(x => x == "Buy now")), cancellationToken);
+        /// </code>
+        /// <para>
+        /// The code sample above assumes that <c>actor</c> is an instance of <see cref="ICanPerform"/>, that <c>someElements</c> is a collection
+        /// of <see cref="SeleniumElement"/> instances, and that <c>cancellationToken</c> is a <see cref="CancellationToken"/> instance.
+        /// It would filter the elements in <c>someElements</c> to only those which are clickable and have the text "Buy now".
+        /// </para>
+        /// </example>
         /// <param name="elements">The collection of elements to filter.</param>
         /// <returns>A builder with which consuming logic must provide a specification.</returns>
+        /// <seealso cref="FilterElementsBuilder"/>
+        /// <seealso cref="FilterSpecificationBuilder"/>
         public static FilterElementsBuilder FilterTheElements(IReadOnlyCollection<SeleniumElement> elements)
             => new FilterElementsBuilder(elements);
     }

@@ -1,5 +1,6 @@
 using System;
 using CSF.Screenplay.Selenium.Elements;
+using CSF.Screenplay.Selenium.Questions;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
