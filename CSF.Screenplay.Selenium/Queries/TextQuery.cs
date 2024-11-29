@@ -12,6 +12,9 @@ namespace CSF.Screenplay.Selenium.Queries
     public class TextQuery : IQuery<string>
     {
         /// <inheritdoc/>
+        public string Name => $"the contained text";
+
+        /// <inheritdoc/>
         public string GetValue(SeleniumElement element) => element.WebElement.Text;
     }
 }

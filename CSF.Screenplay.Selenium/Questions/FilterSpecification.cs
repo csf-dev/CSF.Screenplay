@@ -8,6 +8,12 @@ namespace CSF.Screenplay.Selenium.Questions
     /// <summary>
     /// A specification class which matches elements based upon the value of a query and a specification for that value.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This class is intended for use alongside the <see cref="FilterElements"/> question.  It is used to specify the
+    /// filtering criteria by which a collection of <see cref="SeleniumElement"/> should be filtered.
+    /// </para>
+    /// </remarks>
     public class FilterSpecification<T> : ISpecificationFunction<SeleniumElement>
     {
         readonly IQuery<T> query;

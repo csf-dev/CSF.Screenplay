@@ -13,6 +13,9 @@ namespace CSF.Screenplay.Selenium.Queries
     public class VisibilityQuery : IQuery<bool>
     {
         /// <inheritdoc/>
+        public string Name => $"whether the element is visible";
+
+        /// <inheritdoc/>
         public bool GetValue(SeleniumElement element) => element.WebElement.Displayed;
     }
 }

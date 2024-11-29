@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace CSF.Screenplay.Selenium.Elements
 {

@@ -10,6 +10,15 @@ namespace CSF.Screenplay.Selenium.Questions
     /// <summary>
     /// A performable question which filters a collection of elements by specified criteria.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Note that this question is evaluated with an already-in-memory collection of <see cref="SeleniumElement"/>.
+    /// It does not interact with the web browser/web driver directly.
+    /// This could lead to unexpected impacts upon performance.
+    /// If you are able to find the elements you want using an implementation of <see cref="Locator"/>, then prefer
+    /// using <see cref="FindElements"/> instead, which will query the web driver directly for only the elements you want.
+    /// </para>
+    /// </remarks>
     public class FilterElements : IPerformableWithResult<SeleniumElementCollection>, ICanReport
     {
         readonly IReadOnlyCollection<SeleniumElement> elements;

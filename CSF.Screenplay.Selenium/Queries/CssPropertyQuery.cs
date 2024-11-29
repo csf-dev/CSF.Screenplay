@@ -11,6 +11,9 @@ namespace CSF.Screenplay.Selenium.Queries
         readonly string propertyName;
 
         /// <inheritdoc/>
+        public string Name => $"the value of the '{propertyName}' CSS property";
+
+        /// <inheritdoc/>
         public string GetValue(SeleniumElement element) => element.WebElement.GetCssValue(propertyName);
 
         /// <summary>

@@ -24,6 +24,16 @@ namespace CSF.Screenplay.Selenium.Queries
         readonly bool excludeUnselectedOptions;
 
         /// <inheritdoc/>
+        public string Name
+        {
+            get {
+                if(excludeSelectedOptions) return "the unselected options";
+                if(excludeUnselectedOptions) return "the selected options";
+                return "all options";
+            }
+        }
+
+        /// <inheritdoc/>
         public IReadOnlyList<Option> GetValue(SeleniumElement element)
         {
             var allOptions = element.WebElement.FindElements(options).ToList();

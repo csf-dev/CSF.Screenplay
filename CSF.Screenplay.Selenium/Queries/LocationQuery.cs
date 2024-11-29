@@ -9,6 +9,9 @@ namespace CSF.Screenplay.Selenium.Queries
     public class LocationQuery : IQuery<Point>
     {
         /// <inheritdoc/>
+        public string Name => $"the location of the topleft corner of the element";
+
+        /// <inheritdoc/>
         public Point GetValue(SeleniumElement element) => element.WebElement.Location;
     }
 }

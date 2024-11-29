@@ -22,6 +22,7 @@ namespace CSF.Screenplay.Selenium.Questions
     {
         readonly ISingleElementPerformableWithResult<TResult> performable;
         readonly ITarget target;
+        readonly bool doNotThrowOnMissingElement;
         Lazy<SeleniumElement> lazyElement;
 
         /// <inheritdoc/>
@@ -34,8 +35,15 @@ namespace CSF.Screenplay.Selenium.Questions
         /// <inheritdoc/>
         public ValueTask<TResult> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
+            try
+            {
             lazyElement = lazyElement ?? actor.GetLazyElement(target);
             return performable.PerformAsAsync(actor, actor.GetAbility<BrowseTheWeb>().WebDriver, lazyElement, cancellationToken);
+            }
+            catch(TargetNotFoundException) when(doNotThrowOnMissingElement)
+            {
+                return new ValueTask<TResult>(default(TResult));
+            }
         }
 
         /// <summary>
@@ -43,10 +51,12 @@ namespace CSF.Screenplay.Selenium.Questions
         /// </summary>
         /// <param name="performable">The performable to be adapted.</param>
         /// <param name="target">The target element for the performable.</param>
-        public SingleElementPerformableWithResultAdapter(ISingleElementPerformableWithResult<TResult> performable, ITarget target)
+        /// <param name="doNotThrowOnMissingElement">If set to <see langword="true" /> then this performable will not throw an exception when the element does not exist.</param>
+        public SingleElementPerformableWithResultAdapter(ISingleElementPerformableWithResult<TResult> performable, ITarget target, bool doNotThrowOnMissingElement = false)
         {
             this.performable = performable ?? throw new ArgumentNullException(nameof(performable));
             this.target = target ?? throw new ArgumentNullException(nameof(target));
+            this.doNotThrowOnMissingElement = doNotThrowOnMissingElement;
         }
     }
 }

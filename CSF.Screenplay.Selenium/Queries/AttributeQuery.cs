@@ -11,6 +11,9 @@ namespace CSF.Screenplay.Selenium.Queries
         readonly string attributeName;
 
         /// <inheritdoc/>
+        public string Name => $"the value of the '{attributeName}' attribute";
+
+        /// <inheritdoc/>
         public string GetValue(SeleniumElement element) => element.WebElement.GetAttribute(attributeName);
 
         /// <summary>

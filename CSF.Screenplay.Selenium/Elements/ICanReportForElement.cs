@@ -1,8 +1,8 @@
 using System;
-using CSF.Screenplay.Selenium.Elements;
+using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Questions;
 
-namespace CSF.Screenplay.Selenium.Actions
+namespace CSF.Screenplay.Selenium.Elements
 {
     /// <summary>
     /// Similar to <see cref="ICanReport"/> but provides access to a Selenium element to augment the report data.

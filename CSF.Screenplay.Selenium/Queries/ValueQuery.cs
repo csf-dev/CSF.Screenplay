@@ -10,6 +10,9 @@ namespace CSF.Screenplay.Selenium.Queries
         internal const string ValueAttribute = "value";
 
         /// <inheritdoc/>
+        public string Name => $"the element's value";
+
+        /// <inheritdoc/>
         public string GetValue(SeleniumElement element) => element.WebElement.GetAttribute(ValueAttribute);
     }
 }

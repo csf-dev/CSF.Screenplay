@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Queries
     /// </para>
     /// </remarks>
     /// <typeparam name="T">The type of the value returned.</typeparam>
-    public interface IQuery<out T>
+    public interface IQuery<out T> : IHasName
     {
         /// <summary>
         /// Gets the current value from a Selenium element.

@@ -8,6 +8,9 @@ namespace CSF.Screenplay.Selenium.Queries
     public class ClickableQuery : IQuery<bool>
     {
         /// <inheritdoc/>
+        public string Name => "whether the element is clickable";
+
+        /// <inheritdoc/>
         public bool GetValue(SeleniumElement element) => element.WebElement.Displayed && element.WebElement.Enabled;
     }
 }
