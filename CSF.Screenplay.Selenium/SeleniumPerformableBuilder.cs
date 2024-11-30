@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
@@ -157,7 +158,7 @@ namespace CSF.Screenplay.Selenium
         public static IPerformable ClearLocalStorageIfSupported() => new ClearLocalStorage(false);
 
         /// <summary>
-        /// Gets a builder which will create a performable action that waits until a predicate returns a successful result.
+        /// Gets a builder which will create a performable question that waits until a predicate returns a successful result.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -179,6 +180,19 @@ namespace CSF.Screenplay.Selenium
         /// <exception cref="ArgumentNullException">Thrown if the predicate is null.</exception>
         /// <exception cref="ArgumentException">Thrown if the result type of the predicate is a value type other than boolean.</exception>
         public static WaitBuilder<T> WaitUntil<T>(Func<IWebDriver,T> predicate) => new WaitBuilder<T>(predicate);
+
+        /// <summary>
+        /// Gets a performable action that waits for a specified amount of time.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This kind of wait waits for a specified time.  If you want to wait until a condition is met, consider using
+        /// <see cref="WaitUntil{T}(Func{IWebDriver, T})"/> instead.
+        /// </para>
+        /// </remarks>
+        /// <param name="duration">The duration for which to wait.</param>
+        /// <returns>A performable action.</returns>
+        public static WaitForSomeTime WaitFor(TimeSpan duration) => new WaitForSomeTime(duration);
 
 #endregion
 
