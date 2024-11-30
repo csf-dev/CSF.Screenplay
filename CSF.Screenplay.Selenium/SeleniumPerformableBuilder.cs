@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using CSF.Screenplay.Selenium.Actions;
@@ -154,6 +155,30 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <returns>A performable action</returns>
         public static IPerformable ClearLocalStorageIfSupported() => new ClearLocalStorage(false);
+
+        /// <summary>
+        /// Gets a builder which will create a performable action that waits until a predicate returns a successful result.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The prupose of waiting in this manner is to wait for something to happen on the web page, such as an element being present, or
+        /// having content that matches a specification.
+        /// </para>
+        /// <para>
+        /// The builder object returned by this method has a number of optional configuration methods. Of these, consumers are
+        /// strongly encouraged to use <see cref="WaitBuilder{T}.Named(string)"/> to give the wait action a short, descriptive name which will
+        /// appear in reports.
+        /// </para>
+        /// <para>
+        /// Take note that it is very normal for the <paramref name="predicate"/> to make use of closures to access elements from outside its own
+        /// scope. For example, the predicate function may refer to an element which is referenced by a variable in the calling method.
+        /// </para>
+        /// </remarks>
+        /// <param name="predicate">A predicate which, when it returns a successful result, the wait is over.</param>
+        /// <returns>A builder for creating a wait action.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if the predicate is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the result type of the predicate is a value type other than boolean.</exception>
+        public static WaitBuilder<T> WaitUntil<T>(Func<IWebDriver,T> predicate) => new WaitBuilder<T>(predicate);
 
 #endregion
 
