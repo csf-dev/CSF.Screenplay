@@ -43,7 +43,7 @@ namespace CSF.Screenplay.Selenium.Queries
             if(excludeUnselectedOptions)
                 allOptions = allOptions.Where(x => x.Selected == true).ToList();
 
-            return allOptions.Select(x => new Option(x.Text, x.GetAttribute(ValueQuery.ValueAttribute))).ToList();
+            return allOptions.Select(x => new Option(x.Text, x.GetDomProperty(ValueQuery.ValueProperty))).ToList();
         }
 
         /// <summary>

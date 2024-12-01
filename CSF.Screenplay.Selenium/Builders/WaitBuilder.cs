@@ -102,7 +102,8 @@ namespace CSF.Screenplay.Selenium.Builders
                 throw new ArgumentNullException(nameof(name));
             if(this.name != null)
                 throw new InvalidOperationException("The name has already been set; it cannot be set again.");
-            
+
+            this.name = name;
             return this;
         }
 

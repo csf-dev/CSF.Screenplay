@@ -1,3 +1,4 @@
+using CSF.Screenplay.Selenium.Builders;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Elements
@@ -8,31 +9,35 @@ namespace CSF.Screenplay.Selenium.Elements
     public static class TargetExtensions
     {
         /// <summary>
-        /// Gets a single Selenium element which matches the current target.
+        /// Creates a new <see cref="PredicateQueryBuilder"/> for the specified target.
         /// </summary>
-        /// <param name="target">An object which implements <see cref="ITarget"/>.</param>
-        /// <param name="driver">A WebDriver.</param>
-        /// <returns>An instance of <see cref="SeleniumElement"/>.</returns>
-        /// <exception cref="TargetNotFoundException">If the target does not yield an HTML element.</exception>
-        public static SeleniumElement GetElement(this ITarget target, IWebDriver driver) => target.GetElement(driver);
+        /// <remarks>
+        /// <para>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// to wait until the current target instance meets the specified conditions.
+        /// </para>
+        /// <para>
+        /// This method and <see cref="Has(ITarget)"/> are synonyms and are functionally equivalent.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target for which to create the query builder.</param>
+        /// <returns>A new instance of <see cref="PredicateQueryBuilder"/>.</returns>
+        public static PredicateQueryBuilder Is(this ITarget target) => new PredicateQueryBuilder(target);
 
         /// <summary>
-        /// Gets a single Selenium element which matches the current target.
+        /// Creates a new <see cref="PredicateQueryBuilder"/> for the specified target.
         /// </summary>
-        /// <param name="target">An object which implements <see cref="ITarget"/>.</param>
-        /// <param name="ability">An actor's <see cref="BrowseTheWeb"/> ability.</param>
-        /// <returns>An instance of <see cref="SeleniumElement"/>.</returns>
-        /// <exception cref="TargetNotFoundException">If the target does not yield an HTML element.</exception>
-        public static SeleniumElement GetElement(this ITarget target, BrowseTheWeb ability) => target.GetElement(ability.WebDriver);
-
-        /// <summary>
-        /// Gets a single Selenium element which matches the current target.
-        /// </summary>
-        /// <param name="target">An object which implements <see cref="ITarget"/>.</param>
-        /// <param name="actor">An actor, who must have the <see cref="BrowseTheWeb"/> ability.</param>
-        /// <returns>An instance of <see cref="SeleniumElement"/>.</returns>
-        /// <exception cref="TargetNotFoundException">If the target does not yield an HTML element.</exception>
-        /// <exception cref="System.InvalidOperationException">If the actor does not have the <see cref="BrowseTheWeb"/> ability.</exception>
-        public static SeleniumElement GetElement(this ITarget target, ICanPerform actor) => target.GetElement(actor.GetAbility<BrowseTheWeb>().WebDriver);
+        /// <remarks>
+        /// <para>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// to wait until the current target instance meets the specified conditions.
+        /// </para>
+        /// <para>
+        /// This method and <see cref="Is(ITarget)"/> are synonyms and are functionally equivalent.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target for which to create the query builder.</param>
+        /// <returns>A new instance of <see cref="PredicateQueryBuilder"/>.</returns>
+        public static PredicateQueryBuilder Has(this ITarget target) => new PredicateQueryBuilder(target);
     }
 }

@@ -174,6 +174,10 @@ namespace CSF.Screenplay.Selenium
         /// Take note that it is very normal for the <paramref name="predicate"/> to make use of closures to access elements from outside its own
         /// scope. For example, the predicate function may refer to an element which is referenced by a variable in the calling method.
         /// </para>
+        /// <para>
+        /// It is recommended to use <see cref="TargetExtensions.Is(ITarget)"/> or <see cref="TargetExtensions.Has(ITarget)"/> to create the
+        /// predicate for the wait action, if the intent is to wait until an element/target meets a certain condition.
+        /// </para>
         /// </remarks>
         /// <param name="predicate">A predicate which, when it returns a successful result, the wait is over.</param>
         /// <returns>A builder for creating a wait action.</returns>

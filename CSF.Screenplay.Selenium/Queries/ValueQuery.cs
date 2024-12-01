@@ -7,12 +7,12 @@ namespace CSF.Screenplay.Selenium.Queries
     /// </summary>
     public class ValueQuery : IQuery<string>
     {
-        internal const string ValueAttribute = "value";
+        internal const string ValueProperty = "value";
 
         /// <inheritdoc/>
         public string Name => $"the element's value";
 
         /// <inheritdoc/>
-        public string GetValue(SeleniumElement element) => element.WebElement.GetAttribute(ValueAttribute);
+        public string GetValue(SeleniumElement element) => element.WebElement.GetDomProperty(ValueProperty);
     }
 }
