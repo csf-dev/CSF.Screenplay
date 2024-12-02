@@ -16,6 +16,20 @@ Instances are independent per-performance; each performance gets its own shared 
 
 ## List of scoped services
 
+The following services are added to DI "per lifetime scope".
+
 * [The Cast](xref:CSF.Screenplay.ICast)
 * [The Stage](xref:CSF.Screenplay.IStage)
 * [The current performance](xref:CSF.Screenplay.IPerformance)
+
+## List of singleton services
+
+The following services are added to DI as singletons.
+
+* [The Screenplay](xref:CSF.Screenplay.Screenplay)
+* [The event bus](xref:CSF.Screenplay.Performances.PerformanceEventBus)
+  * _This includes its interfaces_
+* [The Screenplay options](xref:CSF.Screenplay.ScreenplayOptions)
+* [The report builder](xref:CSF.Screenplay.Reporting.ScreenplayReportBuilder)
+* [The reporter implementation](xref:CSF.Screenplay.Reporting.IReporter)
+  * _The implementation resolved depends upon [whether reporting is enabled](xref:CSF.Screenplay.ScreenplayOptions.ReportPath)_
