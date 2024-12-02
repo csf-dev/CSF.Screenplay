@@ -94,7 +94,8 @@ Normally, it would be bad practice to fill a class with a large number of method
 Because (as shown below) the methods tend to be very short - typically only one line - and because of the convenience, consider using one static class for all related builders/performables in a logical package.</p>
 <h2 id="performables-with-no-parameters">Performables with no parameters</h2>
 <p>To build a performable which requires no parameters, only the static method is required.
-Here is an example for a fictitious <code>MakeACupOfTea</code> performable.</p>
+Good names for such a static method begin with a <strong>verb</strong>, which indicates that it does something.</p>
+<p>Here is an example for a fictitious <code>MakeACupOfTea</code> performable.</p>
 <pre><code class="lang-csharp">public static IPerformble MakeTheTea()
     =&gt; new MakeACupOfTea();
 </code></pre>
