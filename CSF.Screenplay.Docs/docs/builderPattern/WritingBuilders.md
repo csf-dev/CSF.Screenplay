@@ -13,6 +13,8 @@ Because (as shown below) the methods tend to be very short - typically only one 
 ## Performables with no parameters
 
 To build a performable which requires no parameters, only the static method is required.
+Good names for such a static method begin with a **verb**, which indicates that it does something.
+
 Here is an example for a fictitious `MakeACupOfTea` performable.
 
 ```csharp
