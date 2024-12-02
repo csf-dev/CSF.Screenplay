@@ -4,7 +4,7 @@ Core to a Screenplay [Performance] are [Performables].
 Getting these performables is easiest when using a builder. 
 This results in clear, human-readable code inside your performance. 
 
-The entry point to most builders is a `static class` which exposes helper [factory methods].
+The entry point to most builders is a `static class` which exposes [factory methods] for the performables which it supports.
 These are easiest to consume with [a `using static` directive], such as: 
 
 ```csharp

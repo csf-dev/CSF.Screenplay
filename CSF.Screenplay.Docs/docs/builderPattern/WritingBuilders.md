@@ -40,7 +40,8 @@ This is still very readable.
 Where it comes to performables which have more than one parameter then it is often best for the static entry point method to instead return a specialised builder for that performable. 
 That specialised builder type exposes further methods which may be used to provide the other parameters in a human-readable manner.
 
-Particularly if one or more of the parameters is optional, consider writing [an implicit conversion operator overload] for your specialised builder type, to the appropriate performable interface.
+Particularly if one or more of the parameters is optional, consider writing [an implicit conversion operator overload] for your specialised builder type.
+The return type of such an operator should be the appropriate concrete performable type.
 Such an operator would allow the use of the builder to get the performable without needing an explicit `.Build()` method.
 
 > [!TIP]
@@ -79,6 +80,11 @@ public class MakeAHotDrinkBuilder
     return this;
   }
 
+  public MakeAHotDrinkBuilder(string drinkType)
+  {
+    this.drinkType = drinkType;
+  }
+
   public static implicit operator MakeACupOfHotDrink(MakeAHotDrinkBuilder builder) => new MakeACupOfHotDrink(builder.drinkType, builder.whitener, sugars);
 }
 
@@ -90,7 +96,7 @@ public static MakeAHotDrinkBuilder MakeACupOf(string drinkType)
 The above example might be consumed from a [Task] in the following manner: 
 
 ```csharp
-await actor.PerformAsync(MakeACupOf("Tea").WithMilk().WithSugars(2));
+await actor.PerformAsync(MakeACupOf("Tea").WithMilk().WithSugars(2), cancellationToken);
 ```
 
 [Task]: ../../glossary/Task.md
