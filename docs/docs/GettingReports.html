@@ -87,12 +87,20 @@
         <article data-uid="">
 <h1 id="screenplay-reports">Screenplay reports</h1>
 
-<p>As [a Screenplay] executes, the framework produces and saves a JSON-format report file, recording each [Performance].
-This file is a machine-readable record of every [Actor] and every [Performable] which was included in the performances.
-It records the results from the performables (where applicable) and</p>
-<p>TODO: Write this docco</p>
-<p>This should start with info about the JSON report file, and how to influence where it's written.
-It should go on to include info about how to convert that to other formats.</p>
+<p>As <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">a Screenplay</a> executes, the framework produces and saves a JSON-format report file, recording each <a class="xref" href="../api/CSF.Screenplay.Performance.html">Performance</a>.
+This file is a machine-readable record of every <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actor</a> and every <a href="../glossary/Performable.html">Performable</a> which was included in the performances.
+It records the results from the performables (where applicable) as well as the details of errors, where they occur.</p>
+<h2 id="where-the-report-json-file-is-saved">Where the report JSON file is saved</h2>
+<p>Over the course of a Screenplay, the JSON file will be written and saved at a path defined by the <a class="xref" href="../api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath"><code>ScreenplayOptions.ReportPath</code></a> option.
+As the documentation for that option notes, the default if it has not been set is to write the report to a file in the current working directory.
+The default filename includes a representation of the current timestamp, so each report is likely to have a unique filename.
+This path may be altered by specifying a different set of options to the <a class="xref" href="../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__"><code>AddScreenplay</code></a> service collection extension method.</p>
+<h2 id="converting-json-to-a-human-readable-report">Converting JSON to a human-readable report</h2>
+<p>JSON is a very good machine-readable format for reports, but it's not a great choice for reading by humans.
+CSF.Screenplay offers a utility to convert a JSON-format report into a human-readable single-page HTML file, viewable in any modern web browser.
+This tool is the <strong>CSF.Screenplay.JsonToHtmlReport</strong> command-line utility.</p>
+<p>The command-line options to this utility are documented in the class <a class="xref" href="../api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html"><code>ReportConverterOptions</code></a>.
+They should be passed using the dobule-dash syntax, for example <code>CSF.Screenplay.JsonToHtmlReport.exe --ReportPath c:\path\subfolder\screenplay-report.json</code>.</p>
 
 </article>
 
