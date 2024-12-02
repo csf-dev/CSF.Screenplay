@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
       <meta name="docfx:rel" content="../../">
       
@@ -90,7 +90,7 @@
 <p>Core to a Screenplay <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> are <a href="../../glossary/Performable.html">Performables</a>.
 Getting these performables is easiest when using a builder.
 This results in clear, human-readable code inside your performance.</p>
-<p>The entry point to most builders is a <code>static class</code> which exposes helper <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">factory methods</a>.
+<p>The entry point to most builders is a <code>static class</code> which exposes <a href="https://en.wikipedia.org/wiki/Factory_method_pattern">factory methods</a> for the performables which it supports.
 These are easiest to consume with <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#the-static-modifier">a <code>using static</code> directive</a>, such as:</p>
 <pre><code class="lang-csharp">using static MyNamespace.Builders.MyBuilderEntryPoint;
 </code></pre>

@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
       <meta name="docfx:rel" content="../../">
       
@@ -110,7 +110,8 @@ This is still very readable.</p>
 <h2 id="performables-with-many-parameters">Performables with many parameters</h2>
 <p>Where it comes to performables which have more than one parameter then it is often best for the static entry point method to instead return a specialised builder for that performable.
 That specialised builder type exposes further methods which may be used to provide the other parameters in a human-readable manner.</p>
-<p>Particularly if one or more of the parameters is optional, consider writing <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators">an implicit conversion operator overload</a> for your specialised builder type, to the appropriate performable interface.
+<p>Particularly if one or more of the parameters is optional, consider writing <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators">an implicit conversion operator overload</a> for your specialised builder type.
+The return type of such an operator should be the appropriate concrete performable type.
 Such an operator would allow the use of the builder to get the performable without needing an explicit <code>.Build()</code> method.</p>
 <div class="TIP">
 <h5>Tip</h5>
@@ -143,6 +144,11 @@ Consider writing high-level performables with fewer parameters, representing act
     return this;
   }
 
+  public MakeAHotDrinkBuilder(string drinkType)
+  {
+    this.drinkType = drinkType;
+  }
+
   public static implicit operator MakeACupOfHotDrink(MakeAHotDrinkBuilder builder) =&gt; new MakeACupOfHotDrink(builder.drinkType, builder.whitener, sugars);
 }
 
@@ -151,7 +157,7 @@ public static MakeAHotDrinkBuilder MakeACupOf(string drinkType)
   =&gt; new MakeAHotDrinkBuilder(drinkType);
 </code></pre>
 <p>The above example might be consumed from a <a href="../../glossary/Task.html">Task</a> in the following manner:</p>
-<pre><code class="lang-csharp">await actor.PerformAsync(MakeACupOf(&quot;Tea&quot;).WithMilk().WithSugars(2));
+<pre><code class="lang-csharp">await actor.PerformAsync(MakeACupOf(&quot;Tea&quot;).WithMilk().WithSugars(2), cancellationToken);
 </code></pre>
 
 </article>
