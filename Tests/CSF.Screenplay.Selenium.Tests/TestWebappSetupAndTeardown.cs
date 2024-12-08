@@ -8,6 +8,9 @@ namespace CSF.Screenplay.Selenium;
 [SetUpFixture]
 public class TestWebappSetupAndTeardown
 {
+    const int maxAttempts = 15;
+    const int secondsDelay = 2;
+
     static Process? webAppProcess;
 
     [OneTimeSetUp]
@@ -16,8 +19,8 @@ public class TestWebappSetupAndTeardown
         webAppProcess = Process.Start("dotnet", $"run --project {GetPathToWebappProject()}");
         using var client = new HttpClient();
 
-        // Wait for the web app to start, up to 20 seconds across 10 attempts
-        for(var attempt = 0; attempt < 10; attempt++)
+        // Wait for the web app to start, up to 30 seconds across 15 attempts
+        for(var attempt = 0; attempt < maxAttempts; attempt++)
         {
             try
             {
@@ -26,8 +29,8 @@ public class TestWebappSetupAndTeardown
             }
             catch(Exception e)
             {
-                Console.Error.WriteLine($"Failed to connect to web app on attempt {attempt + 1} of 10: " + e.Message);
-                await Task.Delay(TimeSpan.FromSeconds(2));
+                Console.Error.WriteLine($"Failed to connect to web app on attempt {attempt + 1} of {maxAttempts}: " + e.Message);
+                await Task.Delay(TimeSpan.FromSeconds(secondsDelay));
             }
         }
     }
