@@ -18,13 +18,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <!-- On any other OS/environment, Chrome usually auto-updates. So, we take a floating version of "latest stable". -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE )' != 'Ubuntu2204'" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' != 'Ubuntu2204'" />
     <!--
       AppVeyor Linux image Ubuntu2204 comes with an older version of Chrome which does not auto-update.
       This is documented here: https://www.appveyor.com/docs/linux-images-software/#web-browsers
       Of course, this needs to be maintained over time, because the ChromeDriver version must match the installed browser version.
     -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.7200" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE )' == 'Ubuntu2204'" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.7200" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' == 'Ubuntu2204'" />
   </ItemGroup>
 
   <ItemGroup>
