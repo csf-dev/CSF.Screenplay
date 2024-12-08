@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 
 namespace CSF.Screenplay.Selenium;
@@ -12,7 +13,7 @@ public class TestWebappSetupAndTeardown
     [OneTimeSetUp]
     public async Task StartWebAppAsync()
     {
-        webAppProcess = Process.Start("dotnet", "run --project ..\\..\\..\\..\\CSF.Screenplay.Selenium.TestWebapp");
+        webAppProcess = Process.Start("dotnet", $"run --project {GetPathToWebappProject()}");
         using var client = new HttpClient();
 
         // Wait for the web app to start, up to 20 seconds across 10 attempts
@@ -37,4 +38,6 @@ public class TestWebappSetupAndTeardown
         webAppProcess?.Kill();
         webAppProcess?.Dispose();
     }
+
+    static string GetPathToWebappProject() => Path.Combine("..", "..", "..", "..", "CSF.Screenplay.Selenium.TestWebapp");
 }
