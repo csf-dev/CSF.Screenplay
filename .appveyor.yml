@@ -14,6 +14,7 @@ skip_branch_with_pr: true
 
 init:
     - cmd: git config --global core.autocrlf true
+    - sh: echo "${WebDriverFactory::SelectedConfiguration}"
 
 install:
     - cmd: dotnet tool install --global dotnet-sonarscanner
