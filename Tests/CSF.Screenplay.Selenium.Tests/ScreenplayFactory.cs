@@ -22,5 +22,6 @@ public class ScreenplayFactory : IGetsScreenplay
 
     static IConfiguration GetConfiguration() => new ConfigurationBuilder()
         .AddJsonFile("appsettings.json")
+        .AddEnvironmentVariables()
         .Build();
 }
