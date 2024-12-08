@@ -13,7 +13,7 @@ public class PerformanceTests
         var sut = new Performance(services);
         sut.BeginPerformance();
         Mock.Get(performanceEventBus)
-            .Verify(x => x.InvokePerformanceBegun(sut.PerformanceIdentity, It.IsAny<IList<IdentifierAndName>>()), Times.Once);
+            .Verify(x => x.InvokePerformanceBegun(sut), Times.Once);
     }
 
     [Test,AutoMoqData]
@@ -40,7 +40,7 @@ public class PerformanceTests
         sut.BeginPerformance();
         sut.FinishPerformance(success);
         Mock.Get(performanceEventBus)
-            .Verify(x => x.InvokePerformanceFinished(sut.PerformanceIdentity, It.IsAny<IList<IdentifierAndName>>(), success), Times.Once);
+            .Verify(x => x.InvokePerformanceFinished(sut, success), Times.Once);
     }
 
     [Test,AutoMoqData]

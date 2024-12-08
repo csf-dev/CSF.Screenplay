@@ -434,7 +434,7 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="element">The element to interrogate for a value.</param>
         /// <returns>A builder which chooses the query</returns>
-        public static QuestionQueryBuilder ReadFromTheSingleElements(ITarget element) => new QuestionQueryBuilder(element);
+        public static QuestionQueryBuilder ReadFromTheElement(ITarget element) => new QuestionQueryBuilder(element);
 
         /// <summary>
         /// Gets a builder which may be used to create a performable question which reads a collection of the same information from a collection of elements.

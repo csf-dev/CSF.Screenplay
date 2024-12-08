@@ -1,0 +1,30 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Clear Cookies Tests</h1>
+        <p>
+            Click the button below to list the cookies.
+            The onload event sets two cookies up; if the clear cookies test is working correctly then these cookies will be cleared,
+            so clicking the button will reveal an empty list.
+        </p>
+        <button id="getCookies">Get cookies</button>
+        <code><pre id="cookiesList" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                document.cookie = "sampleCookie=sampleValue";
+                document.cookie = "otherCookie=otherValue";
+
+                document.getElementById("getCookies").addEventListener("click", function() {
+                    console.log("Cookies: " + document.cookie);
+                    var cookies = document.cookie.split("; ");
+                    var cookiesList = document.getElementById("cookiesList");
+                    cookiesList.innerHTML = "";
+                    for (var i = 0; i < cookies.length; i++) {
+                        cookiesList.innerHTML += cookies[i] + "\n";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

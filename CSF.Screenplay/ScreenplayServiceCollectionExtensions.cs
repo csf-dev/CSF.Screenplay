@@ -73,6 +73,7 @@ namespace CSF.Screenplay
             services.AddTransient<PerformanceReportBuilder>();
             services.AddTransient<JsonScreenplayReporter>();
             services.AddTransient<NoOpReporter>();
+            services.AddTransient<ITestsPathForWritePermissions, WritePermissionTester>();
             services.AddTransient<Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>>(s =>
             {
                 return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);

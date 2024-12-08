@@ -19,26 +19,26 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <param name="attributeName">The name of the attribute from which to read the value</param>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<string> Attribute(string attributeName) => FromQuery(new AttributeQuery(attributeName));
+        public IPerformableWithResult<string> TheAttribute(string attributeName) => FromQuery(new AttributeQuery(attributeName));
 
         /// <summary>
         /// Gets a performable question which checks the clickability of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<bool> Clickability() => FromQuery(new ClickableQuery());
+        public IPerformableWithResult<bool> TheClickability() => FromQuery(new ClickableQuery());
 
         /// <summary>
         /// Gets a performable question which reads the value of the specified CSS property from the element.
         /// </summary>
         /// <param name="propertyName">The name of the CSS property from which to read the value</param>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<string> CssProperty(string propertyName) => FromQuery(new CssPropertyQuery(propertyName));
+        public IPerformableWithResult<string> TheCssProperty(string propertyName) => FromQuery(new CssPropertyQuery(propertyName));
 
         /// <summary>
         /// Gets a performable question which reads the pixel location (top-left corner) of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<Point> Location() => FromQuery(new LocationQuery());
+        public IPerformableWithResult<Point> TheLocation() => FromQuery(new LocationQuery());
 
         /// <summary>
         /// Gets a performable question which reads the selected options from a <c>&lt;select&gt;</c> element.
@@ -77,25 +77,25 @@ namespace CSF.Screenplay.Selenium.Builders
         /// Gets a performable question which reads the pixel size (width and height) of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<Size> Size() => FromQuery(new SizeQuery());
+        public IPerformableWithResult<Size> TheSize() => FromQuery(new SizeQuery());
 
         /// <summary>
         /// Gets a performable question which reads the text content of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<string> Text() => FromQuery(new TextQuery());
+        public IPerformableWithResult<string> TheText() => FromQuery(new TextQuery());
 
         /// <summary>
         /// Gets a performable question which reads the value of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<string> Value() => FromQuery(new ValueQuery());
+        public IPerformableWithResult<string> TheValue() => FromQuery(new ValueQuery());
 
         /// <summary>
         /// Gets a performable question which checks the visibility of the element.
         /// </summary>
         /// <returns>A performable question</returns>
-        public IPerformableWithResult<bool> Visibility() => FromQuery(new VisibilityQuery(), true);
+        public IPerformableWithResult<bool> TheVisibility() => FromQuery(new VisibilityQuery(), true);
 
         IPerformableWithResult<T> FromQuery<T>(IQuery<T> query, bool doNotThrowOnMissingElement = false)
             => SingleElementPerformableWithResultAdapter.From(SingleElementQuery.From(query), target, doNotThrowOnMissingElement);

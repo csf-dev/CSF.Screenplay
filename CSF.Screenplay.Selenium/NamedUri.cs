@@ -50,6 +50,6 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <param name="uri">The URI to convert.</param>
         /// <returns>A new <see cref="NamedUri"/> instance.</returns>
-        public static implicit operator NamedUri(string uri) => uri is null ? null : new NamedUri(new Uri(uri));
+        public static implicit operator NamedUri(string uri) => uri is null ? null : new NamedUri(new Uri(uri, UriKind.RelativeOrAbsolute));
     }
 }

@@ -34,13 +34,10 @@ namespace CSF.Screenplay.Performances
         public bool? Success { get; }
 
         /// <summary>Initialises a new instance of <see cref="PerformanceEventArgs"/></summary>
-        /// <param name="performanceIdentity">The performance identity</param>
-        /// <param name="namingHierarchy">The scenario hierarchy</param>
+        /// <param name="performance">The performance.</param>
         /// <param name="success">A value indicating whether or not the scenario completed with a succeess result</param>
         /// <exception cref="ArgumentNullException">If the scenario hierarchy is <see langword="null" /></exception>
-        public PerformanceFinishedEventArgs(Guid performanceIdentity,
-                                         IReadOnlyList<IdentifierAndName> namingHierarchy,
-                                         bool? success) : base(performanceIdentity, namingHierarchy)
+        public PerformanceFinishedEventArgs(IPerformance performance, bool? success) : base(performance)
         {
             Success = success;
         }

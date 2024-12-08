@@ -8,10 +8,11 @@ namespace CSF.Screenplay.Selenium
     /// <summary>
     /// Screenplay ability which allows an <see cref="Actor"/> to browse the web using a Selenium WebDriver.
     /// </summary>
-    public class BrowseTheWeb : ICanReport
+    public class BrowseTheWeb : ICanReport, IDisposable
     {
         readonly IGetsWebDriver webDriverFactory;
         WebDriverAndOptions webDriverAndOptions;
+        bool disposedValue;
 
         /// <summary>
         /// Gets the Selenium WebDriver associated with the current ability instance.
@@ -49,7 +50,7 @@ namespace CSF.Screenplay.Selenium
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} is able to browse the web using {BrowserName}",
                                 actor.Name,
-                                WebDriver.GetBrowserId()?.ToString() ?? "an Selenium WebDriver");
+                                WebDriver.GetBrowserId()?.ToString() ?? "a Selenium WebDriver");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BrowseTheWeb"/> class.
@@ -58,6 +59,29 @@ namespace CSF.Screenplay.Selenium
         public BrowseTheWeb(IGetsWebDriver webDriverFactory)
         {
             this.webDriverFactory = webDriverFactory ?? throw new ArgumentNullException(nameof(webDriverFactory));
+        }
+
+        /// <summary>
+        /// Disposes the resources used by the <see cref="BrowseTheWeb"/> class.
+        /// </summary>
+        /// <param name="disposing">A boolean value indicating whether the method is called from the Dispose method.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    webDriverAndOptions?.Dispose();
+                }
+                disposedValue = true;
+            }
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }
