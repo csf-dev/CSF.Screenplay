@@ -79,7 +79,8 @@ namespace CSF.Screenplay
 
         PerformableException GetPerformableException(object performable, Exception ex)
         {
-            return new PerformableException($"{Name} encountered an unexpected exception whilst performing a performable of type {performable.GetType().FullName}", ex)
+            
+            return new PerformableException($"{Name} encountered an unexpected exception whilst executing the performable logic of {performable.GetType().FullName}", ex)
             {
                 Performable = performable,
             };

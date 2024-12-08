@@ -1,0 +1,8 @@
+﻿[
+  {
+    "browserName": "BarBrowser",
+    "flags": [
+      "SampleFlag1",
+    ],
+  },
+]

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html metal:use-macro="Views/Shared/Page.pt/macros/page">
+<head>
+<title metal:fill-slot="pageTitle">List testing page</title>
+<meta charset="utf-8">
+<base href="../../">
+<link rel="stylesheet" href="Content/css/reset.css">
+<link rel="stylesheet" href="Content/css/common.css">
+</head>
+<body>
+<header>Common page header</header>
+<div class="page" metal:fill-slot="page_content">
+  <h1>List testing page</h1>
+  <p>
+    This page has some HTML select elements.
+  </p>
+  <form>
+    <fieldset method="get" action="Lists">
+      <h2>List</h2>
+      <ul id="list_of_items">
+        <li class="odd">One</li>
+        <li>Two</li>
+        <li class="odd">Three</li>
+        <li>Four</li>
+        <li class="odd">Five</li>
+      </ul>
+      <h2>Single selection</h2>
+      <p>
+        This selection list outputs its <strong id="single_selected_value">currently selected value</strong>.
+      </p>
+      <select id="single_selection">
+        <option value="1">One</option>
+        <option value="2" selected>Two</option>
+        <option value="3">Three</option>
+      </select>
+      <h2>Multi-selection</h2>
+      <p>
+        This selection list outputs its <strong id="multiple_selected_value">multiple selected values</strong>.
+      </p>
+      <select id="multiple_selection" multiple>
+        <option value="fruit">Banana</option>
+        <option value="veg" selected>Carrot</option>
+        <option value="meat" selected>Steak</option>
+        <option value="drink">Coffee</option>
+      </select>
+    </fieldset>
+  </form>
+
+  <script src="Scripts/jquery-3.2.1.min.js"></script>
+  <script src="Scripts/PageTwo.js"></script>
+</div>
+<footer>Common page footer</footer>
+</body>
+</html>

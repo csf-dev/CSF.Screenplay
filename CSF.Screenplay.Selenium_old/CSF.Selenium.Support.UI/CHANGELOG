@@ -1,0 +1,8 @@
+﻿The file SelectElement.cs is copied directly from the Selenium support
+repository as of tag v3.4.0.  Minor changes have been made in order to make
+it easier to subclass.
+
+The original file may be found (as it appeared at the time of
+copying) in its repository at:
+
+    https://github.com/SeleniumHQ/selenium/blob/selenium-3.4.0/dotnet/src/support/UI/SelectElement.cs

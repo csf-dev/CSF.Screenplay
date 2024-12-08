@@ -1,14 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netstandard2.0;net462</TargetFrameworks>
+    <TargetFrameworks>net5.0;netstandard2.0;net462;net8.0</TargetFrameworks>
     <RootNamespace>CSF.Screenplay.WebApis</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <!-- It's true that net5.0 is already long out of support, but it is only here so that any runtime which is net5.0 or
+         above avoids pulling in unneeded packages.  This project is multi-targeted and includes up-to-date TFMs -->
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
-    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" Condition="'$(TargetFramework)' != 'net5.0'" />
+    <PackageReference Include="System.Net.Http.Json" Version="6.0.0" Condition="'$(TargetFramework)' != 'net5.0' and '$(TargetFramework)' != 'net8.0'" />
   </ItemGroup>
 
   <ItemGroup>

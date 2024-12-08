@@ -170,12 +170,12 @@ namespace CSF.Screenplay.Performances
         #region Sub: Performances
 
         /// <inheritdoc/>
-        public void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy)
-            => PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>()));
+        public void InvokePerformanceBegun(IPerformance performance)
+            => PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performance));
 
         /// <inheritdoc/>
-        public void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success)
-            => PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>(), success));
+        public void InvokePerformanceFinished(IPerformance performance, bool? success)
+            => PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performance, success));
 
         #endregion
 
