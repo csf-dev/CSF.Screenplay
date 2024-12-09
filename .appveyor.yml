@@ -62,3 +62,7 @@ after_test:
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
     - cmd: dotnet build -c Docs
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
+
+on_finish:
+    - sh: export APPVEYOR_SSH_BLOCK=true
+    - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
