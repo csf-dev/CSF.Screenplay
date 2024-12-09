@@ -103,17 +103,15 @@ namespace CSF.Screenplay.Performances
         /// <summary>
         /// Invokes an event indicating that a <see cref="IPerformance"/> has begun.
         /// </summary>
-        /// <param name="performanceIdentity">The performance identity</param>
-        /// <param name="namingHierarchy">The performance's hierarchical name</param>
-        void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy);
+        /// <param name="performance">The performance</param>
+        void InvokePerformanceBegun(IPerformance performance);
 
         /// <summary>
         /// Invokes an event indicating that a <see cref="IPerformance"/> has finished.
         /// </summary>
-        /// <param name="performanceIdentity">The performance identity</param>
-        /// <param name="namingHierarchy">The performance's hierarchical name</param>
+        /// <param name="performance">The performance</param>
         /// <param name="success">A value indicating whether or not the performance was a success</param>
-        void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success);
+        void InvokePerformanceFinished(IPerformance performance, bool? success);
 
         #endregion
 

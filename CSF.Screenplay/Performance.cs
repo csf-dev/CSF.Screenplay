@@ -44,7 +44,7 @@ namespace CSF.Screenplay
         {
             if(hasBegun) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be begun only once; performance instances are not reusable.");
             hasBegun = true;
-            performanceEventBus.InvokePerformanceBegun(PerformanceIdentity, NamingHierarchy);
+            performanceEventBus.InvokePerformanceBegun(this);
         }
 
         /// <inheritdoc/>
@@ -54,7 +54,7 @@ namespace CSF.Screenplay
             if(hasCompleted) throw new InvalidOperationException($"An instance of {nameof(Performance)} may be completed only once; performance instances are not reusable.");
             hasBegun = hasCompleted = true;
             this.success = success;
-            performanceEventBus.InvokePerformanceFinished(PerformanceIdentity, NamingHierarchy, success);
+            performanceEventBus.InvokePerformanceFinished(this, success);
         }
 
         /// <inheritdoc/>

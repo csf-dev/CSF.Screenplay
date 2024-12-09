@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CSF.Screenplay.Actors
 {
     /// <summary>The default implementation of <see cref="ICast"/> which serves as a registry/factory for <see cref="Actor"/> instances.</summary>
-    public sealed class Cast : ICast
+    public sealed class Cast : ICast, IDisposable
     {
         readonly IRelaysPerformanceEvents performanceEventBus;
         readonly ConcurrentDictionary<string,Actor> actors = new ConcurrentDictionary<string,Actor>(StringComparer.InvariantCultureIgnoreCase);
@@ -36,6 +36,16 @@ namespace CSF.Screenplay.Actors
                 performanceEventBus.SubscribeTo(actor);
                 return actor;
             });
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            foreach(var actor in actors.Values)
+            {
+                performanceEventBus.UnsubscribeFrom(actor);
+                actor.Dispose();
+            }
         }
 
         /// <summary>Initialises a new instance of <see cref="Cast"/>.</summary>

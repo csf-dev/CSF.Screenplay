@@ -10,6 +10,11 @@ namespace CSF.Screenplay.Performances
     /// <seealso cref="PerformanceScopeEventArgs"/>
     public class PerformanceEventArgs : PerformanceScopeEventArgs
     {
+        /// <summary>
+        /// Gets the <see cref="IPerformance"/> to which this event relates.
+        /// </summary>
+        public IPerformance Performance { get; }
+        
         /// <summary>Gets an ordered list of identifiers which indicate the <see cref="IPerformance"/>'s name within an organisational hierarchy.</summary>
         /// <remarks>
         /// <para>
@@ -18,15 +23,14 @@ namespace CSF.Screenplay.Performances
         /// </remarks>
         /// <seealso cref="IPerformance"/>
         /// <seealso cref="IPerformance.NamingHierarchy"/>
-        public IReadOnlyList<IdentifierAndName> NamingHierarchy { get; }
+        public IReadOnlyList<IdentifierAndName> NamingHierarchy => Performance.NamingHierarchy;
 
         /// <summary>Initialises a new instance of <see cref="PerformanceEventArgs"/></summary>
-        /// <param name="performanceIdentity">The performance identity</param>
-        /// <param name="namingHierarchy">The screenplay naming hierarchy</param>
+        /// <param name="performance">The performance</param>
         /// <exception cref="ArgumentNullException">If the scenario hierarchy is <see langword="null" /></exception>
-        public PerformanceEventArgs(Guid performanceIdentity, IReadOnlyList<IdentifierAndName> namingHierarchy) : base(performanceIdentity)
+        public PerformanceEventArgs(IPerformance performance) : base(performance.PerformanceIdentity)
         {
-            NamingHierarchy = namingHierarchy ?? throw new ArgumentNullException(nameof(namingHierarchy));
+            Performance = performance;
         }
     }
 }
