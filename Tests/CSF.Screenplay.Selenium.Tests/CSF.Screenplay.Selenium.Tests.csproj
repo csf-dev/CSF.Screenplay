@@ -17,7 +17,7 @@
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <!-- On any other OS/environment, Chrome usually auto-updates. So, we take a floating version of "latest stable". -->
+    <!-- On most OS/environment, Chrome auto-updates. So, we take a floating version of "latest stable" WebDriver, to match the browser version. -->
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' != 'Ubuntu2204'" />
     <!--
       AppVeyor Linux image Ubuntu2204 comes with an older version of Chrome which does not auto-update.

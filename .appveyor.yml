@@ -1,11 +1,9 @@
 environment:
     matrix:
-        #- APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-        #  JAVA_HOME: C:\Program Files\Java\jdk17
-        #  "WebDriverFactory__SelectedConfiguration": DefaultChrome
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+          JAVA_HOME: C:\Program Files\Java\jdk17
         - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
           JAVA_HOME: /usr/lib/jvm/jdk15
-          "WebDriverFactory__SelectedConfiguration": AppVeyorLinuxChrome
 
 skip_branch_with_pr: true
 
@@ -23,6 +21,11 @@ install:
         cd CSF.Screenplay.JsonToHtmlReport.Template\src
         npm ci
         cd ..\..
+    # This was taken from https://stackoverflow.com/questions/60304251/unable-to-open-x-display-when-trying-to-run-google-chrome-on-centos-rhel-7-5
+    # It's the minimum dependencies for running Chrome in a headless environment on Linux
+    - sh: |
+        sudo apt-get update
+        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
 
 before_build:
     - dotnet --version
@@ -40,6 +43,10 @@ before_build:
         %PRParam%
         /d:sonar.javascript.lcov.reportPaths=%APPVEYOR_BUILD_FOLDER%\CSF.Screenplay.JsonToHtmlReport.Template\src\TestResults\lcov.info
         /s:%APPVEYOR_BUILD_FOLDER%\.sonarqube-analysisproperties.xml
+    # Activate Xvfb and export a display so that Chrome can run in Linux
+    - sh: |
+        Xvfb -ac :99 -screen 0 1280x1024x16 &
+        export DISPLAY=:99
 
 build_script:
     - dotnet build --no-incremental
@@ -62,7 +69,3 @@ after_test:
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
     - cmd: dotnet build -c Docs
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
-
-on_finish:
-    - sh: export APPVEYOR_SSH_BLOCK=true
-    - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
