@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.3.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="4.0.254" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <!-- On most OS/environment, Chrome auto-updates. So, we take a floating version of "latest stable" WebDriver, to match the browser version. -->
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' != 'Ubuntu2204'" />
+    <!--
+      AppVeyor Linux image Ubuntu2204 comes with an older version of Chrome which does not auto-update.
+      This is documented here: https://www.appveyor.com/docs/linux-images-software/#web-browsers
+      Of course, this needs to be maintained over time, because the ChromeDriver version must match the installed browser version.
+    -->
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.9900" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' == 'Ubuntu2204'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay.NUnit\CSF.Screenplay.NUnit.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay.Selenium\CSF.Screenplay.Selenium.csproj" />
+    <ProjectReference Include="..\CSF.Screenplay.Selenium.TestWebapp\CSF.Screenplay.Selenium.TestWebapp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

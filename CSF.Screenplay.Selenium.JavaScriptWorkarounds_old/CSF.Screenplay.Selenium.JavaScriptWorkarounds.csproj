@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC20F88D-C4B9-4FDB-B5B1-7349547430FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
+    <AssemblyName>CSF.Screenplay.Selenium.JavaScriptWorkarounds</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CSF.Screenplay.Selenium.JavaScriptWorkarounds.xml</DocumentationFile>
+    <ConsolePause>false</ConsolePause>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CSF.Screenplay.Selenium.JavaScriptWorkarounds.xml</DocumentationFile>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.3.4.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="CSF.Reflection">
+      <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoredScripts\ICreatesInvocationScript.cs" />
+    <Compile Include="StoredScripts\IProvidesScript.cs" />
+    <Compile Include="StoredScripts\IRunsScripts.cs" />
+    <Compile Include="StoredScripts\ScriptInvokerFactory.cs" />
+    <Compile Include="StoredScripts\ScriptResource.cs" />
+    <Compile Include="StoredScripts\ScriptResourceLoader.cs" />
+    <Compile Include="StoredScripts\ScriptRunner.cs" />
+    <Compile Include="ScriptResources\ArgumentsArrayValidator.cs" />
+    <Compile Include="ScriptResources\GetALocalisedDate.cs" />
+    <Compile Include="ScriptResources\GetDocumentReadyState.cs" />
+    <Compile Include="ScriptResources\SetAnElementValue.cs" />
+    <Compile Include="ScriptResources\SetAnElementAttribute.cs" />
+    <Compile Include="ScriptResources\UpdateSelectElementSelection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StoredScripts\ScriptInvokerFactory.js" />
+    <EmbeddedResource Include="ScriptResources\ArgumentsArrayValidator.js" />
+    <EmbeddedResource Include="ScriptResources\GetALocalisedDate.js" />
+    <EmbeddedResource Include="ScriptResources\GetDocumentReadyState.js" />
+    <EmbeddedResource Include="ScriptResources\SetAnElementValue.js" />
+    <EmbeddedResource Include="ScriptResources\SetAnElementAttribute.js" />
+    <EmbeddedResource Include="ScriptResources\UpdateSelectElementSelection.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="StoredScripts\" />
+    <Folder Include="ScriptResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -162,7 +162,8 @@ namespace CSF.Screenplay
         /// <param name="serviceCollectionCustomisations">An optional action which permits further customization of the service collection that is implicitly created by this method.</param>
         /// <param name="options">An optional action to configure the <see cref="Screenplay"/> which is created by this method.</param>
         /// <returns>A Screenplay instance created from a new service collection.</returns>
-        public static Screenplay Create(Action<IServiceCollection> serviceCollectionCustomisations = null, Action<ScreenplayOptions> options = null)
+        public static Screenplay Create(Action<IServiceCollection> serviceCollectionCustomisations = null,
+                                        Action<ScreenplayOptions> options = null)
         {
             var services = new ServiceCollection();
             services.AddScreenplay(options);

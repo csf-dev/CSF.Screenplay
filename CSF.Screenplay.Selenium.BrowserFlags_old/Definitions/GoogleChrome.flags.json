@@ -1,0 +1,8 @@
+﻿[
+  {
+    "browserName": "Chrome",
+    "flags": [
+      "HtmlElements.InputTypeDate.RequiresEntryUsingLocaleFormat",
+    ],
+  },
+]
