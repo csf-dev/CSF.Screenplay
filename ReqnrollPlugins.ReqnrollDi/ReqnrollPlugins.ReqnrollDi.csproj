@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ReqnrollPlugins.DependencyInjection\ToReqnroll\Runtime\**\*.cs" LinkBase="ToReqnroll\Runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Reqnroll.MsTest" Version="2.3.1-local" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.4.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CalculatorApp\CalculatorApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ToReqnroll\Runtime\" />
+  </ItemGroup>
+
+</Project>
