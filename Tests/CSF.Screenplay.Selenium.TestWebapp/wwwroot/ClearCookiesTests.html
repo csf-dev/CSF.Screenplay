@@ -16,11 +16,10 @@
                 document.cookie = "otherCookie=otherValue";
 
                 document.getElementById("getCookies").addEventListener("click", function() {
-                    console.log("Cookies: " + document.cookie);
-                    var cookies = document.cookie.split("; ");
-                    var cookiesList = document.getElementById("cookiesList");
+                    const cookies = document.cookie.split("; ");
+                    const cookiesList = document.getElementById("cookiesList");
                     cookiesList.innerHTML = "";
-                    for (var i = 0; i < cookies.length; i++) {
+                    for (let i = 0; i < cookies.length; i++) {
                         cookiesList.innerHTML += cookies[i] + "\n";
                     }
                 });

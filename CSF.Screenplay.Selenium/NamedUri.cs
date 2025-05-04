@@ -39,6 +39,19 @@ namespace CSF.Screenplay.Selenium
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="NamedUri"/> class.
+        /// </summary>
+        /// <param name="uri">The URI to associate with this instance.</param>
+        /// <param name="name">The human-readable name for the URI. If null, the URI string will be used as the name.</param>
+        public NamedUri(string uri, string name = null)
+        {
+            if(uri is null)
+                throw new ArgumentNullException(nameof(uri));
+            Uri = new Uri(uri, UriKind.RelativeOrAbsolute);
+            Name = name ?? uri.ToString();
+        }
+
+        /// <summary>
         /// Converts a <see cref="Uri"/> to a <see cref="NamedUri"/>.
         /// </summary>
         /// <param name="uri">The URI to convert.</param>

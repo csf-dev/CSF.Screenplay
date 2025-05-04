@@ -145,6 +145,7 @@ namespace CSF.Screenplay.Performances
         {
             if (!subscribedActors.TryGetValue(performanceIdentity, out var actorsForPerformance)) return;
             // Copy the source collection with ToList because UnsubscribeFrom would modify it; modifying a collection whilst enumerating it is bad!
+            // See the remarks on this method, it's quite normal for there to be no actors remaining at the point where this method is called.
             foreach (var actor in actorsForPerformance.ToList())
                 UnsubscribeFrom(actor);
         }

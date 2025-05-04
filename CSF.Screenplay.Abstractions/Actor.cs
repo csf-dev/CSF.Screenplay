@@ -58,6 +58,9 @@ namespace CSF.Screenplay
 
         Guid IHasPerformanceIdentity.PerformanceIdentity => PerformanceIdentity;
 
+        /// <inheritdoc/>
+        public override string ToString() => $"[Actor '{Name}' in Performance {PerformanceIdentity}]";
+
         /// <summary>Initialises a new instance of <see cref="Actor"/></summary>
         /// <remarks>
         /// <para>

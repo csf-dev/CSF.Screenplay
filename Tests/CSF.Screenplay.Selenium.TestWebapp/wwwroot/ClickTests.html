@@ -1,0 +1,22 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Clear Cookies Tests</h1>
+        <p>
+            Click the button below to list the cookies.
+            The onload event sets two cookies up; if the clear cookies test is working correctly then these cookies will be cleared,
+            so clicking the button will reveal an empty list.
+        </p>
+        <button id="clickable">Click me</button>
+        <code><pre id="display" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                document.getElementById("clickable").addEventListener("click", function() {
+                    const displayElement = document.getElementById("display");
+                    displayElement.innerHTML = "Clicked!";
+                });
+            }
+        </script>
+    </body>
+</html>

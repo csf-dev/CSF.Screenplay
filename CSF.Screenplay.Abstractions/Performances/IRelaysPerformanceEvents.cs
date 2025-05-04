@@ -53,6 +53,9 @@ namespace CSF.Screenplay.Performances
         /// </para>
         /// <para>
         /// Use this method when ending a performance, as a convenience to unsubscribe from all of its actors at once.
+        /// Note that this method might not result in unsubscribing any actors.  If the subscribed actors are also managed
+        /// by an implementation of <see cref="ICast"/> then the disposal of the cast will automatically unsubscribe these actors
+        /// on its own.  This method is provided &amp; used as a backup technique, in case the actors are not managed by a cast.
         /// </para>
         /// </remarks>
         /// <param name="performanceIdentity">The identity of a performance.</param>
