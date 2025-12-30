@@ -4,7 +4,7 @@ $SolutionRoot = "$PSScriptRoot\.."
 $TestProjects = Get-ChildItem -Path $SolutionRoot\Tests\ -Exclude CSF.Screenplay.Selenium.TestWebapp
 
 $wc = New-Object 'System.Net.WebClient'
-$TestEndpoint = "https://ci.appveyor.com/api/testresults/nunit3/$env:APPVEYOR_JOB_ID"
+$TestEndpoint = "https://ci.appveyor.com/api/testresults/nunit/$env:APPVEYOR_JOB_ID"
 
 foreach($project in $TestProjects)
 {
