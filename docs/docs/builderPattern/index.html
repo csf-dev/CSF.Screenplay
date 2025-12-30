@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
       <meta name="docfx:rel" content="../../">
       
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -87,8 +87,21 @@
         <article data-uid="BuilderPatternMainArticle">
 <h1 id="the-builder-pattern">The builder pattern</h1>
 
-<p>TODO: Write this docco</p>
-<p>This should be about the way in which Performables are created using Builders.</p>
+<p>As noted elsewhere, <a href="../../glossary/Performable.html">Performables</a> are <em>stateful</em> objects which <em>are not resolved from dependency injection</em>.
+The state/dependencies which should be provided to a performable object should be <em>parameter values</em>.
+For example, a performable which adds a product to a shopping cart might need two pieces of state:</p>
+<ul>
+<li>Which product to add</li>
+<li>The quantity</li>
+</ul>
+<p>Recall that any external dependencies should come from the performing actor's <a href="../../glossary/Ability.html">Abilities</a>.</p>
+<p>It is possible to create instances of performable types with just the <code>new</code> keyword.
+The state could be provided using constructor-injected parameter values or via property setters.
+Whilst the techniques above will work, neither are as attractive or easy to read and comprehend as the builder pattern.</p>
+<ul>
+<li><a href="WritingBuilders.html">Writing builders for Screenplay</a></li>
+<li><a href="ConsumingBuilders.html">Consuming builders to create performables</a></li>
+</ul>
 
 </article>
 
