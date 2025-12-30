@@ -8,13 +8,13 @@ REM Redefines the PATH environment variable, removing the preinstalled Selenium 
 REM Modern Selenium downloads/fetches the appropriate driver version for the browser, so
 REM having this pre-installed driver in the path actually hurts more than helps.
 
-set "UNWANTED_PATH=C:\Tools\WebDriver"
+SET UNWANTED_PATH=C:\Tools\WebDriver
 
 REM Remove the unwanted path (handles all of ";path;", ";path" and "path;" cases)
-set "NEW_PATH=%PATH:;%UNWANTED_PATH%;=;%"
-set "NEW_PATH=%NEW_PATH:;%UNWANTED_PATH%=%"
-set "NEW_PATH=%NEW_PATH:%UNWANTED_PATH%;=%"
+SET NEW_PATH=%PATH:;%UNWANTED_PATH%;=;%
+SET NEW_PATH=%NEW_PATH:;%UNWANTED_PATH%=%
+SET NEW_PATH=%NEW_PATH:%UNWANTED_PATH%;=%
 
-set "PATH=%NEW_PATH%"
+SET PATH=%NEW_PATH%
 
 echo Updated PATH is: %PATH%
