@@ -1,7 +1,7 @@
-# Taken from https://www.appveyor.com/docs/running-tests/#uploading-xml-test-results
+# Adapted from https://www.appveyor.com/docs/running-tests/#uploading-xml-test-results
 
 $SolutionRoot = "$PSScriptRoot\.."
-$TestProjects = Get-ChildItem $SolutionRoot\Tests\ -Exclude CSF.Screenplay.Selenium.TestWebapp
+$TestProjects = Get-ChildItem -Path $SolutionRoot\Tests\ -Exclude CSF.Screenplay.Selenium.TestWebapp
 
 $wc = New-Object 'System.Net.WebClient'
 
