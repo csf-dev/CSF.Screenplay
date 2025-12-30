@@ -9,7 +9,7 @@ foreach($project in $TestProjects)
 {
     $projectName = Split-Path $project -Leaf
     $projectAssembly = "$project\bin\$Configuration\$Tfm\$projectName.dll"
-    Write-Host coverlet `
+    coverlet `
         "$projectAssembly" `
         --target "dotnet" `
         --targetargs "test $project --no-build --logger:nunit --test-adapter-path:." `
