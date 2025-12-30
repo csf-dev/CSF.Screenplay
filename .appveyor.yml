@@ -17,7 +17,6 @@ install:
     - cmd: dotnet tool install --global dotnet-sonarscanner
     - cmd: dotnet tool install --global coverlet.console
     - cmd: dotnet tool update -g docfx
-    - cmd: echo The path is %PATH%
     - ps: |
         cd CSF.Screenplay.JsonToHtmlReport.Template\src
         npm ci
@@ -32,7 +31,7 @@ before_build:
     - dotnet --version
     - dotnet restore --verbosity m
     - dotnet clean
-    - cmd: Tools\appveyor-setup-env.bat
+    - cmd: Tools\appveyor-setup-sonarscanner.bat
     - cmd: Tools\appveyor-setup-selenium.bat
     - cmd: >
         dotnet-sonarscanner begin 
