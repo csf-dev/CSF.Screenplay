@@ -32,6 +32,7 @@ before_build:
     - dotnet restore --verbosity m
     - dotnet clean
     - cmd: Tools\appveyor-setup-env.bat
+    - cmd: Tools\appveyor-setup-selenium.bat
     - cmd: >
         dotnet-sonarscanner begin 
         /k:"csf-dev_CSF.Screenplay"

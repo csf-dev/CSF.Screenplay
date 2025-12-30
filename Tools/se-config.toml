@@ -1,0 +1,8 @@
+# This config file is required for builds running on AppVeyor
+# because AppVeyor images come with chromedriver pre-installed, but its
+# usually not the version we want.  That's because on the Windows images,
+# Chrome will have auto-updated.
+
+browser = "chrome"
+force-browser-download = true
+browser-version = "stable"
