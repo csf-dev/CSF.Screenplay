@@ -15,16 +15,10 @@
     <PackageReference Include="NUnit.Analyzers" Version="4.3.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="4.0.254" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.15.0" />
+    <PackageReference Include="Selenium.Support" Version="4.15.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <!-- On most OS/environment, Chrome auto-updates. So, we take a floating version of "latest stable" WebDriver, to match the browser version. -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' != 'Ubuntu2204'" />
-    <!--
-      AppVeyor Linux image Ubuntu2204 comes with an older version of Chrome which does not auto-update.
-      This is documented here: https://www.appveyor.com/docs/linux-images-software/#web-browsers
-      Of course, this needs to be maintained over time, because the ChromeDriver version must match the installed browser version.
-    -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.9900" Condition="'$(APPVEYOR_BUILD_WORKER_IMAGE)' == 'Ubuntu2204'" />
   </ItemGroup>
 
   <ItemGroup>
