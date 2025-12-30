@@ -12,3 +12,5 @@ foreach($project in $TestProjects)
     Move-Item $testResultFile "$SolutionRoot\TestResults\$projectName.TestResults.xml"
     $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $SolutionRoot\TestResults\$projectName.TestResults.xml))
 }
+
+exit $env:TESTS_FAILED

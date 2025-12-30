@@ -3,7 +3,7 @@ $TestProjects = Get-ChildItem -Path $SolutionRoot\Tests\ -Exclude CSF.Screenplay
 $Tfm = "net8.0"
 $Configuration = "Debug"
 Remove-Item $SolutionRoot\TestResults\* -ErrorAction Ignore
-$PlannedExitCode = 0
+$TetsFailed = 0
 
 foreach($project in $TestProjects)
 {
@@ -17,11 +17,11 @@ foreach($project in $TestProjects)
         -o="$SolutionRoot\TestResults\$projectName.opencover.xml"
 
     if ($LastExitCode -eq 1) {
-        $PlannedExitCode = 1
+        $TetsFailed = 1
     }
     elseif ($LastExitCode -eq 3) {
-        $PlannedExitCode = 1
+        $TetsFailed = 1
     }
 }
 
-exit $PlannedExitCode
+$env:TESTS_FAILED = $TetsFailed
