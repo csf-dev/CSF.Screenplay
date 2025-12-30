@@ -17,7 +17,7 @@ SET "NEW_PATH=%PATH:;%UNWANTED_PATH%;=;%"
 SET "NEW_PATH=!NEW_PATH:;%UNWANTED_PATH%=!"
 SET "NEW_PATH=!NEW_PATH:%UNWANTED_PATH%;=!"
 
-SET PATH=!NEW_PATH!
-echo Updated PATH is: !PATH!
+endlocal & SET PATH=%NEW_PATH%
 
-endlocal
+echo Updated PATH is: %PATH%
+
