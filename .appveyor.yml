@@ -17,6 +17,7 @@ install:
     - cmd: dotnet tool install --global dotnet-sonarscanner
     - cmd: dotnet tool install --global coverlet.console
     - cmd: dotnet tool update -g docfx
+    - cmd: echo The path is %PATH%
     - ps: |
         cd CSF.Screenplay.JsonToHtmlReport.Template\src
         npm ci
