@@ -7,5 +7,6 @@
   <Property Name="sonar.cs.nunit.reportsPaths">Tests\**\TestResults.xml</Property>
   <Property Name="sonar.cs.opencover.reportsPaths">TestResults\*.opencover.xml</Property>
   <Property Name="sonar.scanner.scanAll">false</Property>
-  <Property Name="sonar.tests">Tests/**/*,**/*.spec.js</Property>
+  <Property Name="sonar.test.inclusions">Tests/**/*,**/*.spec.js</Property>
+  <Property Name="sonar.scanner.skipJreProvisioning">true</Property>
 </SonarQubeAnalysisProperties>
