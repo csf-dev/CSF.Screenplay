@@ -33,7 +33,6 @@ before_build:
     - dotnet clean
     - cmd: Tools\appveyor-setup-sonarscanner.bat
     - cmd: Tools\appveyor-setup-selenium.bat
-    - cmd: echo %PATH%
     - cmd: >
         dotnet-sonarscanner begin 
         /k:"csf-dev_CSF.Screenplay"

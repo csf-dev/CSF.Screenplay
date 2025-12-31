@@ -18,6 +18,3 @@ SET "NEW_PATH=!NEW_PATH:;%UNWANTED_PATH%=!"
 SET "NEW_PATH=!NEW_PATH:%UNWANTED_PATH%;=!"
 
 endlocal & SET PATH=%NEW_PATH%
-
-echo Updated PATH is: %PATH%
-
