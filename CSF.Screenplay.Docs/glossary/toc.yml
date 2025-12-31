@@ -15,7 +15,7 @@
 - name: Performable
   href: Performable.md
 - name: Performance
-  uid: CSF.Screenplay.Performance
+  uid: CSF.Screenplay.IPerformance
 - name: Persona
   href: Persona.md
 - name: Question
@@ -26,6 +26,8 @@
   href: Scenario.md
 - name: Screenplay
   uid: CSF.Screenplay.Screenplay
+- name: Spotlight
+  href: Spotlight.md
 - name: Stage
   uid: CSF.Screenplay.IStage
 - name: Task
