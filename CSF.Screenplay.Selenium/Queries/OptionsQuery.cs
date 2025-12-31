@@ -39,9 +39,9 @@ namespace CSF.Screenplay.Selenium.Queries
             var allOptions = element.WebElement.FindElements(options).ToList();
 
             if(excludeSelectedOptions)
-                allOptions = allOptions.Where(x => x.Selected == false).ToList();
+                allOptions = allOptions.Where(x => !x.Selected).ToList();
             if(excludeUnselectedOptions)
-                allOptions = allOptions.Where(x => x.Selected == true).ToList();
+                allOptions = allOptions.Where(x => x.Selected).ToList();
 
             return allOptions.Select(x => new Option(x.Text, x.GetDomProperty(ValueQuery.ValueProperty))).ToList();
         }

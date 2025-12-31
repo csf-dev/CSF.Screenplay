@@ -73,7 +73,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <param name="specification">The locator specification string.</param>
         /// <param name="name">An optional human-readable name of the locator which describes the elements it matches.</param>
-        public Locator(string specification, string name = null)
+        protected Locator(string specification, string name = null)
         {
             if (string.IsNullOrWhiteSpace(specification))
                 throw new ArgumentException($"'{nameof(specification)}' cannot be null or whitespace.", nameof(specification));

@@ -8,6 +8,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// <summary>
     /// Thrown when <see cref="ITarget.GetElement(IWebDriver)"/> is used, but no element can be found.
     /// </summary>
+    [Serializable]
     public class TargetNotFoundException : Exception, IFormattableValue
     {
         /// <summary>
@@ -67,6 +68,6 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        public TargetNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context) {}
+        protected TargetNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context) {}
     }
 }

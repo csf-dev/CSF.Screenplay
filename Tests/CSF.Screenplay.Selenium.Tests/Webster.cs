@@ -17,7 +17,7 @@ public class Webster(IGetsWebDriver webDriverFactory) : IPersona
         return webster;
     }
 
-    object BrowseTheWeb() => new BrowseTheWeb(webDriverFactory);
+    BrowseTheWeb BrowseTheWeb() => new(webDriverFactory);
 
-    object UseABaseUri() => new UseABaseUri(TestWebappBaseUri);
+    static UseABaseUri UseABaseUri() => new(TestWebappBaseUri);
 }
