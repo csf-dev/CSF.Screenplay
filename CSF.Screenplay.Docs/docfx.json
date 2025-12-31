@@ -10,7 +10,8 @@
             "**/bin/**",
             "**/obj/**",
             "Tests/**",
-            "*_old/**"
+            "*_old/**",
+            "CSF.Screenplay.JsonToHtmlReport.Template/**"
           ]
         }
       ],
