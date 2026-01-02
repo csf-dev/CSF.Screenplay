@@ -72,4 +72,5 @@ after_test:
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
 
 artifacts:
-    - path Tests\**\ScreenplayReport_*.json
+    - path: Tests\**\ScreenplayReport_*.json
+      name: Screenplay report
