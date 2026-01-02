@@ -70,3 +70,6 @@ after_test:
     - ps: if ($isWindows) { Tools\appveyor-upload-test-results.ps1 }
     - cmd: dotnet build -c Docs
     - ps: if ($isWindows) { Tools\appveyor_publish_docs.ps1 }
+
+artifacts:
+    - path Tests\**\ScreenplayReport_*.json
