@@ -63,10 +63,10 @@ namespace CSF.Screenplay
 
             services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
             services.AddScoped<IStage, Stage>();
-            services.AddScoped(s => s.GetRequiredService<ICreatesPerformance>().CreatePerformance());
+            services.AddScoped<PerformanceProvider>();
+            services.AddScoped(s => s.GetRequiredService<PerformanceProvider>().GetCurrentPerformance());
             services.AddScoped<IGetsAssetFilePath, AssetPathProvider>();
 
-            services.AddTransient<ICreatesPerformance, PerformanceFactory>();
             services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
             services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
             services.AddTransient<IFormatsReportFragment, ReportFragmentFormatter>();

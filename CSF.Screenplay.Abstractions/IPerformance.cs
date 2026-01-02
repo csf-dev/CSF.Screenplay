@@ -67,15 +67,6 @@ namespace CSF.Screenplay
         /// Alternatively, for a BDD-style testing framework, it could be named based upon human-readable
         /// feature &amp; scenario names.
         /// </para>
-        /// <para>
-        /// Ideally this property would be immutable after a Performance is created.
-        /// Unfortunately, some testing frameworks do not expose relevant naming information about a test until after the point
-        /// of execution where the Performance must be created.
-        /// Thus, this property is mutable, so that it is possible to 'backfill' missing naming information after the performance has
-        /// been created.
-        /// Wherever possible, it is recommended to avoid updating this list of identifier/names and to only set them up when creating the
-        /// performance, via <see cref="ICreatesPerformance"/>.
-        /// </para>
         /// </remarks>
         /// <example>
         /// <para>
@@ -84,7 +75,7 @@ namespace CSF.Screenplay
         /// and the second will be named <c>Joe can take out the Trash</c>.
         /// </para>
         /// </example>
-        List<IdentifierAndName> NamingHierarchy { get; }
+        IReadOnlyList<IdentifierAndName> NamingHierarchy { get; }
 
         /// <summary>Gets a value which indicates the state of the current performance.</summary>
         /// <seealso cref="Performances.PerformanceState"/>

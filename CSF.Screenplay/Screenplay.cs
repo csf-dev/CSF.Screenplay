@@ -31,7 +31,7 @@ namespace CSF.Screenplay
     /// use the static <see cref="Create(Action{IServiceCollection}, Action{ScreenplayOptions})"/> method.
     /// </para>
     /// <para>
-    /// The Screenplay object is used to create instances of <see cref="Performance"/> via the <see cref="PerformanceFactory"/>.
+    /// The Screenplay object is used to create instances of <see cref="Performance"/> via its <see cref="ServiceProvider"/>.
     /// You may wish to read a <xref href="HowScreenplayAndPerformanceRelateArticle?text=diagram+showing+how+screenplays,+performances,+actors+and+performables+relate+to+one+another" />.
     /// </para>
     /// </remarks>

@@ -31,6 +31,23 @@ namespace CSF.Screenplay.Performances
     {
         readonly ConcurrentDictionary<Guid,HashSet<Actor>> subscribedActors = new ConcurrentDictionary<Guid,HashSet<Actor>>();
 
+        /// <summary>
+        /// Gets a unique identifier for this event bus instance.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property is not used by the Screenplay architecture directly, it is primarily for debugging/development purposes.
+        /// A common problem/developer-mistake which may occur is accidentally working with more than one Event Bus; this can occur when
+        /// working with a multiple process model, in which it is possible for more than once instance of a type registered in DI as a
+        /// 'Singleton' to coexist.
+        /// </para>
+        /// <para>
+        /// This property helps developers identify event bus instances (in a debugger, for example), so that they may recognise occasions
+        /// in which they are dealing with more than one of them.
+        /// </para>
+        /// </remarks>
+        public Guid EventBusId { get; } = Guid.NewGuid();
+
         #region Pub: Screenplay
 
         /// <inheritdoc/>

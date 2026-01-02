@@ -22,7 +22,7 @@ namespace CSF.Screenplay
         public IServiceProvider ServiceProvider { get; }
 
         /// <inheritdoc/>
-        public List<IdentifierAndName> NamingHierarchy { get; } = new List<IdentifierAndName>();
+        public IReadOnlyList<IdentifierAndName> NamingHierarchy { get; }
 
         /// <inheritdoc/>
         public PerformanceState PerformanceState
@@ -86,11 +86,11 @@ namespace CSF.Screenplay
         /// then a new Guid will be generated as the identity for this performance</param>
         /// <exception cref="ArgumentNullException">If <paramref name="serviceProvider"/> is <see langword="null" /></exception>
         public Performance(IServiceProvider serviceProvider,
-                           IList<IdentifierAndName> namingHierarchy = default,
+                           IList<IdentifierAndName> namingHierarchy,
                            Guid performanceIdentity = default)
         {
             ServiceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
-            NamingHierarchy = namingHierarchy?.ToList() ?? new List<IdentifierAndName>();
+            NamingHierarchy = namingHierarchy?.ToList() ?? throw new ArgumentNullException(nameof(namingHierarchy));
             PerformanceIdentity = performanceIdentity != Guid.Empty ? performanceIdentity : Guid.NewGuid();
             performanceEventBus = serviceProvider.GetRequiredService<IRelaysPerformanceEvents>();
         }

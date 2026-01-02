@@ -19,7 +19,11 @@ namespace CSF.Screenplay
         public IServiceScope Scope { get; }
 
         /// <inheritdoc/>
-        public void Dispose() => Scope.Dispose();
+        public void Dispose()
+        {
+            Performance.Dispose();
+            Scope.Dispose();
+        }
         
         /// <summary>
         /// Initialises a new instance of <see cref="ScopeAndPerformance"/>.

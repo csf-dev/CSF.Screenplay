@@ -10,7 +10,7 @@ public class PerformanceTests
     public void BeginPerformanceShouldInvokePerformanceBegunOnTheEventBus([Frozen] IRelaysPerformanceEvents performanceEventBus,
                                                                           [AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         Mock.Get(performanceEventBus)
             .Verify(x => x.InvokePerformanceBegun(sut), Times.Once);
@@ -19,7 +19,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void BeginPerformanceShouldThrowIfExecutedTwice([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         Assert.That(() => sut.BeginPerformance(), Throws.InvalidOperationException);
     }
@@ -27,7 +27,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void FinishPerformanceShouldThrowIfExecutedBeforeBeginPerformance([AutofixtureServices] IServiceProvider services, bool? success)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         Assert.That(() => sut.FinishPerformance(success), Throws.InvalidOperationException);
     }
 
@@ -36,7 +36,7 @@ public class PerformanceTests
                                                                               [AutofixtureServices] IServiceProvider services,
                                                                               bool? success)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         sut.FinishPerformance(success);
         Mock.Get(performanceEventBus)
@@ -46,7 +46,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void FinishPerformanceShouldThrowIfExecutedTwice([AutofixtureServices] IServiceProvider services, bool? success)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         sut.FinishPerformance(success);
         Assert.That(() => sut.FinishPerformance(success), Throws.InvalidOperationException);
@@ -55,14 +55,14 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void PerformanceStateShouldReturnNotStartedBeforeThePerformanceBegins([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.NotStarted));
     }
 
     [Test,AutoMoqData]
     public void PerformanceStateShouldReturnInProgressBeforeThePerformanceFinishes([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.InProgress));
     }
@@ -70,7 +70,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void PerformanceStateShouldReturnSuccessIfThePerformanceFinishesWithSuccess([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         sut.FinishPerformance(true);
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.Success));
@@ -79,7 +79,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void PerformanceStateShouldReturnFailedIfThePerformanceFinishesWithFailure([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         sut.FinishPerformance(false);
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.Failed));
@@ -88,7 +88,7 @@ public class PerformanceTests
     [Test,AutoMoqData]
     public void PerformanceStateShouldReturnCompletedIfThePerformanceFinishesWithNoResult([AutofixtureServices] IServiceProvider services)
     {
-        var sut = new Performance(services);
+        var sut = new Performance(services, Array.Empty<IdentifierAndName>());
         sut.BeginPerformance();
         sut.FinishPerformance(null);
         Assert.That(sut.PerformanceState, Is.EqualTo(PerformanceState.Completed));

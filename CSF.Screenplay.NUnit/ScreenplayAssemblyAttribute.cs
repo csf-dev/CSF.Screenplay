@@ -55,10 +55,10 @@ namespace CSF.Screenplay
         public override ActionTargets Targets => ActionTargets.Suite;
 
         /// <inheritdoc/>
-        public override void AfterTest(ITest test) => GetScreenplay().CompleteScreenplay();
+        public override void AfterTest(ITest test) => ScreenplayLocator.GetScreenplay(test).CompleteScreenplay();
 
         /// <inheritdoc/>
-        public override void BeforeTest(ITest test) => GetScreenplay().BeginScreenplay();
+        public override void BeforeTest(ITest test) => ScreenplayLocator.GetScreenplay(test).BeginScreenplay();
 
         /// <summary>
         /// Initializes a new instance of <see cref="ScreenplayAssemblyAttribute"/>.

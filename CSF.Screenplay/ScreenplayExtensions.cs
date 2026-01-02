@@ -172,7 +172,7 @@ namespace CSF.Screenplay
         }
 
         /// <summary>
-        /// Creates a new <see cref="IPerformance"/> within its own newly-created Dependency Injection scope.
+        /// Creates a new <see cref="IPerformance"/>, and a new Dependency Injection scope.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -184,22 +184,24 @@ namespace CSF.Screenplay
         /// </para>
         /// </remarks>
         /// <param name="screenplay">The Screenplay from which to create the performance</param>
-        /// <param name="namingHierarchy">An optional collection of identifiers and names providing the hierarchical name of this
+        /// <param name="namingHierarchy">A collection of identifiers and names providing the hierarchical name of this
         /// performance; see <see cref="IPerformance.NamingHierarchy"/> for more information.</param>
+        /// <param name="identity">An optional identity to use for this performance; corresponding to
+        /// <see cref="IHasPerformanceIdentity.PerformanceIdentity"/>.  If omitted then a new identity will be generated automatically.</param>
         /// <returns>A <see cref="ScopeAndPerformance"/> containing the newly-created performance as well as the newly-started DI scope.</returns>
         /// <exception cref="ArgumentNullException">If <paramref name="screenplay"/> is <see langword="null" />.</exception>
-        public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay, IList<IdentifierAndName> namingHierarchy = null)
+        public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay,
+                                                                  IList<IdentifierAndName> namingHierarchy,
+                                                                  Guid identity = default)
         {
             if (screenplay is null)
                 throw new ArgumentNullException(nameof(screenplay));
 
             var scope = screenplay.ServiceProvider.CreateScope();
-            var performance = scope.ServiceProvider.GetRequiredService<IPerformance>();
-            if(namingHierarchy != null)
-            {
-                performance.NamingHierarchy.Clear();
-                performance.NamingHierarchy.AddRange(namingHierarchy);
-            }
+            IList<IdentifierAndName> resolvedNamingHierarchy = namingHierarchy ?? new List<IdentifierAndName>();
+            var performance = new Performance(scope.ServiceProvider, resolvedNamingHierarchy, identity);
+            var container = scope.ServiceProvider.GetRequiredService<PerformanceProvider>();
+            container.SetCurrentPerformance(performance);
             return new ScopeAndPerformance(performance, scope);
         }
 
