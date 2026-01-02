@@ -17,7 +17,7 @@ namespace CSF.Screenplay
     /// process and not the test-building process.
     /// </para>
     /// </remarks>
-    public class CastAdapter : ICast
+    public sealed class CastAdapter : ICast
     {
         readonly Lazy<ICast> wrappedCast;
 

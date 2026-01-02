@@ -17,22 +17,29 @@ namespace CSF.Screenplay
     /// process and not the test-building process.
     /// </para>
     /// </remarks>
-    public class PerformanceAdapter : IPerformance
+    public sealed class PerformanceAdapter : IPerformance
     {
         readonly Lazy<IPerformance> wrappedPerformance;
 
+        /// <inheritdoc/>
         public IReadOnlyList<IdentifierAndName> NamingHierarchy => wrappedPerformance.Value.NamingHierarchy;
 
+        /// <inheritdoc/>
         public PerformanceState PerformanceState => wrappedPerformance.Value.PerformanceState;
 
+        /// <inheritdoc/>
         public Guid PerformanceIdentity => wrappedPerformance.Value.PerformanceIdentity;
 
+        /// <inheritdoc/>
         public IServiceProvider ServiceProvider => wrappedPerformance.Value.ServiceProvider;
 
+        /// <inheritdoc/>
         public void BeginPerformance() => wrappedPerformance.Value.BeginPerformance();
 
+        /// <inheritdoc/>
         public void Dispose() => wrappedPerformance.Value.Dispose();
 
+        /// <inheritdoc/>
         public void FinishPerformance(bool? success) => wrappedPerformance.Value.FinishPerformance(success);
 
         /// <summary>

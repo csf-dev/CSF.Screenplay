@@ -18,7 +18,7 @@ namespace CSF.Screenplay
     /// process and not the test-building process.
     /// </para>
     /// </remarks>
-    public class StageAdapter : IStage
+    public sealed class StageAdapter : IStage
     {
         readonly Lazy<IStage> wrappedStage;
 
