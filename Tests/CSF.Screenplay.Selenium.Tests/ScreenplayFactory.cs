@@ -1,5 +1,4 @@
 using CSF.Extensions.WebDriver;
-using CSF.Screenplay.Performances;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +14,7 @@ public class ScreenplayFactory : IGetsScreenplay
             services.AddWebDriverFactory();
 
             services.AddTransient<Webster>();
+            services.AddTransient<Pattie>();
         });
 
         return screenplay;

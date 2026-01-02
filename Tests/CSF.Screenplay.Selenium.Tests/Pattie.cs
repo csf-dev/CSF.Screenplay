@@ -3,11 +3,11 @@ using CSF.Extensions.WebDriver;
 
 namespace CSF.Screenplay.Selenium;
 
-public class Webster(IGetsWebDriver webDriverFactory) : IPersona
+public class Pattie(IGetsWebDriver webDriverFactory) : IPersona
 {
-    static internal Uri TestWebappBaseUri => new Uri("http://localhost:5102/");
+    static internal Uri TestWebappBaseUri => new Uri("http://localhost:5102/ChildPath/");
 
-    public string Name => "Webster";
+    public string Name => "Pattie";
 
     public Actor GetActor(Guid performanceIdentity)
     {

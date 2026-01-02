@@ -1,0 +1,29 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Delete The Cookie Tests</h1>
+        <p>
+            Click the button below to list the cookies.
+            The onload event sets two cookies up; if the delete cookie test is working correctly then it's
+            possible to delete either of these independently, so clicking the button will reveal reduced list.
+        </p>
+        <button id="getCookies">Get cookies</button>
+        <code><pre id="cookiesList" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                document.cookie = "sampleCookie=sampleValue";
+                document.cookie = "otherCookie=otherValue";
+
+                document.getElementById("getCookies").addEventListener("click", function() {
+                    const cookies = document.cookie.split("; ");
+                    const cookiesList = document.getElementById("cookiesList");
+                    cookiesList.innerHTML = "";
+                    for (let i = 0; i < cookies.length; i++) {
+                        cookiesList.innerHTML += cookies[i] + "\n";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
