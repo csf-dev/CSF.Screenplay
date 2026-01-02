@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,6 +39,9 @@ namespace CSF.Screenplay.Actors
                 return actor;
             });
         }
+
+        /// <inheritdoc/>
+        public IReadOnlyCollection<string> GetCastList() => actors.Keys.ToList();
 
         /// <inheritdoc/>
         public void Dispose()
