@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
 
 namespace CSF.Screenplay.Selenium.Builders
@@ -11,14 +12,13 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <para>
     /// This class provides methods for configuring various aspects of a wait action, such as timeout, polling interval,
     /// and ignored exception types.
-    /// Using this class directly requires that a <see cref="WaitUntilPredicate{T}"/> instance is provided to the constructor.
+    /// Using this class directly requires that a <see cref="WaitUntilPredicate"/> instance is provided to the constructor.
     /// The specified predicate provides both the logic to evaluate and a human-readable name for the wait condition.
     /// </para>
     /// </remarks>
-    /// <typeparam name="T">The return type of the predicate function.</typeparam>
-    public class NamedWaitBuilder<T>
+    public class NamedWaitBuilder : IGetsPerformable
     {
-        readonly WaitUntilPredicate<T> predicate;
+        readonly WaitUntilPredicate<bool> predicate;
 
         /// <summary>
         /// Gets or sets the maximum timeout for the wait action.
@@ -44,7 +44,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// Gets the wait-until predicate, which wraps both the predicate logic and a human-readable name.
         /// </summary>
         /// <returns>The wait-until predicate instance.</returns>
-        protected virtual WaitUntilPredicate<T> GetWaitUntilPredicate() => predicate;
+        protected virtual WaitUntilPredicate<bool> GetWaitUntilPredicate() => predicate;
 
         /// <summary>
         /// Configures the wait action to use a specified maximum timeout.
@@ -55,13 +55,13 @@ namespace CSF.Screenplay.Selenium.Builders
         /// the wait will end, and an exception will be raised.
         /// </para>
         /// <para>
-        /// This method is optional.  If it is not called then the default behaviour of the <see cref="Wait{T}"/> question
+        /// This method is optional.  If it is not called then the default behaviour of the <see cref="Wait"/> question
         /// will be used.  See the documentation for that class for more details.
         /// </para>
         /// </remarks>
         /// <param name="timeout">The maximum amount of time to wait.</param>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
-        public NamedWaitBuilder<T> ForAtMost(TimeSpan timeout)
+        public NamedWaitBuilder ForAtMost(TimeSpan timeout)
         {
             Timeout = timeout;
             return this;
@@ -90,7 +90,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="pollingInterval">The polling interval to use.</param>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the polling interval has already been set.</exception>
-        public NamedWaitBuilder<T> WithPollingInterval(TimeSpan pollingInterval)
+        public NamedWaitBuilder WithPollingInterval(TimeSpan pollingInterval)
         {
             if(PollingInterval.HasValue)
                 throw new InvalidOperationException("The polling interval has already been set; it cannot be set again.");
@@ -116,7 +116,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <returns></returns>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the ignored exception types have already been set.</exception>
-        public NamedWaitBuilder<T> IgnoringTheseExceptionTypes(params Type[] ignoredExceptionTypes)
+        public NamedWaitBuilder IgnoringTheseExceptionTypes(params Type[] ignoredExceptionTypes)
         {
             if(IgnoredExceptionTypes != null)
                 throw new InvalidOperationException("The ignored exception types have already been set; they cannot be set again.");
@@ -125,17 +125,20 @@ namespace CSF.Screenplay.Selenium.Builders
             return this;
         }
 
+        IPerformable IGetsPerformable.GetPerformable()
+            => new Wait(GetWaitUntilPredicate(), Timeout, PollingInterval, IgnoredExceptionTypes);
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="NamedWaitBuilder{T}"/> class.
+        /// Initializes a new instance of the <see cref="NamedWaitBuilder"/> class.
         /// </summary>
         /// <param name="predicate">The predicate which ends the wait when it returns a successful result.</param>
-        public NamedWaitBuilder(WaitUntilPredicate<T> predicate)
+        public NamedWaitBuilder(WaitUntilPredicate<bool> predicate)
         {
             this.predicate = predicate;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NamedWaitBuilder{T}"/> class.
+        /// Initializes a new instance of the <see cref="NamedWaitBuilder"/> class.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -146,13 +149,13 @@ namespace CSF.Screenplay.Selenium.Builders
         protected NamedWaitBuilder() {}
 
         /// <summary>
-        /// Implicitly converts a <see cref="NamedWaitBuilder{T}"/> (or derived type) to a <see cref="Wait{T}"/>.
+        /// Implicitly converts a <see cref="NamedWaitBuilder"/> (or derived type) to a <see cref="Wait"/>.
         /// </summary>
         /// <param name="builder">The wait builder to convert.</param>
-        /// <returns>A new <see cref="Wait{T}"/> instance.</returns>
-        public static implicit operator Wait<T>(NamedWaitBuilder<T> builder)
+        /// <returns>A new <see cref="Wait"/> instance.</returns>
+        public static implicit operator Wait(NamedWaitBuilder builder)
         {
-            return new Wait<T>(builder.GetWaitUntilPredicate(), builder.Timeout, builder.PollingInterval, builder.IgnoredExceptionTypes);
+            return new Wait(builder.GetWaitUntilPredicate(), builder.Timeout, builder.PollingInterval, builder.IgnoredExceptionTypes);
         }
     }
 }

@@ -1,0 +1,28 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Wait Tests</h1>
+        <p>
+            Click the button below to trigger a delayed event, which will alter the text of the displayed element.
+            The length of the delay is determined by the value of the input box (in milliseconds).
+        </p>
+        <input type="number" id="delay" value="" />
+        <button id="clickable">Click me</button>
+        <code><pre id="display" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                document.getElementById("clickable").addEventListener("click", function() {
+                    const delay = document.getElementById("delay").value;
+                    if(delay == 0)
+                        throw new Error("Delay must be greater than zero; enter a value first.");
+
+                    setTimeout(function() {
+                        const displayElement = document.getElementById("display");
+                        displayElement.innerHTML = "Clicked, and " + delay + "ms has elapsed";
+                    }, delay);
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -13,15 +13,14 @@ namespace CSF.Screenplay.Selenium.Builders
     /// and ignored exception types. It also provides a way to set a human-readable name for the wait condition.
     /// </para>
     /// </remarks>
-    /// <typeparam name="T">The return type of the predicate function.</typeparam>
-    public class UnnamedWaitBuilder<T> : NamedWaitBuilder<T>
+    public class UnnamedWaitBuilder : NamedWaitBuilder
     {
-        readonly Func<IWebDriver,T> predicate;
+        readonly Func<IWebDriver,bool> predicate;
         string name;
 
         /// <inheritdoc/>
-        protected override WaitUntilPredicate<T> GetWaitUntilPredicate()
-            => new WaitUntilPredicate<T>(predicate, name ?? "a predicate is satisfied");
+        protected override WaitUntilPredicate<bool> GetWaitUntilPredicate()
+            => new WaitUntilPredicate<bool>(predicate, name ?? "a predicate is satisfied");
 
         /// <summary>
         /// Configures the wait action to use a specified maximum timeout.
@@ -32,14 +31,14 @@ namespace CSF.Screenplay.Selenium.Builders
         /// the wait will end, and an exception will be raised.
         /// </para>
         /// <para>
-        /// This method is optional.  If it is not called then the default behaviour of the <see cref="Wait{T}"/> question
+        /// This method is optional.  If it is not called then the default behaviour of the <see cref="Wait"/> question
         /// will be used.  See the documentation for that class for more details.
         /// </para>
         /// </remarks>
         /// <param name="timeout">The maximum amount of time to wait.</param>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
-        public new UnnamedWaitBuilder<T> ForAtMost(TimeSpan timeout)
-            => (UnnamedWaitBuilder<T>) base.ForAtMost(timeout);
+        public new UnnamedWaitBuilder ForAtMost(TimeSpan timeout)
+            => (UnnamedWaitBuilder) base.ForAtMost(timeout);
 
         /// <summary>
         /// Configures the wait action which will be created to use a specified polling interval.
@@ -64,8 +63,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="pollingInterval">The polling interval to use.</param>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the polling interval has already been set.</exception>
-        public new UnnamedWaitBuilder<T> WithPollingInterval(TimeSpan pollingInterval)
-            => (UnnamedWaitBuilder<T>) base.WithPollingInterval(pollingInterval);
+        public new UnnamedWaitBuilder WithPollingInterval(TimeSpan pollingInterval)
+            => (UnnamedWaitBuilder) base.WithPollingInterval(pollingInterval);
 
         /// <summary>
         /// Configures the wait action which will be created to ignore exceptions of the specified types.
@@ -84,8 +83,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <returns></returns>
         /// <returns>The same wait builder, so that calls may be chained.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the ignored exception types have already been set.</exception>
-        public new UnnamedWaitBuilder<T> IgnoringTheseExceptionTypes(params Type[] ignoredExceptionTypes)
-            => (UnnamedWaitBuilder<T>) base.IgnoringTheseExceptionTypes(ignoredExceptionTypes);
+        public new UnnamedWaitBuilder IgnoringTheseExceptionTypes(params Type[] ignoredExceptionTypes)
+            => (UnnamedWaitBuilder) base.IgnoringTheseExceptionTypes(ignoredExceptionTypes);
 
         /// <summary>
         /// Configures the wait action to use a short, descriptive, human-readable name summarising what the performable is waiting for.
@@ -99,7 +98,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <returns>The same wait builder, so that calls may be chained.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the name is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown if the name has already been set.</exception>
-        public UnnamedWaitBuilder<T> Named(string name)
+        public UnnamedWaitBuilder Named(string name)
         {
             if (name is null)
                 throw new ArgumentNullException(nameof(name));
@@ -111,15 +110,11 @@ namespace CSF.Screenplay.Selenium.Builders
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnnamedWaitBuilder{T}"/> class with a specified timeout.
+        /// Initializes a new instance of the <see cref="UnnamedWaitBuilder"/> class with a specified timeout.
         /// </summary>
         /// <param name="predicate">The predicate which ends the wait when it returns a successful result.</param>
-        public UnnamedWaitBuilder(Func<IWebDriver,T> predicate) : base()
+        public UnnamedWaitBuilder(Func<IWebDriver,bool> predicate) : base()
         {
-            var predType = typeof(T);
-            if(predType.IsValueType && predType != typeof(bool))
-                throw new ArgumentException("The result type of the predicate must be a boolean or a reference type.", nameof(predicate));
-            
             this.predicate = predicate ?? throw new ArgumentNullException(nameof(predicate));
         }
     }

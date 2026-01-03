@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil(System.Func{IWebDriver, bool})"/>
         /// to wait until the current target instance meets the specified conditions.
         /// </para>
         /// <para>
@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil(System.Func{IWebDriver, bool})"/>
         /// to wait until the current target instance meets the specified conditions.
         /// </para>
         /// <para>
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil(System.Func{IWebDriver, bool})"/>
         /// to wait until every element expsed by the current target instance meets the specified conditions.
         /// </para>
         /// <para>
@@ -61,7 +61,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil{T}(System.Func{IWebDriver, T})"/>
+        /// This method is used with the creation of predicates for <see cref="SeleniumPerformableBuilder.WaitUntil(System.Func{IWebDriver, bool})"/>
         /// to wait until every element expsed by the current target instance meets the specified conditions.
         /// </para>
         /// <para>
