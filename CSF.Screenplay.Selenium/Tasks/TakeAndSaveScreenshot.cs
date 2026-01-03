@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {

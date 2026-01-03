@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <remarks>
     /// <para>
     /// Like all builders in this namespace, this class is not to be instantiated directly.
-    /// Instead, use the <see cref="SeleniumPerformableBuilder.EnterTheText(string[])"/> method.
+    /// Instead, use the <see cref="PerformableBuilder.EnterTheText(string[])"/> method.
     /// </para>
     /// </remarks>
     public class SendKeysBuilder

@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <remarks>
     /// <para>
     /// Like all builders in this namespace, this class is not to be instantiated directly.
-    /// Instead, use the <see cref="SeleniumPerformableBuilder.SaveTheScreenshot(Screenshot)"/> method.
+    /// Instead, use the <see cref="PerformableBuilder.SaveTheScreenshot(Screenshot)"/> method.
     /// </para>
     /// </remarks>
     public class SaveScreenshotBuilder : IGetsPerformable

@@ -1,6 +1,6 @@
 using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.PerformanceStarter;
-using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 

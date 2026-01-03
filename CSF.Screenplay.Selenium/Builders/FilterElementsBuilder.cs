@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// </para>
     /// </example>
     /// <seealso cref="FilterSpecificationBuilder"/>
-    /// <seealso cref="SeleniumPerformableBuilder.FilterTheElements(IReadOnlyCollection{SeleniumElement})"/>
+    /// <seealso cref="PerformableBuilder.FilterTheElements(IReadOnlyCollection{SeleniumElement})"/>
     public class FilterElementsBuilder
     {
         readonly IReadOnlyCollection<SeleniumElement> elements;

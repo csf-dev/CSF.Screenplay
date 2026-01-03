@@ -1,6 +1,6 @@
 using CSF.Screenplay.Actors;
 using static CSF.Screenplay.PerformanceStarter;
-using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Questions;
 
