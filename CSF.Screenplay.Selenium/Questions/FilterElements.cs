@@ -52,7 +52,7 @@ namespace CSF.Screenplay.Selenium.Questions
         {
             this.elements = elements ?? throw new System.ArgumentNullException(nameof(elements));
             this.specification = specification ?? throw new System.ArgumentNullException(nameof(specification));
-            this.resultsName = resultsName ?? "the filtered element(s)";
+            this.resultsName = resultsName;
         }
     }
 }
