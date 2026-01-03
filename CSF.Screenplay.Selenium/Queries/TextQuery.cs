@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Queries
 {

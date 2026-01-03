@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            #backgroundDiv {
+                background-color: #AAF;
+            }
+            #positionedDiv {
+                position: absolute;
+                left: 700px;
+                top: 120px;
+                width: 300px;
+                height: 20px;
+                background-color: #FAA;
+            }
+            #sizedDiv {
+                width: 400px;
+                height: 150px;
+                background-color: #AFA;
+            }
+            #hiddenDiv {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Queries tests</h1>
+        <p>
+            This page has a number of elements which may be interrogated by queries.
+        </p>
+        <p>This is an HTML input element with <code>type="password"</code>: <input type="password" id="passwordInput" value="secret"></p>
+        <p>
+            Here are two HTML button elements; the second is disabled: <button class="maybeClickable">Enabled</button>,
+            <button class="maybeClickable" disabled>Disabled</button>
+        </p>
+        <div id="backgroundDiv">
+            This div has a background color set.
+        </div>
+        <div id="positionedDiv">
+            This div is positioned at (700, 120).
+        </div>
+        <div id="sizedDiv">
+            This div has a size of 400px by 150px.
+        </div>
+        <div id="hiddenDiv">
+            This div is invisible!
+        </div>
+        <p>
+            This multi-select element has various options which are selected and unselected:
+            <select id="multiSelect" multiple>
+                <option value="option1" selected>Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3" selected>Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+        </p>
+    </body>
+</html>

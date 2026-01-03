@@ -1,5 +1,4 @@
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Queries
 {
