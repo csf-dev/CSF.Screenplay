@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// It is perfectly acceptable for this collection to contain only a single element, or even to contain zero elements.
     /// </para>
     /// </remarks>
-    public class SeleniumElementCollection : ITarget, IHasName, IReadOnlyList<SeleniumElement>
+    public class SeleniumElementCollection : ITarget, IReadOnlyList<SeleniumElement>
     {
         internal const string UnknownNameFormat = "a collection of {0} HTML element(s)";
 

@@ -5,7 +5,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// <summary>
     /// An implementation of <see cref="ITarget"/> which represents a single native Selenium HTML element.
     /// </summary>
-    public class SeleniumElement : ITarget, IHasName
+    public class SeleniumElement : ITarget
     {
         const string unknownNameFormat = "an HTML {0} element";
 
