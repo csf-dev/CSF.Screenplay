@@ -88,7 +88,7 @@ public class WaitTests
     }
 
     [Test, Screenplay]
-    public async Task WaitingForInsufficientTimeWithoutAPredicateShouldThrow(IStage stage)
+    public async Task WaitingForInsufficientTimeWithoutAPredicateShouldYieldIncorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
 
