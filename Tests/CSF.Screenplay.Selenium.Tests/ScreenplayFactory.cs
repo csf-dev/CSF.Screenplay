@@ -15,6 +15,10 @@ public class ScreenplayFactory : IGetsScreenplay
 
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();
+        }, options =>
+        {
+            options.ValueFormatters.Add(typeof(Reporting.OptionsFormatter));
+            options.ValueFormatters.Add(typeof(Reporting.ScreenshotFormatter));
         });
 
         return screenplay;

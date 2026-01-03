@@ -42,7 +42,7 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <remarks>
         /// <para>
-        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot(string)"/>
+        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot()"/>
         /// instead of this method.
         /// </para>
         /// <para>
@@ -58,7 +58,7 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <remarks>
         /// <para>
-        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot(string)"/>
+        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot()"/>
         /// instead of this method.
         /// </para>
         /// <para>
@@ -79,7 +79,7 @@ namespace CSF.Screenplay.Selenium
         /// This allows it to be quickly identified in the report.
         /// </para>
         /// <para>
-        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot(string)"/>
+        /// If you only want to take a screenshot and save it as an asset file, please consider <see cref="TakeAndSaveAScreenshot()"/>
         /// instead of this method.
         /// </para>
         /// </remarks>
@@ -100,9 +100,8 @@ namespace CSF.Screenplay.Selenium
         /// using <see cref="TakeAndSaveAScreenshotIfSupported"/> instead.
         /// </para>
         /// </remarks>
-        /// <param name="name">A short name to identify the Screenshot when it is saved as a file</param>
         /// <returns>A performable</returns>
-        public static IPerformable TakeAndSaveAScreenshot(string name = null) => new TakeAndSaveScreenshot(name);
+        public static TakeAndSaveScreenshotBuilder TakeAndSaveAScreenshot() => new TakeAndSaveScreenshotBuilder(true);
 
         /// <summary>
         /// Gets a performable taek which takes a screenshot and saves it to a file, using an optional short name.
@@ -118,9 +117,8 @@ namespace CSF.Screenplay.Selenium
         /// screenshots, consider using <see cref="TakeAndSaveAScreenshot"/> instead.
         /// </para>
         /// </remarks>
-        /// <param name="name">A short name to identify the Screenshot when it is saved as a file</param>
         /// <returns>A performable</returns>
-        public static IPerformable TakeAndSaveAScreenshotIfSupported(string name = null) => new TakeAndSaveScreenshot(name, false);
+        public static TakeAndSaveScreenshotBuilder TakeAndSaveAScreenshotIfSupported() => new TakeAndSaveScreenshotBuilder(false);
 
         /// <summary>
         /// Gets a performable action which clears all cookies for the current domain.

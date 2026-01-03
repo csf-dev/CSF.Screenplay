@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Abilities;
@@ -17,6 +19,7 @@ namespace CSF.Screenplay.Selenium.Actions
     {
         readonly Screenshot screenshot;
         readonly string name;
+        readonly ScreenshotImageFormat format;
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
@@ -26,10 +29,10 @@ namespace CSF.Screenplay.Selenium.Actions
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<GetAssetFilePaths>();
-            var path = ability.GetAssetFilePath($"{name}.png");
+            var path = ability.GetAssetFilePath($"{name}.{format.ToString().ToLowerInvariant()}");
             if(path == null) return default;
 
-            screenshot.SaveAsFile(path, ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile(path, format);
             actor.RecordAsset(this, path, name);
             return default;
         }
@@ -38,10 +41,12 @@ namespace CSF.Screenplay.Selenium.Actions
         /// Initializes a new instance of the <see cref="SaveScreenshot"/> class.
         /// </summary>
         /// <param name="screenshot">The screenshot to save.</param>
-        /// <param name="name">The name of the screenshot file.</param>
-        public SaveScreenshot(Screenshot screenshot, string name = null)
+        /// <param name="name">A human-readable name for the screenshot, which identifies it within the performance.</param>
+        /// <param name="format">An optional format in which to save the screenshot; if omitted then PNG will be used by default.</param>
+        public SaveScreenshot(Screenshot screenshot, string name = null, ScreenshotImageFormat format = ScreenshotImageFormat.Png)
         {
-            this.screenshot = screenshot ?? throw new System.ArgumentNullException(nameof(screenshot));
+            this.screenshot = screenshot ?? throw new ArgumentNullException(nameof(screenshot));
+            this.format = format;
             this.name = name ?? "screenshot";
         }
     }

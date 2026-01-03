@@ -1,22 +1,24 @@
-using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Tasks;
 using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Builders
 {
     /// <summary>
-    /// A builder class to create an instance of <see cref="SaveScreenshot"/>.
+    /// A builder class to create an instance of <see cref="TakeAndSaveScreenshot"/>.
     /// </summary>
     /// <remarks>
     /// <para>
     /// Like all builders in this namespace, this class is not to be instantiated directly.
-    /// Instead, use the <see cref="SeleniumPerformableBuilder.SaveTheScreenshot(Screenshot)"/> method.
+    /// Instead, use either of the <see cref="SeleniumPerformableBuilder.TakeAndSaveAScreenshot()"/>
+    /// or <see cref="SeleniumPerformableBuilder.TakeAndSaveAScreenshotIfSupported()"/>
+    /// methods.
     /// </para>
     /// </remarks>
-    public class SaveScreenshotBuilder : IGetsPerformable
+    public class TakeAndSaveScreenshotBuilder : IGetsPerformable
     {
-        readonly Screenshot screenshot;
+        readonly bool throwIfUnsupported;
         string name;
         ScreenshotImageFormat format = ScreenshotImageFormat.Png;
 
@@ -32,7 +34,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </remarks>
         /// <param name="name">A human-readable name for the screenshot.</param>
         /// <returns>This same builder, so further customisations may be performed</returns>
-        public SaveScreenshotBuilder WithTheName(string name)
+        public TakeAndSaveScreenshotBuilder WithTheName(string name)
         {
             this.name = name;
             return this;
@@ -48,21 +50,22 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </remarks>
         /// <param name="format">The file format</param>
         /// <returns>This same builder, so further customisations may be performed</returns>
-        public SaveScreenshotBuilder WithTheFormat(ScreenshotImageFormat format)
+        public TakeAndSaveScreenshotBuilder WithTheFormat(ScreenshotImageFormat format)
         {
             this.format = format;
             return this;
         }
 
-        IPerformable IGetsPerformable.GetPerformable() => new SaveScreenshot(screenshot, name, format);
+        IPerformable IGetsPerformable.GetPerformable() => new TakeAndSaveScreenshot(name, format, throwIfUnsupported);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveScreenshotBuilder"/> class.
         /// </summary>
-        /// <param name="screenshot">The Selenium screenshot instance.</param>
-        internal SaveScreenshotBuilder(Screenshot screenshot)
+        /// <param name="throwIfUnsupported">If set to <see langword="false"/> then this performance will not raise an
+        /// exception if the <see cref="BrowseTheWeb"/> ability does not support taking screenshots.  Otherwise it will.</param>
+        internal TakeAndSaveScreenshotBuilder(bool throwIfUnsupported)
         {
-            this.screenshot = screenshot ?? throw new ArgumentNullException(nameof(screenshot));
+            this.throwIfUnsupported = throwIfUnsupported;
         }
 
         /// <summary>
@@ -70,7 +73,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <param name="builder">The <see cref="SaveScreenshotBuilder"/> instance.</param>
         /// <returns>An <see cref="SaveScreenshot"/> instance.</returns>
-        public static implicit operator SaveScreenshot(SaveScreenshotBuilder builder)
-            => new SaveScreenshot(builder.screenshot, builder.name, builder.format);
+        public static implicit operator TakeAndSaveScreenshot(TakeAndSaveScreenshotBuilder builder)
+            => new TakeAndSaveScreenshot(builder.name, builder.format, builder.throwIfUnsupported);
     }
 }

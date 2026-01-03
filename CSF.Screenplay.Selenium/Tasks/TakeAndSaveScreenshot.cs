@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using CSF.Screenplay.Performables;
 using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
 
@@ -21,18 +20,19 @@ namespace CSF.Screenplay.Selenium.Tasks
     public class TakeAndSaveScreenshot : IPerformable, ICanReport
     {
         readonly string name;
+        readonly ScreenshotImageFormat format;
         readonly bool throwIfUnsupported;
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} takes a screenshot and saves it as an asset named {Name}", actor.Name, name);
+            => formatter.Format("{Actor} takes a screenshot in {Format} format and saves it as an asset named {Name}", actor.Name, format, name);
 
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var screenshot = await actor.PerformAsync(GetTakeAScreenshotPerformable(), cancellationToken);
             if(screenshot == null) return;
-            await actor.PerformAsync(SaveTheScreenshot(screenshot).WithTheName(name), cancellationToken);
+            await actor.PerformAsync(SaveTheScreenshot(screenshot).WithTheName(name).WithTheFormat(format), cancellationToken);
         }
 
         IPerformableWithResult<Screenshot> GetTakeAScreenshotPerformable()
@@ -41,11 +41,13 @@ namespace CSF.Screenplay.Selenium.Tasks
         /// <summary>
         /// Initializes a new instance of the <see cref="TakeAndSaveScreenshot"/> class.
         /// </summary>
-        /// <param name="name">The name of the screenshot.</param>
+        /// <param name="name">An optional human-readable name for the screenshot.</param>
+        /// <param name="format">An optional image format by which to save the screenshot.</param>
         /// <param name="throwIfUnsupported">If set to <c>true</c>, throws an exception if the WebDriver does not support taking screenshots.</param>
-        public TakeAndSaveScreenshot(string name = null, bool throwIfUnsupported = true)
+        public TakeAndSaveScreenshot(string name = null, ScreenshotImageFormat format = ScreenshotImageFormat.Png, bool throwIfUnsupported = true)
         {
             this.name = name ?? "screenshot";
+            this.format = format;
             this.throwIfUnsupported = throwIfUnsupported;
         }
     }

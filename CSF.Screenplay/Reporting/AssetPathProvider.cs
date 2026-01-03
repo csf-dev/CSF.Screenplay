@@ -55,7 +55,7 @@ namespace CSF.Screenplay.Reporting
         }
 
         static string RemoveInvalidFilenameChars(string input)
-            => Path.GetInvalidFileNameChars().Cast<string>().Aggregate(input, (current, c) => current.Replace(c, string.Empty));
+            => Path.GetInvalidFileNameChars().Select(c => c.ToString()).Aggregate(input, (current, c) => current.Replace(c, string.Empty));
 
         static string GetTimestamp() => DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture);
 
