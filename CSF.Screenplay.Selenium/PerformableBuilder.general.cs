@@ -220,5 +220,11 @@ namespace CSF.Screenplay.Selenium
         /// <param name="duration">The duration for which to wait.</param>
         /// <returns>A performable action.</returns>
         public static WaitForSomeTime WaitFor(TimeSpan duration) => new WaitForSomeTime(duration);
+
+        /// <summary>
+        /// Gets a performable question which reads the title of the current browser window.
+        /// </summary>
+        /// <returns>A performable question.</returns>
+        public static GetWindowTitle ReadTheWindowTitle() => new GetWindowTitle();
     }
 }
