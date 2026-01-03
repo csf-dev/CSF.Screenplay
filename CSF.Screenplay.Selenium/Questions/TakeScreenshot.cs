@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.Questions
         readonly bool throwIfUnsupported;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} takes a screenshot of the web page", actor.Name);
 
         /// <inheritdoc/>

@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         }
         
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} opens their browser at {Uri}, respecting a base URL if applicable", actor.Name, uri.Name);
 
         /// <summary>

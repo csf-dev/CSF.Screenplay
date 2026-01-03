@@ -219,7 +219,7 @@ public class PerformanceReportBuilderTest
 
     public class TaskPerformable : IPerformable, ICanReport
     {
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} starts then stops their stopwatch after a short pause", actor);
 
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

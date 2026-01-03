@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly bool throwIfUnsupported;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} clears their browser local storage for the current site", actor.Name);
 
         /// <inheritdoc/>

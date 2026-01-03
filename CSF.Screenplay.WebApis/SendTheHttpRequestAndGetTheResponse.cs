@@ -15,7 +15,7 @@ namespace CSF.Screenplay.WebApis
         readonly HttpRequestMessageBuilder messageBuilder;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format(Resources.PerformableReportStrings.SendTheHttpRequestAndGetTheResponseFormat, actor, messageBuilder.Method, messageBuilder, typeof(TResponse).Name);
         
         /// <inheritdoc/>

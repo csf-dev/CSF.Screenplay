@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Actions
     public class DeselectAll : ISingleElementPerformable
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} deselects all of the options from {Element}", actor.Name, element.Value);
 
         /// <inheritdoc/>

@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly int index;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} selects option {Index} (zero-based) from {Element}", actor.Name, index, element.Value);
 
         /// <inheritdoc/>

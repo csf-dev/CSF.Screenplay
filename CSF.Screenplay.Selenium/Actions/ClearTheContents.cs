@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Actions
     public class ClearTheContents : ISingleElementPerformable
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} clears the contents of {Element}", actor.Name, element.Value);
 
         /// <inheritdoc/>

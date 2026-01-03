@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly TimeSpan duration;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} waits for {Duration}", actor, duration);
 
         /// <inheritdoc/>

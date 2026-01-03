@@ -47,7 +47,7 @@ namespace CSF.Screenplay.Selenium
         }
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} is able to browse the web using {BrowserName}",
                                 actor.Name,
                                 WebDriver.GetBrowserId()?.ToString() ?? "a Selenium WebDriver");

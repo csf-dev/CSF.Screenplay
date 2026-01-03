@@ -4,7 +4,7 @@ public class AddNumbers : ICanReport
 {
     int currentNumber;
 
-    public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+    public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         => formatter.Format("{Actor} is able to add numbers to a running total", actor);
 
     public void Add(int number) => currentNumber += number;

@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Selenium.Questions
         Lazy<SeleniumElement> lazyElement;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         {
             lazyElement = lazyElement ?? actor.GetLazyElement(target);
             return performable.GetReportFragment(actor, lazyElement, formatter);

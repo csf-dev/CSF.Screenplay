@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly string cookieName;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} deletes the cookie named {CookieName}", actor.Name, cookieName);
 
         /// <inheritdoc/>

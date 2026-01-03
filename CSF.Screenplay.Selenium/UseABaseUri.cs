@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Selenium
     public class UseABaseUri : ICanReport
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} is able to use the base URI {BaseUri}",
                                 actor.Name,
                                 BaseUri);

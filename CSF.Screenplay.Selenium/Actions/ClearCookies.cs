@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Actions
     public class ClearCookies : IPerformable, ICanReport
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} clears all browser cookies for the current site", actor.Name);
 
         /// <inheritdoc/>

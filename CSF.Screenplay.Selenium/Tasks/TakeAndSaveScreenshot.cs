@@ -24,7 +24,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         readonly bool throwIfUnsupported;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} takes a screenshot in {Format} format and saves it as an asset named {Name}", actor.Name, format, name);
 
         /// <inheritdoc/>

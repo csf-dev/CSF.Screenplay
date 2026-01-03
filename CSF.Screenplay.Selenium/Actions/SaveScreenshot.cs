@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly ScreenshotImageFormat format;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} saves {Name} as an asset file", actor.Name, name);
 
         /// <inheritdoc/>

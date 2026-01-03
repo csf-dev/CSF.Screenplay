@@ -16,7 +16,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// A selector/specification-based target may be used to find elements at runtime, via the <see cref="GetElements"/> method.
     /// </para>
     /// </remarks>
-    public interface ITarget
+    public interface ITarget : IHasName
     {
         /// <summary>
         /// Gets a single Selenium element which matches the current target.

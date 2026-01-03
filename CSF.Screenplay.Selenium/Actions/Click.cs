@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Actions
     public class Click : ISingleElementPerformable
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} clicks on {Element}", actor.Name, element.Value);
 
         /// <inheritdoc/>

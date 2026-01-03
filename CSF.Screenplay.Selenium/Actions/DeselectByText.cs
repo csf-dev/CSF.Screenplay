@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly string text;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} deselects '{Text}' from {Element}", actor.Name, text, element.Value);
 
         /// <inheritdoc/>

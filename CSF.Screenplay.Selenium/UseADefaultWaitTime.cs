@@ -14,7 +14,7 @@ namespace CSF.Screenplay.Selenium
         public TimeSpan WaitTime { get; }
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} is able to use a default wait time of {Timeout}",
                                 actor.Name,
                                 WaitTime);

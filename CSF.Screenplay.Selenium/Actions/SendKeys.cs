@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly string text;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} enters the text '{Text}' into {Element}", actor.Name, text, element.Value);
 
         /// <inheritdoc/>

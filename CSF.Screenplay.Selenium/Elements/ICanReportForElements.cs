@@ -15,18 +15,18 @@ namespace CSF.Screenplay.Selenium.Elements
     public interface ICanReportForElements
     {
         /// <summary>
-        /// Counterpart to <see cref="ICanReport.GetReportFragment(IHasName, IFormatsReportFragment)"/> except that this method also offers a
+        /// Counterpart to <see cref="ICanReport.GetReportFragment(Actor, IFormatsReportFragment)"/> except that this method also offers a
         /// Selenium element collection.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Please see the documentation for <see cref="ICanReport.GetReportFragment(IHasName, IFormatsReportFragment)"/> for more information.
+        /// Please see the documentation for <see cref="ICanReport.GetReportFragment(Actor, IFormatsReportFragment)"/> for more information.
         /// </para>
         /// </remarks>
         /// <param name="actor">An actor for whom to write the report fragment</param>
         /// <param name="formatter">A report-formatting service</param>
         /// <param name="elements">The Selenium elements for which the report is being written</param>
         /// <returns>A human-readable report fragment.</returns>
-        ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElementCollection> elements, IFormatsReportFragment formatter);
+        ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElementCollection> elements, IFormatsReportFragment formatter);
     }
 }

@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium.Questions
     public class GetWindowTitle : IPerformableWithResult<string>, ICanReport
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} gets the title of the current browser window", actor);
 
         /// <inheritdoc/>

@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Selenium.Questions
         readonly IQuery<TResult> query;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} reads {Query} from {Element}", actor, query, element.Value);
 
         /// <inheritdoc/>

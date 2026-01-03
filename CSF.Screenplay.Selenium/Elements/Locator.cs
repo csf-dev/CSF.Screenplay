@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Elements
     /// Concrete implementations of this class provide various ways to get a <c>By</c> object.
     /// </para>
     /// </remarks>
-    public abstract class Locator : ITarget, IHasName
+    public abstract class Locator : ITarget
     {
         readonly string name;
 

@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Selenium.Questions
         readonly string resultsName;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         {
             if(resultsName is null)
                 return formatter.Format("{Actor} filters {ElementsName}", actor, GetElementsName());

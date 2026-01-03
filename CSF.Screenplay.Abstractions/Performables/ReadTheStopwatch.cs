@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Performables
     public class ReadTheStopwatch : IPerformableWithResult<TimeSpan>, ICanReport
     {
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format(PerformableReportStrings.ReadTheStopwatchFormat, actor);
 
         /// <inheritdoc/>

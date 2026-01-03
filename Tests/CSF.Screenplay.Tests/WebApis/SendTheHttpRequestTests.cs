@@ -4,7 +4,7 @@ namespace CSF.Screenplay.WebApis;
 public class SendTheHttpRequestTests
 {
     [Test,AutoMoqData]
-    public void GetReportFragmentShouldReturnTheCorrectString(IHasName actor,
+    public void GetReportFragmentShouldReturnTheCorrectString(Actor actor,
                                                               IFormatsReportFragment formatter,
                                                               [Frozen] HttpRequestMessageBuilder builder,
                                                               SendTheHttpRequest sut,

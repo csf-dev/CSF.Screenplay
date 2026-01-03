@@ -164,8 +164,37 @@ namespace CSF.Screenplay.Selenium
         /// having content that matches a specification.
         /// </para>
         /// <para>
+        /// The builder object returned by this method has a number of optional configuration methods.
+        /// </para>
+        /// <para>
+        /// Create the <paramref name="predicate"/> paramater value by using one of the following extension methods.  These extension methods
+        /// provide a fluent interface to create a predicate for one or more elements (described by a single <see cref="ITarget"/>), as well
+        /// as providing a human-readable name for the predicate.
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description><see cref="TargetExtensions.Is(ITarget)"/></description></item>
+        /// <item><description><see cref="TargetExtensions.Has(ITarget)"/></description></item>
+        /// <item><description><see cref="TargetExtensions.AreAll(ITarget)"/></description></item>
+        /// <item><description><see cref="TargetExtensions.AllHave(ITarget)"/></description></item>
+        /// </list>
+        /// </remarks>
+        /// <param name="predicate">A predicate which, when it returns a successful result, the wait is over.</param>
+        /// <returns>A builder for creating a wait action.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if the predicate is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the result type of the predicate is a value type other than boolean.</exception>
+        public static NamedWaitBuilder<T> WaitUntil<T>(WaitUntilPredicate<T> predicate) => new NamedWaitBuilder<T>(predicate);
+
+        /// <summary>
+        /// Gets a builder which will create a performable question that waits until a predicate returns a <see langword="true"/> result.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The purpose of waiting in this manner is to wait for something to happen on the web page, such as an element being present, or
+        /// having content that matches a specification.
+        /// </para>
+        /// <para>
         /// The builder object returned by this method has a number of optional configuration methods. Of these, consumers are
-        /// strongly encouraged to use <see cref="WaitBuilder{T}.Named(string)"/> to give the wait action a short, descriptive name which will
+        /// strongly encouraged to use <see cref="UnnamedWaitBuilder{T}.Named(string)"/> to give the wait action a short, descriptive name which will
         /// appear in reports.
         /// </para>
         /// <para>
@@ -173,23 +202,25 @@ namespace CSF.Screenplay.Selenium
         /// scope. For example, the predicate function may refer to an element which is referenced by a variable in the calling method.
         /// </para>
         /// <para>
-        /// It is recommended to use <see cref="TargetExtensions.Is(ITarget)"/> or <see cref="TargetExtensions.Has(ITarget)"/> to create the
-        /// predicate for the wait action, if the intent is to wait until an element/target meets a certain condition.
+        /// Where possible, consider using the other overload of this method: <see cref="WaitUntil{T}(WaitUntilPredicate{T})"/>, as it provides
+        /// a more fluent interface for describing the predicate.
+        /// This overload is provided only for scenarios in which the predicate to end the wait is too complex to be easily expressed
+        /// using the fluent interface.
         /// </para>
         /// </remarks>
-        /// <param name="predicate">A predicate which, when it returns a successful result, the wait is over.</param>
+        /// <param name="predicate">A predicate which, when it returns a <see langword="true"/> result, the wait is over.</param>
         /// <returns>A builder for creating a wait action.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the predicate is null.</exception>
         /// <exception cref="ArgumentException">Thrown if the result type of the predicate is a value type other than boolean.</exception>
-        public static WaitBuilder<T> WaitUntil<T>(Func<IWebDriver,T> predicate) => new WaitBuilder<T>(predicate);
+        public static UnnamedWaitBuilder<T> WaitUntil<T>(Func<IWebDriver,T> predicate) => new UnnamedWaitBuilder<T>(predicate);
 
         /// <summary>
         /// Gets a performable action that waits for a specified amount of time.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This kind of wait waits for a specified time.  If you want to wait until a condition is met, consider using
-        /// <see cref="WaitUntil{T}(Func{IWebDriver, T})"/> instead.
+        /// This kind of wait waits for a specified time.  If you want to wait until a condition is met, consider using either
+        /// <see cref="WaitUntil{T}(Func{IWebDriver, T})"/> or <see cref="WaitUntil{T}(WaitUntilPredicate{T})"/> instead.
         /// </para>
         /// </remarks>
         /// <param name="duration">The duration for which to wait.</param>

@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium.Actions
         }
         
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} opens their browser at {UriName}: {Uri}", actor.Name, uri.Name, uri.Uri.AbsoluteUri);
 
         /// <summary>

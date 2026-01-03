@@ -25,7 +25,7 @@ namespace CSF.Screenplay.Selenium.Questions
         readonly Locator locatorBasedMatcher;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(element.Value) ?? "HTML elements", element.Value);
 
         /// <inheritdoc/>

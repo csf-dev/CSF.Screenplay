@@ -69,6 +69,6 @@
         /// <returns>A human-readable report fragment.</returns>
         /// <param name="actor">An actor for whom to write the report fragment</param>
         /// <param name="formatter">A report-formatting service</param>
-        ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter);
+        ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter);
   }
 }
