@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
 using CSF.Specifications;
@@ -9,7 +10,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// <summary>
     /// A builder class which permits specifying an optional name for the collection of elements which match an element filter.
     /// </summary>
-    public class NamedFilterElementsBuilder
+    public class NamedFilterElementsBuilder : IGetsPerformableWithResult<SeleniumElementCollection>
     {
         readonly IReadOnlyCollection<SeleniumElement> elements;
         readonly ISpecificationFunction<SeleniumElement> specification;
@@ -26,6 +27,11 @@ namespace CSF.Screenplay.Selenium.Builders
                 throw new ArgumentNullException(nameof(resultsName));
 
             return new FilterElements(elements, specification, resultsName);
+        }
+
+        IPerformableWithResult<SeleniumElementCollection> IGetsPerformableWithResult<SeleniumElementCollection>.GetPerformable()
+        {
+            return new FilterElements(elements, specification);
         }
 
         /// <summary>
