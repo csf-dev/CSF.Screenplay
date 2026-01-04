@@ -35,37 +35,14 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method and <see cref="ForThoseWhichAre(ISpecificationFunction{SeleniumElement})"/> are equivalent synonyms.
-        /// They are provided to allow for more readable code.
-        /// </para>
-        /// <para>
         /// Consider using the <see cref="FilterSpecificationBuilder"/> class to create the specification function
         /// which is passed to this method.  Do this via <c>using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;</c>.
-        /// This permits a fluent syntax such as <c>.ForThoseWhichHave(TheAttribute("class", c => c.Contains("myClass")))</c>.
+        /// This permits a fluent syntax such as <c>.ForThoseWhich(HaveClass("myClass"))</c>.
         /// </para>
         /// </remarks>
         /// <param name="specification">The specification function to filter elements.</param>
         /// <returns>A builder which permits naming the filtered elements.</returns>
-        public NamedFilterElementsBuilder ForThoseWhichHave(ISpecificationFunction<SeleniumElement> specification)
-            => new NamedFilterElementsBuilder(elements, specification);
-
-        /// <summary>
-        /// Specifies the specification which will be used to filter the collection of elements.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This method and <see cref="ForThoseWhichHave(ISpecificationFunction{SeleniumElement})"/> are equivalent synonyms.
-        /// They are provided to allow for more readable code.
-        /// </para>
-        /// <para>
-        /// Consider using the <see cref="FilterSpecificationBuilder"/> class to create the specification function
-        /// which is passed to this method.  Do this via <c>using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;</c>.
-        /// This permits a fluent syntax such as <c>.ForThoseWhichAre(TheAttribute("class", c => c.Contains("myClass")))</c>.
-        /// </para>
-        /// </remarks>
-        /// <param name="specification">The specification function to filter elements.</param>
-        /// <returns>A builder which permits naming the filtered elements.</returns>
-        public NamedFilterElementsBuilder ForThoseWhichAre(ISpecificationFunction<SeleniumElement> specification)
+        public NamedFilterElementsBuilder ForThoseWhich(ISpecificationFunction<SeleniumElement> specification)
             => new NamedFilterElementsBuilder(elements, specification);
 
         /// <summary>

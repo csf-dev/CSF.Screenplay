@@ -11,7 +11,7 @@ public class FilterElementsTests
     static readonly Locator
         allInputs = new ClassName("multiInput", "all input elements with the 'multiInput' class");
     static readonly ISpecificationFunction<SeleniumElement>
-        specialInputs = AttributeValue("class", c => c.Contains("specialInput"));
+        specialInputs = HaveAttributeValue("class", c => c.Contains("specialInput"));
     static readonly NamedUri testPage = new NamedUri("LocatorTests.html", "the test page");
 
     [Test, Screenplay]
@@ -21,7 +21,7 @@ public class FilterElementsTests
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         var elements = await Given(webster).WasAbleTo(FindElementsOnThePage().WhichMatch(allInputs));
-        var filteredElements = await When(webster).AttemptsTo(FilterTheElements(elements).ForThoseWhichAre(specialInputs));
+        var filteredElements = await When(webster).AttemptsTo(FilterTheElements(elements).ForThoseWhich(specialInputs));
         var values = await Then(webster).Should(ReadFromTheCollectionOfElements(filteredElements).Value());
 
         Assert.That(values, Is.EqualTo(new [] {"Second input", "Third input"}));
