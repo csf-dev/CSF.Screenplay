@@ -114,7 +114,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="class">The name of the class to query.</param>
         /// <returns>A specification function for Selenium elements.</returns>
         public static ISpecificationFunction<SeleniumElement> HaveClass(string @class)
-            => HaveAttributeValue(classAttribute, x => Regex.IsMatch(x, @"\b" + Regex.Escape(@class) + @"\b"));
+            => HaveAttributeValue(classAttribute, attribValue => HasClass(attribValue, @class));
 
         /// <summary>
         /// Creates a filter specification for the presence of all the specified HTML classes (amongst the class attribute's values).
@@ -131,7 +131,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="classes">The names of the classes to query.</param>
         /// <returns>A specification function for Selenium elements.</returns>
         public static ISpecificationFunction<SeleniumElement> HaveAllClasses(params string[] classes)
-            => HaveAttributeValue(classAttribute, x => classes.All(c => Regex.IsMatch(x, @"\b" + Regex.Escape(c) + @"\b")));
+            => HaveAttributeValue(classAttribute, attribValue => classes.All(@class => HasClass(attribValue, @class)));
+
+        /// <summary>
+        /// Gets a value indicating whether the <paramref name="attributeValue"/> (representing an HTML <c>class</c> attribute)
+        /// contains the specified <paramref name="class"/>.
+        /// </summary>
+        /// <param name="attributeValue">The HTML class attribute value.</param>
+        /// <param name="class">The class for which to search.</param>
+        /// <returns><see langword="true"/> if the class is present; otherwise <see langword="false"/>.</returns>
+        static bool HasClass(string attributeValue, string @class)
+        {
+            return Regex.IsMatch(attributeValue,
+                                 @"\b" + Regex.Escape(@class) + @"\b",
+                                 RegexOptions.CultureInvariant,
+                                 // DoS prevention: 20ms is more than enough, given this should be a simple regex.
+                                 TimeSpan.FromMilliseconds(20));
+        }
 
         /// <summary>
         /// Creates a filter specification based on whether or not the element is clickable.
