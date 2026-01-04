@@ -23,7 +23,9 @@ namespace CSF.Screenplay.Selenium.Queries
         public override bool Equals(object obj) => obj is Option option && Equals(option);
 
         /// <inheritdoc/>
-        public bool Equals(Option other) => other != null && Text == other.Text && Value == other.Value;
+        public bool Equals(Option other) => other != null
+                                         && string.Equals(Text, other.Text, StringComparison.InvariantCulture)
+                                         && string.Equals(Value, other.Value, StringComparison.InvariantCulture);
 
         /// <inheritdoc/>
         public override int GetHashCode() => HashCode.Combine(Text, Value);
