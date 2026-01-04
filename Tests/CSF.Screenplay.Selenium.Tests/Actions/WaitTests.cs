@@ -2,6 +2,7 @@
 using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -13,7 +14,8 @@ public class WaitTests
     static readonly ITarget
         delayTimer = new ElementId("delay", "the delay timer"),
         clickableButton = new ElementId("clickable", "the clickable button"),
-        displayText = new ElementId("display", "the displayable text");
+        displayText = new ElementId("display", "the displayable text"),
+        displayTextSpan = new CssSelector("#display span", "the span within the displayable text");
 
     static readonly NamedUri testPage = new NamedUri("WaitTests.html", "the test page");
 
@@ -25,10 +27,64 @@ public class WaitTests
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitUntil(displayText.Has().TextEqualTo("Clicked, and 250ms has elapsed")).ForAtMost(TimeSpan.FromMilliseconds(500)).WithPollingInterval(TimeSpan.FromMilliseconds(150)));
+        await Then(webster).Should(WaitUntil(displayText.Has().TextEqualTo("Clicked, and 250ms has elapsed"))
+            .ForAtMost(TimeSpan.FromMilliseconds(500))
+            .WithPollingInterval(TimeSpan.FromMilliseconds(150))
+            );
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
         Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+    }
+
+    [Test, Screenplay]
+    public async Task WaitingForSufficientTimeWithIgnoredExceptionsShouldSucceed(IStage stage)
+    {
+        var webster = stage.Spotlight<Webster>();
+
+        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await When(webster).AttemptsTo(ClickOn(clickableButton));
+        await Then(webster).Should(WaitUntil(displayTextSpan.Has().TextEqualTo("250"))
+            .ForAtMost(TimeSpan.FromMilliseconds(500))
+            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+            .IgnoringTheseExceptionTypes(typeof(TargetNotFoundException))
+            );
+        var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
+
+        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+    }
+
+    [Test, Screenplay]
+    public async Task WaitingForSufficientTimeWithoutIgnoredExceptionsShouldSucceed(IStage stage)
+    {
+        var webster = stage.Spotlight<Webster>();
+
+        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await When(webster).AttemptsTo(ClickOn(clickableButton));
+        await Then(webster).Should(WaitUntil(displayTextSpan.Has().TextEqualTo("250"))
+            .ForAtMost(TimeSpan.FromMilliseconds(500))
+            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+            // No ignored exceptions specified here, but the default behaviour will ignore TargetNotFoundException
+            );
+        var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
+
+        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+    }
+
+    [Test, Screenplay]
+    public async Task WaitingForSufficientTimeWithEmptyIgnoredExceptionsShouldThrow(IStage stage)
+    {
+        var webster = stage.Spotlight<Webster>();
+
+        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await When(webster).AttemptsTo(ClickOn(clickableButton));
+        Assert.That(async () => await Then(webster).Should(WaitUntil(displayTextSpan.Has().TextEqualTo("250"))
+            .ForAtMost(TimeSpan.FromMilliseconds(500))
+            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+            .IgnoringTheseExceptionTypes() // Explicitly empty
+            ), Throws.InstanceOf<PerformableException>());
     }
 
     [Test, Screenplay]

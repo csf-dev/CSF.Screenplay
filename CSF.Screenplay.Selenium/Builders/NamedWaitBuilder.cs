@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
+using CSF.Screenplay.Selenium.Elements;
 
 namespace CSF.Screenplay.Selenium.Builders
 {
@@ -38,7 +39,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Gets or sets the collection of exception types which will be ignored when evaluating the wait predicate.
         /// </summary>
-        protected ICollection<Type> IgnoredExceptionTypes { get; set; } = new List<Type>();
+        protected ICollection<Type> IgnoredExceptionTypes { get; set; } = new [] { typeof(TargetNotFoundException) };
 
         /// <summary>
         /// Gets the wait-until predicate, which wraps both the predicate logic and a human-readable name.
@@ -109,7 +110,10 @@ namespace CSF.Screenplay.Selenium.Builders
         /// types then the WebDriver wait will treat it the same as a <see langword="false" /> outcome and continue to poll the predicate.
         /// </para>
         /// <para>
-        /// This method is optional.  If it is not called then no exception types will be ignored.
+        /// This method is optional.  If it is not called then by default, only exceptions of type <see cref="TargetNotFoundException"/> will be ignored.
+        /// That is - waiting will continue if the target element does not yet exist.
+        /// If you choose to replace this collection with your own, be sure to include the type <see cref="TargetNotFoundException"/> if you wish to retain
+        /// that behaviour.
         /// </para>
         /// </remarks>
         /// <param name="ignoredExceptionTypes">A collection of exception types to be ignored when polling the predicate function.</param>
@@ -118,9 +122,6 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <exception cref="InvalidOperationException">Thrown if the ignored exception types have already been set.</exception>
         public NamedWaitBuilder IgnoringTheseExceptionTypes(params Type[] ignoredExceptionTypes)
         {
-            if(IgnoredExceptionTypes != null)
-                throw new InvalidOperationException("The ignored exception types have already been set; they cannot be set again.");
-            
             IgnoredExceptionTypes = ignoredExceptionTypes;
             return this;
         }
@@ -147,15 +148,5 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </para>
         /// </remarks>
         protected NamedWaitBuilder() {}
-
-        /// <summary>
-        /// Implicitly converts a <see cref="NamedWaitBuilder"/> (or derived type) to a <see cref="Wait"/>.
-        /// </summary>
-        /// <param name="builder">The wait builder to convert.</param>
-        /// <returns>A new <see cref="Wait"/> instance.</returns>
-        public static implicit operator Wait(NamedWaitBuilder builder)
-        {
-            return new Wait(builder.GetWaitUntilPredicate(), builder.Timeout, builder.PollingInterval, builder.IgnoredExceptionTypes);
-        }
     }
 }
