@@ -3,6 +3,7 @@ namespace CSF.Screenplay.Selenium.Elements;
 using CSF.Specifications;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
+using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;
 
 [TestFixture]
 public class FilterElementsTests
@@ -10,7 +11,7 @@ public class FilterElementsTests
     static readonly Locator
         allInputs = new ClassName("multiInput", "all input elements with the 'multiInput' class");
     static readonly ISpecificationFunction<SeleniumElement>
-        specialInputs = Spec.Func<SeleniumElement>(e => e.WebElement.GetAttribute("class").Contains("specialInput"));
+        specialInputs = AttributeValue("class", c => c.Contains("specialInput"));
     static readonly NamedUri testPage = new NamedUri("LocatorTests.html", "the test page");
 
     [Test, Screenplay]

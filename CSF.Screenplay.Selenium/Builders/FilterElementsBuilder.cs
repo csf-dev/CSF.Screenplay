@@ -38,6 +38,11 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method and <see cref="ForThoseWhichAre(ISpecificationFunction{SeleniumElement})"/> are equivalent synonyms.
         /// They are provided to allow for more readable code.
         /// </para>
+        /// <para>
+        /// Consider using the <see cref="FilterSpecificationBuilder"/> class to create the specification function
+        /// which is passed to this method.  Do this via <c>using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;</c>.
+        /// This permits a fluent syntax such as <c>.ForThoseWhichHave(TheAttribute("class", c => c.Contains("myClass")))</c>.
+        /// </para>
         /// </remarks>
         /// <param name="specification">The specification function to filter elements.</param>
         /// <returns>A builder which permits naming the filtered elements.</returns>
@@ -51,6 +56,11 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <para>
         /// This method and <see cref="ForThoseWhichHave(ISpecificationFunction{SeleniumElement})"/> are equivalent synonyms.
         /// They are provided to allow for more readable code.
+        /// </para>
+        /// <para>
+        /// Consider using the <see cref="FilterSpecificationBuilder"/> class to create the specification function
+        /// which is passed to this method.  Do this via <c>using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;</c>.
+        /// This permits a fluent syntax such as <c>.ForThoseWhichAre(TheAttribute("class", c => c.Contains("myClass")))</c>.
         /// </para>
         /// </remarks>
         /// <param name="specification">The specification function to filter elements.</param>
