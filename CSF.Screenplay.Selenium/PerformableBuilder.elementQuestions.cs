@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
@@ -63,13 +62,12 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <example>
         /// <para>
-        /// Here is a sample usage which combines both the <see cref="FilterSpecificationBuilder"/> and <see cref="FilterElementsBuilder"/> classes:
+        /// Here is a sample usage which combines both the <see cref="QueryPredicatePrototypeBuilder"/> and <see cref="FilterElementsBuilder"/> classes:
         /// </para>
         /// <code>
-        /// using static CSF.Screenplay.Selenium.SeleniumPerformableBuilder;
-        /// using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;
+        /// using static CSF.Screenplay.Selenium.PerformableBuilder;
         /// 
-        /// await actor.PerformAsync(FilterTheElements(someElements).ForThoseWhichAre(Clickable(x => x).And(TheText(x => x == "Buy now")), cancellationToken);
+        /// var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have => have.Clickability(true).And(have.Text("Buy now")), cancellationToken);
         /// </code>
         /// <para>
         /// The code sample above assumes that <c>actor</c> is an instance of <see cref="ICanPerform"/>, that <c>someElements</c> is a collection
@@ -80,8 +78,8 @@ namespace CSF.Screenplay.Selenium
         /// <param name="elements">The collection of elements to filter.</param>
         /// <returns>A builder with which consuming logic must provide a specification.</returns>
         /// <seealso cref="FilterElementsBuilder"/>
-        /// <seealso cref="FilterSpecificationBuilder"/>
-        public static FilterElementsBuilder FilterTheElements(IReadOnlyCollection<SeleniumElement> elements)
+        /// <seealso cref="QueryPredicatePrototypeBuilder"/>
+        public static FilterElementsBuilder Filter(SeleniumElementCollection elements)
             => new FilterElementsBuilder(elements);
 
         /// <summary>

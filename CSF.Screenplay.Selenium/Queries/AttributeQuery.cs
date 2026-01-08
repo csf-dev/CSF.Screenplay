@@ -8,6 +8,8 @@ namespace CSF.Screenplay.Selenium.Queries
     /// </summary>
     public class AttributeQuery : IQuery<string>
     {
+        internal const string ClassAttribute = "class";
+
         readonly string attributeName;
 
         /// <inheritdoc/>

@@ -1,19 +1,18 @@
 using System.Collections.ObjectModel;
 using System.Drawing;
-using AutoFixture;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Specifications;
 using Moq;
 using OpenQA.Selenium;
-using static CSF.Screenplay.Selenium.Builders.FilterSpecificationBuilder;
 
 namespace CSF.Screenplay.Selenium.Builders;
 
-[TestFixture, Parallelizable]
-public class FilterSpecificationBuilderTests
+[TestFixture]
+public class QueryPredicatePrototypeBuilderTests
 {
     [Test, AutoMoqData]
-    public void HaveAttributeValueShouldCreateASpecificationThatUsesGetAttribute(SeleniumElement matchingElement,
+    public void HaveAttributeValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                                 SeleniumElement matchingElement,
                                                                                  SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -23,7 +22,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetAttribute("data-test"))
             .Returns("baz");
 
-        var sut = HaveAttributeValue("data-test", v => v.StartsWith("foo"));
+        var sut = builder.AttributeValue("data-test", v => v.StartsWith("foo")).GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -33,7 +32,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAttributeValueWithPlainValueShouldCreateASpecificationThatUsesGetAttribute(SeleniumElement matchingElement,
+    public void HaveAttributeValueWithPlainValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                                               SeleniumElement matchingElement,
                                                                                                SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -43,7 +43,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetAttribute("data-test"))
             .Returns("food");
 
-        var sut = HaveAttributeValue("data-test", "foobar");
+        var sut = builder.AttributeValue("data-test", "foobar").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -53,7 +53,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAttributeShouldCreateASpecificationThatUsesGetAttribute(SeleniumElement matchingElement,
+    public void HaveAttributeShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                            SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -63,7 +64,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetAttribute("data-test"))
             .Returns(() => null!);
 
-        var sut = HaveAttribute("data-test");
+        var sut = builder.Attribute("data-test").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -73,7 +74,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveClassShouldCreateASpecificationThatUsesGetAttribute(SeleniumElement matchingElement,
+    public void HaveClassShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                        SeleniumElement matchingElement,
                                                                         SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -83,7 +85,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetAttribute("class"))
             .Returns("baz qux quux");
 
-        var sut = HaveClass("foobar");
+        var sut = builder.Class("foobar").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -93,7 +95,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAllClassesShouldCreateASpecificationThatUsesGetAttribute(SeleniumElement matchingElement,
+    public void HaveAllClassesShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                             SeleniumElement matchingElement,
                                                                              SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -103,7 +106,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetAttribute("class"))
             .Returns("qux foobar quux");
 
-        var sut = HaveAllClasses("foobar", "baz");
+        var sut = builder.AllClasses("foobar", "baz").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -113,7 +116,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void AreClickableShouldCreateASpecificationThatTestsVisibilityAndEnabledState(SeleniumElement matchingElement,
+    public void AreClickableShouldCreateASpecificationThatTestsVisibilityAndEnabledState(QueryPredicatePrototypeBuilder builder,
+                                                                                         SeleniumElement matchingElement,
                                                                                          SeleniumElement nonMatchingElement1,
                                                                                          SeleniumElement nonMatchingElement2,
                                                                                          SeleniumElement nonMatchingElement3)
@@ -127,7 +131,7 @@ public class FilterSpecificationBuilderTests
         Mock.Get(nonMatchingElement3.WebElement).SetupGet(e => e.Displayed).Returns(false);
         Mock.Get(nonMatchingElement3.WebElement).SetupGet(e => e.Enabled).Returns(false);
 
-        var sut = AreClickable();
+        var sut = builder.Clickable().GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -139,7 +143,8 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveCssPropertyShouldCreateASpecificationThatUsesGetCssValue(SeleniumElement matchingElement,
+    public void HaveCssPropertyShouldCreateASpecificationThatUsesGetCssValue(QueryPredicatePrototypeBuilder builder,
+                                                                             SeleniumElement matchingElement,
                                                                              SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -149,7 +154,7 @@ public class FilterSpecificationBuilderTests
             .Setup(e => e.GetCssValue("color"))
             .Returns("rgba(0, 0, 255, 1)");
 
-        var sut = HaveCssProperty("color", v => v == "rgba(255, 0, 0, 1)");
+        var sut = builder.CssProperty("color", v => v == "rgba(255, 0, 0, 1)").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -159,13 +164,14 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveLocationShouldCreateASpecificationThatUsesLocationQuery(SeleniumElement matchingElement,
+    public void HaveLocationShouldCreateASpecificationThatUsesLocationQuery(QueryPredicatePrototypeBuilder builder,
+                                                                            SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement).SetupGet(e => e.Location).Returns(new Point(100, 200));
         Mock.Get(nonMatchingElement.WebElement).SetupGet(e => e.Location).Returns(new Point(150, 250));
 
-        var sut = HaveLocation(new Point(100, 200));
+        var sut = builder.Location(new Point(100, 200)).GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -175,13 +181,14 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveSizeShouldCreateASpecificationThatUsesSizeQuery(SeleniumElement matchingElement,
+    public void HaveSizeShouldCreateASpecificationThatUsesSizeQuery(QueryPredicatePrototypeBuilder builder,
+                                                                    SeleniumElement matchingElement,
                                                                     SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement).SetupGet(e => e.Size).Returns(new Size(100, 200));
         Mock.Get(nonMatchingElement.WebElement).SetupGet(e => e.Size).Returns(new Size(150, 250));
 
-        var sut = HaveSize(new Size(100, 200));
+        var sut = builder.Size(new Size(100, 200)).GetElementSpecification(); 
 
         Assert.Multiple(() =>
         {
@@ -191,13 +198,14 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveTextShouldCreateASpecificationThatUsesTextQuery(SeleniumElement matchingElement,
+    public void HaveTextShouldCreateASpecificationThatUsesTextQuery(QueryPredicatePrototypeBuilder builder,
+                                                                    SeleniumElement matchingElement,
                                                                     SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement).SetupGet(e => e.Text).Returns("Hello World");
         Mock.Get(nonMatchingElement.WebElement).SetupGet(e => e.Text).Returns("Goodbye World");
 
-        var sut = HaveText("Hello World");
+        var sut = builder.Text("Hello World").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -207,13 +215,14 @@ public class FilterSpecificationBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveValueShouldCreateASpecificationThatUsesValueQuery(SeleniumElement matchingElement,
+    public void HaveValueShouldCreateASpecificationThatUsesValueQuery(QueryPredicatePrototypeBuilder builder,
+                                                                      SeleniumElement matchingElement,
                                                                       SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement).Setup(e => e.GetDomProperty("value")).Returns("Hello World");
         Mock.Get(nonMatchingElement.WebElement).Setup(e => e.GetDomProperty("value")).Returns("Goodbye World");
 
-        var sut = HaveValue("Hello World");
+        var sut = builder.Value("Hello World").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -223,13 +232,14 @@ public class FilterSpecificationBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void AreVisibleShouldCreateASpecificationThatUsesVisibilityQuery(SeleniumElement matchingElement,
+    public void AreVisibleShouldCreateASpecificationThatUsesVisibilityQuery(QueryPredicatePrototypeBuilder builder,
+                                                                            SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement).SetupGet(e => e.Displayed).Returns(true);
         Mock.Get(nonMatchingElement.WebElement).SetupGet(e => e.Displayed).Returns(false);
 
-        var sut = AreVisible();
+        var sut = builder.Visible().GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -239,7 +249,8 @@ public class FilterSpecificationBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(SeleniumElement matchingElement,
+    public void HaveSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                        SeleniumElement matchingElement,
                                                                                         SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -257,7 +268,7 @@ public class FilterSpecificationBuilderTests
                 Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
                 ]));
 
-        var sut = HaveSelectedOptionsByText("Option 1", "Option 3");
+        var sut = builder.SelectedOptionsWithText("Option 1", "Option 3").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -267,7 +278,8 @@ public class FilterSpecificationBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveUnSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(SeleniumElement matchingElement,
+    public void HaveUnSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                          SeleniumElement matchingElement,
                                                                                           SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
@@ -285,7 +297,7 @@ public class FilterSpecificationBuilderTests
                 Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
                 ]));
 
-        var sut = HaveUnselectedOptionsByText("Option 2");
+        var sut = builder.UnselectedOptionsWithText("Option 2").GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -295,8 +307,9 @@ public class FilterSpecificationBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(SeleniumElement matchingElement,
-                                                                                        SeleniumElement nonMatchingElement)
+    public void HaveOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                SeleniumElement matchingElement,
+                                                                                SeleniumElement nonMatchingElement)
     {
         Mock.Get(matchingElement.WebElement)
             .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
@@ -312,7 +325,7 @@ public class FilterSpecificationBuilderTests
                 Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
                 ]));
 
-        var sut = HaveOptionsByText("Option 1", "Option 2", "Option 3");
+        var sut = builder.OptionsWithText("Option 1", "Option 2", "Option 3").GetElementSpecification();
 
         Assert.Multiple(() =>
         {

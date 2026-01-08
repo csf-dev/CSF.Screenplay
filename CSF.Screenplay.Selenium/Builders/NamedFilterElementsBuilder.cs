@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
@@ -12,7 +11,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// </summary>
     public class NamedFilterElementsBuilder : IGetsPerformableWithResult<SeleniumElementCollection>
     {
-        readonly IReadOnlyCollection<SeleniumElement> elements;
+        readonly SeleniumElementCollection elements;
         readonly ISpecificationFunction<SeleniumElement> specification;
 
         /// <summary>
@@ -30,9 +29,7 @@ namespace CSF.Screenplay.Selenium.Builders
         }
 
         IPerformableWithResult<SeleniumElementCollection> IGetsPerformableWithResult<SeleniumElementCollection>.GetPerformable()
-        {
-            return new FilterElements(elements, specification);
-        }
+            => new FilterElements(elements, specification);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NamedFilterElementsBuilder"/> class.
@@ -40,7 +37,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="elements">The elements to filter</param>
         /// <param name="specification">The specification by which to filter the elements</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
-        public NamedFilterElementsBuilder(IReadOnlyCollection<SeleniumElement> elements, ISpecificationFunction<SeleniumElement> specification)
+        public NamedFilterElementsBuilder(SeleniumElementCollection elements, ISpecificationFunction<SeleniumElement> specification)
         {
             this.elements = elements ?? throw new ArgumentNullException(nameof(elements));
             this.specification = specification ?? throw new ArgumentNullException(nameof(specification));

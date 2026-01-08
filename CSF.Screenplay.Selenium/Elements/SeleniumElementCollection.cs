@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Elements
     {
         internal const string UnknownNameFormat = "a collection of {0} HTML element(s)";
 
-        readonly IList<SeleniumElement> elements;
+        readonly IReadOnlyList<SeleniumElement> elements;
 
         /// <inheritdoc/>
         public string Name { get; }
@@ -51,7 +51,7 @@ namespace CSF.Screenplay.Selenium.Elements
         /// </summary>
         /// <param name="elements">The list of elements.</param>
         /// <param name="name">An optional human-readable name which describes the collection of elements.</param>
-        public SeleniumElementCollection(IList<SeleniumElement> elements, string name = null)
+        public SeleniumElementCollection(IReadOnlyList<SeleniumElement> elements, string name = null)
         {
             if(elements is null) throw new ArgumentNullException(nameof(elements));
             if(elements.Any(x => x is null)) throw new ArgumentException("The collection of elements must not contain any null references.", nameof(elements));

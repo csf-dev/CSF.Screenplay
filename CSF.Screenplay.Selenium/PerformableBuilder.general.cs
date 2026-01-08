@@ -166,9 +166,7 @@ namespace CSF.Screenplay.Selenium
         /// as providing a human-readable name for the predicate.
         /// </para>
         /// <list type="bullet">
-        /// <item><description><see cref="TargetExtensions.Is(ITarget)"/></description></item>
         /// <item><description><see cref="TargetExtensions.Has(ITarget)"/></description></item>
-        /// <item><description><see cref="TargetExtensions.AreAll(ITarget)"/></description></item>
         /// <item><description><see cref="TargetExtensions.AllHave(ITarget)"/></description></item>
         /// </list>
         /// </remarks>
@@ -176,7 +174,8 @@ namespace CSF.Screenplay.Selenium
         /// <returns>A builder for creating a wait action.</returns>
         /// <exception cref="ArgumentNullException">Thrown if the predicate is null.</exception>
         /// <exception cref="ArgumentException">Thrown if the result type of the predicate is a value type other than boolean.</exception>
-        public static NamedWaitBuilder WaitUntil(WaitUntilPredicate<bool> predicate) => new NamedWaitBuilder(predicate);
+        public static NamedWaitBuilder WaitUntil(IBuildsElementPredicates predicate)
+            => new NamedWaitBuilder(predicate.GetWaitUntilPredicate());
 
         /// <summary>
         /// Gets a builder which will create a performable question that waits until a predicate returns a <see langword="true"/> result.
@@ -196,7 +195,7 @@ namespace CSF.Screenplay.Selenium
         /// scope. For example, the predicate function may refer to an element which is referenced by a variable in the calling method.
         /// </para>
         /// <para>
-        /// Where possible, consider using the other overload of this method: <see cref="WaitUntil(WaitUntilPredicate{bool})"/>, as it provides
+        /// Where possible, consider using the other overload of this method: <see cref="WaitUntil(IBuildsElementPredicates)"/>, as it provides
         /// a more fluent interface for describing the predicate.
         /// This overload is provided only for scenarios in which the predicate to end the wait is too complex to be easily expressed
         /// using the fluent interface.
@@ -214,7 +213,7 @@ namespace CSF.Screenplay.Selenium
         /// <remarks>
         /// <para>
         /// This kind of wait waits for a specified time.  If you want to wait until a condition is met, consider using either
-        /// <see cref="WaitUntil(Func{IWebDriver, bool})"/> or <see cref="WaitUntil(WaitUntilPredicate{bool})"/> instead.
+        /// <see cref="WaitUntil(Func{IWebDriver, bool})"/> or <see cref="WaitUntil(IBuildsElementPredicates)"/> instead.
         /// </para>
         /// </remarks>
         /// <param name="duration">The duration for which to wait.</param>
