@@ -103,13 +103,12 @@ namespace CSF.Screenplay
             var container = args.ObjectContainer;
             var services = new ServiceProviderAdapter(container);
             container.RegisterInstanceAs<IServiceProvider>(services);
-            
-            var performanceFactory = container.Resolve<ICreatesPerformance>();
-            var performance = performanceFactory.CreatePerformance();
-            performance.NamingHierarchy.Add(GetFeatureIdAndName(container));
-            performance.NamingHierarchy.Add(GetScenarioIdAndName(container));
+            var performance = new Performance(services, new [] { GetFeatureIdAndName(container), GetScenarioIdAndName(container) });
+            var performanceContainer = new PerformanceProvider();
+            performanceContainer.SetCurrentPerformance(performance);
+            container.RegisterInstanceAs(performanceContainer);
+            container.RegisterFactoryAs(c => c.Resolve<PerformanceProvider>().GetCurrentPerformance());
 
-            container.RegisterInstanceAs(performance);
             container.RegisterFactoryAs<ICast>(c => new Cast(c.Resolve<IServiceProvider>(), c.Resolve<IPerformance>().PerformanceIdentity));
             container.RegisterTypeAs<Stage, IStage>();
         }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html metal:use-macro="Views/Shared/Page.pt/macros/page">
+<head>
+<title metal:fill-slot="pageTitle">Page two</title>
+<meta charset="utf-8">
+<base href="../../">
+<link rel="stylesheet" href="Content/css/reset.css">
+<link rel="stylesheet" href="Content/css/common.css">
+</head>
+<body>
+<header>Common page header</header>
+<div class="page" metal:fill-slot="page_content">
+  <h1>Page two</h1>
+  <form>
+    <fieldset method="get" action="PageTwo">
+      <h2>HTML 5 date field</h2>
+      <p>
+        This is an HTML 5 date field, some browsers will treat it specially and render it with a date-picker.
+        Others will degrade back to standard text input behaviour. The date which is currently displayed is
+        <strong id="DateOutput">2011-03-04</strong>.
+      </p>
+      <input type="date" value="2011-03-04" id="DateInput" />
+    </fieldset>
+  </form>
+  <h2>Script output</h2>
+  <p>
+    The following container shows the output from scripts:
+  </p>
+  <div id="ScriptOutput"></div>
+
+  <script src="Scripts/jquery-3.2.1.min.js"></script>
+  <script src="Scripts/DateInput.js"></script>
+</div>
+<footer>Common page footer</footer>
+</body>
+</html>

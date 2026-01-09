@@ -1,0 +1,15 @@
+﻿[
+  {
+    "browserName": "Safari",
+    "flags": [
+    ],
+  },
+  {
+    "browserName": "Safari",
+    "minVersion": "11",
+    "flags": [
+      "HtmlElements.Select.RequiresUpdatesViaJavaScriptWorkaround",
+    ],
+  },
+]
+

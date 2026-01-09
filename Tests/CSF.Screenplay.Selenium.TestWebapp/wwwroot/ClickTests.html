@@ -1,0 +1,20 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Click Tests</h1>
+        <p>
+            Click the button below to trigger an event which will alter the displayed text.
+        </p>
+        <button id="clickable">Click me</button>
+        <code><pre id="display" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                document.getElementById("clickable").addEventListener("click", function() {
+                    const displayElement = document.getElementById("display");
+                    displayElement.innerHTML = "Clicked!";
+                });
+            }
+        </script>
+    </body>
+</html>

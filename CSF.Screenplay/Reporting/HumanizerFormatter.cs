@@ -115,8 +115,18 @@ namespace CSF.Screenplay.Reporting
         {
             huamnized = null;
             if (value is null) return false;
-            var genericMethpd = tryHumanizeAsEnumOpenGeneric.MakeGenericMethod(value.GetType());
-            var result = (string)genericMethpd.Invoke(null, new object[] { value });
+
+            MethodInfo genericMethod;
+            try
+            {
+                genericMethod = tryHumanizeAsEnumOpenGeneric.MakeGenericMethod(value.GetType());
+            }
+            catch(ArgumentException)
+            {
+                return false;
+            }
+
+            var result = (string) genericMethod.Invoke(null, new object[] { value });
             huamnized = result;
             return result != null;
         }

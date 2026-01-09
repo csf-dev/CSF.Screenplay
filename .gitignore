@@ -4,5 +4,8 @@ obj/
 TestResults/
 Tests/**/*.feature.cs
 node_modules/
+*.orig
 /CSF.Screenplay.JsonToHtmlReport/template/
 /CSF.Screenplay.JsonToHtmlReport.Template/src/output/
+**/ScreenplayReport*
+**/TestResult.xml

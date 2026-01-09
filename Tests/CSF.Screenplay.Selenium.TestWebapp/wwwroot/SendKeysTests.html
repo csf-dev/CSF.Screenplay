@@ -1,0 +1,21 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Send Keys Tests</h1>
+        <p>
+            Typing into the input box will immediately update the value of the display area, below.
+        </p>
+        <input type="text" id="inputArea">
+        <code><pre id="display" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                const inputArea = document.getElementById("inputArea");
+                inputArea.addEventListener("input", function() {
+                    const displayElement = document.getElementById("display");
+                    displayElement.innerText = inputArea.value;
+                });
+            }
+        </script>
+    </body>
+</html>

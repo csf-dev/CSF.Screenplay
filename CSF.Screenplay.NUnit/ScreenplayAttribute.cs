@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using CSF.Screenplay.Performances;
-using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
-using NUnit.Framework.Internal.Builders;
-using static CSF.Screenplay.ScreenplayLocator;
 
 namespace CSF.Screenplay
 {
@@ -34,24 +29,15 @@ namespace CSF.Screenplay
     public class ScreenplayAttribute : Attribute, ITestAction, ITestBuilder
     {
         /// <summary>
-        /// The name of an NUnit3 Property for the suite or test description.
+        /// A key for an NUnit3 Property which will hold the <see cref="IHasPerformanceIdentity.PerformanceIdentity"/>
+        /// of the current <see cref="IPerformance"/>.
         /// </summary>
-        internal const string DescriptionPropertyName = "Description";
-
-        /// <summary>
-        /// A key for an NUnit3 Property which will hold the current <see cref="IPerformance"/>.
-        /// </summary>
-        internal const string CurrentPerformanceKey = "Current Screenplay Performance";
-
-        /// <summary>
-        /// A key for an NUnit3 Property which will hold the <see cref="IHasPerformanceIdentity.PerformanceIdentity"/> of the current <see cref="IPerformance"/>.
-        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property value may be used with <see cref="ScreenplayLocator.GetScopedPerformance(Guid)"/>
+        /// </para>
+        /// </remarks>
         internal const string CurrentPerformanceIdentityKey = "Current Screenplay Performance identity";
-
-        /// <summary>
-        /// A key for an NUnit3 Property which will hold the current Dependency Injection scope.
-        /// </summary>
-        internal const string CurrentDiScopeKey = "Current Screenplay DI scope";
 
         /// <summary>
         /// Gets the targets for the attribute (when performing before/after test actions).
@@ -63,77 +49,21 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         public void BeforeTest(ITest test)
         {
-            var performance = GetPerformance(test);
-            BackfillPerformanceNamingHierarchy(performance, test);
-            performance.BeginPerformance();
+            var performance = ScreenplayLocator.GetScopedPerformance(test);
+            performance.Performance.BeginPerformance();
         }
 
         /// <inheritdoc/>
         public void AfterTest(ITest test)
         {
-            var performance = GetPerformance(test);
-            performance.FinishPerformance(GetOutcome());
-
-            var diScope = test.Properties.Get(CurrentDiScopeKey) as IServiceScope;
+            var scopeAndPerformance = ScreenplayLocator.GetScopedPerformance(test);
+            scopeAndPerformance.Performance.FinishPerformance(GetOutcome());
+            var diScope = scopeAndPerformance.Scope;
             diScope?.Dispose();
         }
 
         /// <inheritdoc/>
-        public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
-        {
-            if (method is null)
-                throw new ArgumentNullException(nameof(method));
-            if (suite is null)
-                throw new ArgumentNullException(nameof(suite));
-
-            var screenplay = GetScreenplay(method);
-            var scopeAndPerformance = screenplay.CreateScopedPerformance();
-            var testMethod = GetTestMethod(scopeAndPerformance, method, suite);
-            return new[] { testMethod };
-        }
-
-        static IPerformance GetPerformance(ITest test)
-        {
-            return (IPerformance)test.Properties.Get(CurrentPerformanceKey)
-                ?? throw new ArgumentException($"The specified test must contain a property '{CurrentPerformanceKey}' containing an {nameof(IPerformance)}", nameof(test));
-        }
-
-        static TestMethod GetTestMethod(ScopeAndPerformance scopeAndPerformance, IMethodInfo method, Test suite)
-        {
-            var builder = new NUnitTestCaseBuilder();
-            var resolvedTestMethodParameters = (from parameter in method.GetParameters()
-                                                select scopeAndPerformance.Performance.ServiceProvider.GetService(parameter.ParameterType))
-                .ToArray();
-            var testCaseParameters = new TestCaseParameters(resolvedTestMethodParameters);
-
-            var testMethod = builder.BuildTestMethod(method, suite, testCaseParameters);
-            testMethod.Properties.Add(CurrentPerformanceKey, scopeAndPerformance.Performance);
-            testMethod.Properties.Add(CurrentPerformanceIdentityKey, scopeAndPerformance.Performance.PerformanceIdentity);
-            testMethod.Properties.Add(CurrentDiScopeKey, scopeAndPerformance.Scope);
-            return testMethod;
-        }
-
-        static void BackfillPerformanceNamingHierarchy(IPerformance performance, ITest test)
-        {
-            var namingHierarchy = GetReverseOrderNamingHierarchy(test).ToList();
-
-            // Reverse it to get it in the correct order
-            namingHierarchy.Reverse();
-            performance.NamingHierarchy.Clear();
-            performance.NamingHierarchy.AddRange(namingHierarchy);
-        }
-
-        static IEnumerable<IdentifierAndName> GetReverseOrderNamingHierarchy(ITest suite)
-        {
-            for (var currentSuite = suite;
-                 currentSuite != null;
-                 currentSuite = currentSuite.Parent)
-            {
-                if (!currentSuite.IsSuite || (currentSuite.Method is null && currentSuite.Fixture is null))
-                    continue;
-                yield return new IdentifierAndName(currentSuite.FullName, currentSuite.Properties.Get(DescriptionPropertyName)?.ToString());
-            }
-        }
+        public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite) => TestMethodBuilder.BuildFrom(method, suite);
 
         static bool? GetOutcome()
         {

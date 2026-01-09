@@ -9,8 +9,9 @@
             "docs/**",
             "**/bin/**",
             "**/obj/**",
-            "Tests_old/**",
-            "Tests/**"
+            "Tests/**",
+            "*_old/**",
+            "CSF.Screenplay.JsonToHtmlReport.Template/**"
           ]
         }
       ],

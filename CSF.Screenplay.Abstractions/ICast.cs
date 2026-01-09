@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CSF.Screenplay
 {
     /// <summary>A combined registry and factory for <see cref="Actor"/> instances, useful when coordinating multiple
@@ -31,6 +33,25 @@ namespace CSF.Screenplay
     /// <seealso cref="IPersona"/>
     public interface ICast : IHasServiceProvider, IHasPerformanceIdentity
     {
+        /// <summary>
+        /// Gets a collection of string names, indicating the collection of actors which this cast object knows about.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Because a cast instance serves as both a registry and a factory, whenever it is used to get an <see cref="Actor"/> for the first
+        /// time, that actor instance is cached within the cast which created it.  This method may be used to get a collection of the names
+        /// of actors which are cached within the current cast instance.
+        /// </para>
+        /// <para>
+        /// Note that the collection returned by this method is a snapshot in time, correct as-at the time when this method is executed.
+        /// The collection does not update automatically as new actors are added to the cast.  You must execute this method again to get an
+        /// updated collection.
+        /// </para>
+        /// </remarks>
+        /// <returns>A collection of strings, corresponding to the actors which have been created in the lifetime
+        /// of the current cast instance.</returns>
+        IReadOnlyCollection<string> GetCastList();
+
         /// <summary>
         /// Gets a single <see cref="Actor"/> by their name, creating them if they do not already exist in the cast.
         /// </summary>

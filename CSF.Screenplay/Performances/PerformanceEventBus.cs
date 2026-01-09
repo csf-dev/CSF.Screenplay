@@ -31,6 +31,23 @@ namespace CSF.Screenplay.Performances
     {
         readonly ConcurrentDictionary<Guid,HashSet<Actor>> subscribedActors = new ConcurrentDictionary<Guid,HashSet<Actor>>();
 
+        /// <summary>
+        /// Gets a unique identifier for this event bus instance.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property is not used by the Screenplay architecture directly, it is primarily for debugging/development purposes.
+        /// A common problem/developer-mistake which may occur is accidentally working with more than one Event Bus; this can occur when
+        /// working with a multiple process model, in which it is possible for more than once instance of a type registered in DI as a
+        /// 'Singleton' to coexist.
+        /// </para>
+        /// <para>
+        /// This property helps developers identify event bus instances (in a debugger, for example), so that they may recognise occasions
+        /// in which they are dealing with more than one of them.
+        /// </para>
+        /// </remarks>
+        public Guid EventBusId { get; } = Guid.NewGuid();
+
         #region Pub: Screenplay
 
         /// <inheritdoc/>
@@ -145,6 +162,7 @@ namespace CSF.Screenplay.Performances
         {
             if (!subscribedActors.TryGetValue(performanceIdentity, out var actorsForPerformance)) return;
             // Copy the source collection with ToList because UnsubscribeFrom would modify it; modifying a collection whilst enumerating it is bad!
+            // See the remarks on this method, it's quite normal for there to be no actors remaining at the point where this method is called.
             foreach (var actor in actorsForPerformance.ToList())
                 UnsubscribeFrom(actor);
         }
@@ -170,12 +188,12 @@ namespace CSF.Screenplay.Performances
         #region Sub: Performances
 
         /// <inheritdoc/>
-        public void InvokePerformanceBegun(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy)
-            => PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>()));
+        public void InvokePerformanceBegun(IPerformance performance)
+            => PerformanceBegun?.Invoke(this, new PerformanceEventArgs(performance));
 
         /// <inheritdoc/>
-        public void InvokePerformanceFinished(Guid performanceIdentity, IList<IdentifierAndName> namingHierarchy, bool? success)
-            => PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performanceIdentity, namingHierarchy?.ToList() ?? new List<IdentifierAndName>(), success));
+        public void InvokePerformanceFinished(IPerformance performance, bool? success)
+            => PerformanceFinished?.Invoke(this, new PerformanceFinishedEventArgs(performance, success));
 
         #endregion
 

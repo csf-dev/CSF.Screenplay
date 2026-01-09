@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Abilities
         public System.Diagnostics.Stopwatch Stopwatch { get; } = new System.Diagnostics.Stopwatch();
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format(AbilityReportStrings.UseAStopwatchFormat, actor);
     }
 }

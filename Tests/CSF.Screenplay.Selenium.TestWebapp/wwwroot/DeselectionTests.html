@@ -1,0 +1,37 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Deselection Tests</h1>
+        <p>
+            The <c>&lt;select&gt;</c> element permits multiple selection.  The display element responds to changes in the
+            selection and lists the items which are selected.
+        </p>
+        <select multiple id="selectElement">
+            <option selected value="One">First</option>
+            <option value="Two">Second</option>
+            <option selected value="Three">Third</option>
+        </select>
+        <ul id="display" style="background: yellow"></ul>
+        <script>
+            window.onload = function() {
+                document.getElementById("selectElement").addEventListener("change", function() {
+                    updateDisplay();
+                });
+                updateDisplay();
+            }
+
+            function updateDisplay() {
+                const displayNodes = [...document.querySelectorAll("#selectElement option").values()]
+                    .filter(element => element.selected)
+                    .map(element => {
+                        const item = document.createElement('li');
+                        item.textContent = element.textContent;
+                        return item;
+                    });
+                const displayElement = document.getElementById("display");
+                displayElement.replaceChildren(...displayNodes);
+            }
+        </script>
+    </body>
+</html>

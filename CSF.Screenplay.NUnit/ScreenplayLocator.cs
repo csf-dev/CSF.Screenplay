@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using CSF.Screenplay.Performances;
 using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
 
 namespace CSF.Screenplay
 {
@@ -18,7 +22,18 @@ namespace CSF.Screenplay
     /// </remarks>
     public static class ScreenplayLocator
     {
+        /// <summary>
+        /// The name of an NUnit3 Property for the suite or test description.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is a built-in NUnit property.  It is set automatically by the framework if/when a test is decorated with appropriate attributes.
+        /// </para>
+        /// </remarks>
+        internal const string DescriptionPropertyName = "Description";
+
         static readonly ConcurrentDictionary<Assembly, Screenplay> screenplayCache = new ConcurrentDictionary<Assembly, Screenplay>();
+        static readonly ConcurrentDictionary<Guid,ScopeAndPerformance> performanceCache = new ConcurrentDictionary<Guid, ScopeAndPerformance>();
 
         /// <summary>
         /// Gets a <see cref="Screenplay"/> instance from the specified <see cref="Assembly"/>.
@@ -86,6 +101,8 @@ namespace CSF.Screenplay
         public static Screenplay GetScreenplay(ITest test)
         {
             if(test is null) throw new ArgumentNullException(nameof(test));
+            if(test is TestAssembly testAssembly)
+                return GetScreenplay(testAssembly.Assembly);
             return GetScreenplay(test.Method);
         }
 
@@ -94,6 +111,76 @@ namespace CSF.Screenplay
             var assemblyAttrib = assembly.GetCustomAttribute<ScreenplayAssemblyAttribute>()
                 ?? throw new ArgumentException($"The assembly {assembly.FullName} must be decorated with {nameof(ScreenplayAssemblyAttribute)}.", nameof(assembly));
             return assemblyAttrib.GetScreenplay();
+        }
+
+        /// <summary>
+        /// Gets a DI scope and <see cref="IPerformance"/> for the specified test.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This method will return a cached <see cref="ScopeAndPerformance"/> if one exists for the specified test.
+        /// If one does not yet exist then a new scope will be created, with an associated performance, and added to the cache.
+        /// </para>
+        /// </remarks>
+        /// <param name="test">An NUnit3 test object.</param>
+        /// <returns>A DI scope and performance.</returns>
+        public static ScopeAndPerformance GetScopedPerformance(ITest test)
+        {
+            return performanceCache.GetOrAdd(GetPerformanceIdentity(test), _ => CreateScopedPerformance(test));
+        }
+
+        /// <summary>
+        /// Gets a DI scope and <see cref="IPerformance"/> matching the specified performance identity.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Unlike the other overload of this method, this overload will not create a scoped performance if one does not yet exist.
+        /// If this method is used with a performance identity which is not yet cached, then an exception will be raised.
+        /// </para>
+        /// </remarks>
+        /// <param name="identity">A GUID performance identity, corresponding to <see cref="IHasPerformanceIdentity.PerformanceIdentity"/>.</param>
+        /// <returns>A DI scope and performance.</returns>
+        /// <exception cref="ArgumentException">If no scope &amp; performance exists in the cache, matching the specified identity</exception>
+        public static ScopeAndPerformance GetScopedPerformance(Guid identity)
+        {
+            if (!performanceCache.TryGetValue(identity, out var result))
+                throw new ArgumentException($"There must be a cached performance with the identity {identity}", nameof(identity));
+            return result;
+        }
+
+        static ScopeAndPerformance CreateScopedPerformance(ITest test)
+        {
+            var screenplay = GetScreenplay(test);
+            return screenplay.CreateScopedPerformance(GetNamingHierarchy(test), GetPerformanceIdentity(test));
+        }
+
+        static Guid GetPerformanceIdentity(ITest test)
+        {
+            if (test is null) throw new ArgumentNullException(nameof(test));
+            if(!test.Properties.ContainsKey(ScreenplayAttribute.CurrentPerformanceIdentityKey))
+                throw new ArgumentException($"The test must contain a property by the name of '{ScreenplayAttribute.CurrentPerformanceIdentityKey}', " +
+                                            "containing a Guid performance identity",
+                                            nameof(test));
+            return (Guid) test.Properties.Get(ScreenplayAttribute.CurrentPerformanceIdentityKey);
+        }
+        
+        static IList<IdentifierAndName> GetNamingHierarchy(ITest test)
+        {
+            var namingHierarchy = GetReverseOrderNamingHierarchy(test).ToList();
+            namingHierarchy.Reverse();
+            return namingHierarchy;
+        }
+
+        static IEnumerable<IdentifierAndName> GetReverseOrderNamingHierarchy(ITest suite)
+        {
+            for (var currentSuite = suite;
+                 currentSuite != null;
+                 currentSuite = currentSuite.Parent)
+            {
+                if (!currentSuite.IsSuite || (currentSuite.Method is null && currentSuite.Fixture is null))
+                    continue;
+                yield return new IdentifierAndName(currentSuite.FullName, currentSuite.Properties.Get(DescriptionPropertyName)?.ToString());
+            }
         }
     }
 }

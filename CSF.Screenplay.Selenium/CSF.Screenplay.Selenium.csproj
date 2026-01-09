@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net462</TargetFrameworks>
+    <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
+    <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" Condition="'$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net462'" />
+    <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.0.0" Condition="'$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net462'" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.0.0" />
+    <PackageReference Include="Selenium.Support" Version="4.0.0" />
+    <PackageReference Include="CSF.Extensions.WebDriver" Version="2.0.0-3.beta" />
+    <PackageReference Include="CSF.Specifications" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Clear Local Storage Tests</h1>
+        <p>
+            Click the button below to list the storage.
+            The onload event sets two items up in storage; if the clear storage test is working correctly then these items will be cleared,
+            so clicking the button will reveal an empty list.
+        </p>
+        <button id="getItems">Get local storage</button>
+        <code><pre id="itemsList" style="background: yellow"></pre></code>
+        <script>
+            window.onload = function() {
+                localStorage.setItem("sampleItem", "sampleValue");
+                localStorage.setItem("otherItem", "otherValue");
+
+                document.getElementById("getItems").addEventListener("click", function() {
+                    const items = [localStorage.getItem("sampleItem"), localStorage.getItem("otherItem")];
+                    const itemsList = document.getElementById("itemsList");
+                    itemsList.innerHTML = "";
+                    for (let i = 0; i < items.length; i++) {
+                        itemsList.innerHTML += items[i] + "\n";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

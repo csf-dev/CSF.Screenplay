@@ -87,7 +87,7 @@ namespace CSF.Screenplay.Reporting
         {
             if(!performanceReports.TryRemove(performanceIdentifier, out var builder))
                 throw new ArgumentException($"This Screenplay report builder does not contain a performance builder with identifier {performanceIdentifier}", nameof(performanceIdentifier));
-            
+
             return builder.GetReport(success);
         }
 
