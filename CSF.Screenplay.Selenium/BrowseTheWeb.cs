@@ -46,6 +46,18 @@ namespace CSF.Screenplay.Selenium
             }
         }
 
+        /// <summary>
+        /// Gets a JavaScript executor object based upon the current <see cref="WebDriver"/>.
+        /// </summary>
+        /// <returns>A JavaScript executor object</returns>
+        /// <exception cref="NotSupportedException">If the current web driver does not support JavaScript execution.</exception>
+        public IJavaScriptExecutor GetJavaScriptExecutor()
+        {
+            return WebDriver is IJavaScriptExecutor executor
+                ? executor
+                : throw new NotSupportedException($"The web driver must implement {nameof(IJavaScriptExecutor)}");
+        }
+
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} is able to browse the web using {BrowserName}",

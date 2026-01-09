@@ -16,7 +16,7 @@
                 localStorage.setItem("otherItem", "otherValue");
 
                 document.getElementById("getItems").addEventListener("click", function() {
-                    const items = [localStorage.getItem("sampleItem"), localStorage.getItem("otherItem")];
+                    const items = [localStorage.getItem("sampleItem"), localStorage.getItem("otherItem")].filter(x => x != null);
                     const itemsList = document.getElementById("itemsList");
                     itemsList.innerHTML = "";
                     for (let i = 0; i < items.length; i++) {

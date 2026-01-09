@@ -14,7 +14,7 @@ public class ClearLocalStorageTests
 
     static readonly NamedUri testPage = new NamedUri("ClearLocalStorageTests.html", "the test page");
 
-    [Test, Screenplay, Ignore("Ignored due to #237, reinstate when that is done")]
+    [Test, Screenplay]
     public async Task ClearLocalStorageShouldClearItems(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

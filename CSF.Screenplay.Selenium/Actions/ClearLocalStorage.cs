@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using OpenQA.Selenium.Html5;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
@@ -17,26 +17,23 @@ namespace CSF.Screenplay.Selenium.Actions
             => formatter.Format("{Actor} clears their browser local storage for the current site", actor.Name);
 
         /// <inheritdoc/>
-        public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
-            var driver = browseTheWeb.WebDriver;
-
-            if(!(driver is IHasWebStorage hasStorageDriver) || !hasStorageDriver.HasWebStorage)
+            var script = Resources.Scripts.ClearLocalStorage;
+            try
             {
-                return throwIfUnsupported
-                    ? throw new InvalidOperationException("The WebDriver must support HTML5 Web Storage")
-                    : new ValueTask();
+                await actor.PerformAsync(ExecuteSomeJavaScript(script).WithTheName("a script to clear local storage"));
             }
-
-            hasStorageDriver.WebStorage.LocalStorage.Clear();
-            return default;
+            catch(NotSupportedException)
+            {
+                if(throwIfUnsupported) throw;
+            }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ClearLocalStorage"/> class.
         /// </summary>
-        /// <param name="throwIfUnsupported">If set to <c>true</c>, an exception will be thrown if the WebDriver does not support HTML5 Web Storage.</param>
+        /// <param name="throwIfUnsupported">If set to <c>true</c>, an exception will be thrown if the WebDriver does not support the execution of JavaScript.</param>
         public ClearLocalStorage(bool throwIfUnsupported = true)
         {
             this.throwIfUnsupported = throwIfUnsupported;
