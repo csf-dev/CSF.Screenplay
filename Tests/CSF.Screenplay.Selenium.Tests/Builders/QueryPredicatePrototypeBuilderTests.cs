@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Selenium.Builders;
 public class QueryPredicatePrototypeBuilderTests
 {
     [Test, AutoMoqData]
-    public void HaveAttributeValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+    public void AttributeValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
                                                                                  SeleniumElement matchingElement,
                                                                                  SeleniumElement nonMatchingElement)
     {
@@ -32,7 +32,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAttributeValueWithPlainValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+    public void AttributeValueWithPlainValueShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
                                                                                                SeleniumElement matchingElement,
                                                                                                SeleniumElement nonMatchingElement)
     {
@@ -53,7 +53,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAttributeShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+    public void AttributeShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
                                                                             SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
@@ -74,7 +74,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveClassShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+    public void ClassShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
                                                                         SeleniumElement matchingElement,
                                                                         SeleniumElement nonMatchingElement)
     {
@@ -95,7 +95,28 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveAllClassesShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+    public void NotClassShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
+                                                                        SeleniumElement matchingElement,
+                                                                        SeleniumElement nonMatchingElement)
+    {
+        Mock.Get(matchingElement.WebElement)
+            .Setup(e => e.GetAttribute("class"))
+            .Returns("foobar baz");
+        Mock.Get(nonMatchingElement.WebElement)
+            .Setup(e => e.GetAttribute("class"))
+            .Returns("baz qux quux");
+
+        var sut = builder.NotClass("qux").GetElementSpecification();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
+            Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
+        });
+    }
+
+    [Test, AutoMoqData]
+    public void AllClassesShouldCreateASpecificationThatUsesGetAttribute(QueryPredicatePrototypeBuilder builder,
                                                                              SeleniumElement matchingElement,
                                                                              SeleniumElement nonMatchingElement)
     {
@@ -116,7 +137,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void AreClickableShouldCreateASpecificationThatTestsVisibilityAndEnabledState(QueryPredicatePrototypeBuilder builder,
+    public void ClickableShouldCreateASpecificationThatTestsVisibilityAndEnabledState(QueryPredicatePrototypeBuilder builder,
                                                                                          SeleniumElement matchingElement,
                                                                                          SeleniumElement nonMatchingElement1,
                                                                                          SeleniumElement nonMatchingElement2,
@@ -143,7 +164,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveCssPropertyShouldCreateASpecificationThatUsesGetCssValue(QueryPredicatePrototypeBuilder builder,
+    public void CssPropertyShouldCreateASpecificationThatUsesGetCssValue(QueryPredicatePrototypeBuilder builder,
                                                                              SeleniumElement matchingElement,
                                                                              SeleniumElement nonMatchingElement)
     {
@@ -164,7 +185,28 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveLocationShouldCreateASpecificationThatUsesLocationQuery(QueryPredicatePrototypeBuilder builder,
+    public void CssPropertyWithValueShouldCreateASpecificationThatUsesGetCssValue(QueryPredicatePrototypeBuilder builder,
+                                                                             SeleniumElement matchingElement,
+                                                                             SeleniumElement nonMatchingElement)
+    {
+        Mock.Get(matchingElement.WebElement)
+            .Setup(e => e.GetCssValue("color"))
+            .Returns("rgba(255, 0, 0, 1)");
+        Mock.Get(nonMatchingElement.WebElement)
+            .Setup(e => e.GetCssValue("color"))
+            .Returns("rgba(0, 0, 255, 1)");
+
+        var sut = builder.CssProperty("color", "rgba(255, 0, 0, 1)").GetElementSpecification();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
+            Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
+        });
+    }
+
+    [Test, AutoMoqData]
+    public void LocationShouldCreateASpecificationThatUsesLocationQuery(QueryPredicatePrototypeBuilder builder,
                                                                             SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
@@ -181,7 +223,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveSizeShouldCreateASpecificationThatUsesSizeQuery(QueryPredicatePrototypeBuilder builder,
+    public void SizeShouldCreateASpecificationThatUsesSizeQuery(QueryPredicatePrototypeBuilder builder,
                                                                     SeleniumElement matchingElement,
                                                                     SeleniumElement nonMatchingElement)
     {
@@ -198,7 +240,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveTextShouldCreateASpecificationThatUsesTextQuery(QueryPredicatePrototypeBuilder builder,
+    public void TextShouldCreateASpecificationThatUsesTextQuery(QueryPredicatePrototypeBuilder builder,
                                                                     SeleniumElement matchingElement,
                                                                     SeleniumElement nonMatchingElement)
     {
@@ -215,7 +257,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
 
     [Test, AutoMoqData]
-    public void HaveValueShouldCreateASpecificationThatUsesValueQuery(QueryPredicatePrototypeBuilder builder,
+    public void ValueShouldCreateASpecificationThatUsesValueQuery(QueryPredicatePrototypeBuilder builder,
                                                                       SeleniumElement matchingElement,
                                                                       SeleniumElement nonMatchingElement)
     {
@@ -232,7 +274,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void AreVisibleShouldCreateASpecificationThatUsesVisibilityQuery(QueryPredicatePrototypeBuilder builder,
+    public void VisibleShouldCreateASpecificationThatUsesVisibilityQuery(QueryPredicatePrototypeBuilder builder,
                                                                             SeleniumElement matchingElement,
                                                                             SeleniumElement nonMatchingElement)
     {
@@ -249,7 +291,7 @@ public class QueryPredicatePrototypeBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+    public void SelectedOptionsWithTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
                                                                                         SeleniumElement matchingElement,
                                                                                         SeleniumElement nonMatchingElement)
     {
@@ -278,7 +320,36 @@ public class QueryPredicatePrototypeBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveUnSelectedOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+    public void SelectedOptionsWithValueShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                        SeleniumElement matchingElement,
+                                                                                        SeleniumElement nonMatchingElement)
+    {
+        Mock.Get(matchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 2" && !we.Selected && we.GetDomProperty("value") == "2"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+        Mock.Get(nonMatchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && !we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 2" && !we.Selected && we.GetDomProperty("value") == "2"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+
+        var sut = builder.SelectedOptionsWithValue("1", "3").GetElementSpecification();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
+            Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
+        });
+    }
+    
+    [Test, AutoMoqData]
+    public void UnselectedOptionsWithTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
                                                                                           SeleniumElement matchingElement,
                                                                                           SeleniumElement nonMatchingElement)
     {
@@ -307,7 +378,36 @@ public class QueryPredicatePrototypeBuilderTests
     }
     
     [Test, AutoMoqData]
-    public void HaveOptionsByTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+    public void UnselectedOptionsWithValueShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                          SeleniumElement matchingElement,
+                                                                                          SeleniumElement nonMatchingElement)
+    {
+        Mock.Get(matchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 2" && !we.Selected && we.GetDomProperty("value") == "2"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+        Mock.Get(nonMatchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && !we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 2" && !we.Selected && we.GetDomProperty("value") == "2"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+
+        var sut = builder.UnselectedOptionsWithValue("2").GetElementSpecification();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
+            Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
+        });
+    }
+
+    [Test, AutoMoqData]
+    public void OptionsWithTextShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
                                                                                 SeleniumElement matchingElement,
                                                                                 SeleniumElement nonMatchingElement)
     {
@@ -326,6 +426,34 @@ public class QueryPredicatePrototypeBuilderTests
                 ]));
 
         var sut = builder.OptionsWithText("Option 1", "Option 2", "Option 3").GetElementSpecification();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
+            Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
+        });
+    }
+    
+    [Test, AutoMoqData]
+    public void OptionsWithValueShouldCreateASpecificationThatUsesOptionsQuery(QueryPredicatePrototypeBuilder builder,
+                                                                                SeleniumElement matchingElement,
+                                                                                SeleniumElement nonMatchingElement)
+    {
+        Mock.Get(matchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 2" && !we.Selected && we.GetDomProperty("value") == "2"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+        Mock.Get(nonMatchingElement.WebElement)
+            .Setup(e => e.FindElements(It.Is<By>(b => b.Mechanism == "tag name" && b.Criteria == "option")))
+            .Returns(new ReadOnlyCollection<IWebElement>([
+                Mock.Of<IWebElement>(we => we.Text == "Option 1" && !we.Selected && we.GetDomProperty("value") == "1"),
+                Mock.Of<IWebElement>(we => we.Text == "Option 3" && we.Selected && we.GetDomProperty("value") == "3"),
+                ]));
+
+        var sut = builder.OptionsWithValue("1", "2", "3").GetElementSpecification();
 
         Assert.Multiple(() =>
         {

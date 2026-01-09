@@ -112,7 +112,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="class">The name of the class to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> NotClass(string @class)
-            => CreatePrototype(new AttributeQuery(AttributeQuery.ClassAttribute), Spec.Func<string>(x => HasClass(x, @class)), t => $"{t.Name} does not have the class '{@class}'");
+            => CreatePrototype(new AttributeQuery(AttributeQuery.ClassAttribute), Spec.Func<string>(x => !HasClass(x, @class)), t => $"{t.Name} does not have the class '{@class}'");
 
         /// <summary>
         /// Creates a query predicate for the presence of all the specified HTML classes (amongst the class attribute's values).
@@ -163,21 +163,19 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="value">The value to compare against the element's "clickability".</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Clickability(bool value)
-            => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} has clickability equal to {value}");
+            => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} {(value ? "is clickable" : "is not clickable")}");
 
         /// <summary>
         /// Creates a query predicate based on whether the element is clickable.
         /// </summary>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
-        public QueryPredicatePrototype<bool> Clickable()
-            => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => x), t => $"{t.Name} is clickable");
+        public QueryPredicatePrototype<bool> Clickable() => Clickability(true);
 
         /// <summary>
         /// Creates a query predicate based on whether the element is clickable.
         /// </summary>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
-        public QueryPredicatePrototype<bool> NotClickable()
-            => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => !x), t => $"{t.Name} is not clickable");
+        public QueryPredicatePrototype<bool> NotClickable() => Clickability(false);
 
         /// <summary>
         /// Creates a query predicate based on a specified CSS property and a predicate for the property's value.
@@ -275,21 +273,19 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <param name="value">The value to compare against the element's visibility.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Visibility(bool value)
-            => CreatePrototype(new VisibilityQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} has visibility equal to {value}");
+            => CreatePrototype(new VisibilityQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} {(value ? "is visible" : "is not visible")}");
 
         /// <summary>
         /// Creates a query predicate based on whether the element is visible.
         /// </summary>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
-        public QueryPredicatePrototype<bool> Visible()
-            => CreatePrototype(new VisibilityQuery(), Spec.Func<bool>(x => x), t => $"{t.Name} is visible");
+        public QueryPredicatePrototype<bool> Visible() => Visibility(true);
 
         /// <summary>
         /// Creates a query predicate based on whether the element is not visible.
         /// </summary>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
-        public QueryPredicatePrototype<bool> NotVisible()
-            => CreatePrototype(new VisibilityQuery(), Spec.Func<bool>(x => !x), t => $"{t.Name} is not visible");
+        public QueryPredicatePrototype<bool> NotVisible() => Visibility(false);
 
         /// <summary>
         /// Creates a query predicate based on the <c>&lt;option&gt;</c> elements, which are children of the current element, which are selected.
