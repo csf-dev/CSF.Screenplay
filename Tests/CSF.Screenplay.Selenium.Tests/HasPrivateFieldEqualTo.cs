@@ -27,13 +27,11 @@ public class HasPrivateFieldEqualTo : Constraint
 
     public class PrivateFieldEqualToConstraintResult : ConstraintResult
     {
-        public string Problem { get; set; }
+        public required string Problem { get; set; }
 
         public override void WriteMessageTo(MessageWriter writer)
             => writer.Write(Problem);
 
-        public PrivateFieldEqualToConstraintResult(IConstraint constraint, object actualValue) : base(constraint, actualValue, false)
-        {
-        }
+        public PrivateFieldEqualToConstraintResult(IConstraint constraint, object actualValue) : base(constraint, actualValue, false) {}
     }
 }
