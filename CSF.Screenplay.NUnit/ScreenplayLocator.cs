@@ -179,8 +179,12 @@ namespace CSF.Screenplay
             {
                 if (!currentSuite.IsSuite || (currentSuite.Method is null && currentSuite.Fixture is null))
                     continue;
-                yield return new IdentifierAndName(currentSuite.FullName, currentSuite.Properties.Get(DescriptionPropertyName)?.ToString());
+                yield return new IdentifierAndName(GetIdentifier(currentSuite), GetName(currentSuite));
             }
         }
+
+        static string GetIdentifier(ITest suite) => suite.FullName;
+
+        static string GetName(ITest suite) => suite.Properties.Get(DescriptionPropertyName)?.ToString() ?? GetIdentifier(suite);
     }
 }
