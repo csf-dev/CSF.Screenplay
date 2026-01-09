@@ -168,21 +168,21 @@ about the makeup of the <code>EatLunchPerformableBuilder</code>.
 <pre><code class="lang-csharp">public class EatLunchPerformableBuilder : IGetsPerformable
 {
     IProvidesTimeSpan? timeSpanBuilder;
-<pre><code>protected string? FoodName { get; init; }
 
-IPerformable IGetsPerformable.GetPerformable()
-    =&gt; new EatLunch(FoodName, timeSpanBuilder?.GetTimeSpan() ?? TimeSpan.Zero);
+    protected string? FoodName { get; init; }
 
-public TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; For(int howMany)
-{
-    var builder = TimeSpanBuilder.Create(this, howMany);
-    timeSpanBuilder = builder;
-    return builder;
-}
+    IPerformable IGetsPerformable.GetPerformable()
+        =&gt; new EatLunch(FoodName, timeSpanBuilder?.GetTimeSpan() ?? TimeSpan.Zero);
 
-public static EatLunchPerformableBuilder Eat(string foodName) =&gt; new EatLunchPerformableBuilder() { FoodName = foodName };
-</code></pre>
-<p>}</p></code></pre>
+    public TimeSpanBuilder&lt;EatLunchPerformableBuilder&gt; For(int howMany)
+    {
+        var builder = TimeSpanBuilder.Create(this, howMany);
+        timeSpanBuilder = builder;
+        return builder;
+    }
+
+    public static EatLunchPerformableBuilder Eat(string foodName) =&gt; new EatLunchPerformableBuilder() { FoodName = foodName };
+}</code></pre>
 <p>
 The sample builder above would be used to build an instance of a (fictitious) <code>EachLunch</code> performable, which derives from
 <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a>.  The fictitious performable requires two parameters; the name of the food being eaten for lunch
@@ -191,8 +191,10 @@ A consumer which uses this builder in an <a class="xref" href="CSF.Screenplay.IP
 might consume it as follows.
 </p>
 <pre><code class="lang-csharp">using static EatLunchPerformableBuilder;
-<p>// ...</p>
-<p>actor.PerformAsync(Eat(&quot;Sandwiches&quot;).For(30).Minutes(), cancellationToken);</p></code></pre>
+
+// ...
+
+actor.PerformAsync(Eat("Sandwiches").For(30).Minutes(), cancellationToken);</code></pre>
 <p>
 A note for developers with access to the source code for this library.
 There is a small integration test which sets up and exercises the example above; it is named <code>TimeSpanBuilderTests</code>.
@@ -215,7 +217,7 @@ to continue with that other builder.
 </p>
 <p>
 Whilst it is possible to create instances of this type via its public constructor, it is often easier to create
-instances using the <code>static</code><a class="xref" href="CSF.Screenplay.Performables.TimeSpanBuilder.html">TimeSpanBuilder</a> class.
+instances using the <code>static</code> <a class="xref" href="CSF.Screenplay.Performables.TimeSpanBuilder.html">TimeSpanBuilder</a> class.
 </p>
 </div>
 

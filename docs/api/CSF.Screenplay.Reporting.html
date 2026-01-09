@@ -95,6 +95,11 @@
 Classes
 </h3>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.AssetPathProvider.html">AssetPathProvider</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsAssetFilePath.html">IGetsAssetFilePath</a> which filename paths for assets.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a></dt>
       <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which formats objects that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a>.</p>
 </dd>
@@ -149,6 +154,11 @@ to be inserted into that format.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ReportPathProvider.html">ReportPathProvider</a></dt>
+      <dd><p>Stateful implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsReportPath.html">IGetsReportPath</a> which caches the outcome of the path-determination logic.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a></dt>
       <dd><p>Builder type accumulates <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a> as performances occur within the Screenplay.</p>
 </dd>
@@ -198,8 +208,18 @@ Interfaces
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsAssetFilePath.html">IGetsAssetFilePath</a></dt>
+      <dd><p>A service which gets a filesystem path to which Screenplay asset files should be written, if they are to be written at all.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsReportFormat.html">IGetsReportFormat</a></dt>
       <dd><p>An object which can get a <a class="xref" href="CSF.Screenplay.Reporting.ReportFormat.html">ReportFormat</a> from a report format template and the associated values.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsReportPath.html">IGetsReportPath</a></dt>
+      <dd><p>A service which gets the path to which the Screenplay report should be written.</p>
 </dd>
     </dl>
     <dl class="jumplist">

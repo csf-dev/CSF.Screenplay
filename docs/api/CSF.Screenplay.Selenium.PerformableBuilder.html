@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PerformableBuilder | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PerformableBuilder | Screenplay docs ">
+      
+      <meta name="description" content="Builder type for creating performables which interact with Selenium WebDriver via Screenplay.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_PerformableBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.PerformableBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Selenium.PerformableBuilder">
+
+
+
+  <h1 id="CSF_Screenplay_Selenium_PerformableBuilder" data-uid="CSF.Screenplay.Selenium.PerformableBuilder" class="text-break">
+Class PerformableBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Builder type for creating performables which interact with Selenium WebDriver via Screenplay.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class PerformableBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PerformableBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_Selenium_PerformableBuilder_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Consume this class from your own Screenplay logic with <code>using static CSF.Screenplay.Selenium.PerformableBuilder;</code>.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies">
+  ClearAllDomainCookies()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which clears all cookies for the current domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable ClearAllDomainCookies()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorage*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorage">
+  ClearLocalStorage()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which clears the local storage for the current domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable ClearLocalStorage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method gets a performable which will throw an exception if the WebDriver does not support HTML5 Web Storage.
+To avoid this, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported">ClearLocalStorageIfSupported()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported">
+  ClearLocalStorageIfSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which clears the local storage for the current domain if the WebDriver supports it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable ClearLocalStorageIfSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method gets a performable which will do nothing if the WebDriver does not support HTML5 Web Storage.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearTheContentsOf_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearTheContentsOf*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearTheContentsOf_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearTheContentsOf(CSF.Screenplay.Selenium.Elements.ITarget)">
+  ClearTheContentsOf(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which clears the contents of the specified target element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable ClearTheContentsOf(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target element whose contents will be cleared.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClickOn_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClickOn*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClickOn_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClickOn(CSF.Screenplay.Selenium.Elements.ITarget)">
+  ClickOn(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which represents an actor clicking on a specified target element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable ClickOn(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target element on which to click.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_DeleteTheCookieNamed_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeleteTheCookieNamed*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_DeleteTheCookieNamed_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeleteTheCookieNamed(System.String)">
+  DeleteTheCookieNamed(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which deletes a single named cookie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable DeleteTheCookieNamed(string cookieName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cookieName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectEverythingFrom_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectEverythingFrom*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectEverythingFrom_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectEverythingFrom(CSF.Screenplay.Selenium.Elements.ITarget)">
+  DeselectEverythingFrom(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable which represents an actor deselecting everything from a <code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable DeselectEverythingFrom(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>A target which represents an HTML <code>&lt;select&gt;</code> element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectEverythingFrom_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+As might be expected, the <code class="paramref">target</code> parameter must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOption*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_System_Int32_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOption(System.Int32)">
+  DeselectTheOption(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor deselecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder DeselectTheOption(int optionIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of an option to deselect</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload deselects the option by its zero-based index.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOption*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOption(System.String)">
+  DeselectTheOption(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor deselecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder DeselectTheOption(string optionText)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text of the option to deselect</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOption_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload deselects the option by its displayed text.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOptionWithValue_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOptionWithValue*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOptionWithValue_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOptionWithValue(System.String)">
+  DeselectTheOptionWithValue(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor deselecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder DeselectTheOptionWithValue(string optionValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The underlying value of the option to deselect</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_DeselectTheOptionWithValue_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload deselects the option by its underlying <code>value</code> attribute, instead of its displayed text.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_EnterTheText_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_EnterTheText_System_String___" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText(System.String[])">
+  EnterTheText(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for creating a performable action which represents an actor typing text into a target element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SendKeysBuilder EnterTheText(params string[] text)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>The text/keys for the actor to type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.SendKeysBuilder.html">SendKeysBuilder</a></dt>
+    <dd><p>A builder with which the user may select a target element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_EnterTheText_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This may be used to send more than normal/printable text to the specified element. Special/nonprintable keys may be sent by
+using the <code>OpenQA.Selenium.Keys</code> class.
+</p>
+<p>
+For convenience, especially when using the Selenium <code>Keys</code> class mentioned above, this method accepts a <code>params</code> array
+of strings. If an array of strings is passed, they will be concatenated together before being sent to the element as a single string.
+The array/params syntax is used to allow a consumer to pass multiple strings (perhaps each only one character) as a single argument,
+without needing to manually concatenate them.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_Filter_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.Filter*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.Filter(CSF.Screenplay.Selenium.Elements.SeleniumElementCollection)">
+  Filter(SeleniumElementCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which filters a collection of elements for those which match a specification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FilterElementsBuilder Filter(SeleniumElementCollection elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a></dt>
+    <dd><p>The collection of elements to filter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a></dt>
+    <dd><p>A builder with which consuming logic must provide a specification.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection__examples">Examples</h4>
+  <p>
+Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
+<p>
+The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
+of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.
+It would filter the elements in <code>someElements</code> to only those which are clickable and have the text "Buy now".
+</p>
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a></div>
+    <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementOnThePage*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementOnThePage">
+  FindAnElementOnThePage()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a single element within the body of the page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementBuilder FindAnElementOnThePage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementBuilder.html">FindElementBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds an element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you want to find an element which is a descendent of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget_">FindAnElementWithin(ITarget)</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.ITarget)">
+  FindAnElementWithin(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a single element within a specified target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementBuilder FindAnElementWithin(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target within which to find HTML elements</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementBuilder.html">FindElementBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds an element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to find an element within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage">FindAnElementOnThePage()</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsOnThePage*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsOnThePage">
+  FindElementsOnThePage()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a collection of elements within the body of the page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementsBuilder FindElementsOnThePage()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html">FindElementsBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you want to find elements which are descendents of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget_">FindElementsWithin(ITarget)</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.ITarget)">
+  FindElementsWithin(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a collection of elements within a specified target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementsBuilder FindElementsWithin(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target within which to find HTML elements</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html">FindElementsBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to find elements within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage">FindElementsOnThePage()</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.OpenTheUrl*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.OpenTheUrl(CSF.Screenplay.Selenium.NamedUri)">
+  OpenTheUrl(NamedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which opens a URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformable OpenTheUrl(NamedUri uri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uri</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a></dt>
+    <dd><p>The uri at which to open the web browser.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the specified Uri is a relative Uri, then this task will use the actor's <a class="xref" href="CSF.Screenplay.Selenium.UseABaseUri.html">UseABaseUri</a> ability (if present)
+to transform the relative Uri into an absolute one.  The specified Uri will be used directly if it is already absolute.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheCollectionOfElements_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheCollectionOfElements*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheCollectionOfElements_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheCollectionOfElements(CSF.Screenplay.Selenium.Elements.ITarget)">
+  ReadFromTheCollectionOfElements(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which reads a collection of the same information from a collection of elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QuestionMultiQueryBuilder ReadFromTheCollectionOfElements(ITarget element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The elements to interrogate for values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionMultiQueryBuilder.html">QuestionMultiQueryBuilder</a></dt>
+    <dd><p>A builder which chooses the query</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheCollectionOfElements_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This question makes use of an <a class="xref" href="CSF.Screenplay.Selenium.Queries.IQuery-1.html">IQuery&lt;T&gt;</a> to interrogate each element element in the collection and return a series of
+corresponding values.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheElement*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheElement(CSF.Screenplay.Selenium.Elements.ITarget)">
+  ReadFromTheElement(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which reads a piece of information from a single element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QuestionQueryBuilder ReadFromTheElement(ITarget element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The element to interrogate for a value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a></dt>
+    <dd><p>A builder which chooses the query</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This question makes use of an <a class="xref" href="CSF.Screenplay.Selenium.Queries.IQuery-1.html">IQuery&lt;T&gt;</a> to interrogate a single element and return a value.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ReadTheWindowTitle_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadTheWindowTitle*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadTheWindowTitle" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadTheWindowTitle">
+  ReadTheWindowTitle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the title of the current browser window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GetWindowTitle ReadTheWindowTitle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetWindowTitle.html">GetWindowTitle</a></dt>
+    <dd><p>A performable question.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_SaveTheScreenshot_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SaveTheScreenshot*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_SaveTheScreenshot_OpenQA_Selenium_Screenshot_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SaveTheScreenshot(OpenQA.Selenium.Screenshot)">
+  SaveTheScreenshot(Screenshot)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which saves a screenshot to a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SaveScreenshotBuilder SaveTheScreenshot(Screenshot screenshot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>screenshot</code> <span class="xref">Screenshot</span></dt>
+    <dd><p>The Selenium screenshot instance</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.SaveScreenshotBuilder.html">SaveScreenshotBuilder</a></dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_SaveTheScreenshot_OpenQA_Selenium_Screenshot__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method returns a builder object which may be used to specify a short name for the screenshot.
+This allows it to be quickly identified in the report.
+</p>
+<p>
+If you only want to take a screenshot and save it as an asset file, please consider <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a>
+instead of this method.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOption*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_Int32_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOption(System.Int32)">
+  SelectTheOption(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor selecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder SelectTheOption(int optionIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The zero-based index of an option to select</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload selects the option by its zero-based index.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOption*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOption(System.String)">
+  SelectTheOption(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor selecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder SelectTheOption(string optionText)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text of the option to select</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload selects the option by its displayed text.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOptionWithValue_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOptionWithValue*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOptionWithValue_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOptionWithValue(System.String)">
+  SelectTheOptionWithValue(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable which represents an actor selecting a specified option from a
+<code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FromTargetActionBuilder SelectTheOptionWithValue(string optionValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The underlying value of the option to select</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html">FromTargetActionBuilder</a></dt>
+    <dd><p>A builder by which a target element is chosen</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOptionWithValue_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload selects the option by its underlying <code>value</code> attribute, instead of its displayed text.
+As might be expected, the target which is specified in the builder must represent a <code>&lt;select&gt;</code> element or the resulting
+performable will raise an exception.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshot*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshot">
+  TakeAScreenshot()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which takes a screenshot of the current web page and returns it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;Screenshot&gt; TakeAScreenshot()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<span class="xref">Screenshot</span>&gt;</dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to take a screenshot and save it as an asset file, please consider <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a>
+instead of this method.
+</p>
+<p>
+This method will raise an exception if the WebDriver is not capable of taking screenshots. If you want to avoid this, consider
+using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported">TakeAScreenshotIfSupported()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshotIfSupported*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshotIfSupported">
+  TakeAScreenshotIfSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which takes a screenshot of the current web page and returns it, if the WebDriver is capable of doing so.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;Screenshot&gt; TakeAScreenshotIfSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<span class="xref">Screenshot</span>&gt;</dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to take a screenshot and save it as an asset file, please consider <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a>
+instead of this method.
+</p>
+<p>
+This method will not raise an exception if the WebDriver is not capable of taking screenshots.  Instead, it will return a value task
+of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>. If you wish to use a performable which will raise an exception if the WebDriver is not capable of taking
+screenshots, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot">TakeAScreenshot()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAndSaveAScreenshot*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAndSaveAScreenshot">
+  TakeAndSaveAScreenshot()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable taek which takes a screenshot and saves it to a file, using an optional short name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TakeAndSaveScreenshotBuilder TakeAndSaveAScreenshot()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.TakeAndSaveScreenshotBuilder.html">TakeAndSaveScreenshotBuilder</a></dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method may be used to specify a short name for the screenshot.
+This allows it to be quickly identified in the report.
+</p>
+<p>
+This method will raise an exception if the WebDriver is not capable of taking screenshots. If you want to avoid this, consider
+using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported">TakeAndSaveAScreenshotIfSupported()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAndSaveAScreenshotIfSupported*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAndSaveAScreenshotIfSupported">
+  TakeAndSaveAScreenshotIfSupported()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable taek which takes a screenshot and saves it to a file, using an optional short name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TakeAndSaveScreenshotBuilder TakeAndSaveAScreenshotIfSupported()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.TakeAndSaveScreenshotBuilder.html">TakeAndSaveScreenshotBuilder</a></dt>
+    <dd><p>A performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method may be used to specify a short name for the screenshot.
+This allows it to be quickly identified in the report.
+</p>
+<p>
+This method will not raise an exception if the WebDriver is not capable of taking screenshots.  Instead, it will do nothing.
+If you wish to use a performable which will raise an exception if the WebDriver is not capable of taking
+screenshots, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitFor*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_System_TimeSpan_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitFor(System.TimeSpan)">
+  WaitFor(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action that waits for a specified amount of time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WaitForSomeTime WaitFor(TimeSpan duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The duration for which to wait.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.html">WaitForSomeTime</a></dt>
+    <dd><p>A performable action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This kind of wait waits for a specified time.  If you want to wait until a condition is met, consider using either
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a> or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_">WaitUntil(IBuildsElementPredicates)</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil(CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates)">
+  WaitUntil(IBuildsElementPredicates)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable question that waits until a predicate returns a successful result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NamedWaitBuilder WaitUntil(IBuildsElementPredicates predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates.html">IBuildsElementPredicates</a></dt>
+    <dd><p>A predicate which, when it returns a successful result, the wait is over.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.NamedWaitBuilder.html">NamedWaitBuilder</a></dt>
+    <dd><p>A builder for creating a wait action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The prupose of waiting in this manner is to wait for something to happen on the web page, such as an element being present, or
+having content that matches a specification.
+</p>
+<p>
+The builder object returned by this method has a number of optional configuration methods.
+</p>
+<p>
+Create the <code class="paramref">predicate</code> paramater value by using one of the following extension methods.  These extension methods
+provide a fluent interface to create a predicate for one or more elements (described by a single <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>), as well
+as providing a human-readable name for the predicate.
+</p>
+<ul><li><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">Has(ITarget)</a></li><li><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">AllHave(ITarget)</a></li></ul>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if the predicate is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if the result type of the predicate is a value type other than boolean.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil(System.Func{OpenQA.Selenium.IWebDriver,System.Boolean})">
+  WaitUntil(Func&lt;IWebDriver, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which will create a performable question that waits until a predicate returns a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnnamedWaitBuilder WaitUntil(Func&lt;IWebDriver, bool&gt; predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IWebDriver</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A predicate which, when it returns a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> result, the wait is over.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.UnnamedWaitBuilder.html">UnnamedWaitBuilder</a></dt>
+    <dd><p>A builder for creating a wait action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The purpose of waiting in this manner is to wait for something to happen on the web page, such as an element being present, or
+having content that matches a specification.
+</p>
+<p>
+The builder object returned by this method has a number of optional configuration methods. Of these, consumers are
+strongly encouraged to use <a class="xref" href="CSF.Screenplay.Selenium.Builders.UnnamedWaitBuilder.html#CSF_Screenplay_Selenium_Builders_UnnamedWaitBuilder_Named_System_String_">Named(string)</a> to give the wait action a short, descriptive name which will
+appear in reports.
+</p>
+<p>
+Take note that it is very normal for the <code class="paramref">predicate</code> to make use of closures to access elements from outside its own
+scope. For example, the predicate function may refer to an element which is referenced by a variable in the calling method.
+</p>
+<p>
+Where possible, consider using the other overload of this method: <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_">WaitUntil(IBuildsElementPredicates)</a>, as it provides
+a more fluent interface for describing the predicate.
+This overload is provided only for scenarios in which the predicate to end the wait is too complex to be easily expressed
+using the fluent interface.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if the predicate is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if the result type of the predicate is a value type other than boolean.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

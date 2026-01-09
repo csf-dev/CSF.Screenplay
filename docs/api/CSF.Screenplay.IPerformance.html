@@ -178,7 +178,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h3 id="CSF_Screenplay_IPerformance_NamingHierarchy" data-uid="CSF.Screenplay.IPerformance.NamingHierarchy">
   NamingHierarchy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
@@ -186,7 +186,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">List&lt;IdentifierAndName&gt; NamingHierarchy { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;IdentifierAndName&gt; NamingHierarchy { get; }</code></pre>
   </div>
 
 
@@ -195,7 +195,7 @@ You may wish to read a <a class="xref" href="../docs/HowScreenplayAndPerformance
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -229,15 +229,6 @@ That might be based upon .NET namespaces, classes and test methods for a more tr
 Alternatively, for a BDD-style testing framework, it could be named based upon human-readable
 feature &amp; scenario names.
 </p>
-<p>
-Ideally this property would be immutable after a Performance is created.
-Unfortunately, some testing frameworks do not expose relevant naming information about a test until after the point
-of execution where the Performance must be created.
-Thus, this property is mutable, so that it is possible to 'backfill' missing naming information after the performance has
-been created.
-Wherever possible, it is recommended to avoid updating this list of identifier/names and to only set them up when creating the
-performance, via <a class="xref" href="CSF.Screenplay.Performances.ICreatesPerformance.html">ICreatesPerformance</a>.
-</p>
 </div>
 
 
@@ -247,7 +238,7 @@ performance, via <a class="xref" href="CSF.Screenplay.Performances.ICreatesPerfo
 
   <h3 id="CSF_Screenplay_IPerformance_PerformanceState" data-uid="CSF.Screenplay.IPerformance.PerformanceState">
   PerformanceState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPerformance.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>

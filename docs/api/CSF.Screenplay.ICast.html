@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ICast" data-uid="CSF.Screenplay.ICast" class="text-break">
-Interface ICast  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L32"><i class="bi bi-code-slash"></i></a>
+Interface ICast  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -166,7 +166,7 @@ which may be used within your performances.
 
   <h3 id="CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.ICast.GetActor(CSF.Screenplay.IPersona)">
   GetActor(IPersona)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> based upon a persona, creating them if they do not already exist in the cast.</p>
@@ -226,7 +226,7 @@ care of resolving the persona instance from dependency injection for you.
 
   <h3 id="CSF_Screenplay_ICast_GetActor_System_String_" data-uid="CSF.Screenplay.ICast.GetActor(System.String)">
   GetActor(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> by their name, creating them if they do not already exist in the cast.</p>
@@ -282,6 +282,52 @@ method which uses that persona to define the actor.
   </dl>
 
 
+  <a id="CSF_Screenplay_ICast_GetCastList_" data-uid="CSF.Screenplay.ICast.GetCastList*"></a>
+
+  <h3 id="CSF_Screenplay_ICast_GetCastList" data-uid="CSF.Screenplay.ICast.GetCastList">
+  GetCastList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of string names, indicating the collection of actors which this cast object knows about.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyCollection&lt;string&gt; GetCastList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A collection of strings, corresponding to the actors which have been created in the lifetime
+of the current cast instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ICast_GetCastList_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Because a cast instance serves as both a registry and a factory, whenever it is used to get an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> for the first
+time, that actor instance is cached within the cast which created it.  This method may be used to get a collection of the names
+of actors which are cached within the current cast instance.
+</p>
+<p>
+Note that the collection returned by this method is a snapshot in time, correct as-at the time when this method is executed.
+The collection does not update automatically as new actors are added to the cast.  You must execute this method again to get an
+updated collection.
+</p>
+</div>
+
+
+
+
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.IStage.html">IStage</a></div>
@@ -293,7 +339,7 @@ method which uses that persona to define the actor.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L32" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/ICast.cs/#L34" class="edit-link">Edit this page</a>
         </div>
 
 

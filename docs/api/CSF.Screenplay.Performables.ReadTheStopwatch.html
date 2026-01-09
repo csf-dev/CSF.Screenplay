@@ -168,8 +168,8 @@ Use this performable via the builder method <a class="xref" href="CSF.Screenplay
 
   <a id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_" data-uid="CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.IHasName,CSF.Screenplay.IFormatsReportFragment)">
-  GetReportFragment(IHasName, IFormatsReportFragment)
+  <h3 id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Performables.ReadTheStopwatch.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
+  GetReportFragment(Actor, IFormatsReportFragment)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/ReadTheStopwatch.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -179,12 +179,12 @@ Use this performable via the builder method <a class="xref" href="CSF.Screenplay
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReportFragment GetReportFragment(IHasName actor, IFormatsReportFragment formatter)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></dt>
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
     <dd><p>An actor for whom to write the report fragment</p>
 </dd>
     <dt><code>formatter</code> <a class="xref" href="CSF.Screenplay.IFormatsReportFragment.html">IFormatsReportFragment</a></dt>
@@ -204,7 +204,7 @@ Use this performable via the builder method <a class="xref" href="CSF.Screenplay
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -222,7 +222,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_IHasName_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Performables_ReadTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent

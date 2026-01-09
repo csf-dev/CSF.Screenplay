@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StageAdapter | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StageAdapter | Screenplay docs ">
+      
+      <meta name="description" content="An adapter which enables the use of  within an NUnit3 test, without needing to parameter-inject the instance as Lazy&amp;lt;IStage&amp;gt;.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_StageAdapter.md&amp;value=---%0Auid%3A%20CSF.Screenplay.StageAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.StageAdapter">
+
+
+
+  <h1 id="CSF_Screenplay_StageAdapter" data-uid="CSF.Screenplay.StageAdapter" class="text-break">
+Class StageAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.NUnit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An adapter which enables the use of <a class="xref" href="CSF.Screenplay.IStage.html">IStage</a> within an NUnit3 test, without needing to parameter-inject the instance
+as <code>Lazy&lt;IStage&gt;</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class StageAdapter : IStage</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StageAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.IStage.html">IStage</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_StageAdapter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Due to NUnit architectural limitations, injectable parameters cannot be resolved from DI at the point the test method is built.
+If we were to attempt this, then the parameter value would not be associated with the correct Screenplay/DI scope (and thus Event Bus).
+This is due to the two-process model which NUnit uses; one process for building the test methods and another process for running the
+tests. By using an adapter with Lazy resolution of the real implementation, we ensure that DI resolution is deferred into the test-run
+process and not the test-building process.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_StageAdapter__ctor_" data-uid="CSF.Screenplay.StageAdapter.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter__ctor_System_Guid_" data-uid="CSF.Screenplay.StageAdapter.#ctor(System.Guid)">
+  StageAdapter(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="CSF.Screenplay.StageAdapter.html">StageAdapter</a> for the specified performance identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StageAdapter(Guid performanceIdentity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>A performance identity, corresponding to <a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">PerformanceIdentity</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_StageAdapter_Cast_" data-uid="CSF.Screenplay.StageAdapter.Cast*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter_Cast" data-uid="CSF.Screenplay.StageAdapter.Cast">
+  Cast
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the cast to which the current stage is linked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICast Cast { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ICast.html">ICast</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_StageAdapter_GetSpotlitActor_" data-uid="CSF.Screenplay.StageAdapter.GetSpotlitActor*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter_GetSpotlitActor" data-uid="CSF.Screenplay.StageAdapter.GetSpotlitActor">
+  GetSpotlitActor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the actor which is currently in the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Actor GetSpotlitActor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor who has previously been placed in the spotlight, or a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
+reference if there is presently no actor in the spotlight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_StageAdapter_Spotlight_" data-uid="CSF.Screenplay.StageAdapter.Spotlight*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter_Spotlight_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.StageAdapter.Spotlight(CSF.Screenplay.Actor)">
+  Spotlight(Actor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Places the specified actor into the spotlight, making them 'the current actor' on this stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spotlight(Actor actor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_StageAdapter_Spotlight_CSF_Screenplay_Actor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A maximum of one actor may be in the spotlight at any time, so if a different actor is already in the spotlight as this
+method is used, then they will be implicitly removed and replaced by the specified actor.
+The actor who is in the spotlight may be retrieved by calling <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_GetSpotlitActor">GetSpotlitActor()</a>.
+</p>
+<p>
+If the specified actor is already in the spotlight then this method will have no effect, the actor will remain
+in the spotlight.
+</p>
+<p>To remove an actor from the spotlight without replacing them, use <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff">TurnSpotlightOff()</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If the actor is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_StageAdapter_Spotlight_" data-uid="CSF.Screenplay.StageAdapter.Spotlight*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter_Spotlight_CSF_Screenplay_IPersona_" data-uid="CSF.Screenplay.StageAdapter.Spotlight(CSF.Screenplay.IPersona)">
+  Spotlight(IPersona)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Places an actor matching the specified persona into the spotlight, making them 'the current actor' on this stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Actor Spotlight(IPersona persona)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>persona</code> <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>The actor instance which was placed into the spotlight.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_StageAdapter_Spotlight_CSF_Screenplay_IPersona__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A maximum of one actor may be in the spotlight at any time, so if a different actor is already in the spotlight as this
+method is used, then they will be implicitly removed and replaced by the actor derived from the persona.
+The actor who is in the spotlight may be retrieved by calling <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_GetSpotlitActor">GetSpotlitActor()</a>.
+</p>
+<p>
+If actor indicated by the persona is already in the spotlight then this method will have no effect, the actor will remain
+in the spotlight.
+</p>
+<p>
+When spotlighting a persona, the actor instance is retrieved from an <a class="xref" href="CSF.Screenplay.ICast.html">ICast</a> based upon that same persona.
+See <a class="xref" href="CSF.Screenplay.ICast.html#CSF_Screenplay_ICast_GetActor_CSF_Screenplay_IPersona_">GetActor(IPersona)</a> for more information.
+</p>
+<p>To remove an actor from the spotlight without replacing them, use <a class="xref" href="CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_TurnSpotlightOff">TurnSpotlightOff()</a>.</p>
+<p>
+Consider using <a class="xref" href="CSF.Screenplay.StageExtensions.html#CSF_Screenplay_StageExtensions_Spotlight__1_CSF_Screenplay_IStage_">Spotlight&lt;TPersona&gt;(IStage)</a> instead of this method; the generic version takes
+care of resolving the persona instance from dependency injection for you.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If the actor is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="CSF_Screenplay_StageAdapter_TurnSpotlightOff_" data-uid="CSF.Screenplay.StageAdapter.TurnSpotlightOff*"></a>
+
+  <h3 id="CSF_Screenplay_StageAdapter_TurnSpotlightOff" data-uid="CSF.Screenplay.StageAdapter.TurnSpotlightOff">
+  TurnSpotlightOff()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes any existing actor from the spotlight, ensuring that no actor is in the spotlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Actor TurnSpotlightOff()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></dt>
+    <dd><p>If an actor was previously in the spotlight, and has now been removed, then this method returns that actor;
+otherwise it will return a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_StageAdapter_TurnSpotlightOff_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If there was already no actor in the spotlight when this method is executed then it will have no
+effect, the spotlight will remain empty and this method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/StageAdapter.cs/#L21" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

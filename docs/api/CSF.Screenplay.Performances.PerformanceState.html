@@ -118,20 +118,30 @@ Enum PerformanceState  <a class="header-action link-secondary" title="View sourc
 </h2>
   <dl class="parameters">
     <dt id="CSF_Screenplay_Performances_PerformanceState_Completed"><code>Completed = 4</code></dt>
-    <dd><p>The performance has completed but it has neither succeeded or failed.</p>
+  <dd><p>The performance has completed but it has neither succeeded or failed.</p>
+<p>
+In some <a class="xref" href="../glossary/Integration.html">Integration</a>, this might mean that the
+<a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> or <a class="xref" href="../glossary/Scenario.html">Scenario</a> was skipped or interrupted in
+a way that should not be treated as a failure.
+</p>
 </dd>
+  
     <dt id="CSF_Screenplay_Performances_PerformanceState_Failed"><code>Failed = 3</code></dt>
-    <dd><p>The performance has completed but it has failed.</p>
+  
+  <dd><p>The performance has completed but it has failed.</p>
 </dd>
     <dt id="CSF_Screenplay_Performances_PerformanceState_InProgress"><code>InProgress = 1</code></dt>
-    <dd><p>The performance has been started but is not yet complete; use
+  
+  <dd><p>The performance has been started but is not yet complete; use
 <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_FinishPerformance_System_Nullable_System_Boolean__">FinishPerformance(bool?)</a> to complete it.</p>
 </dd>
     <dt id="CSF_Screenplay_Performances_PerformanceState_NotStarted"><code>NotStarted = 0</code></dt>
-    <dd><p>The performance is not yet started; use <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_BeginPerformance">BeginPerformance()</a> to begin it.</p>
+  
+  <dd><p>The performance is not yet started; use <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html#CSF_Screenplay_Performances_IBeginsAndEndsPerformance_BeginPerformance">BeginPerformance()</a> to begin it.</p>
 </dd>
     <dt id="CSF_Screenplay_Performances_PerformanceState_Success"><code>Success = 2</code></dt>
-    <dd><p>The performance has completed and was a success.</p>
+  
+  <dd><p>The performance has completed and was a success.</p>
 </dd>
   </dl>
 
@@ -139,7 +149,8 @@ Enum PerformanceState  <a class="header-action link-secondary" title="View sourc
   <h2 id="CSF_Screenplay_Performances_PerformanceState_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 When Screenplay is being used with <a class="xref" href="../glossary/Integration.html">Integration</a> then
-this will also closely correspond to the state &amp; outcome of <a class="xref" href="../glossary/Scenario.html">the corresponding Scenario</a></p>
+this will also closely correspond to the state &amp; outcome of <a class="xref" href="../glossary/Scenario.html">the corresponding Scenario</a>
+</p>
 </div>
 
 </article>
