@@ -131,6 +131,9 @@ Class PerformanceFinishedEventArgs  <a class="header-action link-secondary" titl
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="CSF.Screenplay.Performances.PerformanceEventArgs.html#CSF_Screenplay_Performances_PerformanceEventArgs_Performance">PerformanceEventArgs.Performance</a>
+    </div>
+    <div>
       <a class="xref" href="CSF.Screenplay.Performances.PerformanceEventArgs.html#CSF_Screenplay_Performances_PerformanceEventArgs_NamingHierarchy">PerformanceEventArgs.NamingHierarchy</a>
     </div>
     <div>
@@ -173,9 +176,9 @@ Class PerformanceFinishedEventArgs  <a class="header-action link-secondary" titl
 
   <a id="CSF_Screenplay_Performances_PerformanceFinishedEventArgs__ctor_" data-uid="CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Performances_PerformanceFinishedEventArgs__ctor_System_Guid_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Performances_IdentifierAndName__System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName},System.Nullable{System.Boolean})">
-  PerformanceFinishedEventArgs(Guid, IReadOnlyList&lt;IdentifierAndName&gt;, bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/PerformanceCompleteEventArgs.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Performances_PerformanceFinishedEventArgs__ctor_CSF_Screenplay_IPerformance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Performances.PerformanceFinishedEventArgs.#ctor(CSF.Screenplay.IPerformance,System.Nullable{System.Boolean})">
+  PerformanceFinishedEventArgs(IPerformance, bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performances/PerformanceCompleteEventArgs.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Performances.PerformanceEventArgs.html">PerformanceEventArgs</a></p>
@@ -183,16 +186,13 @@ Class PerformanceFinishedEventArgs  <a class="header-action link-secondary" titl
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PerformanceFinishedEventArgs(Guid performanceIdentity, IReadOnlyList&lt;IdentifierAndName&gt; namingHierarchy, bool? success)</code></pre>
+    <pre><code class="lang-csharp hljs">public PerformanceFinishedEventArgs(IPerformance performance, bool? success)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
-    <dd><p>The performance identity</p>
-</dd>
-    <dt><code>namingHierarchy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
-    <dd><p>The scenario hierarchy</p>
+    <dt><code>performance</code> <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></dt>
+    <dd><p>The performance.</p>
 </dd>
     <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
     <dd><p>A value indicating whether or not the scenario completed with a succeess result</p>
@@ -253,19 +253,7 @@ Class PerformanceFinishedEventArgs  <a class="header-action link-secondary" titl
 The three possible values for this property correspond to three possible values of <a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html">PerformanceState</a>
 which represent a performance that has finished.
 </p>
-<table><thead><tr><th class="term">Value</th><th class="description">Corresponding state</th></tr></thead><tbody><tr><td class="term">
-      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
-    </td><td class="description">
-      <a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Success">Success</a>
-    </td></tr><tr><td class="term">
-      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
-    </td><td class="description">
-      <a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Failed">Failed</a>
-    </td></tr><tr><td class="term">
-      <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>
-    </td><td class="description">
-      <a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Completed">Completed</a>
-    </td></tr></tbody></table>
+<table><thead><tr><th class="term">Value</th><th class="description">Corresponding state</th></tr></thead><tbody><tr><td class="term"><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a></td><td class="description"><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Success">Success</a></td></tr><tr><td class="term"><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a></td><td class="description"><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Failed">Failed</a></td></tr><tr><td class="term"><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></td><td class="description"><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html#CSF_Screenplay_Performances_PerformanceState_Completed">Completed</a></td></tr></tbody></table>
 <p>
 When using Screenplay with <a class="xref" href="../glossary/Integration.html">Integration</a>, these three performance
 states may go on to correspond to a test pass, failure or skipped/ignored test, respectively.

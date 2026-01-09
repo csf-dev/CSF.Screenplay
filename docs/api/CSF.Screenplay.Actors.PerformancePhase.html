@@ -118,17 +118,46 @@ Enum PerformancePhase  <a class="header-action link-secondary" title="View sourc
 </h2>
   <dl class="parameters">
     <dt id="CSF_Screenplay_Actors_PerformancePhase_Given"><code>Given = 1</code></dt>
-    <dd><p>The 'Given' phase of a performance is for set-up and fulfilling preconditions</p>
+  <dd><p>The 'Given' phase of a performance is for set-up and fulfilling preconditions</p>
+<p>
+In the "Arrange", "Act", "Assert" manner of describing test logic, this phase corresponds to "Arrange".
+</p>
+<p>
+In the Given phase, perform whatever tasks/actions are required to set up the test, or in other words,
+whatever needs to be done so that we can get to the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html#CSF_Screenplay_Actors_PerformancePhase_When">When</a> phase.
+In a test, if part of the Given performance fails, then it would be reasonable to expect that another test
+should also be failing.  In the context of this single test/performance, the Given phase should be just that
+- taken as a given.
+</p>
 </dd>
+  
     <dt id="CSF_Screenplay_Actors_PerformancePhase_Then"><code>Then = 3</code></dt>
-    <dd><p>The 'Then' phase of a performance is where the results of the When phase are as expected; is it a pass or a fail?</p>
+  <dd><p>The 'Then' phase of a performance is where the results of the When phase are as expected; is it a pass or a fail?</p>
+<p>
+In the "Arrange", "Act", "Assert" manner of describing test logic, this phase corresponds to "Assert".
+</p>
+<p>
+In the Then phase, perform whatever is required to conclusively determine whether or not the activity in the <a class="xref" href="CSF.Screenplay.Actors.PerformancePhase.html#CSF_Screenplay_Actors_PerformancePhase_When">When</a>
+phase was a success or not. Typically this involves using performables which return result values, in order to interrogate
+the app state.
+</p>
 </dd>
+  
     <dt id="CSF_Screenplay_Actors_PerformancePhase_Unspecified"><code>Unspecified = 0</code></dt>
-    <dd><p>Indicates that no phase has been specified</p>
+  
+  <dd><p>Indicates that no phase has been specified</p>
 </dd>
     <dt id="CSF_Screenplay_Actors_PerformancePhase_When"><code>When = 2</code></dt>
-    <dd><p>The 'When' phase of a performance describes the activity which is under test</p>
+  <dd><p>The 'When' phase of a performance describes the activity which is under test</p>
+<p>
+In the "Arrange", "Act", "Assert" manner of describing test logic, this phase corresponds to "Act".
+</p>
+<p>
+In the When phase, the actor(s) should perform the tasks/actions that are being tested; this is the part which
+matters to the test.
+</p>
 </dd>
+  
   </dl>
 
 

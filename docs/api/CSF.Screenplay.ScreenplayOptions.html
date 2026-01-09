@@ -163,7 +163,7 @@ This is why this object uses a somewhat homebrew version of options, without mak
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions">
   OnBeginScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> begins, before the first
@@ -209,7 +209,7 @@ You may add further callbacks if you wish, to extend Screenplay; they are execut
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions">
   OnEndScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> finished, after the last
@@ -258,7 +258,7 @@ that it will be terminated early by the ending of the overall process.
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig">
   PerformanceEventsConfig
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An optional callback/action which exposes the various <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> which may be subscribed-to in order to be notified
@@ -303,7 +303,7 @@ reporting is disabled.
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_ReportPath" data-uid="CSF.Screenplay.ScreenplayOptions.ReportPath">
   ReportPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a file system path at which a Screenplay report file will be written.</p>
@@ -347,6 +347,9 @@ this default path is <code>ScreenplayReport_2024-10-04T192345Z.json</code>.
 <p>
 If this property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
 will be disabled and no report will be written.
+</p>
+<p>
+At runtime, do not read this value directly; instead use an implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsReportPath.html">IGetsReportPath</a> service to get the report path.
 </p>
 </div>
 
@@ -392,11 +395,7 @@ Thus, generalized formatters should be placed at the beginning of this collectio
 Make use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">Add(T)</a> to add new formatters to the end of this collection.
 It comes pre-loaded with three generalised formatters by default, in the following order.
 </p>
-<ol><li>
-      <a class="xref" href="CSF.Screenplay.Reporting.ToStringFormatter.html">ToStringFormatter</a> - a default/fallback implementation which may format any value at all</li><li>
-      <a class="xref" href="CSF.Screenplay.Reporting.HumanizerFormatter.html">HumanizerFormatter</a> - a formatter for dates, times &amp; time spans which uses the Humanizer library</li><li>
-      <a class="xref" href="CSF.Screenplay.Reporting.NameFormatter.html">NameFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a> by emitting their name</li><li>
-      <a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></li></ol>
+<ol><li><a class="xref" href="CSF.Screenplay.Reporting.ToStringFormatter.html">ToStringFormatter</a> - a default/fallback implementation which may format any value at all</li><li><a class="xref" href="CSF.Screenplay.Reporting.HumanizerFormatter.html">HumanizerFormatter</a> - a formatter for dates, times &amp; time spans which uses the Humanizer library</li><li><a class="xref" href="CSF.Screenplay.Reporting.NameFormatter.html">NameFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a> by emitting their name</li><li><a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></li></ol>
 <p>
 There is no need to register/add any types listed in this registry into dependency injection.
 The methods which accept a configuration action of <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a> will iterate through this collection and add every one of the

@@ -181,19 +181,7 @@ When writing custom endpoints, do not derive directly from this type.
 Usually one of the following pre-written endpoint types will be suitable for your use case.
 If not, pick the one which most closely matches your use-case and derive from that.
 </p>
-<ul><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.Endpoint.html">Endpoint</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.Endpoint-1.html">Endpoint&lt;TResult&gt;</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html">ParameterizedEndpoint&lt;TParameters&gt;</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-1.html">JsonEndpoint&lt;TParameters&gt;</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-2.html">JsonEndpoint&lt;TParameters, TResult&gt;</a>
-    </li></ul>
+<ul><li><a class="xref" href="CSF.Screenplay.WebApis.Endpoint.html">Endpoint</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.Endpoint-1.html">Endpoint&lt;TResult&gt;</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html">ParameterizedEndpoint&lt;TParameters&gt;</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-1.html">JsonEndpoint&lt;TParameters&gt;</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.JsonEndpoint-2.html">JsonEndpoint&lt;TParameters, TResult&gt;</a></li></ul>
 <p>
 For more information, see the documentation article for <a class="xref" href="../docs/performables/WebApis.html">using web APIs</a>.
 </p>
@@ -331,7 +319,7 @@ so that it includes the user ID of the user which is requested.
 
   <h4 class="section" id="CSF_Screenplay_WebApis_EndpointBase_Name_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-  <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
 should return a non-null response from this property.
 </p>
 <p>
@@ -382,13 +370,7 @@ not be honoured.
 <p>
 The logic for honouring this timeout is contained within the performables which are shipped with this library:
 </p>
-<ul><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequest.html">SendTheHttpRequest</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html">SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</a>
-    </li><li>
-      <a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html">SendTheHttpRequestAndGetJsonResponse&lt;TResponse&gt;</a>
-    </li></ul>
+<ul><li><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequest.html">SendTheHttpRequest</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html">SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</a></li><li><a class="xref" href="CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html">SendTheHttpRequestAndGetJsonResponse&lt;TResponse&gt;</a></li></ul>
 <p>
 If different performables are used to interact with the current endpoint then they must implement any
 timeout-related logic themselves, or else this value will not be honoured.

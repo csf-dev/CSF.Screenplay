@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayLocator" data-uid="CSF.Screenplay.ScreenplayLocator" class="text-break">
-Class ScreenplayLocator  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayLocator  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -161,11 +161,107 @@ It additionally caches the results in-memory to avoid repetitive reflection, onl
 </h2>
 
 
+  <a id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScopedPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_NUnit_Framework_Interfaces_ITest_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScopedPerformance(NUnit.Framework.Interfaces.ITest)">
+  GetScopedPerformance(ITest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a DI scope and <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> for the specified test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ScopeAndPerformance GetScopedPerformance(ITest test)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>test</code> <span class="xref">ITest</span></dt>
+    <dd><p>An NUnit3 test object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ScopeAndPerformance.html">ScopeAndPerformance</a></dt>
+    <dd><p>A DI scope and performance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_NUnit_Framework_Interfaces_ITest__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method will return a cached <a class="xref" href="CSF.Screenplay.ScopeAndPerformance.html">ScopeAndPerformance</a> if one exists for the specified test.
+If one does not yet exist then a new scope will be created, with an associated performance, and added to the cache.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScopedPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_System_Guid_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScopedPerformance(System.Guid)">
+  GetScopedPerformance(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a DI scope and <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> matching the specified performance identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ScopeAndPerformance GetScopedPerformance(Guid identity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>A GUID performance identity, corresponding to <a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">PerformanceIdentity</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.ScopeAndPerformance.html">ScopeAndPerformance</a></dt>
+    <dd><p>A DI scope and performance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ScreenplayLocator_GetScopedPerformance_System_Guid__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Unlike the other overload of this method, this overload will not create a scoped performance if one does not yet exist.
+If this method is used with a performance identity which is not yet cached, then an exception will be raised.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If no scope &amp; performance exists in the cache, matching the specified identity</p>
+</dd>
+  </dl>
+
+
+
   <a id="CSF_Screenplay_ScreenplayLocator_GetScreenplay_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScreenplay*"></a>
 
   <h3 id="CSF_Screenplay_ScreenplayLocator_GetScreenplay_NUnit_Framework_Interfaces_IMethodInfo_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScreenplay(NUnit.Framework.Interfaces.IMethodInfo)">
   GetScreenplay(IMethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance from the specified test method.</p>
@@ -222,7 +318,7 @@ is not decorated with <a class="xref" href="CSF.Screenplay.ScreenplayAssemblyAtt
 
   <h3 id="CSF_Screenplay_ScreenplayLocator_GetScreenplay_NUnit_Framework_Interfaces_ITest_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScreenplay(NUnit.Framework.Interfaces.ITest)">
   GetScreenplay(ITest)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance from the specified test.</p>
@@ -279,7 +375,7 @@ is not decorated with <a class="xref" href="CSF.Screenplay.ScreenplayAssemblyAtt
 
   <h3 id="CSF_Screenplay_ScreenplayLocator_GetScreenplay_System_Reflection_Assembly_" data-uid="CSF.Screenplay.ScreenplayLocator.GetScreenplay(System.Reflection.Assembly)">
   GetScreenplay(Assembly)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> instance from the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>.</p>
@@ -335,7 +431,7 @@ an exception.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/ScreenplayLocator.cs/#L23" class="edit-link">Edit this page</a>
         </div>
 
 

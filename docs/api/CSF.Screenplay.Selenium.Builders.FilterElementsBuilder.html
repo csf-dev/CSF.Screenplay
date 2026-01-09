@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FilterElementsBuilder | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FilterElementsBuilder | Screenplay docs ">
+      
+      <meta name="description" content="A builder class for filtering Selenium elements based on a specification.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Builders_FilterElementsBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Builders.FilterElementsBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder">
+
+
+
+  <h1 id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder" class="text-break">
+Class FilterElementsBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/FilterElementsBuilder.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Builders.html">Builders</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A builder class for filtering Selenium elements based on a specification.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FilterElementsBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FilterElementsBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_examples">Examples</h2>
+  <p>
+Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
+<p>
+The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
+of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.
+It would filter the elements in <code>someElements</code> to only those which are clickable and have the text "Buy now".
+</p>
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder__ctor_" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder__ctor_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.#ctor(CSF.Screenplay.Selenium.Elements.SeleniumElementCollection)">
+  FilterElementsBuilder(SeleniumElementCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/FilterElementsBuilder.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FilterElementsBuilder(SeleniumElementCollection elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a></dt>
+    <dd><p>The collection of Selenium elements to be filtered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.ForThoseWhich*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_CSF_Specifications_ISpecificationFunction_CSF_Screenplay_Selenium_Elements_SeleniumElement__" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.ForThoseWhich(CSF.Specifications.ISpecificationFunction{CSF.Screenplay.Selenium.Elements.SeleniumElement})">
+  ForThoseWhich(ISpecificationFunction&lt;SeleniumElement&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/FilterElementsBuilder.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the specification which will be used to filter the collection of elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NamedFilterElementsBuilder ForThoseWhich(ISpecificationFunction&lt;SeleniumElement&gt; specification)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>specification</code> <span class="xref">ISpecificationFunction</span>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
+    <dd><p>The specification function to filter elements.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.NamedFilterElementsBuilder.html">NamedFilterElementsBuilder</a></dt>
+    <dd><p>A builder which permits naming the filtered elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_CSF_Specifications_ISpecificationFunction_CSF_Screenplay_Selenium_Elements_SeleniumElement___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Consider using the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> class to create the specification function
+which is passed to this method.  Do this via the other overload to this method..
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.ForThoseWhich*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates__" data-uid="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.ForThoseWhich(System.Func{CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder,CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates})">
+  ForThoseWhich(Func&lt;QueryPredicatePrototypeBuilder, IBuildsElementPredicates&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/FilterElementsBuilder.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the specification which will be used to filter the collection of elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NamedFilterElementsBuilder ForThoseWhich(Func&lt;QueryPredicatePrototypeBuilder, IBuildsElementPredicates&gt; predicatePrototype)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicatePrototype</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a>, <a class="xref" href="CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates.html">IBuildsElementPredicates</a>&gt;</dt>
+    <dd><p>A lambda function which builds a predicate prototype from a fluent interface.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.NamedFilterElementsBuilder.html">NamedFilterElementsBuilder</a></dt>
+    <dd><p>A builder which permits naming the filtered elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates___examples">Examples</h4>
+  <p>
+Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
+<p>
+The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
+of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.
+It would filter the elements in <code>someElements</code> to only those which are clickable and have the text "Buy now".
+</p>
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This overload uses the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> class to create the specification function
+which is passed to this method.
+</p>
+</div>
+
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_">Filter</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a>)</div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/FilterElementsBuilder.cs/#L28" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

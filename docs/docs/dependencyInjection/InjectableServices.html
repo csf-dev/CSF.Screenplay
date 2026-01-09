@@ -84,11 +84,23 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
+        <article data-uid="InjectableServicesArticle">
 <h1 id="injectable-services">Injectable services</h1>
 
-<p>TODO: Write this docco</p>
-<p>It should be a list of services which Screenplay makes available for DI, such as the cast &amp; stage etc.</p>
+<p>Screenplay explicitly supports dependency-injection of the following services from the Screenplay architecture into your <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">performance</a> logic.
+These are <em>in addition to</em> any services you may have configured yourself within DI.</p>
+<p>Whilst it may be possible to inject other services from Screenplay's architecture, these are explicitly supported throughout all <a href="../../glossary/Integration.html">integrations</a>.</p>
+<h2 id="the-stage">The Stage</h2>
+<p>Inject the <a class="xref" href="../../api/CSF.Screenplay.IStage.html"><code>IStage</code></a> into your <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">performance</a> logic to get and work with <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a>.
+This is <em>the recommended way</em> to manage any actors involved in a performance.</p>
+<p>The stage provides all the functionality of the Cast (below) as well as control of the <a href="../../glossary/Spotlight.html">spotlight</a>, should you wish to use it.</p>
+<h2 id="the-cast">The Cast</h2>
+<p>The <a class="xref" href="../../api/CSF.Screenplay.ICast.html"><code>ICast</code></a> is available for dependency injection into your <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">performance</a> logic as an alternative mechanism by which to work with <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a>.
+It is recommended to <em>inject the Stage (above) instead of the Cast</em>.
+The Cast is reachable from the Stage should you need it, via the <a class="xref" href="../../api/CSF.Screenplay.IStage.html#CSF_Screenplay_IStage_Cast"><code>Cast</code></a> property.</p>
+<h2 id="the-performance">The Performance</h2>
+<p>You may inject an instance of <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html"><code>IPerformance</code></a> to gain direct access to the current <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">performance</a> object, from within your performance logic.
+Whilst supported, <em>it is usually not required (or recommended)</em> to inject this object into your performance logic.</p>
 
 </article>
 

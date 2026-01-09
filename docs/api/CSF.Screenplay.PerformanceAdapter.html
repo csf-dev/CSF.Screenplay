@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PerformanceAdapter | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PerformanceAdapter | Screenplay docs ">
+      
+      <meta name="description" content="An adapter which enables the use of  within an NUnit3 test, without needing to parameter-inject the instance as Lazy&amp;lt;IPerformance&amp;gt;.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_PerformanceAdapter.md&amp;value=---%0Auid%3A%20CSF.Screenplay.PerformanceAdapter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.PerformanceAdapter">
+
+
+
+  <h1 id="CSF_Screenplay_PerformanceAdapter" data-uid="CSF.Screenplay.PerformanceAdapter" class="text-break">
+Class PerformanceAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.NUnit.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An adapter which enables the use of <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> within an NUnit3 test, without needing to parameter-inject the instance
+as <code>Lazy&lt;IPerformance&gt;</code>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PerformanceAdapter : IPerformance, IHasPerformanceIdentity, IHasServiceProvider, IDisposable, IBeginsAndEndsPerformance</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PerformanceAdapter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html">IHasPerformanceIdentity</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IHasServiceProvider.html">IHasServiceProvider</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.html">IBeginsAndEndsPerformance</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Screenplay_PerformanceAdapter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Due to NUnit architectural limitations, injectable parameters cannot be resolved from DI at the point the test method is built.
+If we were to attempt this, then the parameter value would not be associated with the correct Screenplay/DI scope (and thus Event Bus).
+This is due to the two-process model which NUnit uses; one process for building the test methods and another process for running the
+tests. By using an adapter with Lazy resolution of the real implementation, we ensure that DI resolution is deferred into the test-run
+process and not the test-building process.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter__ctor_" data-uid="CSF.Screenplay.PerformanceAdapter.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter__ctor_System_Guid_" data-uid="CSF.Screenplay.PerformanceAdapter.#ctor(System.Guid)">
+  PerformanceAdapter(Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="CSF.Screenplay.PerformanceAdapter.html">PerformanceAdapter</a> for the specified performance identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PerformanceAdapter(Guid performanceIdentity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>performanceIdentity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>A performance identity, corresponding to <a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">PerformanceIdentity</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_NamingHierarchy_" data-uid="CSF.Screenplay.PerformanceAdapter.NamingHierarchy*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_NamingHierarchy" data-uid="CSF.Screenplay.PerformanceAdapter.NamingHierarchy">
+  NamingHierarchy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an ordered list of identifiers which indicate the current performance's name within an organisational hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IdentifierAndName&gt; NamingHierarchy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="CSF_Screenplay_PerformanceAdapter_NamingHierarchy_examples">Examples</h4>
+  <p>
+If the current performance is to be named <code>Joe can take out the Trash</code>, and it is part of a parent name, named
+<code>Joe can do his chores</code> then the first identifier in the list will be named <code>Joe can do his chores</code>
+and the second will be named <code>Joe can take out the Trash</code>.
+</p>
+
+
+  <h4 class="section" id="CSF_Screenplay_PerformanceAdapter_NamingHierarchy_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+A Screenplay typically contains more than one performance and may contain many.
+It is normal to organise performances into a hierarchical structure based upon their purpose, role or relationship.
+The position of the current performance in that naming structure is represented by the value of this property.
+</p>
+<p>
+The ordered list of <a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a> instances indicate a path from the 'root' of the hierarchy
+(which has no inherent name) to the current performance. Identifier/name pairs which are earlier in the collection
+are considered to be closer to the root, whereas latter identifier/names are branch &amp; leaf names.
+In this manner, they work very similarly to .NET namespaces.
+The earlier in the list that a name appears, the more general it should be, representing a wider category.
+</p>
+<p>
+When using Screenplay with <a class="xref" href="../glossary/Integration.html">Integration</a>, this hierarchy of names
+would typically correspond to the naming convention used by the testing framework.
+That might be based upon .NET namespaces, classes and test methods for a more traditional unit testing framework.
+Alternatively, for a BDD-style testing framework, it could be named based upon human-readable
+feature &amp; scenario names.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_PerformanceIdentity_" data-uid="CSF.Screenplay.PerformanceAdapter.PerformanceIdentity*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_PerformanceIdentity" data-uid="CSF.Screenplay.PerformanceAdapter.PerformanceIdentity">
+  PerformanceIdentity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the unique <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> identifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid PerformanceIdentity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_PerformanceAdapter_PerformanceIdentity_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This value is used to uniquely identify a performance within a <a class="xref" href="CSF.Screenplay.html">CSF.Screenplay</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_PerformanceState_" data-uid="CSF.Screenplay.PerformanceAdapter.PerformanceState*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_PerformanceState" data-uid="CSF.Screenplay.PerformanceAdapter.PerformanceState">
+  PerformanceState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates the state of the current performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PerformanceState PerformanceState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html">PerformanceState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Performances.PerformanceState.html">PerformanceState</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_ServiceProvider_" data-uid="CSF.Screenplay.PerformanceAdapter.ServiceProvider*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_ServiceProvider" data-uid="CSF.Screenplay.PerformanceAdapter.ServiceProvider">
+  ServiceProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a service provider/resolver instance associated with this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IServiceProvider ServiceProvider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_BeginPerformance_" data-uid="CSF.Screenplay.PerformanceAdapter.BeginPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_BeginPerformance" data-uid="CSF.Screenplay.PerformanceAdapter.BeginPerformance">
+  BeginPerformance()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins the performance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginPerformance()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_Dispose_" data-uid="CSF.Screenplay.PerformanceAdapter.Dispose*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_Dispose" data-uid="CSF.Screenplay.PerformanceAdapter.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_PerformanceAdapter_FinishPerformance_" data-uid="CSF.Screenplay.PerformanceAdapter.FinishPerformance*"></a>
+
+  <h3 id="CSF_Screenplay_PerformanceAdapter_FinishPerformance_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.PerformanceAdapter.FinishPerformance(System.Nullable{System.Boolean})">
+  FinishPerformance(bool?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finishes the performance with a value indicating whether or not it was a success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FinishPerformance(bool? success)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>success</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</dt>
+    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then the performance is to be considered a success; if
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> then a failure. A value of <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> indicates that the performance did not
+succeed but should not be considered a failure either.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.NUnit/PerformanceAdapter.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

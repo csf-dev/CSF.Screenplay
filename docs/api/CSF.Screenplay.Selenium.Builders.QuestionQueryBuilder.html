@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class QuestionQueryBuilder | Screenplay docs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QuestionQueryBuilder | Screenplay docs ">
+      
+      <meta name="description" content="Provides methods to build performable questions for a Selenium element, which are based upon querying/interrogating values from that element.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder">
+
+
+
+  <h1 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder" class="text-break">
+Class QuestionQueryBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Builders.html">Builders</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides methods to build performable questions for a Selenium element, which are based upon
+querying/interrogating values from that element.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class QuestionQueryBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">QuestionQueryBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder__ctor_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)">
+  QuestionQueryBuilder(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> class with the specified Selenium element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuestionQueryBuilder(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The Selenium element to be used by the query builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.AllOptions*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.AllOptions">
+  AllOptions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads all of the available options (whether selected or not) from a <code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;IReadOnlyList&lt;Option&gt;&gt; AllOptions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Queries.Option.html">Option</a>&gt;&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This question is only valid for <code>&lt;select&gt;</code> elements.  For any other type of element, the behaviour is undefined.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.SelectedOptions*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.SelectedOptions">
+  SelectedOptions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the selected options from a <code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;IReadOnlyList&lt;Option&gt;&gt; SelectedOptions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Queries.Option.html">Option</a>&gt;&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This question is only valid for <code>&lt;select&gt;</code> elements.  For any other type of element, the behaviour is undefined.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheAttribute_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheAttribute*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheAttribute_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheAttribute(System.String)">
+  TheAttribute(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the specified attribute from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;string&gt; TheAttribute(string attributeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>attributeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the attribute from which to read the value</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheClickability_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheClickability*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheClickability" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheClickability">
+  TheClickability()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which checks the clickability of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;bool&gt; TheClickability()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheCssProperty_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheCssProperty*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheCssProperty_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheCssProperty(System.String)">
+  TheCssProperty(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the specified CSS property from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;string&gt; TheCssProperty(string propertyName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the CSS property from which to read the value</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheLocation_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheLocation*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheLocation" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheLocation">
+  TheLocation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the pixel location (top-left corner) of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;Point&gt; TheLocation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.point">Point</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheSize_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheSize*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheSize" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheSize">
+  TheSize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the pixel size (width and height) of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;Size&gt; TheSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.size">Size</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheText*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheText">
+  TheText()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the text content of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;string&gt; TheText()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheValue*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheValue">
+  TheValue()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;string&gt; TheValue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheVisibility_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheVisibility*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheVisibility" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheVisibility">
+  TheVisibility()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which checks the visibility of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;bool&gt; TheVisibility()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.UnselectedOptions*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.UnselectedOptions">
+  UnselectedOptions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the unselected options from a <code>&lt;select&gt;</code> element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;IReadOnlyList&lt;Option&gt;&gt; UnselectedOptions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Queries.Option.html">Option</a>&gt;&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This question is only valid for <code>&lt;select&gt;</code> elements.  For any other type of element, the behaviour is undefined.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

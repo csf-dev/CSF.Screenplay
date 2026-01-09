@@ -155,17 +155,17 @@ Class ScreenplayExtensions  <a class="header-action link-secondary" title="View 
 
   <a id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_" data-uid="CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance*"></a>
 
-  <h3 id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__" data-uid="CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})">
-  CreateScopedPerformance(Screenplay, IList&lt;IdentifierAndName&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_" data-uid="CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)">
+  CreateScopedPerformance(Screenplay, IList&lt;IdentifierAndName&gt;, Guid)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L193"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> within its own newly-created Dependency Injection scope.</p>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>, and a new Dependency Injection scope.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay, IList&lt;IdentifierAndName&gt; namingHierarchy = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ScopeAndPerformance CreateScopedPerformance(this Screenplay screenplay, IList&lt;IdentifierAndName&gt; namingHierarchy, Guid identity = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -174,8 +174,12 @@ Class ScreenplayExtensions  <a class="header-action link-secondary" title="View 
     <dd><p>The Screenplay from which to create the performance</p>
 </dd>
     <dt><code>namingHierarchy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IdentifierAndName.html">IdentifierAndName</a>&gt;</dt>
-    <dd><p>An optional collection of identifiers and names providing the hierarchical name of this
+    <dd><p>A collection of identifiers and names providing the hierarchical name of this
 performance; see <a class="xref" href="CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy">NamingHierarchy</a> for more information.</p>
+</dd>
+    <dt><code>identity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>An optional identity to use for this performance; corresponding to
+<a class="xref" href="CSF.Screenplay.IHasPerformanceIdentity.html#CSF_Screenplay_IHasPerformanceIdentity_PerformanceIdentity">PerformanceIdentity</a>.  If omitted then a new identity will be generated automatically.</p>
 </dd>
   </dl>
 
@@ -192,7 +196,7 @@ performance; see <a class="xref" href="CSF.Screenplay.IPerformance.html#CSF_Scre
 
 
 
-  <h4 class="section" id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName___remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method includes the consequence/side-effect of creating a new dependency injection scope from the
 <a class="xref" href="CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ServiceProvider">ServiceProvider</a> associated with the specified <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a>.
