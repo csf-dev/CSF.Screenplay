@@ -20,10 +20,9 @@ namespace CSF.Screenplay.Selenium.Actions
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            var script = Resources.Scripts.ClearLocalStorage;
             try
             {
-                await actor.PerformAsync(ExecuteSomeJavaScript(script).WithTheName("clear local storage"));
+                await actor.PerformAsync(ExecuteAScript(Scripts.ClearLocalStorage));
             }
             catch(PerformableException e)
             {
