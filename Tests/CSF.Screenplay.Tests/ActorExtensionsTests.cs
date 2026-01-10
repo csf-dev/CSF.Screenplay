@@ -46,98 +46,98 @@ public class ActorExtensionsTests
     #region Performable builders
 
     [Test,AutoMoqData]
-    public void PerformAsyncShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
+    public async Task PerformAsyncShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.PerformAsync(builder);
+        await actor.PerformAsync(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void PerformAsyncWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
+    public async Task PerformAsyncWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.PerformAsync(builder);
+        await actor.PerformAsync(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void PerformAsyncWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
+    public async Task PerformAsyncWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.PerformAsync(builder);
+        await actor.PerformAsync(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void WasAbleToShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
+    public async Task WasAbleToShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.WasAbleTo(builder);
+        await actor.WasAbleTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void WasAbleToWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
+    public async Task WasAbleToWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.WasAbleTo(builder);
+        await actor.WasAbleTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void WasAbleToWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
+    public async Task WasAbleToWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.WasAbleTo(builder);
+        await actor.WasAbleTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void AttemptsToShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
+    public async Task AttemptsToShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.AttemptsTo(builder);
+        await actor.AttemptsTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void AttemptsToWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
+    public async Task AttemptsToWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.AttemptsTo(builder);
+        await actor.AttemptsTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void AttemptsToWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
+    public async Task AttemptsToWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.AttemptsTo(builder);
+        await actor.AttemptsTo(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void ShouldShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
+    public async Task ShouldShouldExecutePerformable(IPerformable performable, IGetsPerformable builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.Should(builder);
+        await actor.Should(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void ShouldWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
+    public async Task ShouldWithResultShouldExecutePerformable(IPerformableWithResult performable, IGetsPerformableWithResult builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.Should(builder);
+        await actor.Should(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
     [Test,AutoMoqData]
-    public void ShouldWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
+    public async Task ShouldWithGenericResultShouldExecutePerformable(IPerformableWithResult<object> performable, IGetsPerformableWithResult<object> builder, Actor actor)
     {
         Mock.Get(builder).Setup(x => x.GetPerformable()).Returns(performable);
-        actor.Should(builder);
+        await actor.Should(builder);
         Mock.Get(performable).Verify(x => x.PerformAsAsync(actor, default), Times.Once);
     }
 
