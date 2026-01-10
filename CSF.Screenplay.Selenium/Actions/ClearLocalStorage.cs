@@ -30,10 +30,6 @@ namespace CSF.Screenplay.Selenium.Actions
                 if(e.InnerException is NotSupportedException && !throwIfUnsupported) return;
                 throw;
             }
-            catch(NotSupportedException)
-            {
-                if(throwIfUnsupported) throw;
-            }
         }
 
         /// <summary>
