@@ -21,7 +21,7 @@ public class ExecuteJavaScriptTests
     {
         var webster = stage.Spotlight<Webster>();
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await When(webster).AttemptsTo(ExecuteSomeJavaScript(scriptBody).WithTheName("a script that changes the BG colour of an element").WithTheArguments("textContent", "#F00"));
+        await When(webster).AttemptsTo(ExecuteCustomScript(scriptBody).WithTheName("a script that changes the BG colour of an element").WithTheArguments("textContent", "#F00"));
         var backgroundColor = await Then(webster).Should(ReadFromTheElement(textContent).TheCssProperty("background-color"));
 
         Assert.That(backgroundColor, Is.EqualTo("rgba(255, 0, 0, 1)"));

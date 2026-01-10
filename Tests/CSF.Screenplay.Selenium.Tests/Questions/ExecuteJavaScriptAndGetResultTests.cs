@@ -26,8 +26,8 @@ public class ExecuteJavaScriptAndGetResultTests
         var webster = stage.Spotlight<Webster>();
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         var element = await Given(webster).WasAbleTo(FindAnElementOnThePage().WhichMatches(textContent));
-        await When(webster).AttemptsTo(ExecuteSomeJavaScript(scriptBody1).WithTheName("a script that changes the BG colour of an element").WithTheArguments(element.WebElement, "#CCF"));
-        var backgroundColor = await Then(webster).Should(ExecuteSomeJavaScriptAndGetTheResult<string>(scriptBody2).WithTheName("a script that gets the BG colour").WithTheArguments(element.WebElement));
+        await When(webster).AttemptsTo(ExecuteCustomScript(scriptBody1).WithTheName("a script that changes the BG colour of an element").WithTheArguments(element.WebElement, "#CCF"));
+        var backgroundColor = await Then(webster).Should(ExecuteCustomScriptWithResult<string>(scriptBody2).WithTheName("a script that gets the BG colour").WithTheArguments(element.WebElement));
 
         Assert.That(backgroundColor, Is.EqualTo("rgb(204, 204, 255)"));
     }

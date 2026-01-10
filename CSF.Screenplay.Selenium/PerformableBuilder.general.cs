@@ -225,30 +225,5 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <returns>A performable question.</returns>
         public static GetWindowTitle ReadTheWindowTitle() => new GetWindowTitle();
-
-        /// <summary>
-        /// Gets a builder for a performable action which executes some JavaScript in the web browser.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This action is for executing a script which does not have an expected result, or which will ignore any result that is returned.
-        /// </para>
-        /// </remarks>
-        /// <param name="scriptBody">The body of the JavaScript to execute.</param>
-        /// <returns>A builder object</returns>
-        public static ExecuteJavaScriptBuilder ExecuteSomeJavaScript(string scriptBody) => new ExecuteJavaScriptBuilder(scriptBody);
-
-        /// <summary>
-        /// Gets a builder for a performable action which executes some JavaScript in the web browser and returns a result from that script.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This action is for executing a script which is expected to return a result.
-        /// </para>
-        /// </remarks>
-        /// <param name="scriptBody">The body of the JavaScript to execute.</param>
-        /// <returns>A builder object</returns>
-        public static ExecuteJavaScriptBuilderWithResult<TResult> ExecuteSomeJavaScriptAndGetTheResult<TResult>(string scriptBody)
-            => new ExecuteJavaScriptBuilderWithResult<TResult>(scriptBody);
     }
 }
