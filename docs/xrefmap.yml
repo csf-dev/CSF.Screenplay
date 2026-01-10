@@ -9803,6 +9803,502 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.XPath.GetLocator
   nameWithType: XPath.GetLocator
+- uid: CSF.Screenplay.Selenium.NamedScript
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript
+  fullName: CSF.Screenplay.Selenium.NamedScript
+  nameWithType: NamedScript
+- uid: CSF.Screenplay.Selenium.NamedScript.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript.html#CSF_Screenplay_Selenium_NamedScript__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript.New(String, String)
+  nameWithType: NamedScript.NamedScript(string, string)
+  nameWithType.vb: NamedScript.New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript.html#CSF_Screenplay_Selenium_NamedScript__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript.New
+  nameWithType: NamedScript.NamedScript
+  nameWithType.vb: NamedScript.New
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis
+  name: NamedScriptBasis
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptBasis
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis
+  nameWithType: NamedScriptBasis
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.#ctor(System.String,System.String)
+  name: NamedScriptBasis(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptBasis.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.NamedScriptBasis(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptBasis.New(String, String)
+  nameWithType: NamedScriptBasis.NamedScriptBasis(string, string)
+  nameWithType.vb: NamedScriptBasis.New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.#ctor*
+  name: NamedScriptBasis
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptBasis.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.NamedScriptBasis
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptBasis.New
+  nameWithType: NamedScriptBasis.NamedScriptBasis
+  nameWithType.vb: NamedScriptBasis.New
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.Name
+  name: Name
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis_Name
+  commentId: P:CSF.Screenplay.Selenium.NamedScriptBasis.Name
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.Name
+  nameWithType: NamedScriptBasis.Name
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.Name*
+  name: Name
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis_Name_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptBasis.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.Name
+  nameWithType: NamedScriptBasis.Name
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody
+  name: ScriptBody
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis_ScriptBody
+  commentId: P:CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody
+  nameWithType: NamedScriptBasis.ScriptBody
+- uid: CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody*
+  name: ScriptBody
+  href: api/CSF.Screenplay.Selenium.NamedScriptBasis.html#CSF_Screenplay_Selenium_NamedScriptBasis_ScriptBody_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.NamedScriptBasis.ScriptBody
+  nameWithType: NamedScriptBasis.ScriptBody
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`1
+  name: NamedScriptWithResult<TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`1
+  name.vb: NamedScriptWithResult(Of TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of TResult)
+  nameWithType: NamedScriptWithResult<TResult>
+  nameWithType.vb: NamedScriptWithResult(Of TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`1.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.html#CSF_Screenplay_Selenium_NamedScriptWithResult_1__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`1.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`1.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.html#CSF_Screenplay_Selenium_NamedScriptWithResult_1__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of TResult).New
+  nameWithType: NamedScriptWithResult<TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`2
+  name: NamedScriptWithResult<T1, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`2
+  name.vb: NamedScriptWithResult(Of T1, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, TResult)
+  nameWithType: NamedScriptWithResult<T1, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`2.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.html#CSF_Screenplay_Selenium_NamedScriptWithResult_2__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`2.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`2.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.html#CSF_Screenplay_Selenium_NamedScriptWithResult_2__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, TResult).New
+  nameWithType: NamedScriptWithResult<T1, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`3
+  name: NamedScriptWithResult<T1, T2, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`3
+  name.vb: NamedScriptWithResult(Of T1, T2, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`3.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.html#CSF_Screenplay_Selenium_NamedScriptWithResult_3__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`3.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`3.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.html#CSF_Screenplay_Selenium_NamedScriptWithResult_3__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`3.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`4
+  name: NamedScriptWithResult<T1, T2, T3, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`4
+  name.vb: NamedScriptWithResult(Of T1, T2, T3, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`4.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.html#CSF_Screenplay_Selenium_NamedScriptWithResult_4__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`4.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`4.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.html#CSF_Screenplay_Selenium_NamedScriptWithResult_4__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`4.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, T3, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`5
+  name: NamedScriptWithResult<T1, T2, T3, T4, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`5
+  name.vb: NamedScriptWithResult(Of T1, T2, T3, T4, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`5.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.html#CSF_Screenplay_Selenium_NamedScriptWithResult_5__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`5.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`5.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.html#CSF_Screenplay_Selenium_NamedScriptWithResult_5__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`5.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`6
+  name: NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`6
+  name.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`6.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.html#CSF_Screenplay_Selenium_NamedScriptWithResult_6__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`6.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`6.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.html#CSF_Screenplay_Selenium_NamedScriptWithResult_6__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`6.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`7
+  name: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`7
+  name.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`7.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.html#CSF_Screenplay_Selenium_NamedScriptWithResult_7__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`7.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`7.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.html#CSF_Screenplay_Selenium_NamedScriptWithResult_7__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`7.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`8
+  name: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScriptWithResult`8
+  name.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`8.#ctor(System.String,System.String)
+  name: NamedScriptWithResult(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.html#CSF_Screenplay_Selenium_NamedScriptWithResult_8__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScriptWithResult`8.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>.NamedScriptWithResult(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult).New(String, String)
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>.NamedScriptWithResult(string, string)
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScriptWithResult`8.#ctor*
+  name: NamedScriptWithResult
+  href: api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.html#CSF_Screenplay_Selenium_NamedScriptWithResult_8__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScriptWithResult`8.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>.NamedScriptWithResult
+  fullName.vb: CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult).New
+  nameWithType: NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>.NamedScriptWithResult
+  nameWithType.vb: NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult).New
+- uid: CSF.Screenplay.Selenium.NamedScript`1
+  name: NamedScript<T1>
+  href: api/CSF.Screenplay.Selenium.NamedScript-1.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`1
+  name.vb: NamedScript(Of T1)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1)
+  nameWithType: NamedScript<T1>
+  nameWithType.vb: NamedScript(Of T1)
+- uid: CSF.Screenplay.Selenium.NamedScript`1.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-1.html#CSF_Screenplay_Selenium_NamedScript_1__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`1.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1).New(String, String)
+  nameWithType: NamedScript<T1>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`1.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-1.html#CSF_Screenplay_Selenium_NamedScript_1__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1).New
+  nameWithType: NamedScript<T1>.NamedScript
+  nameWithType.vb: NamedScript(Of T1).New
+- uid: CSF.Screenplay.Selenium.NamedScript`2
+  name: NamedScript<T1, T2>
+  href: api/CSF.Screenplay.Selenium.NamedScript-2.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`2
+  name.vb: NamedScript(Of T1, T2)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2)
+  nameWithType: NamedScript<T1, T2>
+  nameWithType.vb: NamedScript(Of T1, T2)
+- uid: CSF.Screenplay.Selenium.NamedScript`2.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-2.html#CSF_Screenplay_Selenium_NamedScript_2__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`2.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2).New(String, String)
+  nameWithType: NamedScript<T1, T2>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`2.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-2.html#CSF_Screenplay_Selenium_NamedScript_2__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2).New
+  nameWithType: NamedScript<T1, T2>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2).New
+- uid: CSF.Screenplay.Selenium.NamedScript`3
+  name: NamedScript<T1, T2, T3>
+  href: api/CSF.Screenplay.Selenium.NamedScript-3.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`3
+  name.vb: NamedScript(Of T1, T2, T3)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3)
+  nameWithType: NamedScript<T1, T2, T3>
+  nameWithType.vb: NamedScript(Of T1, T2, T3)
+- uid: CSF.Screenplay.Selenium.NamedScript`3.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-3.html#CSF_Screenplay_Selenium_NamedScript_3__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`3.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3).New(String, String)
+  nameWithType: NamedScript<T1, T2, T3>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2, T3).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`3.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-3.html#CSF_Screenplay_Selenium_NamedScript_3__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`3.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3).New
+  nameWithType: NamedScript<T1, T2, T3>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2, T3).New
+- uid: CSF.Screenplay.Selenium.NamedScript`4
+  name: NamedScript<T1, T2, T3, T4>
+  href: api/CSF.Screenplay.Selenium.NamedScript-4.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`4
+  name.vb: NamedScript(Of T1, T2, T3, T4)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4)
+  nameWithType: NamedScript<T1, T2, T3, T4>
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4)
+- uid: CSF.Screenplay.Selenium.NamedScript`4.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-4.html#CSF_Screenplay_Selenium_NamedScript_4__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`4.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4).New(String, String)
+  nameWithType: NamedScript<T1, T2, T3, T4>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`4.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-4.html#CSF_Screenplay_Selenium_NamedScript_4__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`4.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4).New
+  nameWithType: NamedScript<T1, T2, T3, T4>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4).New
+- uid: CSF.Screenplay.Selenium.NamedScript`5
+  name: NamedScript<T1, T2, T3, T4, T5>
+  href: api/CSF.Screenplay.Selenium.NamedScript-5.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`5
+  name.vb: NamedScript(Of T1, T2, T3, T4, T5)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5>
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5)
+- uid: CSF.Screenplay.Selenium.NamedScript`5.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-5.html#CSF_Screenplay_Selenium_NamedScript_5__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`5.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5).New(String, String)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`5.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-5.html#CSF_Screenplay_Selenium_NamedScript_5__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`5.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5).New
+  nameWithType: NamedScript<T1, T2, T3, T4, T5>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5).New
+- uid: CSF.Screenplay.Selenium.NamedScript`6
+  name: NamedScript<T1, T2, T3, T4, T5, T6>
+  href: api/CSF.Screenplay.Selenium.NamedScript-6.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`6
+  name.vb: NamedScript(Of T1, T2, T3, T4, T5, T6)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6>
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6)
+- uid: CSF.Screenplay.Selenium.NamedScript`6.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-6.html#CSF_Screenplay_Selenium_NamedScript_6__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`6.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6).New(String, String)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`6.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-6.html#CSF_Screenplay_Selenium_NamedScript_6__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`6.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6).New
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6).New
+- uid: CSF.Screenplay.Selenium.NamedScript`7
+  name: NamedScript<T1, T2, T3, T4, T5, T6, T7>
+  href: api/CSF.Screenplay.Selenium.NamedScript-7.html
+  commentId: T:CSF.Screenplay.Selenium.NamedScript`7
+  name.vb: NamedScript(Of T1, T2, T3, T4, T5, T6, T7)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6, T7>
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6, T7)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6, T7>
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6, T7)
+- uid: CSF.Screenplay.Selenium.NamedScript`7.#ctor(System.String,System.String)
+  name: NamedScript(string, string)
+  href: api/CSF.Screenplay.Selenium.NamedScript-7.html#CSF_Screenplay_Selenium_NamedScript_7__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedScript`7.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6, T7>.NamedScript(string, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6, T7).New(String, String)
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6, T7>.NamedScript(string, string)
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6, T7).New(String, String)
+- uid: CSF.Screenplay.Selenium.NamedScript`7.#ctor*
+  name: NamedScript
+  href: api/CSF.Screenplay.Selenium.NamedScript-7.html#CSF_Screenplay_Selenium_NamedScript_7__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedScript`7.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6, T7>.NamedScript
+  fullName.vb: CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6, T7).New
+  nameWithType: NamedScript<T1, T2, T3, T4, T5, T6, T7>.NamedScript
+  nameWithType.vb: NamedScript(Of T1, T2, T3, T4, T5, T6, T7).New
 - uid: CSF.Screenplay.Selenium.NamedUri
   name: NamedUri
   href: api/CSF.Screenplay.Selenium.NamedUri.html
@@ -10048,38 +10544,186 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText
   nameWithType: PerformableBuilder.EnterTheText
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)
-  name: ExecuteSomeJavaScript(string)
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String_
-  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)
-  name.vb: ExecuteSomeJavaScript(String)
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(string)
-  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(String)
-  nameWithType: PerformableBuilder.ExecuteSomeJavaScript(string)
-  nameWithType.vb: PerformableBuilder.ExecuteSomeJavaScript(String)
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript*
-  name: ExecuteSomeJavaScript
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_
-  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(CSF.Screenplay.Selenium.NamedScript)
+  name: ExecuteAScript(NamedScript)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(CSF.Screenplay.Selenium.NamedScript)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(CSF.Screenplay.Selenium.NamedScript)
+  nameWithType: PerformableBuilder.ExecuteAScript(NamedScript)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*
+  name: ExecuteAScript
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript
-  nameWithType: PerformableBuilder.ExecuteSomeJavaScript
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult*
-  name: ExecuteSomeJavaScriptAndGetTheResult
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult_
-  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript
+  nameWithType: PerformableBuilder.ExecuteAScript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScriptWithResult{``0})
+  name: ExecuteAScript<TResult>(NamedScriptWithResult<TResult>)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScriptWithResult___0__
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScriptWithResult{``0})
+  name.vb: ExecuteAScript(Of TResult)(NamedScriptWithResult(Of TResult))
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<TResult>)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of TResult))
+  nameWithType: PerformableBuilder.ExecuteAScript<TResult>(NamedScriptWithResult<TResult>)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of TResult)(NamedScriptWithResult(Of TResult))
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScript{``0},``0)
+  name: ExecuteAScript<T1>(NamedScript<T1>, T1)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScript___0____0_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScript{``0},``0)
+  name.vb: ExecuteAScript(Of T1)(NamedScript(Of T1), T1)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1>(CSF.Screenplay.Selenium.NamedScript<T1>, T1)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1)(CSF.Screenplay.Selenium.NamedScript(Of T1), T1)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1>(NamedScript<T1>, T1)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1)(NamedScript(Of T1), T1)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1},``0)
+  name: ExecuteAScript<T1, TResult>(NamedScriptWithResult<T1, TResult>, T1)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1____0_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1},``0)
+  name.vb: ExecuteAScript(Of T1, TResult)(NamedScriptWithResult(Of T1, TResult), T1)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, TResult>, T1)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, TResult), T1)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, TResult>(NamedScriptWithResult<T1, TResult>, T1)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, TResult)(NamedScriptWithResult(Of T1, TResult), T1)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScript{``0,``1},``0,``1)
+  name: ExecuteAScript<T1, T2>(NamedScript<T1, T2>, T1, T2)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScript___0___1____0___1_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScript{``0,``1},``0,``1)
+  name.vb: ExecuteAScript(Of T1, T2)(NamedScript(Of T1, T2), T1, T2)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2>(CSF.Screenplay.Selenium.NamedScript<T1, T2>, T1, T2)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2), T1, T2)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2>(NamedScript<T1, T2>, T1, T2)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2)(NamedScript(Of T1, T2), T1, T2)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2},``0,``1)
+  name: ExecuteAScript<T1, T2, TResult>(NamedScriptWithResult<T1, T2, TResult>, T1, T2)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2____0___1_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2},``0,``1)
+  name.vb: ExecuteAScript(Of T1, T2, TResult)(NamedScriptWithResult(Of T1, T2, TResult), T1, T2)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, TResult>, T1, T2)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, TResult), T1, T2)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, TResult>(NamedScriptWithResult<T1, T2, TResult>, T1, T2)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, TResult)(NamedScriptWithResult(Of T1, T2, TResult), T1, T2)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2},``0,``1,``2)
+  name: ExecuteAScript<T1, T2, T3>(NamedScript<T1, T2, T3>, T1, T2, T3)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScript___0___1___2____0___1___2_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2},``0,``1,``2)
+  name.vb: ExecuteAScript(Of T1, T2, T3)(NamedScript(Of T1, T2, T3), T1, T2, T3)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3>(CSF.Screenplay.Selenium.NamedScript<T1, T2, T3>, T1, T2, T3)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3), T1, T2, T3)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3>(NamedScript<T1, T2, T3>, T1, T2, T3)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3)(NamedScript(Of T1, T2, T3), T1, T2, T3)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3},``0,``1,``2)
+  name: ExecuteAScript<T1, T2, T3, TResult>(NamedScriptWithResult<T1, T2, T3, TResult>, T1, T2, T3)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3____0___1___2_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3},``0,``1,``2)
+  name.vb: ExecuteAScript(Of T1, T2, T3, TResult)(NamedScriptWithResult(Of T1, T2, T3, TResult), T1, T2, T3)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, TResult>, T1, T2, T3)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, TResult), T1, T2, T3)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, TResult>(NamedScriptWithResult<T1, T2, T3, TResult>, T1, T2, T3)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, TResult)(NamedScriptWithResult(Of T1, T2, T3, TResult), T1, T2, T3)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3},``0,``1,``2,``3)
+  name: ExecuteAScript<T1, T2, T3, T4>(NamedScript<T1, T2, T3, T4>, T1, T2, T3, T4)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScript___0___1___2___3____0___1___2___3_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3},``0,``1,``2,``3)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4)(NamedScript(Of T1, T2, T3, T4), T1, T2, T3, T4)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4>(CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4>, T1, T2, T3, T4)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4), T1, T2, T3, T4)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4>(NamedScript<T1, T2, T3, T4>, T1, T2, T3, T4)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4)(NamedScript(Of T1, T2, T3, T4), T1, T2, T3, T4)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4},``0,``1,``2,``3)
+  name: ExecuteAScript<T1, T2, T3, T4, TResult>(NamedScriptWithResult<T1, T2, T3, T4, TResult>, T1, T2, T3, T4)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4____0___1___2___3_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4},``0,``1,``2,``3)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, TResult), T1, T2, T3, T4)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, TResult>, T1, T2, T3, T4)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, TResult), T1, T2, T3, T4)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, TResult>(NamedScriptWithResult<T1, T2, T3, T4, TResult>, T1, T2, T3, T4)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, TResult), T1, T2, T3, T4)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4)
+  name: ExecuteAScript<T1, T2, T3, T4, T5>(NamedScript<T1, T2, T3, T4, T5>, T1, T2, T3, T4, T5)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4____0___1___2___3___4_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5)(NamedScript(Of T1, T2, T3, T4, T5), T1, T2, T3, T4, T5)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5>(CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5>, T1, T2, T3, T4, T5)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5), T1, T2, T3, T4, T5)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5>(NamedScript<T1, T2, T3, T4, T5>, T1, T2, T3, T4, T5)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5)(NamedScript(Of T1, T2, T3, T4, T5), T1, T2, T3, T4, T5)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4)
+  name: ExecuteAScript<T1, T2, T3, T4, T5, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>, T1, T2, T3, T4, T5)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5____0___1___2___3___4_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult), T1, T2, T3, T4, T5)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>, T1, T2, T3, T4, T5)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult), T1, T2, T3, T4, T5)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>, T1, T2, T3, T4, T5)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, TResult), T1, T2, T3, T4, T5)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5)
+  name: ExecuteAScript<T1, T2, T3, T4, T5, T6>(NamedScript<T1, T2, T3, T4, T5, T6>, T1, T2, T3, T4, T5, T6)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5____0___1___2___3___4___5_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5, T6)(NamedScript(Of T1, T2, T3, T4, T5, T6), T1, T2, T3, T4, T5, T6)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6>(CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6>, T1, T2, T3, T4, T5, T6)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6), T1, T2, T3, T4, T5, T6)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6>(NamedScript<T1, T2, T3, T4, T5, T6>, T1, T2, T3, T4, T5, T6)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6)(NamedScript(Of T1, T2, T3, T4, T5, T6), T1, T2, T3, T4, T5, T6)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5)
+  name: ExecuteAScript<T1, T2, T3, T4, T5, T6, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>, T1, T2, T3, T4, T5, T6)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6____0___1___2___3___4___5_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5, T6, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult), T1, T2, T3, T4, T5, T6)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>, T1, T2, T3, T4, T5, T6)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult), T1, T2, T3, T4, T5, T6)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>, T1, T2, T3, T4, T5, T6)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, TResult), T1, T2, T3, T4, T5, T6)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6)
+  name: ExecuteAScript<T1, T2, T3, T4, T5, T6, T7>(NamedScript<T1, T2, T3, T4, T5, T6, T7>, T1, T2, T3, T4, T5, T6, T7)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5___6____0___1___2___3___4___5___6_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7)(NamedScript(Of T1, T2, T3, T4, T5, T6, T7), T1, T2, T3, T4, T5, T6, T7)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, T7>(CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6, T7>, T1, T2, T3, T4, T5, T6, T7)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7)(CSF.Screenplay.Selenium.NamedScript(Of T1, T2, T3, T4, T5, T6, T7), T1, T2, T3, T4, T5, T6, T7)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, T7>(NamedScript<T1, T2, T3, T4, T5, T6, T7>, T1, T2, T3, T4, T5, T6, T7)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7)(NamedScript(Of T1, T2, T3, T4, T5, T6, T7), T1, T2, T3, T4, T5, T6, T7)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``8(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6)
+  name: ExecuteAScript<T1, T2, T3, T4, T5, T6, T7, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>, T1, T2, T3, T4, T5, T6, T7)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__8_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6___7____0___1___2___3___4___5___6_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``8(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6)
+  name.vb: ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult), T1, T2, T3, T4, T5, T6, T7)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, T7, TResult>(CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>, T1, T2, T3, T4, T5, T6, T7)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7, TResult)(CSF.Screenplay.Selenium.NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult), T1, T2, T3, T4, T5, T6, T7)
+  nameWithType: PerformableBuilder.ExecuteAScript<T1, T2, T3, T4, T5, T6, T7, TResult>(NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>, T1, T2, T3, T4, T5, T6, T7)
+  nameWithType.vb: PerformableBuilder.ExecuteAScript(Of T1, T2, T3, T4, T5, T6, T7, TResult)(NamedScriptWithResult(Of T1, T2, T3, T4, T5, T6, T7, TResult), T1, T2, T3, T4, T5, T6, T7)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript(System.String)
+  name: ExecuteCustomScript(string)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScript_System_String_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript(System.String)
+  name.vb: ExecuteCustomScript(String)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript(string)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript(String)
+  nameWithType: PerformableBuilder.ExecuteCustomScript(string)
+  nameWithType.vb: PerformableBuilder.ExecuteCustomScript(String)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript*
+  name: ExecuteCustomScript
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScript_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
-  nameWithType: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)
-  name: ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String_
-  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)
-  name.vb: ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
-  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
-  nameWithType: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
-  nameWithType.vb: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript
+  nameWithType: PerformableBuilder.ExecuteCustomScript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult*
+  name: ExecuteCustomScriptWithResult
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScriptWithResult_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult
+  nameWithType: PerformableBuilder.ExecuteCustomScriptWithResult
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult``1(System.String)
+  name: ExecuteCustomScriptWithResult<TResult>(string)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScriptWithResult__1_System_String_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult``1(System.String)
+  name.vb: ExecuteCustomScriptWithResult(Of TResult)(String)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult<TResult>(string)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult(Of TResult)(String)
+  nameWithType: PerformableBuilder.ExecuteCustomScriptWithResult<TResult>(string)
+  nameWithType.vb: PerformableBuilder.ExecuteCustomScriptWithResult(Of TResult)(String)
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.Filter(CSF.Screenplay.Selenium.Elements.SeleniumElementCollection)
   name: Filter(SeleniumElementCollection)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_
@@ -11651,6 +12295,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter.FormatForReport
   nameWithType: ScreenshotFormatter.FormatForReport
+- uid: CSF.Screenplay.Selenium.Scripts
+  name: Scripts
+  href: api/CSF.Screenplay.Selenium.Scripts.html
+  commentId: T:CSF.Screenplay.Selenium.Scripts
+  fullName: CSF.Screenplay.Selenium.Scripts
+  nameWithType: Scripts
+- uid: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
+  name: ClearLocalStorage
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_ClearLocalStorage
+  commentId: P:CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
+  fullName: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
+  nameWithType: Scripts.ClearLocalStorage
+- uid: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage*
+  name: ClearLocalStorage
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_ClearLocalStorage_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
+  nameWithType: Scripts.ClearLocalStorage
 - uid: CSF.Screenplay.Selenium.Tasks
   name: CSF.Screenplay.Selenium.Tasks
   href: api/CSF.Screenplay.Selenium.Tasks.html

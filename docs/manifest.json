@@ -2612,6 +2612,244 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-1.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 1 parameter and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-2.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 2 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-3.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2, T3>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-3.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 3 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-4.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-4.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 4 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-5.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-5.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 5 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-6.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-6.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-6.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 6 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript-7.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript-7.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript<T1, T2, T3, T4, T5, T6, T7>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript-7.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 7 parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScript",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScript.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts no parameters and which returns no result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptBasis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptBasis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptBasis",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptBasis.yml\" sourcestartlinenumber=\"1\">A basis class for named scripts, not for use in applications of Screenplay.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-1.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts no parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-2.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 1 parameter, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-3.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 2 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-4.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 3 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-5.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 4 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-6.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 5 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-7.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 6 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.NamedScriptWithResult<T1, T2, T3, T4, T5, T6, T7, TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.NamedScriptWithResult-8.yml\" sourcestartlinenumber=\"1\">A model representing a pre-written piece of executable JavaScript, which accepts 7 parameters, but which is expected to return a result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.NamedUri.yml",
       "output": {
         ".html": {
@@ -3099,6 +3337,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Reporting",
       "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Scripts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Scripts.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Scripts",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Scripts.yml\" sourcestartlinenumber=\"1\">A repository of named JavaScripts which are distributed with Screenplay's Selenium integration.</p>\n"
     },
     {
       "type": "ManagedReference",
