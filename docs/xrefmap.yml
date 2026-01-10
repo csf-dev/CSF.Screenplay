@@ -6394,6 +6394,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.DeselectByValue.PerformAsAsync
   nameWithType: DeselectByValue.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript
+  name: ExecuteJavaScript
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html
+  commentId: T:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript
+  nameWithType: ExecuteJavaScript
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.#ctor(System.String,System.String,System.Object[])
+  name: ExecuteJavaScript(string, string, params object[])
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript__ctor_System_String_System_String_System_Object___
+  commentId: M:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.#ctor(System.String,System.String,System.Object[])
+  name.vb: New(String, String, ParamArray Object())
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.ExecuteJavaScript(string, string, params object[])
+  fullName.vb: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.New(String, String, ParamArray Object())
+  nameWithType: ExecuteJavaScript.ExecuteJavaScript(string, string, params object[])
+  nameWithType.vb: ExecuteJavaScript.New(String, String, ParamArray Object())
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.#ctor*
+  name: ExecuteJavaScript
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.ExecuteJavaScript
+  fullName.vb: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.New
+  nameWithType: ExecuteJavaScript.ExecuteJavaScript
+  nameWithType.vb: ExecuteJavaScript.New
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ExecuteJavaScript.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment
+  nameWithType: ExecuteJavaScript.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: ExecuteJavaScript.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html#CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync
+  nameWithType: ExecuteJavaScript.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.ISingleElementPerformable
   name: ISingleElementPerformable
   href: api/CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html
@@ -7088,6 +7139,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb.DriverOptions
   nameWithType: BrowseTheWeb.DriverOptions
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
+  name: GetJavaScriptExecutor()
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor
+  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor()
+  nameWithType: BrowseTheWeb.GetJavaScriptExecutor()
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor*
+  name: GetJavaScriptExecutor
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor_
+  commentId: Overload:CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
+  nameWithType: BrowseTheWeb.GetJavaScriptExecutor
 - uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -7120,6 +7184,223 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Builders
   fullName: CSF.Screenplay.Selenium.Builders
   nameWithType: CSF.Screenplay.Selenium.Builders
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder
+  name: ExecuteJavaScriptBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder
+  nameWithType: ExecuteJavaScriptBuilder
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.#ctor(System.String)
+  name: ExecuteJavaScriptBuilder(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder__ctor_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.ExecuteJavaScriptBuilder(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.New(String)
+  nameWithType: ExecuteJavaScriptBuilder.ExecuteJavaScriptBuilder(string)
+  nameWithType.vb: ExecuteJavaScriptBuilder.New(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.#ctor*
+  name: ExecuteJavaScriptBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.ExecuteJavaScriptBuilder
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.New
+  nameWithType: ExecuteJavaScriptBuilder.ExecuteJavaScriptBuilder
+  nameWithType.vb: ExecuteJavaScriptBuilder.New
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments(System.Object[])
+  name: WithTheArguments(params object[])
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder_WithTheArguments_System_Object___
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments(System.Object[])
+  name.vb: WithTheArguments(ParamArray Object())
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments(params object[])
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments(ParamArray Object())
+  nameWithType: ExecuteJavaScriptBuilder.WithTheArguments(params object[])
+  nameWithType.vb: ExecuteJavaScriptBuilder.WithTheArguments(ParamArray Object())
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments*
+  name: WithTheArguments
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder_WithTheArguments_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheArguments
+  nameWithType: ExecuteJavaScriptBuilder.WithTheArguments
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName(System.String)
+  name: WithTheName(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder_WithTheName_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName(System.String)
+  name.vb: WithTheName(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName(String)
+  nameWithType: ExecuteJavaScriptBuilder.WithTheName(string)
+  nameWithType.vb: ExecuteJavaScriptBuilder.WithTheName(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName*
+  name: WithTheName
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilder_WithTheName_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.WithTheName
+  nameWithType: ExecuteJavaScriptBuilder.WithTheName
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase
+  name: ExecuteJavaScriptBuilderBase
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase
+  nameWithType: ExecuteJavaScriptBuilderBase
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.#ctor(System.String)
+  name: ExecuteJavaScriptBuilderBase(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase__ctor_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ExecuteJavaScriptBuilderBase(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.New(String)
+  nameWithType: ExecuteJavaScriptBuilderBase.ExecuteJavaScriptBuilderBase(string)
+  nameWithType.vb: ExecuteJavaScriptBuilderBase.New(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.#ctor*
+  name: ExecuteJavaScriptBuilderBase
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ExecuteJavaScriptBuilderBase
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.New
+  nameWithType: ExecuteJavaScriptBuilderBase.ExecuteJavaScriptBuilderBase
+  nameWithType.vb: ExecuteJavaScriptBuilderBase.New
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments
+  name: Arguments
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_Arguments
+  commentId: P:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments
+  nameWithType: ExecuteJavaScriptBuilderBase.Arguments
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments*
+  name: Arguments
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_Arguments_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Arguments
+  nameWithType: ExecuteJavaScriptBuilderBase.Arguments
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name
+  name: Name
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_Name
+  commentId: P:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name
+  nameWithType: ExecuteJavaScriptBuilderBase.Name
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name*
+  name: Name
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_Name_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.Name
+  nameWithType: ExecuteJavaScriptBuilderBase.Name
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody
+  name: ScriptBody
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_ScriptBody
+  commentId: P:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody
+  nameWithType: ExecuteJavaScriptBuilderBase.ScriptBody
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody*
+  name: ScriptBody
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_ScriptBody_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.ScriptBody
+  nameWithType: ExecuteJavaScriptBuilderBase.ScriptBody
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments(System.Object[])
+  name: WithTheArguments(params object[])
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_WithTheArguments_System_Object___
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments(System.Object[])
+  name.vb: WithTheArguments(ParamArray Object())
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments(params object[])
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments(ParamArray Object())
+  nameWithType: ExecuteJavaScriptBuilderBase.WithTheArguments(params object[])
+  nameWithType.vb: ExecuteJavaScriptBuilderBase.WithTheArguments(ParamArray Object())
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments*
+  name: WithTheArguments
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_WithTheArguments_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheArguments
+  nameWithType: ExecuteJavaScriptBuilderBase.WithTheArguments
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName(System.String)
+  name: WithTheName(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_WithTheName_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName(System.String)
+  name.vb: WithTheName(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName(String)
+  nameWithType: ExecuteJavaScriptBuilderBase.WithTheName(string)
+  nameWithType.vb: ExecuteJavaScriptBuilderBase.WithTheName(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName*
+  name: WithTheName
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderBase_WithTheName_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.WithTheName
+  nameWithType: ExecuteJavaScriptBuilderBase.WithTheName
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1
+  name: ExecuteJavaScriptBuilderWithResult<TResult>
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1
+  name.vb: ExecuteJavaScriptBuilderWithResult(Of TResult)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult)
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.#ctor(System.String)
+  name: ExecuteJavaScriptBuilderWithResult(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1__ctor_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.ExecuteJavaScriptBuilderWithResult(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).New(String)
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.ExecuteJavaScriptBuilderWithResult(string)
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).New(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.#ctor*
+  name: ExecuteJavaScriptBuilderWithResult
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.ExecuteJavaScriptBuilderWithResult
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).New
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.ExecuteJavaScriptBuilderWithResult
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheArguments(System.Object[])
+  name: WithTheArguments(params object[])
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1_WithTheArguments_System_Object___
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheArguments(System.Object[])
+  name.vb: WithTheArguments(ParamArray Object())
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.WithTheArguments(params object[])
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheArguments(ParamArray Object())
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.WithTheArguments(params object[])
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheArguments(ParamArray Object())
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheArguments*
+  name: WithTheArguments
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1_WithTheArguments_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheArguments
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.WithTheArguments
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheArguments
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.WithTheArguments
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheArguments
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheName(System.String)
+  name: WithTheName(string)
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1_WithTheName_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheName(System.String)
+  name.vb: WithTheName(String)
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.WithTheName(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheName(String)
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.WithTheName(string)
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheName(String)
+- uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheName*
+  name: WithTheName
+  href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html#CSF_Screenplay_Selenium_Builders_ExecuteJavaScriptBuilderWithResult_1_WithTheName_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult`1.WithTheName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>.WithTheName
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheName
+  nameWithType: ExecuteJavaScriptBuilderWithResult<TResult>.WithTheName
+  nameWithType.vb: ExecuteJavaScriptBuilderWithResult(Of TResult).WithTheName
 - uid: CSF.Screenplay.Selenium.Builders.FilterElementsBuilder
   name: FilterElementsBuilder
   href: api/CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html
@@ -9767,6 +10048,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText
   nameWithType: PerformableBuilder.EnterTheText
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)
+  name: ExecuteSomeJavaScript(string)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)
+  name.vb: ExecuteSomeJavaScript(String)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(string)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(String)
+  nameWithType: PerformableBuilder.ExecuteSomeJavaScript(string)
+  nameWithType.vb: PerformableBuilder.ExecuteSomeJavaScript(String)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript*
+  name: ExecuteSomeJavaScript
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript
+  nameWithType: PerformableBuilder.ExecuteSomeJavaScript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult*
+  name: ExecuteSomeJavaScriptAndGetTheResult
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
+  nameWithType: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)
+  name: ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)
+  name.vb: ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
+  nameWithType: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult<TResult>(string)
+  nameWithType.vb: PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult(Of TResult)(String)
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.Filter(CSF.Screenplay.Selenium.Elements.SeleniumElementCollection)
   name: Filter(SeleniumElementCollection)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_
@@ -10677,6 +10990,68 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery(Of TResult).PerformAsAsync
   nameWithType: ElementCollectionQuery<TResult>.PerformAsAsync
   nameWithType.vb: ElementCollectionQuery(Of TResult).PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1
+  name: ExecuteJavaScriptAndGetResult<TResult>
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1
+  name.vb: ExecuteJavaScriptAndGetResult(Of TResult)
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult)
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult)
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor(System.String,System.String,System.Object[])
+  name: ExecuteJavaScriptAndGetResult(string, string, params object[])
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1__ctor_System_String_System_String_System_Object___
+  commentId: M:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor(System.String,System.String,System.Object[])
+  name.vb: New(String, String, ParamArray Object())
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.ExecuteJavaScriptAndGetResult(string, string, params object[])
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).New(String, String, ParamArray Object())
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.ExecuteJavaScriptAndGetResult(string, string, params object[])
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).New(String, String, ParamArray Object())
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor*
+  name: ExecuteJavaScriptAndGetResult
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.ExecuteJavaScriptAndGetResult
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).New
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.ExecuteJavaScriptAndGetResult
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.GetReportFragment(Actor, IFormatsReportFragment)
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.GetReportFragment
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).GetReportFragment
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.GetReportFragment
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).GetReportFragment
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.PerformAsAsync(ICanPerform, CancellationToken)
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html#CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>.PerformAsAsync
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult(Of TResult).PerformAsAsync
+  nameWithType: ExecuteJavaScriptAndGetResult<TResult>.PerformAsAsync
+  nameWithType.vb: ExecuteJavaScriptAndGetResult(Of TResult).PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Questions.FilterElements
   name: FilterElements
   href: api/CSF.Screenplay.Selenium.Questions.FilterElements.html

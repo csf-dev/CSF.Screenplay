@@ -164,7 +164,7 @@ Class BrowseTheWeb  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver)">
   BrowseTheWeb(IGetsWebDriver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> class.</p>
@@ -274,7 +274,7 @@ The purpose of this property is to allow developers to inspect the options which
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_Dispose" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -300,7 +300,7 @@ The purpose of this property is to allow developers to inspect the options which
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_Dispose_System_Boolean_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Disposes the resources used by the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> class.</p>
@@ -329,11 +329,50 @@ The purpose of this property is to allow developers to inspect the options which
 
 
 
+  <a id="CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor">
+  GetJavaScriptExecutor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a JavaScript executor object based upon the current <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver">WebDriver</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJavaScriptExecutor GetJavaScriptExecutor()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IJavaScriptExecutor</span></dt>
+    <dd><p>A JavaScript executor object</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>If the current web driver does not support JavaScript execution.</p>
+</dd>
+  </dl>
+
+
+
   <a id="CSF_Screenplay_Selenium_BrowseTheWeb_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
