@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Selenium
         /// <param name="scriptBody">The body of the JavaScript</param>
         /// <param name="name">The human-readable name of the script</param>
         /// <exception cref="System.ArgumentException">If either parameter is <see langword="null"/> or whitespace-only.</exception>
-        protected internal NamedScriptBasis(string scriptBody, string name)
+        protected NamedScriptBasis(string scriptBody, string name)
         {
             if (string.IsNullOrWhiteSpace(scriptBody))
                 throw new System.ArgumentException($"'{nameof(scriptBody)}' cannot be null or whitespace.", nameof(scriptBody));
