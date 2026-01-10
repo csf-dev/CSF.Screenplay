@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_PerformableBuilder" data-uid="CSF.Screenplay.Selenium.PerformableBuilder" class="text-break">
-Class PerformableBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class PerformableBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -621,19 +621,1189 @@ without needing to manually concatenate them.
 
 
 
-  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript*"></a>
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)">
-  ExecuteSomeJavaScript(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript(CSF.Screenplay.Selenium.NamedScript)">
+  ExecuteAScript(NamedScript)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a builder for a performable action which executes some JavaScript in the web browser.</p>
+  <div class="markdown level1 summary"><p>Gets a a performable action which executes some JavaScript in the web browser.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilder ExecuteSomeJavaScript(string scriptBody)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript(NamedScript script)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a></dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScriptWithResult___0__" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScriptWithResult{``0})">
+  ExecuteAScript&lt;TResult&gt;(NamedScriptWithResult&lt;TResult&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a a performable action which executes some JavaScript in the web browser, and gets the result returned by the script.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;TResult&gt;(NamedScriptWithResult&lt;TResult&gt; script)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScriptWithResult___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScript___0____0_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``1(CSF.Screenplay.Selenium.NamedScript{``0},``0)">
+  ExecuteAScript&lt;T1&gt;(NamedScript&lt;T1&gt;, T1)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1&gt;(NamedScript&lt;T1&gt; script, T1 p1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-1.html">NamedScript</a>&lt;T1&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScript___0____0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1____0_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1},``0)">
+  ExecuteAScript&lt;T1, TResult&gt;(NamedScriptWithResult&lt;T1, TResult&gt;, T1)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, TResult&gt;(NamedScriptWithResult&lt;T1, TResult&gt; script, T1 p1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-2.html">NamedScriptWithResult</a>&lt;T1, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1____0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScript___0___1____0___1_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``2(CSF.Screenplay.Selenium.NamedScript{``0,``1},``0,``1)">
+  ExecuteAScript&lt;T1, T2&gt;(NamedScript&lt;T1, T2&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2&gt;(NamedScript&lt;T1, T2&gt; script, T1 p1, T2 p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;T1, T2&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScript___0___1____0___1__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2____0___1_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2},``0,``1)">
+  ExecuteAScript&lt;T1, T2, TResult&gt;(NamedScriptWithResult&lt;T1, T2, TResult&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, TResult&gt;(NamedScriptWithResult&lt;T1, T2, TResult&gt; script, T1 p1, T2 p2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-3.html">NamedScriptWithResult</a>&lt;T1, T2, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2____0___1__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScript___0___1___2____0___1___2_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``3(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2},``0,``1,``2)">
+  ExecuteAScript&lt;T1, T2, T3&gt;(NamedScript&lt;T1, T2, T3&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2, T3&gt;(NamedScript&lt;T1, T2, T3&gt; script, T1 p1, T2 p2, T3 p3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-3.html">NamedScript</a>&lt;T1, T2, T3&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScript___0___1___2____0___1___2__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3____0___1___2_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3},``0,``1,``2)">
+  ExecuteAScript&lt;T1, T2, T3, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, TResult&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, T3, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, TResult&gt; script, T1 p1, T2 p2, T3 p3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-4.html">NamedScriptWithResult</a>&lt;T1, T2, T3, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3____0___1___2__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScript___0___1___2___3____0___1___2___3_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``4(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3},``0,``1,``2,``3)">
+  ExecuteAScript&lt;T1, T2, T3, T4&gt;(NamedScript&lt;T1, T2, T3, T4&gt;, T1, T2, T3, T4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2, T3, T4&gt;(NamedScript&lt;T1, T2, T3, T4&gt; script, T1 p1, T2 p2, T3 p3, T4 p4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-4.html">NamedScript</a>&lt;T1, T2, T3, T4&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScript___0___1___2___3____0___1___2___3__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4____0___1___2___3_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4},``0,``1,``2,``3)">
+  ExecuteAScript&lt;T1, T2, T3, T4, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, TResult&gt;, T1, T2, T3, T4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, T3, T4, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, TResult&gt; script, T1 p1, T2 p2, T3 p3, T4 p4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-5.html">NamedScriptWithResult</a>&lt;T1, T2, T3, T4, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4____0___1___2___3__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4____0___1___2___3___4_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``5(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4},``0,``1,``2,``3,``4)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5&gt;(NamedScript&lt;T1, T2, T3, T4, T5&gt;, T1, T2, T3, T4, T5)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2, T3, T4, T5&gt;(NamedScript&lt;T1, T2, T3, T4, T5&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-5.html">NamedScript</a>&lt;T1, T2, T3, T4, T5&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4____0___1___2___3___4__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5____0___1___2___3___4_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, TResult&gt;, T1, T2, T3, T4, T5)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, T3, T4, T5, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, TResult&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-6.html">NamedScriptWithResult</a>&lt;T1, T2, T3, T4, T5, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5____0___1___2___3___4__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5____0___1___2___3___4___5_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``6(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5},``0,``1,``2,``3,``4,``5)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5, T6&gt;(NamedScript&lt;T1, T2, T3, T4, T5, T6&gt;, T1, T2, T3, T4, T5, T6)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2, T3, T4, T5, T6&gt;(NamedScript&lt;T1, T2, T3, T4, T5, T6&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5, T6 p6)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-6.html">NamedScript</a>&lt;T1, T2, T3, T4, T5, T6&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+    <dt><code>p6</code> <span class="xref">T6</span></dt>
+    <dd><p>The value for the sixth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+    <dt><code>T6</code></dt>
+    <dd><p>The type of script parameter 6</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5____0___1___2___3___4___5__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6____0___1___2___3___4___5_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, T6, TResult&gt;, T1, T2, T3, T4, T5, T6)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, T6, TResult&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5, T6 p6)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-7.html">NamedScriptWithResult</a>&lt;T1, T2, T3, T4, T5, T6, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+    <dt><code>p6</code> <span class="xref">T6</span></dt>
+    <dd><p>The value for the sixth script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+    <dt><code>T6</code></dt>
+    <dd><p>The type of script parameter 6</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6____0___1___2___3___4___5__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5___6____0___1___2___3___4___5___6_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``7(CSF.Screenplay.Selenium.NamedScript{``0,``1,``2,``3,``4,``5,``6},``0,``1,``2,``3,``4,``5,``6)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;(NamedScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;, T1, T2, T3, T4, T5, T6, T7)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScript ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;(NamedScript&lt;T1, T2, T3, T4, T5, T6, T7&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5, T6 p6, T7 p7)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-7.html">NamedScript</a>&lt;T1, T2, T3, T4, T5, T6, T7&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+    <dt><code>p6</code> <span class="xref">T6</span></dt>
+    <dd><p>The value for the sixth script parameter.</p>
+</dd>
+    <dt><code>p7</code> <span class="xref">T7</span></dt>
+    <dd><p>The value for the seventh script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+    <dt><code>T6</code></dt>
+    <dd><p>The type of script parameter 6</p>
+</dd>
+    <dt><code>T7</code></dt>
+    <dd><p>The type of script parameter 7</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5___6____0___1___2___3___4___5___6__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__8_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6___7____0___1___2___3___4___5___6_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteAScript``8(CSF.Screenplay.Selenium.NamedScriptWithResult{``0,``1,``2,``3,``4,``5,``6,``7},``0,``1,``2,``3,``4,``5,``6)">
+  ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt;, T1, T2, T3, T4, T5, T6, T7)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L398"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptAndGetResult&lt;TResult&gt; ExecuteAScript&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt;(NamedScriptWithResult&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt; script, T1 p1, T2 p2, T3 p3, T4 p4, T5 p5, T6 p6, T7 p7)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>script</code> <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-8.html">NamedScriptWithResult</a>&lt;T1, T2, T3, T4, T5, T6, T7, TResult&gt;</dt>
+    <dd><p>A named JavaScript.</p>
+</dd>
+    <dt><code>p1</code> <span class="xref">T1</span></dt>
+    <dd><p>The value for the first script parameter.</p>
+</dd>
+    <dt><code>p2</code> <span class="xref">T2</span></dt>
+    <dd><p>The value for the second script parameter.</p>
+</dd>
+    <dt><code>p3</code> <span class="xref">T3</span></dt>
+    <dd><p>The value for the third script parameter.</p>
+</dd>
+    <dt><code>p4</code> <span class="xref">T4</span></dt>
+    <dd><p>The value for the fourth script parameter.</p>
+</dd>
+    <dt><code>p5</code> <span class="xref">T5</span></dt>
+    <dd><p>The value for the fifth script parameter.</p>
+</dd>
+    <dt><code>p6</code> <span class="xref">T6</span></dt>
+    <dd><p>The value for the sixth script parameter.</p>
+</dd>
+    <dt><code>p7</code> <span class="xref">T7</span></dt>
+    <dd><p>The value for the seventh script parameter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd><p>The type of script parameter 1</p>
+</dd>
+    <dt><code>T2</code></dt>
+    <dd><p>The type of script parameter 2</p>
+</dd>
+    <dt><code>T3</code></dt>
+    <dd><p>The type of script parameter 3</p>
+</dd>
+    <dt><code>T4</code></dt>
+    <dd><p>The type of script parameter 4</p>
+</dd>
+    <dt><code>T5</code></dt>
+    <dd><p>The type of script parameter 5</p>
+</dd>
+    <dt><code>T6</code></dt>
+    <dd><p>The type of script parameter 6</p>
+</dd>
+    <dt><code>T7</code></dt>
+    <dd><p>The type of script parameter 7</p>
+</dd>
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected return type of the script</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__8_CSF_Screenplay_Selenium_NamedScriptWithResult___0___1___2___3___4___5___6___7____0___1___2___3___4___5___6__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is the recommended way to execute JavaScript in the browser.  Use of the <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>
+and their other related generic types provides a simple type-safe mechanism of executing scripts.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScript_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScript(System.String)">
+  ExecuteCustomScript(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for a performable action which executes some arbitrary JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilder ExecuteCustomScript(string scriptBody)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -656,20 +1826,26 @@ without needing to manually concatenate them.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScript_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This action is for executing a script which does not have an expected result, or which will ignore any result that is returned.
+This method may be used for building an arbitrary script, but where possible it is recommended to use one of the overloads of
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_">ExecuteAScript(NamedScript)</a>.  These methods accept either a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>,
+or one of their other related generic types.  These overloads provide type safety for parameters, return types, and ensure
+that the name of the script is pre-specified at design time.
+</p>
+<p>
+Scripts executed with this method are not expected to return a result.  If they do, their result is discarded and unused.
 </p>
 </div>
 
 
 
 
-  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult*"></a>
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScriptWithResult_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)">
-  ExecuteSomeJavaScriptAndGetTheResult&lt;TResult&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScriptWithResult__1_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteCustomScriptWithResult``1(System.String)">
+  ExecuteCustomScriptWithResult&lt;TResult&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L433"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder for a performable action which executes some JavaScript in the web browser and returns a result from that script.</p>
@@ -677,7 +1853,7 @@ This action is for executing a script which does not have an expected result, or
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilderWithResult&lt;TResult&gt; ExecuteSomeJavaScriptAndGetTheResult&lt;TResult&gt;(string scriptBody)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilderWithResult&lt;TResult&gt; ExecuteCustomScriptWithResult&lt;TResult&gt;(string scriptBody)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -705,9 +1881,13 @@ This action is for executing a script which does not have an expected result, or
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteCustomScriptWithResult__1_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This action is for executing a script which is expected to return a result.
+This method may be used for building an arbitrary script, but where possible it is recommended to use one of the overloads of this
+method which accepts either a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>, a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a>, or one of their other related
+generic types.  These overloads provide type safety for parameters, return types, and ensure that the name of the script is
+pre-specified at design time.
 </p>
 </div>
 
@@ -1653,7 +2833,7 @@ using the fluent interface.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.scripts.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 
