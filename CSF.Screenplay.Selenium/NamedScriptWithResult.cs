@@ -20,33 +20,15 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<TResult> : IHasName
+    public class NamedScriptWithResult<TResult> : NamedScriptBasis
     {
-        /// <summary>
-        /// Gets the body of the JavaScript.
-        /// </summary>
-        public string ScriptBody { get; }
-
-        /// <summary>
-        /// Gets a human-readable name for this script, as may be displayed in a report.
-        /// </summary>
-        public string Name { get; }
-
         /// <summary>
         /// Initialises a new instance of <see cref="NamedScriptWithResult{TResult}"/>.
         /// </summary>
         /// <param name="scriptBody">The body of the JavaScript</param>
         /// <param name="name">The human-readable name of the script</param>
-        public NamedScriptWithResult(string scriptBody, string name)
-        {
-            if (string.IsNullOrWhiteSpace(scriptBody))
-                throw new System.ArgumentException($"'{nameof(scriptBody)}' cannot be null or whitespace.", nameof(scriptBody));
-            if (string.IsNullOrWhiteSpace(name))
-                throw new System.ArgumentException($"'{nameof(name)}' cannot be null or whitespace.", nameof(name));
-
-            ScriptBody = scriptBody;
-            Name = name;
-        }
+        /// <exception cref="System.ArgumentException">If either parameter is <see langword="null"/> or whitespace-only.</exception>
+        public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
     }
 
     /// <summary>
@@ -70,7 +52,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -98,7 +80,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -127,7 +109,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,T3,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,T3,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -157,7 +139,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,T3,T4,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,T3,T4,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -188,7 +170,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,T3,T4,T5,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,T3,T4,T5,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -220,7 +202,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,T3,T4,T5,T6,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,T3,T4,T5,T6,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
@@ -253,7 +235,7 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
     /// <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
-    public class NamedScriptWithResult<T1,T2,T3,T4,T5,T6,T7,TResult> : NamedScriptWithResult<TResult>
+    public class NamedScriptWithResult<T1,T2,T3,T4,T5,T6,T7,TResult> : NamedScriptBasis
     {
         /// <inheritdoc cref="NamedScriptWithResult{TResult}(string, string)"/>
         public NamedScriptWithResult(string scriptBody, string name) : base(scriptBody, name) {}
