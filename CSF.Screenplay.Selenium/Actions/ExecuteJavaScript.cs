@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Selenium.Actions
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} executes {ScriptName} as JavaScript in the browser", actor, scriptName);
+            => formatter.Format("{Actor} executes a script named '{ScriptName}' in the browser", actor, scriptName);
 
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

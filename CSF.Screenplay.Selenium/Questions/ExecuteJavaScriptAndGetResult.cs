@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Questions
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} executes the script named '{ScriptName}' in the browser", actor, scriptName);
+            => formatter.Format("{Actor} executes a script named '{ScriptName}' in the browser", actor, scriptName);
 
         /// <inheritdoc/>
         public ValueTask<TResult> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

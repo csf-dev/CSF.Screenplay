@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Performables;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
@@ -22,7 +23,12 @@ namespace CSF.Screenplay.Selenium.Actions
             var script = Resources.Scripts.ClearLocalStorage;
             try
             {
-                await actor.PerformAsync(ExecuteSomeJavaScript(script).WithTheName("a script to clear local storage"));
+                await actor.PerformAsync(ExecuteSomeJavaScript(script).WithTheName("clear local storage"));
+            }
+            catch(PerformableException e)
+            {
+                if(e.InnerException is NotSupportedException && !throwIfUnsupported) return;
+                throw;
             }
             catch(NotSupportedException)
             {
