@@ -8,13 +8,13 @@ namespace CSF.Screenplay.Performables;
 public class TimeSpanBuilderTests
 {
     [Test,AutoMoqData]
-    public void GetTimeSpanShouldReturnACorrectTimeSpanInTheContextOfALargerBuilderIntegrationTest(Actor actor, string foodName)
+    public async Task GetTimeSpanShouldReturnACorrectTimeSpanInTheContextOfALargerBuilderIntegrationTest(Actor actor, string foodName)
     {
         object? performable = null;
         void OnBeginPerformable(object? sender, PerformableEventArgs ev) => performable = ev.Performable;
 
         actor.BeginPerformable += OnBeginPerformable;
-        When(actor).AttemptsTo(Eat(foodName).For(10).Minutes());
+        await When(actor).AttemptsTo(Eat(foodName).For(10).Minutes());
         actor.BeginPerformable -= OnBeginPerformable;
 
         Assert.Multiple(() =>
