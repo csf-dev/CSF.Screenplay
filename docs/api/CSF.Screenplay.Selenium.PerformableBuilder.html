@@ -222,7 +222,7 @@ Consume this class from your own Screenplay logic with <code>using static CSF.Sc
 
   <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This method gets a performable which will throw an exception if the WebDriver does not support HTML5 Web Storage.
+This method gets a performable which will throw an exception if the WebDriver does not support the execution of JavaScript.
 To avoid this, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported">ClearLocalStorageIfSupported()</a> instead.
 </p>
 </div>
@@ -261,7 +261,7 @@ To avoid this, consider using <a class="xref" href="CSF.Screenplay.Selenium.Perf
 
   <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This method gets a performable which will do nothing if the WebDriver does not support HTML5 Web Storage.
+This method gets a performable which will do nothing if the WebDriver does not support execution of JavaScript.
 </p>
 </div>
 
@@ -615,6 +615,99 @@ For convenience, especially when using the Selenium <code>Keys</code> class ment
 of strings. If an array of strings is passed, they will be concatenated together before being sent to the element as a single string.
 The array/params syntax is used to allow a consumer to pass multiple strings (perhaps each only one character) as a single argument,
 without needing to manually concatenate them.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScript(System.String)">
+  ExecuteSomeJavaScript(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for a performable action which executes some JavaScript in the web browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilder ExecuteSomeJavaScript(string scriptBody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scriptBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The body of the JavaScript to execute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html">ExecuteJavaScriptBuilder</a></dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScript_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This action is for executing a script which does not have an expected result, or which will ignore any result that is returned.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ExecuteSomeJavaScriptAndGetTheResult``1(System.String)">
+  ExecuteSomeJavaScriptAndGetTheResult&lt;TResult&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for a performable action which executes some JavaScript in the web browser and returns a result from that script.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExecuteJavaScriptBuilderWithResult&lt;TResult&gt; ExecuteSomeJavaScriptAndGetTheResult&lt;TResult&gt;(string scriptBody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scriptBody</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The body of the JavaScript to execute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html">ExecuteJavaScriptBuilderWithResult</a>&lt;TResult&gt;</dt>
+    <dd><p>A builder object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ExecuteSomeJavaScriptAndGetTheResult__1_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This action is for executing a script which is expected to return a result.
 </p>
 </div>
 

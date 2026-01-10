@@ -1926,6 +1926,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Actions.ExecuteJavaScript",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.yml\" sourcestartlinenumber=\"1\">An action which executes some arbitrary JavaScript in the web browser.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.yml",
       "output": {
         ".html": {
@@ -2133,6 +2147,48 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.BrowseTheWeb",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.BrowseTheWeb.yml\" sourcestartlinenumber=\"1\">Screenplay ability which allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to browse the web using a Selenium WebDriver.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.yml\" sourcestartlinenumber=\"1\">A builder type for executing JavaScript in the browser which is not expected to return a result value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderBase.yml\" sourcestartlinenumber=\"1\">Base type for a builder which facilitates the execution of JavaScript in the web browser.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult<TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilderWithResult-1.yml\" sourcestartlinenumber=\"1\">A builder type for executing JavaScript in the browser, where the script is expected to return a result value.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2805,6 +2861,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.ElementCollectionQuery",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery.yml\" sourcestartlinenumber=\"1\">Provides a factory method for creating instances of <xref href=\"CSF.Screenplay.Selenium.Questions.ElementCollectionQuery%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.yml\" sourcestartlinenumber=\"1\">An action which executes some arbitrary JavaScript in the web browser and gets a result.</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ClearLocalStorage | Screenplay docs </title>
+      <title>Class ExecuteJavaScriptAndGetResult&lt;TResult&gt; | Screenplay docs </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ClearLocalStorage | Screenplay docs ">
+      <meta name="title" content="Class ExecuteJavaScriptAndGetResult&lt;TResult&gt; | Screenplay docs ">
       
-      <meta name="description" content="Represents an action to clear the browser&#39;s local storage for the current site.">
+      <meta name="description" content="An action which executes some arbitrary JavaScript in the web browser and gets a result.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Actions_ClearLocalStorage.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Actions.ClearLocalStorage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,42 +84,48 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage">
+        <article data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage" class="text-break">
-Class ClearLocalStorage  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearLocalStorage.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1" class="text-break">
+Class ExecuteJavaScriptAndGetResult&lt;TResult&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/ExecuteJavaScriptAndGetResult.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Actions.html">Actions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an action to clear the browser's local storage for the current site.</p>
+  <div class="markdown summary"><p>An action which executes some arbitrary JavaScript in the web browser and gets a result.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ClearLocalStorage : IPerformable, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class ExecuteJavaScriptAndGetResult&lt;TResult&gt; : IPerformableWithResult&lt;TResult&gt;, ICanReport</code></pre>
   </div>
 
 
 
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd><p>The expected type of the result from the script</p>
+</dd>
+  </dl>
 
   <dl class="typelist inheritance">
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">ClearLocalStorage</span></div>
+      <div><span class="xref">ExecuteJavaScriptAndGetResult&lt;TResult&gt;</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;TResult&gt;</div>
       <div><a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a></div>
     </dd>
   </dl>
@@ -154,31 +160,43 @@ Class ClearLocalStorage  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This performable expects a result from the script.
+If the script does not return a result then use <a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a> instead.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage__ctor_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1__ctor_" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage__ctor_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor(System.Boolean)">
-  ClearLocalStorage(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearLocalStorage.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1__ctor_System_String_System_String_System_Object___" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.#ctor(System.String,System.String,System.Object[])">
+  ExecuteJavaScriptAndGetResult(string, string, params object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/ExecuteJavaScriptAndGetResult.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.html">ClearLocalStorage</a> class.</p>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult&lt;TResult&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ClearLocalStorage(bool throwIfUnsupported = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public ExecuteJavaScriptAndGetResult(string script, string scriptName, params object[] arguments)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>throwIfUnsupported</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If set to <code>true</code>, an exception will be thrown if the WebDriver does not support the execution of JavaScript.</p>
+    <dt><code>script</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The JavaScript to be executed.</p>
+</dd>
+    <dt><code>scriptName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A human-readable name for the script, which may be displayed in a Screenplay report.</p>
+</dd>
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>A collection of arguments/parameters to the script.</p>
 </dd>
   </dl>
 
@@ -190,6 +208,13 @@ Class ClearLocalStorage  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If either <code class="paramref">script</code> or <code class="paramref">scriptName</code> are
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or whitespace-only.</p>
+</dd>
+  </dl>
 
 
 
@@ -197,11 +222,11 @@ Class ClearLocalStorage  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
+  <h3 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearLocalStorage.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/ExecuteJavaScriptAndGetResult.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -235,7 +260,7 @@ Class ClearLocalStorage  <a class="header-action link-secondary" title="View sou
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -253,7 +278,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -280,19 +305,19 @@ are seldom presented as paragraphs of prose.
 
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_ClearLocalStorage_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearLocalStorage.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/ExecuteJavaScriptAndGetResult.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
+  <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public ValueTask&lt;TResult&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -307,8 +332,8 @@ are seldom presented as paragraphs of prose.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
-    <dd><p>A task which completes when the performable represented by the current instance is complete.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;TResult&gt;</dt>
+    <dd><p>A task which exposes a strongly-typed 'result' value when the performable represented by the current instance is complete.</p>
 </dd>
   </dl>
 
@@ -326,7 +351,7 @@ are seldom presented as paragraphs of prose.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearLocalStorage.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/ExecuteJavaScriptAndGetResult.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 
