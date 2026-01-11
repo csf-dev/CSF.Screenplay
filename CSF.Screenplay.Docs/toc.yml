@@ -1,8 +1,8 @@
-- name: Documentation
-  href: index.md
+- name: Learn
+  href: docs/index.md
 - name: Glossary
   href: glossary/
-- name: API reference
+- name: API
   href: api/
-- name: GitHub repo
+- name: Contribute
   href: https://github.com/csf-dev/CSF.Screenplay

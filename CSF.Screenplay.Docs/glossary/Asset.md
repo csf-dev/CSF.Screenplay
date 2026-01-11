@@ -5,10 +5,10 @@ uid: AssetGlossaryItem
 # Asset
 
 An Asset forms part of a Screenplay **[Report]**.
-Assets are **files** which are generated during the course of [Performances], which are saved to the filesystem. 
-These assets are saved alongside the report, and should be kept with it. 
+Assets are **files** which are generated during the course of [Performances], which are saved to the filesystem.
+These assets are saved alongside the report, and should be kept with it.
 
-Assets may be any type of file system file, in any format conceivable. 
+Assets may be any type of file system file, in any format conceivable.
 Their usage/content is somewhat open-ended but they are best-used for files which help a reader understand the report of the [Screenplay's] performances.
 
 Assets _are not intended_ for cases when Screenplay is used to actually generate output which will be used outside of reading the report.

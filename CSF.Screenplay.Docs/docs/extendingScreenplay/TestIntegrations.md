@@ -44,7 +44,7 @@ Terminologies differ between testing frameworks; the word [Scenario] is used to 
 [`CompleteScreenplay()`]: xref:CSF.Screenplay.Screenplay.CompleteScreenplay
 [Scenario]: ../../glossary/Scenario.md
 [Performance]: xref:CSF.Screenplay.IPerformance
-[`CreateScopedPerformance`]: xref:CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName})
+[`CreateScopedPerformance`]: xref:CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Guid)
 [`NamingHierarchy`]: xref:CSF.Screenplay.IPerformance.NamingHierarchy
 [`BeginPerformance()`]: xref:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.BeginPerformance
 [`FinishPerformance(bool?)`]: xref:CSF.Screenplay.Performances.IBeginsAndEndsPerformance.FinishPerformance(System.Nullable{System.Boolean})
