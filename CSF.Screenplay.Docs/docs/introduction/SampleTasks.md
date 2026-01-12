@@ -51,3 +51,21 @@ public class AddAProductToTheirCartNamed(string productName) : IPerformable, ICa
         => formatter.Format("{Actor} searches for '{ProductName}' and adds one to their cart", actor, productName);
 }
 ```
+
+## Reading the cart's total value
+
+Now let's consider some code which might form the logic of the Task named `ReadTheTotalValueOfTheirCart`.
+
+```csharp
+public class ReadTheTotalValueOfTheirCart : IPerformableWithResult<string>, ICanReport
+{
+    public async ValueTask<string> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    {
+        await actor.PerformAsync(NavigateToTheirShoppingCart(), cancellationToken);
+        return await actor.PerformAsync(ReadFromTheElement(totalValue).TheText(), cancellationToken);
+    }
+
+    public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
+        => formatter.Format("{Actor} searches for '{ProductName}' and adds one to their cart", actor, productName);
+}
+```
