@@ -43,7 +43,7 @@ It is popular for writing <a href="https://en.wikipedia.org/wiki/Behavior-driven
 </div>
 
 [What is Screenplay?]: docs/introduction/index.md
-[How do I use Screenplay?]: docs/usage/index.md
+[How do I use Screenplay?]: docs/usingScreenplay/index.md
 [What can Screenplay do?]: docs/capabilities/index.md
 
 ## Learn about Screenplay's concepts
