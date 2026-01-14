@@ -2,13 +2,13 @@
 
 Screenplay has numerous extension points available for developers to add their own functionality.
 
-* [Abilities, Actions & Questions]
+* [Screenplay extensions]
 * [Dependency services]
 * [Event handlers]
 * [Report value formatters]
 * [Test integrations]
 
-[Abilities, Actions & Questions]: AbilitiesActionsAndQuestions.md
+[Screenplay extensions]: ScreenplayExtensions.md
 [Dependency services]: ../dependencyInjection/AddingServices.md
 [Event handlers]: EventHandlers.md
 [Report value formatters]: ReportFormtters.md
