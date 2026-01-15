@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Injecting services | Screenplay docs </title>
+      <title>Injecting services | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Injecting services | Screenplay docs ">
+      <meta name="title" content="Injecting services | Screenplay ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -97,7 +97,7 @@ Which of these depends upon the nature and paradigm of the test framework.</p>
 <p>For frameworks which are based on <strong>binding classes</strong> such as <a href="https://specflow.org/">SpecFlow</a>, services are constructor-injected into binding classes.</p>
 <p>Use dependencies injected in this way to get access to <a href="InjectableServices.html">commonly-used Screenplay services</a> and anything else required at the root level of your test logic.</p>
 <h2 id="into-standalone-performance-logic">Into standalone performance logic</h2>
-<p>If you are <a href="../StandaloneScreenplay.html">using Screenplay standalone</a> then the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a> permits resolution of dependencies via its parameter.
+<p>If you are <a href="../gettingStarted/nonTesting/index.html">using Screenplay standalone</a> then the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a> permits resolution of dependencies via its parameter.
 That parameter is a <code>Func&lt;IServiceProvider,CancellationToken,Task&lt;bool?&gt;&gt;</code>.
 The service provider may be used to resolve dependency services for the performance's logic.</p>
 <p>Developers are urged to consider encapsulating their performance logic in implementations of <a class="xref" href="../../api/CSF.Screenplay.IHostsPerformance.html"><code>IHostsPerformance</code></a>.

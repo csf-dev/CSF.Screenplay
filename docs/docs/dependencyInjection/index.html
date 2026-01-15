@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Dependency injection | Screenplay docs </title>
+      <title>Dependency injection | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Dependency injection | Screenplay docs ">
+      <meta name="title" content="Dependency injection | Screenplay ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -92,7 +92,7 @@ You may add Screenplay to an existing <a class="xref" href="https://learn.micros
 Alternatively you may create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> which uses its own self-contained DI container with the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Screenplay.Create</code></a> helper method.</p>
 <h2 id="scopes">Scopes</h2>
 <p>Screenplay makes use of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped">Dependency Injection Scopes</a>.
-As you can see on <a href="../MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>.
+As you can see on <a href="../concepts/MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>.
 Each performance is executed within its own DI scope, thus scoped services will have <em>one shared instance per performance</em>.</p>
 <p>It is also important to note that within DI, the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object <em>must be added</em> as a singleton (the mechanisms described above all do this for you).
 As a consequence there may be <em>at most one</em> Screenplay object per dependency injection container.</p>

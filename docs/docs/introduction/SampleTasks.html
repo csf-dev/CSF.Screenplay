@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sample tasks | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sample tasks | Screenplay ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/introduction/SampleTasks.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sample-tasks">Sample tasks</h1>
+
+<p>This introductory documentation <a href="SamplePerformances.html">continues the example from the previous page</a>.
+On that page we looked at two sample Performances and what their code might look like.
+In this page we consider the logic of two <strong>Task</strong> classes.
+Recall, a Task is a piece of performable logic which may compose any of Actions, Questions and/or other Tasks.</p>
+<h2 id="adding-an-item-to-the-shopping-cart">Adding an item to the shopping cart</h2>
+<p>The first task we will consider is the Task which was named <code>AddAProductToTheirCartNamed</code> on the previous page.</p>
+<pre><code class="lang-csharp">public static class SitewideUi
+{
+    public static readonly Locator ProductSearchTextbox
+        = ElementId(&quot;product-search&quot;, &quot;the product search&quot;);
+    public static readonly Locator ProductSearchNowButton
+        = ElementId(&quot;execute-product-search&quot;, &quot;the search button&quot;);
+}
+
+public static class ProductSearchResultsPage
+{
+    public static readonly Locator AddToCartButtonForProductNamed(string productName)
+        =&gt; CssSelector($&quot;ol.search-results li[data-productName='{productName}'] .addToCart&quot;);
+}
+
+public class AddAProductToTheirCartNamed(string productName) : IPerformable, ICanReport
+{
+    public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    {
+        await actor.PerformAsync(EnterTheText(productName).Into(SitewideUi.ProductSearchTextbox), cancellationToken);
+        await actor.PerformAsync(ClickOn(SitewideUi.ProductSearchNowButton), cancellationToken);
+        var addToCartButton = ProductSearchResultsPage.AddToCartButtonForProductNamed(productName);
+        await actor.PerformAsync(ClickOn(addToCartButton), cancellationToken);
+    }
+
+    public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
+        =&gt; formatter.Format(&quot;{Actor} searches for '{ProductName}' and adds one to their cart&quot;, actor, productName);
+}
+</code></pre>
+<h2 id="reading-the-carts-total-value">Reading the cart's total value</h2>
+<p>Now let's consider some code which might form the logic of the Task named <code>ReadTheTotalValueOfTheirCart</code>.</p>
+<pre><code class="lang-csharp">public static class ShoppingCartPage
+{
+    public static readonly Locator TotalCartValue
+        = ElementId(&quot;cart-value&quot;, &quot;the total cart value&quot;);
+}
+
+public class ReadTheTotalValueOfTheirCart : IPerformableWithResult&lt;string&gt;, ICanReport
+{
+    public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    {
+        await actor.PerformAsync(NavigateToTheirShoppingCart(), cancellationToken);
+        return await actor.PerformAsync(ReadFromTheElement(ShoppingCartPage.TotalCartValue).TheText(), cancellationToken);
+    }
+
+    public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
+        =&gt; formatter.Format(&quot;{Actor} reads the total value of their cart&quot;, actor, productName);
+}
+</code></pre>
+<h2 id="inspecting-these-two-tasks">Inspecting these two Tasks</h2>
+<p>Now, we will disect the code of these two sample Tasks, to see what we can learn from them.</p>
+<h3 id="tasks-coordinate-other-performables">Tasks coordinate other Performables</h3>
+<p>Common to both tasks is that they make prolific use of <code>actor.PerformAsync</code>.
+This is the mechanism by which Task classes compose other Performables, which may include any or all of Actions, Questions or other Tasks.
+These consumed Performables are built in the same manner, using the same builders and/or static factories, as if they were being used directly from the Performance logic.</p>
+<p>As a side-note, the first of these sample Tasks is built using only <strong>Actions</strong>.
+The <a class="xref" href="../../api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheText_System_String___"><code>EnterTheText</code></a> and <a class="xref" href="../../api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClickOn_CSF_Screenplay_Selenium_Elements_ITarget_"><code>ClickOn</code></a> builder methods create Actions, which are built into the CSF.Screenplay.Selenium Extension.
+The second sample Task makes use of a <strong>Question</strong> from the same Extension.
+<a class="xref" href="../../api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_CSF_Screenplay_Selenium_Elements_ITarget_"><code>ReadFromTheElement</code></a> followed by <code>TheText</code> gets a Question which reads text from the web browser screen.</p>
+<p>On the other hand, the second sample Task makes use of (a fictitious) Task as well: <code>NavigateToTheirShoppingCart</code>.
+If this were a real project then the developer would have written that Task also, including whatever logic is required to navigate the current user to their shopping cart screen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The same <code>PerformAsync</code> method is used to consume Actions, Questions or Tasks.
+So, Tasks may consume <em>any kind</em> of Performable.</p>
+</div>
+<h3 id="always-implement-icanreport-if-you-can">Always implement <code>ICanReport</code>, if you can</h3>
+<p>Notice how each of the Task classes also implements <code>ICanReport</code>?
+One of the features/benefits of Screenplay which we have not yet touched upon is its ability to produce detailed human-readable <strong>Reports</strong> of the Performances.
+By implementing <code>ICanReport</code>, you may decide upon the human-readable report text that the current Task emits to describe itself.</p>
+<h3 id="tasks-may-be-built-on-assumptions">Tasks may be built on assumptions</h3>
+<p>Notice that in the Performance in which it was used, the <code>AddAProductToTheirCartNamed</code> task was preceded by a task named <code>OpenTheAppWithAnEmptyShoppingCart</code>.
+You might infer from this that - if the current Actor had not already navigated to the web application, the Add a Product task would not function correctly.
+If you did, that's completely correct.
+The Add a Product task assumes that the current Actor (a user of the shopping web app) already has their browser open somewhere on the app.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It's perfectly reasonable, recommended in fact, for Tasks to use <em>implicit assumptions about the state of the application</em>.
+It's encouraged to document these, to aid reusability.</p>
+</div>
+<h3 id="well-known-parameters-are-held-in-static-classes">Well-known parameters are held in static classes</h3>
+<p>Notice the static classes which are used alongside these tasks.
+Each provides some Locators which specify some HTML elements on the screen.
+Locators and HTML elements are specific to the CSF.Screenplay.Selenium Extension, but the principle is the same regardless of the extension.</p>
+<p>If there's a well-known value, a URL, a file system path, etc, then represent this value in your code.  This way it may be referenced by builders and the fluent design of Screenplay Performables.</p>
+<h2 id="next-try-screenplay-out-for-yourself">Next: Try Screenplay out for yourself</h2>
+<p>This concludes the introduction to Screenplay.
+The next step is to <a href="../index.html">try using Screenplay for yourself</a>!</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/introduction/SampleTasks.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

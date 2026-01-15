@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Screenplay pattern | Screenplay docs </title>
+      <title>Screenplay pattern for .NET | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Screenplay pattern | Screenplay docs ">
+      <meta name="title" content="Screenplay pattern for .NET | Screenplay ">
       
       
       <link rel="icon" href="favicon.ico">
@@ -71,35 +71,34 @@
         </div>
 
         <article data-uid="">
-<h1 id="screenplay-pattern">Screenplay pattern</h1>
+<h1 id="screenplay-pattern-for-net">Screenplay pattern for .NET</h1>
 
-<p>Screenplay is a <em>software design pattern</em> to assist in the automation of complex processes.
-It is particularly useful for writing tests which use a <a href="https://en.wikipedia.org/wiki/Behavior-driven_development">Behaviour Driven Development</a> (BDD) style.
-<strong>CSF.Screenplay</strong> is a library and framework for using this design pattern.</p>
-<h2 id="learn-about-screenplays-concepts">Learn about Screenplay's concepts</h2>
-<ul>
-<li><a href="docs/MakeupOfAScreenplay.html">Makeup of a Performance</a></li>
-<li><a href="docs/HowScreenplayAndPerformanceRelate.html">How a Screenplay runs</a></li>
-<li><a href="docs/dependencyInjection/index.html">Using dependency injection</a></li>
-<li><a href="glossary/index.html">Glossary of Screenplay terminology</a></li>
+<div class="landingCodeSample">
+<pre><code class="lang-csharp">var webster = stage.Spotlight&lt;Webster&gt;();
+
+await Given(webster).WasAbleTo(OpenTheUrl(shoppingCartPage));
+await When(webster).AttemptsTo(RemoveTheItemFromTheirCartNamed(&quot;Widgets&quot;));
+await When(webster).AttemptsTo(SaveTheirShoppingCart());
+
+var total = await Then(webster).Should(ReadTheTotalValueOfTheirCart());
+</code></pre>
+</div>
+<p>Screenplay is a <em>software design pattern</em> to script the automation of complex processes.
+It is popular for writing <a href="https://en.wikipedia.org/wiki/Behavior-driven_development" title="Behaviour Driven Development">BDD-style</a> tests.
+<strong>CSF.Screenplay</strong> is a library and framework for the Screenplay pattern.</p>
+<div class="container">
+<ul class="landingNextSteps row">
+<li class="introduction col">
+<p><a href="docs/introduction/index.html">What is Screenplay?</a></p>
+</li>
+<li class="capabilities col">
+<p><a href="docs/Capabilities.html">What can Screenplay do?</a></p>
+</li>
+<li class="running col">
+<p><a href="docs/index.html">How do I use Screenplay?</a></p>
+</li>
 </ul>
-<h2 id="as-a-testing-tool">As a testing tool</h2>
-<p>Screenplay is useful for directing <a href="docs/SuitabilityAsATestingTool.html">integration and system tests</a>.
-It may be used for testing web applications via a web browser.
-In that context, Screenplay is a refinement of the <a href="https://martinfowler.com/bliki/PageObject.html">Page Object Pattern</a>.</p>
-<ul>
-<li><a href="docs/ScreenplayInTheTestingStack.html">Screenplay in the testing stack</a></li>
-<li><a href="docs/nUnitTutorial/index.html">NUnit &amp; Screenplay tutorial</a></li>
-<li><a href="docs/specFlowTutorial/index.html">SpecFlow &amp; Screenplay tutorial</a></li>
-</ul>
-<h2 id="using-screenplay">Using Screenplay</h2>
-<ul>
-<li><a href="docs/writingPerformables/index.html">Writing performables, usually tasks</a></li>
-<li><a href="docs/builderPattern/index.html">Writing builders</a></li>
-<li><a href="docs/GettingReports.html">Getting reports</a></li>
-<li><a href="docs/performables/index.html">Using pre-created Abilities &amp; Performables</a></li>
-<li><a href="docs/StandaloneScreenplay.html">Using Screenplay standalone</a></li>
-</ul>
+</div>
 
 </article>
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#999">
+  <!-- Document outline -->
+  <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"/>
+  
+  <!-- Folded corner -->
+  <path d="M14 2v6h6" fill="none" stroke="white" stroke-width="0.5"/>
+  
+  <!-- Chart bars -->
+  <rect x="7" y="13" width="2" height="5" fill="white"/>
+  <rect x="10" y="11" width="2" height="7" fill="white"/>
+  <rect x="13" y="14" width="2" height="4" fill="white"/>
+  <rect x="16" y="12" width="2" height="6" fill="white"/>
+</svg>

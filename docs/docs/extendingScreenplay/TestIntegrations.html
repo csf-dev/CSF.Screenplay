@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Writing new Test framework integrations | Screenplay docs </title>
+      <title>Writing new Test framework integrations | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Writing new Test framework integrations | Screenplay docs ">
+      <meta name="title" content="Writing new Test framework integrations | Screenplay ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -107,7 +107,7 @@ Terminologies differ between testing frameworks; the word <a href="../../glossar
 <li>After all <a href="../../glossary/Scenario.html">Scenarios</a> have completed it <strong>must</strong> execute <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompleteScreenplay"><code>CompleteScreenplay()</code></a> from the Screenplay instance</li>
 <li>Each <a href="../../glossary/Scenario.html">Scenario</a> in the test framework <strong>must</strong> have its own <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a>, within its own a DI lifetime scope
 <ul>
-<li>Consider using the <a href="xref:CSF.Screenplay.ScreenplayExtensions.CreateScopedPerformance(CSF.Screenplay.Screenplay,System.Collections.Generic.IList%7BCSF.Screenplay.Performances.IdentifierAndName%7D)"><code>CreateScopedPerformance</code></a> method to achieve this</li>
+<li>Consider using the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_CreateScopedPerformance_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Guid_"><code>CreateScopedPerformance</code></a> method to achieve this</li>
 </ul>
 </li>
 <li>The <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> associated with each <a href="../../glossary/Scenario.html">Scenario</a> <strong>should</strong> have its <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html#CSF_Screenplay_IPerformance_NamingHierarchy"><code>NamingHierarchy</code></a> set according to the name of the Scenario

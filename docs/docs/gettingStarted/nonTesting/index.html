@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>NUnit &amp; Screenplay best practices | Screenplay docs </title>
+      <title>Using Screenplay for process automation | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="NUnit &amp; Screenplay best practices | Screenplay docs ">
+      <meta name="title" content="Using Screenplay for process automation | Screenplay ">
       
       
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/nUnitTutorial/BestPractices.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/nonTesting/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,18 +85,34 @@
         </div>
 
         <article data-uid="">
-<h1 id="nunit--screenplay-best-practices">NUnit &amp; Screenplay best practices</h1>
+<h1 id="using-screenplay-for-process-automation">Using Screenplay for process automation</h1>
 
-<p>TODO: Write this docco</p>
-<ul>
-<li>Keep assertions out of performables</li>
-<li>Use the async test syntax</li>
-</ul>
+<p>Screenplay is often used <a href="../../bestPractice/SuitabilityAsATestingTool.html">as a tool for automating software tests</a>, but it is not limited to only this usage.
+Screenplay may be added to any application or library, <em>via dependency injection</em>.
+This is as simple as installing the <strong><a href="https://www.nuget.org/packages/CSF.Screenplay">CSF.Screenplay</a></strong> NuGet package and adding Screenplay to your service collection.
+For more information, see the documentation for <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html"><code>ScreenplayServiceCollectionExtensions</code></a>.</p>
+<pre><code class="lang-csharp">using CSF.Screenplay;
+
+// IServiceCollection services; 
+services.AddScreenplay();
+
+// ... then, after the service collection is built:
+// IServiceProvider serviceProvider;
+var screenplay = serviceProvider.GetService&lt;Screenplay&gt;();
+
+// Or you may constructor-inject an instance of Screenplay into
+// any type which was resolved from the service provider
+</code></pre>
+<p>Once Screenplay has been added to your DI, <a href="../../dependencyInjection/InjectingServices.html">you may resolve and use Screenplay-related services from dependency injection</a>.
+To execute some logic in the scope of a <a class="xref" href="../../../api/CSF.Screenplay.IPerformance.html"><code>Performance</code></a>, consider using the method <a class="xref" href="../../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a>.</p>
+<h2 id="abstractions-package">Abstractions package</h2>
+<p>If your solution is separated into multiple projects/assemblies then only your entry-point project needs the full CSF.Screenplay NuGet package.
+Once Screenplay has been added to DI, other projects in the solution may consume its logic, only requiring the <a href="https://www.nuget.org/packages/CSF.Screenplay.Abstractions">CSF.Screenplay.Abstractions</a> package.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/nUnitTutorial/BestPractices.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/nonTesting/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

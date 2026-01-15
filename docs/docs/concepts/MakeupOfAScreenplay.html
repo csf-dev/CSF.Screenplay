@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Top-down look at a screenplay | Screenplay docs </title>
+      <title>Makeup of a Screenplay | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Top-down look at a screenplay | Screenplay docs ">
+      <meta name="title" content="Makeup of a Screenplay | Screenplay ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/HowScreenplayAndPerformanceRelate.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/concepts/MakeupOfAScreenplay.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,34 +84,42 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="HowScreenplayAndPerformanceRelateArticle">
-<h1 id="top-down-look-at-a-screenplay">Top-down look at a screenplay</h1>
+        <article data-uid="">
+<h1 id="makeup-of-a-screenplay">Makeup of a Screenplay</h1>
 
-<p>The diagram below shows a top-down look at a <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">Screenplay</a> and how it relates to <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a>, <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a> and <a href="../glossary/Performable.html">Performables</a>.
-The Screenplay <em>might itself be controlled by</em> a <a href="../glossary/Integration.html">Test Integration</a>, if Screenplay is being used for automated tests.</p>
-<p>The lifetime shown, for the <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a> also indicates the lifetime of <a href="dependencyInjection/DependencyInjectionScope.html">the dependency injection scope</a>.</p>
-<pre><code class="lang-mermaid">sequenceDiagram
-    accDescr {
-        A single instance of Screenplay runs each Performance.
-        Each Performance contains scripts for one or more Actors.
-        Within the Performance, the Actor(s) perform one or more Performables.
-        The lifetime of a single performance is shown, to illustrate the DI lifetime scope.
-    }
-    Screenplay-&gt;&gt;Performance: Runs each
-    actor A as Actor
-    activate Performance
-    Performance-&gt;&gt;A: Contains scripts for&lt;br&gt;one or more
-    A-&gt;&gt;Performable: Performs one&lt;br&gt;or more
-    Performable--&gt;&gt;A: Complete
-    A--&gt;&gt;Performance: Complete
-    Performance--&gt;&gt;Screenplay: Complete
-    deactivate Performance
+<p><em>A Screenplay</em> conceptually refers to a complete execution screenplay-based logic, written using this framework.
+As .NET code, <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> is a class which coordinates the scope &amp; execution of that logic.</p>
+<p>A Screenplay is comprised at least one <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a>, typically lots of them.
+A Performance is made from <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a> performing <a href="../../glossary/Performable.html">Performables</a>, of which there are <a href="../../glossary/Task.html">Tasks</a>, <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a>.
+The logic of Actions and/or Questions almost always requires the use of an <a href="../../glossary/Ability.html">Ability</a>.
+The diagram below shows the architecture of how these concepts relate to one another.</p>
+<pre><code class="lang-mermaid">block-beta
+    columns 3
+    Screenplay:3
+    Performance[&quot;Performance&lt;br&gt;(each Screenplay may contain many)&quot;]:3
+    Actor(&quot;Actors&quot;) space
+    block:Perf
+        columns 3
+        space
+        Task[&quot;Tasks&quot;]
+        space
+        Action[&quot;Actions&quot;]
+        space
+        Question[&quot;Questions&quot;]
+    end
+    space:3
+    Ability[&quot;Abilities&quot;]
+    Actor -- &quot;Perform&quot; --&gt; Perf
+    Ability -- &quot;Has&quot; --&gt; Actor
+    Action -- &quot;Use&quot; --&gt; Ability
+    Question -- &quot;Use&quot; --&gt; Ability
+    style Perf fill:#E0E0F0,stroke:#C0C0E0
 </code></pre>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/HowScreenplayAndPerformanceRelate.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/concepts/MakeupOfAScreenplay.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

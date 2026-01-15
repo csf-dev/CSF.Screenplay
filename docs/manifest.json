@@ -508,7 +508,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.IPerformance",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.IPerformance.yml\" sourcestartlinenumber=\"1\">A performance represents a self-contained scope of performables which typically results in overall success or failure.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.IPerformance.yml\" sourcestartlinenumber=\"1\">A Performance corresponds to a self-contained scope of Performables, performed by Actors, which results in success or failure.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3773,6 +3773,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/Capabilities.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Capabilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/GettingReports.md",
       "output": {
         ".html": {
@@ -3783,60 +3793,20 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/HowScreenplayAndPerformanceRelate.md",
+      "source_relative_path": "docs/bestPractice/SuitabilityAsATestingTool.md",
       "output": {
         ".html": {
-          "relative_path": "docs/HowScreenplayAndPerformanceRelate.html"
+          "relative_path": "docs/bestPractice/SuitabilityAsATestingTool.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/MakeupOfAScreenplay.md",
+      "source_relative_path": "docs/bestPractice/WritingTests.md",
       "output": {
         ".html": {
-          "relative_path": "docs/MakeupOfAScreenplay.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/ScreenplayInTheTestingStack.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/ScreenplayInTheTestingStack.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/StandaloneScreenplay.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/StandaloneScreenplay.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/SuitabilityAsATestingTool.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/SuitabilityAsATestingTool.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/WritingTests.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/WritingTests.html"
+          "relative_path": "docs/bestPractice/WritingTests.html"
         }
       },
       "version": ""
@@ -3880,6 +3850,36 @@
         },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/HowScreenplayAndPerformanceRelate.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/HowScreenplayAndPerformanceRelate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/MakeupOfAScreenplay.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/MakeupOfAScreenplay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/concepts/ScreenplayInTheTestingStack.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/concepts/ScreenplayInTheTestingStack.html"
         }
       },
       "version": ""
@@ -3946,16 +3946,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/extendingScreenplay/AbilitiesActionsAndQuestions.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/extendingScreenplay/AbilitiesActionsAndQuestions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "docs/extendingScreenplay/EventHandlers.md",
       "output": {
         ".html": {
@@ -3970,6 +3960,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/extendingScreenplay/ReportFormtters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extendingScreenplay/ScreenplayExtensions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extendingScreenplay/ScreenplayExtensions.html"
         }
       },
       "version": ""
@@ -3996,20 +3996,80 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/nUnitTutorial/BestPractices.md",
+      "source_relative_path": "docs/gettingStarted/nonTesting/index.md",
       "output": {
         ".html": {
-          "relative_path": "docs/nUnitTutorial/BestPractices.html"
+          "relative_path": "docs/gettingStarted/nonTesting/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/nUnitTutorial/index.md",
+      "source_relative_path": "docs/gettingStarted/nunit3/index.md",
       "output": {
         ".html": {
-          "relative_path": "docs/nUnitTutorial/index.html"
+          "relative_path": "docs/gettingStarted/nunit3/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/gettingStarted/reqnroll/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/gettingStarted/reqnroll/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction/Performances.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction/Performances.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction/SamplePerformances.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction/SamplePerformances.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction/SampleTasks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction/SampleTasks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction/index.html"
         }
       },
       "version": ""
@@ -4043,16 +4103,6 @@
         },
         ".json": {
           "relative_path": "docs/performables/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/specFlowTutorial/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/specFlowTutorial/index.html"
         }
       },
       "version": ""
@@ -4212,6 +4262,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "glossary/Extension.md",
+      "output": {
+        ".html": {
+          "relative_path": "glossary/Extension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "glossary/Feature.md",
       "output": {
         ".html": {
@@ -4319,6 +4379,66 @@
         },
         ".json": {
           "relative_path": "glossary/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/automation-process-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/automation-process-icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/code-reuse-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/code-reuse-icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/extensibility-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/extensibility-icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/framework-integration-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/framework-integration-icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/intuitive-design-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/intuitive-design-icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/report-icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/report-icon.svg"
         }
       },
       "version": ""
