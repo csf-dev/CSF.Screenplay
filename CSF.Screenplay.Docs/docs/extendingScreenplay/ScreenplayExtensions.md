@@ -1,4 +1,4 @@
-# Writing new Abilities, Actions & Questions
+# Writing Screenplay Extensions
 
 Screenplay ships [with a small number of Abilities and performables] but it is designed to be extended with new ones.
 New [Abilities], [Actions] and [Questions] extend [Screenplay] by allowing [Actors] to interact with new APIs, services and libraries.
