@@ -31,7 +31,7 @@ body[data-layout=landing] article .landingNextSteps li {
     flex: 26% 0 0;
     border-radius: 0.6em;
     border: 1px solid #666;
-    box-shadow: 2px 2px 10px 3px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
 }
 body[data-layout=landing] article .landingNextSteps li p {
     text-align: center;
@@ -64,19 +64,60 @@ body[data-layout=landing] article .landingNextSteps li.capabilities {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     margin-left: -1.5em;
+    max-width: 55em;
+}
+#capabilitiesList:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 #capabilitiesList li {
     float: left;
     margin-top: 1.5em;
     margin-left: 1.5em;
-    background: #EEE;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%);
-    padding: 1.5em;
-    border: 1px solid #CCC;
+    padding: 5em 1.5em 1em;
+    border: 1px solid #999;
     border-radius: 1em;
     width: 15em;
     height: 10em;
     text-align: center;
-    padding-top: 4em;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
 }
+#capabilitiesList li.intuitive {
+    background: url(../../images/intuitive-design-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+#capabilitiesList li.reuse {
+    background: url(../../images/code-reuse-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+#capabilitiesList li.reporting {
+    background: url(../../images/report-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+#capabilitiesList li.testing {
+    background: url(../../images/framework-integration-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+#capabilitiesList li.extensible {
+    background: url(../../images/extensibility-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+#capabilitiesList li.not-just-testing {
+    background: url(../../images/automation-process-icon.svg), linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(238, 238, 238, 1) 100%), #EEE;
+    background-position: center 5%;
+    background-size: 30%, 100%;
+    background-repeat: no-repeat;
+}
+

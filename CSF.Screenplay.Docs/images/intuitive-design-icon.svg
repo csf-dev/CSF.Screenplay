@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999">
   <!-- Light bulb outline -->
   <path d="M9 18h6" stroke-width="2" stroke-linecap="round"/>
   <path d="M10 21h4" stroke-width="2" stroke-linecap="round"/>
   
   <!-- Bulb shape -->
-  <path d="M12 3C8.69 3 6 5.69 6 9c0 2.5 1.5 4.5 3 6v1h6v-1c1.5-1.5 3-3.5 3-6 0-3.31-2.69-6-6-6z" stroke-width="1.5" stroke-linejoin="round" fill="currentColor"/>
+  <path d="M12 3C8.69 3 6 5.69 6 9c0 2.5 1.5 4.5 3 6v1h6v-1c1.5-1.5 3-3.5 3-6 0-3.31-2.69-6-6-6z" stroke-width="1.5" stroke-linejoin="round" fill="#999"/>
   
   <!-- Simple checkmark inside bulb to show "easy/intuitive" -->
   <path d="M9.5 9.5l1.5 2 3-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>

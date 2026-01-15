@@ -18,7 +18,16 @@ This is entirely coincidental and _there is no direct equivalence_.
 [Tasks]: Task.md
 [Questions]: Question.md
 
-## Performable instances are _not reusable_
+## Performables are reusable
+
+As noted above, Tasks may use any of Actions, Questions or other Tasks.
+There is no limit to this composition/reusability.
+It's perfectly normal to write a task which makes use of several tasks, which thesmevles make use of several other tasks and so on.
+
+Each higher-level task composes lower-level tasks.
+At the very end of the composition will of course be Actions/Questions but there is no limit to the number of 'layers' of tasks.
+
+## Performable _instances_ are not reusable
 
 Types which implement the performable interfaces (below) are _stateful_ objects which are often mutable.
 Their state defines their configuration, as such, instances of any performable type _must not be reused_.
