@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Screenplay in the testing stack | Screenplay docs </title>
+      <title>Get started with Screenplay | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Screenplay in the testing stack | Screenplay docs ">
+      <meta name="title" content="Get started with Screenplay | Screenplay ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/ScreenplayInTheTestingStack.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,51 +85,23 @@
         </div>
 
         <article data-uid="">
-<h1 id="screenplay-in-the-testing-stack">Screenplay in the testing stack</h1>
+<h1 id="get-started-with-screenplay">Get started with Screenplay</h1>
 
-<p>Screenplay is often used as a tool for writing automated tests.
-<em>It is not a complete testing framework</em>, though.
-It serves as an extension/plugin to existing testing frameworks, enhancing them with Screenplay syntax and logic.</p>
-<p>The diagram below shows where Screenplay lies within the technology stack, when it is used as a tool for testing.
-The dark yellow/light brown blocks show the Screenplay-specific components.
-The explanation below uses <a href="https://nunit.org">the NUnit test framework</a> as an example, but this could be substituted for counterparts applicable to any test framework.</p>
-<pre><code class="lang-mermaid">block-beta
-    columns 2
-    Runner[&quot;Test runner&quot;]:2
-    FW[&quot;Test framework&quot;]:2
-    Int[&quot;Test integration&quot;]:2
-    Test Logic[&quot;Screenplay test logic&quot;]
-    classDef sp fill:#f0f0bb,stroke:#cc7
-    class Int,Logic sp
-</code></pre>
-<h2 id="the-test-runner">The test runner</h2>
-<p>This is the executable tool which runs tests.
-Applied to NUnit, this could be <a href="https://docs.nunit.org/articles/nunit/running-tests/Console-Command-Line.html">the <code>nunit3-console.exe</code> application</a>.</p>
-<h2 id="the-test-framework">The test framework</h2>
-<p>All testing framework contain some framework-specific logic of their own, which provide the basis for writing tests.
-Applied to NUnit, this is the <code>NUnit.Framework.dll</code> which is included in <a href="https://www.nuget.org/packages/NUnit">the NUnit NuGet package</a>.</p>
-<h2 id="the-test-integration">The Test integration</h2>
-<p><a href="../glossary/Integration.html">The Test Integration</a> is the extension to the test framework (above) which enables the use of Screenplay-based logic in tests.
-Each testing framework has its own test integration, as it must be developed for the test framework's syntax and extension points.</p>
-<h2 id="tests">Tests</h2>
-<p>The tests are normal tests written for the chosen test framework.
-Whilst they might be decorated with additional Screenplay-specific attributes or use Screenplay syntax, they are normal tests in the context of the test framework.</p>
-<p>Applied to NUnit, this would be your methods which look similar to:</p>
-<pre><code class="lang-csharp">[Test]
-public void MyFunctionShouldReturnTrueWhenItIsTuesday()
-{
-    // Test logic omitted
-}
-</code></pre>
-<h2 id="screenplay-test-logic">Screenplay test logic</h2>
-<p>The logic within tests (above) which use Screenplay will be written using Screenplay's test syntax.
-That it, it will use <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a>, <a href="../glossary/Ability.html">Abilities</a> and <a href="../glossary/Performable.html">Performables</a>.
-In this context, each test is a Screenplay <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a>.</p>
+<p>To get started with Screenplay, the first step is to decide how you'd like to use it:</p>
+<ul>
+<li><a href="gettingStarted/nunit3/index.html">As a testing tool, with NUnit 3</a></li>
+<li><a href="gettingStarted/reqnroll/index.html">As a testing tool, with Reqnroll</a>
+<ul>
+<li><em>Users of <a href="https://reqnroll.net/news/2025/01/specflow-end-of-life-has-been-announced/">the retired SpecFlow</a> should follow the Reqnroll guide</em></li>
+</ul>
+</li>
+<li><a href="gettingStarted/nonTesting/index.html">As a process automation library</a>, not as a testing tool</li>
+</ul>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/ScreenplayInTheTestingStack.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

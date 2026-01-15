@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Screenplay &amp; NUnit tutorial | Screenplay docs </title>
+      <title>Screenplay &amp; NUnit tutorial | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Screenplay &amp; NUnit tutorial | Screenplay docs ">
+      <meta name="title" content="Screenplay &amp; NUnit tutorial | Screenplay ">
       
       
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/nUnitTutorial/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/nunit3/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,24 +92,24 @@ Further detail is provided below.</p>
 <ol>
 <li>Ensure that your test project uses <a href="https://www.nuget.org/packages/NUnit/3.6.0">NUnit version 3.6.0</a> or higher</li>
 <li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.NUnit">CSF.Screenplay.NUnit</a></strong> to your test project</li>
-<li>Write a class which implements <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a></li>
-<li>Decorate your test assembly with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, referencing your implementation of <code>IGetsScreenplay</code></li>
-<li>Write your tests, decorating each test method with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a></li>
+<li>Write a class which implements <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a></li>
+<li>Decorate your test assembly with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, referencing your implementation of <code>IGetsScreenplay</code></li>
+<li>Write your tests, decorating each test method with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a></li>
 <li>Add parameters to your test methods to access the Screenplay architecture</li>
 </ol>
 <div class="TIP">
 <h5>Tip</h5>
-<p>Developers are encouraged to read <a href="BestPractices.html">these best practices for writing NUnit tests which use Screenplay</a>.</p>
+<p>Developers are encouraged to read <a href="../../bestPractice/WritingTests.html">these best practices for writing tests which use Screenplay</a>.</p>
 </div>
 <h2 id="decorating-your-test-assembly-with-screenplayassembly">Decorating your test assembly with <code>[ScreenplayAssembly]</code></h2>
-<p>So that your tests may make use of a <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a>, you must install the Screenplay extension to the NUnit testing framework.
+<p>So that your tests may make use of a <a class="xref" href="../../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a>, you must install the Screenplay extension to the NUnit testing framework.
 This is <strong>steps 3 &amp; 4</strong> in the list above.
-This is achieved using the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>.
+This is achieved using the <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>.
 Place a line of code somewhere in your test project, outside of any type definition like this:</p>
 <pre><code class="lang-csharp">[assembly: CSF.Screenplay.ScreenplayAssembly(typeof(MyScreenplayFactory))]
 </code></pre>
 <p>There is one other thing you must do, and that is to write a screenplay factory class, which configures how the <code>Screenplay</code> should be created for your tests.
-A screenplay factory is a class which must implement <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a>.
+A screenplay factory is a class which must implement <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a>.
 Consider the example below as a starting point for writing your own.</p>
 <pre><code class="lang-csharp">using CSF.Screenplay;
 
@@ -130,14 +130,14 @@ public class MyScreenplayFactory : IGetsScreenplay
 This is not expected to be problematic, as all the <code>Screenplay</code> object does is set-up the Screenplay architecture and dependency injection for the tests.</p>
 </div>
 <h2 id="writing-test-methods">Writing test methods</h2>
-<p>When writing test methods, the test methods must be decorated with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a>, which activates Screenplay for that particular test method.
-NUnit test methods which are decorated with <code>[Screenplay]</code> may have test parameters; these parameters will be <a href="../dependencyInjection/index.html">provided by dependency injection</a>.
+<p>When writing test methods, the test methods must be decorated with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a>, which activates Screenplay for that particular test method.
+NUnit test methods which are decorated with <code>[Screenplay]</code> may have test parameters; these parameters will be <a href="../../dependencyInjection/index.html">provided by dependency injection</a>.
 This covers <strong>steps 5 &amp; 6</strong> in the list above.
-Here is an example of an NUnit test method which is written using Screenplay; it assumes that the assembly has been decorated with <a class="xref" href="../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, as noted above.</p>
+Here is an example of an NUnit test method which is written using Screenplay; it assumes that the assembly has been decorated with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, as noted above.</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>The ability, performables and <code>DishwashingBuilder</code> used in this test, related to washing dishes, are all fictitious.
-See <a href="../writingPerformables/index.html">the documentation for writing performables</a> to learn about how these could be written.</p>
+See <a href="../../writingPerformables/index.html">the documentation for writing performables</a> to learn about how these could be written.</p>
 </div>
 <pre><code class="lang-csharp">using CSF.Screenplay;
 using static CSF.Screenplay.PerformanceStarter;
@@ -160,7 +160,7 @@ public async Task TheDishesShouldBeCleanAfterJoeWashesThem(ICast cast, IDishWash
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/nUnitTutorial/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/nunit3/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

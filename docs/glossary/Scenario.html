@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Scenario | Screenplay docs </title>
+      <title>Scenario | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Scenario | Screenplay docs ">
+      <meta name="title" content="Scenario | Screenplay ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -91,7 +91,7 @@
 Testing frameworks differ between one another in the terminology that they use to name their individual tests.
 Screenplay uses the name &quot;Scenario&quot; because this <a href="https://cucumber.io/docs/gherkin/reference/#examples">matches the name used in Cucumber</a>.
 Scenarios <em>are only relevant</em> when Screenplay is used in conjunction with a <a href="Integration.html">test framework integration</a>.
-It is irrelevant when <a href="../docs/StandaloneScreenplay.html">using Screenplay standalone</a>.</p>
+<em>The concept of a Scenario is irrelevant when <a href="../docs/gettingStarted/nonTesting/index.html">using Screenplay standalone</a></em>.</p>
 <p>A Scenario represents the lifetime of each individual test; when using Screenplay as a testing tool, the lifetime of the Scenario corresponds <em>very closely</em> to the lifetime of a <strong><a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a></strong>.
 When using Screenplay, each Performance (and thus Scenario) is executed <a href="../docs/dependencyInjection/DependencyInjectionScope.html">within its own Dependency Injection Lifetime Scope</a>.</p>
 <p>Every scenario is typically contained within a <strong><a href="Feature.html">Feature</a></strong>.

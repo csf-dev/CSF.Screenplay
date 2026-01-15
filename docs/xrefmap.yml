@@ -13973,8 +13973,8 @@ references:
   name: Dependency injection scope
   href: docs/dependencyInjection/DependencyInjectionScope.html
 - uid: HowScreenplayAndPerformanceRelateArticle
-  name: Top-down look at a screenplay
-  href: docs/HowScreenplayAndPerformanceRelate.html
+  name: How Screenplay logic executes
+  href: docs/concepts/HowScreenplayAndPerformanceRelate.html
 - uid: InjectableServicesArticle
   name: Injectable services
   href: docs/dependencyInjection/InjectableServices.html

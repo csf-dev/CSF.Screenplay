@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Advice for writing tests with Screenplay | Screenplay docs </title>
+      <title>Advice for writing tests with Screenplay | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Advice for writing tests with Screenplay | Screenplay docs ">
+      <meta name="title" content="Advice for writing tests with Screenplay | Screenplay ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/WritingTests.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/bestPractice/WritingTests.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,13 +90,13 @@
 <p>Whichever testing integration you choose to use, there are some general pieces of advice and best practice which apply.</p>
 <h2 id="use-high-level-tasks">Use high-level tasks</h2>
 <p>Avoid the use of too many tasks/performables in each test.
-Too many <a href="../glossary/Performable.html">performables</a> in a single test makes it hard to comprehend at-a-glance and forces the reader to commit too much detail to memory.
-Rather than using many performables at the top-level of your tests, create <a href="../glossary/Task.html">high-level tasks</a> which compose and simplify some of that detail into a single logical step.</p>
+Too many <a href="../../glossary/Performable.html">performables</a> in a single test makes it hard to comprehend at-a-glance and forces the reader to commit too much detail to memory.
+Rather than using many performables at the top-level of your tests, create <a href="../../glossary/Task.html">high-level tasks</a> which compose and simplify some of that detail into a single logical step.</p>
 <p>When using a method-driven testing framework, such as NUnit, five performables in a single test method is a reasonable number.
 More than approximately ten performables is too many.</p>
 <p>When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.</p>
 <h2 id="use-the-performance-starter">Use the Performance Starter</h2>
-<p>Your top-level test logic should consume its <a href="../glossary/Performable.html">performables</a> via the class <a class="xref" href="../api/CSF.Screenplay.PerformanceStarter.html"><code>PerformanceStarter</code></a>.
+<p>Your top-level test logic should consume its <a href="../../glossary/Performable.html">performables</a> via the class <a class="xref" href="../../api/CSF.Screenplay.PerformanceStarter.html"><code>PerformanceStarter</code></a>.
 This provides for a clear given/when/then appearance to your top-level test logic.</p>
 <h2 id="consider-a-fluent-style-assertions-library">Consider a fluent-style assertions library</h2>
 <p>Depending upon the testing framework you have chosen, you may or may not have access to fluent-style assertions functionality.
@@ -104,7 +104,7 @@ NUnit, for example, provides assertions based upon <a href="https://docs.nunit.o
 <p>If your chosen testing framework does not provide easy-to-read assertions, consider an external assertion library.
 Assertion libraries to consider include <a href="https://github.com/shouldly/shouldly">Shouldly</a> and <a href="https://fluentassertions.com/">Fluent Assertions</a>.</p>
 <h2 id="do-not-include-assertions-in-performables">Do not include assertions in performables</h2>
-<p>It might be tempting to include assertion syntax within <a href="../glossary/Performable.html">performables</a> such as <a href="../glossary/Task.html">tasks</a>.
+<p>It might be tempting to include assertion syntax within <a href="../../glossary/Performable.html">performables</a> such as <a href="../../glossary/Task.html">tasks</a>.
 This is not recommended.
 Where assertions appear within performables:</p>
 <ul>
@@ -113,13 +113,13 @@ Where assertions appear within performables:</p>
 <li>They can make test logic harder to read and understand</li>
 </ul>
 <p>It is recommended to keep your performables/tasks free from assertions.
-In your test code, use <a href="../glossary/Question.html">questions</a> or question-like tasks to get values/data from the system under test.
+In your test code, use <a href="../../glossary/Question.html">questions</a> or question-like tasks to get values/data from the system under test.
 Write your assertions in your main test logic, asserting that the values retrieved are as-expected.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/WritingTests.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/bestPractice/WritingTests.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

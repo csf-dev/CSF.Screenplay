@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Screenplay&#39;s capabilities | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Screenplay&#39;s capabilities | Screenplay ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/Capabilities.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="screenplays-capabilities">Screenplay's capabilities</h1>
+
+<ul class="capabilities" id="capabilitiesList">
+<li class="intuitive">
+<p><a href="#screenplay-follows-an-intuitive-design">Intuitive, human-readable design</a></p>
+</li>
+<li class="reuse">
+<p><a href="#screenplay-promotes-code-reuse">Promotes maximum code reuse</a></p>
+</li>
+<li class="reporting">
+<p><a href="#screenplay-produces-reports">Produces human-readable reports</a></p>
+</li>
+<li class="testing">
+<p><a href="#screenplay-integrates-with-testing-frameworks">Integration with testing frameworks</a></p>
+</li>
+<li class="extensible">
+<p><a href="#screenplay-is-extensible">Extensibility via plug-in extensions</a></p>
+</li>
+<li class="not-just-testing">
+<p><a href="#screenplay-isnt-limited-to-software-testing">Not just for automated testing</a></p>
+</li>
+</ul>
+<h2 id="screenplay-follows-an-intuitive-design">Screenplay follows an intuitive design</h2>
+<p>The logic of a Screenplay <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performance</a> or <a href="../glossary/Task.html">Task</a> is obvious, to both programmers and non-programmers alike.
+Through use of static builders, Screenplay logic forms <a href="https://en.wikipedia.org/wiki/Fluent_interface">a fluent interface</a> which is instantly readable.
+For example, this is a line of Screenplay-based code:</p>
+<pre><code class="lang-csharp">await Given(webster).WasAbleTo(AddAProductToTheirCartNamed(&quot;Blue widget&quot;));
+</code></pre>
+<h2 id="screenplay-promotes-code-reuse">Screenplay promotes code reuse</h2>
+<p>Screenplay ruthlessly follows <a href="https://en.wikipedia.org/wiki/SOLID">SOLID design principles</a>, particularly SRP and OCP.
+<a href="../glossary/Performable.html">The architecture of Performables</a> permits unlimited levels of composition via <a href="../glossary/Task.html">Tasks</a>.</p>
+<p>Developers are also encouraged to use <a href="../glossary/Persona.html">Personas</a> to configure and manage the <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actors</a> which participate in <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">a Screenplay</a>.</p>
+<h2 id="screenplay-produces-reports">Screenplay produces reports</h2>
+<p>Whenever <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">a Screenplay</a> executes, a record of what happened is saved in JSON format.
+This JSON file is computer-readable, but <a href="GettingReports.html">it may be converted to a human-readable report using the included utility</a>.</p>
+<h2 id="screenplay-integrates-with-testing-frameworks">Screenplay integrates with Testing frameworks</h2>
+<p>If you would like to use Screenplay as a test-authoring framework then you are in luck.
+Screenplay has <a href="../glossary/Integration.html">integrations with testing frameworks</a>, out of the box:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/CSF.Screenplay.NUnit">NUnit 3</a></li>
+<li><a href="https://www.nuget.org/packages/CSF.Screenplay.Reqnroll">Reqnroll</a> <em>and <a href="https://www.nuget.org/packages/CSF.Screenplay.SpecFlow">the now-retired SpecFlow</a></em></li>
+</ul>
+<p>The community is encouraged to create and contribute additional integrations if they wish.
+The source code of the existing integrations, and the documentation website for your chosen test framework, are good places to start for writing a new integration.</p>
+<h2 id="screenplay-is-extensible">Screenplay is extensible</h2>
+<p>Screenplay has two primary extension points, test-framework integrations (above) and <a href="../glossary/Extension.html">Extensions</a>.
+Extensions provide Screenplay with the capabilities to interact-with and automate additional technologies.
+Some extensions are provided already:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/CSF.Screenplay.Selenium">Selenium WebDriver</a></li>
+<li><a href="https://www.nuget.org/packages/CSF.Screenplay.WebApis">Web APIs</a></li>
+</ul>
+<p>The community is encouraged to create and contribute additional extensions if they wish.
+Writing an extension is a matter of writing <a href="../glossary/Ability.html">Ability</a>, <a href="../glossary/Action.html">Action</a> and <a href="../glossary/Question.html">Question</a> classes, along with any appropriate <a href="builderPattern/WritingBuilders.html">Builders</a>.
+The source code for the existing Extensions are a good place to start in learning how to create a new one.</p>
+<h2 id="screenplay-isnt-limited-to-software-testing">Screenplay isn't limited to software testing</h2>
+<p>Whilst Screenplay is a popular pattern for automated testing, particularly web-browser-based testing, it doesn't have to be limited to that use-case.
+Screenplay may be invoked as a standalone process-automation tool.
+See the documentation of the <a class="xref" href="../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync__1_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformanceAsync&lt;T&gt;</code></a> method for information and examples for the recommended way to use Screenplay outside of a testing framework.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/Capabilities.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

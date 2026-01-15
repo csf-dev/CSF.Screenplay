@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Performable | Screenplay docs </title>
+      <title>Performable | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Performable | Screenplay docs ">
+      <meta name="title" content="Performable | Screenplay ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -96,7 +96,13 @@ This is entirely coincidental and <em>there is no direct equivalence</em>.</p>
 <li><strong><a href="Question.html">Questions</a></strong> are granular, like actions, but read the application's state to get information instead of making changes</li>
 <li><strong><a href="Task.html">Tasks</a></strong> are higher-order interactions which are formed by composing actions, questions and/or other tasks</li>
 </ul>
-<h2 id="performable-instances-are-not-reusable">Performable instances are <em>not reusable</em></h2>
+<h2 id="performables-are-reusable">Performables are reusable</h2>
+<p>As noted above, Tasks may use any of Actions, Questions or other Tasks.
+There is no limit to this composition/reusability.
+It's perfectly normal to write a task which makes use of several tasks, which thesmevles make use of several other tasks and so on.</p>
+<p>Each higher-level task composes lower-level tasks.
+At the very end of the composition will of course be Actions/Questions but there is no limit to the number of 'layers' of tasks.</p>
+<h2 id="performable-instances-are-not-reusable">Performable <em>instances</em> are not reusable</h2>
 <p>Types which implement the performable interfaces (below) are <em>stateful</em> objects which are often mutable.
 Their state defines their configuration, as such, instances of any performable type <em>must not be reused</em>.</p>
 <p>Typically, performables are <em>created <a href="../docs/builderPattern/index.html">using a builder</a></em> which configures their state.

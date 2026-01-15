@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How Screenplay logic executes | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How Screenplay logic executes | Screenplay ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/concepts/HowScreenplayAndPerformanceRelate.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="HowScreenplayAndPerformanceRelateArticle">
+<h1 id="how-screenplay-logic-executes">How Screenplay logic executes</h1>
+
+<p><a class="xref" href="../../api/CSF.Screenplay.Screenplay.html">A Screenplay</a> is always begun by some consuming logic.
+That consuming logic might be <a href="../../glossary/Integration.html">a Test Integration</a> if Screenplay is being used for automated tests.
+The consuming logic might alternatively be hand-written code if Screenplay is being used for process automation and not for testing.</p>
+<h2 id="the-consuming-logic">The consuming logic</h2>
+<p>When using Screenplay for automated testing, the test integration library code <em>takes care of all the responsibilities of the consuming logic</em>; developers need only write their tests using Screenplay syntax.
+Each test/scenario corresponds to a <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a>.</p>
+<p>If Screenplay is not being used for testing, then the consuming logic has the following responsibilities for the use of Screenplay:</p>
+<ol>
+<li>Create the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object using the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Create</code></a> method</li>
+<li>Execute <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_BeginScreenplay"><code>BeginScreenplay</code></a> before starting the first <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a></li>
+<li>Execute each performance, such as via <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync__1_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformanceAsync&lt;TPerformance&gt;</code></a> or <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformance_CSF_Screenplay_Screenplay_System_Func_System_IServiceProvider_System_Nullable_System_Boolean___System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformance</code></a>, or one of their overloads</li>
+<li>Execute <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_CompleteScreenplay"><code>CompleteScreenplay</code></a> after the last Performance has completed</li>
+</ol>
+<h2 id="performances--lifetimes">Performances &amp; lifetimes</h2>
+<p>The logic of each <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performance</a> is executed within its own <a href="../dependencyInjection/DependencyInjectionScope.html">dependency injection scope</a>.
+The lifetime of this DI scope is matched with the lifetime of the Performance.</p>
+<p>The diagram below illustrates the information in this article.
+It shows how the consuming logic creates and uses a <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object and how this relates to <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>, <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actors</a> and <a href="../../glossary/Performable.html">Performables</a>.</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+    accDescr {
+        A single instance of Screenplay runs each Performance.
+        Each Performance contains scripts for one or more Actors.
+        Within the Performance, the Actor(s) perform one or more Performables.
+        The lifetime of a single performance is shown, to illustrate the DI lifetime scope.
+    }
+    participant Consumer
+    participant Screenplay
+    Consumer-&gt;&gt;Screenplay: Create
+    activate Screenplay
+    Screenplay--&gt;&gt;Consumer: Screenplay instance
+    Consumer-&gt;&gt;Screenplay: BeginScreenplay
+    loop For each Performance
+        Consumer-)Screenplay: Execute performance
+        note over Performance: DI scope lifetime =&lt;br&gt;Performance lifetime
+        Screenplay-)Performance: Runs
+        actor A as Actor
+        activate Performance
+        Performance-)A: Contains scripts for&lt;br&gt;one or more
+        A-)Performable: Performs one&lt;br&gt;or more
+        Performable--)A: Complete
+        A--)Performance: Complete
+        Performance--)Screenplay: Complete
+        Screenplay--)Consumer: Done
+        deactivate Performance
+    end
+    Consumer-&gt;&gt;Screenplay: CompleteScreenplay
+    deactivate Screenplay
+    
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/concepts/HowScreenplayAndPerformanceRelate.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

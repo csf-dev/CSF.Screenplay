@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Introduction to Screenplay | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Introduction to Screenplay | Screenplay ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/introduction/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="introduction-to-screenplay">Introduction to Screenplay</h1>
+
+<p>Screenplay is a software design pattern for scripting processes which are made from a series of steps, executed in order.
+It is particularly useful when many of those steps have a lot in common, making them reuseable.
+This has seen Screenplay become popular for writing the logic of <a href="https://en.wikipedia.org/wiki/Behavior-driven_development">Behavior-driven development tests</a>.
+Despite this, <em>Screenplay is not limited to just testing logic</em>.</p>
+<h2 id="how-screenplay-fits-into-an-architecture">How Screenplay fits into an architecture</h2>
+<p>This diagram provides a very high-level look at where Screenplay lies within the architecture of your software.</p>
+<pre><code class="lang-mermaid">block-beta
+    columns 3
+    consumer[&quot;Screenplay consumer&quot;]:2
+    yours[&quot;Your app, or\na test framework&quot;]
+    screenplay[&quot;Screenplay framework\nand extensions&quot;]:2
+    space
+    Performances:2
+    script[&quot;Each is a script\nwith a beginning &amp; end&quot;]
+    Actors
+    Performables
+    reusable[&quot;Reusable\nbuilding blocks&quot;]
+
+    classDef label fill:transparent,stroke:transparent
+    classDef screenplayCode fill:#EE9,stroke:#AA4
+    class screenplay screenplayCode
+    class yours,script,reusable label
+</code></pre>
+<h3 id="the-screenplay-consumer">The Screenplay consumer</h3>
+<p>The Screenplay consumer is <em>whatever software is using Screenplay</em>.
+If you are using Screenplay for testing then this is likely a software testing framework such as <a href="https://nunit.org/">NUnit</a> or <a href="https://reqnroll.net/">Reqnroll</a> (formerly SpecFlow, <a href="https://reqnroll.net/news/2025/01/specflow-end-of-life-has-been-announced/">until it was discontinued</a>).
+As noted above, Screenplay can be used by any .NET logic, not just testing frameworks.</p>
+<h3 id="screenplay-framework-and-extensions">Screenplay framework and extensions</h3>
+<p>The Screenplay framework is the library/NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay">CSF.Screenplay</a></strong>.
+This provides the 'engine' by which the Performances (below) may be executed.</p>
+<p>Screenplay alone is just an extensible engine, it's not capable of very much on its own.
+<strong>Screenplay extensions</strong> provide you with pre-written Performables.
+Performables shipped with extensions are low-level building blocks which interact with a specific technology.
+Once you have installed an extension, you may go on to write your own higher-level Performances, using those which are shipped with the extension.</p>
+<h3 id="performances">Performances</h3>
+<p>A performance is a script; a multi-step process to follow, with a beginning and an end.
+An app or test framework using Screenplay may have as many performances as it needs.
+A performance should have a name which a non-developer can understand, so long as they are familiar with your software.
+If you are using Screenplay as a BDD testing tool then each performance corresponds directly to one test scenario; the name of the performance is the name of the test.</p>
+<h3 id="actors">Actors</h3>
+<p>Screenplay logic, within each performance, is written from the perspective of Actors.
+Actors often represent human users of your software, particularly when using Screenplay for testing.
+An actor might also represent an automated process which is external to the software which Screenplay is controlling.</p>
+<h3 id="performables">Performables</h3>
+<p>Each performable is a reusable building block of .NET logic; a performable is <em>something that an actor may do</em>.
+It's completely normal, encouraged even, for performables to be made-of (composed-from) other performables.
+This way, writing a new performance which is a variation upon an existing performance benefits from maximum code-reuse, minimising code copy-pasting.</p>
+<h2 id="next-introduction-to-performances">Next: Introduction to Performances</h2>
+<p><a href="Performances.html">Read page 2 to learn more about the makeup of a Performance</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/introduction/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
