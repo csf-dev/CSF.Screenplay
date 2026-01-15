@@ -10,6 +10,7 @@ Where applicable, the glossary item links directly to the relevant type within t
 | [Action]      | A kind of peformable; the lowest-level interaction that changes the state of the application          |
 | [Actor]       | Typically a human user of the application, directs the use of performables                            |
 | [Cast]        | A factory & registry for actors which facilitates managing multiple actors in a performance           |
+| [Extension]   | An add-on library providing new Abilities, Actions & Questions for controlling a specific technology  |
 | [Feature]     | A logical group of related scenarios, this is a test class or test fixture in some testing frameworks |
 | [Integration] | A consumer of the Screenplay framework, such as a testing framework                                   |
 | [Performable] | A Screenplay verb; something that an actor can do                                                     |
@@ -40,3 +41,4 @@ Where applicable, the glossary item links directly to the relevant type within t
 [Scenario]: Scenario.md
 [Feature]: Feature.md
 [Integration]: Integration.md
+[Extension]: Extension.md

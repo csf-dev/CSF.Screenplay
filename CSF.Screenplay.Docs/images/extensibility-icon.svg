@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999">
+  <!-- Core/base box -->
+  <rect x="8" y="8" width="8" height="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#999"/>
+  
+  <!-- Extension pieces plugging into the core -->
+  <!-- Top extension -->
+  <path d="M10.5 8V4.5C10.5 3.67 11.17 3 12 3C12.83 3 13.5 3.67 13.5 4.5V8" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="11" y="3" width="2" height="2" fill="#999" stroke="none"/>
+  
+  <!-- Right extension -->
+  <path d="M16 10.5H19.5C20.33 10.5 21 11.17 21 12C21 12.83 20.33 13.5 19.5 13.5H16" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="19" y="11" width="2" height="2" fill="#999" stroke="none"/>
+  
+  <!-- Bottom extension -->
+  <path d="M13.5 16V19.5C13.5 20.33 12.83 21 12 21C11.17 21 10.5 20.33 10.5 19.5V16" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="11" y="19" width="2" height="2" fill="#999" stroke="none"/>
+  
+  <!-- Left extension -->
+  <path d="M8 13.5H4.5C3.67 13.5 3 12.83 3 12C3 11.17 3.67 10.5 4.5 10.5H8" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="3" y="11" width="2" height="2" fill="#999" stroke="none"/>
+</svg>

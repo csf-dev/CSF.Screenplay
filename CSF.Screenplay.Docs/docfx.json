@@ -10,7 +10,7 @@
             "**/bin/**",
             "**/obj/**",
             "Tests/**",
-            "*_old/**",
+            "Old/**",
             "CSF.Screenplay.JsonToHtmlReport.Template/**"
           ]
         }
@@ -39,11 +39,12 @@
     "output": "../docs",
     "template": [
       "default",
-      "modern"
+      "modern",
+      "screenplay-template"
     ],
     "globalMetadata": {
       "_appName": "CSF.Screenplay",
-      "_appTitle": "Screenplay docs",
+      "_appTitle": "Screenplay",
       "_enableSearch": true,
       "pdf": false
     }

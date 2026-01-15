@@ -13,8 +13,8 @@ More than approximately ten performables is too many.
 
 When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.
 
-[performables]: ../glossary/Performable.md
-[high-level tasks]: ../glossary/Task.md
+[performables]: ../../glossary/Performable.md
+[high-level tasks]: ../../glossary/Task.md
 
 ## Use the Performance Starter
 
@@ -49,5 +49,5 @@ It is recommended to keep your performables/tasks free from assertions.
 In your test code, use [questions] or question-like tasks to get values/data from the system under test. 
 Write your assertions in your main test logic, asserting that the values retrieved are as-expected.
 
-[tasks]: ../glossary/Task.md
-[questions]: ../glossary/Question.md
+[tasks]: ../../glossary/Task.md
+[questions]: ../../glossary/Question.md

@@ -99,11 +99,11 @@ namespace CSF.Screenplay
         /// <param name="performanceLogic">The logic to be executed by the performance.</param>
         /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
         /// <param name="cancellationToken">An optional cancellation token to abort the performance logic.</param>
-        /// <returns>A task which completes when the performance's logic has completed.</returns>
+        /// <returns>A task which completes when the performance's logic has completed, returning the result of the performance.</returns>
         /// <exception cref="ArgumentNullException">If the <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
-        public async Task ExecuteAsPerformanceAsync(AsyncPerformanceLogic performanceLogic,
-                                                    IList<IdentifierAndName> namingHierarchy = default,
-                                                    CancellationToken cancellationToken = default)
+        public async Task<bool?> ExecuteAsPerformanceAsync(AsyncPerformanceLogic performanceLogic,
+                                                           IList<IdentifierAndName> namingHierarchy = default,
+                                                           CancellationToken cancellationToken = default)
         {
             if (performanceLogic is null)
                 throw new ArgumentNullException(nameof(performanceLogic));
@@ -117,12 +117,14 @@ namespace CSF.Screenplay
                 {
                     var result = await performanceLogic(scopeAndPerformance.Performance.ServiceProvider, cancellationToken).ConfigureAwait(false);
                     scopeAndPerformance.Performance.FinishPerformance(result);
+                    return result;
                 }
                 // Only catch performable exceptions; if it's anything else then the root-level logic of the performance logic is at fault,
                 // and that's unrelated to Screenplay, so shouldn't be caught here.
                 catch(PerformableException)
                 {
                     scopeAndPerformance.Performance.FinishPerformance(false);
+                    return false;
                 }
             }
         }

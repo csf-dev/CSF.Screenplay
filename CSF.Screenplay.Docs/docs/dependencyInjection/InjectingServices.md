@@ -39,7 +39,7 @@ This avoids the service locator anti-pattern and provides a convenient pattern b
 
 Use services resolved from the service provider, or injected into your [`IHostsPerformance`] implementation, to get access to [commonly-used Screenplay services] and anything else required at the root level of your performance logic.
 
-[using Screenplay standalone]: ../StandaloneScreenplay.md
+[using Screenplay standalone]: ../gettingStarted/nonTesting/index.md
 [`Screenplay.ExecuteAsPerformanceAsync`]: xref:CSF.Screenplay.Screenplay.ExecuteAsPerformanceAsync(System.Func{System.IServiceProvider,System.Threading.CancellationToken,System.Threading.Tasks.Task{System.Nullable{System.Boolean}}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
 [`IHostsPerformance`]: xref:CSF.Screenplay.IHostsPerformance
 [`ExecuteAsPerformanceAsync<T>`]: xref:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync``1(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)

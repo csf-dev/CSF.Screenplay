@@ -11,8 +11,8 @@ When using an existing [`IServiceCollection`] for you application, either [using
 Just add your services to the container (the service collection) as normal; they will be available [to resolve and inject] over the course of the Screenplay.
 
 [`IServiceCollection`]: https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
-[using Screenplay standalone]: ../StandaloneScreenplay.md
-[with a test framework]: ../ScreenplayInTheTestingStack.md
+[using Screenplay standalone]: ../gettingStarted/nonTesting/index.md
+[with a test framework]: ../concepts/ScreenplayInTheTestingStack.md
 [to resolve and inject]: InjectingServices.md
 
 ## Using the static `Create` factory

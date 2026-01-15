@@ -56,16 +56,17 @@ namespace CSF.Screenplay
         /// <param name="performanceLogic">The logic to be executed by the performance.</param>
         /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
         /// <param name="timeoutMiliseconds">If set to a non-zero positive value, then the performance logic will be aborted after the specified timeout in milliseconds.</param>
+        /// <returns>The result of the performance.</returns>
         /// <exception cref="ArgumentNullException">If either <paramref name="screenplay"/> or <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
         /// <exception cref="ArgumentOutOfRangeException">If <paramref name="timeoutMiliseconds"/> is a negative number.</exception>
         /// <seealso cref="ExecuteAsPerformance(Screenplay, SyncPerformanceLogic, IList{IdentifierAndName}, CancellationToken)"/>
-        public static void ExecuteAsPerformance(this Screenplay screenplay,
-                                                SyncPerformanceLogic performanceLogic,
-                                                IList<IdentifierAndName> namingHierarchy = default,
-                                                int timeoutMiliseconds = default)
+        public static bool? ExecuteAsPerformance(this Screenplay screenplay,
+                                                 SyncPerformanceLogic performanceLogic,
+                                                 IList<IdentifierAndName> namingHierarchy = default,
+                                                 int timeoutMiliseconds = default)
         {
             var token = GetCancellationToken(timeoutMiliseconds);
-            screenplay.ExecuteAsPerformance(performanceLogic, namingHierarchy, token);
+            return screenplay.ExecuteAsPerformance(performanceLogic, namingHierarchy, token);
         }
 
         /// <summary>
@@ -102,21 +103,23 @@ namespace CSF.Screenplay
         /// <param name="performanceLogic">The logic to be executed by the performance.</param>
         /// <param name="namingHierarchy">A naming hierarchy used to identify the performance; if <see langword="null" /> then an empty name will be used.</param>
         /// <param name="cancellationToken">A cancellation token, which if cancelled will abort waiting for <paramref name="performanceLogic"/> to complete.</param>
+        /// <returns>The result of the performance.</returns>
         /// <exception cref="ArgumentNullException">If either <paramref name="screenplay"/> or <paramref name="performanceLogic"/> is <see langword="null" />.</exception>
-        public static void ExecuteAsPerformance(this Screenplay screenplay,
-                                                SyncPerformanceLogic performanceLogic,
-                                                IList<IdentifierAndName> namingHierarchy,
-                                                CancellationToken cancellationToken)
+        public static bool? ExecuteAsPerformance(this Screenplay screenplay,
+                                                 SyncPerformanceLogic performanceLogic,
+                                                 IList<IdentifierAndName> namingHierarchy,
+                                                 CancellationToken cancellationToken)
         {
             if (screenplay is null)
                 throw new ArgumentNullException(nameof(screenplay));
             if (performanceLogic is null)
                 throw new ArgumentNullException(nameof(performanceLogic));
 
-            screenplay.ExecuteAsPerformanceAsync(GetAsyncPerformanceLogic(performanceLogic),
-                                                 namingHierarchy,
-                                                 cancellationToken)
-                .Wait(cancellationToken);
+            var task = screenplay.ExecuteAsPerformanceAsync(GetAsyncPerformanceLogic(performanceLogic),
+                                                            namingHierarchy,
+                                                            cancellationToken);
+            task.Wait(cancellationToken);
+            return task.Result;
         }
 
         /// <summary>
@@ -157,13 +160,13 @@ namespace CSF.Screenplay
         /// <param name="screenplay">The screenplay with which to execute the logic.</param>
         /// <param name="namingHierarchy">An optional naming hierarchy used to identify the performance.</param>
         /// <param name="cancellationToken">An optional cancellation token to abort the performance logic.</param>
-        /// <returns>A task which completes when the performance's logic has completed.</returns>
+        /// <returns>A task which completes when the performance's logic has completed, returning the result of the performance.</returns>
         /// <exception cref="ArgumentNullException">If the <paramref name="screenplay"/> is <see langword="null" />.</exception>
         /// <typeparam name="T">The concrete type of an implementation of <see cref="IHostsPerformance"/> which contains the performance logic.</typeparam>
         /// <seealso cref="IHostsPerformance"/>
-        public static Task ExecuteAsPerformanceAsync<T>(this Screenplay screenplay,
-                                                        IList<IdentifierAndName> namingHierarchy = default,
-                                                        CancellationToken cancellationToken = default) where T : IHostsPerformance
+        public static Task<bool?> ExecuteAsPerformanceAsync<T>(this Screenplay screenplay,
+                                                               IList<IdentifierAndName> namingHierarchy = default,
+                                                               CancellationToken cancellationToken = default) where T : IHostsPerformance
         {
             if (screenplay is null)
                 throw new ArgumentNullException(nameof(screenplay));

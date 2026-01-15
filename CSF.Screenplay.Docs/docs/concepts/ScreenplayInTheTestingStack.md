@@ -40,7 +40,7 @@ Applied to NUnit, this is the `NUnit.Framework.dll` which is included in [the NU
 [The Test Integration] is the extension to the test framework (above) which enables the use of Screenplay-based logic in tests.
 Each testing framework has its own test integration, as it must be developed for the test framework's syntax and extension points.
 
-[The Test Integration]: ../glossary/Integration.md
+[The Test Integration]: ../../glossary/Integration.md
 
 ## Tests
 
@@ -64,6 +64,6 @@ That it, it will use [Actors], [Abilities] and [Performables].
 In this context, each test is a Screenplay [Performance].
 
 [Actors]: xref:CSF.Screenplay.Actor
-[Abilities]: ../glossary/Ability.md
-[Performables]: ../glossary/Performable.md
+[Abilities]: ../../glossary/Ability.md
+[Performables]: ../../glossary/Performable.md
 [Performance]: xref:CSF.Screenplay.IPerformance

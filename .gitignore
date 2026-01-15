@@ -9,3 +9,4 @@ node_modules/
 /CSF.Screenplay.JsonToHtmlReport.Template/src/output/
 **/ScreenplayReport*
 **/TestResult.xml
+.obsidian/
