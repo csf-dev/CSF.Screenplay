@@ -14,6 +14,6 @@ The path through a Performance should be completely deterministic, short of an u
 
 [Performances]: xref:CSF.Screenplay.IPerformance
 [Performables]: ../../glossary/Performable.md
-[as a tool for testing]: ../SuitabilityAsATestingTool.md
+[as a tool for testing]: ../bestPractice/SuitabilityAsATestingTool.md
 [a cyclomatic complexity]: https://en.wikipedia.org/wiki/Cyclomatic_complexity
 [Actor]: xref:CSF.Screenplay.Actor

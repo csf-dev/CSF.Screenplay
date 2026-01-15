@@ -10,7 +10,7 @@ Further detail is provided below.
 
 [SpecFlow version 3.4.3]: https://www.nuget.org/packages/SpecFlow/3.4.3
 [CSF.Screenplay.SpecFlow]: https://www.nuget.org/packages/CSF.Screenplay.SpecFlow
-[Abilities]: ../../glossary/Ability.md
+[Abilities]: ../../../glossary/Ability.md
 [use SpecFlow context injection & hooks]: https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options
 
 ## Writing step bindings
@@ -29,7 +29,7 @@ If you are not using Personas to get actors, then you might also need to inject 
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [`IStage`]: xref:CSF.Screenplay.IStage
 [`ICast`]: xref:CSF.Screenplay.ICast
-[Personas]: ../../glossary/Persona.md
+[Personas]: ../../../glossary/Persona.md
 [Actors]: xref:CSF.Screenplay.Actor
 
 ### Example
@@ -74,6 +74,6 @@ public class WashTheDishesSteps(IStage stage)
 }
 ```
 
-[the documentation for writing performables]: ../writingPerformables/index.md
+[the documentation for writing performables]: ../../writingPerformables/index.md
 [the NUnit runner]: https://docs.specflow.org/projects/specflow/en/latest/Installation/Unit-Test-Providers.html
 [it makes use of NUnit-style assertions]: https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html

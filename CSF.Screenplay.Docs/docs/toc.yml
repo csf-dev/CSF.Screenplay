@@ -1,29 +1,48 @@
-- name: Documentation home
-  href: ../index.md
-- name: Screenplay concepts
+- name: Introduction
+  href: introduction/index.md
+  items:
+    - name: Performances
+      href: introduction/Performances.md
+    - name: Sample Performances
+      href: introduction/SamplePerformances.md
+    - name: Sample Tasks
+      href: introduction/SampleTasks.md
+- name: Capabilities
+  href: Capabilities.md
+- name: Get started
+  href: index.md
+  items:
+    - name: NUnit 3
+      href: gettingStarted/nunit3/index.md
+    - name: Reqnroll
+      href: gettingStarted/reqnroll/index.md
+    - name: Process automation
+      href: gettingStarted/nonTesting/index.md
+- name: Concepts
   items:
     - name: Makeup of a Screenplay
-      href: MakeupOfAScreenplay.md
-    - name: Screenplay sequence diagram
-      href: HowScreenplayAndPerformanceRelate.md
+      href: concepts/MakeupOfAScreenplay.md
+    - name: Sequence and lifetimes
+      href: concepts/HowScreenplayAndPerformanceRelate.md
     - name: Dependency injection
       href: dependencyInjection/index.md
-- name: Using Screenplay
+    - name: In the testing stack
+      href: concepts/ScreenplayInTheTestingStack.md
+- name: Reference
   items:
-    - name: Writing performables
+    - name: Performables
       href: writingPerformables/index.md
     - name: Builder pattern
       href: builderPattern/index.md
     - name: Reports
       href: GettingReports.md
-- name: As a testing tool
-  href: SuitabilityAsATestingTool.md
+    - name: Performables
+      href: performables/toc.yml
+- name: Best practices
   items:
-    - name: Screenplay in the testing stack
-      href: ScreenplayInTheTestingStack.md
-    - name: NUnit tutorial
-      href: nUnitTutorial/index.md
-    - name: SpecFlow tutorial
-      href: specFlowTutorial/index.md
-- name: Performables
-  href: performables/toc.yml
+    - name: When to use for tests
+      href: bestPractice/SuitabilityAsATestingTool.md
+    - name: Writing tests
+      href: bestPractice/WritingTests.md
+- name: Extending Screenplay
+  href: extendingScreenplay/index.md

@@ -119,6 +119,6 @@ If there's a well-known value, a URL, a file system path, etc, then represent th
 ## Next: Try Screenplay out for yourself
 
 This concludes the introduction to Screenplay.
-The next steps are to [try using Screenplay for yourself].
+The next step is to [try using Screenplay for yourself]!
 
-[try using Screenplay for yourself]: ../usingScreenplay/index.md
+[try using Screenplay for yourself]: ../index.md

@@ -44,7 +44,7 @@ await Given(webster).WasAbleTo(AddAProductToTheirCartNamed("Blue widget"));
 ```
 
 [Performance]: xref:CSF.Screenplay.IPerformance
-[Task]: ../../glossary/Task.md
+[Task]: ../glossary/Task.md
 [a fluent interface]: https://en.wikipedia.org/wiki/Fluent_interface
 
 ## Screenplay promotes code reuse
@@ -55,9 +55,9 @@ Screenplay ruthlessly follows [SOLID design principles], particularly SRP and OC
 Developers are also encouraged to use [Personas] to configure and manage the [Actors] which participate in [a Screenplay].
 
 [SOLID design principles]: https://en.wikipedia.org/wiki/SOLID
-[The architecture of Performables]: ../../glossary/Performable.md
-[Tasks]: ../../glossary/Task.md
-[Personas]: ../../glossary/Persona.md
+[The architecture of Performables]: ../glossary/Performable.md
+[Tasks]: ../glossary/Task.md
+[Personas]: ../glossary/Persona.md
 [Actors]: xref:CSF.Screenplay.Actor
 [a Screenplay]: xref:CSF.Screenplay.Screenplay
 
@@ -66,7 +66,7 @@ Developers are also encouraged to use [Personas] to configure and manage the [Ac
 Whenever [a Screenplay] executes, a record of what happened is saved in JSON format.
 This JSON file is computer-readable, but [it may be converted to a human-readable report using the included utility].
 
-[it may be converted to a human-readable report using the included utility]: ../GettingReports.md
+[it may be converted to a human-readable report using the included utility]: GettingReports.md
 
 ## Screenplay integrates with Testing frameworks
 
@@ -79,7 +79,7 @@ Screenplay has [integrations with testing frameworks], out of the box:
 The community is encouraged to create and contribute additional integrations if they wish.
 The source code of the existing integrations, and the documentation website for your chosen test framework, are good places to start for writing a new integration.
 
-[integrations with testing frameworks]: ../../glossary/Integration.md
+[integrations with testing frameworks]: ../glossary/Integration.md
 
 ## Screenplay is extensible
 
@@ -94,11 +94,11 @@ The community is encouraged to create and contribute additional extensions if th
 Writing an extension is a matter of writing [Ability], [Action] and [Question] classes, along with any appropriate [Builders].
 The source code for the existing Extensions are a good place to start in learning how to create a new one.
 
-[Extensions]: ../../glossary/Extension.md
-[Ability]: ../../glossary/Ability.md
-[Action]: ../../glossary/Action.md
-[Question]: ../../glossary/Question.md
-[Builders]: ../builderPattern/WritingBuilders.md
+[Extensions]: ../glossary/Extension.md
+[Ability]: ../glossary/Ability.md
+[Action]: ../glossary/Action.md
+[Question]: ../glossary/Question.md
+[Builders]: builderPattern/WritingBuilders.md
 
 ## Screenplay isn't limited to software testing
 

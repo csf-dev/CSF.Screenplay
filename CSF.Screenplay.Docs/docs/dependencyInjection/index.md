@@ -24,7 +24,7 @@ It is also important to note that within DI, the [`Screenplay`] object _must be 
 As a consequence there may be _at most one_ Screenplay object per dependency injection container.
 
 [Dependency Injection Scopes]: https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped
-[the diagram of how Actors, Abilities and Performables relate to one another]: ../MakeupOfAScreenplay.md
+[the diagram of how Actors, Abilities and Performables relate to one another]: ../concepts/MakeupOfAScreenplay.md
 [Performances]: xref:CSF.Screenplay.IPerformance
 
 ## Using DI in Screenplay

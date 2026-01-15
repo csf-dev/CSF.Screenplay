@@ -11,14 +11,14 @@ Further detail is provided below.
 1. Add parameters to your test methods to access the Screenplay architecture
 
 > [!TIP]
-> Developers are encouraged to read [these best practices for writing NUnit tests which use Screenplay].
+> Developers are encouraged to read [these best practices for writing tests which use Screenplay].
 
 [NUnit version 3.6.0]: https://www.nuget.org/packages/NUnit/3.6.0
 [CSF.Screenplay.NUnit]: https://www.nuget.org/packages/CSF.Screenplay.NUnit
 [`IGetsScreenplay`]: xref:CSF.Screenplay.IGetsScreenplay
 [`ScreenplayAssemblyAttribute`]: xref:CSF.Screenplay.ScreenplayAssemblyAttribute
 [`ScreenplayAttribute`]:xref:CSF.Screenplay.ScreenplayAttribute
-[these best practices for writing NUnit tests which use Screenplay]: BestPractices.md
+[these best practices for writing tests which use Screenplay]: ../../bestPractice/WritingTests.md
 
 ## Decorating your test assembly with `[ScreenplayAssembly]`
 
@@ -86,5 +86,5 @@ public async Task TheDishesShouldBeCleanAfterJoeWashesThem(ICast cast, IDishWash
 }
 ```
 
-[provided by dependency injection]: ../dependencyInjection/index.md
-[the documentation for writing performables]: ../writingPerformables/index.md
+[provided by dependency injection]: ../../dependencyInjection/index.md
+[the documentation for writing performables]: ../../writingPerformables/index.md
