@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 24 24" fill="#CCC" xmlns="http://www.w3.org/2000/svg">
+  <path
+     d="M8 3L2 12l6 9M16 3l6 9-6 9"
+     stroke="#CCC"
+     stroke-width="2"
+     fill="none"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path1" />
+  <path
+     d="M15.5 8.5C14.57 7.57 13.32 7 12 7c-2.21 0-4.09 1.43-4.76 3.4"
+     fill="none"
+     stroke="#CCC"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path2" />
+  <path
+     d="M 16.806117,9.943062 16.251708,7.9374122 14.815454,9.2169336"
+     fill="#CCC"
+     id="path3" />
+  <path
+     d="m 7.968367,14.795695 c 0.93,0.93 2.18,1.5 3.5,1.5 2.21,0 4.09,-1.43 4.76,-3.4"
+     fill="none"
+     stroke="#CCC"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path2-9" />
+  <path
+     d="m 6.66225,13.352633 0.554409,2.00565 1.436254,-1.279522"
+     fill="#CCC"
+     id="path3-4" />
+</svg>
