@@ -69,6 +69,34 @@ public class ReadTheTotalValueOfTheirCart : IPerformableWithResult<string>, ICan
 
 Now, we will disect the code of these two sample Tasks, to see what we can learn from them.
 
+### Tasks coordinate other Performables
+
+Common to both tasks is that they make prolific use of `actor.PerformAsync`.
+This is the mechanism by which Task classes compose other Performables, which may include any or all of Actions, Questions or other Tasks.
+These consumed Performables are built in the same manner, using the same builders and/or static factories, as if they were being used directly from the Performance logic.
+
+As a side-note, the first of these sample Tasks is built using only **Actions**.
+The [`EnterTheText`] and [`ClickOn`] builder methods create Actions, which are built into the CSF.Screenplay.Selenium Extension.
+The second sample Task makes use of a **Question** from the same Extension.
+[`ReadFromTheElement`] followed by `TheText` gets a Question which reads text from the web browser screen.
+
+On the other hand, the second sample Task makes use of (a fictitious) Task as well: `NavigateToTheirShoppingCart`.
+If this were a real project then the developer would have written that Task also, including whatever logic is required to navigate the current user to their shopping cart screen.
+
+> [!NOTE]
+> The same `PerformAsync` method is used to consume Actions, Questions or Tasks.
+> So, Tasks may consume _any kind_ of Performable.
+
+[`EnterTheText`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText(System.String[])
+[`ClickOn`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.ClickOn(CSF.Screenplay.Selenium.Elements.ITarget)
+[`ReadFromTheElement`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheElement(CSF.Screenplay.Selenium.Elements.ITarget)
+
+### Always implement `ICanReport`, if you can
+
+Notice how each of the Task classes also implements `ICanReport`?
+One of the features/benefits of Screenplay which we have not yet touched upon is its ability to produce detailed human-readable **Reports** of the Performances.
+By implementing `ICanReport`, you may decide upon the human-readable report text that the current Task emits to describe itself.
+
 ### Tasks may be built on assumptions
 
 Notice that in the Performance in which it was used, the `AddAProductToTheirCartNamed` task was preceded by a task named `OpenTheAppWithAnEmptyShoppingCart`.
@@ -80,12 +108,6 @@ The Add a Product task assumes that the current Actor (a user of the shopping we
 > It's perfectly reasonable, recommended in fact, for Tasks to use _implicit assumptions about the state of the application_.
 > It's encouraged to document these, to aid reusability.
 
-### Tasks coordinate other Performables
-
-Common to both tasks is that they make prolific use of `actor.PerformAsync`.
-This is the mechanism by which Task classes compose other Performables, which may include any or all of Actions, Questions or other Tasks.
-These consumed Performables are built in the same manner, using the same builders and/or static factories, as if they were being used directly from the Performance logic.
-
 ### Well-known parameters are held in static classes
 
 Notice the static classes which are used alongside these tasks.
@@ -93,29 +115,6 @@ Each provides some Locators which specify some HTML elements on the screen.
 Locators and HTML elements are specific to the CSF.Screenplay.Selenium Extension, but the principle is the same regardless of the extension.
 
 If there's a well-known value, a URL, a file system path, etc, then represent this value in your code.  This way it may be referenced by builders and the fluent design of Screenplay Performables.
-
-### Always implement `ICanReport`, if you can
-
-Notice how each of the Task classes also implements `ICanReport`?
-One of the features/benefits of Screenplay which we have not yet touched upon is its ability to produce detailed human-readable **Reports** of the Performances.
-By implementing `ICanReport`, you may decide upon the human-readable report text that the current Task emits to describe itself.
-
-### Tasks may compose tasks
-
-You may not know, but the first of these sample Tasks is built using only **Actions**.
-The [`EnterTheText`] and [`ClickOn`] builder methods create Actions, which are built into the CSF.Screenplay.Selenium Extension.
-
-The second sample Task makes use of a **Question** which is built into the same Extension: [`ReadFromTheElement`] followed by `TheText` gets a Question which reads text from the web browser screen.
-On the other hand, the other Performable used by the second Task is itself a Task: `NavigateToTheirShoppingCart`.
-This is fictitious and there is no source code available for it.
-If this scenario were real then it would include whatever logic required to navigate the current user to their shopping cart screen.
-
-> [!NOTE]
-> Because the manner in which Performables are consumed is the same, regardless of whether they are Actions, Questions or Tasks, Tasks may consume any kind of Performable.
-
-[`EnterTheText`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText(System.String[])
-[`ClickOn`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.ClickOn(CSF.Screenplay.Selenium.Elements.ITarget)
-[`ReadFromTheElement`]: xref:CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheElement(CSF.Screenplay.Selenium.Elements.ITarget)
 
 ## Next: Try Screenplay out for yourself
 
