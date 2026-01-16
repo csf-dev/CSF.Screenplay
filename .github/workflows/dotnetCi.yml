@@ -60,7 +60,7 @@ jobs:
     # Build and test the solution
 
     - name: Restore .NET packages
-      run: dotnet restore -c ${{ env.Configuration }}
+      run: dotnet restore
     - name: Start SonarScanner
       run: >
         dotnet-sonarscanner begin 
@@ -83,7 +83,7 @@ jobs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
             AnyFailures=1
