@@ -39,7 +39,8 @@ jobs:
     - name: Setup Java JDK for SonarScanner
       uses: actions/setup-java@v5.1.0
       with:
-        java-version: 17
+        java-version: 21
+        distribution: 'zulu'
 
     # Environment setup pre-build
 
