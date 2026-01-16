@@ -71,10 +71,9 @@ jobs:
         /o:${{ env.SonarCloudUsername }}
         /d:sonar.host.url=${{ env.SonarCloudUrl }}
         /d:sonar.token=${{ env.SonarCloudSecretKey }}
-        /d:${{ env.BranchParam }}=${{ env.BranchName }}
-        ${{ env.PullRequestParam }}
+        /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
         /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
-        /s:${{ env.PWD }}/.sonarqube-analysisproperties.xml
+        /s:$PWD/.sonarqube-analysisproperties.xml
     - name: Build the solution
       run: dotnet build -c ${{ env.Configuration }} --no-incremental
     - name: Run .NET tests with coverage
