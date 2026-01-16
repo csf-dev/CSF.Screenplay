@@ -44,9 +44,11 @@ jobs:
 
     # Environment setup pre-build
 
-    - name: Setup SonarScanner
+    - name: Add .NET global tools location to PATH
+      run: export PATH="$PATH:/home/runner/.dotnet/tools"
+    - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner
-    - name: Setup Coverlet console
+    - name: Install Coverlet console
       run: dotnet tool install --global coverlet.console
     - name: Setup Selenium Manager config
       run: |
