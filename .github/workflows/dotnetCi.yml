@@ -23,6 +23,7 @@ jobs:
       BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
+      PATH: ${{ env.PATH }}
 
     steps:
     - name: Checkout
@@ -45,7 +46,7 @@ jobs:
     # Environment setup pre-build
 
     - name: Add .NET global tools location to PATH
-      run: export PATH="$PATH:/home/runner/.dotnet/tools"
+      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner
     - name: Install Coverlet console
