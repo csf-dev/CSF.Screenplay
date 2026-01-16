@@ -30,10 +30,16 @@ jobs:
 
     # Install build dependencies
 
+    - name: Add .NET global tools location to PATH
+      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
     - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DotnetVersion }}
+    - name: Install SonarScanner
+      run: dotnet tool install --global dotnet-sonarscanner
+    - name: Install Coverlet console
+      run: dotnet tool install --global coverlet.console
     - name: Install Node.js for building JSON-to-HTML report converter
       uses: actions/setup-node@v6.2.0
     - name: Install Java JDK for SonarScanner
@@ -44,25 +50,24 @@ jobs:
 
     # Environment setup pre-build
 
-    - name: Add .NET global tools location to PATH
-      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
-    - name: Install SonarScanner
-      run: dotnet tool install --global dotnet-sonarscanner
-    - name: Install Coverlet console
-      run: dotnet tool install --global coverlet.console
     - name: Setup Selenium Manager config
       run: |
         mkdir ~/.cache/selenium
         cp Tools/se-config.toml ~/.cache/selenium
-    - name: Setup an Xvfb display so Chrome may run
+    - name: Start an Xvfb display so Chrome may run
       run: |
         Xvfb -ac :99 -screen 0 1280x1024x16 &
         export DISPLAY=:99
+    - name: Restore .NET packages
+      run: dotnet restore
+    - name: Restore Node modules
+      run: |
+        cd CSF.Screenplay.JsonToHtmlReport.Template/src
+        npm ci
+        cd ../..
 
     # Build and test the solution
 
-    - name: Restore .NET packages
-      run: dotnet restore
     - name: Start SonarScanner
       run: >
         dotnet sonarscanner begin
