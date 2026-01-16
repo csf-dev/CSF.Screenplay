@@ -20,6 +20,9 @@ jobs:
       Tfm: net8.0
       DotnetVersion: 8.0.x
       SonarCloudSecretKey: ${{ secrets.SONARCLOUDKEY }}
+      BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+      BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
+      PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
 
     steps:
     - name: Checkout
@@ -46,18 +49,6 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner
     - name: Setup Coverlet console
       run: dotnet tool install --global coverlet.console
-    - name: Setup SonarScanner for pull request processing
-      if: ${{ github.event_name == 'pull_request' }}
-      env:
-        BranchName: ${{ github.base_ref }}
-        BranchParam: sonar.pullrequest.branch
-        PullRequestParam: /d:sonar.pullrequest.key=${{ github.event.number }}
-    - name: Setup SonarScanner for normal branch processing
-      if: ${{ github.event_name != 'pull_request' }}
-      env:
-        BranchName: ${{ github.ref_name }}
-        BranchParam: sonar.branch.name
-        PullRequestParam: 
     - name: Setup Selenium Manager config
       run: |
         mkdir ~/.cache/selenium
