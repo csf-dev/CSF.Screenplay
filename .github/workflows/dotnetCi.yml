@@ -48,6 +48,10 @@ jobs:
       with:
         java-version: 21
         distribution: 'zulu'
+    - name: Install GUI packages so Chrome may run
+      run: |
+        sudo apt-get update
+        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
 
     # Environment setup pre-build
 
@@ -84,7 +88,6 @@ jobs:
       id: dotnet_tests
       continue-on-error: true
       run: |
-        AnyFailures=0
         for proj in Tests/*.Tests
         do
           projNameArray=(${proj//// })
@@ -93,10 +96,9 @@ jobs:
           coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
-            AnyFailures=1
+            echo "failures=true" >> $GITHUB_OUTPUT
           fi
         done
-        echo "failures=$AnyFailures" >> $GITHUB_OUTPUT
     - name: Run JavaScript tests with coverage
       id: js_tests
       continue-on-error: true
@@ -105,9 +107,7 @@ jobs:
         npm test
         if [ $? -ne 0 ]
         then
-          echo "failures=1" >> $GITHUB_OUTPUT
-        else
-          echo "failures=0" >> $GITHUB_OUTPUT
+          echo "failures=true" >> $GITHUB_OUTPUT
         fi
         cd ../..
     - name: Stop SonarScanner
@@ -124,7 +124,7 @@ jobs:
         name: Screenplay JSON reports
         path: Tests/**/ScreenplayReport_*.json
     - name: Fail the build if any test failures
-      if: ${{ steps.dotnet_tests.outputs.failures == 1 || steps.js_tests.outputs.failures == 1 }}
+      if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
       run: |
         echo "Failing the build due to test failures"
         exit 1
