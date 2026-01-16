@@ -23,6 +23,7 @@ jobs:
       BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
+      DISPLAY: :99
 
     steps:
     - name: Checkout
@@ -55,9 +56,7 @@ jobs:
         mkdir ~/.cache/selenium
         cp Tools/se-config.toml ~/.cache/selenium
     - name: Start an Xvfb display so Chrome may run
-      run: |
-        Xvfb -ac :99 -screen 0 1280x1024x16 &
-        export DISPLAY=:99
+      run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &
     - name: Restore .NET packages
       run: dotnet restore
     - name: Restore Node modules
@@ -82,6 +81,8 @@ jobs:
     - name: Build the solution
       run: dotnet build -c ${{ env.Configuration }} --no-incremental
     - name: Run .NET tests with coverage
+      id: dotnet_tests
+      continue-on-error: true
       run: |
         AnyFailures=0
         for proj in Tests/*.Tests
@@ -95,14 +96,18 @@ jobs:
             AnyFailures=1
           fi
         done
-        export AnyFailures
+        echo "failures=$AnyFailures" >> $GITHUB_OUTPUT
     - name: Run JavaScript tests with coverage
+      id: js_tests
+      continue-on-error: true
       run: |
         cd CSF.Screenplay.JsonToHtmlReport.Template/src
         npm test
         if [ $? -ne 0 ]
         then
-          export AnyFailures=1
+          echo "failures=1" >> $GITHUB_OUTPUT
+        else
+          echo "failures=0" >> $GITHUB_OUTPUT
         fi
         cd ../..
     - name: Stop SonarScanner
@@ -119,12 +124,10 @@ jobs:
         name: Screenplay JSON reports
         path: Tests/**/ScreenplayReport_*.json
     - name: Fail the build if any test failures
+      if: ${{ steps.dotnet_tests.outputs.failures == 1 || steps.js_tests.outputs.failures == 1 }}
       run: |
-        if [ $AnyFailures -ne 0 ]
-        then
-          echo "Failing the build due to test failures"
-          exit 1
-        fi
+        echo "Failing the build due to test failures"
+        exit 1
 
     # TODO: Convert Screenplay reports to HTML and upload as an artifact
   
