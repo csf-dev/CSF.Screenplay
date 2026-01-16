@@ -63,7 +63,7 @@ jobs:
       run: dotnet restore
     - name: Start SonarScanner
       run: >
-        dotnet-sonarscanner begin 
+        dotnet sonarscanner begin 
         /k:${{ env.SonarCloudProject }}
         /v:GitHub_build_${{ env.RunNumber }}
         /o:${{ env.SonarCloudUsername }}
@@ -101,7 +101,7 @@ jobs:
         cd ../..
     - name: Stop SonarScanner
       run:
-        dotnet-sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+        dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
     - name: Upload test results artifacts
       uses: actions/upload-artifact@v4
       with:
