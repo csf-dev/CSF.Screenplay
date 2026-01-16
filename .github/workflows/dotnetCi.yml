@@ -30,13 +30,13 @@ jobs:
 
     # Install build dependencies
 
-    - name: Install .NET Core
+    - name: Install .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DotnetVersion }}
-    - name: Setup Node.js for building JSON-to-HTML report converter
+    - name: Install Node.js for building JSON-to-HTML report converter
       uses: actions/setup-node@v6.2.0
-    - name: Setup Java JDK for SonarScanner
+    - name: Install Java JDK for SonarScanner
       uses: actions/setup-java@v5.1.0
       with:
         java-version: 21
@@ -65,7 +65,7 @@ jobs:
       run: dotnet restore
     - name: Start SonarScanner
       run: >
-        dotnet sonarscanner begin 
+        dotnet sonarscanner begin
         /k:${{ env.SonarCloudProject }}
         /v:GitHub_build_${{ env.RunNumber }}
         /o:${{ env.SonarCloudUsername }}
@@ -74,7 +74,7 @@ jobs:
         /d:${{ env.BranchParam }}=${{ env.BranchName }}
         ${{ env.PullRequestParam }}
         /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
-        /s:.sonarqube-analysisproperties.xml
+        /s:${{ env.PWD }}/.sonarqube-analysisproperties.xml
     - name: Build the solution
       run: dotnet build -c ${{ env.Configuration }} --no-incremental
     - name: Run .NET tests with coverage
