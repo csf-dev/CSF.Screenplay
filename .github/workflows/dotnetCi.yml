@@ -11,8 +11,15 @@ jobs:
   buildAndRunBasicTests:
     runs-on: ubuntu-slim
 
-    # env:
-      # TODO: put env vars here
+    env:
+      RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
+      SonarCloudProject: csf-dev_CSF.Screenplay
+      SonarCloudUsername: craigfowler-github
+      SonarCloudUrl: https://sonarcloud.io
+      Configuration: Debug
+      Tfm: net8.0
+      DotnetVersion: 8.0.x
+      SonarCloudSecretKey: ${{ secrets.SONARCLOUDKEY }}
 
     steps:
     - name: Checkout
@@ -23,7 +30,7 @@ jobs:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: ${{ env.DotnetVersion }}
     - name: Setup Node.js for building JSON-to-HTML report converter
       uses: actions/setup-node@v6.2.0
     - name: Setup Java JDK for SonarScanner
@@ -39,75 +46,97 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner
     - name: Setup Coverlet console
       run: dotnet tool install --global coverlet.console
+    - name: Setup SonarScanner for pull request processing
+      if: ${{ github.event_name == 'pull_request' }}
+      env:
+        BranchName: ${{ github.base_ref }}
+        BranchParam: sonar.pullrequest.branch
+        PullRequestParam: /d:sonar.pullrequest.key=${{ github.event.number }}
+    - name: Setup SonarScanner for normal branch processing
+      if: ${{ github.event_name != 'pull_request' }}
+      env:
+        BranchName: ${{ github.ref_name }}
+        BranchParam: sonar.branch.name
+        PullRequestParam: 
+    - name: Setup Selenium Manager config
+      run: |
+        mkdir ~/.cache/selenium
+        cp Tools/se-config.toml ~/.cache/selenium
+    - name: Setup an Xvfb display so Chrome may run
+      run: |
+        Xvfb -ac :99 -screen 0 1280x1024x16 &
+        export DISPLAY=:99
 
-    # Start SonarScanner
+    # Build and test the solution
 
-    # Build
+    - name: Restore .NET packages
+      run: dotnet restore -c ${{ env.Configuration }}
+    - name: Start SonarScanner
+      run: >
+        dotnet-sonarscanner begin 
+        /k:${{ env.SonarCloudProject }}
+        /v:GitHub_build_${{ env.RunNumber }}
+        /o:${{ env.SonarCloudUsername }}
+        /d:sonar.host.url=${{ env.SonarCloudUrl }}
+        /d:sonar.token=${{ env.SonarCloudSecretKey }}
+        /d:${{ env.BranchParam }}=${{ env.BranchName }}
+        ${{ env.PullRequestParam }}
+        /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
+        /s:.sonarqube-analysisproperties.xml
     - name: Build the solution
-      run: dotnet build --no-incremental
+      run: dotnet build -c ${{ env.Configuration }} --no-incremental
+    - name: Run .NET tests with coverage
+      run: |
+        AnyFailures=0
+        for proj in Tests/*.Tests
+        do
+          projNameArray=(${proj//// })
+          projName=${projNameArray[1]}
+          assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          if [ $? -ne 0 ]
+          then
+            AnyFailures=1
+          fi
+        done
+        export AnyFailures
+    - name: Run JavaScript tests with coverage
+      run: |
+        cd CSF.Screenplay.JsonToHtmlReport.Template/src
+        npm test
+        if [ $? -ne 0 ]
+        then
+          export AnyFailures=1
+        fi
+        cd ../..
+    - name: Stop SonarScanner
+      run:
+        dotnet-sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+    - name: Upload test results artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: NUnit test results
+        path: Tests/*.Tests/**/TestResults.xml
+    - name: Upload Screenplay JSON report artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Screenplay JSON reports
+        path: Tests/**/ScreenplayReport_*.json
+    - name: Fail the build if any test failures
+      run: |
+        if [ $AnyFailures -ne 0 ]
+        then
+          echo "Failing the build due to test failures"
+          exit 1
+        fi
 
-    # Test .NET (with coverage)
-
-    # Test JavaScript (with coverage)
-
-    # Stop SonarScanner
-
-    # Upload test results artifact
-
-    # Convert Screenplay reports to HTML and upload artifacts
-
-    # Upload build-results artifacts
+    # TODO: Convert Screenplay reports to HTML and upload as an artifact
   
-  buildDocs:
+  # buildDocs:
     # TODO: Build the docco site and package the result as an artifact, don't publish it
 
-  publishDocs:
+  # publishDocs:
     # TODO: Take the docco site artifact and publish it to master
 
-  runBrowserTests:
+  # runBrowserTests:
     # TODO: Use build-results artifacts and run tests on matrix of browsers
-
-
-
-
-
-
-
-
-
-
-    # - name: Execute unit tests
-    #   run: dotnet test
-
-    # # Restore the application to populate the obj folder with RuntimeIdentifiers
-    # - name: Restore the application
-    #   run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-    #   env:
-    #     Configuration: ${{ matrix.configuration }}
-
-    # # Decode the base 64 encoded pfx and save the Signing_Certificate
-    # - name: Decode the pfx
-    #   run: |
-    #     $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-    #     $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
-    #     [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
-
-    # # Create the app package by building and packaging the Windows Application Packaging project
-    # - name: Create the app package
-    #   run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
-    #   env:
-    #     Appx_Bundle: Always
-    #     Appx_Bundle_Platforms: x86|x64
-    #     Appx_Package_Build_Mode: StoreUpload
-    #     Configuration: ${{ matrix.configuration }}
-
-    # # Remove the pfx
-    # - name: Remove the pfx
-    #   run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
-
-    # # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    # - name: Upload build artifacts
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     name: MSIX Package
-    #     path: ${{ env.Wap_Project_Directory }}\AppPackages
