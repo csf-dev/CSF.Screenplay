@@ -6,8 +6,12 @@
   href: Action.md
 - name: Actor
   uid: CSF.Screenplay.Actor
+- name: Asset
+  href: Asset.md
 - name: Cast
   uid: CSF.Screenplay.ICast
+- name: Extension
+  href: Extension.md
 - name: Feature
   href: Feature.md
 - name: Integration
