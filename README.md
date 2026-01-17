@@ -20,12 +20,10 @@ One such extension is [CSF.Screenplay.Selenium], which allows Screenplay to cont
 ## Developer information
 
 CI builds are configured via **GitHub Actions**, with static code analysis & reporting in **SonarCloud**.
-This project is tested with [BrowserStack].
+This project is tested with BrowserStack.
 
 The contents of the `docs/` directory of this repository is auto-generated from the `CSF.Screenplay.Docs` project.
 There is nothing hand-editable inside.
 
 [![.NET CI](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml/badge.svg)](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml)
 [![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=csf-dev_CSF.Screenplay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=csf-dev_CSF.Screenplay)
-
-[BrowserStack]: https://www.browserstack.com/
