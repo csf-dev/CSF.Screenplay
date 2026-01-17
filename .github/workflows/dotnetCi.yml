@@ -13,11 +13,9 @@ jobs:
   # * Installs and configures the environment
   # * Builds the solution with SonarScanner analysis
   #   * In Debug configuration
-  #   * For just one TFM (typically the latest LTS .NET release)
   # * Runs all .NET and JS tests
   #   * In Debug configuration (.NET tests)
   #   * Producing code coverage reports, consumed by SonarScanner
-  #   * For just one TFM (typically the latest LTS .NET release)
   #   * WebDriver-based tests use a locally-running Chrome browser ONLY
   # * Packages test results as build artifacts
   # * Builds & packs the solution in Release configuration
@@ -68,7 +66,7 @@ jobs:
     - name: Install GUI packages so Chrome may run
       run: |
         sudo apt-get update
-        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
+        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable psmisc
 
     # Environment setup pre-build
 
@@ -99,8 +97,8 @@ jobs:
         /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
         /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
         /s:$PWD/.sonarqube-analysisproperties.xml
-    - name: Build the solution (one TFM only for performance)
-      run: dotnet build -c ${{ env.Configuration }} --no-incremental -p:TargetFrameworks=${{ env.Tfm }}
+    - name: Build the solution
+      run: dotnet build -c ${{ env.Configuration }} --no-incremental
     - name: Run .NET tests with coverage
       id: dotnet_tests
       continue-on-error: true
