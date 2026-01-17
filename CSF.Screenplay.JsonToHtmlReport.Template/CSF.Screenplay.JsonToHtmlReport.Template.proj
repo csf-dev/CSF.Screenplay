@@ -4,6 +4,7 @@
     <TemplateSourceDir>$(MSBuildProjectDirectory)\src</TemplateSourceDir>
     <OutputPath>$(MSBuildProjectDirectory)\..\CSF.Screenplay.JsonToHtmlReport\template</OutputPath>
     <TemplateOutputFile>$(OutputPath)\template.html</TemplateOutputFile>
+        <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
@@ -43,5 +44,7 @@
   <Target Name="Clean">
       <RemoveDir Directories="$(OutputPath)" />
   </Target>
+
+  <Target Name="Pack"><!-- Intentional no-op --></Target>
 
 </Project>

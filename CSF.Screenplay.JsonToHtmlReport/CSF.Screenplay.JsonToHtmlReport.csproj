@@ -1,7 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\Tools\Version.props" />
+
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(TargetFrameworks)' == ''">netcoreapp3.1;net462;netstandard2.0;net6.0;net8.0</TargetFrameworks>
     <OutputType Condition="'$(TargetFramework)' != 'netstandard2.0'">Exe</OutputType>
     <OutputType Condition="'$(TargetFramework)' == 'netstandard2.0'">Library</OutputType>
     <NoWarn>NU1903,NU1902</NoWarn>
@@ -10,11 +12,13 @@
     <!-- It's true that netcoreapp3.1 is already long out of support and net6.0 will be soon, but these are only here for backwards compatibility.
          This project is multi-targeted and includes up-to-date TFMs -->
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Description>A tool which produces human-readable HTML-format reports from the JSON-format reports created by CSF.Screenplay</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" Condition="'$(TargetFramework)' != 'netstandard2.0'" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
   </ItemGroup>
 
   <ItemGroup>

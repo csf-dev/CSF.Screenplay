@@ -7,11 +7,9 @@ namespace CSF.Screenplay.Selenium.Resources
     /// </summary>
     static class ScriptResources
     {
-        static readonly ResourceManager resourceManager = new ResourceManager(typeof(ScriptResources));
+        static readonly ResourceManager resourceManager = new ResourceManager(typeof(ScriptResources).FullName, typeof(ScriptResources).Assembly);
 
-        /// <summary>
-        /// Gets a short JavaScript which clears the browser's local storage.
-        /// </summary>
-        public static string ClearLocalStorage => resourceManager.GetString("ClearLocalStorage");
+        /// <summary>Gets a short JavaScript for <see cref="Actions.ClearLocalStorage"/>.</summary>
+        internal static string ClearLocalStorage => resourceManager.GetString("ClearLocalStorage");
     }
 }

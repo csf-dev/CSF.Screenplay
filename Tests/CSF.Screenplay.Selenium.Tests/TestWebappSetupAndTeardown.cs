@@ -23,7 +23,7 @@ public class TestWebappSetupAndTeardown
     [OneTimeTearDown]
     public void StopWebApp()
     {
-        webAppProcess?.Kill();
+        webAppProcess?.Kill(true);
         webAppProcess?.Dispose();
     }
 

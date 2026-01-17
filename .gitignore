@@ -10,3 +10,4 @@ node_modules/
 **/ScreenplayReport*
 **/TestResult.xml
 .obsidian/
+packages/

@@ -1,0 +1,46 @@
+name: Update docs website
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  # This job builds the documentation website
+  # and the commits that to the master branch,
+  # which will result in replacing the currently published site
+
+  build_and_commit:
+    name: Build & commit docs website
+    runs-on: ubuntu-slim
+
+    env:
+      DotnetVersion: 8.0.x
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Add .NET global tools location to PATH
+      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DotnetVersion }}
+    - name: Install DocFX
+      run: dotnet tool install --global docfx
+    - name: Remove old docs
+      run: dotnet clean CSF.Screenplay.Docs
+    - name: Build new docs
+      run: dotnet build -c Docs CSF.Screenplay.Docs
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v9.1.4
+      with:
+        add: -A docs/
+        default_author: github_actor
+        committer_name: Github Actions Workflow (bot)
+        committer_email: github-actions-workflow@bots.noreply.github.com
+        fetch: true
+        message: Publish updated documentation website
+        push: origin master --force
+    
+

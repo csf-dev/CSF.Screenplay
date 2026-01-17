@@ -1,0 +1,17 @@
+<Project>
+    <PropertyGroup>
+        <Authors>craigfowler</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://csf-dev.github.io/CSF.Screenplay/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/csf-dev/CSF.Screenplay/</RepositoryUrl>
+        <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
+        <VersionPrefix>2.0.0</VersionPrefix>
+        <VersionSuffix>dev.$(BuildNumber)</VersionSuffix>
+        <Version Condition="'$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</Version>
+        <Version Condition="'$(VersionSuffix)' == ''">$(VersionPrefix)</Version>
+        <AssemblyVersion>$(VersionPrefix).$(BuildNumber)</AssemblyVersion>
+        <FileVersion>$(AssemblyVersion)</FileVersion>
+        <InformationalVersion>$(Version)+commit$(SourceRevisionId)</InformationalVersion>
+    </PropertyGroup>
+
+</Project>

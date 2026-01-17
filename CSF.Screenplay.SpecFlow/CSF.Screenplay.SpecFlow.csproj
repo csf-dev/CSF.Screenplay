@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net462</TargetFrameworks>
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <IsTestProject>false</IsTestProject>
     <SonarQubeTestProject>false</SonarQubeTestProject>
     <AssemblyName>CSF.Screenplay.SpecFlowPlugin</AssemblyName>
+    <Description>A Test Framework Integration for CSF.Screenplay for the legacy SpecFlow 3.4.3+ (recommendation: Switch to Reqnroll)</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SpecFlow" Version="3.4.3" />
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" Condition="'$(TargetFramework)' == 'net462'" />
   </ItemGroup>
 
   <ItemGroup>

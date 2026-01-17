@@ -13,6 +13,33 @@
 		},
 		{
 			"group": {
+				"kind": "build"
+			},
+			"command": "dotnet",
+			"args": ["build", "-p:TargetFrameworks=net8.0"],
+			"problemMatcher": [],
+			"label": "dotnet: build (net8.0 only)"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"command": "dotnet",
+			"args": ["pack", "-o", "packages"],
+			"problemMatcher": [],
+			"label": "dotnet: pack"
+		},
+		{
+			"group": {
+				"kind": "none"
+			},
+			"command": "dotnet",
+			"args": ["clean"],
+			"problemMatcher": [],
+			"label": "dotnet: clean"
+		},
+		{
+			"group": {
 				"kind": "test",
 				"isDefault": true
 			},
@@ -20,6 +47,16 @@
 			"args": ["test"],
 			"problemMatcher": [],
 			"label": "dotnet: test"
+		},
+		{
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"command": "dotnet",
+			"args": ["test", "-p:TargetFramework=net8.0"],
+			"problemMatcher": [],
+			"label": "dotnet: test (net8.0 only)"
 		},
 		{
 			"group": {

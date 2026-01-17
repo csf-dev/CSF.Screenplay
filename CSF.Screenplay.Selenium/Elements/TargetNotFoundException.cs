@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.Serialization;
 using CSF.Screenplay.Reporting;
 using OpenQA.Selenium;
 
@@ -8,7 +7,9 @@ namespace CSF.Screenplay.Selenium.Elements
     /// <summary>
     /// Thrown when <see cref="ITarget.GetElement(IWebDriver)"/> is used, but no element can be found.
     /// </summary>
+#if NET462 || NETSTANDARD
     [Serializable]
+#endif
     public class TargetNotFoundException : Exception, IFormattableValue
     {
         /// <summary>
@@ -62,12 +63,21 @@ namespace CSF.Screenplay.Selenium.Elements
         {
             Target = target ?? throw new ArgumentNullException(nameof(target));
         }
-
+#if NET462 || NETSTANDARD
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetNotFoundException"/> class.
+        /// Initializes a new instance of the <see cref="TargetNotFoundException"/> class from binary serialization.
         /// </summary>
+        /// <remarks>
+        /// <para>Don't use this API, it's for the deprecated binary serialization API, which is known to pose
+        /// security vulnerabilities.  It is removed and unsupported in modern TFMs.
+        /// See <see href="https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-migration-guide/">The
+        /// BinaryFormatter migration guide</see> for more information.</para>
+        /// </remarks>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected TargetNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context) {}
+        [Obsolete("Do not use this constructor overload, see the remarks for more info")]
+        protected TargetNotFoundException(System.Runtime.Serialization.SerializationInfo info,
+                                          System.Runtime.Serialization.StreamingContext context) : base(info, context) {}
+#endif
     }
 }
