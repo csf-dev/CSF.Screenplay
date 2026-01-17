@@ -3,7 +3,7 @@
         <OutputPath>$(MSBuildProjectDirectory)\..\docs\</OutputPath>
         <ApiDocsPath>$(MSBuildProjectDirectory)\api</ApiDocsPath>
         <ConfigFileName>docfx.json</ConfigFileName>
-        <DocfxExecutable>docfx.exe</DocfxExecutable>
+        <DocfxExecutable>docfx</DocfxExecutable>
     </PropertyGroup>
 
     <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
