@@ -166,6 +166,8 @@ jobs:
 
     # Build the apps in release mode and publish artifacts
 
+    - name: Clean the solution ahead of building in release config
+      run: dotnet clean
     - name: Build, in release configuration
       run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
     - name: Upload build result artifacts
@@ -173,9 +175,13 @@ jobs:
       with:
         name: Build results (NuGet)
         path: packages/*.nupkg
-  
-  # buildDocs:
-    # TODO: Build the docco site and package the result as an artifact, don't publish it
+    - name: Build docs website
+      run: dotnet build -c Docs
+    - name: Upload docs website artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Docs website
+        path: docs/**/*
 
   # publishDocs:
     # TODO: Take the docco site artifact and publish it to master
