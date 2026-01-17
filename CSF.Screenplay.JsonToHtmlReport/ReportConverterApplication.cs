@@ -11,34 +11,45 @@ namespace CSF.Screenplay.JsonToHtmlReport
     /// <summary>
     /// An application/background service that begins the JSON to HTML report conversion process.
     /// </summary>
-    public class ReportConverterApplication : BackgroundService
+    public class ReportConverterApplication : IHostedService
     {
         readonly IOptions<ReportConverterOptions> options;
         readonly IConvertsReportJsonToHtml reportConverter;
+        readonly IHostApplicationLifetime lifetime;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportConverterApplication"/> class.
         /// </summary>
         /// <param name="options">The options for performing the conversion.</param>
         /// <param name="reportConverter">The report converter instance to use for conversion.</param>
+        /// <param name="lifetime">The application lifetime</param>
         public ReportConverterApplication(IOptions<ReportConverterOptions> options,
-                                          IConvertsReportJsonToHtml reportConverter)
+                                          IConvertsReportJsonToHtml reportConverter,
+                                          IHostApplicationLifetime lifetime)
         {
-            this.options = options ?? throw new System.ArgumentNullException(nameof(options));
-            this.reportConverter = reportConverter ?? throw new System.ArgumentNullException(nameof(reportConverter));
+            this.options = options ?? throw new ArgumentNullException(nameof(options));
+            this.reportConverter = reportConverter ?? throw new ArgumentNullException(nameof(reportConverter));
+            this.lifetime = lifetime ?? throw new ArgumentNullException(nameof(lifetime));
         }
 
         /// <summary>
-        /// Executes the background service operation.
+        /// Executes the application, to perform its work.
         /// </summary>
-        /// <param name="stoppingToken">A token that can be used to stop the operation.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        /// <param name="cancellationToken">A cancellation token</param>
+        /// <returns>A task</returns>
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
             await reportConverter.ConvertAsync(options.Value);
             Console.WriteLine("Conversion complete; HTML report available at {0}", options.Value.OutputPath);
-            Environment.Exit(0);
+            lifetime.StopApplication();
         }
+
+        /// <summary>
+        /// Unused, always returns a completed task.
+        /// </summary>
+        /// <param name="cancellationToken">A cancellation token</param>
+        /// <returns>A task</returns>
+        public Task StopAsync(CancellationToken cancellationToken) => Task.CompletedTask;
     }
 }
 
