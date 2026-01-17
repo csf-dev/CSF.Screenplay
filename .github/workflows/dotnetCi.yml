@@ -82,8 +82,8 @@ jobs:
         /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
         /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
         /s:$PWD/.sonarqube-analysisproperties.xml
-    - name: Build the solution
-      run: dotnet build -c ${{ env.Configuration }} --no-incremental
+    - name: Build the solution (one TFM only for performance)
+      run: dotnet build -c ${{ env.Configuration }} --no-incremental -p:TargetFrameworks=${{ env.Tfm }}
     - name: Run .NET tests with coverage
       id: dotnet_tests
       continue-on-error: true

@@ -1,0 +1,8 @@
+<Project>
+    <PropertyGroup>
+        <TfmForTests>net8.0</TfmForTests>
+        <TargetFramework Condition="'$(TargetFramework)' == ''">$(TfmForTests)</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>
