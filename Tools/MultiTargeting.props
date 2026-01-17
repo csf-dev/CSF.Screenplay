@@ -1,8 +1,8 @@
 <Project>
     <PropertyGroup>
         <DotNetFrameworkLegacy>net462</DotNetFrameworkLegacy>
-        <DotNetLatestLts Condition="'$(DotNetLatestLts)' == ''">net8.0</DotNetLatestLts>
-        <TargetFrameworks Condition="'$(TargetFrameworks)' == ''">netstandard2.0;netstandard2.1;$(DotNetFrameworkLegacy);$(DotNetLatestLts)</TargetFrameworks>
+        <DotNetLatestLts>net8.0</DotNetLatestLts>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;$(DotNetFrameworkLegacy);$(DotNetLatestLts)</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
