@@ -1885,15 +1885,15 @@ references:
   commentId: T:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication
   nameWithType: ReportConverterApplication
-- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml)
-  name: ReportConverterApplication(IOptions<ReportConverterOptions>, IConvertsReportJsonToHtml)
-  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions__CSF_Screenplay_JsonToHtmlReport_IConvertsReportJsonToHtml_
-  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml)
-  name.vb: New(IOptions(Of ReportConverterOptions), IConvertsReportJsonToHtml)
-  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ReportConverterApplication(Microsoft.Extensions.Options.IOptions<CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions>, CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml)
-  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.New(Microsoft.Extensions.Options.IOptions(Of CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions), CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml)
-  nameWithType: ReportConverterApplication.ReportConverterApplication(IOptions<ReportConverterOptions>, IConvertsReportJsonToHtml)
-  nameWithType.vb: ReportConverterApplication.New(IOptions(Of ReportConverterOptions), IConvertsReportJsonToHtml)
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml,Microsoft.Extensions.Hosting.IHostApplicationLifetime)
+  name: ReportConverterApplication(IOptions<ReportConverterOptions>, IConvertsReportJsonToHtml, IHostApplicationLifetime)
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions__CSF_Screenplay_JsonToHtmlReport_IConvertsReportJsonToHtml_Microsoft_Extensions_Hosting_IHostApplicationLifetime_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml,Microsoft.Extensions.Hosting.IHostApplicationLifetime)
+  name.vb: New(IOptions(Of ReportConverterOptions), IConvertsReportJsonToHtml, IHostApplicationLifetime)
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ReportConverterApplication(Microsoft.Extensions.Options.IOptions<CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions>, CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml, Microsoft.Extensions.Hosting.IHostApplicationLifetime)
+  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.New(Microsoft.Extensions.Options.IOptions(Of CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions), CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml, Microsoft.Extensions.Hosting.IHostApplicationLifetime)
+  nameWithType: ReportConverterApplication.ReportConverterApplication(IOptions<ReportConverterOptions>, IConvertsReportJsonToHtml, IHostApplicationLifetime)
+  nameWithType.vb: ReportConverterApplication.New(IOptions(Of ReportConverterOptions), IConvertsReportJsonToHtml, IHostApplicationLifetime)
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor*
   name: ReportConverterApplication
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_
@@ -1904,19 +1904,32 @@ references:
   fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.New
   nameWithType: ReportConverterApplication.ReportConverterApplication
   nameWithType.vb: ReportConverterApplication.New
-- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync(System.Threading.CancellationToken)
-  name: ExecuteAsync(CancellationToken)
-  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_ExecuteAsync_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync(System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync(System.Threading.CancellationToken)
-  nameWithType: ReportConverterApplication.ExecuteAsync(CancellationToken)
-- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync*
-  name: ExecuteAsync
-  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_ExecuteAsync_
-  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync(System.Threading.CancellationToken)
+  name: StartAsync(CancellationToken)
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StartAsync_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync(System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync(System.Threading.CancellationToken)
+  nameWithType: ReportConverterApplication.StartAsync(CancellationToken)
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync*
+  name: StartAsync
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StartAsync_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync
   isSpec: "True"
-  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync
-  nameWithType: ReportConverterApplication.ExecuteAsync
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync
+  nameWithType: ReportConverterApplication.StartAsync
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync(System.Threading.CancellationToken)
+  name: StopAsync(CancellationToken)
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StopAsync_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync(System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync(System.Threading.CancellationToken)
+  nameWithType: ReportConverterApplication.StopAsync(CancellationToken)
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync*
+  name: StopAsync
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StopAsync_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync
+  nameWithType: ReportConverterApplication.StopAsync
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions
   name: ReportConverterOptions
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html

@@ -102,7 +102,7 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ReportConverterApplication : BackgroundService, IHostedService, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class ReportConverterApplication : IHostedService</code></pre>
   </div>
 
 
@@ -112,7 +112,6 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice">BackgroundService</a></div>
       <div><span class="xref">ReportConverterApplication</span></div>
     </dd>
   </dl>
@@ -121,7 +120,6 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostedservice">IHostedService</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
@@ -129,15 +127,6 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.startasync">BackgroundService.StartAsync(CancellationToken)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.stopasync">BackgroundService.StopAsync(CancellationToken)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice.dispose">BackgroundService.Dispose()</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -172,9 +161,9 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
 
   <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions__CSF_Screenplay_JsonToHtmlReport_IConvertsReportJsonToHtml_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml)">
-  ReportConverterApplication(IOptions&lt;ReportConverterOptions&gt;, IConvertsReportJsonToHtml)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterApplication.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions__CSF_Screenplay_JsonToHtmlReport_IConvertsReportJsonToHtml_Microsoft_Extensions_Hosting_IHostApplicationLifetime_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions},CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml,Microsoft.Extensions.Hosting.IHostApplicationLifetime)">
+  ReportConverterApplication(IOptions&lt;ReportConverterOptions&gt;, IConvertsReportJsonToHtml, IHostApplicationLifetime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterApplication.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.html">ReportConverterApplication</a> class.</p>
@@ -182,7 +171,7 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReportConverterApplication(IOptions&lt;ReportConverterOptions&gt; options, IConvertsReportJsonToHtml reportConverter)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReportConverterApplication(IOptions&lt;ReportConverterOptions&gt; options, IConvertsReportJsonToHtml reportConverter, IHostApplicationLifetime lifetime)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -192,6 +181,9 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
 </dd>
     <dt><code>reportConverter</code> <a class="xref" href="CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.html">IConvertsReportJsonToHtml</a></dt>
     <dd><p>The report converter instance to use for conversion.</p>
+</dd>
+    <dt><code>lifetime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.ihostapplicationlifetime">IHostApplicationLifetime</a></dt>
+    <dd><p>The application lifetime</p>
 </dd>
   </dl>
 
@@ -210,32 +202,71 @@ Class ReportConverterApplication  <a class="header-action link-secondary" title=
 </h2>
 
 
-  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_ExecuteAsync_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync*"></a>
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StartAsync_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync*"></a>
 
-  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_ExecuteAsync_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.ExecuteAsync(System.Threading.CancellationToken)">
-  ExecuteAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterApplication.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StartAsync_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StartAsync(System.Threading.CancellationToken)">
+  StartAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterApplication.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Executes the background service operation.</p>
+  <div class="markdown level1 summary"><p>Executes the application, to perform its work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task ExecuteAsync(CancellationToken stoppingToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task StartAsync(CancellationToken cancellationToken)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>stoppingToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>A token that can be used to stop the operation.</p>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A task that represents the asynchronous operation.</p>
+    <dd><p>A task</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StopAsync_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync*"></a>
+
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterApplication_StopAsync_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterApplication.StopAsync(System.Threading.CancellationToken)">
+  StopAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterApplication.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unused, always returns a completed task.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task StopAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task</p>
 </dd>
   </dl>
 
