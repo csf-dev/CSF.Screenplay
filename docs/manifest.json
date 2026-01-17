@@ -3996,6 +3996,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/webApis/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/webApis/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/gettingStarted/nonTesting/index.md",
       "output": {
         ".html": {
