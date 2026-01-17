@@ -24,6 +24,7 @@ jobs:
   # * Uploads the Release config packages as build artifacts
 
   build_test_and_pack:
+    name: Build, test & package
     runs-on: ubuntu-slim
 
     env:
