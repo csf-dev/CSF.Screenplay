@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
 
   <PropertyGroup>
     <RootNamespace>CSF.Screenplay</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Description>Abstractions for CSF.Screenplay; useful for authoring Extensions or Performable/Ability logic without dependency on the full CSF.Screenplay package</Description>
   </PropertyGroup>
 
   <ItemGroup>

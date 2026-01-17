@@ -13,6 +13,7 @@ jobs:
 
     env:
       RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
+      VersionSuffix: ci.${{ github.run_number }}
       SonarCloudProject: csf-dev_CSF.Screenplay
       SonarCloudUsername: craigfowler-github
       SonarCloudUrl: https://sonarcloud.io
@@ -84,7 +85,7 @@ jobs:
         /s:$PWD/.sonarqube-analysisproperties.xml
     - name: Build the solution (one TFM only for performance)
       run: dotnet build -c ${{ env.Configuration }} --no-incremental -p:TargetFrameworks=${{ env.Tfm }}
-    - name: Run .NET tests with coverage (one TFM only for performance)
+    - name: Run .NET tests with coverage
       id: dotnet_tests
       continue-on-error: true
       run: |
@@ -93,7 +94,7 @@ jobs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build -p:TargetFramework=$Tfm --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
             echo "failures=true" >> $GITHUB_OUTPUT
@@ -150,8 +151,13 @@ jobs:
 
     # Build the apps in release mode and publish artifacts
 
-    - name: Build in release configuration
-      run: dotnet build -c Release
+    - name: Build, in release configuration
+      run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
+    - name: Upload build result artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: Build results (NuGet)
+        path: packages/*.nupkg
   
   # buildDocs:
     # TODO: Build the docco site and package the result as an artifact, don't publish it

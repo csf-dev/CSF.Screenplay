@@ -22,6 +22,24 @@
 		},
 		{
 			"group": {
+				"kind": "build"
+			},
+			"command": "dotnet",
+			"args": ["pack", "-o", "packages"],
+			"problemMatcher": [],
+			"label": "dotnet: pack"
+		},
+		{
+			"group": {
+				"kind": "none"
+			},
+			"command": "dotnet",
+			"args": ["clean"],
+			"problemMatcher": [],
+			"label": "dotnet: clean"
+		},
+		{
+			"group": {
 				"kind": "test",
 				"isDefault": true
 			},

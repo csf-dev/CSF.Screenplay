@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
 
   <PropertyGroup>
     <RootNamespace>CSF.Screenplay</RootNamespace>
@@ -8,6 +9,7 @@
     <IsTestProject>false</IsTestProject>
     <SonarQubeTestProject>false</SonarQubeTestProject>
     <AssemblyName>CSF.Screenplay.SpecFlowPlugin</AssemblyName>
+    <Description>A Test Framework Integration for CSF.Screenplay for the legacy SpecFlow 3.4.3+ (recommendation: Switch to Reqnroll)</Description>
   </PropertyGroup>
 
   <ItemGroup>

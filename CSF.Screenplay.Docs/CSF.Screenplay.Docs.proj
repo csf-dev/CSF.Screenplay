@@ -17,4 +17,5 @@
     <Target Name="Clean">
         <RemoveDir Directories="$(OutputPath);$(ApiDocsPath)" />
     </Target>
+    <Target Name="Pack"><!-- Intentional no-op --></Target>
 </Project>

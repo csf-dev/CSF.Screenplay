@@ -4,6 +4,8 @@
 
   <PropertyGroup>
     <ImplicitUsings>disable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
   </PropertyGroup>
 
 </Project>

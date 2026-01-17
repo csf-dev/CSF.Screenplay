@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\Tools\MultiTargeting.props" />
+  <Import Project="..\Tools\Version.props" />
 
   <PropertyGroup>
     <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
     <DocumentationFile>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Description>An Extension for CSF.Screenplay providing Abilities &amp; Performables for Selenium WebDriver 4.0+</Description>
   </PropertyGroup>
 
   <ItemGroup>

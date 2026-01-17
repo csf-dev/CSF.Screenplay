@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\Tools\Version.props" />
+
   <PropertyGroup>
     <TargetFrameworks Condition="'$(TargetFrameworks)' == ''">net5.0;netstandard2.0;net462;net8.0</TargetFrameworks>
     <RootNamespace>CSF.Screenplay.WebApis</RootNamespace>
@@ -7,6 +9,7 @@
     <!-- It's true that net5.0 is already long out of support, but it is only here so that any runtime which is net5.0 or
          above avoids pulling in unneeded packages.  This project is multi-targeted and includes up-to-date TFMs -->
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Description>An Extension for CSF.Screenplay providing Abilities &amp; Performables for interacting with HTTP web API endpoints</Description>
   </PropertyGroup>
 
   <ItemGroup>
