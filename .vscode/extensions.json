@@ -4,6 +4,7 @@
         "ms-dotnettools.csdevkit",
         "bierner.markdown-mermaid",
         "davidanson.vscode-markdownlint",
-        "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "github.vscode-github-actions"
     ]
 }

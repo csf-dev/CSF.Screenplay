@@ -110,9 +110,14 @@ jobs:
           echo "failures=true" >> $GITHUB_OUTPUT
         fi
         cd ../..
+
+    # Post-test tasks (artifacts, overall status)
+
     - name: Stop SonarScanner
       run:
         dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+    - name: Gracefully stop Xvfb
+      run: kill "%$(jobs -l | grep Xvfb | cut -d ' ' -f 1 | grep -Eo '[0-9]+')"
     - name: Upload test results artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -123,13 +128,24 @@ jobs:
       with:
         name: Screenplay JSON reports
         path: Tests/**/ScreenplayReport_*.json
+    - name: Convert Screenplay reports to HTML
+      run: |
+        for report in Tests/**/ScreenplayReport_*.json
+        do
+          reportDir=$(dirname "$report")
+          outputFile="$reportDir/ScreenplayReport.html"
+          dotnet run --no-build -p:TargetFrameworks=$Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath $outputFile
+        done
+    - name: Upload Screenplay HTML report artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Screenplay HTML reports
+        path: Tests/**/ScreenplayReport.html
     - name: Fail the build if any test failures
       if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
       run: |
         echo "Failing the build due to test failures"
         exit 1
-
-    # TODO: Convert Screenplay reports to HTML and upload as an artifact
   
   # buildDocs:
     # TODO: Build the docco site and package the result as an artifact, don't publish it
