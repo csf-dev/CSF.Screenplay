@@ -9,6 +9,7 @@ Where applicable, the glossary item links directly to the relevant type within t
 | [Ability]     | Something that an actor is able to do or has; provides the dependencies for actions/questions         |
 | [Action]      | A kind of peformable; the lowest-level interaction that changes the state of the application          |
 | [Actor]       | Typically a human user of the application, directs the use of performables                            |
+| [Asset]       | A file which is saved to disk during a Performance, accessible from the Report                        |
 | [Cast]        | A factory & registry for actors which facilitates managing multiple actors in a performance           |
 | [Extension]   | An add-on library providing new Abilities, Actions & Questions for controlling a specific technology  |
 | [Feature]     | A logical group of related scenarios, this is a test class or test fixture in some testing frameworks |
@@ -42,3 +43,4 @@ Where applicable, the glossary item links directly to the relevant type within t
 [Feature]: Feature.md
 [Integration]: Integration.md
 [Extension]: Extension.md
+[Asset]: Asset.md

@@ -1,7 +1,11 @@
-# This config file is required for builds running on AppVeyor
-# because AppVeyor images come with chromedriver pre-installed, but its
-# usually not the version we want.  That's because on the Windows images,
-# Chrome will have auto-updated.
+# This is a Selenium Manager configuration file:
+# * https://www.selenium.dev/blog/2022/introducing-selenium-manager/
+# * https://www.selenium.dev/documentation/selenium_manager/
+#
+# It's used for CI, when performing first-level tests with a locally-running
+# Web Browser and WebDriver.  It ensures that the CI environment picks Google
+# Chrome and that it downloads the whole browser independently of any software
+# already installed.
 
 browser = "chrome"
 force-browser-download = true

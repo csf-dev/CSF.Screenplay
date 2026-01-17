@@ -2,6 +2,7 @@
 
   <Import Project="..\Tools\MultiTargeting.props" />
   <Import Project="..\Tools\Version.props" />
+  <Import Project="..\Tools\PackageReadmes.props" />
 
   <PropertyGroup>
     <RootNamespace>CSF.Screenplay</RootNamespace>
