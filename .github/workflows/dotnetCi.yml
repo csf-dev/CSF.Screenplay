@@ -147,11 +147,11 @@ jobs:
     - name: Convert Screenplay reports to HTML
       continue-on-error: true
       run: |
-        for report in Tests/**/ScreenplayReport_*.json
+        for report in $(find Tests/ -type f -name "ScreenplayReport_*.json")
         do
           reportDir=$(dirname "$report")
           outputFile="$reportDir/ScreenplayReport.html"
-          dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath $outputFile
+          dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
         done
     - name: Upload Screenplay HTML report artifact
       uses: actions/upload-artifact@v4
