@@ -56,6 +56,8 @@ jobs:
       run: dotnet tool install --global dotnet-sonarscanner
     - name: Install Coverlet console
       run: dotnet tool install --global coverlet.console
+    - name: Install DocFX
+      run: dotnet tool install --global docfx
     - name: Install Node.js for building JSON-to-HTML report converter
       uses: actions/setup-node@v6.2.0
     - name: Install Java JDK for SonarScanner
