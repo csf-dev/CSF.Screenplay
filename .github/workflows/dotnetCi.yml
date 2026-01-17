@@ -109,7 +109,7 @@ jobs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration -p:TargetFrameworks=$Tfm --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
             echo "failures=true" >> $GITHUB_OUTPUT
