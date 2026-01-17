@@ -94,7 +94,7 @@ jobs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration -p:TargetFrameworks=$Tfm --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
             echo "failures=true" >> $GITHUB_OUTPUT
@@ -118,7 +118,7 @@ jobs:
       run:
         dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
     - name: Gracefully stop Xvfb
-      run: kill $(jobs -l | grep Xvfb | cut -d ' ' -f 2)
+      run: killall Xvfb
       continue-on-error: true
     - name: Upload test results artifacts
       uses: actions/upload-artifact@v4
@@ -131,12 +131,13 @@ jobs:
         name: Screenplay JSON reports
         path: Tests/**/ScreenplayReport_*.json
     - name: Convert Screenplay reports to HTML
+      continue-on-error: true
       run: |
         for report in Tests/**/ScreenplayReport_*.json
         do
           reportDir=$(dirname "$report")
           outputFile="$reportDir/ScreenplayReport.html"
-          dotnet run --no-build -p:TargetFrameworks=$Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath $outputFile
+          dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath $outputFile
         done
     - name: Upload Screenplay HTML report artifact
       uses: actions/upload-artifact@v4
