@@ -36,7 +36,7 @@
 				"isDefault": true
 			},
 			"command": "dotnet",
-			"args": ["test", "-p:TargetFrameworks=net8.0"],
+			"args": ["test", "-p:TargetFramework=net8.0"],
 			"problemMatcher": [],
 			"label": "dotnet: test (net8.0 only)"
 		},

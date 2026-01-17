@@ -84,7 +84,7 @@ jobs:
         /s:$PWD/.sonarqube-analysisproperties.xml
     - name: Build the solution (one TFM only for performance)
       run: dotnet build -c ${{ env.Configuration }} --no-incremental -p:TargetFrameworks=${{ env.Tfm }}
-    - name: Run .NET tests with coverage
+    - name: Run .NET tests with coverage (one TFM only for performance)
       id: dotnet_tests
       continue-on-error: true
       run: |
@@ -93,7 +93,7 @@ jobs:
           projNameArray=(${proj//// })
           projName=${projNameArray[1]}
           assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build -p:TargetFrameworks=$Tfm --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build -p:TargetFramework=$Tfm --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
           if [ $? -ne 0 ]
           then
             echo "failures=true" >> $GITHUB_OUTPUT
@@ -117,7 +117,8 @@ jobs:
       run:
         dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
     - name: Gracefully stop Xvfb
-      run: kill "%$(jobs -l | grep Xvfb | cut -d ' ' -f 1 | grep -Eo '[0-9]+')"
+      run: kill $(jobs -l | grep Xvfb | cut -d ' ' -f 2)
+      continue-on-error: true
     - name: Upload test results artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -146,6 +147,11 @@ jobs:
       run: |
         echo "Failing the build due to test failures"
         exit 1
+
+    # Build the apps in release mode and publish artifacts
+
+    - name: Build in release configuration
+      run: dotnet build -c Release
   
   # buildDocs:
     # TODO: Build the docco site and package the result as an artifact, don't publish it
