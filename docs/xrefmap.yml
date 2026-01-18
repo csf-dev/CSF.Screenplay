@@ -63,6 +63,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Abilities.GetAssetFilePaths.GetAssetFilePath
   nameWithType: GetAssetFilePaths.GetAssetFilePath
+- uid: CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Abilities.GetAssetFilePaths.html#CSF_Screenplay_Abilities_GetAssetFilePaths_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetAssetFilePaths.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Abilities.GetAssetFilePaths.html#CSF_Screenplay_Abilities_GetAssetFilePaths_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Abilities.GetAssetFilePaths.GetReportFragment
+  nameWithType: GetAssetFilePaths.GetReportFragment
 - uid: CSF.Screenplay.Abilities.UseAStopwatch
   name: UseAStopwatch
   href: api/CSF.Screenplay.Abilities.UseAStopwatch.html
