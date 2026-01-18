@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>CSF.Screenplay</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.3.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="4.0.254" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Reqnroll.NUnit" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll.NUnit" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj" />
+    <ProjectReference Include="..\..\CSF.Screenplay.Reqnroll\CSF.Screenplay.Reqnroll.csproj" />
+  </ItemGroup>
+
+</Project>

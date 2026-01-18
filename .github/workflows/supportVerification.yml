@@ -1,0 +1,38 @@
+name: Third party support verification
+
+on:
+  schedule:
+    - cron: "25 19 * * 0"
+
+jobs:
+
+  # Summary:
+  #
+  # Runs a subset of the unit tests for Reqnroll, across a matrix
+  # of versions of this 3rd party library.
+  # This verifies that I support the version range which I claim to support.
+  #
+  # If this begins failing then it likely means that Reqnroll have released
+  # a version which includes breaking changes, and so the Screenplay support
+  # policy/version range must be updated accordingly.
+
+  test_reqnroll_versions:
+    name: Verify Reqnroll support across versions
+    runs-on: ubuntu-slim
+
+    strategy:
+      matrix:
+        reqnroll_version: ['2.0.0', '2.*', '3.0.0', '3.*', '*']
+
+    env:
+      DotnetVersion: 8.0.x
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DotnetVersion }}
+      - name: Test Reqnroll (only)
+        run: dotnet test Tests/CSF.Screenplay.Reqnroll.Tests -p:ReqnrollVersion=${{ matrix.reqnroll_version }}

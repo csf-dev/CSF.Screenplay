@@ -1,7 +1,7 @@
 # Where Screenplay is suitable for testing
 
 The Screenplay pattern is a recommended tool for writing automated tests for application software.
-Unlike [NUnit] or [SpecFlow] (or many others) Screenplay is not a complete testing framework.
+Unlike [NUnit] or [Reqnroll] (or many others) Screenplay is not a complete testing framework.
 Rather, Screenplay integrates with your chosen testing framework to assist in the writing of test logic.
 
 _Screenplay is not a silver bullet_; some kinds of tests could benefit from Screenplay and others will not.
@@ -9,7 +9,7 @@ Some testing scenarios are listed below, along with a brief consideration as to 
 Terminology can differ between developers, so each type of test begins with a short definition.
 
 [NUnit]: https://nunit.org/
-[SpecFlow]: https://specflow.org/
+[Reqnroll]: https://reqnroll.net/
 
 ## Ideal: System tests
 
@@ -65,6 +65,6 @@ This is particularly true if the test/sample scenarios would be recognisable to 
 ## Recommended: Use BDD-style tests
 
 Screenplay is a great tool when used alongside [Behaviour Driven Development] (BDD).
-Whilst the use of a BDD framework such as [SpecFlow] is not at all mandatory, those familiar with BDD will quickly see the synergies with Screenplay.
+Whilst the use of a BDD framework such as [Reqnroll] is not at all mandatory, those familiar with BDD will quickly see the synergies with Screenplay.
 
 [Behaviour Driven Development]: https://en.wikipedia.org/wiki/Behavior-driven_development

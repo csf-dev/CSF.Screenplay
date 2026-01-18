@@ -1,25 +1,32 @@
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
-using BoDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
+#if SPECFLOW
+using BoDi;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.UnitTestProvider;
+#else
+using Reqnroll.BoDi;
+using Reqnroll;
+using Reqnroll.Plugins;
+using Reqnroll.UnitTestProvider;
+#endif
 
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// The Screenplay plugin for SpecFlow.
+    /// The Screenplay plugin for Reqnroll.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This plugin class is the <xref href="IntegrationGlossaryItem?text=test+framework+integration"/> for SpecFlow.
-    /// Crucially it adds the Screenplay architecture to the SpecFlow architecture.
+    /// This plugin class is the <xref href="IntegrationGlossaryItem?text=test+framework+integration"/> for Reqnroll.
+    /// Crucially it adds the Screenplay architecture to the Reqnroll architecture.
     /// </para>
     /// <para>
-    /// Becuase this plugin leverages the SpecFlow/BoDi <c>IObjectContainer</c>, it is likely incompatible with other plugins
+    /// Becuase this plugin leverages the Reqnroll/BoDi <c>IObjectContainer</c>, it is likely incompatible with other plugins
     /// which integrate with third party Dependency Injection libraries.
     /// </para>
     /// <para>
@@ -31,16 +38,16 @@ namespace CSF.Screenplay
     /// <para>
     /// If you wish to further customise the dependency injection, such as adding injectable services for <xref href="AbilityGlossaryItem?text=abilities"/>
     /// or implementations of <see cref="IPersona"/>, add them to the relevant DI container.
-    /// When using SpecFlow's default BoDi container this is described in the following article
-    /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options"/>.
+    /// When using Reqnroll's default BoDi container this is described in the following article
+    /// <see href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options"/>.
     /// If using a third-party DI container then you should use that container's appropriate mechanism of adding services.
     /// </para>
     /// </remarks>
     public class ScreenplayPlugin : IRuntimePlugin
     {
         readonly object syncRoot = new object();
-        readonly ConcurrentDictionary<FeatureContext, Guid> featureContextIds = new ConcurrentDictionary<FeatureContext, Guid>();
-        readonly ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid>();
+        readonly ConcurrentDictionary<FeatureInfo, Guid> featureContextIds = new ConcurrentDictionary<FeatureInfo, Guid>();
+        readonly ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid>();
 
         bool initialised;
 
@@ -49,8 +56,9 @@ namespace CSF.Screenplay
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This is required because the bindings for beginning/ending the Screenplay in <see cref="ScreenplayBinding"/> must be <c>static</c>:
-        /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes"/>.
+        /// This is required because the bindings for beginning/ending the Screenplay in <see cref="ScreenplayBinding"/> must be <c>static</c>.
+        /// Those bindings use the <c>[BeforeTestRun]</c> and <c>[AfterTestRun]</c> hooks, which must be static, as documented here:
+        /// <see href="https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes"/>
         /// </para>
         /// </remarks>
         static public Screenplay Screenplay { get; private set; }
@@ -67,7 +75,13 @@ namespace CSF.Screenplay
 
         static void OnConfigurationDefaults(object sender, ConfigurationDefaultsEventArgs e)
         {
-            e.SpecFlowConfiguration.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
+            var config = 
+#if SPECFLOW
+                e.SpecFlowConfiguration;
+#else
+                e.ReqnrollConfiguration;
+#endif
+            config.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
         }
 
         /// <summary>
@@ -75,9 +89,10 @@ namespace CSF.Screenplay
         /// </summary>
         /// <remarks>
         /// <para>
-        /// It is a known/documented issue that this event may be triggered more than once in a single run of SpecFlow:
-        /// <see href="https://github.com/techtalk/SpecFlow/issues/948"/>, and by more than one thread.
-        /// Thus, to prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
+        /// It was a known/documented issue that this event may be triggered more than once in a single run of the old
+        /// SpecFlow, and by more than one thread.  Unfortunately I don't know if that's still applicable in Reqnroll.
+        /// I've opened this discussion to see if I can find out: <see href="https://github.com/orgs/reqnroll/discussions/1005"/>.
+        /// To prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
         /// is executed more than once, there is no adverse consequence.
         /// </para>
         /// </remarks>
@@ -115,24 +130,24 @@ namespace CSF.Screenplay
 
         IdentifierAndName GetFeatureIdAndName(IObjectContainer container)
         {
-            var featureContext = container.Resolve<FeatureContext>();
-            return new IdentifierAndName(GetFeatureId(featureContext).ToString(),
-                                         featureContext.FeatureInfo.Title,
+            var featureInfo = container.Resolve<FeatureInfo>();
+            return new IdentifierAndName(GetFeatureId(featureInfo).ToString(),
+                                         featureInfo.Title,
                                          true);
         }
 
-        Guid GetFeatureId(FeatureContext featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
+        Guid GetFeatureId(FeatureInfo featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
 
         IdentifierAndName GetScenarioIdAndName(IObjectContainer container)
         {
-            var featureContext = container.Resolve<FeatureContext>();
-            var scenarioContext = container.Resolve<ScenarioContext>();
-            return new IdentifierAndName(GetScenarioId(featureContext, scenarioContext).ToString(),
-                                         scenarioContext.ScenarioInfo.Title,
+            var featureInfo = container.Resolve<FeatureInfo>();
+            var scenarioInfo = container.Resolve<ScenarioInfo>();
+            return new IdentifierAndName(GetScenarioId(featureInfo, scenarioInfo).ToString(),
+                                         scenarioInfo.Title,
                                          true);
         }
 
-        Guid GetScenarioId(FeatureContext featureContext, ScenarioContext scenarioContext)
-            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureContextKey(scenarioContext, featureContext), _ => Guid.NewGuid());
+        Guid GetScenarioId(FeatureInfo featureInfo, ScenarioInfo scenarioInfo)
+            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureInfoKey(scenarioInfo, featureInfo), _ => Guid.NewGuid());
     }
 }

@@ -11,6 +11,7 @@
     <SonarQubeTestProject>false</SonarQubeTestProject>
     <AssemblyName>CSF.Screenplay.SpecFlowPlugin</AssemblyName>
     <Description>A Test Framework Integration for CSF.Screenplay for the legacy SpecFlow 3.4.3+ (recommendation: Switch to Reqnroll)</Description>
+    <DefineConstants>$(DefineConstants);SPECFLOW</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,17 @@
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj" />
     <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      The source code for this project is shared with Reqnroll; this directive links the Reqnroll integration's
+      source into this project. The compiler symbol SPECFLOW (above) is used to identify places in that shared
+      source where code differences (mainly naming) are required.
+    -->
+    <Compile Include="..\CSF.Screenplay.Reqnroll\**\*.cs"
+             Exclude="..\CSF.Screenplay.Reqnroll\obj\**\*.cs;..\CSF.Screenplay.Reqnroll\bin\**\*.cs"
+             Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,15 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
+#if SPECFLOW
 using TechTalk.SpecFlow;
+#else
+using Reqnroll;
+#endif
 
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// SpecFlow binding which uses hooks to coordinate the relevant <see cref="Screenplay"/> &amp; <see cref="IPerformance"/> event invokers.
+    /// Reqnroll binding which uses hooks to coordinate the relevant <see cref="Screenplay"/> &amp; <see cref="IPerformance"/> event invokers.
     /// </summary>
     [Binding]
     public class ScreenplayBinding

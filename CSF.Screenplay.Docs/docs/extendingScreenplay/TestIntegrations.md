@@ -1,11 +1,11 @@
 # Writing new Test framework integrations
 
 A way in which Screenplay is available for extension is the integration of Screenplay with other Test frameworks.
-Screenplay currently ships with integrations for [NUnit] and [SpecFlow] but developers are free to integrate it into other frameworks if they wish.
+Screenplay currently ships with integrations for [NUnit] and [Reqnroll] but developers are free to integrate it into other frameworks if they wish.
 Developers who are interested in this may use the source code to these two integrations as inspiration.
 
 [NUnit]: https://nunit.org
-[SpecFlow]: https://specflow.org
+[Reqnroll]: https://reqnroll.net/
 
 ## Requirements
 
@@ -33,7 +33,7 @@ Terminologies differ between testing frameworks; the word [Scenario] is used to 
     * Failure to do this could lead to memory leaks or unnecesarily high resource usage whilst the [Screenplay] is in-progress
 * The test framework **must** provide access to at least the [`ICast`] and [`IStage`], resolved from the [Scenario]'s dependency injection scope, to the [Scenario] logic
     * The manner of doing this depends entirely on the test framework
-    * By way of example, in NUnit this is performed by providing the values of parameters to the test method, in SpecFlow this is performed by resolving step bindng classes from that same DI scope, allowing constructor injection
+    * By way of example, in NUnit this is performed by providing the values of parameters to the test method, in Reqnroll this is performed by resolving step bindng classes from that same DI scope, allowing constructor injection
 
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [Scenarios]: ../../glossary/Scenario.md
