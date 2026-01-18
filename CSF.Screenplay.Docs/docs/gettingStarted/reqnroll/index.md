@@ -18,6 +18,7 @@ Further detail is provided below.
 
 [Reqnroll version 2.0.0]: https://www.nuget.org/packages/Reqnroll/2.0.0
 [CSF.Screenplay.Reqnroll]: https://www.nuget.org/packages/CSF.Screenplay.Reqnroll
+[CSF.Screenplay.SpecFlow]: https://www.nuget.org/packages/CSF.Screenplay.SpecFlow
 [Abilities]: ../../../glossary/Ability.md
 [use Reqnroll context injection & hooks]:https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options
 
