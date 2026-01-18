@@ -1,5 +1,9 @@
 ﻿using CSF.Screenplay.Actors;
+#if SPECFLOW
 using TechTalk.SpecFlow;
+#else
+using Reqnroll;
+#endif
 
 namespace CSF.Screenplay
 {

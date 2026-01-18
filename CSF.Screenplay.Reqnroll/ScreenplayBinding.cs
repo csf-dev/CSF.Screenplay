@@ -1,6 +1,10 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
+#if SPECFLOW
 using TechTalk.SpecFlow;
+#else
+using Reqnroll;
+#endif
 
 namespace CSF.Screenplay
 {

@@ -11,11 +11,11 @@
     <SonarQubeTestProject>false</SonarQubeTestProject>
     <AssemblyName>CSF.Screenplay.ReqnrollPlugin</AssemblyName>
     <Description>A Test Framework Integration for CSF.Screenplay for Reqnroll (the maintained fork of SpecFlow)</Description>
-    <DefineConstants>$(DefineConstants);REQNROLL</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reqnroll" Version="1.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="1.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
   </ItemGroup>
 
   <ItemGroup>

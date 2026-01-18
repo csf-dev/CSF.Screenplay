@@ -14,3 +14,13 @@ Maintaining support for SpecFlow is not a priority for CSF.Screenplay; *support 
 [legacy SpecFlow, *which is now retired*]: https://reqnroll.net/news/2025/01/specflow-end-of-life-has-been-announced/
 [Getting Started with Reqnroll documentation page]: https://csf-dev.github.io/CSF.Screenplay/docs/gettingStarted/reqnroll/index.html
 [Reqnroll]: https://reqnroll.net/
+
+## Source code note
+
+Browsing the repository/source code for this package/library, you will notice that there is none!
+The source code for this Test Framework Integration and [CSF.Screenplay.Reqnroll] are identical, and is maintained in the CSF.Screenplay.Reqnroll project.
+
+The compiler symbol `SPECFLOW` is used to identify the small number of places where code differences are required to cater for SpecFlow.
+These are limited to minor differences in naming (primarily .NET namespaces).
+
+[CSF.Screenplay.Reqnroll]: https://www.nuget.org/packages/CSF.Screenplay.Reqnroll

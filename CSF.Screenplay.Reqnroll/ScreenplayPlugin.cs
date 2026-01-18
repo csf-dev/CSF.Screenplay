@@ -4,9 +4,15 @@ using System.Reflection;
 using BoDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
+#if SPECFLOW
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.UnitTestProvider;
+#else
+using Reqnroll;
+using Reqnroll.Plugins;
+using Reqnroll.UnitTestProvider;
+#endif
 
 namespace CSF.Screenplay
 {
@@ -67,7 +73,13 @@ namespace CSF.Screenplay
 
         static void OnConfigurationDefaults(object sender, ConfigurationDefaultsEventArgs e)
         {
-            e.SpecFlowConfiguration.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
+            var config = 
+#if SPECFLOW
+                e.SpecFlowConfiguration;
+#elif REQNROLL
+                e.ReqnrollConfiguration;
+#endif
+            config.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);
         }
 
         /// <summary>

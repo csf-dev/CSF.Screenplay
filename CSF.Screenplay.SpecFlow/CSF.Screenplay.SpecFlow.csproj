@@ -23,4 +23,9 @@
     <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- The source code for this project is shared with Reqnroll; this directive brings it into this project -->
+    <Compile Include="..\CSF.Screenplay.Reqnroll\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
 </Project>

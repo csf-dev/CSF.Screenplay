@@ -1,5 +1,9 @@
 ﻿using System;
+#if SPECFLOW
 using TechTalk.SpecFlow;
+#else
+using Reqnroll;
+#endif
 
 namespace CSF.Screenplay
 {
