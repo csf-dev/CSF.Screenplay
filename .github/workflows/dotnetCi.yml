@@ -41,152 +41,149 @@ jobs:
       DISPLAY: :99
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    # Install build dependencies
+      # Install build dependencies
 
-    - name: Add .NET global tools location to PATH
-      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
-    - name: Install .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DotnetVersion }}
-    - name: Install SonarScanner
-      run: dotnet tool install --global dotnet-sonarscanner
-    - name: Install Coverlet console
-      run: dotnet tool install --global coverlet.console
-    - name: Install DocFX
-      run: dotnet tool install --global docfx
-    - name: Install Node.js for building JSON-to-HTML report converter
-      uses: actions/setup-node@v6.2.0
-    - name: Install Java JDK for SonarScanner
-      uses: actions/setup-java@v5.1.0
-      with:
-        java-version: 21
-        distribution: 'zulu'
-    - name: Install GUI packages so Chrome may run
-      run: |
-        sudo apt-get update
-        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable psmisc
+      - name: Add .NET global tools location to PATH
+        run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DotnetVersion }}
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+      - name: Install Coverlet console
+        run: dotnet tool install --global coverlet.console
+      - name: Install DocFX
+        run: dotnet tool install --global docfx
+      - name: Install Node.js for building JSON-to-HTML report converter
+        uses: actions/setup-node@v6.2.0
+      - name: Install Java JDK for SonarScanner
+        uses: actions/setup-java@v5.1.0
+        with:
+          java-version: 21
+          distribution: 'zulu'
+      - name: Install GUI packages so Chrome may run
+        run: |
+          sudo apt-get update
+          sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable psmisc
 
-    # Environment setup pre-build
+      # Environment setup pre-build
 
-    - name: Setup Selenium Manager config
-      run: |
-        mkdir ~/.cache/selenium
-        cp Tools/se-config.toml ~/.cache/selenium
-    - name: Start an Xvfb display so Chrome may run
-      run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &
-    - name: Restore .NET packages
-      run: dotnet restore
-    - name: Restore Node modules
-      run: |
-        cd CSF.Screenplay.JsonToHtmlReport.Template/src
-        npm ci
-        cd ../..
+      - name: Setup Selenium Manager config
+        run: |
+          mkdir ~/.cache/selenium
+          cp Tools/se-config.toml ~/.cache/selenium
+      - name: Start an Xvfb display so Chrome may run
+        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &
+      - name: Restore .NET packages
+        run: dotnet restore
+      - name: Restore Node modules
+        run: |
+          cd CSF.Screenplay.JsonToHtmlReport.Template/src
+          npm ci
+          cd ../..
 
-    # Build and test the solution
+      # Build and test the solution
 
-    - name: Start SonarScanner
-      run: >
-        dotnet sonarscanner begin
-        /k:${{ env.SonarCloudProject }}
-        /v:GitHub_build_${{ env.RunNumber }}
-        /o:${{ env.SonarCloudUsername }}
-        /d:sonar.host.url=${{ env.SonarCloudUrl }}
-        /d:sonar.token=${{ env.SonarCloudSecretKey }}
-        /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
-        /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
-        /s:$PWD/.sonarqube-analysisproperties.xml
-    - name: Build the solution
-      run: dotnet build -c ${{ env.Configuration }} --no-incremental
-    - name: Run .NET tests with coverage
-      id: dotnet_tests
-      continue-on-error: true
-      run: |
-        for proj in Tests/*.Tests
-        do
-          projNameArray=(${proj//// })
-          projName=${projNameArray[1]}
-          assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+      - name: Start SonarScanner
+        run: >
+          dotnet sonarscanner begin
+          /k:${{ env.SonarCloudProject }}
+          /v:GitHub_build_${{ env.RunNumber }}
+          /o:${{ env.SonarCloudUsername }}
+          /d:sonar.host.url=${{ env.SonarCloudUrl }}
+          /d:sonar.token=${{ env.SonarCloudSecretKey }}
+          /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
+          /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
+          /s:$PWD/.sonarqube-analysisproperties.xml
+      - name: Build the solution
+        run: dotnet build -c ${{ env.Configuration }} --no-incremental
+      - name: Run .NET tests with coverage
+        id: dotnet_tests
+        continue-on-error: true
+        run: |
+          for proj in Tests/*.Tests
+          do
+            projNameArray=(${proj//// })
+            projName=${projNameArray[1]}
+            assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
+            coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+            if [ $? -ne 0 ]
+            then
+              echo "failures=true" >> $GITHUB_OUTPUT
+            fi
+          done
+      - name: Run JavaScript tests with coverage
+        id: js_tests
+        continue-on-error: true
+        run: |
+          cd CSF.Screenplay.JsonToHtmlReport.Template/src
+          npm test
           if [ $? -ne 0 ]
           then
             echo "failures=true" >> $GITHUB_OUTPUT
           fi
-        done
-    - name: Run JavaScript tests with coverage
-      id: js_tests
-      continue-on-error: true
-      run: |
-        cd CSF.Screenplay.JsonToHtmlReport.Template/src
-        npm test
-        if [ $? -ne 0 ]
-        then
-          echo "failures=true" >> $GITHUB_OUTPUT
-        fi
-        cd ../..
+          cd ../..
 
-    # Post-test tasks (artifacts, overall status)
+      # Post-test tasks (artifacts, overall status)
 
-    - name: Stop SonarScanner
-      run:
-        dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
-    - name: Gracefully stop Xvfb
-      run: killall Xvfb
-      continue-on-error: true
-    - name: Upload test results artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: NUnit test results
-        path: Tests/*.Tests/**/TestResults.xml
-    - name: Upload Screenplay JSON report artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Screenplay JSON reports
-        path: Tests/**/ScreenplayReport_*.json
-    - name: Convert Screenplay reports to HTML
-      continue-on-error: true
-      run: |
-        for report in $(find Tests/ -type f -name "ScreenplayReport_*.json")
-        do
-          reportDir=$(dirname "$report")
-          outputFile="$reportDir/ScreenplayReport.html"
-          dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
-        done
-    - name: Upload Screenplay HTML report artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Screenplay HTML reports
-        path: Tests/**/ScreenplayReport.html
-    - name: Fail the build if any test failures
-      if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
-      run: |
-        echo "Failing the build due to test failures"
-        exit 1
+      - name: Stop SonarScanner
+        run:
+          dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+      - name: Gracefully stop Xvfb
+        run: killall Xvfb
+        continue-on-error: true
+      - name: Upload test results artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: NUnit test results
+          path: Tests/*.Tests/**/TestResults.xml
+      - name: Upload Screenplay JSON report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenplay JSON reports
+          path: Tests/**/ScreenplayReport_*.json
+      - name: Convert Screenplay reports to HTML
+        continue-on-error: true
+        run: |
+          for report in $(find Tests/ -type f -name "ScreenplayReport_*.json")
+          do
+            reportDir=$(dirname "$report")
+            outputFile="$reportDir/ScreenplayReport.html"
+            dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
+          done
+      - name: Upload Screenplay HTML report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenplay HTML reports
+          path: Tests/**/ScreenplayReport.html
+      - name: Fail the build if any test failures
+        if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
+        run: |
+          echo "Failing the build due to test failures"
+          exit 1
 
-    # Build the apps in release mode and publish artifacts
+      # Build the apps in release mode and publish artifacts
 
-    - name: Clean the solution ahead of building in release config
-      run: dotnet clean
-    - name: Build, in release configuration
-      run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
-    - name: Upload build result artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: Build results (NuGet)
-        path: packages/*.nupkg
-    - name: Build docs website
-      run: dotnet build -c Docs
-    - name: Upload docs website artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Docs website
-        path: docs/**/*
-
-  # publishDocs:
-    # TODO: Take the docco site artifact and publish it to master
+      - name: Clean the solution ahead of building in release config
+        run: dotnet clean
+      - name: Build, in release configuration
+        run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
+      - name: Upload build result artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build results (NuGet)
+          path: packages/*.nupkg
+      - name: Build docs website
+        run: dotnet build -c Docs
+      - name: Upload docs website artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Docs website
+          path: docs/**/*
 
   # runBrowserTests:
     # TODO: Use build-results artifacts and run tests on matrix of browsers
