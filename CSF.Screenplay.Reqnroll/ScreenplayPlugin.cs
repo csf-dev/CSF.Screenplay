@@ -46,8 +46,8 @@ namespace CSF.Screenplay
     public class ScreenplayPlugin : IRuntimePlugin
     {
         readonly object syncRoot = new object();
-        readonly ConcurrentDictionary<FeatureContext, Guid> featureContextIds = new ConcurrentDictionary<FeatureContext, Guid>();
-        readonly ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureContextKey, Guid>();
+        readonly ConcurrentDictionary<FeatureInfo, Guid> featureContextIds = new ConcurrentDictionary<FeatureInfo, Guid>();
+        readonly ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid>();
 
         bool initialised;
 
@@ -128,24 +128,24 @@ namespace CSF.Screenplay
 
         IdentifierAndName GetFeatureIdAndName(IObjectContainer container)
         {
-            var featureContext = container.Resolve<FeatureContext>();
-            return new IdentifierAndName(GetFeatureId(featureContext).ToString(),
-                                         featureContext.FeatureInfo.Title,
+            var featureInfo = container.Resolve<FeatureInfo>();
+            return new IdentifierAndName(GetFeatureId(featureInfo).ToString(),
+                                         featureInfo.Title,
                                          true);
         }
 
-        Guid GetFeatureId(FeatureContext featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
+        Guid GetFeatureId(FeatureInfo featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
 
         IdentifierAndName GetScenarioIdAndName(IObjectContainer container)
         {
-            var featureContext = container.Resolve<FeatureContext>();
-            var scenarioContext = container.Resolve<ScenarioContext>();
-            return new IdentifierAndName(GetScenarioId(featureContext, scenarioContext).ToString(),
-                                         scenarioContext.ScenarioInfo.Title,
+            var featureInfo = container.Resolve<FeatureInfo>();
+            var scenarioInfo = container.Resolve<ScenarioInfo>();
+            return new IdentifierAndName(GetScenarioId(featureInfo, scenarioInfo).ToString(),
+                                         scenarioInfo.Title,
                                          true);
         }
 
-        Guid GetScenarioId(FeatureContext featureContext, ScenarioContext scenarioContext)
-            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureContextKey(scenarioContext, featureContext), _ => Guid.NewGuid());
+        Guid GetScenarioId(FeatureInfo featureInfo, ScenarioInfo scenarioInfo)
+            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureInfoKey(scenarioInfo, featureInfo), _ => Guid.NewGuid());
     }
 }
