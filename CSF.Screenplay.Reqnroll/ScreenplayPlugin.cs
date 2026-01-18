@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Concurrent;
 using System.Reflection;
-using BoDi;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
 #if SPECFLOW
+using BoDi;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.UnitTestProvider;
 #else
+using Reqnroll.BoDi;
 using Reqnroll;
 using Reqnroll.Plugins;
 using Reqnroll.UnitTestProvider;

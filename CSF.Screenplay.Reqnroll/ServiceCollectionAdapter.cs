@@ -2,7 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+#if SPECFLOW
 using BoDi;
+#else
+using Reqnroll.BoDi;
+#endif
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay

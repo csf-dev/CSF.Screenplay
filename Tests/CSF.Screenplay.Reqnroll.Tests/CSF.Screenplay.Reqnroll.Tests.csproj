@@ -15,7 +15,8 @@
     <PackageReference Include="NUnit.Analyzers" Version="4.3.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="4.0.254" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
-    <PackageReference Include="Reqnroll.NUnit" Version="1.0.0" />
+    <PackageReference Include="Reqnroll.NUnit" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll.NUnit" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,10 @@
 using System;
+#if SPECFLOW
 using BoDi;
+#else
+using Reqnroll.BoDi;
+#endif
+
 
 namespace CSF.Screenplay
 {

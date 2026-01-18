@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using BoDi;
+using Reqnroll.BoDi;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay;
