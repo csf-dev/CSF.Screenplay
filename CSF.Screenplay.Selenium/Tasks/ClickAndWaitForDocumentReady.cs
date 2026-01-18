@@ -24,7 +24,9 @@ namespace CSF.Screenplay.Selenium.Tasks
         const string COMPLETE_READY_STATE = "complete";
 
         static readonly NamedScriptWithResult<string> getReadyState = Scripts.GetTheDocumentReadyState;
-        static readonly TimeSpan pollingInterval = TimeSpan.FromMilliseconds(200);
+        static readonly TimeSpan
+            pollingInterval = TimeSpan.FromMilliseconds(100),
+            stalenessTimeout = TimeSpan.FromMilliseconds(500);
 
         readonly TimeSpan waitTimeout;
 
@@ -36,8 +38,27 @@ namespace CSF.Screenplay.Selenium.Tasks
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
+            await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement)).ForAtMost(stalenessTimeout).WithPollingInterval(pollingInterval).Named($"{element.Value.Name} is no longer on the page"));
             await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(waitTimeout).Named("the page is ready").WithPollingInterval(pollingInterval),
                                      cancellationToken);
+        }
+
+        static Func<IWebDriver,bool> ElementIsStale(IWebElement element)
+        {
+            if (element is null) throw new ArgumentNullException(nameof(element));
+
+            return driver =>
+            {
+                try
+                {
+                    var _ = element.Enabled;
+                    return false;
+                }
+                catch(StaleElementReferenceException)
+                {
+                    return true;
+                }
+            };
         }
 
         static Func<IWebDriver,bool> PageIsReady => driver => driver.ExecuteJavaScript<string>(getReadyState.ScriptBody) == COMPLETE_READY_STATE;
