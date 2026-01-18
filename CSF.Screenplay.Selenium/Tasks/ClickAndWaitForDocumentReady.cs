@@ -38,7 +38,11 @@ namespace CSF.Screenplay.Selenium.Tasks
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
-            await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement)).ForAtMost(stalenessTimeout).WithPollingInterval(pollingInterval).Named($"{element.Value.Name} is no longer on the page"));
+            await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement))
+                                                .ForAtMost(stalenessTimeout)
+                                                .WithPollingInterval(pollingInterval)
+                                                .Named($"{element.Value.Name} is no longer on the page"),
+                                     cancellationToken);
             await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(waitTimeout).Named("the page is ready").WithPollingInterval(pollingInterval),
                                      cancellationToken);
         }
