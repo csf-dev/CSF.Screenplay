@@ -7216,6 +7216,57 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Builders
   fullName: CSF.Screenplay.Selenium.Builders
   nameWithType: CSF.Screenplay.Selenium.Builders
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder
+  name: ClickBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.ClickBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder
+  nameWithType: ClickBuilder
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: ClickBuilder(ITarget)
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Builders.ClickBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name.vb: New(ITarget)
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.ClickBuilder(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ClickBuilder.New(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: ClickBuilder.ClickBuilder(ITarget)
+  nameWithType.vb: ClickBuilder.New(ITarget)
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.#ctor*
+  name: ClickBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ClickBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.ClickBuilder
+  fullName.vb: CSF.Screenplay.Selenium.Builders.ClickBuilder.New
+  nameWithType: ClickBuilder.ClickBuilder
+  nameWithType.vb: ClickBuilder.New
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad(System.Nullable{System.TimeSpan})
+  name: AndWaitForANewPageToLoad(TimeSpan?)
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_AndWaitForANewPageToLoad_System_Nullable_System_TimeSpan__
+  commentId: M:CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad(System.Nullable{System.TimeSpan})
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad(System.TimeSpan?)
+  nameWithType: ClickBuilder.AndWaitForANewPageToLoad(TimeSpan?)
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad*
+  name: AndWaitForANewPageToLoad
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_AndWaitForANewPageToLoad_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad
+  nameWithType: ClickBuilder.AndWaitForANewPageToLoad
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable
+  name: GetPerformable()
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_GetPerformable
+  commentId: M:CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable()
+  nameWithType: ClickBuilder.GetPerformable()
+- uid: CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable*
+  name: GetPerformable
+  href: api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_GetPerformable_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable
+  nameWithType: ClickBuilder.GetPerformable
 - uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder
   name: ExecuteJavaScriptBuilder
   href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html
@@ -12346,12 +12397,82 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
   nameWithType: Scripts.ClearLocalStorage
+- uid: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
+  name: GetTheDocumentReadyState
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState
+  commentId: P:CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
+  fullName: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
+  nameWithType: Scripts.GetTheDocumentReadyState
+- uid: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState*
+  name: GetTheDocumentReadyState
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
+  nameWithType: Scripts.GetTheDocumentReadyState
 - uid: CSF.Screenplay.Selenium.Tasks
   name: CSF.Screenplay.Selenium.Tasks
   href: api/CSF.Screenplay.Selenium.Tasks.html
   commentId: N:CSF.Screenplay.Selenium.Tasks
   fullName: CSF.Screenplay.Selenium.Tasks
   nameWithType: CSF.Screenplay.Selenium.Tasks
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
+  name: ClickAndWaitForDocumentReady
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
+  nameWithType: ClickAndWaitForDocumentReady
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.TimeSpan)
+  name: ClickAndWaitForDocumentReady(TimeSpan)
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_System_TimeSpan_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.TimeSpan)
+  name.vb: New(TimeSpan)
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(System.TimeSpan)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.New(System.TimeSpan)
+  nameWithType: ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(TimeSpan)
+  nameWithType.vb: ClickAndWaitForDocumentReady.New(TimeSpan)
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor*
+  name: ClickAndWaitForDocumentReady
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.New
+  nameWithType: ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady
+  nameWithType.vb: ClickAndWaitForDocumentReady.New
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: ClickAndWaitForDocumentReady.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  nameWithType.vb: ClickAndWaitForDocumentReady.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment
+  nameWithType: ClickAndWaitForDocumentReady.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
+  nameWithType: ClickAndWaitForDocumentReady.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  nameWithType.vb: ClickAndWaitForDocumentReady.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync
+  nameWithType: ClickAndWaitForDocumentReady.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
   name: OpenUrlRespectingBase
   href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html

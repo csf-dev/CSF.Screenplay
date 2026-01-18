@@ -2150,6 +2150,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.ClickBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.ClickBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.ClickBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.ClickBuilder.yml\" sourcestartlinenumber=\"1\">Builder for creating click actions on a target element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.yml",
       "output": {
         ".html": {
@@ -3351,6 +3365,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Scripts",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Scripts.yml\" sourcestartlinenumber=\"1\">A repository of named JavaScripts which are distributed with Screenplay's Selenium integration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml\" sourcestartlinenumber=\"1\">Screenplay task similar to <xref href=\"CSF.Screenplay.Selenium.Actions.Click\" data-throw-if-not-resolved=\"false\"></xref> but which additionally waits for a page-load to complete after clicking.</p>\n"
     },
     {
       "type": "ManagedReference",
