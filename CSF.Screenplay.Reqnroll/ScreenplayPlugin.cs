@@ -76,7 +76,7 @@ namespace CSF.Screenplay
             var config = 
 #if SPECFLOW
                 e.SpecFlowConfiguration;
-#elif REQNROLL
+#else
                 e.ReqnrollConfiguration;
 #endif
             config.AdditionalStepAssemblies.Add(Assembly.GetExecutingAssembly().FullName);

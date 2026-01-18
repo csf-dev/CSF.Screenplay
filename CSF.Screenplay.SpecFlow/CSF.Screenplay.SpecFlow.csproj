@@ -24,8 +24,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- The source code for this project is shared with Reqnroll; this directive brings it into this project -->
-    <Compile Include="..\CSF.Screenplay.Reqnroll\**\*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!--
+      The source code for this project is shared with Reqnroll; this directive links the Reqnroll integration's
+      source into this project. The compiler symbol SPECFLOW (above) is used to identify places in that shared
+      source where code differences (mainly naming) are required.
+    -->
+    <Compile Include="..\CSF.Screenplay.Reqnroll\**\*.cs"
+             Exclude="..\CSF.Screenplay.Reqnroll\obj\**\*.cs;..\CSF.Screenplay.Reqnroll\bin\**\*.cs"
+             Link="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>
