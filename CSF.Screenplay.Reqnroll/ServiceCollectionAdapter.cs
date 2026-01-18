@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// Adapter class which allows a SpecFlow/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceCollection"/>.
+    /// Adapter class which allows a Reqnroll/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceCollection"/>.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -68,7 +68,7 @@ namespace CSF.Screenplay
         /// is <see cref="ServiceLifetime.Scoped"/> then the service descriptor will not be added and will be silently ignored.
         /// </para>
         /// <para>
-        /// In reality, the Specflow BoDi object container only really supports singleton services at this level. So, any services added as
+        /// In reality, the Reqnroll BoDi object container only really supports singleton services at this level. So, any services added as
         /// <see cref="ServiceLifetime.Transient"/> will actually become singletons here. Whilst the BoDi container does support scoped services, they
         /// must be added directly to the scope instance and cannot be added in advance.
         /// </para>

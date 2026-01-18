@@ -1,9 +1,6 @@
-﻿using CSF.Screenplay.Actors;
-#if SPECFLOW
+﻿#if SPECFLOW
+using CSF.Screenplay.Actors;
 using TechTalk.SpecFlow;
-#else
-using Reqnroll;
-#endif
 
 namespace CSF.Screenplay
 {
@@ -11,6 +8,9 @@ namespace CSF.Screenplay
     /// A subclass of <c>TechTalk.SpecFlow.Steps</c> provided for convenience of SpecFlow 3.x users to avoid naming conflicts.
     /// </summary>
     /// <remarks>
+    /// <para>
+    /// Note that this class does not exist in the Reqnroll Test Framework Integration.  It is irrelevant there.
+    /// </para>
     /// <para>
     /// In SpecFlow 3.x, the <c>Steps</c> class has three methods named <c>Given</c>, <c>When</c> &amp; <c>Then</c> which can cause
     /// a naming conflict with the same-named methods of <see cref="PerformanceStarter"/>.  If you using the performance starter in
@@ -22,13 +22,10 @@ namespace CSF.Screenplay
     /// but in a manner which will not cause a name-resolution conflict.
     /// </para>
     /// <para>
-    /// Note that in SpecFlow 4.x and up, this problem is irrelevant; there is no gain in using this subclass over the <c>using static</c> technique.
-    /// As noted here <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Calling-Steps-from-Step-Definitions.html"/>
-    /// and here <see href="https://github.com/SpecFlowOSS/SpecFlow/issues/1733"/> the Give, When &amp; Then methods upon the
-    /// SpecFlow <c>Steps</c> class were removed in v4.x. This means that the naming conflict won't be present and that there is no need
-    /// for your bindings to derive from this class instead of the official Steps class.
-    /// Indeed, Screenplay could be described as a specific implementation of the 'driver pattern', which is noted in the linked Github issue
-    /// as a best-practice alternative to calling-steps-from-steps.
+    /// Note that in SpecFlow 4.x and up, and Reqnroll, this problem is irrelevant; there is no gain in using this subclass over the <c>using static</c> technique.
+    /// The Given, When &amp; Then methods upon the SpecFlow <c>Steps</c> class were removed in v4.x, and never existed in any version of Reqnroll.
+    /// This means that the naming conflict won't be present and that there is no need for your bindings to derive from this class instead
+    /// of the official Steps class.
     /// </para>
     /// </remarks>
     public abstract class ScreenplaySteps : Steps
@@ -75,3 +72,4 @@ namespace CSF.Screenplay
         public static ICanPerformThen Then(Actor actor) => PerformanceStarter.Then(actor);
     }
 }
+#endif

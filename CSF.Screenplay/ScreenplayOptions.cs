@@ -14,7 +14,7 @@ namespace CSF.Screenplay
     /// <para>
     /// Developer note:  In an ideal world, this type would be registered into DI via the Options pattern:
     /// <see href="https://learn.microsoft.com/en-us/dotnet/core/extensions/options"/>.
-    /// Unfortunately, the BoDi DI container used by SpecFlow (which I wish to support with Screenplay) does not support
+    /// Unfortunately, the BoDi DI container used by Reqnroll (which I wish to support with Screenplay) does not support
     /// the appropriate methods/logic to register the neccesary services for Options.
     /// This is why this object uses a somewhat homebrew version of options, without making use of the official libraries.
     /// </para>

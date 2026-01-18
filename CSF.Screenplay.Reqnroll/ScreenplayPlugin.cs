@@ -18,15 +18,15 @@ using Reqnroll.UnitTestProvider;
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// The Screenplay plugin for SpecFlow.
+    /// The Screenplay plugin for Reqnroll.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This plugin class is the <xref href="IntegrationGlossaryItem?text=test+framework+integration"/> for SpecFlow.
-    /// Crucially it adds the Screenplay architecture to the SpecFlow architecture.
+    /// This plugin class is the <xref href="IntegrationGlossaryItem?text=test+framework+integration"/> for Reqnroll.
+    /// Crucially it adds the Screenplay architecture to the Reqnroll architecture.
     /// </para>
     /// <para>
-    /// Becuase this plugin leverages the SpecFlow/BoDi <c>IObjectContainer</c>, it is likely incompatible with other plugins
+    /// Becuase this plugin leverages the Reqnroll/BoDi <c>IObjectContainer</c>, it is likely incompatible with other plugins
     /// which integrate with third party Dependency Injection libraries.
     /// </para>
     /// <para>
@@ -38,8 +38,8 @@ namespace CSF.Screenplay
     /// <para>
     /// If you wish to further customise the dependency injection, such as adding injectable services for <xref href="AbilityGlossaryItem?text=abilities"/>
     /// or implementations of <see cref="IPersona"/>, add them to the relevant DI container.
-    /// When using SpecFlow's default BoDi container this is described in the following article
-    /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options"/>.
+    /// When using Reqnroll's default BoDi container this is described in the following article
+    /// <see href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options"/>.
     /// If using a third-party DI container then you should use that container's appropriate mechanism of adding services.
     /// </para>
     /// </remarks>
@@ -56,8 +56,9 @@ namespace CSF.Screenplay
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This is required because the bindings for beginning/ending the Screenplay in <see cref="ScreenplayBinding"/> must be <c>static</c>:
-        /// <see href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes"/>.
+        /// This is required because the bindings for beginning/ending the Screenplay in <see cref="ScreenplayBinding"/> must be <c>static</c>.
+        /// Those bindings use the <c>[BeforeTestRun]</c> and <c>[AfterTestRun]</c> hooks, which must be static, as documented here:
+        /// <see href="https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes"/>
         /// </para>
         /// </remarks>
         static public Screenplay Screenplay { get; private set; }
@@ -88,9 +89,10 @@ namespace CSF.Screenplay
         /// </summary>
         /// <remarks>
         /// <para>
-        /// It is a known/documented issue that this event may be triggered more than once in a single run of SpecFlow:
-        /// <see href="https://github.com/techtalk/SpecFlow/issues/948"/>, and by more than one thread.
-        /// Thus, to prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
+        /// It was a known/documented issue that this event may be triggered more than once in a single run of the old
+        /// SpecFlow, and by more than one thread.  Unfortunately I don't know if that's still applicable in Reqnroll.
+        /// I've opened this discussion to see if I can find out: <see href="https://github.com/orgs/reqnroll/discussions/1005"/>.
+        /// To prevent double-initialisation, this method occurs in a thread-safe manner which ensures that even if it
         /// is executed more than once, there is no adverse consequence.
         /// </para>
         /// </remarks>

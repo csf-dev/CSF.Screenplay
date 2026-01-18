@@ -9,7 +9,7 @@ using Reqnroll.BoDi;
 namespace CSF.Screenplay
 {
     /// <summary>
-    /// Adapter class which allows a SpecFlow/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceProvider"/>.
+    /// Adapter class which allows a Reqnroll/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceProvider"/>.
     /// </summary>
     public class ServiceProviderAdapter : IServiceProvider
     {

@@ -11,7 +11,7 @@ Rather than using many performables at the top-level of your tests, create [high
 When using a method-driven testing framework, such as NUnit, five performables in a single test method is a reasonable number.
 More than approximately ten performables is too many.
 
-When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.
+When using a binding-driven testing framework like Reqnroll, each binding should ideally correspond to at-most one performable.
 
 [performables]: ../../glossary/Performable.md
 [high-level tasks]: ../../glossary/Task.md

@@ -1,6 +1,6 @@
 Feature: Adding up numbers
 
-    As a math idiot, I want to be able to add numbers to a running total, to test the Screenplay/SpecFlow integration
+    As a math idiot, I want to be able to add numbers to a running total, to test the Screenplay/Reqnroll integration
 
 Scenario: Mathias should be able to add two numbers together and get the correct result
     Given Mathias has the number 50

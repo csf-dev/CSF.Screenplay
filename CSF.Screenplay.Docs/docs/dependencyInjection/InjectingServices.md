@@ -17,13 +17,13 @@ Which of these depends upon the nature and paradigm of the test framework.
 For frameworks which are based on **test methods** such as [NUnit], services are typically injected via _method parameter injection_ into the test methods.
 [If Screenplay were to be extended] to work with frameworks such as xUnit or MSTest then this is likely to be the technique used.
 
-For frameworks which are based on **binding classes** such as [SpecFlow], services are constructor-injected into binding classes.
+For frameworks which are based on **binding classes** such as [Reqnroll], services are constructor-injected into binding classes.
 
 Use dependencies injected in this way to get access to [commonly-used Screenplay services] and anything else required at the root level of your test logic.
 
 [NUnit]: https://nunit.org/
 [If Screenplay were to be extended]: ../extendingScreenplay/TestIntegrations.md
-[SpecFlow]: https://specflow.org/
+[Reqnroll]: https://reqnroll.net/
 [commonly-used Screenplay services]: InjectableServices.md
 
 ## Into standalone performance logic
