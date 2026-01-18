@@ -1,1 +1,2 @@
 ClearLocalStorage = localStorage.clear()
+GetDocReadyState = return document.readyState

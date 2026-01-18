@@ -11,5 +11,7 @@ namespace CSF.Screenplay.Selenium.Resources
 
         /// <summary>Gets a short JavaScript for <see cref="Actions.ClearLocalStorage"/>.</summary>
         internal static string ClearLocalStorage => resourceManager.GetString("ClearLocalStorage");
+
+        internal static string GetDocReadyState => resourceManager.GetString("GetDocReadyState");
     }
 }

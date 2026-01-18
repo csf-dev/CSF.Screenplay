@@ -1,7 +1,6 @@
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
-using CSF.Screenplay.Selenium.Tasks;
 
 namespace CSF.Screenplay.Selenium
 {
@@ -12,23 +11,7 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <param name="target">The target element on which to click.</param>
         /// <returns>A performable action</returns>
-        public static IPerformable ClickOn(ITarget target) => SingleElementPerformableAdapter.From(new Click(), target);
-
-        /// <summary>
-        /// Gets a performable action which represents an actor clicking on a specified target element,
-        /// with the expectation that it will navigate the browser to a new web page.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// The performable returned by this method will click on the element indicated, but will also wait for the <c>DOMContentLoaded</c>
-        /// event from the incoming web page. This ensures that subsequent interactions with the Web Browser are not performed upon a
-        /// page which is not yet loaded.
-        /// </para>
-        /// </remarks>
-        /// <param name="target">The target element on which to click.</param>
-        /// <returns>A performable action</returns>
-        public static IPerformable ClickAndWaitForDocumentReady(ITarget target)
-            => SingleElementPerformableAdapter.From(new ClickAndWaitForDocumentReady(), target);
+        public static ClickBuilder ClickOn(ITarget target) => new ClickBuilder(target);
 
         /// <summary>
         /// Gets a builder for creating a performable action which represents an actor typing text into a target element.
