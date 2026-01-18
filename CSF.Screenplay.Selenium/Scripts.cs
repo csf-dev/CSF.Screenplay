@@ -18,5 +18,15 @@ namespace CSF.Screenplay.Selenium
         /// <returns>A named script.</returns>
         public static NamedScript ClearLocalStorage
             => new NamedScript(Resources.ScriptResources.ClearLocalStorage, "clear the local storage");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScriptWithResult{TResult}"/> which gets the value of <c>document.readyState</c> for the
+        /// current page.
+        /// </summary>
+        /// <remarks>
+        /// <para>You may use this script to determine whether the page has finished loading.</para>
+        /// </remarks>
+        public static NamedScriptWithResult<string> GetTheDocumentReadyState
+            => new NamedScriptWithResult<string>(Resources.ScriptResources.GetDocReadyState, "get the readiness of the current page");
     }
 }

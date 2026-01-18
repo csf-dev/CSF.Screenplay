@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <param name="target">The target element on which to click.</param>
         /// <returns>A performable action</returns>
-        public static IPerformable ClickOn(ITarget target) => SingleElementPerformableAdapter.From(new Click(), target);
+        public static ClickBuilder ClickOn(ITarget target) => new ClickBuilder(target);
 
         /// <summary>
         /// Gets a builder for creating a performable action which represents an actor typing text into a target element.
