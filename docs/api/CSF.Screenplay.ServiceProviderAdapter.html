@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ServiceProviderAdapter | Screenplay ">
       
-      <meta name="description" content="Adapter class which allows a SpecFlow/BoDi IObjectContainer to be used as an .">
+      <meta name="description" content="Adapter class which allows a Reqnroll/BoDi IObjectContainer to be used as an .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,15 +89,15 @@
 
 
   <h1 id="CSF_Screenplay_ServiceProviderAdapter" data-uid="CSF.Screenplay.ServiceProviderAdapter" class="text-break">
-Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceProviderAdapter.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>CSF.Screenplay.SpecFlowPlugin.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.ReqnrollPlugin.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>.</p>
+  <div class="markdown summary"><p>Adapter class which allows a Reqnroll/BoDi <code>IObjectContainer</code> to be used as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -163,7 +163,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter__ctor_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceProviderAdapter.#ctor(BoDi.IObjectContainer)">
   ServiceProviderAdapter(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceProviderAdapter.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a>.</p>
@@ -198,6 +198,45 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
 
 
+  <a id="CSF_Screenplay_ServiceProviderAdapter__ctor_" data-uid="CSF.Screenplay.ServiceProviderAdapter.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_ServiceProviderAdapter__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)">
+  ServiceProviderAdapter(IObjectContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceProviderAdapter(IObjectContainer wrapped)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>wrapped</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">IObjectContainer</a></dt>
+    <dd><p>The BoDi object container</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">wrapped</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -206,7 +245,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type_" data-uid="CSF.Screenplay.ServiceProviderAdapter.GetService(System.Type)">
   GetService(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceProviderAdapter.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -242,7 +281,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ServiceProviderAdapter.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

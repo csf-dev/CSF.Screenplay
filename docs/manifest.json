@@ -1712,7 +1712,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.ScreenplayBinding",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ScreenplayBinding.yml\" sourcestartlinenumber=\"1\">SpecFlow binding which uses hooks to coordinate the relevant <xref href=\"CSF.Screenplay.Screenplay\" data-throw-if-not-resolved=\"false\"></xref> &amp; <xref href=\"CSF.Screenplay.IPerformance\" data-throw-if-not-resolved=\"false\"></xref> event invokers.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ScreenplayBinding.yml\" sourcestartlinenumber=\"1\">Reqnroll binding which uses hooks to coordinate the relevant <xref href=\"CSF.Screenplay.Screenplay\" data-throw-if-not-resolved=\"false\"></xref> &amp; <xref href=\"CSF.Screenplay.IPerformance\" data-throw-if-not-resolved=\"false\"></xref> event invokers.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1768,7 +1768,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.ScreenplayPlugin",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ScreenplayPlugin.yml\" sourcestartlinenumber=\"1\">The Screenplay plugin for SpecFlow.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ScreenplayPlugin.yml\" sourcestartlinenumber=\"1\">The Screenplay plugin for Reqnroll.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3448,7 +3448,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.ServiceCollectionAdapter",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceCollectionAdapter.yml\" sourcestartlinenumber=\"1\">Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceCollectionAdapter.yml\" sourcestartlinenumber=\"1\">Adapter class which allows a Reqnroll/BoDi <code>IObjectContainer</code> to be used as an <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3462,7 +3462,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.ServiceProviderAdapter",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceProviderAdapter.yml\" sourcestartlinenumber=\"1\">Adapter class which allows a SpecFlow/BoDi <code>IObjectContainer</code> to be used as an <xref href=\"System.IServiceProvider\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceProviderAdapter.yml\" sourcestartlinenumber=\"1\">Adapter class which allows a Reqnroll/BoDi <code>IObjectContainer</code> to be used as an <xref href=\"System.IServiceProvider\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3762,11 +3762,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -3845,11 +3845,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/builderPattern/toc.json"
-        },
         ".html": {
           "relative_path": "docs/builderPattern/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/builderPattern/toc.json"
         }
       },
       "version": ""
@@ -4118,11 +4118,11 @@
       "type": "Toc",
       "source_relative_path": "docs/performables/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/performables/toc.json"
-        },
         ".html": {
           "relative_path": "docs/performables/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/performables/toc.json"
         }
       },
       "version": ""
@@ -4131,11 +4131,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -4394,11 +4394,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "glossary/toc.json"
-        },
         ".html": {
           "relative_path": "glossary/toc.html"
+        },
+        ".json": {
+          "relative_path": "glossary/toc.json"
         }
       },
       "version": ""
@@ -4477,11 +4477,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

@@ -5883,6 +5883,12 @@ references:
   commentId: T:CSF.Screenplay.ScreenplayPlugin
   fullName: CSF.Screenplay.ScreenplayPlugin
   nameWithType: ScreenplayPlugin
+- uid: CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents,Reqnroll.Plugins.RuntimePluginParameters,Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)
+  name: Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
+  href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Initialize_Reqnroll_Plugins_RuntimePluginEvents_Reqnroll_Plugins_RuntimePluginParameters_Reqnroll_UnitTestProvider_UnitTestProviderConfiguration_
+  commentId: M:CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents,Reqnroll.Plugins.RuntimePluginParameters,Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)
+  fullName: CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents, Reqnroll.Plugins.RuntimePluginParameters, Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)
+  nameWithType: ScreenplayPlugin.Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
 - uid: CSF.Screenplay.ScreenplayPlugin.Initialize(TechTalk.SpecFlow.Plugins.RuntimePluginEvents,TechTalk.SpecFlow.Plugins.RuntimePluginParameters,TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration)
   name: Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
   href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Initialize_TechTalk_SpecFlow_Plugins_RuntimePluginEvents_TechTalk_SpecFlow_Plugins_RuntimePluginParameters_TechTalk_SpecFlow_UnitTestProvider_UnitTestProviderConfiguration_
@@ -12552,6 +12558,15 @@ references:
   fullName.vb: CSF.Screenplay.ServiceCollectionAdapter.New(BoDi.IObjectContainer)
   nameWithType: ServiceCollectionAdapter.ServiceCollectionAdapter(IObjectContainer)
   nameWithType.vb: ServiceCollectionAdapter.New(IObjectContainer)
+- uid: CSF.Screenplay.ServiceCollectionAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name: ServiceCollectionAdapter(IObjectContainer)
+  href: api/CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter__ctor_Reqnroll_BoDi_IObjectContainer_
+  commentId: M:CSF.Screenplay.ServiceCollectionAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name.vb: New(IObjectContainer)
+  fullName: CSF.Screenplay.ServiceCollectionAdapter.ServiceCollectionAdapter(Reqnroll.BoDi.IObjectContainer)
+  fullName.vb: CSF.Screenplay.ServiceCollectionAdapter.New(Reqnroll.BoDi.IObjectContainer)
+  nameWithType: ServiceCollectionAdapter.ServiceCollectionAdapter(IObjectContainer)
+  nameWithType.vb: ServiceCollectionAdapter.New(IObjectContainer)
 - uid: CSF.Screenplay.ServiceCollectionAdapter.#ctor*
   name: ServiceCollectionAdapter
   href: api/CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter__ctor_
@@ -12746,6 +12761,15 @@ references:
   name.vb: New(IObjectContainer)
   fullName: CSF.Screenplay.ServiceProviderAdapter.ServiceProviderAdapter(BoDi.IObjectContainer)
   fullName.vb: CSF.Screenplay.ServiceProviderAdapter.New(BoDi.IObjectContainer)
+  nameWithType: ServiceProviderAdapter.ServiceProviderAdapter(IObjectContainer)
+  nameWithType.vb: ServiceProviderAdapter.New(IObjectContainer)
+- uid: CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name: ServiceProviderAdapter(IObjectContainer)
+  href: api/CSF.Screenplay.ServiceProviderAdapter.html#CSF_Screenplay_ServiceProviderAdapter__ctor_Reqnroll_BoDi_IObjectContainer_
+  commentId: M:CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name.vb: New(IObjectContainer)
+  fullName: CSF.Screenplay.ServiceProviderAdapter.ServiceProviderAdapter(Reqnroll.BoDi.IObjectContainer)
+  fullName.vb: CSF.Screenplay.ServiceProviderAdapter.New(Reqnroll.BoDi.IObjectContainer)
   nameWithType: ServiceProviderAdapter.ServiceProviderAdapter(IObjectContainer)
   nameWithType.vb: ServiceProviderAdapter.New(IObjectContainer)
 - uid: CSF.Screenplay.ServiceProviderAdapter.#ctor*

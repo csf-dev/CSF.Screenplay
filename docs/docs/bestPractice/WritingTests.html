@@ -94,7 +94,7 @@ Too many <a href="../../glossary/Performable.html">performables</a> in a single 
 Rather than using many performables at the top-level of your tests, create <a href="../../glossary/Task.html">high-level tasks</a> which compose and simplify some of that detail into a single logical step.</p>
 <p>When using a method-driven testing framework, such as NUnit, five performables in a single test method is a reasonable number.
 More than approximately ten performables is too many.</p>
-<p>When using a binding-driven testing framework like SpecFlow, each binding should ideally correspond to at-most one performable.</p>
+<p>When using a binding-driven testing framework like Reqnroll, each binding should ideally correspond to at-most one performable.</p>
 <h2 id="use-the-performance-starter">Use the Performance Starter</h2>
 <p>Your top-level test logic should consume its <a href="../../glossary/Performable.html">performables</a> via the class <a class="xref" href="../../api/CSF.Screenplay.PerformanceStarter.html"><code>PerformanceStarter</code></a>.
 This provides for a clear given/when/then appearance to your top-level test logic.</p>

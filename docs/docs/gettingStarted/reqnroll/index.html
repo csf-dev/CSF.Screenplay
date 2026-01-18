@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Screenplay &amp; SpecFlow tutorial | Screenplay </title>
+      <title>Screenplay &amp; Reqnroll tutorial | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Screenplay &amp; SpecFlow tutorial | Screenplay ">
+      <meta name="title" content="Screenplay &amp; Reqnroll tutorial | Screenplay ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,23 +85,31 @@
         </div>
 
         <article data-uid="">
-<h1 id="screenplay--specflow-tutorial">Screenplay &amp; SpecFlow tutorial</h1>
+<h1 id="screenplay--reqnroll-tutorial">Screenplay &amp; Reqnroll tutorial</h1>
 
-<p>Begin writing SpecFlow tests using Screenplay by following these steps.
+<div class="TIP">
+<h5>Tip</h5>
+<p>Are you using the legacy <strong>SpecFlow</strong>?
+<strong>Reqnroll</strong> is the maintained fork of SpecFlow, so it's recommended you upgrade your projects ASAP.</p>
+<p>For now, CSF.Screenplay continues to support SpecFlow.
+Use the [CSF.Screenplay.SpecFlow] package and SpecFlow v3.4.3 or higher instead.
+The remainder of the instructions below work for either Reqnroll or SpecFlow.</p>
+</div>
+<p>Begin writing Reqnroll tests using Screenplay by following these steps.
 Further detail is provided below.</p>
 <ol>
-<li>Ensure that your test project uses <a href="https://www.nuget.org/packages/SpecFlow/3.4.3">SpecFlow version 3.4.3</a> or higher</li>
-<li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.SpecFlow">CSF.Screenplay.SpecFlow</a></strong> to the project which will contain your <code>.feature</code> files</li>
-<li><em>Optional:</em> Add services to dependency injection which will be required by the <a href="../../../glossary/Ability.html">Abilities</a> you intend to use.  If required, <a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options">use SpecFlow context injection &amp; hooks</a> to add these to the DI container.</li>
+<li>Ensure that your test project uses <a href="https://www.nuget.org/packages/Reqnroll/2.0.0">Reqnroll version 2.0.0</a> or higher</li>
+<li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.Reqnroll">CSF.Screenplay.Reqnroll</a></strong> to the project which will contain your <code>.feature</code> files</li>
+<li><em>Optional:</em> Add services to dependency injection which will be required by the <a href="../../../glossary/Ability.html">Abilities</a> you intend to use.  If required, <a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">use Reqnroll context injection &amp; hooks</a> to add these to the DI container.</li>
 <li>Write step binding classes which dependency-inject and use Screenplay's architecture</li>
 </ol>
 <h2 id="writing-step-bindings">Writing step bindings</h2>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>When using SpecFlow with Screenplay, every Screenplay-using test within a test assembly (thus, within a .NET project) must share the same instance of <code>Screenplay</code>.
+<p>When using Reqnroll with Screenplay, every Screenplay-using test within a test assembly (thus, within a .NET project) must share the same instance of <code>Screenplay</code>.
 This is not expected to be problematic, as all the <a class="xref" href="../../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object does is set-up the Screenplay architecture and dependency injection for the tests.</p>
 </div>
-<p>When using Screenplay with SpecFlow, <code>.feature</code> files are written as normal.
+<p>When using Screenplay with Reqnroll, <code>.feature</code> files are written as normal.
 The only difference in writing your tests is that <strong>Step Binding</strong> classes should inject Screenplay architecture and use it within the bindings.</p>
 <p>The recommended services to inject into your step binding classes are either <a class="xref" href="../../../api/CSF.Screenplay.IStage.html"><code>IStage</code></a> or <a class="xref" href="../../../api/CSF.Screenplay.ICast.html"><code>ICast</code></a>.
 If you are using <a href="../../../glossary/Persona.html">Personas</a>, which are the recommended way to get <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actors</a> for your performances, then most step binding classes will need only one of the two services above.
@@ -112,7 +120,7 @@ If you are not using Personas to get actors, then you might also need to inject 
 <p>The implied ability, the performables, persona and <code>DishwashingBuilder</code> used in this test, related to washing dishes, are all fictitious.
 See <a href="../../writingPerformables/index.html">the documentation for writing performables</a> to learn about how these could be written.</p>
 </div>
-<p>This example assumes that SpecFlow is writting using <a href="https://docs.specflow.org/projects/specflow/en/latest/Installation/Unit-Test-Providers.html">the NUnit runner</a>, and thus <a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html">it makes use of NUnit-style assertions</a>.
+<p>This example assumes that Reqnroll is writting using <a href="https://docs.reqnroll.net/latest/integrations/nunit.html">the NUnit runner</a>, and thus <a href="https://docs.nunit.org/articles/nunit/writing-tests/assertions/assertion-models/constraint.html">it makes use of NUnit-style assertions</a>.
 Feel free to replace the assertion <em>with whichever assertion library you wish to use</em>.</p>
 <pre><code class="lang-csharp">using CSF.Screenplay;
 using static CSF.Screenplay.PerformanceStarter;

@@ -88,7 +88,7 @@
 <h1 id="writing-new-test-framework-integrations">Writing new Test framework integrations</h1>
 
 <p>A way in which Screenplay is available for extension is the integration of Screenplay with other Test frameworks.
-Screenplay currently ships with integrations for <a href="https://nunit.org">NUnit</a> and <a href="https://specflow.org">SpecFlow</a> but developers are free to integrate it into other frameworks if they wish.
+Screenplay currently ships with integrations for <a href="https://nunit.org">NUnit</a> and <a href="https://reqnroll.net/">Reqnroll</a> but developers are free to integrate it into other frameworks if they wish.
 Developers who are interested in this may use the source code to these two integrations as inspiration.</p>
 <h2 id="requirements">Requirements</h2>
 <p>To integrate with a test framework, the minimum requirements are as follows.
@@ -128,7 +128,7 @@ Terminologies differ between testing frameworks; the word <a href="../../glossar
 <li>The test framework <strong>must</strong> provide access to at least the <a class="xref" href="../../api/CSF.Screenplay.ICast.html"><code>ICast</code></a> and <a class="xref" href="../../api/CSF.Screenplay.IStage.html"><code>IStage</code></a>, resolved from the <a href="../../glossary/Scenario.html">Scenario</a>'s dependency injection scope, to the <a href="../../glossary/Scenario.html">Scenario</a> logic
 <ul>
 <li>The manner of doing this depends entirely on the test framework</li>
-<li>By way of example, in NUnit this is performed by providing the values of parameters to the test method, in SpecFlow this is performed by resolving step bindng classes from that same DI scope, allowing constructor injection</li>
+<li>By way of example, in NUnit this is performed by providing the values of parameters to the test method, in Reqnroll this is performed by resolving step bindng classes from that same DI scope, allowing constructor injection</li>
 </ul>
 </li>
 </ul>

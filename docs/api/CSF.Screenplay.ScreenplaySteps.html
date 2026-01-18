@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplaySteps" data-uid="CSF.Screenplay.ScreenplaySteps" class="text-break">
-Class ScreenplaySteps  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Class ScreenplaySteps  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplaySteps.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -174,6 +174,9 @@ Class ScreenplaySteps  <a class="header-action link-secondary" title="View sourc
 
   <h2 id="CSF_Screenplay_ScreenplaySteps_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
+Note that this class does not exist in the Reqnroll Test Framework Integration.  It is irrelevant there.
+</p>
+<p>
 In SpecFlow 3.x, the <code>Steps</code> class has three methods named <code>Given</code>, <code>When</code> &amp; <code>Then</code> which can cause
 a naming conflict with the same-named methods of <a class="xref" href="CSF.Screenplay.PerformanceStarter.html">PerformanceStarter</a>.  If you using the performance starter in
 the recommended way, then the methods of these two types can become ambiguous and force the developer to write additional
@@ -184,13 +187,10 @@ class instead. This provides Given, When, Then methods which have the same funct
 but in a manner which will not cause a name-resolution conflict.
 </p>
 <p>
-Note that in SpecFlow 4.x and up, this problem is irrelevant; there is no gain in using this subclass over the <code>using static</code> technique.
-As noted here <a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Calling-Steps-from-Step-Definitions.html">https://docs.specflow.org/projects/specflow/en/latest/Bindings/Calling-Steps-from-Step-Definitions.html</a>
-and here <a href="https://github.com/SpecFlowOSS/SpecFlow/issues/1733">https://github.com/SpecFlowOSS/SpecFlow/issues/1733</a> the Give, When &amp; Then methods upon the
-SpecFlow <code>Steps</code> class were removed in v4.x. This means that the naming conflict won't be present and that there is no need
-for your bindings to derive from this class instead of the official Steps class.
-Indeed, Screenplay could be described as a specific implementation of the 'driver pattern', which is noted in the linked Github issue
-as a best-practice alternative to calling-steps-from-steps.
+Note that in SpecFlow 4.x and up, and Reqnroll, this problem is irrelevant; there is no gain in using this subclass over the <code>using static</code> technique.
+The Given, When &amp; Then methods upon the SpecFlow <code>Steps</code> class were removed in v4.x, and never existed in any version of Reqnroll.
+This means that the naming conflict won't be present and that there is no need for your bindings to derive from this class instead
+of the official Steps class.
 </p>
 </div>
 
@@ -203,7 +203,7 @@ as a best-practice alternative to calling-steps-from-steps.
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_Given_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.Given(CSF.Screenplay.Actor)">
   Given(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplaySteps.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformGiven.html">ICanPerformGiven</a>, in order to perform precondition actions.</p>
@@ -248,7 +248,7 @@ in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resol
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_Then_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.Then(CSF.Screenplay.Actor)">
   Then(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplaySteps.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformThen.html">ICanPerformThen</a>, in order to get information which are required to
@@ -294,7 +294,7 @@ in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resol
 
   <h3 id="CSF_Screenplay_ScreenplaySteps_When_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.ScreenplaySteps.When(CSF.Screenplay.Actor)">
   When(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplaySteps.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the actor instance, as an <a class="xref" href="CSF.Screenplay.Actors.ICanPerformWhen.html">ICanPerformWhen</a>, in order to perform actions which exercise the
@@ -340,7 +340,7 @@ in a subclass of <code>TechTalk.SpecFlow.Steps</code> to avoid method-name resol
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplaySteps.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplaySteps.cs/#L31" class="edit-link">Edit this page</a>
         </div>
 
 

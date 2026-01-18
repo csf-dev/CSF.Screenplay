@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ScreenplayPlugin | Screenplay ">
       
-      <meta name="description" content="The Screenplay plugin for SpecFlow.">
+      <meta name="description" content="The Screenplay plugin for Reqnroll.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,15 +89,15 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayPlugin" data-uid="CSF.Screenplay.ScreenplayPlugin" class="text-break">
-Class ScreenplayPlugin  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplayPlugin.cs/#L39"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayPlugin  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>CSF.Screenplay.SpecFlowPlugin.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.ReqnrollPlugin.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The Screenplay plugin for SpecFlow.</p>
+  <div class="markdown summary"><p>The Screenplay plugin for Reqnroll.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -119,7 +119,7 @@ Class ScreenplayPlugin  <a class="header-action link-secondary" title="View sour
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><span class="xref">IRuntimePlugin</span></div>
+      <div><a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/IRuntimePlugin.cs">IRuntimePlugin</a></div>
     </dd>
   </dl>
 
@@ -155,11 +155,11 @@ Class ScreenplayPlugin  <a class="header-action link-secondary" title="View sour
 
   <h2 id="CSF_Screenplay_ScreenplayPlugin_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-This plugin class is the <a class="xref" href="../glossary/Integration.html">test framework integration</a> for SpecFlow.
-Crucially it adds the Screenplay architecture to the SpecFlow architecture.
+This plugin class is the <a class="xref" href="../glossary/Integration.html">test framework integration</a> for Reqnroll.
+Crucially it adds the Screenplay architecture to the Reqnroll architecture.
 </p>
 <p>
-Becuase this plugin leverages the SpecFlow/BoDi <code>IObjectContainer</code>, it is likely incompatible with other plugins
+Becuase this plugin leverages the Reqnroll/BoDi <code>IObjectContainer</code>, it is likely incompatible with other plugins
 which integrate with third party Dependency Injection libraries.
 </p>
 <p>
@@ -171,8 +171,8 @@ Adding Screenplay in that way is equivalent to the work done by this plugin.
 <p>
 If you wish to further customise the dependency injection, such as adding injectable services for <a class="xref" href="../glossary/Ability.html">abilities</a>
 or implementations of <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>, add them to the relevant DI container.
-When using SpecFlow's default BoDi container this is described in the following article
-<a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options">https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html#advanced-options</a>.
+When using Reqnroll's default BoDi container this is described in the following article
+<a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options</a>.
 If using a third-party DI container then you should use that container's appropriate mechanism of adding services.
 </p>
 </div>
@@ -186,7 +186,7 @@ If using a third-party DI container then you should use that container's appropr
 
   <h3 id="CSF_Screenplay_ScreenplayPlugin_Screenplay" data-uid="CSF.Screenplay.ScreenplayPlugin.Screenplay">
   Screenplay
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplayPlugin.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides static access to the Screenplay instance.</p>
@@ -212,8 +212,9 @@ If using a third-party DI container then you should use that container's appropr
 
   <h4 class="section" id="CSF_Screenplay_ScreenplayPlugin_Screenplay_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This is required because the bindings for beginning/ending the Screenplay in <a class="xref" href="CSF.Screenplay.ScreenplayBinding.html">ScreenplayBinding</a> must be <code>static</code>:
-<a href="https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes">https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html#supported-hook-attributes</a>.
+This is required because the bindings for beginning/ending the Screenplay in <a class="xref" href="CSF.Screenplay.ScreenplayBinding.html">ScreenplayBinding</a> must be <code>static</code>.
+Those bindings use the <code>[BeforeTestRun]</code> and <code>[AfterTestRun]</code> hooks, which must be static, as documented here:
+<a href="https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes">https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes</a>
 </p>
 </div>
 
@@ -226,9 +227,44 @@ This is required because the bindings for beginning/ending the Screenplay in <a 
 
   <a id="CSF_Screenplay_ScreenplayPlugin_Initialize_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize*"></a>
 
+  <h3 id="CSF_Screenplay_ScreenplayPlugin_Initialize_Reqnroll_Plugins_RuntimePluginEvents_Reqnroll_Plugins_RuntimePluginParameters_Reqnroll_UnitTestProvider_UnitTestProviderConfiguration_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents,Reqnroll.Plugins.RuntimePluginParameters,Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)">
+  Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters, UnitTestProviderConfiguration unitTestProviderConfiguration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>runtimePluginEvents</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/RuntimePluginEvents.cs">RuntimePluginEvents</a></dt>
+    <dd></dd>
+    <dt><code>runtimePluginParameters</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/RuntimePluginParameters.cs">RuntimePluginParameters</a></dt>
+    <dd></dd>
+    <dt><code>unitTestProviderConfiguration</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/UnitTestProvider/UnitTestProviderConfiguration.cs">UnitTestProviderConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ScreenplayPlugin_Initialize_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize*"></a>
+
   <h3 id="CSF_Screenplay_ScreenplayPlugin_Initialize_TechTalk_SpecFlow_Plugins_RuntimePluginEvents_TechTalk_SpecFlow_Plugins_RuntimePluginParameters_TechTalk_SpecFlow_UnitTestProvider_UnitTestProviderConfiguration_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize(TechTalk.SpecFlow.Plugins.RuntimePluginEvents,TechTalk.SpecFlow.Plugins.RuntimePluginParameters,TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration)">
   Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplayPlugin.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -263,7 +299,7 @@ This is required because the bindings for beginning/ending the Screenplay in <a 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.SpecFlow/ScreenplayPlugin.cs/#L39" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L46" class="edit-link">Edit this page</a>
         </div>
 
 
