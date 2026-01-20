@@ -40,6 +40,7 @@ jobs:
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
       DISPLAY: :99
+      SelectedWebDriverConfig: VerboseChrome
     
     steps:
       - name: Checkout
@@ -109,7 +110,7 @@ jobs:
             projNameArray=(${proj//// })
             projName=${projNameArray[1]}
             assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-            coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
+            coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:. --WebDriverFactory::SelectedConfiguration $SelectedWebDriverConfig" -f=opencover -o="TestResults/$projName.opencover.xml"
             exitCode=$?
             if [ $exitCode -ne 0 ]
             then
@@ -144,6 +145,11 @@ jobs:
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
+      - name: Upload verbose webdriver log artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Verbose webdriver logs
+          path: **/chrome-verbose-log.txt
       - name: Upload JS test results artifacts
         uses: actions/upload-artifact@v4
         with:
