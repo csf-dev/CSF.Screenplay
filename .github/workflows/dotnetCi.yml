@@ -109,7 +109,8 @@ jobs:
             projName=${projNameArray[1]}
             assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
             coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
-            if [ $? -ne 0 ]
+            exitCode=$?
+            if [ $exitCode -ne 0 ]
             then
               echo "One or more tests have failed; this build should eventually fail"
               echo "failures=true" >> "$GITHUB_OUTPUT"
@@ -121,9 +122,10 @@ jobs:
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm test
-          if [ $? -ne 0 ]
+          exitCode=$?
+          if [ $exitCode -ne 0 ]
           then
-              echo "One or more tests have failed; this build should eventually fail"
+            echo "One or more tests have failed; this build should eventually fail"
             echo "failures=true" >> "$GITHUB_OUTPUT"
           fi
           cd ../..
