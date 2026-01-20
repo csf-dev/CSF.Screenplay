@@ -147,6 +147,8 @@ jobs:
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
+      # This step won't produce any artifacts if the verbose factory isn't
+      # selected via appsettings.json in CSF.Screenplay.Selenium.Tests, but that's OK
       - name: Upload verbose webdriver log artifacts
         uses: actions/upload-artifact@v4
         with:
