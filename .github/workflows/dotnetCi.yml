@@ -100,7 +100,7 @@ jobs:
           /d:sonar.host.url=${{ env.SonarCloudUrl }}
           /d:sonar.token=${{ env.SonarCloudSecretKey }}
           /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
-          /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
+          /d:sonar.javascript.lcov.reportPaths=$PWD/CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
           /s:$PWD/.sonarqube-analysisproperties.xml
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
@@ -116,7 +116,7 @@ jobs:
             coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
             if [ $? -ne 0 ]
             then
-              echo "failures=true" >> $GITHUB_OUTPUT
+              echo "failures=true" >> "$GITHUB_OUTPUT"
             fi
           done
       - name: Run JavaScript tests with coverage
@@ -127,7 +127,7 @@ jobs:
           npm test
           if [ $? -ne 0 ]
           then
-            echo "failures=true" >> $GITHUB_OUTPUT
+            echo "failures=true" >> "$GITHUB_OUTPUT"
           fi
           cd ../..
 
@@ -169,7 +169,7 @@ jobs:
           name: Screenplay HTML reports
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
-        if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
+        if: steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true'
         run: |
           echo "Failing the build due to test failures"
           exit 1
