@@ -23,7 +23,7 @@ jobs:
 
   build_test_and_pack:
     name: Build, test & package
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     env:
@@ -40,7 +40,7 @@ jobs:
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
       DISPLAY: :99
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -68,10 +68,11 @@ jobs:
         with:
           java-version: 21
           distribution: 'zulu'
-      - name: Install GUI packages so Chrome may run
-        run: |
-          sudo apt-get update
-          sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable psmisc
+      # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
+      - name: Disable AppArmor restrictions so Chrome may run
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+      - name: Start an Xvfb display so Chrome may run
+        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &        
 
       # Environment setup pre-build
 
@@ -79,8 +80,6 @@ jobs:
         run: |
           mkdir ~/.cache/selenium
           cp Tools/se-config.toml ~/.cache/selenium
-      - name: Start an Xvfb display so Chrome may run
-        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &
       - name: Restore .NET packages
         run: dotnet restore
       - name: Restore Node modules
@@ -100,13 +99,13 @@ jobs:
           /d:sonar.host.url=${{ env.SonarCloudUrl }}
           /d:sonar.token=${{ env.SonarCloudSecretKey }}
           /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
-          /d:sonar.javascript.lcov.reportPaths=CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
+          /d:sonar.javascript.lcov.reportPaths=$PWD/CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
           /s:$PWD/.sonarqube-analysisproperties.xml
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
       - name: Run .NET tests with coverage
         id: dotnet_tests
-        continue-on-error: true
+        shell: bash {0}
         run: |
           for proj in Tests/*.Tests
           do
@@ -114,20 +113,24 @@ jobs:
             projName=${projNameArray[1]}
             assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
             coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
-            if [ $? -ne 0 ]
+            exitCode=$?
+            if [ $exitCode -ne 0 ]
             then
-              echo "failures=true" >> $GITHUB_OUTPUT
+              echo "One or more tests have failed; this build should eventually fail"
+              echo "failures=true" >> "$GITHUB_OUTPUT"
             fi
           done
       - name: Run JavaScript tests with coverage
         id: js_tests
-        continue-on-error: true
+        shell: bash {0}
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm test
-          if [ $? -ne 0 ]
+          exitCode=$?
+          if [ $exitCode -ne 0 ]
           then
-            echo "failures=true" >> $GITHUB_OUTPUT
+            echo "One or more tests have failed; this build should eventually fail"
+            echo "failures=true" >> "$GITHUB_OUTPUT"
           fi
           cd ../..
 
@@ -139,11 +142,23 @@ jobs:
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
-      - name: Upload test results artifacts
+      - name: Upload .NET test results artifacts
         uses: actions/upload-artifact@v4
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
+      # This step won't produce any artifacts if the verbose factory isn't
+      # selected via appsettings.json in CSF.Screenplay.Selenium.Tests, but that's OK
+      - name: Upload verbose webdriver log artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Verbose webdriver logs
+          path: '**/chrome-verbose-log.txt'
+      - name: Upload JS test results artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Jest test results
+          path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
         with:
@@ -164,7 +179,7 @@ jobs:
           name: Screenplay HTML reports
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
-        if: ${{ steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true' }}
+        if: steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true'
         run: |
           echo "Failing the build due to test failures"
           exit 1

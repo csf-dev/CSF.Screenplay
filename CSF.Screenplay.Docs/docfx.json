@@ -11,7 +11,8 @@
             "**/obj/**",
             "Tests/**",
             "Old/**",
-            "CSF.Screenplay.JsonToHtmlReport.Template/**"
+            "CSF.Screenplay.JsonToHtmlReport.Template/**",
+            "CSF.Screenplay.SpecFlow/**"
           ]
         }
       ],
