@@ -5902,12 +5902,6 @@ references:
   commentId: M:CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents,Reqnroll.Plugins.RuntimePluginParameters,Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)
   fullName: CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents, Reqnroll.Plugins.RuntimePluginParameters, Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)
   nameWithType: ScreenplayPlugin.Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
-- uid: CSF.Screenplay.ScreenplayPlugin.Initialize(TechTalk.SpecFlow.Plugins.RuntimePluginEvents,TechTalk.SpecFlow.Plugins.RuntimePluginParameters,TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration)
-  name: Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
-  href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Initialize_TechTalk_SpecFlow_Plugins_RuntimePluginEvents_TechTalk_SpecFlow_Plugins_RuntimePluginParameters_TechTalk_SpecFlow_UnitTestProvider_UnitTestProviderConfiguration_
-  commentId: M:CSF.Screenplay.ScreenplayPlugin.Initialize(TechTalk.SpecFlow.Plugins.RuntimePluginEvents,TechTalk.SpecFlow.Plugins.RuntimePluginParameters,TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration)
-  fullName: CSF.Screenplay.ScreenplayPlugin.Initialize(TechTalk.SpecFlow.Plugins.RuntimePluginEvents, TechTalk.SpecFlow.Plugins.RuntimePluginParameters, TechTalk.SpecFlow.UnitTestProvider.UnitTestProviderConfiguration)
-  nameWithType: ScreenplayPlugin.Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
 - uid: CSF.Screenplay.ScreenplayPlugin.Initialize*
   name: Initialize
   href: api/CSF.Screenplay.ScreenplayPlugin.html#CSF_Screenplay_ScreenplayPlugin_Initialize_
@@ -5950,51 +5944,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay
   nameWithType: ScreenplayServiceCollectionExtensions.AddScreenplay
-- uid: CSF.Screenplay.ScreenplaySteps
-  name: ScreenplaySteps
-  href: api/CSF.Screenplay.ScreenplaySteps.html
-  commentId: T:CSF.Screenplay.ScreenplaySteps
-  fullName: CSF.Screenplay.ScreenplaySteps
-  nameWithType: ScreenplaySteps
-- uid: CSF.Screenplay.ScreenplaySteps.Given(CSF.Screenplay.Actor)
-  name: Given(Actor)
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_Given_CSF_Screenplay_Actor_
-  commentId: M:CSF.Screenplay.ScreenplaySteps.Given(CSF.Screenplay.Actor)
-  fullName: CSF.Screenplay.ScreenplaySteps.Given(CSF.Screenplay.Actor)
-  nameWithType: ScreenplaySteps.Given(Actor)
-- uid: CSF.Screenplay.ScreenplaySteps.Given*
-  name: Given
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_Given_
-  commentId: Overload:CSF.Screenplay.ScreenplaySteps.Given
-  isSpec: "True"
-  fullName: CSF.Screenplay.ScreenplaySteps.Given
-  nameWithType: ScreenplaySteps.Given
-- uid: CSF.Screenplay.ScreenplaySteps.Then(CSF.Screenplay.Actor)
-  name: Then(Actor)
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_Then_CSF_Screenplay_Actor_
-  commentId: M:CSF.Screenplay.ScreenplaySteps.Then(CSF.Screenplay.Actor)
-  fullName: CSF.Screenplay.ScreenplaySteps.Then(CSF.Screenplay.Actor)
-  nameWithType: ScreenplaySteps.Then(Actor)
-- uid: CSF.Screenplay.ScreenplaySteps.Then*
-  name: Then
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_Then_
-  commentId: Overload:CSF.Screenplay.ScreenplaySteps.Then
-  isSpec: "True"
-  fullName: CSF.Screenplay.ScreenplaySteps.Then
-  nameWithType: ScreenplaySteps.Then
-- uid: CSF.Screenplay.ScreenplaySteps.When(CSF.Screenplay.Actor)
-  name: When(Actor)
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_When_CSF_Screenplay_Actor_
-  commentId: M:CSF.Screenplay.ScreenplaySteps.When(CSF.Screenplay.Actor)
-  fullName: CSF.Screenplay.ScreenplaySteps.When(CSF.Screenplay.Actor)
-  nameWithType: ScreenplaySteps.When(Actor)
-- uid: CSF.Screenplay.ScreenplaySteps.When*
-  name: When
-  href: api/CSF.Screenplay.ScreenplaySteps.html#CSF_Screenplay_ScreenplaySteps_When_
-  commentId: Overload:CSF.Screenplay.ScreenplaySteps.When
-  isSpec: "True"
-  fullName: CSF.Screenplay.ScreenplaySteps.When
-  nameWithType: ScreenplaySteps.When
 - uid: CSF.Screenplay.Selenium
   name: CSF.Screenplay.Selenium
   href: api/CSF.Screenplay.Selenium.html
@@ -12683,15 +12632,6 @@ references:
   commentId: T:CSF.Screenplay.ServiceCollectionAdapter
   fullName: CSF.Screenplay.ServiceCollectionAdapter
   nameWithType: ServiceCollectionAdapter
-- uid: CSF.Screenplay.ServiceCollectionAdapter.#ctor(BoDi.IObjectContainer)
-  name: ServiceCollectionAdapter(IObjectContainer)
-  href: api/CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter__ctor_BoDi_IObjectContainer_
-  commentId: M:CSF.Screenplay.ServiceCollectionAdapter.#ctor(BoDi.IObjectContainer)
-  name.vb: New(IObjectContainer)
-  fullName: CSF.Screenplay.ServiceCollectionAdapter.ServiceCollectionAdapter(BoDi.IObjectContainer)
-  fullName.vb: CSF.Screenplay.ServiceCollectionAdapter.New(BoDi.IObjectContainer)
-  nameWithType: ServiceCollectionAdapter.ServiceCollectionAdapter(IObjectContainer)
-  nameWithType.vb: ServiceCollectionAdapter.New(IObjectContainer)
 - uid: CSF.Screenplay.ServiceCollectionAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
   name: ServiceCollectionAdapter(IObjectContainer)
   href: api/CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter__ctor_Reqnroll_BoDi_IObjectContainer_
@@ -12888,15 +12828,6 @@ references:
   commentId: T:CSF.Screenplay.ServiceProviderAdapter
   fullName: CSF.Screenplay.ServiceProviderAdapter
   nameWithType: ServiceProviderAdapter
-- uid: CSF.Screenplay.ServiceProviderAdapter.#ctor(BoDi.IObjectContainer)
-  name: ServiceProviderAdapter(IObjectContainer)
-  href: api/CSF.Screenplay.ServiceProviderAdapter.html#CSF_Screenplay_ServiceProviderAdapter__ctor_BoDi_IObjectContainer_
-  commentId: M:CSF.Screenplay.ServiceProviderAdapter.#ctor(BoDi.IObjectContainer)
-  name.vb: New(IObjectContainer)
-  fullName: CSF.Screenplay.ServiceProviderAdapter.ServiceProviderAdapter(BoDi.IObjectContainer)
-  fullName.vb: CSF.Screenplay.ServiceProviderAdapter.New(BoDi.IObjectContainer)
-  nameWithType: ServiceProviderAdapter.ServiceProviderAdapter(IObjectContainer)
-  nameWithType.vb: ServiceProviderAdapter.New(IObjectContainer)
 - uid: CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)
   name: ServiceProviderAdapter(IObjectContainer)
   href: api/CSF.Screenplay.ServiceProviderAdapter.html#CSF_Screenplay_ServiceProviderAdapter__ctor_Reqnroll_BoDi_IObjectContainer_
