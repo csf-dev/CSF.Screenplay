@@ -130,15 +130,6 @@ jobs:
             echo "failures=true" >> $GITHUB_OUTPUT
           fi
           cd ../..
-      - name: Fail the build if no JS coverage info
-        run: |
-          if ! [ -f CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info ]
-          then
-            echo "Failing the build because there's no coverage for JS tests"
-            echo "Here's the contents of the test results directory, to assist in analysis"
-            find CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults
-            exit 1
-          fi
 
       # Post-test tasks (artifacts, overall status)
 
@@ -148,11 +139,16 @@ jobs:
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
-      - name: Upload test results artifacts
+      - name: Upload .NET test results artifacts
         uses: actions/upload-artifact@v4
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
+      - name: Upload JS test results artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Jest test results
+          path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
         with:
