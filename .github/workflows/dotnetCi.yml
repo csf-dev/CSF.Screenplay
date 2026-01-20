@@ -130,6 +130,15 @@ jobs:
             echo "failures=true" >> $GITHUB_OUTPUT
           fi
           cd ../..
+      - name: Fail the build if no JS coverage info
+        run: |
+          if ! [ -f CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info ]
+          then
+            echo "Failing the build because there's no coverage for JS tests"
+            echo "Here's the contents of the test results directory, to assist in analysis"
+            find CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults
+            exit 1
+          fi
 
       # Post-test tasks (artifacts, overall status)
 
