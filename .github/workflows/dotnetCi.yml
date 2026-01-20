@@ -116,6 +116,7 @@ jobs:
             coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
             if [ $? -ne 0 ]
             then
+              echo "One or more tests have failed; this build should eventually fail"
               echo "failures=true" >> "$GITHUB_OUTPUT"
             fi
           done
@@ -127,6 +128,7 @@ jobs:
           npm test
           if [ $? -ne 0 ]
           then
+              echo "One or more tests have failed; this build should eventually fail"
             echo "failures=true" >> "$GITHUB_OUTPUT"
           fi
           cd ../..
