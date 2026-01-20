@@ -39,7 +39,8 @@ jobs:
       BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
-
+      DISPLAY: :99
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,6 +70,8 @@ jobs:
           distribution: 'zulu'
       - name: Install Google Chrome & dependencies
         uses: browser-actions/setup-chrome@v2
+      - name: Start an Xvfb display so Chrome may run
+        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &        
 
       # Environment setup pre-build
 
@@ -135,6 +138,9 @@ jobs:
       - name: Stop SonarScanner
         run:
           dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+      - name: Gracefully stop Xvfb
+        run: killall Xvfb
+        continue-on-error: true
       - name: Upload .NET test results artifacts
         uses: actions/upload-artifact@v4
         with:
