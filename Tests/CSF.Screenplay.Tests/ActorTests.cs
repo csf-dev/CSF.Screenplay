@@ -109,14 +109,20 @@ public class ActorTests
         Assert.That(() => ((ICanPerform) sut).PerformAsync(performable), Throws.InstanceOf<ObjectDisposedException>());
     }
 
-    public sealed class DisposableAbility1 : IDisposable
+    public class DisposableAbility1 : IDisposable
     {
-        public virtual void Dispose() {}
+        public virtual void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
 
-    public sealed class DisposableAbility2 : IDisposable
+    public class DisposableAbility2 : IDisposable
     {
-        public virtual void Dispose() {}
+        public virtual void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
 
     #endregion
