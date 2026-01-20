@@ -17,7 +17,7 @@ namespace CSF.Screenplay.Selenium;
 /// </remarks>
 public class VerboseChromeDriverFactory : ICreatesWebDriverFromOptions
 {
-    public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null)
+    public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
     {
         var chromeOptions = (ChromeOptions) options.OptionsFactory();
         var service = ChromeDriverService.CreateDefaultService();
