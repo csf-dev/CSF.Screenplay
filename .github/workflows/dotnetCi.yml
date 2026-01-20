@@ -23,7 +23,7 @@ jobs:
 
   build_test_and_pack:
     name: Build, test & package
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     env:
