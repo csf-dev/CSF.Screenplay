@@ -149,7 +149,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Verbose webdriver logs
-          path: **/chrome-verbose-log.txt
+          path: '**/chrome-verbose-log.txt'
       - name: Upload JS test results artifacts
         uses: actions/upload-artifact@v4
         with:
