@@ -70,6 +70,8 @@ jobs:
           distribution: 'zulu'
       - name: Install Google Chrome & dependencies
         uses: browser-actions/setup-chrome@v2
+        with:
+          install-dependencies: true
       - name: Start an Xvfb display so Chrome may run
         run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &        
 
