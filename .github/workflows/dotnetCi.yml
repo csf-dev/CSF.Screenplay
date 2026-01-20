@@ -68,6 +68,9 @@ jobs:
         with:
           java-version: 21
           distribution: 'zulu'
+      # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
+      - name: Disable AppArmor restrictions so Chrome may run
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
       - name: Start an Xvfb display so Chrome may run
         run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &        
 
