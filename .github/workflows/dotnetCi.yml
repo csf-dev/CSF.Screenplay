@@ -39,7 +39,6 @@ jobs:
       BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
-      DISPLAY: :99
 
     steps:
       - name: Checkout
@@ -68,10 +67,8 @@ jobs:
         with:
           java-version: 21
           distribution: 'zulu'
-      - name: Install GUI packages so Chrome may run
-        run: |
-          sudo apt-get update
-          sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable psmisc
+      - name: Install Google Chrome & dependencies
+        uses: browser-actions/setup-chrome@v2
 
       # Environment setup pre-build
 
@@ -79,8 +76,6 @@ jobs:
         run: |
           mkdir ~/.cache/selenium
           cp Tools/se-config.toml ~/.cache/selenium
-      - name: Start an Xvfb display so Chrome may run
-        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &
       - name: Restore .NET packages
         run: dotnet restore
       - name: Restore Node modules
@@ -138,9 +133,6 @@ jobs:
       - name: Stop SonarScanner
         run:
           dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
-      - name: Gracefully stop Xvfb
-        run: killall Xvfb
-        continue-on-error: true
       - name: Upload .NET test results artifacts
         uses: actions/upload-artifact@v4
         with:
