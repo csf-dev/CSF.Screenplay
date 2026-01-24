@@ -130,7 +130,7 @@ jobs:
           name: Screenplay HTML reports
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
-        if: steps.dotnet_tests.outputs.failures == 'true'
+        if: steps.dotnet_tests.outcome == 'failure'
         run: |
           echo "Failing the build due to test failures"
           exit 1
