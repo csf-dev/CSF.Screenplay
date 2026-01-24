@@ -41,7 +41,7 @@ jobs:
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
       DISPLAY: :99
       # Change selected factory to VerboseChrome to debug Chrome-related issues
-      "WebDriverFactory::SelectedConfiguration": DefaultChrome
+      WebDriverFactory__SelectedConfiguration: DefaultChrome
     
     steps:
       - name: Checkout

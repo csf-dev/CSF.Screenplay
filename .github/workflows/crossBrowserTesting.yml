@@ -52,7 +52,7 @@ jobs:
           #   os: OS X
           #   osVersion: Tahoe
 
-    name: Build, test & package
+    name: Run tests
     runs-on: ubuntu-24.04
     timeout-minutes: 30
 
@@ -62,7 +62,7 @@ jobs:
       Configuration: Release
       Tfm: net8.0
       DotnetVersion: 8.0.x
-      "WebDriverFactory::SelectedConfiguration": BrowserStack
+      WebDriverFactory__SelectedConfiguration: BrowserStack
       BSbrowserName: ${{ matrix.browserName }}
       BSbrowserVersion: ${{ matrix.browserVersion }}
       BSos: ${{ matrix.os }}
