@@ -1,0 +1,136 @@
+name: Cross-browser testing
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron: "27 20 * * 0"
+
+jobs:
+
+  # Summary:
+  #
+  # * Installs and configures the environment
+  # * Builds the solution in Debug configuration
+  # * Runs just the Selenium tests
+  #   * In Debug configuration (.NET tests)
+  #   * Using the BrowserStack browser configuration
+
+  browser_tests:
+
+    strategy:
+      matrix:
+        include:
+          - browserName: Chrome
+            browserVersion: latest-50
+            os: Windows
+            osVersion: 11
+          # - browserName: Chrome
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Edge
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Firefox
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Firefox
+          #   browserVersion: latest-40
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Safari
+          #   browserVersion: 17.3
+          #   os: OS X
+          #   osVersion: Sonoma
+          # - browserName: Safari
+          #   browserVersion: 26.2
+          #   os: OS X
+          #   osVersion: Tahoe
+
+    name: Build, test & package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    env:
+      RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
+      VersionSuffix: crossbrowser.${{ github.run_number }}
+      Configuration: Release
+      Tfm: net8.0
+      DotnetVersion: 8.0.x
+      "WebDriverFactory::SelectedConfiguration": BrowserStack
+      BSbrowserName: ${{ matrix.browserName }}
+      BSbrowserVersion: ${{ matrix.browserVersion }}
+      BSos: ${{ matrix.os }}
+      BSosVersion: ${{ matrix.osVersion }}
+      BSuserName: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BSaccessKey: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      BSprojectName: CSF.Screenplay
+      BSbuildName: ghActionsRun.${{ github.run_number }}.${{ github.run_attempt }}_${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install build dependencies
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DotnetVersion }}
+      - name: Install Node.js for building JSON-to-HTML report converter
+        uses: actions/setup-node@v6.2.0
+
+      # Environment setup pre-build
+
+      - name: Restore .NET packages
+        run: dotnet restore
+      - name: Restore Node modules
+        run: |
+          cd CSF.Screenplay.JsonToHtmlReport.Template/src
+          npm ci
+          cd ../..
+
+      # Build and test the solution
+
+      - name: Build the solution
+        run: dotnet build -c ${{ env.Configuration }}
+      - name: Run .NET tests with coverage
+        id: dotnet_tests
+        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests -- NumberOfTestWorkers=5
+        continue-on-error: true
+
+      # Post-test tasks (artifacts, overall status)
+      - name: Upload .NET test results artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: NUnit test results
+          path: Tests/CSF.Screenplay.Selenium.Tests/**/TestResults.xml
+      - name: Upload Screenplay JSON report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenplay JSON reports
+          path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport_*.json
+      - name: Convert Screenplay reports to HTML
+        continue-on-error: true
+        run: |
+          for report in $(find Tests/CSF.Screenplay.Selenium.Tests/ -type f -name "ScreenplayReport_*.json")
+          do
+            reportDir=$(dirname "$report")
+            outputFile="$reportDir/ScreenplayReport.html"
+            dotnet run --no-build --framework $Tfm -c {{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
+          done
+      - name: Upload Screenplay HTML report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenplay HTML reports
+          path: Tests/**/ScreenplayReport.html
+      - name: Fail the build if any test failures
+        if: steps.dotnet_tests.outputs.failures == 'true'
+        run: |
+          echo "Failing the build due to test failures"
+          exit 1

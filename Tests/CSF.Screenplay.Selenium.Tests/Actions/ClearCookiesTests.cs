@@ -5,7 +5,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class ClearCookiesTests
 {
     static readonly ITarget

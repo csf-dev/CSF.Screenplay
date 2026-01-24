@@ -1,10 +1,9 @@
 namespace CSF.Screenplay.Selenium.Elements;
 
-using CSF.Specifications;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class FilterElementsTests
 {
     static readonly Locator
