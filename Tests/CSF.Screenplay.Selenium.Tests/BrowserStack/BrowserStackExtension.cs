@@ -27,6 +27,7 @@ public sealed class BrowserStackExtension : IDisposable
         browserStackLocal.start(GetBrowserStackLocalArgs().ToList());
         for(var i = 0; i < 80; i++)
         {
+            Console.WriteLine("Waiting for BrowserStackLocal to start up, attempt {0} of {1} ...", i + 1, 80);
             await Task.Delay(250);
             if(browserStackLocal.isRunning()) break;
         }
