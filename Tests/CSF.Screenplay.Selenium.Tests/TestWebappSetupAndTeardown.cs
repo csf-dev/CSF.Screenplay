@@ -23,7 +23,7 @@ public class TestWebappSetupAndTeardown
         await WaitForWebAppToBeAvailableAsync();
 
         browserStack = new BrowserStackExtension();
-        browserStack.OnTestRunStarting();
+        await browserStack.OnTestRunStarting();
     }
 
     [OneTimeTearDown]

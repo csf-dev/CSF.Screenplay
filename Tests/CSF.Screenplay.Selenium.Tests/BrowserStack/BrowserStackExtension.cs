@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration.Assemblies;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,7 +8,6 @@ using System.Reflection;
 using System.Text;
 using BrowserStack;
 using CSF.Screenplay.Performances;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay.Selenium.BrowserStack;
 
@@ -21,12 +19,18 @@ public sealed class BrowserStackExtension : IDisposable
     IHasPerformanceEvents? eventBus;
     HttpClient? httpClient;
 
-    public void OnTestRunStarting()
+    public async Task OnTestRunStarting()
     {
         if(!BrowserStackEnvironment.IsBrowserStackTest()) return;
 
         browserStackLocal = new Local();
         browserStackLocal.start(GetBrowserStackLocalArgs().ToList());
+        for(var i = 0; i < 10; i++)
+        {
+            await Task.Delay(250);
+            if(browserStackLocal.isRunning()) break;
+        }
+        if(!browserStackLocal.isRunning()) throw new TimeoutException("BrowserStack Local is still not running after 2.5 seconds");
 
         httpClient = GetHttpClient();
 
