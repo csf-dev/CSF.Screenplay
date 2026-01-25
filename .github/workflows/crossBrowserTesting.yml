@@ -123,7 +123,7 @@ jobs:
           do
             reportDir=$(dirname "$report")
             outputFile="$reportDir/ScreenplayReport.html"
-            dotnet run --no-build --framework $Tfm -c {{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
+            dotnet run --no-build --framework $Tfm -c ${{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
           done
       - name: Upload Screenplay HTML report artifact
         uses: actions/upload-artifact@v4
