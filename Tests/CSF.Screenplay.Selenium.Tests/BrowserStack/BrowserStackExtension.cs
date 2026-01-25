@@ -25,12 +25,12 @@ public sealed class BrowserStackExtension : IDisposable
 
         browserStackLocal = new Local();
         browserStackLocal.start(GetBrowserStackLocalArgs().ToList());
-        for(var i = 0; i < 10; i++)
+        for(var i = 0; i < 80; i++)
         {
             await Task.Delay(250);
             if(browserStackLocal.isRunning()) break;
         }
-        if(!browserStackLocal.isRunning()) throw new TimeoutException("BrowserStack Local is still not running after 2.5 seconds");
+        if(!browserStackLocal.isRunning()) throw new TimeoutException("BrowserStack Local is still not running after 20 seconds");
 
         httpClient = GetHttpClient();
 
