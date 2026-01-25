@@ -111,7 +111,7 @@ jobs:
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay JSON reports ${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
+          name: Screenplay JSON reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
           path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport_*.json
       - name: Convert Screenplay reports to HTML
         continue-on-error: true
@@ -125,7 +125,7 @@ jobs:
       - name: Upload Screenplay HTML report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay HTML reports ${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
+          name: Screenplay HTML reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
         if: steps.dotnet_tests.outcome == 'failure'
