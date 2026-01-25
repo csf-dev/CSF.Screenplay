@@ -21,36 +21,37 @@ jobs:
   browser_tests:
 
     strategy:
+      max-parallel: 1
       matrix:
         include:
           - browserName: Chrome
             browserVersion: latest-50
             os: Windows
             osVersion: 11
-          # - browserName: Chrome
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Edge
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Firefox
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Firefox
-          #   browserVersion: latest-40
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Safari
-          #   browserVersion: 17.3
-          #   os: OS X
-          #   osVersion: Sonoma
-          # - browserName: Safari
-          #   browserVersion: 26.2
-          #   os: OS X
-          #   osVersion: Tahoe
+          - browserName: Chrome
+            browserVersion: latest
+            os: Windows
+            osVersion: 11
+          - browserName: Edge
+            browserVersion: latest
+            os: Windows
+            osVersion: 11
+          - browserName: Firefox
+            browserVersion: latest
+            os: Windows
+            osVersion: 11
+          - browserName: Firefox
+            browserVersion: latest-40
+            os: Windows
+            osVersion: 11
+          - browserName: Safari
+            browserVersion: 17.3
+            os: OS X
+            osVersion: Sonoma
+          - browserName: Safari
+            browserVersion: 26.2
+            os: OS X
+            osVersion: Tahoe
 
     name: Run tests
     runs-on: ubuntu-24.04

@@ -63,5 +63,5 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
         };
     }
 
-    static string GetTestName() => TestContext.CurrentContext.Test.ID;
+    static string GetTestName() => TestContext.CurrentContext.Test.FullName;
 }
