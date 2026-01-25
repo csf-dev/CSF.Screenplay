@@ -17,7 +17,7 @@ public static class BrowserStackEnvironment
         BrowserStackAccessKey = "BSaccessKey",
         ProjectName = "BSprojectName",
         BuildName = "BSbuildName",
-        SelectedWebDriverConfig = "WebDriverFactory::SelectedConfiguration",
+        SelectedWebDriverConfig = "WebDriverFactory__SelectedConfiguration",
         BrowserStackConfigName = "BrowserStack";
 
     internal static string? GetBrowserName() => GetEnvironmentVariable(BrowserName);
