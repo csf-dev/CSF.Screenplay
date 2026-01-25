@@ -71,6 +71,7 @@ jobs:
       BSaccessKey: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
       BSprojectName: CSF.Screenplay
       BSbuildName: ghActionsRun.${{ github.run_number }}.${{ github.run_attempt }}_${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
+      BSparallelism: 5
     
     steps:
       - name: Checkout
@@ -99,9 +100,9 @@ jobs:
 
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }}
-      - name: Run .NET tests with coverage
+      - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests -- NumberOfTestWorkers=5
+        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests -- NumberOfTestWorkers=$BSparallelism
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
