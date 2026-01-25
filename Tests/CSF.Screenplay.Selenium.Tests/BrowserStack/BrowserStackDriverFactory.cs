@@ -24,7 +24,7 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
 {
     const string AdditionalOptionsCapabilityName = "bstack:options";
 
-    const string GridUrl = "http://localhost:4444/wd/hub/";
+    const string GridUrl = "https://hub-cloud.browserstack.com/wd/hub/";
 
     public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
     {
