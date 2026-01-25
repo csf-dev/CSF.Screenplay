@@ -108,15 +108,10 @@ jobs:
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
-      - name: Upload .NET test results artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: NUnit test results
-          path: Tests/CSF.Screenplay.Selenium.Tests/**/TestResults.xml
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay JSON reports
+          name: Screenplay JSON reports ${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
           path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport_*.json
       - name: Convert Screenplay reports to HTML
         continue-on-error: true
@@ -130,7 +125,7 @@ jobs:
       - name: Upload Screenplay HTML report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay HTML reports
+          name: Screenplay HTML reports ${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
         if: steps.dotnet_tests.outcome == 'failure'
