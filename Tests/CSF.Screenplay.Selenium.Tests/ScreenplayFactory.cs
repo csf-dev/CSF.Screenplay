@@ -1,6 +1,7 @@
 using CSF.Extensions.WebDriver;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace CSF.Screenplay.Selenium;
 
@@ -12,6 +13,7 @@ public class ScreenplayFactory : IGetsScreenplay
         {
             services.AddSingleton(GetConfiguration());
             services.AddWebDriverFactory();
+            services.AddLogging(l => l.AddConsole(c => c.LogToStandardErrorThreshold = LogLevel.Warning));
 
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();

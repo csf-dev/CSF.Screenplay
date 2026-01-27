@@ -83,6 +83,7 @@ namespace CSF.Screenplay.Selenium
             {
                 if (disposing)
                 {
+                    webDriverAndOptions?.WebDriver.Quit();
                     webDriverAndOptions?.Dispose();
                 }
                 disposedValue = true;

@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Builders;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class QueryPredicatePrototypeBuilderTests
 {
     [Test, AutoMoqData]

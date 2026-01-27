@@ -87,8 +87,11 @@ export class ReportableElementCreator {
         }
 
         const reportElement = reportableElement.querySelector('.report');
-        reportElement.setAttribute('title', 'Performable report; click to expand/collapse');
-        reportElement.addEventListener('click', ev => ev.currentTarget.parentElement.classList.toggle('collapsed'));
+        if(reportElement) {
+            reportElement.setAttribute('title', 'Performable report; click to expand/collapse');
+            reportElement.addEventListener('click', ev => ev.currentTarget.parentElement.classList.toggle('collapsed'));
+        }
+
 
         for (const containedReportable of reportable.Reportables) {
             const reportableElement = this.createReportableElement(containedReportable);

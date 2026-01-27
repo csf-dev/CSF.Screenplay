@@ -2,7 +2,7 @@ namespace CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-[TestFixture, Description("Tests for various subclasses of Locator")]
+[TestFixture, Description("Tests for various subclasses of Locator"), Parallelizable]
 public class LocatorTests
 {
     static readonly ITarget

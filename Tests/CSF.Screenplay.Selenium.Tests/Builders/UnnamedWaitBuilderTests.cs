@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
 

@@ -40,6 +40,8 @@ jobs:
       BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
       PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
       DISPLAY: :99
+      # Change selected factory to VerboseChrome to debug Chrome-related issues
+      WebDriverFactory__SelectedConfiguration: DefaultChrome
     
     steps:
       - name: Checkout
@@ -171,7 +173,7 @@ jobs:
           do
             reportDir=$(dirname "$report")
             outputFile="$reportDir/ScreenplayReport.html"
-            dotnet run --no-build --framework $Tfm --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
+            dotnet run --no-build --framework $Tfm -c ${{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
           done
       - name: Upload Screenplay HTML report artifact
         uses: actions/upload-artifact@v4
@@ -202,6 +204,3 @@ jobs:
         with:
           name: Docs website
           path: docs/**/*
-
-  # runBrowserTests:
-    # TODO: Use build-results artifacts and run tests on matrix of browsers

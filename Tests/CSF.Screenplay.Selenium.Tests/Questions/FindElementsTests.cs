@@ -5,7 +5,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Questions;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class FindElementsTests
 {
     static readonly Locator

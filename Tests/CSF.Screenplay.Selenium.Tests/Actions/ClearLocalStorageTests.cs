@@ -11,7 +11,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class ClearLocalStorageTests
 {
     static readonly ITarget

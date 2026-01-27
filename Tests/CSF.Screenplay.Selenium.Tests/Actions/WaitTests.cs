@@ -2,13 +2,12 @@
 using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class WaitTests
 {
     static readonly ITarget

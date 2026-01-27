@@ -3,7 +3,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Questions;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class TakeScreenshotTests
 {
     static readonly NamedUri testPage = new NamedUri("OpenUrlTests.html", "the test page");

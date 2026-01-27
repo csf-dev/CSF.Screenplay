@@ -1,3 +1,4 @@
+using System;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
@@ -31,6 +32,18 @@ namespace CSF.Screenplay.Selenium
         /// <param name="text">The text/keys for the actor to type.</param>
         /// <returns>A builder with which the user may select a target element.</returns>
         public static SendKeysBuilder EnterTheText(params string[] text) => new SendKeysBuilder(string.Join(string.Empty, text));
+
+        /// <summary>
+        /// Gets a builder for creating a performable action which represents an actor entering a date into an <c>&lt;input type="date"&gt;</c> element.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If the specified <paramref name="date"/> is <see langword="null"/> then the input element will be cleared.
+        /// </para>
+        /// </remarks>
+        /// <param name="date">The date to enter into the input control.</param>
+        /// <returns>A builder with which the user may select a target element and optionally a culture.</returns>
+        public static EnterTheDateBuilder EnterTheDate(DateTime? date) => new EnterTheDateBuilder(date);
 
         /// <summary>
         /// Gets a performable which represents an actor deselecting everything from a <c>&lt;select&gt;</c> element.

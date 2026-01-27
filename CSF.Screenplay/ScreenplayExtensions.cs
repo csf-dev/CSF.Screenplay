@@ -208,6 +208,19 @@ namespace CSF.Screenplay
             return new ScopeAndPerformance(performance, scope);
         }
 
+        /// <summary>
+        /// Gets the event bus from the screenplay's service provider.
+        /// </summary>
+        /// <param name="screenplay">The screenplay from which to retrieve the event bus.</param>
+        /// <returns>The <see cref="IHasPerformanceEvents"/> event bus instance.</returns>
+        /// <exception cref="ArgumentNullException">If <paramref name="screenplay"/> is <see langword="null" />.</exception>
+        public static IHasPerformanceEvents GetEventBus(this Screenplay screenplay)
+        {
+            if (screenplay is null)
+                throw new ArgumentNullException(nameof(screenplay));
+            return screenplay.ServiceProvider.GetRequiredService<IHasPerformanceEvents>();
+        }
+
         static AsyncPerformanceLogic GetAsyncPerformanceLogic(SyncPerformanceLogic syncPerformanceLogic)
         {
             return (services, token) =>
