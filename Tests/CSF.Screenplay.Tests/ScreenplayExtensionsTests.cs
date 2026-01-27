@@ -1,5 +1,6 @@
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
+using NUnit.Framework.Internal;
 
 namespace CSF.Screenplay;
 
@@ -69,6 +70,18 @@ public class ScreenplayExtensionsTests
         sut.ExecuteAsPerformanceAsync<SamplePerformanceHost>();
 
         Assert.That(sut.ServiceProvider.GetRequiredService<SamplePerformanceHost>().HasExecuted, Is.True);
+    }
+
+    [Test, AutoMoqData]
+    public void GetEventBusShouldReturnAnEventBus([DefaultScreenplay] Screenplay sut)
+    {
+        Assert.That(() => sut.GetEventBus(), Is.InstanceOf<PerformanceEventBus>());
+    }
+
+    [Test, AutoMoqData]
+    public void GetEventBusShouldThrowIfScreenplayIsNull()
+    {
+        Assert.That(() => ((Screenplay?) null).GetEventBus(), Throws.ArgumentNullException);
     }
 
     public class SamplePerformanceHost : IHostsPerformance
