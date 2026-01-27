@@ -5769,6 +5769,19 @@ references:
   fullName.vb: CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync(Of T)(CSF.Screenplay.Screenplay, System.Collections.Generic.IList(Of CSF.Screenplay.Performances.IdentifierAndName), System.Threading.CancellationToken)
   nameWithType: ScreenplayExtensions.ExecuteAsPerformanceAsync<T>(Screenplay, IList<IdentifierAndName>, CancellationToken)
   nameWithType.vb: ScreenplayExtensions.ExecuteAsPerformanceAsync(Of T)(Screenplay, IList(Of IdentifierAndName), CancellationToken)
+- uid: CSF.Screenplay.ScreenplayExtensions.GetEventBus(CSF.Screenplay.Screenplay)
+  name: GetEventBus(Screenplay)
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_GetEventBus_CSF_Screenplay_Screenplay_
+  commentId: M:CSF.Screenplay.ScreenplayExtensions.GetEventBus(CSF.Screenplay.Screenplay)
+  fullName: CSF.Screenplay.ScreenplayExtensions.GetEventBus(CSF.Screenplay.Screenplay)
+  nameWithType: ScreenplayExtensions.GetEventBus(Screenplay)
+- uid: CSF.Screenplay.ScreenplayExtensions.GetEventBus*
+  name: GetEventBus
+  href: api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_GetEventBus_
+  commentId: Overload:CSF.Screenplay.ScreenplayExtensions.GetEventBus
+  isSpec: "True"
+  fullName: CSF.Screenplay.ScreenplayExtensions.GetEventBus
+  nameWithType: ScreenplayExtensions.GetEventBus
 - uid: CSF.Screenplay.ScreenplayLocator
   name: ScreenplayLocator
   href: api/CSF.Screenplay.ScreenplayLocator.html
@@ -6375,6 +6388,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.DeselectByValue.PerformAsAsync
   nameWithType: DeselectByValue.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate
+  name: EnterTheDate
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html
+  commentId: T:CSF.Screenplay.Selenium.Actions.EnterTheDate
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate
+  nameWithType: EnterTheDate
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
+  name: EnterTheDate(DateTime?, ITarget, CultureInfo)
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_System_Nullable_System_DateTime__CSF_Screenplay_Selenium_Elements_ITarget_System_Globalization_CultureInfo_
+  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
+  name.vb: New(Date?, ITarget, CultureInfo)
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.EnterTheDate(System.DateTime?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
+  fullName.vb: CSF.Screenplay.Selenium.Actions.EnterTheDate.New(Date?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
+  nameWithType: EnterTheDate.EnterTheDate(DateTime?, ITarget, CultureInfo)
+  nameWithType.vb: EnterTheDate.New(Date?, ITarget, CultureInfo)
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor*
+  name: EnterTheDate
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.EnterTheDate
+  fullName.vb: CSF.Screenplay.Selenium.Actions.EnterTheDate.New
+  nameWithType: EnterTheDate.EnterTheDate
+  nameWithType.vb: EnterTheDate.New
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: EnterTheDate.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment
+  nameWithType: EnterTheDate.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: EnterTheDate.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync
+  nameWithType: EnterTheDate.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript
   name: ExecuteJavaScript
   href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html
@@ -7216,6 +7280,73 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.ClickBuilder.GetPerformable
   nameWithType: ClickBuilder.GetPerformable
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder
+  name: EnterTheDateBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder
+  nameWithType: EnterTheDateBuilder
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.#ctor(System.Nullable{System.DateTime})
+  name: EnterTheDateBuilder(DateTime?)
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder__ctor_System_Nullable_System_DateTime__
+  commentId: M:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.#ctor(System.Nullable{System.DateTime})
+  name.vb: New(Date?)
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.EnterTheDateBuilder(System.DateTime?)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.New(Date?)
+  nameWithType: EnterTheDateBuilder.EnterTheDateBuilder(DateTime?)
+  nameWithType.vb: EnterTheDateBuilder.New(Date?)
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.#ctor*
+  name: EnterTheDateBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.EnterTheDateBuilder
+  fullName.vb: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.New
+  nameWithType: EnterTheDateBuilder.EnterTheDateBuilder
+  nameWithType.vb: EnterTheDateBuilder.New
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed(System.String)
+  name: ForTheCultureNamed(string)
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_ForTheCultureNamed_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed(System.String)
+  name.vb: ForTheCultureNamed(String)
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed(String)
+  nameWithType: EnterTheDateBuilder.ForTheCultureNamed(string)
+  nameWithType.vb: EnterTheDateBuilder.ForTheCultureNamed(String)
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed*
+  name: ForTheCultureNamed
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_ForTheCultureNamed_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.ForTheCultureNamed
+  nameWithType: EnterTheDateBuilder.ForTheCultureNamed
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable
+  name: GetPerformable()
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_GetPerformable
+  commentId: M:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable()
+  nameWithType: EnterTheDateBuilder.GetPerformable()
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable*
+  name: GetPerformable
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_GetPerformable_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.GetPerformable
+  nameWithType: EnterTheDateBuilder.GetPerformable
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: Into(ITarget)
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_Into_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: EnterTheDateBuilder.Into(ITarget)
+- uid: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into*
+  name: Into
+  href: api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.html#CSF_Screenplay_Selenium_Builders_EnterTheDateBuilder_Into_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.Into
+  nameWithType: EnterTheDateBuilder.Into
 - uid: CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder
   name: ExecuteJavaScriptBuilder
   href: api/CSF.Screenplay.Selenium.Builders.ExecuteJavaScriptBuilder.html
@@ -10560,6 +10691,22 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.DeselectTheOptionWithValue
   nameWithType: PerformableBuilder.DeselectTheOptionWithValue
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate(System.Nullable{System.DateTime})
+  name: EnterTheDate(DateTime?)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheDate_System_Nullable_System_DateTime__
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate(System.Nullable{System.DateTime})
+  name.vb: EnterTheDate(Date?)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate(System.DateTime?)
+  fullName.vb: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate(Date?)
+  nameWithType: PerformableBuilder.EnterTheDate(DateTime?)
+  nameWithType.vb: PerformableBuilder.EnterTheDate(Date?)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate*
+  name: EnterTheDate
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheDate_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheDate
+  nameWithType: PerformableBuilder.EnterTheDate
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.EnterTheText(System.String[])
   name: EnterTheText(params string[])
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheText_System_String___

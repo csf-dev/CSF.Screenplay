@@ -479,6 +479,51 @@ any exception encountered from any overload of <code>PerformAsync</code>, wrappe
   </dl>
 
 
+  <a id="CSF_Screenplay_ScreenplayExtensions_GetEventBus_" data-uid="CSF.Screenplay.ScreenplayExtensions.GetEventBus*"></a>
+
+  <h3 id="CSF_Screenplay_ScreenplayExtensions_GetEventBus_CSF_Screenplay_Screenplay_" data-uid="CSF.Screenplay.ScreenplayExtensions.GetEventBus(CSF.Screenplay.Screenplay)">
+  GetEventBus(Screenplay)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayExtensions.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the event bus from the screenplay's service provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IHasPerformanceEvents GetEventBus(this Screenplay screenplay)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>screenplay</code> <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></dt>
+    <dd><p>The screenplay from which to retrieve the event bus.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a></dt>
+    <dd><p>The <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> event bus instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">screenplay</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
 
 </article>
 
