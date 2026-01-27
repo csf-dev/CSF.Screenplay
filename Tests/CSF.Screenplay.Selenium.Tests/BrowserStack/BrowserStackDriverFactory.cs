@@ -34,7 +34,7 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
         return new (driver, driverOptions);
     }
 
-    DriverOptions GetDriverOptions()
+    static DriverOptions GetDriverOptions()
     {
         var browserName = GetBrowserName();
         return browserName switch

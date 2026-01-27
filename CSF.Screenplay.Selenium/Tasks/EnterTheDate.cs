@@ -32,6 +32,7 @@ namespace CSF.Screenplay.Selenium.Actions
     public class EnterTheDate : IPerformable, ICanReport
     {
         const string nonNumericPattern = @"\D";
+        
         static readonly Regex nonNumeric = new Regex(nonNumericPattern,
                                                      RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.CultureInvariant,
                                                      TimeSpan.FromMilliseconds(100));
