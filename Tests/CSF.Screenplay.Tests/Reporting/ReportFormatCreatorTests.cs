@@ -15,6 +15,7 @@ public class ReportFormatCreatorTests
     [TestCase("}", "}")]
     [TestCase("{foo} {bar", "{0} {bar")]
     [TestCase("{{{{foo}}}}", "{{{{foo}}}}")]
+    [TestCase("{Actor} opens their browser at {UriName}: {Uri}", "{0} opens their browser at {1}: {2}")]
     public void GetReportFormatShouldReturnTheCorrectFormattedTemplate(string original, string expected)
     {
         var sut = new ReportFormatCreator();
@@ -37,6 +38,7 @@ public class ReportFormatCreatorTests
     [TestCase("}", "", "", "")]
     [TestCase("{foo} {bar", "foo", "", "")]
     [TestCase("{{{{foo}}}}", "", "", "")]
+    [TestCase("{Actor} opens their browser at {UriName}: {Uri}", "Actor", "UriName", "Uri")]
     public void GetReportFormatShouldReturnTheCorrectObjectNames(string template, string name1, string name2, string name3)
     {
         var expected = new[] { name1, name2, name3 }.Where(x => x.Length > 0).ToList();

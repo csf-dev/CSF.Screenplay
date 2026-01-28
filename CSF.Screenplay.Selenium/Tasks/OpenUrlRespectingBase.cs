@@ -23,14 +23,11 @@ namespace CSF.Screenplay.Selenium.Tasks
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            if(uri.Uri.IsAbsoluteUri)
-                return actor.PerformAsync(new OpenUrl(uri.Uri), cancellationToken);
-            
             if(!actor.TryGetAbility<UseABaseUri>(out var ability))
-                return actor.PerformAsync(new OpenUrl(uri.Uri), cancellationToken);
+                return actor.PerformAsync(new OpenUrl(uri), cancellationToken);
 
-            var absoluteUri = new Uri(ability.BaseUri, uri.Uri);
-            return actor.PerformAsync(new OpenUrl(absoluteUri), cancellationToken);
+            var rebased = uri.RebaseTo(ability.BaseUri);
+            return actor.PerformAsync(new OpenUrl(rebased), cancellationToken);
         }
         
         /// <inheritdoc/>
