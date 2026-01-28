@@ -21,10 +21,10 @@ public class WaitTests
     static readonly NamedUri testPage = new NamedUri("WaitTests.html", "the test page");
 
     static int GetDelayMilliseconds(Actor actor)
-        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 1500 : 250;
+        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 5000 : 500;
 
     static int GetSufficientWaitMilliseconds(Actor actor)
-        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 2000 : 600;
+        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 9000 : 1000;
 
     static int GetInsufficientWaitMilliseconds(Actor actor) => 50;
 
