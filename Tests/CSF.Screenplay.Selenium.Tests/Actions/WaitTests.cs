@@ -36,7 +36,7 @@ public class WaitTests
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and 250ms has elapsed"))
+        await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"))
             .ForAtMost(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster)))
             );
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
