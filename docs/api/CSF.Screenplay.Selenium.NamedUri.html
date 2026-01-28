@@ -147,6 +147,13 @@ Class NamedUri  <a class="header-action link-secondary" title="View source" href
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.NamedUriExtensions.html#CSF_Screenplay_Selenium_NamedUriExtensions_RebaseTo_CSF_Screenplay_Selenium_NamedUri_System_String_">NamedUriExtensions.RebaseTo(NamedUri, string)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -170,7 +177,7 @@ Note the inclusion of implicit conversion operators which allow for seamless con
 
   <h3 id="CSF_Screenplay_Selenium_NamedUri__ctor_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.NamedUri.#ctor(System.String,System.String)">
   NamedUri(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a> class.</p>
@@ -206,7 +213,7 @@ Note the inclusion of implicit conversion operators which allow for seamless con
 
   <h3 id="CSF_Screenplay_Selenium_NamedUri__ctor_System_Uri_System_String_" data-uid="CSF.Screenplay.Selenium.NamedUri.#ctor(System.Uri,System.String)">
   NamedUri(Uri, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a> class.</p>
@@ -306,6 +313,60 @@ Note the inclusion of implicit conversion operators which allow for seamless con
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_NamedUri_RebaseTo_" data-uid="CSF.Screenplay.Selenium.NamedUri.RebaseTo*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri_" data-uid="CSF.Screenplay.Selenium.NamedUri.RebaseTo(System.Uri)">
+  RebaseTo(Uri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a copy of the current named URI, except 'rebased' using the specified base URI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NamedUri RebaseTo(Uri baseUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>baseUri</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>A new base URI</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a></dt>
+    <dd><p>A URI which might have been rebased onto the new base URI</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the current <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_Uri">Uri</a> is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.urikind#system-urikind-absolute">Absolute</a> then this method has not effect and the named URI which is
+returned is the unmodified current instance.
+</p>
+<p>
+If the current Uri is not absolute, then the specified base URI is prepended to the current URI, serving as a base.
+The new URI is then returned from this method.  Note that this method will never result in the current instance being
+mutated, at most it will only return a copy of the current instance, which has the newly-rebased URI.
+</p>
+</div>
+
+
+
+
   <h2 class="section" id="operators">Operators
 </h2>
 
@@ -314,7 +375,7 @@ Note the inclusion of implicit conversion operators which allow for seamless con
 
   <h3 id="CSF_Screenplay_Selenium_NamedUri_op_Implicit_System_String__CSF_Screenplay_Selenium_NamedUri" data-uid="CSF.Screenplay.Selenium.NamedUri.op_Implicit(System.String)~CSF.Screenplay.Selenium.NamedUri">
   implicit operator NamedUri(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> to a <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>.</p>
@@ -353,7 +414,7 @@ Note the inclusion of implicit conversion operators which allow for seamless con
 
   <h3 id="CSF_Screenplay_Selenium_NamedUri_op_Implicit_System_Uri__CSF_Screenplay_Selenium_NamedUri" data-uid="CSF.Screenplay.Selenium.NamedUri.op_Implicit(System.Uri)~CSF.Screenplay.Selenium.NamedUri">
   implicit operator NamedUri(Uri)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedUri.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_Uri">Uri</a> to a <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>.</p>

@@ -10509,6 +10509,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.NamedUri.Name
   nameWithType: NamedUri.Name
+- uid: CSF.Screenplay.Selenium.NamedUri.RebaseTo(System.Uri)
+  name: RebaseTo(Uri)
+  href: api/CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri_
+  commentId: M:CSF.Screenplay.Selenium.NamedUri.RebaseTo(System.Uri)
+  fullName: CSF.Screenplay.Selenium.NamedUri.RebaseTo(System.Uri)
+  nameWithType: NamedUri.RebaseTo(Uri)
+- uid: CSF.Screenplay.Selenium.NamedUri.RebaseTo*
+  name: RebaseTo
+  href: api/CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_RebaseTo_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedUri.RebaseTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.NamedUri.RebaseTo
+  nameWithType: NamedUri.RebaseTo
 - uid: CSF.Screenplay.Selenium.NamedUri.Uri
   name: Uri
   href: api/CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_Uri
@@ -10550,6 +10563,28 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.NamedUri.CType
   nameWithType: NamedUri.implicit operator
   nameWithType.vb: NamedUri.CType
+- uid: CSF.Screenplay.Selenium.NamedUriExtensions
+  name: NamedUriExtensions
+  href: api/CSF.Screenplay.Selenium.NamedUriExtensions.html
+  commentId: T:CSF.Screenplay.Selenium.NamedUriExtensions
+  fullName: CSF.Screenplay.Selenium.NamedUriExtensions
+  nameWithType: NamedUriExtensions
+- uid: CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo(CSF.Screenplay.Selenium.NamedUri,System.String)
+  name: RebaseTo(NamedUri, string)
+  href: api/CSF.Screenplay.Selenium.NamedUriExtensions.html#CSF_Screenplay_Selenium_NamedUriExtensions_RebaseTo_CSF_Screenplay_Selenium_NamedUri_System_String_
+  commentId: M:CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo(CSF.Screenplay.Selenium.NamedUri,System.String)
+  name.vb: RebaseTo(NamedUri, String)
+  fullName: CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo(CSF.Screenplay.Selenium.NamedUri, string)
+  fullName.vb: CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo(CSF.Screenplay.Selenium.NamedUri, String)
+  nameWithType: NamedUriExtensions.RebaseTo(NamedUri, string)
+  nameWithType.vb: NamedUriExtensions.RebaseTo(NamedUri, String)
+- uid: CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo*
+  name: RebaseTo
+  href: api/CSF.Screenplay.Selenium.NamedUriExtensions.html#CSF_Screenplay_Selenium_NamedUriExtensions_RebaseTo_
+  commentId: Overload:CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.NamedUriExtensions.RebaseTo
+  nameWithType: NamedUriExtensions.RebaseTo
 - uid: CSF.Screenplay.Selenium.PerformableBuilder
   name: PerformableBuilder
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html
