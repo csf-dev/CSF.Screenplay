@@ -16,7 +16,7 @@ public class ClickAndWaitForDocumentReadyTests
         link = new ElementId("clickable"),
         displayText = new ElementId("textContent");
 
-    static readonly string[] ignoredBrowsers = ["chrome", "edge"];
+    static readonly string[] ignoredBrowsers = ["chrome", "MicrosoftEdge"];
 
     [Test, Screenplay]
     public async Task PerformAsAsyncShouldWaitSoItCanGetTheAppropriateContent(IStage stage)
