@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 public class DelayedOpeningController : Controller
 {
     [HttpGet, Route("DelayedOpening")]
-    public async Task<ViewResult> Index()
+    public async Task<ViewResult> Index(int delaySeconds = 2)
     {
-        await Task.Delay(TimeSpan.FromSeconds(2));
-        return View();
+        await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
+        return View(delaySeconds);
     }
 }
