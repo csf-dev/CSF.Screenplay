@@ -15,13 +15,13 @@ namespace CSF.Screenplay.Selenium.Actions
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<BrowseTheWeb>();
-            ability.WebDriver.Url = uri.Uri.AbsoluteUri;
+            ability.WebDriver.Url = uri.Uri.ToString();
             return default;
         }
         
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} opens their browser at {UriName}: {Uri}", actor.Name, uri.Name, uri.Uri.AbsoluteUri);
+            => formatter.Format("{Actor} opens their browser at {UriName}: {Uri}", actor.Name, uri.Name, uri.Uri.ToString());
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenUrl"/> class with the specified URL.
