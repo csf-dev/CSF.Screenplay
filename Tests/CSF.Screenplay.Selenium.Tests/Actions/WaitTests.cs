@@ -2,6 +2,8 @@
 using System;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -18,21 +20,28 @@ public class WaitTests
 
     static readonly NamedUri testPage = new NamedUri("WaitTests.html", "the test page");
 
+    static int GetDelayMilliseconds(Actor actor)
+        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 1500 : 250;
+
+    static int GetSufficientWaitMilliseconds(Actor actor)
+        => actor.GetAbility<BrowseTheWeb>().WebDriver.Unproxy() is RemoteWebDriver ? 2000 : 600;
+
+    static int GetInsufficientWaitMilliseconds(Actor actor) => 50;
+
     [Test, Screenplay]
     public async Task WaitingForSufficientTimeShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and 250ms has elapsed"))
-            .ForAtMost(TimeSpan.FromMilliseconds(500))
-            .WithPollingInterval(TimeSpan.FromMilliseconds(150))
+            .ForAtMost(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster)))
             );
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
     [Test, Screenplay]
@@ -41,16 +50,15 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text("250"))
-            .ForAtMost(TimeSpan.FromMilliseconds(500))
-            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+        await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
+            .ForAtMost(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster)))
             .IgnoringTheseExceptionTypes(typeof(TargetNotFoundException))
             );
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
     [Test, Screenplay]
@@ -59,16 +67,15 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text("250"))
-            .ForAtMost(TimeSpan.FromMilliseconds(500))
-            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+        await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
+            .ForAtMost(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster)))
             // No ignored exceptions specified here, but the default behaviour will ignore TargetNotFoundException
             );
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
     [Test, Screenplay]
@@ -77,11 +84,10 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        Assert.That(async () => await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text("250"))
-            .ForAtMost(TimeSpan.FromMilliseconds(500))
-            .WithPollingInterval(TimeSpan.FromMilliseconds(50))
+        Assert.That(async () => await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
+            .ForAtMost(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster)))
             .IgnoringTheseExceptionTypes() // Explicitly empty
             ), Throws.InstanceOf<PerformableException>());
     }
@@ -92,40 +98,41 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("2000").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
 
-        Assert.That(async () => await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and 2000ms has elapsed")).ForAtMost(TimeSpan.FromMilliseconds(500))),
-                    Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<OpenQA.Selenium.WebDriverTimeoutException>());
+        Assert.That(async () => await Then(webster).Should(WaitUntil(displayText.Has().Text($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"))
+                                                            .ForAtMost(TimeSpan.FromMilliseconds(GetInsufficientWaitMilliseconds(webster)))),
+                    Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<WebDriverTimeoutException>());
     }
 
     [Test, Screenplay]
     public async Task WaitingForSufficientTimeUsingDefaultWaitAbilityShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
-        webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(500)));
+        webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster))));
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and 250ms has elapsed")));
+        await Then(webster).Should(WaitUntil(displayText.Has().Text($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed")));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
     [Test, Screenplay]
     public async Task WaitingForInsufficientTimeUsingDefaultWaitAbilityShouldThrow(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
-        webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(100)));
+        webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(GetInsufficientWaitMilliseconds(webster))));
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("2000").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
 
-        Assert.That(async () => await Then(webster).Should(WaitUntil(displayText.Has().Text("Clicked, and 2000ms has elapsed"))),
-                    Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<OpenQA.Selenium.WebDriverTimeoutException>());
+        Assert.That(async () => await Then(webster).Should(WaitUntil(displayText.Has().Text($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"))),
+                    Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<WebDriverTimeoutException>());
     }
 
     [Test, Screenplay]
@@ -134,12 +141,12 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(300)));
+        await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster))));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
     [Test, Screenplay]
@@ -148,11 +155,11 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await Given(webster).WasAbleTo(EnterTheText("250").Into(delayTimer));
+        await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
-        await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(10)));
+        await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(GetInsufficientWaitMilliseconds(webster))));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.That(contents, Is.Not.EqualTo("Clicked, and 250ms has elapsed"));
+        Assert.That(contents, Is.Not.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 }

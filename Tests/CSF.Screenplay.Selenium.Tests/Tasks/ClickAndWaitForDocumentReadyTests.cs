@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
@@ -14,6 +15,8 @@ public class ClickAndWaitForDocumentReadyTests
     static readonly ITarget
         link = new ElementId("clickable"),
         displayText = new ElementId("textContent");
+
+    static readonly string[] ignoredBrowsers = ["chrome", "edge"];
 
     [Test, Screenplay]
     public async Task PerformAsAsyncShouldWaitSoItCanGetTheAppropriateContent(IStage stage)
@@ -33,12 +36,12 @@ public class ClickAndWaitForDocumentReadyTests
         var webster = stage.Spotlight<Webster>();
         var ability = webster.GetAbility<BrowseTheWeb>();
 
-        if(ability.DriverOptions.BrowserName == "chrome")
-            Assert.Pass("This test cannot meaningfully be run on a Chrome browser, because it always waits for the page load; treating as an implicit pass");
+        if(ignoredBrowsers.Contains(ability.DriverOptions.BrowserName))
+            Assert.Pass("This test cannot meaningfully be run on a Chrome or Edge browser, because they always wait for the page load. Treating this test as an implicit pass.");
 
         await Given(webster).WasAbleTo(OpenTheUrl(startPage));
         
-        Assert.That(async () => await When(webster).AttemptsTo(ClickOn(link).AndWaitForANewPageToLoad(TimeSpan.FromMilliseconds(200))),
+        Assert.That(async () => await When(webster).AttemptsTo(ClickOn(link).AndWaitForANewPageToLoad(TimeSpan.FromMilliseconds(100))),
                     Throws.InstanceOf<PerformableException>().And.InnerException.InstanceOf<WebDriverException>());
     }
 }
