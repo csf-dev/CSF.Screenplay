@@ -6,6 +6,14 @@
         <p>
             Click the link below to trigger navigation to a page which takes a few moments before it becomes available.
         </p>
-        <a href="/DelayedOpening" id="clickable">Click me</a>
+        <label for="delaySeconds">Delay loading by (seconds)</label><input type="number" id="delaySeconds" value="2">
+        <a href="/DelayedOpening?delaySeconds=2" id="clickable">Click me</a>
     </body>
+    <script>
+         window.onload = function() {
+            document.getElementById("delaySeconds").addEventListener('change', (ev) => {
+                document.getElementById("clickable").setAttribute("href", "/DelayedOpening?delaySeconds=" + ev.currentTarget.value);
+            });
+         }
+    </script>
 </html>
