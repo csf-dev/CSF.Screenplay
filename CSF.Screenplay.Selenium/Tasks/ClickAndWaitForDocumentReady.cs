@@ -24,9 +24,6 @@ namespace CSF.Screenplay.Selenium.Tasks
         const string COMPLETE_READY_STATE = "complete";
 
         static readonly NamedScriptWithResult<string> getReadyState = Scripts.GetTheDocumentReadyState;
-        static readonly TimeSpan
-            pollingInterval = TimeSpan.FromMilliseconds(100),
-            stalenessTimeout = TimeSpan.FromMilliseconds(500);
 
         readonly TimeSpan waitTimeout;
 
@@ -39,11 +36,10 @@ namespace CSF.Screenplay.Selenium.Tasks
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
             await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement))
-                                                .ForAtMost(stalenessTimeout)
-                                                .WithPollingInterval(pollingInterval)
+                                                .ForAtMost(waitTimeout)
                                                 .Named($"{element.Value.Name} is no longer on the page"),
                                      cancellationToken);
-            await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(waitTimeout).Named("the page is ready").WithPollingInterval(pollingInterval),
+            await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(waitTimeout).Named("the page is ready"),
                                      cancellationToken);
         }
 
