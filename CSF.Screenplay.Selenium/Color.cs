@@ -70,13 +70,13 @@ namespace CSF.Screenplay.Selenium
         public readonly double Alpha
         {
             get => alpha;
-            init => this.alpha = value < 0 ? 0 : value > 1 ? 1 : value;
+            init => this.alpha = SanitizeAlpha(value);
         }
 #else
         public double Alpha
         {
             get => alpha;
-            private set => alpha = value < 0 ? 0 : value > 1 ? 1 : value;
+            private set => alpha = SanitizeAlpha(value);
         }
 #endif
 
@@ -142,8 +142,20 @@ namespace CSF.Screenplay.Selenium
             Red = red;
             Green = green;
             Blue = blue;
-            this.alpha = alpha < 0 ? 0 : alpha > 1 ? 1 : alpha;
+            this.alpha = SanitizeAlpha(alpha);
         }
+
+        /// <summary>
+        /// Sanitizes a value intended for <see cref="Alpha"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>If <paramref name="alpha"/> is less than zero then this method returns zero.
+        /// If <paramref name="alpha"/> is more than one then this method returns one.
+        /// Otherwise, this method returns <paramref name="alpha"/>.</para>
+        /// </remarks>
+        /// <param name="alpha">The alpha value.</param>
+        /// <returns>A sanitized alpha value.</returns>
+        static double SanitizeAlpha(double alpha) => alpha < 0 ? 0 : alpha > 1 ? 1 : alpha;
 
         /// <summary>
         /// Converts a <see cref="System.Drawing.Color"/> into a <see cref="Color"/>.
