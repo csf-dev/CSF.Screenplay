@@ -73,17 +73,13 @@ namespace CSF.Screenplay.Selenium
             init => this.alpha = SanitizeAlpha(value);
         }
 #else
-        public double Alpha
-        {
-            get => alpha;
-            private set => alpha = SanitizeAlpha(value);
-        }
+        public double Alpha { get => alpha; }
 #endif
 
         /// <summary>
         /// Gets a representation of <see cref="Alpha"/>, as a byte.
         /// </summary>
-        public byte AlphaAsByte => (byte) Math.Floor(Math.Round(Alpha * 255, 0));
+        public byte AlphaAsByte => (byte) Math.Floor(Math.Round(Alpha * 255, 0, MidpointRounding.AwayFromZero));
 
         /// <summary>
         /// Converts this color to a <see cref="System.Drawing.Color"/>.
@@ -104,7 +100,7 @@ namespace CSF.Screenplay.Selenium
         public bool Equals(Color other) => other.Red == Red
                                         && other.Green == Green
                                         && other.Blue == Blue
-                                        && other.Alpha == Alpha;
+                                        && other.AlphaAsByte == AlphaAsByte;
 
         /// <inheritdoc/>
         public bool Equals(string other) => TryParse(other, out var color) && Equals(color);

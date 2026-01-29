@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium
         /// Caches the named colors and their names, for performance reasons when using <see cref="GetNamedColor(string)"/> and/or
         /// <see cref="TryGetNamedColor(string, out Color)"/>.
         /// </summary>
-        static readonly ReadOnlyDictionary<string,Color> namedColors;
+        static readonly ReadOnlyDictionary<string,Color> namedColors = GetNamedColorCache();
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public static Color TRANSPARENT => new Color(0, 0, 0, 0);
@@ -219,14 +219,21 @@ namespace CSF.Screenplay.Selenium
         }
 
         /// <summary>
-        /// Static constructor initializes a cache of the named colors.
+        /// Gets a dictionary of the names/instances of the well-known colors.
         /// </summary>
-        static Colors()
+        /// <remarks>
+        /// <para>
+        /// The keys of this dictionary are case insensitive and correspond to the names of the static properties of this type.
+        /// The values are instances of the <see cref="Color"/> that the corresponding property returns.
+        /// </para>
+        /// </remarks>
+        /// <returns>A cache of the named color values.</returns>
+        static ReadOnlyDictionary<string, Color> GetNamedColorCache()
         {
             var namedColorValues = typeof(Colors)
                 .GetProperties(BindingFlags.Static)
                 .ToDictionary(k => k.Name, v => (Color) v.GetValue(null), StringComparer.InvariantCultureIgnoreCase);
-            namedColors = new ReadOnlyDictionary<string, Color>(namedColorValues);
+            return new ReadOnlyDictionary<string, Color>(namedColorValues);
         }
    }
 }
