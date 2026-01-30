@@ -27,11 +27,7 @@ namespace CSF.Screenplay.Selenium
 #endif
         : IEquatable<SysColor>, IEquatable<Color>, IEquatable<string>
     {
-#if RECORD_STRUCT_SUPPORT
         readonly double alpha;
-#else
-        double alpha;
-#endif
 
         /// <summary>
         /// Gets the red component in the sRGB color space.
