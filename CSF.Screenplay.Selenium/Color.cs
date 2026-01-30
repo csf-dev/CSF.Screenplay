@@ -185,7 +185,27 @@ namespace CSF.Screenplay.Selenium
         /// recognized color representation); <see langword="false"/> if not</returns>
         public static bool TryParse(string webColorValue, out Color color)
         {
-            throw new NotImplementedException("To be written!");
+            color = default;
+            if(string.IsNullOrWhiteSpace(webColorValue)) return false;
+
+            var allParsers = new IParsesColor[]
+            {
+                new RgbColorParser(),
+                new RgbPercentageColorParser(),
+                new RgbaColorParser(),
+                new RgbaPercentageColorParser(),
+                new Hex6ColorParser(),
+                new Hex3ColorParser(),
+                new HslColorParser(),
+                new HslaColorParser(),
+                new NamedColorParser(),
+            };
+
+            foreach(var parser in allParsers)
+                if(parser.TryParseColor(webColorValue, out color)) return true;
+
+            color = default;
+            return false;
         }
 
         /// <summary>
