@@ -2416,6 +2416,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.yml\" sourcestartlinenumber=\"1\">Builder type for a performable that gets a collection of text values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.TextQueryBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.yml\" sourcestartlinenumber=\"1\">Builder type for a performable that gets a single text value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.UnnamedWaitBuilder.yml",
       "output": {
         ".html": {

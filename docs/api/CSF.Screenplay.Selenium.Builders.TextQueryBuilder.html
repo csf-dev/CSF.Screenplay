@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class TextQuery | Screenplay </title>
+      <title>Class TextQueryBuilder | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class TextQuery | Screenplay ">
+      <meta name="title" content="Class TextQueryBuilder | Screenplay ">
       
-      <meta name="description" content="A query to get the text content of a Selenium element.">
+      <meta name="description" content="Builder type for a performable that gets a single text value.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Queries_TextQuery.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Queries.TextQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Builders_TextQueryBuilder.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Builders.TextQueryBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Queries.TextQuery">
+        <article data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Queries_TextQuery" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery" class="text-break">
-Class TextQuery  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder" data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder" class="text-break">
+Class TextQueryBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/TextQueryBuilder.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Queries.html">Queries</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Builders.html">Builders</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A query to get the text content of a Selenium element.</p>
+  <div class="markdown summary"><p>Builder type for a performable that gets a single text value.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TextQuery : IQuery&lt;string&gt;, IHasName</code></pre>
+    <pre><code class="lang-csharp hljs">public class TextQueryBuilder : IGetsPerformableWithResult&lt;string&gt;</code></pre>
   </div>
 
 
@@ -112,15 +112,14 @@ Class TextQuery  <a class="header-action link-secondary" title="View source" hre
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">TextQuery</span></div>
+      <div><span class="xref">TextQueryBuilder</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.Selenium.Queries.IQuery-1.html">IQuery</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</div>
-      <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Performables.IGetsPerformableWithResult-1.html">IGetsPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</div>
     </dd>
   </dl>
 
@@ -154,32 +153,36 @@ Class TextQuery  <a class="header-action link-secondary" title="View source" hre
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The purpose of this builder is to enable or disable the trimming of whitespace characters at the beginning or end of the returned text.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Queries_TextQuery__ctor_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder__ctor_" data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery__ctor_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.#ctor(System.Boolean)">
-  TextQuery(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)">
+  TextQueryBuilder(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/TextQueryBuilder.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Queries.TextQuery.html">TextQuery</a> class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html">TextQueryBuilder</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TextQuery(bool trimWhitespace = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public TextQueryBuilder(ITarget element)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>trimWhitespace</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, leading &amp; trailing whitespace will be trimmed from
-the returned text content; if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> it will not.</p>
+    <dt><code>element</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target element to query.</p>
 </dd>
   </dl>
 
@@ -190,48 +193,6 @@ the returned text content; if <a href="https://learn.microsoft.com/dotnet/csharp
 
 
 
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="CSF_Screenplay_Selenium_Queries_TextQuery_Name_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.Name*"></a>
-
-  <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery_Name" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.Name">
-  Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L13"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-  <h4 class="section" id="CSF_Screenplay_Selenium_Queries_TextQuery_Name_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
-should return a non-null response from this property.
-</p>
-</div>
 
 
 
@@ -240,32 +201,26 @@ should return a non-null response from this property.
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Queries_TextQuery_GetValue_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.GetValue*"></a>
+  <a id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder_WithoutTrimmingWhitespace_" data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery_GetValue_CSF_Screenplay_Selenium_Elements_SeleniumElement_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.GetValue(CSF.Screenplay.Selenium.Elements.SeleniumElement)">
-  GetValue(SeleniumElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder_WithoutTrimmingWhitespace" data-uid="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace">
+  WithoutTrimmingWhitespace()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/TextQueryBuilder.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the current value from a Selenium element.</p>
+  <div class="markdown level1 summary"><p>Configures the performable to disable the trimming of whitespace characters at the beginning or end of the returned text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetValue(SeleniumElement element)</code></pre>
+    <pre><code class="lang-csharp hljs">public TextQueryBuilder WithoutTrimmingWhitespace()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>element</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a></dt>
-    <dd><p>The Selenium element.</p>
-</dd>
-  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The value of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html">TextQueryBuilder</a></dt>
+    <dd><p>The current instance of the builder, so calls may be chained.</p>
 </dd>
   </dl>
 
@@ -275,6 +230,18 @@ should return a non-null response from this property.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_TextQueryBuilder_WithoutTrimmingWhitespace_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Trimming of whitespace at the beginning/end of text is enabled by default.  This is because some browsers (Safari)
+include whitespace at the beginning/end of text read from the browser, which isn't visible to the end user.  This is typically the 
+space which is inherent in the markup, but which browsers ignore when actually displaying content.
+</p>
+<p>
+Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+If this causes an issue and you would like the leading/trailing whitespace included in the result then use this method.
+Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+</p>
+</div>
 
 
 
@@ -283,7 +250,7 @@ should return a non-null response from this property.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/TextQueryBuilder.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -8367,6 +8367,31 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Text
   nameWithType: QueryPredicatePrototypeBuilder.Text
+- uid: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.Func{System.String,System.Boolean})
+  name: TextWithoutTrimmingWhitespace(Func<string, bool>)
+  href: api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_Func_System_String_System_Boolean__
+  commentId: M:CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.Func{System.String,System.Boolean})
+  name.vb: TextWithoutTrimmingWhitespace(Func(Of String, Boolean))
+  fullName: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.Func<string, bool>)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.Func(Of String, Boolean))
+  nameWithType: QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(Func<string, bool>)
+  nameWithType.vb: QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(Func(Of String, Boolean))
+- uid: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.String)
+  name: TextWithoutTrimmingWhitespace(string)
+  href: api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.String)
+  name.vb: TextWithoutTrimmingWhitespace(String)
+  fullName: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(string)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(String)
+  nameWithType: QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(string)
+  nameWithType.vb: QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(String)
+- uid: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace*
+  name: TextWithoutTrimmingWhitespace
+  href: api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace
+  nameWithType: QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace
 - uid: CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.UnselectedOptions(System.Func{System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Selenium.Queries.Option},System.Boolean})
   name: UnselectedOptions(Func<IReadOnlyList<Option>, bool>)
   href: api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptions_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean__
@@ -9134,6 +9159,82 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Builders.TakeAndSaveScreenshotBuilder.CType
   nameWithType: TakeAndSaveScreenshotBuilder.implicit operator
   nameWithType.vb: TakeAndSaveScreenshotBuilder.CType
+- uid: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder
+  name: TextMultiQueryBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder
+  nameWithType: TextMultiQueryBuilder
+- uid: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: TextMultiQueryBuilder(ITarget)
+  href: api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextMultiQueryBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name.vb: New(ITarget)
+  fullName: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.TextMultiQueryBuilder(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.New(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: TextMultiQueryBuilder.TextMultiQueryBuilder(ITarget)
+  nameWithType.vb: TextMultiQueryBuilder.New(ITarget)
+- uid: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.#ctor*
+  name: TextMultiQueryBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextMultiQueryBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.TextMultiQueryBuilder
+  fullName.vb: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.New
+  nameWithType: TextMultiQueryBuilder.TextMultiQueryBuilder
+  nameWithType.vb: TextMultiQueryBuilder.New
+- uid: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace
+  name: WithoutTrimmingWhitespace()
+  href: api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextMultiQueryBuilder_WithoutTrimmingWhitespace
+  commentId: M:CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace
+  fullName: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace()
+  nameWithType: TextMultiQueryBuilder.WithoutTrimmingWhitespace()
+- uid: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace*
+  name: WithoutTrimmingWhitespace
+  href: api/CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextMultiQueryBuilder_WithoutTrimmingWhitespace_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.TextMultiQueryBuilder.WithoutTrimmingWhitespace
+  nameWithType: TextMultiQueryBuilder.WithoutTrimmingWhitespace
+- uid: CSF.Screenplay.Selenium.Builders.TextQueryBuilder
+  name: TextQueryBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.TextQueryBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.TextQueryBuilder
+  nameWithType: TextQueryBuilder
+- uid: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: TextQueryBuilder(ITarget)
+  href: api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextQueryBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name.vb: New(ITarget)
+  fullName: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.TextQueryBuilder(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.New(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: TextQueryBuilder.TextQueryBuilder(ITarget)
+  nameWithType.vb: TextQueryBuilder.New(ITarget)
+- uid: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor*
+  name: TextQueryBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextQueryBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.TextQueryBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.TextQueryBuilder
+  fullName.vb: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.New
+  nameWithType: TextQueryBuilder.TextQueryBuilder
+  nameWithType.vb: TextQueryBuilder.New
+- uid: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace
+  name: WithoutTrimmingWhitespace()
+  href: api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextQueryBuilder_WithoutTrimmingWhitespace
+  commentId: M:CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace
+  fullName: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace()
+  nameWithType: TextQueryBuilder.WithoutTrimmingWhitespace()
+- uid: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace*
+  name: WithoutTrimmingWhitespace
+  href: api/CSF.Screenplay.Selenium.Builders.TextQueryBuilder.html#CSF_Screenplay_Selenium_Builders_TextQueryBuilder_WithoutTrimmingWhitespace_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.TextQueryBuilder.WithoutTrimmingWhitespace
+  nameWithType: TextQueryBuilder.WithoutTrimmingWhitespace
 - uid: CSF.Screenplay.Selenium.Builders.UnnamedWaitBuilder
   name: UnnamedWaitBuilder
   href: api/CSF.Screenplay.Selenium.Builders.UnnamedWaitBuilder.html
@@ -13917,6 +14018,25 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Queries.TextQuery
   fullName: CSF.Screenplay.Selenium.Queries.TextQuery
   nameWithType: TextQuery
+- uid: CSF.Screenplay.Selenium.Queries.TextQuery.#ctor(System.Boolean)
+  name: TextQuery(bool)
+  href: api/CSF.Screenplay.Selenium.Queries.TextQuery.html#CSF_Screenplay_Selenium_Queries_TextQuery__ctor_System_Boolean_
+  commentId: M:CSF.Screenplay.Selenium.Queries.TextQuery.#ctor(System.Boolean)
+  name.vb: New(Boolean)
+  fullName: CSF.Screenplay.Selenium.Queries.TextQuery.TextQuery(bool)
+  fullName.vb: CSF.Screenplay.Selenium.Queries.TextQuery.New(Boolean)
+  nameWithType: TextQuery.TextQuery(bool)
+  nameWithType.vb: TextQuery.New(Boolean)
+- uid: CSF.Screenplay.Selenium.Queries.TextQuery.#ctor*
+  name: TextQuery
+  href: api/CSF.Screenplay.Selenium.Queries.TextQuery.html#CSF_Screenplay_Selenium_Queries_TextQuery__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Queries.TextQuery.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Queries.TextQuery.TextQuery
+  fullName.vb: CSF.Screenplay.Selenium.Queries.TextQuery.New
+  nameWithType: TextQuery.TextQuery
+  nameWithType.vb: TextQuery.New
 - uid: CSF.Screenplay.Selenium.Queries.TextQuery.GetValue(CSF.Screenplay.Selenium.Elements.SeleniumElement)
   name: GetValue(SeleniumElement)
   href: api/CSF.Screenplay.Selenium.Queries.TextQuery.html#CSF_Screenplay_Selenium_Queries_TextQuery_GetValue_CSF_Screenplay_Selenium_Elements_SeleniumElement_
