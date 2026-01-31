@@ -32,8 +32,8 @@ namespace CSF.Screenplay.Selenium
             DecimalAlphaPart = @"\s*(0|1|0\.\d+)\s*",
             PercentDecimalPart = @"\s*(\d{1,3}|\d{1,2}\.\d+)%\s*",
             PercentPart = @"\s*(\d{1,3})%\s*",
-            Hex2Part = @"\s*[1-9a-f]{2}\s*",
-            Hex1Part = @"\s*[1-9a-f]\s*";
+            Hex2Part = @"([0-9a-f]{2})",
+            Hex1Part = @"([0-9a-f])";
 
         /// <inheritdoc/>
         public virtual bool TryParseColor(string colorValue, out Color color)
@@ -80,7 +80,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = false;
-            return @$"^\s*rgb\({BytePart},{BytePart},{BytePart}\)\s*$";
+            return $"^\\s*rgb\\({BytePart},{BytePart},{BytePart}\\)\\s*$";
         }
     }
 
@@ -90,7 +90,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = true;
-            return @$"^\s*rgba\({BytePart},{BytePart},{BytePart},{DecimalAlphaPart}\)\s*$";
+            return $"^\\s*rgba\\({BytePart},{BytePart},{BytePart},{DecimalAlphaPart}\\)\\s*$";
         }
     }
 
@@ -100,7 +100,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = false;
-            return @$"^\s*rgb\({PercentDecimalPart},{PercentDecimalPart},{PercentDecimalPart}\)\s*$";
+            return $"^\\s*rgb\\({PercentDecimalPart},{PercentDecimalPart},{PercentDecimalPart}\\)\\s*$";
         }
 
         /// <inheritdoc/>
@@ -113,7 +113,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = true;
-            return @$"^\s*rgb\({PercentDecimalPart},{PercentDecimalPart},{PercentDecimalPart},{DecimalAlphaPart}\)\s*$";
+            return $"^\\s*rgba\\({PercentDecimalPart},{PercentDecimalPart},{PercentDecimalPart},{DecimalAlphaPart}\\)\\s*$";
         }
     }
 
@@ -123,7 +123,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = false;
-            return @$"^\s*#{Hex1Part}{Hex1Part}{Hex1Part}\s*$";
+            return $"^\\s*#{Hex1Part}{Hex1Part}{Hex1Part}\\s*$";
         }
 
         /// <inheritdoc/>
@@ -136,7 +136,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = false;
-            return @$"^\s*#{Hex2Part}{Hex2Part}{Hex2Part}\s*$";
+            return $"^\\s*#{Hex2Part}{Hex2Part}{Hex2Part}\\s*$";
         }
 
         /// <inheritdoc/>
@@ -163,7 +163,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = false;
-            return @$"^\s*hsl\({BytePart},{PercentPart},{PercentPart}\s*$";
+            return $"^\\s*hsl\\({BytePart},{PercentPart},{PercentPart}\\)\\s*$";
         }
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace CSF.Screenplay.Selenium
         protected override string GetParsingPattern(out bool includesAlpha)
         {
             includesAlpha = true;
-            return @$"^\s*hsla\({BytePart},{PercentPart},{PercentPart},{DecimalAlphaPart}\s*$";
+            return $"^\\s*hsla\\({BytePart},{PercentPart},{PercentPart},{DecimalAlphaPart}\\)\\s*$";
         }
     }
 

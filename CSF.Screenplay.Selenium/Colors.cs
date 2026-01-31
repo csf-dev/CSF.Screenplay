@@ -13,6 +13,10 @@ namespace CSF.Screenplay.Selenium
     /// Each static property of this type corresponds to a well-known pre-defined color, according to
     /// <see href="http://www.w3.org/TR/css3-color/#html4">the W3C HTML4 spec</see>.
     /// </para>
+    /// <para>
+    /// Alternatively, to get a <see cref="Color"/> instance which matches a string which names a color (case insensitive)
+    /// use either <see cref="TryGetNamedColor(string, out Color)"/> or <see cref="GetNamedColor(string)"/>.
+    /// </para>
     /// </remarks>
     public static class Colors
     {
@@ -213,7 +217,7 @@ namespace CSF.Screenplay.Selenium
         /// <returns><see langword="true"/> if <paramref name="colorName"/> is a well-known color name; <see langword="false"/> if not.</returns>
         public static bool TryGetNamedColor(string colorName, out Color color)
         {
-            color = BLACK;
+            color = default;
             if (colorName is null) return false;
             return namedColors.TryGetValue(colorName, out color);
         }
@@ -231,7 +235,7 @@ namespace CSF.Screenplay.Selenium
         static ReadOnlyDictionary<string, Color> GetNamedColorCache()
         {
             var namedColorValues = typeof(Colors)
-                .GetProperties(BindingFlags.Static)
+                .GetProperties(BindingFlags.Static | BindingFlags.Public)
                 .ToDictionary(k => k.Name, v => (Color) v.GetValue(null), StringComparer.InvariantCultureIgnoreCase);
             return new ReadOnlyDictionary<string, Color>(namedColorValues);
         }

@@ -8,7 +8,8 @@ namespace CSF.Screenplay.Selenium
     /// </summary>
     /// <remarks>
     /// <para>
-    /// An uninitialized instance of this type will represent "fully-transparent black".
+    /// An uninitialized instance of this type will represent "fully-transparent black".  This is equivalent to the value available at
+    /// <see cref="Colors.TRANSPARENT"/>.
     /// Internally, this type stores color as three unsigned <see cref="byte"/> values (Red, Green, Blue) and a
     /// <see cref="double"/> representing the transparency (Alpha).  The Alpha value must be between 0 (fully transparent)
     /// and 1 (fully opaque).
@@ -18,6 +19,13 @@ namespace CSF.Screenplay.Selenium
     /// It also contains parsing logic to parse/format an instance from/to string representations of color which are used by web browsers.
     /// See <see href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value">the MDN writeup of web color</see> for
     /// more information about the valid formats.
+    /// </para>
+    /// <para>
+    /// When using a sufficiently high version of .NET &amp; the C# language (.NET 6 or higher), this type is a <c>readonly record struct</c>.
+    /// This offers improved and extended functionality, such as access to
+    /// <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#nondestructive-mutation">non-destructive
+    /// mutation using the <c>with</c> keyword</see>.  In lower .NET/C# versions, this type is a plain <c>struct</c> with functionality
+    /// supported by that language version.
     /// </para>
     /// </remarks>
 #if RECORD_STRUCT_SUPPORT
@@ -129,7 +137,7 @@ namespace CSF.Screenplay.Selenium
         /// <param name="green">The green component in the sRGB color space</param>
         /// <param name="blue">The blue component in the sRGB color space</param>
         /// <param name="alpha">The alpha (transparency) component, which must be between zero and one.</param>
-        public Color(byte red, byte green, byte blue, double alpha)
+        public Color(byte red, byte green, byte blue, double alpha = 1D)
         {
             Red = red;
             Green = green;
