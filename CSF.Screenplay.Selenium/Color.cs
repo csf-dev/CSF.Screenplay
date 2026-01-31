@@ -125,6 +125,72 @@ namespace CSF.Screenplay.Selenium
         }
 #endif
 
+        /// <summary>
+        /// Gets a representation of the current instance in the format <c>rgb(RRR, GGG, BBB)</c>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The characters <c>RRR</c>, <c>GGG</c> and <c>BBB</c> in the format example correpsond to three decimal
+        /// unsigned byte values (0 to 255) which indicate the red, green and blue components of the color respectively.
+        /// </para>
+        /// <para>
+        /// Note that this format omits the alpha (transparency) component of the color.  Thus, the resulting string
+        /// will not be equal to the <see cref="Color"/> value which created it if the alpha component is not equal to 1.
+        /// The only string-formatting methods which preserve all of the information in the color instance are
+        /// <see cref="ToRgbaString"/> and the default <see cref="ToString"/> method, which both return equivalent results.
+        /// </para>
+        /// </remarks>
+        /// <returns>An RGB-format string.</returns>
+        public string ToRgbString() => $"rgb({Red}, {Green}, {Blue})";
+
+        /// <summary>
+        /// Gets a representation of the current instance in the format <c>rgba(RRR, GGG, BBB, A)</c>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The characters <c>RRR</c>, <c>GGG</c> and <c>BBB</c> in the format example correpsond to three decimal
+        /// unsigned byte values (0 to 255) which indicate the red, green and blue components of the color respectively.
+        /// The character <c>A</c> corresponds to the alpha (transparency) component of the color.  It will be either
+        /// the numbers 1 or 0, or it will be a decimal number between one and zero.
+        /// </para>
+        /// <para>
+        /// Out of the string-formatting methods available on the <see cref="Color"/> type, only this one and the default
+        /// <see cref="ToString"/> method preserve all information in the color instance.  Thus this method may be used
+        /// alongside <see cref="Parse"/> or <see cref="TryParse(string, out Color)"/> to reliably round-trip an RGBA
+        /// string color representation.
+        /// </para>
+        /// </remarks>
+        /// <returns>An RGBA-format string.</returns>
+        public string ToRgbaString() => $"rgba({Red}, {Green}, {Blue}, {Alpha})";
+
+        /// <summary>
+        /// Gets a representation of the current instance in the format <c>#RRGGBB</c>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The characters <c>RR</c>, <c>GG</c> and <c>BB</c> in the format example correpsond to three hexadecimal
+        /// unsigned byte values (00 to FF, corresponding to decimal 0 to 255).  These indicate the red, green and
+        /// blue components of the color respectively.
+        /// </para>
+        /// <para>
+        /// Note that this format omits the alpha (transparency) component of the color.  Thus, the resulting string
+        /// will not be equal to the <see cref="Color"/> value which created it if the alpha component is not equal to 1.
+        /// The only string-formatting methods which preserve all of the information in the color instance are
+        /// <see cref="ToRgbaString"/> and the default <see cref="ToString"/> method, which both return equivalent results.
+        /// </para>
+        /// </remarks>
+        /// <returns>An RGB-format string.</returns>
+        public string ToHexString() => $"#{Red:X}{Green:X}{Blue:X}";
+
+        /// <summary>
+        /// Returns a string in the same format as <see cref="ToRgbaString"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>This method and <see cref="ToRgbaString"/> are equivalent.</para>
+        /// </remarks>
+        /// <returns>An RGBA-format string.</returns>
+        public override string ToString() => ToRgbaString();
+
         /// <inheritdoc/>
         public override int GetHashCode() => HashCode.Combine(Red, Green, Blue, Alpha);
 

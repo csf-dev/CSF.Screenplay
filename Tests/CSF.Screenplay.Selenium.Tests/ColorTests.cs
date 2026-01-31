@@ -1,5 +1,4 @@
 using System;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CSF.Screenplay.Selenium;
 
@@ -184,5 +183,32 @@ public class ColorTests
     public void OpInequalityShouldReturnTrueForAColorAndASysColorIfTheyAreNotRgbaEquivalent(string first, byte r, byte g, byte b)
     {
         Assert.That(() => Color.Parse(first) != System.Drawing.Color.FromArgb(r, g, b), Is.True);
+    }
+
+    [TestCase("rgb(30, 128, 55)")]
+    public void ParseFollowedByToRgbStringShouldRoundtripTheColor(string colorString)
+    {
+        Assert.That(() => Color.Parse(colorString).ToRgbString(), Is.EqualTo(colorString));
+    }
+
+    [TestCase("rgba(30, 128, 55, 0.5)")]
+    [TestCase("rgba(30, 128, 55, 1)")]
+    [TestCase("rgba(0, 0, 0, 0)")]
+    public void ParseFollowedByToRgbaStringShouldRoundtripTheColor(string colorString)
+    {
+        Assert.That(() => Color.Parse(colorString).ToRgbaString(), Is.EqualTo(colorString));
+    }
+
+    [TestCase("rgba(30, 128, 55, 0.5)")]
+    [TestCase("rgba(30, 128, 55, 1)")]
+    [TestCase("rgba(0, 0, 0, 0)")]
+    public void ParseFollowedByToStringShouldRoundtripTheColor(string colorString)
+    {
+        Assert.That(() => Color.Parse(colorString).ToString(), Is.EqualTo(colorString));
+    }
+    [TestCase("#E055D8")]
+    public void ParseFollowedByToHexStringShouldRoundtripTheColor(string colorString)
+    {
+        Assert.That(() => Color.Parse(colorString).ToHexString(), Is.EqualTo(colorString));
     }
 }
