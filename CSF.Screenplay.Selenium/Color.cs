@@ -337,6 +337,30 @@ namespace CSF.Screenplay.Selenium
         /// <param name="sysColor">The <see cref="System.Drawing.Color"/></param>
         /// <returns><see langword="false"/> if the two different colors represent the same sRGB color; <see langword="true"/> if not.</returns>
         public static bool operator !=(Color color, SysColor sysColor) => !(color == sysColor);
+
+        /// <summary>
+        /// Gets a value indicating whether the specified <see cref="Color"/> and <see cref="System.Drawing.Color"/>
+        /// are equal.
+        /// </summary>
+        /// <remarks>
+        /// <para>Despite the type differences, two colors are equal if they represent the same sRGB color.</para>
+        /// </remarks>
+        /// <param name="color">The <see cref="Color"/></param>
+        /// <param name="sysColor">The <see cref="System.Drawing.Color"/></param>
+        /// <returns><see langword="true"/> if the two different colors represent the same sRGB color; <see langword="false"/> if not.</returns>
+        public static bool operator ==(SysColor sysColor, Color color) => color.Equals(sysColor);
+
+        /// <summary>
+        /// Gets a value indicating whether the specified <see cref="Color"/> and <see cref="System.Drawing.Color"/>
+        /// are not equal.
+        /// </summary>
+        /// <remarks>
+        /// <para>Despite the type differences, two colors are equal if they represent the same sRGB color.</para>
+        /// </remarks>
+        /// <param name="color">The <see cref="Color"/></param>
+        /// <param name="sysColor">The <see cref="System.Drawing.Color"/></param>
+        /// <returns><see langword="false"/> if the two different colors represent the same sRGB color; <see langword="true"/> if not.</returns>
+        public static bool operator !=(SysColor sysColor, Color color) => !(color == sysColor);
         
         /// <summary>
         /// Gets a value indicating whether the specified <see cref="Color"/> and <see cref="string"/> representation of a color
@@ -365,6 +389,34 @@ namespace CSF.Screenplay.Selenium
         /// <param name="stringColor">The string which represents a color</param>
         /// <returns><see langword="false"/> if the current color and the string color representation indicate the same sRGB color; <see langword="true"/> if not.</returns>
         public static bool operator !=(Color color, string stringColor) => !(color == stringColor);
+
+        /// <summary>
+        /// Gets a value indicating whether the specified <see cref="Color"/> and <see cref="string"/> representation of a color
+        /// are equal.
+        /// </summary>
+        /// <remarks>
+        /// <para>A color is equal to a string if the result of <see cref="TryParse(string, out Color)"/> is <see langword="true"/> 
+        /// and if the resulting parsed <see cref="Color"/> instance is equal to the current color.
+        /// Note that this means that a color is never equal to a string which is not a valid color representation, or which is <see langword="null"/>.</para>
+        /// </remarks>
+        /// <param name="color">The <see cref="Color"/></param>
+        /// <param name="stringColor">The string which represents a color</param>
+        /// <returns><see langword="true"/> if the current color and the string color representation indicate the same sRGB color; <see langword="false"/> if not.</returns>
+        public static bool operator ==(string stringColor, Color color) => color.Equals(stringColor);
+
+        /// <summary>
+        /// Gets a value indicating whether the specified <see cref="Color"/> and <see cref="string"/> representation of a color
+        /// are not equal.
+        /// </summary>
+        /// <remarks>
+        /// <para>A color is equal to a string if the result of <see cref="TryParse(string, out Color)"/> is <see langword="true"/> 
+        /// and if the resulting parsed <see cref="Color"/> instance is equal to the current color.
+        /// Note that this means that a color is never equal to a string which is not a valid color representation, or which is <see langword="null"/>.</para>
+        /// </remarks>
+        /// <param name="color">The <see cref="Color"/></param>
+        /// <param name="stringColor">The string which represents a color</param>
+        /// <returns><see langword="false"/> if the current color and the string color representation indicate the same sRGB color; <see langword="true"/> if not.</returns>
+        public static bool operator !=(string stringColor, Color color) => !(color == stringColor);
 
  #if !RECORD_STRUCT_SUPPORT
        /// <summary>
