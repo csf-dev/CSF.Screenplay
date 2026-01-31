@@ -16,7 +16,7 @@ public class ReadTheListItems : IPerformableWithResult<IReadOnlyList<string>>, I
     public async ValueTask<IReadOnlyList<string>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
     {
         var items = await actor.PerformAsync(FindElementsWithin(target).WhichMatch(listItems), cancellationToken);
-        return await actor.PerformAsync(ReadFromTheCollectionOfElements(items).Text());
+        return await actor.PerformAsync(ReadFromTheCollectionOfElements(items).Text(), cancellationToken);
     }
 
     public ReadTheListItems(ITarget target)
