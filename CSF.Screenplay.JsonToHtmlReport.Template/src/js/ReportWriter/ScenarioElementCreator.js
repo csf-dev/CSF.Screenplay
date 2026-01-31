@@ -11,6 +11,9 @@ export class ScenarioElementCreator {
     createScenarioElement(scenario) {
         const scenarioElement = this.scenarioTemplate.content.cloneNode(true);
 
+        if(scenario.performance.Outcome == 'Failed')
+            scenarioElement.firstElementChild.classList.add('Failed');
+
         scenarioElement.querySelector('.scenarioName').textContent = scenario.scenario.Name;
         scenarioElement.querySelector('.scenarioName').addEventListener('click', ev => ev.currentTarget.parentElement.classList.toggle('collapsed'));
 

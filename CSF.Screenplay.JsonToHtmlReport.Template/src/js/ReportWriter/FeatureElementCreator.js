@@ -9,6 +9,9 @@ export class FeatureElementCreator {
 
     createFeatureElement(feature) {
         const featureElement = this.featureTemplate.content.cloneNode(true);
+        const hasFailures = feature.scenarios.some(x => x.performance.Outcome == 'Failed');
+
+        if(hasFailures) featureElement.firstElementChild.classList.add('Failures');
 
         featureElement.querySelector('.featureName').textContent = feature.feature
             ? feature.feature.Name
