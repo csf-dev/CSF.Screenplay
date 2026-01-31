@@ -230,6 +230,20 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's text content.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// When reading text from the web browser, this predicate will trim leading/trailing whitespace from that text before comparing it.
+        /// This is because some browsers (Safari)
+        /// include whitespace at the beginning/end of text read from the browser, which isn't visible to the end user.  This is typically the 
+        /// space which is inherent in the markup, but which browsers ignore when actually displaying content.
+        /// </para>
+        /// <para>
+        /// Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+        /// If this causes an issue and you would like the leading/trailing whitespace included the use
+        /// <see cref="TextWithoutTrimmingWhitespace(string)"/> instead.
+        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// </para>
+        /// </remarks>
         /// <param name="predicate">The predicate to apply to the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Text(Func<string,bool> predicate)
@@ -238,10 +252,54 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's text content.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// When reading text from the web browser, this predicate will trim leading/trailing whitespace from that text before comparing it.
+        /// This is because some browsers (Safari)
+        /// include whitespace at the beginning/end of text read from the browser, which isn't visible to the end user.  This is typically the 
+        /// space which is inherent in the markup, but which browsers ignore when actually displaying content.
+        /// </para>
+        /// <para>
+        /// Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+        /// If this causes an issue and you would like the leading/trailing whitespace included the use
+        /// <see cref="TextWithoutTrimmingWhitespace(string)"/> instead.
+        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// </para>
+        /// </remarks>
         /// <param name="value">The value to compare against the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Text(string value)
             => CreatePrototype(new TextQuery(), Spec.Func<string>(x => x == value), t => $"{t.Name} has text equal to '{value}'");
+
+        /// <summary>
+        /// Creates a query predicate based on the element's text content.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
+        /// without trimming it.
+        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// </para>
+        /// </remarks>
+        /// <param name="predicate">The predicate to apply to the element's text.</param>
+        /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
+        public QueryPredicatePrototype<string> TextWithoutTrimmingWhitespace(Func<string,bool> predicate)
+            => CreatePrototype(new TextQuery(false), Spec.Func(predicate), t => $"{t.Name} has text matching a predicate");
+
+        /// <summary>
+        /// Creates a query predicate based on the element's text content, without trimming leading/trailing whitespace.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
+        /// without trimming it.
+        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// </para>
+        /// </remarks>
+        /// <param name="value">The value to compare against the element's text.</param>
+        /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
+        public QueryPredicatePrototype<string> TextWithoutTrimmingWhitespace(string value)
+            => CreatePrototype(new TextQuery(false), Spec.Func<string>(x => x == value), t => $"{t.Name} has text equal to '{value}'");
 
         /// <summary>
         /// Creates a query predicate based on the element's DOM <c>value</c>.
