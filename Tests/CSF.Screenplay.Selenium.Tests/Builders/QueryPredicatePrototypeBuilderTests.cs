@@ -175,7 +175,7 @@ public class QueryPredicatePrototypeBuilderTests
             .Setup(e => e.GetCssValue("color"))
             .Returns("rgba(0, 0, 255, 1)");
 
-        var sut = builder.CssProperty("color", v => v == "rgba(255, 0, 0, 1)").GetElementSpecification();
+        var sut = builder.CssProperty("color", v => v == Colors.RED).GetElementSpecification();
 
         Assert.Multiple(() =>
         {
@@ -196,7 +196,7 @@ public class QueryPredicatePrototypeBuilderTests
             .Setup(e => e.GetCssValue("color"))
             .Returns("rgba(0, 0, 255, 1)");
 
-        var sut = builder.CssProperty("color", "rgba(255, 0, 0, 1)").GetElementSpecification();
+        var sut = builder.CssProperty("color", Colors.RED.ToRgbaString()).GetElementSpecification();
 
         Assert.Multiple(() =>
         {

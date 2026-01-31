@@ -49,7 +49,7 @@ public class QueriesTests
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(backgroundDiv).TheCssProperty("background-color"));
 
-        Assert.That(result, Is.EqualTo("rgba(170, 170, 255, 1)"));
+        Assert.That(result, Is.EqualTo(Selenium.Color.Parse("rgba(170, 170, 255, 1)")));
     }
     
     [Test, Screenplay]
