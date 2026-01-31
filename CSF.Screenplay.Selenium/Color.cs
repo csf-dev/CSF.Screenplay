@@ -192,7 +192,7 @@ namespace CSF.Screenplay.Selenium
         public override string ToString() => ToRgbaString();
 
         /// <inheritdoc/>
-        public override int GetHashCode() => HashCode.Combine(Red, Green, Blue, Alpha);
+        public override int GetHashCode() => HashCode.Combine(Red, Green, Blue, AlphaAsByte);
 
         /// <summary>
         /// Creates a new instance of <see cref="Color"/> from the specified RGBA values.
