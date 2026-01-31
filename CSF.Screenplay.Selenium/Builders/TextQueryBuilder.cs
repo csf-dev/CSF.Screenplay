@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Queries;
@@ -7,16 +6,16 @@ using CSF.Screenplay.Selenium.Questions;
 namespace CSF.Screenplay.Selenium.Builders
 {
     /// <summary>
-    /// Builder type for a performable that gets a collection of text values.
+    /// Builder type for a performable that gets a single text value.
     /// </summary>
     /// <remarks>
     /// <para>
     /// The purpose of this builder is to enable or disable the trimming of whitespace characters at the beginning or end of the returned text.
     /// </para>
     /// </remarks>
-    public class TextMultiQueryBuilder : IGetsPerformableWithResult<IReadOnlyList<string>>
+    public class TextQueryBuilder : IGetsPerformableWithResult<string>
     {
-        readonly ITarget elements;
+        readonly ITarget element;
         bool trimWhitespace = true;
 
         /// <summary>
@@ -35,22 +34,22 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </para>
         /// </remarks>
         /// <returns>The current instance of the builder, so calls may be chained.</returns>
-        public TextMultiQueryBuilder WithoutTrimmingWhitespace()
+        public TextQueryBuilder WithoutTrimmingWhitespace()
         {
             trimWhitespace = false;
             return this;
         }
 
-        IPerformableWithResult<IReadOnlyList<string>> IGetsPerformableWithResult<IReadOnlyList<string>>.GetPerformable()
-            => ElementCollectionPerformableWithResultAdapter.From(ElementCollectionQuery.From(new TextQuery(trimWhitespace)), elements);
+        IPerformableWithResult<string> IGetsPerformableWithResult<string>.GetPerformable()
+            => SingleElementPerformableWithResultAdapter.From(SingleElementQuery.From(new TextQuery(trimWhitespace)), element);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TextMultiQueryBuilder"/> class.
+        /// Initializes a new instance of the <see cref="TextQueryBuilder"/> class.
         /// </summary>
-        /// <param name="elements">The target elements to query.</param>
-        public TextMultiQueryBuilder(ITarget elements)
+        /// <param name="element">The target element to query.</param>
+        public TextQueryBuilder(ITarget element)
         {
-            this.elements = elements ?? throw new System.ArgumentNullException(nameof(elements));
+            this.element = element ?? throw new System.ArgumentNullException(nameof(element));
         }
     }
 }
