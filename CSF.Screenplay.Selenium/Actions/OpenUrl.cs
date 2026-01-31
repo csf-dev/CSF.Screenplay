@@ -15,6 +15,8 @@ namespace CSF.Screenplay.Selenium.Actions
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<BrowseTheWeb>();
+            if(!uri.Uri.IsAbsoluteUri)
+                throw new InvalidOperationException($"The URL to open must be absolute; have you forgotten to grant {actor} the {nameof(UseABaseUri)} ability?");
             ability.WebDriver.Url = uri.Uri.ToString();
             return default;
         }

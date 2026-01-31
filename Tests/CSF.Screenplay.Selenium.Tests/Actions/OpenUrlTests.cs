@@ -1,5 +1,7 @@
 
+using System;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -33,5 +35,23 @@ public class OpenUrlTests
         var contents = await Then(pattie).Should(ReadFromTheElement(textContent).TheText());
 
         Assert.That(contents, Is.EqualTo("This is content at the deeper path."));
+    }
+
+    [Test, AutoMoqData]
+    public async Task PerformAsAsyncShouldThrowIfTheUrlIsNotAbsolute(Actor actor,
+                                                                     [MockDriver] BrowseTheWeb ability)
+    {
+        actor.IsAbleTo(ability);
+        var sut = new OpenUrl(new NamedUri("foo/bar/baz.html"));
+        Assert.That(() => sut.PerformAsAsync(actor), Throws.InstanceOf<InvalidOperationException>());
+    }
+
+    [Test, AutoMoqData]
+    public async Task PerformAsAsyncShouldNotThrowIfTheUrlIsAbsolute(Actor actor,
+                                                                     [MockDriver] BrowseTheWeb ability)
+    {
+        actor.IsAbleTo(ability);
+        var sut = new OpenUrl(new NamedUri("https://example.com/foo/bar/baz.html"));
+        Assert.That(() => sut.PerformAsAsync(actor), Throws.Nothing);
     }
 }
