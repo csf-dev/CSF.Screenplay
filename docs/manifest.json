@@ -2444,6 +2444,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Color.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Color",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Color.yml\" sourcestartlinenumber=\"1\">Immutable type represents a color on the web, in a manner which may be converted and compared between web-supported formats.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Colors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Colors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Colors",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Colors.yml\" sourcestartlinenumber=\"1\">Static type containing the pre-defined colors for the web.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.ClassName.yml",
       "output": {
         ".html": {
