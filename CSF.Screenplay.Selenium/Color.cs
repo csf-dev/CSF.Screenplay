@@ -15,6 +15,11 @@ namespace CSF.Screenplay.Selenium
     /// and 1 (fully opaque).
     /// </para>
     /// <para>
+    /// For a list of the well-known named colors, such as <c>green</c> or <c>rosybrown</c>, see the <see cref="Colors"/> class.
+    /// This has static properties to get instances of <see cref="Color"/> for each of these.
+    /// It also has methods to get a color based upon a string color name.
+    /// </para>
+    /// <para>
     /// This struct contains functionality to compare equality with, and convert to/from the .NET built-in <see cref="System.Drawing.Color"/>.
     /// It also contains parsing logic to parse/format an instance from/to string representations of color which are used by web browsers.
     /// See <see href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value">the MDN writeup of web color</see> for
