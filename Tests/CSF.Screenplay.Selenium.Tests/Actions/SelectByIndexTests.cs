@@ -1,6 +1,6 @@
 
-using System;
 using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.Tasks.ReadTheListItemsBuilder;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -22,8 +22,8 @@ public class SelectByIndexTests
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await When(webster).AttemptsTo(SelectTheOption(0).From(selectElement));
-        var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
+        var contents = await Then(webster).Should(ReadTheListItemsIn(displayText));
 
-        Assert.That(contents, Is.EqualTo($"First{Environment.NewLine}Third"));
+        Assert.That(contents, Is.EqualTo(new [] { "First", "Third" }));
     }
 }
