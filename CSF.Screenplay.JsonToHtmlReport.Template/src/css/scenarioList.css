@@ -9,6 +9,9 @@
         padding: 1em;
         list-style: none;
     }
+    #featureList > li.Failures {
+        background: linear-gradient(155deg,rgba(209, 159, 159, 1) 0%, rgba(255, 255, 255, 1) 2rem);
+    }
     #featureList > li:first-child {
         margin-top: 0;
         border-top-width: 1px;
@@ -33,6 +36,9 @@
     }
     .scenarioList > li > h4 {
         cursor: pointer;
+    }
+    .scenarioList > li.Failed > h4 {
+        color: #990000;
     }
     .scenarioList > li > h4::before {
         content: '▼';
