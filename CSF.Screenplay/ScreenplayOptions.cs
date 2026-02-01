@@ -18,6 +18,11 @@ namespace CSF.Screenplay
     /// the appropriate methods/logic to register the neccesary services for Options.
     /// This is why this object uses a somewhat homebrew version of options, without making use of the official libraries.
     /// </para>
+    /// <para>
+    /// Reqnroll is presently investigating replacing the BoDi container, and if it is someday replaced by MSDI, then
+    /// <see href="https://github.com/csf-dev/CSF.Screenplay/issues/292">issue #292 is available to make that switch
+    /// to the options pattern</see>/
+    /// </para>
     /// </remarks>
     public sealed class ScreenplayOptions
     {

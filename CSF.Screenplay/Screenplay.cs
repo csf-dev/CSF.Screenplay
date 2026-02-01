@@ -160,6 +160,11 @@ namespace CSF.Screenplay
         /// If you already have an <see cref="IServiceCollection"/> and you wish to integrate Screenplay into it, then use the extension method
         /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action{ScreenplayOptions})"/> instead.
         /// </para>
+        /// <para>
+        /// Note that the second parameter to this method is a workaround to <see href="https://github.com/csf-dev/CSF.Screenplay/issues/292">Screenplay
+        /// issue #292</see>.  Once Reqnroll makes sufficient change that the DI container used there (whatever it may be), then this parameter may be
+        /// eliminated and the technique used here switched over to the .NET Options pattern.
+        /// </para>
         /// </remarks>
         /// <param name="serviceCollectionCustomisations">An optional action which permits further customization of the service collection that is implicitly created by this method.</param>
         /// <param name="options">An optional action to configure the <see cref="Screenplay"/> which is created by this method.</param>

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
+    <ProjectReference Include="..\CSF.Screenplay\CSF.Screenplay.csproj" />
   </ItemGroup>
 
   <ItemGroup>

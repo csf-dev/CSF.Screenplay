@@ -12,16 +12,11 @@ public class ScreenplayFactory : IGetsScreenplay
         var screenplay = Screenplay.Create(services =>
         {
             services.AddSingleton(GetConfiguration());
-            services.AddWebDriverFactory();
             services.AddLogging(l => l.AddConsole(c => c.LogToStandardErrorThreshold = LogLevel.Warning));
-
+            services.AddSelenium();
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();
-        }, options =>
-        {
-            options.ValueFormatters.Add(typeof(Reporting.OptionsFormatter));
-            options.ValueFormatters.Add(typeof(Reporting.ScreenshotFormatter));
-        });
+        }, o => o.AddSeleniumOptions());
 
         return screenplay;
     }
