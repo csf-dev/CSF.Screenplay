@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
@@ -48,6 +49,10 @@ namespace CSF.Screenplay.Selenium.Actions
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
+            var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
+            if(browseTheWeb.WebDriver.HasQuirk(BrowserQuirks.CannotSetInputTypeDateWithSendKeys))
+                throw new NotImplementedException("This has yet to be written, see #281");
+
             if(!date.HasValue)
                 return actor.PerformAsync(ClearTheContentsOf(target), cancellationToken);
 

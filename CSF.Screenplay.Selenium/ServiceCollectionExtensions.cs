@@ -17,6 +17,7 @@ namespace CSF.Screenplay.Selenium
         public static IServiceCollection AddSelenium(this IServiceCollection services)
         {
             services.AddWebDriverFactory();
+            services.AddWebDriverQuirks(BrowserQuirks.GetQuirksData());
 
             services.AddTransient<Reporting.OptionsFormatter>();
             services.AddTransient<Reporting.ScreenshotFormatter>();
