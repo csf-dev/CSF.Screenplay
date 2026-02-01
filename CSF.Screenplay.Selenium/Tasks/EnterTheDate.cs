@@ -51,7 +51,7 @@ namespace CSF.Screenplay.Selenium.Actions
         {
             var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
             if(browseTheWeb.WebDriver.HasQuirk(BrowserQuirks.CannotSetInputTypeDateWithSendKeys))
-                throw new NotImplementedException("This has yet to be written, see #281");
+                return actor.PerformAsync(SetTheValueOf(target).To(date.HasValue ? date.Value.ToString("yyyy-MM-dd") : null));
 
             if(!date.HasValue)
                 return actor.PerformAsync(ClearTheContentsOf(target), cancellationToken);
