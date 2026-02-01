@@ -38,12 +38,12 @@ public class OpenUrlTests
     }
 
     [Test, AutoMoqData]
-    public async Task PerformAsAsyncShouldThrowIfTheUrlIsNotAbsolute(Actor actor,
+    public void PerformAsAsyncShouldThrowIfTheUrlIsNotAbsolute(Actor actor,
                                                                      [MockDriver] BrowseTheWeb ability)
     {
         actor.IsAbleTo(ability);
         var sut = new OpenUrl(new NamedUri("foo/bar/baz.html"));
-        Assert.That(() => sut.PerformAsAsync(actor), Throws.InstanceOf<InvalidOperationException>());
+        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.InstanceOf<InvalidOperationException>());
     }
 
     [Test, AutoMoqData]
