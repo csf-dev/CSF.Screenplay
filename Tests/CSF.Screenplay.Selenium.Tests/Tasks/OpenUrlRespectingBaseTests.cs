@@ -51,14 +51,14 @@ public class OpenUrlRespectingBaseTests
     }
 
     [Test, AutoMoqData]
-    public async Task TheActionCreatedByThisTaskShouldContainTheCorrectReportWhenTheActorDoesNotHaveABaseUrl(IWebDriver driver, DriverOptions options)
+    public async Task TheActionCreatedByThisTaskShouldNotUpdateAnAlreadyAbsoluteUrl(IWebDriver driver, DriverOptions options)
     {
         var actor = new Actor("Anthony", Guid.NewGuid());
         IPerformable? performable = null;
 
         void OnPerform(object? sender, PerformableEventArgs ev) => performable = (IPerformable)ev.Performable;
 
-        var namedUri = new NamedUri("test.html", "the test page");
+        var namedUri = new NamedUri("https://contoso.com/test.html", "the test page");
         actor.IsAbleTo(new BrowseTheWeb(Mock.Of<IGetsWebDriver>(x => x.GetDefaultWebDriver(It.IsAny<Action<DriverOptions>>()) == new WebDriverAndOptions(driver, options))));
         var sut = new OpenUrlRespectingBase(namedUri);
         var valueFormatterProvider = new ValueFormatterProvider(new ServiceCollection().AddTransient<ToStringFormatter>().BuildServiceProvider(),
@@ -75,7 +75,7 @@ public class OpenUrlRespectingBaseTests
             {
                 Assert.That(performable, Is.InstanceOf<OpenUrl>(), "Performable is correct type");
                 Assert.That(((OpenUrl) performable!).GetReportFragment(actor, formatter).ToString(),
-                            Is.EqualTo("Anthony opens their browser at the test page: test.html"),
+                            Is.EqualTo("Anthony opens their browser at the test page: https://contoso.com/test.html"),
                             "The report is correct");
             });
         }
