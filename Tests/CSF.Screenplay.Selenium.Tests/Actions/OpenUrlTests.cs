@@ -47,11 +47,11 @@ public class OpenUrlTests
     }
 
     [Test, AutoMoqData]
-    public async Task PerformAsAsyncShouldNotThrowIfTheUrlIsAbsolute(Actor actor,
-                                                                     [MockDriver] BrowseTheWeb ability)
+    public void PerformAsAsyncShouldNotThrowIfTheUrlIsAbsolute(Actor actor,
+                                                               [MockDriver] BrowseTheWeb ability)
     {
         actor.IsAbleTo(ability);
         var sut = new OpenUrl(new NamedUri("https://example.com/foo/bar/baz.html"));
-        Assert.That(() => sut.PerformAsAsync(actor), Throws.Nothing);
+        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.Nothing);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Microsoft.Extensions.Options;
 #if SPECFLOW
 using BoDi;
 #else
@@ -89,12 +90,17 @@ namespace CSF.Screenplay
             else if (item.ImplementationInstance != null)
                 OpenGenericRegisterInstance.MakeGenericMethod(item.ServiceType).Invoke(this, new[] { item });
             else
-                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, Array.Empty<object>());
+                RegisterTypeNonGeneric(item.ServiceType, item.ImplementationType);
         }
 
         void RegisterType<TSvc,TImpl>() where TImpl : class,TSvc
         {
             wrapped.RegisterTypeAs<TImpl, TSvc>();
+        }
+
+        void RegisterTypeNonGeneric(Type service, Type implementation)
+        {
+            ((ObjectContainer) wrapped).RegisterTypeAs(implementation, service);
         }
 
         void RegisterInstance<T>(ServiceDescriptor item) where T : class
@@ -177,6 +183,10 @@ namespace CSF.Screenplay
         public ServiceCollectionAdapter(IObjectContainer wrapped)
         {
             this.wrapped = wrapped ?? throw new ArgumentNullException(nameof(wrapped));
+
+            wrapped.RegisterInstanceAs<IEnumerable<IConfigureOptions<ScreenplayOptions>>>(new EnumerableOptionsContainer(wrapped));
+            wrapped.RegisterInstanceAs<IEnumerable<IPostConfigureOptions<ScreenplayOptions>>>(new EnumerablePostOptionsContainer(wrapped));
+            wrapped.RegisterInstanceAs<IEnumerable<IValidateOptions<ScreenplayOptions>>>(new EmptyOptionsValidatorCollection(wrapped));
         }
     }
 }

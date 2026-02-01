@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Microsoft.Extensions.Options;
 
 namespace CSF.Screenplay.Reporting
 {
@@ -22,7 +23,7 @@ namespace CSF.Screenplay.Reporting
     /// </remarks>
     public class ReportPathProvider : IGetsReportPath
     {
-        readonly ScreenplayOptions screenplayOptions;
+        readonly IOptions<ScreenplayOptions> screenplayOptions;
         readonly ITestsPathForWritePermissions permissionsTester;
 
         bool hasCachedReportPath;
@@ -47,15 +48,15 @@ namespace CSF.Screenplay.Reporting
         /// <returns><see langword="true" /> if reporting should be enabled; <see langword="false" /> if not.</returns>
         bool ShouldEnableReporting(out string reportPath)
         {
-            if (string.IsNullOrWhiteSpace(screenplayOptions.ReportPath))
+            if (string.IsNullOrWhiteSpace(screenplayOptions.Value.ReportPath))
             {
                 reportPath = null;
                 return false;
             }
 
-            reportPath = Path.IsPathRooted(screenplayOptions.ReportPath)
-                ? screenplayOptions.ReportPath
-                : Path.Combine(Environment.CurrentDirectory, screenplayOptions.ReportPath);
+            reportPath = Path.IsPathRooted(screenplayOptions.Value.ReportPath)
+                ? screenplayOptions.Value.ReportPath
+                : Path.Combine(Environment.CurrentDirectory, screenplayOptions.Value.ReportPath);
             return permissionsTester.HasWritePermission(reportPath);
         }
 
@@ -64,10 +65,10 @@ namespace CSF.Screenplay.Reporting
         /// </summary>
         /// <param name="screenplayOptions">The screenplay options.</param>
         /// <param name="permissionsTester">The permissions tester.</param>
-        public ReportPathProvider(ScreenplayOptions screenplayOptions, ITestsPathForWritePermissions permissionsTester)
+        public ReportPathProvider(IOptions<ScreenplayOptions> screenplayOptions, ITestsPathForWritePermissions permissionsTester)
         {
-            this.screenplayOptions = screenplayOptions ?? throw new System.ArgumentNullException(nameof(screenplayOptions));
-            this.permissionsTester = permissionsTester ?? throw new System.ArgumentNullException(nameof(permissionsTester));
+            this.screenplayOptions = screenplayOptions ?? throw new ArgumentNullException(nameof(screenplayOptions));
+            this.permissionsTester = permissionsTester ?? throw new ArgumentNullException(nameof(permissionsTester));
         }
     }
 }

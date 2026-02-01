@@ -13,7 +13,7 @@ namespace CSF.Screenplay
     /// <para>
     /// Types which implement this interface need only implement the <see cref="GetScreenplay"/> method, which should build
     /// and return a Screenplay instance. Developers are advised to use
-    /// <see cref="Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection}, System.Action{ScreenplayOptions})"/>
+    /// <see cref="Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})"/>
     /// to create and return the Screenplay.
     /// </para>
     /// <para>
@@ -45,7 +45,7 @@ namespace CSF.Screenplay
         /// <remarks>
         /// <para>
         /// Implementors should create and return a new <see cref="Screenplay"/> instance from this method; they are strongly urged
-        /// to consider the use of <see cref="Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection}, System.Action{ScreenplayOptions})"/>
+        /// to consider the use of <see cref="Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})"/>
         /// for this purpose.
         /// As well as the creation of the Screenplay instance itself, they should also add to the service collection any
         /// services which relate to <xref href="AbilityGlossaryItem?text=abilities+which+could+be+used+in+the+Screenplay"/>.
