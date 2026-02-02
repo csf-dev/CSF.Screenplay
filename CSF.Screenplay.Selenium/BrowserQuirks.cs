@@ -45,8 +45,8 @@ namespace CSF.Screenplay.Selenium
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
-                                new BrowserInfo { Name = "Firefox" },
-                                new BrowserInfo { Name = "Safari" },
+                                new BrowserInfo { Name = "firefox" },
+                                new BrowserInfo { Name = "safari" },
                             }
                         }
                     }
