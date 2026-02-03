@@ -21,7 +21,7 @@ namespace CSF.Screenplay.Selenium.Actions
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
-            return actor.PerformAsync(ExecuteAScript(Scripts.SetElementValue, element.Value, value), cancellationToken);
+            return actor.PerformAsync(ExecuteAScript(Scripts.SetElementValue, element.Value.WebElement, value), cancellationToken);
         }
 
         /// <summary>

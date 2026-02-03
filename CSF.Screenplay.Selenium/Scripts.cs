@@ -1,5 +1,3 @@
-using CSF.Screenplay.Selenium.Elements;
-
 namespace CSF.Screenplay.Selenium
 {
     /// <summary>
@@ -33,7 +31,7 @@ namespace CSF.Screenplay.Selenium
         /// <summary>
         /// Gets a <see cref="NamedScript{T1, T2}"/> which sets the <c>value</c> of a specified HTML element.
         /// </summary>
-        public static NamedScript<SeleniumElement, object> SetElementValue
-            => new NamedScript<SeleniumElement, object>(Resources.ScriptResources.SetElementValue, "set the element's value");
+        public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValue
+            => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValue, "set the element's value");
     }
 }
