@@ -1,4 +1,4 @@
 ClearLocalStorage = localStorage.clear()
 GetDocReadyState = return document.readyState
 SetElementValue = arguments[0].value = arguments[1]
-SetElementValueSimulatedInteractively = ((ele, val) => {const d = (n, e) => e.dispatchEvent(new Event(n, {bubbles: true}));d(ele, 'focus');ele.value = val;d(ele, 'input');d(ele, 'change');d(ele, 'blur');})(arguments[0], arguments[1])
+SetElementValueSimulatedInteractively = ((el, v) => {const d = (e, n) => e.dispatchEvent(new Event(n, {bubbles: true}));d(el, 'focus');el.value = v;d(el, 'input');d(el, 'change');d(el, 'blur');})(arguments[0], arguments[1])
