@@ -173,6 +173,6 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="target">The target HTML element, to have its value updated.</param>
         /// <returns>A builder with which to choose the new value</returns>
-        public static SetTheValueBuilder SetTheValueOf(ITarget target) => new SetTheValueBuilder(target);
+        public static SetTheValueBuilder.IChoosesValue SetTheValueOf(ITarget target) => new SetTheValueBuilder(target);
     }
 }

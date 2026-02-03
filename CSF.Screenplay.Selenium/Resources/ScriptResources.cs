@@ -17,5 +17,8 @@ namespace CSF.Screenplay.Selenium.Resources
 
         /// <summary>Gets a short JavaScript which sets the <c>value</c> of an HTML element.</summary>
         internal static string SetElementValue = resourceManager.GetString("SetElementValue");
+
+        /// <summary>Gets a short JavaScript which sets the <c>value</c> of an HTML element in a way that simulates updating the element interactively.</summary>
+        internal static string SetElementValueSimulatedInteractively = resourceManager.GetString("SetElementValueSimulatedInteractively");
     }
 }

@@ -33,5 +33,11 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValue
             => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValue, "set the element's value");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScript{T1, T2}"/> which sets the <c>value</c> of a specified HTML element, simulating setting it interactively.
+        /// </summary>
+        public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValueSimulatedInteractively
+            => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValueSimulatedInteractively, "simulate setting the element's value interactively");
     }
 }
