@@ -34,7 +34,6 @@ namespace CSF.Screenplay
             if (services is null)
                 throw new ArgumentNullException(nameof(services));
 
-            // services.AddOptions();
             services
                 .AddOptions<ScreenplayOptions>()
                 .Configure((ScreenplayOptions o, PerformanceEventBus eventBus) => o.PerformanceEventsConfig?.Invoke(eventBus));
@@ -76,7 +75,6 @@ namespace CSF.Screenplay
                     return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);
                 })
                 .AddTransient<GetAssetFilePaths>()
-
                 .AddTransient<ToStringFormatter>()
                 .AddTransient<HumanizerFormatter>()
                 .AddTransient<NameFormatter>()

@@ -110,7 +110,7 @@ namespace CSF.Screenplay
 
         void RegisterFactory<T>(ServiceDescriptor item) where T : class
         {
-            wrapped.RegisterFactoryAs(objectContainer => (T) item.ImplementationFactory(new ServiceProviderAdapter(objectContainer)));
+            wrapped.RegisterFactoryAs(objectContainer => (T) item.ImplementationFactory(objectContainer.ToServiceProvider()));
         }
 
         /// <summary>
@@ -183,10 +183,6 @@ namespace CSF.Screenplay
         public ServiceCollectionAdapter(IObjectContainer wrapped)
         {
             this.wrapped = wrapped ?? throw new ArgumentNullException(nameof(wrapped));
-
-            wrapped.RegisterInstanceAs<IEnumerable<IConfigureOptions<ScreenplayOptions>>>(new EnumerableOptionsContainer(wrapped));
-            wrapped.RegisterInstanceAs<IEnumerable<IPostConfigureOptions<ScreenplayOptions>>>(new EnumerablePostOptionsContainer(wrapped));
-            wrapped.RegisterInstanceAs<IEnumerable<IValidateOptions<ScreenplayOptions>>>(new EmptyOptionsValidatorCollection(wrapped));
         }
     }
 }

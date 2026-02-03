@@ -33,5 +33,14 @@ namespace CSF.Screenplay
         /// <returns>An adapter object which implements some of the functionality of <see cref="IServiceCollection"/></returns>
         public static IServiceCollection ToServiceCollection(this IObjectContainer bodiContainer)
             => new ServiceCollectionAdapter(bodiContainer);
+
+        /// <summary>
+        /// Gets an adapter object which permits the use of the BoDi <see cref="IObjectContainer"/> as if it were an
+        /// <see cref="IServiceProvider"/>.
+        /// </summary>
+        /// <param name="bodiContainer">A Reqnroll/SpecFlow BoDi DI container.</param>
+        /// <returns>An adapter object which implements the functionality of <see cref="IServiceProvider"/></returns>
+        public static IServiceProvider ToServiceProvider(this IObjectContainer bodiContainer)
+            => new ServiceProviderAdapter(bodiContainer);
     }
 }
