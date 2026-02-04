@@ -49,7 +49,7 @@ public class EnterTheDateTests
         if(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern.StartsWith("y", StringComparison.InvariantCultureIgnoreCase))
             Assert.Inconclusive("This test can't be meaningfully run when the current culture uses Y/M/D date formatting");
 
-       var ability = Webster.GetAbility<BrowseTheWeb>(); if(ignoredBrowsers.Contains(ability.DriverOptions.BrowserName))
+       var ability = webster.GetAbility<BrowseTheWeb>(); if(ignoredBrowsers.Contains(ability.DriverOptions.BrowserName))
             Assert.Pass("This test cannot meaningfully be run on a Safari or Firefox browser, because they use a JS workaround to set dates in a culture-neutral fashion. Treating this test as an implicit pass.");
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
