@@ -23,6 +23,23 @@ namespace CSF.Screenplay.Selenium
         public static readonly string CannotSetInputTypeDateWithSendKeys = "CannotSetInputTypeDateWithSendKeys";
 
         /// <summary>
+        /// Gets the name of a browser quirk which means that - after navigation to a different page - the browser must be instructed to wait
+        /// until the following page document is ready.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Most Web Driver implementations, without this quirk, automatically wait for the 'incoming' page (in traditional web document
+        /// navigation) to be ready before they attempt to interact with it.  That is - if the "document ready" event has not yet occurred,
+        /// they will continue waiting.  Some browsers/web drivers (those with this quirk) need to be instructed to wait for that ready-state,
+        /// or else they are liable to attempt to interact with a page which is not yet fully loaded.
+        /// </para>
+        /// <para>
+        /// Note that this only applies to traditional web navigation.  It does not apply to navigating SPA-type apps.
+        /// </para>
+        /// </remarks>
+        public static readonly string NeedsToWaitAfterPageLoad = "NeedsToWaitAfterPageLoad";
+
+        /// <summary>
         /// Gets hard-coded information about known browser quirks.
         /// </summary>
         /// <remarks>
@@ -46,6 +63,16 @@ namespace CSF.Screenplay.Selenium
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 new BrowserInfo { Name = "firefox" },
+                                new BrowserInfo { Name = "safari" },
+                            }
+                        }
+                    },
+                    {
+                        NeedsToWaitAfterPageLoad,
+                        new BrowserInfoCollection
+                        {
+                            AffectedBrowsers = new HashSet<BrowserInfo>
+                            {
                                 new BrowserInfo { Name = "safari" },
                             }
                         }

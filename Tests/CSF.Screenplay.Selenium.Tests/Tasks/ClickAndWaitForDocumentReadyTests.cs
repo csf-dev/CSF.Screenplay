@@ -16,8 +16,6 @@ public class ClickAndWaitForDocumentReadyTests
         link = new ElementId("clickable"),
         displayText = new ElementId("textContent");
 
-    static readonly string[] ignoredBrowsers = ["chrome", "MicrosoftEdge"];
-
     [Test, Screenplay]
     public async Task PerformAsAsyncShouldWaitSoItCanGetTheAppropriateContent(IStage stage)
     {
@@ -36,7 +34,7 @@ public class ClickAndWaitForDocumentReadyTests
         var webster = stage.Spotlight<Webster>();
         var ability = webster.GetAbility<BrowseTheWeb>();
 
-        if(ignoredBrowsers.Contains(ability.DriverOptions.BrowserName))
+        if(!ability.WebDriver.HasQuirk(BrowserQuirks.NeedsToWaitAfterPageLoad))
             Assert.Pass("This test cannot meaningfully be run on a Chrome or Edge browser, because they always wait for the page load. Treating this test as an implicit pass.");
 
         await Given(webster).WasAbleTo(OpenTheUrl(startPage));
