@@ -113,7 +113,7 @@ namespace CSF.Screenplay
             }
         }
 
-        void OnCustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs args)
+        static void OnCustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs args)
         {
             var boDiContainer = args.ObjectContainer;
             var services = boDiContainer.ToServiceProvider();
