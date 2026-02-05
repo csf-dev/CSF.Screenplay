@@ -91,11 +91,6 @@ namespace CSF.Screenplay
                 RegisterTypeNonGeneric(item.ServiceType, item.ImplementationType);
         }
 
-        void RegisterType<TSvc,TImpl>() where TImpl : class,TSvc
-        {
-            wrapped.RegisterTypeAs<TImpl, TSvc>();
-        }
-
         void RegisterTypeNonGeneric(Type service, Type implementation)
         {
             ((ObjectContainer) wrapped).RegisterTypeAs(implementation, service);
