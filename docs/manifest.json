@@ -316,6 +316,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.EnumerableResolutionAdapter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.EnumerableResolutionAdapter-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.EnumerableResolutionAdapter<T>",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.EnumerableResolutionAdapter-1.yml\" sourcestartlinenumber=\"1\">Adapter class which - when added to DI - permits the BoDi DI container to resolve arbitrary <xref href=\"System.Collections.Generic.IEnumerable%601\" data-throw-if-not-resolved=\"false\"></xref> of\nservice instances.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.ICanPerform.yml",
       "output": {
         ".html": {
@@ -666,6 +680,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ObjectContainerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ObjectContainerExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.ObjectContainerExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ObjectContainerExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for the Reqnroll/SpecFlow &quot;BoDi&quot; DI container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformable.yml",
       "output": {
         ".html": {
@@ -873,6 +901,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.PerformanceAdapter",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.PerformanceAdapter.yml\" sourcestartlinenumber=\"1\">An adapter which enables the use of <xref href=\"CSF.Screenplay.IPerformance\" data-throw-if-not-resolved=\"false\"></xref> within an NUnit3 test, without needing to parameter-inject the instance\nas <code>Lazy&lt;IPerformance&gt;</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.PerformanceProviderFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.PerformanceProviderFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.PerformanceProviderFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.PerformanceProviderFactory.yml\" sourcestartlinenumber=\"1\">Factory type for instances of <xref href=\"CSF.Screenplay.Performances.PerformanceProvider\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2038,6 +2080,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Actions.SetTheElementValue",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.yml\" sourcestartlinenumber=\"1\">An action that sets the value of a web element using JavaScript.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.yml",
       "output": {
         ".html": {
@@ -2147,6 +2203,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.BrowseTheWeb",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.BrowseTheWeb.yml\" sourcestartlinenumber=\"1\">Screenplay ability which allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to browse the web using a Selenium WebDriver.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.BrowserQuirks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.BrowserQuirks.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.BrowserQuirks",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.BrowserQuirks.yml\" sourcestartlinenumber=\"1\">Static class which holds known browser quirks information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3452,6 +3522,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.ServiceCollectionExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.yml\" sourcestartlinenumber=\"1\">An object from which a consumer may choose a value to set into the element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.SetTheValueBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.SetTheValueBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.SetTheValueBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.SetTheValueBuilder.yml\" sourcestartlinenumber=\"1\">Builds actions for setting values in Selenium web elements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml",
       "output": {
         ".html": {
@@ -3561,6 +3673,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.ServiceCollectionAdapter",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceCollectionAdapter.yml\" sourcestartlinenumber=\"1\">Adapter class which allows a Reqnroll/BoDi <code>IObjectContainer</code> to be used as an <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.ServiceCollectionExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.ServiceCollectionExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3874,11 +4000,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -3957,11 +4083,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4230,11 +4356,11 @@
       "type": "Toc",
       "source_relative_path": "docs/performables/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/performables/toc.html"
-        },
         ".json": {
           "relative_path": "docs/performables/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/performables/toc.html"
         }
       },
       "version": ""
@@ -4243,11 +4369,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -4506,11 +4632,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -4589,11 +4715,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

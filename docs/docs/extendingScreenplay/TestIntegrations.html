@@ -98,8 +98,8 @@ Terminologies differ between testing frameworks; the word <a href="../../glossar
 <ul>
 <li>The test framework <strong>must</strong> create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> before it runs any <a href="../../glossary/Scenario.html">Scenarios</a>
 <ul>
-<li>If the test framework uses dependency injection then it is advantageous to integrate Screenplay with that, via <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__"><code>AddScreenplay</code></a></li>
-<li>If not then consider the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__"><code>Create</code></a> factory method</li>
+<li>If the test framework uses dependency injection then it is advantageous to integrate Screenplay with that, via <a href="xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action%7BCSF.Screenplay.ScreenplayOptions%7D)"><code>AddScreenplay</code></a></li>
+<li>If not then consider the <a href="xref:CSF.Screenplay.Screenplay.Create(System.Action%7BMicrosoft.Extensions.DependencyInjection.IServiceCollection%7D,System.Action%7BCSF.Screenplay.ScreenplayOptions%7D)"><code>Create</code></a> factory method</li>
 <li>Consider permitting extensibility here, using the <a class="xref" href="../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a> interface</li>
 </ul>
 </li>

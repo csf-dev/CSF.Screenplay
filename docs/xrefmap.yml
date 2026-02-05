@@ -1347,6 +1347,51 @@ references:
   fullName.vb: CSF.Screenplay.CastExtensions.GetActor(Of TPersona)(CSF.Screenplay.ICast)
   nameWithType: CastExtensions.GetActor<TPersona>(ICast)
   nameWithType.vb: CastExtensions.GetActor(Of TPersona)(ICast)
+- uid: CSF.Screenplay.EnumerableResolutionAdapter`1
+  name: EnumerableResolutionAdapter<T>
+  href: api/CSF.Screenplay.EnumerableResolutionAdapter-1.html
+  commentId: T:CSF.Screenplay.EnumerableResolutionAdapter`1
+  name.vb: EnumerableResolutionAdapter(Of T)
+  fullName: CSF.Screenplay.EnumerableResolutionAdapter<T>
+  fullName.vb: CSF.Screenplay.EnumerableResolutionAdapter(Of T)
+  nameWithType: EnumerableResolutionAdapter<T>
+  nameWithType.vb: EnumerableResolutionAdapter(Of T)
+- uid: CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name: EnumerableResolutionAdapter(IObjectContainer)
+  href: api/CSF.Screenplay.EnumerableResolutionAdapter-1.html#CSF_Screenplay_EnumerableResolutionAdapter_1__ctor_Reqnroll_BoDi_IObjectContainer_
+  commentId: M:CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor(Reqnroll.BoDi.IObjectContainer)
+  name.vb: New(IObjectContainer)
+  fullName: CSF.Screenplay.EnumerableResolutionAdapter<T>.EnumerableResolutionAdapter(Reqnroll.BoDi.IObjectContainer)
+  fullName.vb: CSF.Screenplay.EnumerableResolutionAdapter(Of T).New(Reqnroll.BoDi.IObjectContainer)
+  nameWithType: EnumerableResolutionAdapter<T>.EnumerableResolutionAdapter(IObjectContainer)
+  nameWithType.vb: EnumerableResolutionAdapter(Of T).New(IObjectContainer)
+- uid: CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor*
+  name: EnumerableResolutionAdapter
+  href: api/CSF.Screenplay.EnumerableResolutionAdapter-1.html#CSF_Screenplay_EnumerableResolutionAdapter_1__ctor_
+  commentId: Overload:CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.EnumerableResolutionAdapter<T>.EnumerableResolutionAdapter
+  fullName.vb: CSF.Screenplay.EnumerableResolutionAdapter(Of T).New
+  nameWithType: EnumerableResolutionAdapter<T>.EnumerableResolutionAdapter
+  nameWithType.vb: EnumerableResolutionAdapter(Of T).New
+- uid: CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator
+  name: GetEnumerator()
+  href: api/CSF.Screenplay.EnumerableResolutionAdapter-1.html#CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator
+  commentId: M:CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator
+  fullName: CSF.Screenplay.EnumerableResolutionAdapter<T>.GetEnumerator()
+  fullName.vb: CSF.Screenplay.EnumerableResolutionAdapter(Of T).GetEnumerator()
+  nameWithType: EnumerableResolutionAdapter<T>.GetEnumerator()
+  nameWithType.vb: EnumerableResolutionAdapter(Of T).GetEnumerator()
+- uid: CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator*
+  name: GetEnumerator
+  href: api/CSF.Screenplay.EnumerableResolutionAdapter-1.html#CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator_
+  commentId: Overload:CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator
+  isSpec: "True"
+  fullName: CSF.Screenplay.EnumerableResolutionAdapter<T>.GetEnumerator
+  fullName.vb: CSF.Screenplay.EnumerableResolutionAdapter(Of T).GetEnumerator
+  nameWithType: EnumerableResolutionAdapter<T>.GetEnumerator
+  nameWithType.vb: EnumerableResolutionAdapter(Of T).GetEnumerator
 - uid: CSF.Screenplay.ICanPerform
   name: ICanPerform
   href: api/CSF.Screenplay.ICanPerform.html
@@ -2013,6 +2058,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.JsonToHtmlReport.TemplateReader.ReadTemplate
   nameWithType: TemplateReader.ReadTemplate
+- uid: CSF.Screenplay.ObjectContainerExtensions
+  name: ObjectContainerExtensions
+  href: api/CSF.Screenplay.ObjectContainerExtensions.html
+  commentId: T:CSF.Screenplay.ObjectContainerExtensions
+  fullName: CSF.Screenplay.ObjectContainerExtensions
+  nameWithType: ObjectContainerExtensions
+- uid: CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection(Reqnroll.BoDi.IObjectContainer)
+  name: ToServiceCollection(IObjectContainer)
+  href: api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceCollection_Reqnroll_BoDi_IObjectContainer_
+  commentId: M:CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection(Reqnroll.BoDi.IObjectContainer)
+  fullName: CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection(Reqnroll.BoDi.IObjectContainer)
+  nameWithType: ObjectContainerExtensions.ToServiceCollection(IObjectContainer)
+- uid: CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection*
+  name: ToServiceCollection
+  href: api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceCollection_
+  commentId: Overload:CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection
+  isSpec: "True"
+  fullName: CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection
+  nameWithType: ObjectContainerExtensions.ToServiceCollection
+- uid: CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider(Reqnroll.BoDi.IObjectContainer)
+  name: ToServiceProvider(IObjectContainer)
+  href: api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceProvider_Reqnroll_BoDi_IObjectContainer_
+  commentId: M:CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider(Reqnroll.BoDi.IObjectContainer)
+  fullName: CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider(Reqnroll.BoDi.IObjectContainer)
+  nameWithType: ObjectContainerExtensions.ToServiceProvider(IObjectContainer)
+- uid: CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider*
+  name: ToServiceProvider
+  href: api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceProvider_
+  commentId: Overload:CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider
+  isSpec: "True"
+  fullName: CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider
+  nameWithType: ObjectContainerExtensions.ToServiceProvider
 - uid: CSF.Screenplay.Performables
   name: CSF.Screenplay.Performables
   href: api/CSF.Screenplay.Performables.html
@@ -2752,6 +2829,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.PerformanceAdapter.ServiceProvider
   nameWithType: PerformanceAdapter.ServiceProvider
+- uid: CSF.Screenplay.PerformanceProviderFactory
+  name: PerformanceProviderFactory
+  href: api/CSF.Screenplay.PerformanceProviderFactory.html
+  commentId: T:CSF.Screenplay.PerformanceProviderFactory
+  fullName: CSF.Screenplay.PerformanceProviderFactory
+  nameWithType: PerformanceProviderFactory
+- uid: CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer(System.IServiceProvider)
+  name: GetPerformanceContainer(IServiceProvider)
+  href: api/CSF.Screenplay.PerformanceProviderFactory.html#CSF_Screenplay_PerformanceProviderFactory_GetPerformanceContainer_System_IServiceProvider_
+  commentId: M:CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer(System.IServiceProvider)
+  fullName: CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer(System.IServiceProvider)
+  nameWithType: PerformanceProviderFactory.GetPerformanceContainer(IServiceProvider)
+- uid: CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer*
+  name: GetPerformanceContainer
+  href: api/CSF.Screenplay.PerformanceProviderFactory.html#CSF_Screenplay_PerformanceProviderFactory_GetPerformanceContainer_
+  commentId: Overload:CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerformanceProviderFactory.GetPerformanceContainer
+  nameWithType: PerformanceProviderFactory.GetPerformanceContainer
 - uid: CSF.Screenplay.PerformanceStarter
   name: PerformanceStarter
   href: api/CSF.Screenplay.PerformanceStarter.html
@@ -4932,15 +5028,15 @@ references:
   commentId: T:CSF.Screenplay.Reporting.ReportPathProvider
   fullName: CSF.Screenplay.Reporting.ReportPathProvider
   nameWithType: ReportPathProvider
-- uid: CSF.Screenplay.Reporting.ReportPathProvider.#ctor(CSF.Screenplay.ScreenplayOptions,CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
-  name: ReportPathProvider(ScreenplayOptions, ITestsPathForWritePermissions)
-  href: api/CSF.Screenplay.Reporting.ReportPathProvider.html#CSF_Screenplay_Reporting_ReportPathProvider__ctor_CSF_Screenplay_ScreenplayOptions_CSF_Screenplay_Reporting_ITestsPathForWritePermissions_
-  commentId: M:CSF.Screenplay.Reporting.ReportPathProvider.#ctor(CSF.Screenplay.ScreenplayOptions,CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
-  name.vb: New(ScreenplayOptions, ITestsPathForWritePermissions)
-  fullName: CSF.Screenplay.Reporting.ReportPathProvider.ReportPathProvider(CSF.Screenplay.ScreenplayOptions, CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
-  fullName.vb: CSF.Screenplay.Reporting.ReportPathProvider.New(CSF.Screenplay.ScreenplayOptions, CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
-  nameWithType: ReportPathProvider.ReportPathProvider(ScreenplayOptions, ITestsPathForWritePermissions)
-  nameWithType.vb: ReportPathProvider.New(ScreenplayOptions, ITestsPathForWritePermissions)
+- uid: CSF.Screenplay.Reporting.ReportPathProvider.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.ScreenplayOptions},CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
+  name: ReportPathProvider(IOptions<ScreenplayOptions>, ITestsPathForWritePermissions)
+  href: api/CSF.Screenplay.Reporting.ReportPathProvider.html#CSF_Screenplay_Reporting_ReportPathProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_ScreenplayOptions__CSF_Screenplay_Reporting_ITestsPathForWritePermissions_
+  commentId: M:CSF.Screenplay.Reporting.ReportPathProvider.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.ScreenplayOptions},CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
+  name.vb: New(IOptions(Of ScreenplayOptions), ITestsPathForWritePermissions)
+  fullName: CSF.Screenplay.Reporting.ReportPathProvider.ReportPathProvider(Microsoft.Extensions.Options.IOptions<CSF.Screenplay.ScreenplayOptions>, CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
+  fullName.vb: CSF.Screenplay.Reporting.ReportPathProvider.New(Microsoft.Extensions.Options.IOptions(Of CSF.Screenplay.ScreenplayOptions), CSF.Screenplay.Reporting.ITestsPathForWritePermissions)
+  nameWithType: ReportPathProvider.ReportPathProvider(IOptions<ScreenplayOptions>, ITestsPathForWritePermissions)
+  nameWithType.vb: ReportPathProvider.New(IOptions(Of ScreenplayOptions), ITestsPathForWritePermissions)
 - uid: CSF.Screenplay.Reporting.ReportPathProvider.#ctor*
   name: ReportPathProvider
   href: api/CSF.Screenplay.Reporting.ReportPathProvider.html#CSF_Screenplay_Reporting_ReportPathProvider__ctor_
@@ -5449,15 +5545,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Screenplay.CompleteScreenplay
   nameWithType: Screenplay.CompleteScreenplay
-- uid: CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
-  name: Create(Action<IServiceCollection>, Action<ScreenplayOptions>)
-  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__System_Action_CSF_Screenplay_ScreenplayOptions__
-  commentId: M:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
-  name.vb: Create(Action(Of IServiceCollection), Action(Of ScreenplayOptions))
-  fullName: CSF.Screenplay.Screenplay.Create(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>, System.Action<CSF.Screenplay.ScreenplayOptions>)
-  fullName.vb: CSF.Screenplay.Screenplay.Create(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection), System.Action(Of CSF.Screenplay.ScreenplayOptions))
-  nameWithType: Screenplay.Create(Action<IServiceCollection>, Action<ScreenplayOptions>)
-  nameWithType.vb: Screenplay.Create(Action(Of IServiceCollection), Action(Of ScreenplayOptions))
+- uid: CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
+  name: Create(Action<IServiceCollection>)
+  href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__
+  commentId: M:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
+  name.vb: Create(Action(Of IServiceCollection))
+  fullName: CSF.Screenplay.Screenplay.Create(System.Action<Microsoft.Extensions.DependencyInjection.IServiceCollection>)
+  fullName.vb: CSF.Screenplay.Screenplay.Create(System.Action(Of Microsoft.Extensions.DependencyInjection.IServiceCollection))
+  nameWithType: Screenplay.Create(Action<IServiceCollection>)
+  nameWithType.vb: Screenplay.Create(Action(Of IServiceCollection))
 - uid: CSF.Screenplay.Screenplay.Create*
   name: Create
   href: api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_
@@ -5941,15 +6037,12 @@ references:
   commentId: T:CSF.Screenplay.ScreenplayServiceCollectionExtensions
   fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions
   nameWithType: ScreenplayServiceCollectionExtensions
-- uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
-  name: AddScreenplay(IServiceCollection, Action<ScreenplayOptions>)
-  href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_CSF_Screenplay_ScreenplayOptions__
-  commentId: M:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
-  name.vb: AddScreenplay(IServiceCollection, Action(Of ScreenplayOptions))
-  fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<CSF.Screenplay.ScreenplayOptions>)
-  fullName.vb: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of CSF.Screenplay.ScreenplayOptions))
-  nameWithType: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action<ScreenplayOptions>)
-  nameWithType.vb: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action(Of ScreenplayOptions))
+- uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddScreenplay(IServiceCollection)
+  href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)
 - uid: CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay*
   name: AddScreenplay
   href: api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_
@@ -6842,6 +6935,63 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.SendKeys.PerformAsAsync
   nameWithType: SendKeys.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue
+  name: SetTheElementValue
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html
+  commentId: T:CSF.Screenplay.Selenium.Actions.SetTheElementValue
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue
+  nameWithType: SetTheElementValue
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor(System.Object,System.Boolean)
+  name: SetTheElementValue(object, bool)
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_System_Object_System_Boolean_
+  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor(System.Object,System.Boolean)
+  name.vb: New(Object, Boolean)
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.SetTheElementValue(object, bool)
+  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.New(Object, Boolean)
+  nameWithType: SetTheElementValue.SetTheElementValue(object, bool)
+  nameWithType.vb: SetTheElementValue.New(Object, Boolean)
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor*
+  name: SetTheElementValue
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.SetTheElementValue
+  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.New
+  nameWithType: SetTheElementValue.SetTheElementValue
+  nameWithType.vb: SetTheElementValue.New
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SetTheElementValue.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  nameWithType.vb: SetTheElementValue.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment
+  nameWithType: SetTheElementValue.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
+  nameWithType: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  nameWithType.vb: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync
+  nameWithType: SetTheElementValue.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter
   name: SingleElementPerformableAdapter
   href: api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html
@@ -7223,6 +7373,37 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb.WebDriver
   nameWithType: BrowseTheWeb.WebDriver
+- uid: CSF.Screenplay.Selenium.BrowserQuirks
+  name: BrowserQuirks
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html
+  commentId: T:CSF.Screenplay.Selenium.BrowserQuirks
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks
+  nameWithType: BrowserQuirks
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys
+  name: CannotSetInputTypeDateWithSendKeys
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys
+  nameWithType: BrowserQuirks.CannotSetInputTypeDateWithSendKeys
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
+  name: GetQuirksData()
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_GetQuirksData
+  commentId: M:CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData()
+  nameWithType: BrowserQuirks.GetQuirksData()
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData*
+  name: GetQuirksData
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_GetQuirksData_
+  commentId: Overload:CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
+  nameWithType: BrowserQuirks.GetQuirksData
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad
+  name: NeedsToWaitAfterPageLoad
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad
+  nameWithType: BrowserQuirks.NeedsToWaitAfterPageLoad
 - uid: CSF.Screenplay.Selenium.Builders
   name: CSF.Screenplay.Selenium.Builders
   href: api/CSF.Screenplay.Selenium.Builders.html
@@ -13545,6 +13726,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.SelectTheOptionWithValue
   nameWithType: PerformableBuilder.SelectTheOptionWithValue
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: SetTheValueOf(ITarget)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: PerformableBuilder.SetTheValueOf(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf*
+  name: SetTheValueOf
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf
+  nameWithType: PerformableBuilder.SetTheValueOf
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshot
   name: TakeAScreenshot()
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot
@@ -14996,6 +15190,127 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
   nameWithType: Scripts.GetTheDocumentReadyState
+- uid: CSF.Screenplay.Selenium.Scripts.SetElementValue
+  name: SetElementValue
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_SetElementValue
+  commentId: P:CSF.Screenplay.Selenium.Scripts.SetElementValue
+  fullName: CSF.Screenplay.Selenium.Scripts.SetElementValue
+  nameWithType: Scripts.SetElementValue
+- uid: CSF.Screenplay.Selenium.Scripts.SetElementValue*
+  name: SetElementValue
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_SetElementValue_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.SetElementValue
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.SetElementValue
+  nameWithType: Scripts.SetElementValue
+- uid: CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively
+  name: SetElementValueSimulatedInteractively
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_SetElementValueSimulatedInteractively
+  commentId: P:CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively
+  fullName: CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively
+  nameWithType: Scripts.SetElementValueSimulatedInteractively
+- uid: CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively*
+  name: SetElementValueSimulatedInteractively
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_SetElementValueSimulatedInteractively_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively
+  nameWithType: Scripts.SetElementValueSimulatedInteractively
+- uid: CSF.Screenplay.Selenium.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.html
+  commentId: T:CSF.Screenplay.Selenium.ServiceCollectionExtensions
+  fullName: CSF.Screenplay.Selenium.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddSelenium(IServiceCollection)
+  href: api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.html#CSF_Screenplay_Selenium_ServiceCollectionExtensions_AddSelenium_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddSelenium(IServiceCollection)
+- uid: CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium*
+  name: AddSelenium
+  href: api/CSF.Screenplay.Selenium.ServiceCollectionExtensions.html#CSF_Screenplay_Selenium_ServiceCollectionExtensions_AddSelenium_
+  commentId: Overload:CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.ServiceCollectionExtensions.AddSelenium
+  nameWithType: ServiceCollectionExtensions.AddSelenium
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder
+  name: SetTheValueBuilder
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.SetTheValueBuilder
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder
+  nameWithType: SetTheValueBuilder
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: SetTheValueBuilder(ITarget)
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.SetTheValueBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name.vb: New(ITarget)
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.SetTheValueBuilder(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName.vb: CSF.Screenplay.Selenium.SetTheValueBuilder.New(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: SetTheValueBuilder.SetTheValueBuilder(ITarget)
+  nameWithType.vb: SetTheValueBuilder.New(ITarget)
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.#ctor*
+  name: SetTheValueBuilder
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.SetTheValueBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.SetTheValueBuilder
+  fullName.vb: CSF.Screenplay.Selenium.SetTheValueBuilder.New
+  nameWithType: SetTheValueBuilder.SetTheValueBuilder
+  nameWithType.vb: SetTheValueBuilder.New
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively
+  name: AsIfSetInteractively()
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_AsIfSetInteractively
+  commentId: M:CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively()
+  nameWithType: SetTheValueBuilder.AsIfSetInteractively()
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively*
+  name: AsIfSetInteractively
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_AsIfSetInteractively_
+  commentId: Overload:CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.AsIfSetInteractively
+  nameWithType: SetTheValueBuilder.AsIfSetInteractively
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue
+  name: SetTheValueBuilder.IChoosesValue
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.html
+  commentId: T:CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue
+  nameWithType: SetTheValueBuilder.IChoosesValue
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To(System.Object)
+  name: To(object)
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.html#CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue_To_System_Object_
+  commentId: M:CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To(System.Object)
+  name.vb: To(Object)
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To(object)
+  fullName.vb: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To(Object)
+  nameWithType: SetTheValueBuilder.IChoosesValue.To(object)
+  nameWithType.vb: SetTheValueBuilder.IChoosesValue.To(Object)
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To*
+  name: To
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.html#CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue_To_
+  commentId: Overload:CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To
+  nameWithType: SetTheValueBuilder.IChoosesValue.To
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.To(System.Object)
+  name: To(object)
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_To_System_Object_
+  commentId: M:CSF.Screenplay.Selenium.SetTheValueBuilder.To(System.Object)
+  name.vb: To(Object)
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.To(object)
+  fullName.vb: CSF.Screenplay.Selenium.SetTheValueBuilder.To(Object)
+  nameWithType: SetTheValueBuilder.To(object)
+  nameWithType.vb: SetTheValueBuilder.To(Object)
+- uid: CSF.Screenplay.Selenium.SetTheValueBuilder.To*
+  name: To
+  href: api/CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_To_
+  commentId: Overload:CSF.Screenplay.Selenium.SetTheValueBuilder.To
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.SetTheValueBuilder.To
+  nameWithType: SetTheValueBuilder.To
 - uid: CSF.Screenplay.Selenium.Tasks
   name: CSF.Screenplay.Selenium.Tasks
   href: api/CSF.Screenplay.Selenium.Tasks.html
@@ -15459,6 +15774,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ServiceCollectionAdapter.RemoveAt
   nameWithType: ServiceCollectionAdapter.RemoveAt
+- uid: CSF.Screenplay.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html
+  commentId: T:CSF.Screenplay.ServiceCollectionExtensions
+  fullName: CSF.Screenplay.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter*
+  name: AddEnumerableAdapter
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddEnumerableAdapter_
+  commentId: Overload:CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter
+  isSpec: "True"
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter
+  nameWithType: ServiceCollectionExtensions.AddEnumerableAdapter
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddEnumerableAdapter<TService>(IServiceCollection)
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddEnumerableAdapter__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddEnumerableAdapter(Of TService)(IServiceCollection)
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter<TService>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: CSF.Screenplay.ServiceCollectionExtensions.AddEnumerableAdapter(Of TService)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddEnumerableAdapter<TService>(IServiceCollection)
+  nameWithType.vb: ServiceCollectionExtensions.AddEnumerableAdapter(Of TService)(IServiceCollection)
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters*
+  name: AddOptionsAdapters
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddOptionsAdapters_
+  commentId: Overload:CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters
+  isSpec: "True"
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters
+  nameWithType: ServiceCollectionExtensions.AddOptionsAdapters
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddOptionsAdapters<TOptions>(IServiceCollection)
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddOptionsAdapters__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name.vb: AddOptionsAdapters(Of TOptions)(IServiceCollection)
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters<TOptions>(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName.vb: CSF.Screenplay.ServiceCollectionExtensions.AddOptionsAdapters(Of TOptions)(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddOptionsAdapters<TOptions>(IServiceCollection)
+  nameWithType.vb: ServiceCollectionExtensions.AddOptionsAdapters(Of TOptions)(IServiceCollection)
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  name: AddScreenplayPlugin(IServiceCollection)
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddScreenplayPlugin_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: ServiceCollectionExtensions.AddScreenplayPlugin(IServiceCollection)
+- uid: CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin*
+  name: AddScreenplayPlugin
+  href: api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddScreenplayPlugin_
+  commentId: Overload:CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin
+  isSpec: "True"
+  fullName: CSF.Screenplay.ServiceCollectionExtensions.AddScreenplayPlugin
+  nameWithType: ServiceCollectionExtensions.AddScreenplayPlugin
 - uid: CSF.Screenplay.ServiceProviderAdapter
   name: ServiceProviderAdapter
   href: api/CSF.Screenplay.ServiceProviderAdapter.html

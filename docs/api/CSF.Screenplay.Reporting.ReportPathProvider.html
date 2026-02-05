@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Reporting_ReportPathProvider" data-uid="CSF.Screenplay.Reporting.ReportPathProvider" class="text-break">
-Class ReportPathProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L23"><i class="bi bi-code-slash"></i></a>
+Class ReportPathProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -175,9 +175,9 @@ Because of the caching functionality, this class is stateful and should be used 
 
   <a id="CSF_Screenplay_Reporting_ReportPathProvider__ctor_" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_ReportPathProvider__ctor_CSF_Screenplay_ScreenplayOptions_CSF_Screenplay_Reporting_ITestsPathForWritePermissions_" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.#ctor(CSF.Screenplay.ScreenplayOptions,CSF.Screenplay.Reporting.ITestsPathForWritePermissions)">
-  ReportPathProvider(ScreenplayOptions, ITestsPathForWritePermissions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_ReportPathProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_ScreenplayOptions__CSF_Screenplay_Reporting_ITestsPathForWritePermissions_" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.ScreenplayOptions},CSF.Screenplay.Reporting.ITestsPathForWritePermissions)">
+  ReportPathProvider(IOptions&lt;ScreenplayOptions&gt;, ITestsPathForWritePermissions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Reporting.ReportPathProvider.html">ReportPathProvider</a> class.</p>
@@ -185,12 +185,12 @@ Because of the caching functionality, this class is stateful and should be used 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReportPathProvider(ScreenplayOptions screenplayOptions, ITestsPathForWritePermissions permissionsTester)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReportPathProvider(IOptions&lt;ScreenplayOptions&gt; screenplayOptions, ITestsPathForWritePermissions permissionsTester)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>screenplayOptions</code> <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a></dt>
+    <dt><code>screenplayOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1">IOptions</a>&lt;<a class="xref" href="CSF.Screenplay.ScreenplayOptions.html">ScreenplayOptions</a>&gt;</dt>
     <dd><p>The screenplay options.</p>
 </dd>
     <dt><code>permissionsTester</code> <a class="xref" href="CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html">ITestsPathForWritePermissions</a></dt>
@@ -217,7 +217,7 @@ Because of the caching functionality, this class is stateful and should be used 
 
   <h3 id="CSF_Screenplay_Reporting_ReportPathProvider_GetReportPath" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.GetReportPath">
   GetReportPath()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the path to which the report should be written.</p>
@@ -261,7 +261,7 @@ indicated by those options is not writable.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L23" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L24" class="edit-link">Edit this page</a>
         </div>
 
 

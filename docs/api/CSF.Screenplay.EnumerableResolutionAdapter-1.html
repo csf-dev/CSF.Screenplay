@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ScreenplayPlugin | Screenplay </title>
+      <title>Class EnumerableResolutionAdapter&lt;T&gt; | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ScreenplayPlugin | Screenplay ">
+      <meta name="title" content="Class EnumerableResolutionAdapter&lt;T&gt; | Screenplay ">
       
-      <meta name="description" content="The Screenplay plugin for Reqnroll.">
+      <meta name="description" content="Adapter class which - when added to DI - permits the BoDi DI container to resolve arbitrary  of service instances.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_ScreenplayPlugin.md&amp;value=---%0Auid%3A%20CSF.Screenplay.ScreenplayPlugin%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_EnumerableResolutionAdapter_1.md&amp;value=---%0Auid%3A%20CSF.Screenplay.EnumerableResolutionAdapter%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.ScreenplayPlugin">
+        <article data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1">
 
 
 
-  <h1 id="CSF_Screenplay_ScreenplayPlugin" data-uid="CSF.Screenplay.ScreenplayPlugin" class="text-break">
-Class ScreenplayPlugin  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_EnumerableResolutionAdapter_1" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1" class="text-break">
+Class EnumerableResolutionAdapter&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,29 +97,36 @@ Class ScreenplayPlugin  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.ReqnrollPlugin.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The Screenplay plugin for Reqnroll.</p>
+  <div class="markdown summary"><p>Adapter class which - when added to DI - permits the BoDi DI container to resolve arbitrary <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> of
+service instances.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ScreenplayPlugin : IRuntimePlugin</code></pre>
+    <pre><code class="lang-csharp hljs">public class EnumerableResolutionAdapter&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : class</code></pre>
   </div>
 
 
 
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
   <dl class="typelist inheritance">
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">ScreenplayPlugin</span></div>
+      <div><span class="xref">EnumerableResolutionAdapter&lt;T&gt;</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/IRuntimePlugin.cs">IRuntimePlugin</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
     </dd>
   </dl>
 
@@ -153,71 +160,65 @@ Class ScreenplayPlugin  <a class="header-action link-secondary" title="View sour
 
 
 
-  <h2 id="CSF_Screenplay_ScreenplayPlugin_remarks">Remarks</h2>
+  <h2 id="CSF_Screenplay_EnumerableResolutionAdapter_1_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-This plugin class is the <a class="xref" href="../glossary/Integration.html">test framework integration</a> for Reqnroll.
-Crucially it adds the Screenplay architecture to the Reqnroll architecture.
+The BoDi DI container which is included in Reqnroll/SpecFlow does not fully support the functionality of Microsoft's DI standard.
+Notably, it cannot natively resolve an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>, where type T is a service type which may have multiple implementations
+added to/registered with the container.
+BoDi does have conceptually identical functionality, in its <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">ResolveAll&lt;T&gt;()</a> function.
 </p>
 <p>
-Becuase this plugin leverages the Reqnroll/BoDi <code>IObjectContainer</code>, it is likely incompatible with other plugins
-which integrate with third party Dependency Injection libraries.
+The purpose of this type is to provide a mechanism by which BoDi may resolve enumerables of service types.
+This class wraps an instance of <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">IObjectContainer</a> and - in its <a class="xref" href="CSF.Screenplay.EnumerableResolutionAdapter-1.html#CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator">GetEnumerator()</a> method - redirects to the
+<a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">ResolveAll&lt;T&gt;()</a> method.
 </p>
 <p>
-This may be easily worked-around, though.  If you are using a third-party DI plugin then do not use this plugin.
-Instead use the <a class="xref" href="CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_">AddScreenplay(IServiceCollection)</a>
-method to add Screenplay to that third-party DI system, when customising the dependency registrations.
-Adding Screenplay in that way is equivalent to the work done by this plugin.
-</p>
-<p>
-If you wish to further customise the dependency injection, such as adding injectable services for <a class="xref" href="../glossary/Ability.html">abilities</a>
-or implementations of <a class="xref" href="CSF.Screenplay.IPersona.html">IPersona</a>, add them to the relevant DI container.
-When using Reqnroll's default BoDi container this is described in the following article
-<a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options</a>.
-If using a third-party DI container then you should use that container's appropriate mechanism of adding services.
+The limitation of this type (as a workaround) is that this type must be added to the container manually for each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+type which could be resolved from the container.
 </p>
 </div>
 
 
-  <h2 class="section" id="properties">Properties
+  <h2 class="section" id="constructors">Constructors
 </h2>
 
 
-  <a id="CSF_Screenplay_ScreenplayPlugin_Screenplay_" data-uid="CSF.Screenplay.ScreenplayPlugin.Screenplay*"></a>
+  <a id="CSF_Screenplay_EnumerableResolutionAdapter_1__ctor_" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_ScreenplayPlugin_Screenplay" data-uid="CSF.Screenplay.ScreenplayPlugin.Screenplay">
-  Screenplay
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_EnumerableResolutionAdapter_1__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor(Reqnroll.BoDi.IObjectContainer)">
+  EnumerableResolutionAdapter(IObjectContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Provides static access to the Screenplay instance.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.EnumerableResolutionAdapter-1.html">EnumerableResolutionAdapter&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Screenplay Screenplay { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public EnumerableResolutionAdapter(IObjectContainer container)</code></pre>
   </div>
 
-
-
-
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a></dt>
-    <dd></dd>
+    <dt><code>container</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">IObjectContainer</a></dt>
+    <dd><p>The BoDi object container.</p>
+</dd>
   </dl>
 
 
 
 
-  <h4 class="section" id="CSF_Screenplay_ScreenplayPlugin_Screenplay_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This is required because the bindings for beginning/ending the Screenplay in <a class="xref" href="CSF.Screenplay.ScreenplayBinding.html">ScreenplayBinding</a> must be <code>static</code>.
-Those bindings use the <code>[BeforeTestRun]</code> and <code>[AfterTestRun]</code> hooks, which must be static, as documented here:
-<a href="https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes">https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes</a>
-</p>
-</div>
 
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">container</code> is <code>null</code>.</p>
+</dd>
+  </dl>
 
 
 
@@ -225,30 +226,26 @@ Those bindings use the <code>[BeforeTestRun]</code> and <code>[AfterTestRun]</co
 </h2>
 
 
-  <a id="CSF_Screenplay_ScreenplayPlugin_Initialize_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize*"></a>
+  <a id="CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator_" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator*"></a>
 
-  <h3 id="CSF_Screenplay_ScreenplayPlugin_Initialize_Reqnroll_Plugins_RuntimePluginEvents_Reqnroll_Plugins_RuntimePluginParameters_Reqnroll_UnitTestProvider_UnitTestProviderConfiguration_" data-uid="CSF.Screenplay.ScreenplayPlugin.Initialize(Reqnroll.Plugins.RuntimePluginEvents,Reqnroll.Plugins.RuntimePluginParameters,Reqnroll.UnitTestProvider.UnitTestProviderConfiguration)">
-  Initialize(RuntimePluginEvents, RuntimePluginParameters, UnitTestProviderConfiguration)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Initialize(RuntimePluginEvents runtimePluginEvents, RuntimePluginParameters runtimePluginParameters, UnitTestProviderConfiguration unitTestProviderConfiguration)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><code>runtimePluginEvents</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/RuntimePluginEvents.cs">RuntimePluginEvents</a></dt>
-    <dd></dd>
-    <dt><code>runtimePluginParameters</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/Plugins/RuntimePluginParameters.cs">RuntimePluginParameters</a></dt>
-    <dd></dd>
-    <dt><code>unitTestProviderConfiguration</code> <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/UnitTestProvider/UnitTestProviderConfiguration.cs">UnitTestProviderConfiguration</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -264,7 +261,7 @@ Those bindings use the <code>[BeforeTestRun]</code> and <code>[AfterTestRun]</co
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ScreenplayPlugin.cs/#L48" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L34" class="edit-link">Edit this page</a>
         </div>
 
 

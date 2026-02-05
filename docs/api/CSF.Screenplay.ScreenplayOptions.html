@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ScreenplayOptions" data-uid="CSF.Screenplay.ScreenplayOptions" class="text-break">
-Class ScreenplayOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L22"><i class="bi bi-code-slash"></i></a>
+Class ScreenplayOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -152,6 +152,11 @@ Unfortunately, the BoDi DI container used by Reqnroll (which I wish to support w
 the appropriate methods/logic to register the neccesary services for Options.
 This is why this object uses a somewhat homebrew version of options, without making use of the official libraries.
 </p>
+<p>
+Reqnroll is presently investigating replacing the BoDi container, and if it is someday replaced by MSDI, then
+<a href="https://github.com/csf-dev/CSF.Screenplay/issues/292">issue #292 is available to make that switch
+to the options pattern</a>/
+</p>
 </div>
 
 
@@ -163,7 +168,7 @@ This is why this object uses a somewhat homebrew version of options, without mak
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions">
   OnBeginScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> begins, before the first
@@ -209,7 +214,7 @@ You may add further callbacks if you wish, to extend Screenplay; they are execut
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions">
   OnEndScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> finished, after the last
@@ -258,7 +263,7 @@ that it will be terminated early by the ending of the overall process.
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig">
   PerformanceEventsConfig
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An optional callback/action which exposes the various <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> which may be subscribed-to in order to be notified
@@ -303,7 +308,7 @@ reporting is disabled.
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_ReportPath" data-uid="CSF.Screenplay.ScreenplayOptions.ReportPath">
   ReportPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a file system path at which a Screenplay report file will be written.</p>
@@ -360,7 +365,7 @@ At runtime, do not read this value directly; instead use an implementation of <a
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_ValueFormatters" data-uid="CSF.Screenplay.ScreenplayOptions.ValueFormatters">
   ValueFormatters
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> which implement <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a>, which will be used
@@ -410,7 +415,7 @@ implementation types found as transient-lifetime services in dependency injectio
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L22" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L27" class="edit-link">Edit this page</a>
         </div>
 
 

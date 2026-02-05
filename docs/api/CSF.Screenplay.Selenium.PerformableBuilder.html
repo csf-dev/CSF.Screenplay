@@ -2522,6 +2522,52 @@ performable will raise an exception.
 
 
 
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.SetTheValueOf(CSF.Screenplay.Selenium.Elements.ITarget)">
+  SetTheValueOf(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementPerformables.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for an action which sets the value of an element programatically, using JavaScript.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SetTheValueBuilder.IChoosesValue SetTheValueOf(ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target HTML element, to have its value updated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.html">SetTheValueBuilder</a>.<a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.html">IChoosesValue</a></dt>
+    <dd><p>A builder with which to choose the new value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+It is advised to use this technique and others like it sparingly, particularly when using Screenplay/Selenium for testing. Whilst
+it is possible to set values and update the web page's state via JavaScript, this does not properly mimic the manner in which a real
+human being would interact with the page.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshot*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.TakeAScreenshot">

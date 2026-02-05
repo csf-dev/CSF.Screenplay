@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Screenplay reports | Screenplay </title>
+      <title>Interface SetTheValueBuilder.IChoosesValue | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Screenplay reports | Screenplay ">
+      <meta name="title" content="Interface SetTheValueBuilder.IChoosesValue | Screenplay ">
       
-      
+      <meta name="description" content="An object from which a consumer may choose a value to set into the element.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/GettingReports.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -39,7 +39,7 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -84,31 +84,95 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="screenplay-reports">Screenplay reports</h1>
+        <article data-uid="CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue">
 
-<p>As <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">a Screenplay</a> executes, the framework produces and saves a JSON-format report file, recording each <a class="xref" href="../api/CSF.Screenplay.Performance.html">Performance</a>.
-This file is a machine-readable record of every <a class="xref" href="../api/CSF.Screenplay.Actor.html">Actor</a> and every <a href="../glossary/Performable.html">Performable</a> which was included in the performances.
-It records the results from the performables (where applicable) as well as the details of errors, where they occur.</p>
-<h2 id="where-the-report-json-file-is-saved">Where the report JSON file is saved</h2>
-<p>Over the course of a Screenplay, the JSON file will be written and saved at a path defined by the <a class="xref" href="../api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath"><code>ScreenplayOptions.ReportPath</code></a> option.
-As the documentation for that option notes, the default if it has not been set is to write the report to a file in the current working directory.
-The default filename includes a representation of the current timestamp, so each report is likely to have a unique filename.
-This path may be altered by specifying a different set of options to the <a href="xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action%7BCSF.Screenplay.ScreenplayOptions%7D)"><code>AddScreenplay</code></a> service collection extension method.</p>
-<h2 id="converting-json-to-a-human-readable-report">Converting JSON to a human-readable report</h2>
-<p>JSON is a very good machine-readable format for reports, but it's not a great choice for reading by humans.
-CSF.Screenplay offers a utility to convert a JSON-format report into a human-readable single-page HTML file, viewable in any modern web browser.
-This tool is the <strong>CSF.Screenplay.JsonToHtmlReport</strong> command-line utility.</p>
-<p>The command-line options to this utility are documented in the class <a class="xref" href="../api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html"><code>ReportConverterOptions</code></a>.
-They should be passed using the dobule-dash syntax, for example <code>CSF.Screenplay.JsonToHtmlReport.exe --ReportPath c:\path\subfolder\screenplay-report.json</code>.</p>
+
+
+  <h1 id="CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue" data-uid="CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue" class="text-break">
+Interface SetTheValueBuilder.IChoosesValue  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/SetTheValueBuilder.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An object from which a consumer may choose a value to set into the element.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface SetTheValueBuilder.IChoosesValue</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue_To_" data-uid="CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue_To_System_Object_" data-uid="CSF.Screenplay.Selenium.SetTheValueBuilder.IChoosesValue.To(System.Object)">
+  To(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/SetTheValueBuilder.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder for a performable which sets the target element to the value specified in this method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SetTheValueBuilder To(object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The new value for the element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.html">SetTheValueBuilder</a></dt>
+    <dd><p>A builder for a performable</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_SetTheValueBuilder_IChoosesValue_To_System_Object__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you are using this method to update the value of an element because you are working around a limitation in a web browser/
+WebDriver, then strongly consider following it with <a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_AsIfSetInteractively">AsIfSetInteractively()</a>.
+</p>
+</div>
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/GettingReports.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/SetTheValueBuilder.cs/#L56" class="edit-link">Edit this page</a>
         </div>
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 
