@@ -160,5 +160,19 @@ namespace CSF.Screenplay.Selenium
         /// <param name="target">The target element whose contents will be cleared.</param>
         /// <returns>A performable action</returns>
         public static IPerformable ClearTheContentsOf(ITarget target) => SingleElementPerformableAdapter.From(new ClearTheContents(), target);
+
+        /// <summary>
+        /// Gets a builder for an action which sets the value of an element programatically, using JavaScript.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is advised to use this technique and others like it sparingly, particularly when using Screenplay/Selenium for testing. Whilst
+        /// it is possible to set values and update the web page's state via JavaScript, this does not properly mimic the manner in which a real
+        /// human being would interact with the page.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target HTML element, to have its value updated.</param>
+        /// <returns>A builder with which to choose the new value</returns>
+        public static SetTheValueBuilder.IChoosesValue SetTheValueOf(ITarget target) => new SetTheValueBuilder(target);
     }
 }

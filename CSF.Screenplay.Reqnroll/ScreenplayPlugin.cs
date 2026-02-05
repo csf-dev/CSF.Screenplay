@@ -3,6 +3,8 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
+
 #if SPECFLOW
 using BoDi;
 using TechTalk.SpecFlow;
@@ -31,7 +33,7 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// This may be easily worked-around, though.  If you are using a third-party DI plugin then do not use this plugin.
-    /// Instead use the <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection, Action{ScreenplayOptions})"/>
+    /// Instead use the <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)"/>
     /// method to add Screenplay to that third-party DI system, when customising the dependency registrations.
     /// Adding Screenplay in that way is equivalent to the work done by this plugin.
     /// </para>
@@ -46,8 +48,6 @@ namespace CSF.Screenplay
     public class ScreenplayPlugin : IRuntimePlugin
     {
         readonly object syncRoot = new object();
-        readonly ConcurrentDictionary<FeatureInfo, Guid> featureContextIds = new ConcurrentDictionary<FeatureInfo, Guid>();
-        readonly ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid> scenarioContextIds = new ConcurrentDictionary<ScenarioAndFeatureInfoKey, Guid>();
 
         bool initialised;
 
@@ -104,50 +104,28 @@ namespace CSF.Screenplay
             {
                 if (initialised) return;
 
-                var container = args.ObjectContainer;
-                var serviceCollection = new ServiceCollectionAdapter(container);
-                serviceCollection.AddScreenplay();
-                container.RegisterFactoryAs<IServiceProvider>(c => new ServiceProviderAdapter(c));
-                Screenplay = container.Resolve<Screenplay>();
+                var boDiContainer = args.ObjectContainer;
+                var services = new ServiceCollectionAdapter(boDiContainer);
+                services.AddScreenplayPlugin();
+                boDiContainer.RegisterFactoryAs(c => c.ToServiceProvider());
+                Screenplay = boDiContainer.Resolve<Screenplay>();
                 initialised = true;
             }
         }
 
-        void OnCustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs args)
+        static void OnCustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs args)
         {
-            var container = args.ObjectContainer;
-            var services = new ServiceProviderAdapter(container);
-            container.RegisterInstanceAs<IServiceProvider>(services);
-            var performance = new Performance(services, new [] { GetFeatureIdAndName(container), GetScenarioIdAndName(container) });
-            var performanceContainer = new PerformanceProvider();
-            performanceContainer.SetCurrentPerformance(performance);
-            container.RegisterInstanceAs(performanceContainer);
-            container.RegisterFactoryAs(c => c.Resolve<PerformanceProvider>().GetCurrentPerformance());
+            var boDiContainer = args.ObjectContainer;
+            var services = boDiContainer.ToServiceProvider();
+            boDiContainer.RegisterInstanceAs(services);
 
-            container.RegisterFactoryAs<ICast>(c => new Cast(c.Resolve<IServiceProvider>(), c.Resolve<IPerformance>().PerformanceIdentity));
-            container.RegisterTypeAs<Stage, IStage>();
+            var serviceCollection = boDiContainer.ToServiceCollection();
+            serviceCollection
+                .AddSingleton(s => s.GetRequiredService<PerformanceProviderFactory>().GetPerformanceContainer(s))
+                .AddSingleton(s => s.GetRequiredService<PerformanceProvider>().GetCurrentPerformance())
+                .AddSingleton<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity))
+                .AddSingleton<IStage, Stage>();
         }
 
-        IdentifierAndName GetFeatureIdAndName(IObjectContainer container)
-        {
-            var featureInfo = container.Resolve<FeatureInfo>();
-            return new IdentifierAndName(GetFeatureId(featureInfo).ToString(),
-                                         featureInfo.Title,
-                                         true);
-        }
-
-        Guid GetFeatureId(FeatureInfo featureContext) => featureContextIds.GetOrAdd(featureContext, _ => Guid.NewGuid());
-
-        IdentifierAndName GetScenarioIdAndName(IObjectContainer container)
-        {
-            var featureInfo = container.Resolve<FeatureInfo>();
-            var scenarioInfo = container.Resolve<ScenarioInfo>();
-            return new IdentifierAndName(GetScenarioId(featureInfo, scenarioInfo).ToString(),
-                                         scenarioInfo.Title,
-                                         true);
-        }
-
-        Guid GetScenarioId(FeatureInfo featureInfo, ScenarioInfo scenarioInfo)
-            => scenarioContextIds.GetOrAdd(new ScenarioAndFeatureInfoKey(scenarioInfo, featureInfo), _ => Guid.NewGuid());
     }
 }

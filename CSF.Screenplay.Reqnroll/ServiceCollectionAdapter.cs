@@ -30,7 +30,6 @@ namespace CSF.Screenplay
 // not actually bypassing accessibility.
 #pragma warning disable S3011
         static readonly MethodInfo
-            OpenGenericRegisterType = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterType), BindingFlags.Instance | BindingFlags.NonPublic),
             OpenGenericRegisterInstance = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterInstance), BindingFlags.Instance | BindingFlags.NonPublic),
             OpenGenericRegisterFactory = typeof(ServiceCollectionAdapter).GetMethod(nameof(RegisterFactory), BindingFlags.Instance | BindingFlags.NonPublic);
 #pragma warning restore S3011
@@ -89,12 +88,12 @@ namespace CSF.Screenplay
             else if (item.ImplementationInstance != null)
                 OpenGenericRegisterInstance.MakeGenericMethod(item.ServiceType).Invoke(this, new[] { item });
             else
-                OpenGenericRegisterType.MakeGenericMethod(item.ServiceType, item.ImplementationType).Invoke(this, Array.Empty<object>());
+                RegisterTypeNonGeneric(item.ServiceType, item.ImplementationType);
         }
 
-        void RegisterType<TSvc,TImpl>() where TImpl : class,TSvc
+        void RegisterTypeNonGeneric(Type service, Type implementation)
         {
-            wrapped.RegisterTypeAs<TImpl, TSvc>();
+            ((ObjectContainer) wrapped).RegisterTypeAs(implementation, service);
         }
 
         void RegisterInstance<T>(ServiceDescriptor item) where T : class
@@ -104,7 +103,7 @@ namespace CSF.Screenplay
 
         void RegisterFactory<T>(ServiceDescriptor item) where T : class
         {
-            wrapped.RegisterFactoryAs(objectContainer => (T) item.ImplementationFactory(new ServiceProviderAdapter(objectContainer)));
+            wrapped.RegisterFactoryAs(objectContainer => (T) item.ImplementationFactory(objectContainer.ToServiceProvider()));
         }
 
         /// <summary>

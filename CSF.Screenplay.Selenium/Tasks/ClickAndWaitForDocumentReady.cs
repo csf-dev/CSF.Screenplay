@@ -19,6 +19,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// subsequent performables are executed.
     /// </para>
     /// </remarks>
+    /// <seealso cref="BrowserQuirks.NeedsToWaitAfterPageLoad"/>
     public class ClickAndWaitForDocumentReady : ISingleElementPerformable
     {
         const string COMPLETE_READY_STATE = "complete";
@@ -35,6 +36,8 @@ namespace CSF.Screenplay.Selenium.Tasks
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
+            if(!webDriver.HasQuirk(BrowserQuirks.NeedsToWaitAfterPageLoad)) return;
+
             await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement))
                                                 .ForAtMost(waitTimeout)
                                                 .Named($"{element.Value.Name} is no longer on the page"),

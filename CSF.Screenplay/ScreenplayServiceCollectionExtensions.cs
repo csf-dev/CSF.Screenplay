@@ -7,6 +7,7 @@ using CSF.Screenplay.Performances;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.ReportModel;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace CSF.Screenplay
 {
@@ -22,65 +23,62 @@ namespace CSF.Screenplay
         /// <para>
         /// Use this method to add Screenplay to an existing service collection; if you just want an instance of <see cref="Screenplay"/>
         /// and do not care for integrating it with a service collection of your own then consider the convenience method
-        /// <see cref="Screenplay.Create(Action{IServiceCollection}, Action{ScreenplayOptions})"/>.
-        /// </para>
-        /// <para>
-        /// If you choose to provide any configuration via the <paramref name="options"/> parameter, do not 'capture' the <see cref="ScreenplayOptions"/>
-        /// object outside the closure.  This object is added to dependency injection as a singleton, and so if it is modified outside of
-        /// this configuration action then the integrity of the Screenplay dependency injection may be compromised.
+        /// <see cref="Screenplay.Create(Action{IServiceCollection})"/>.
         /// </para>
         /// </remarks>
         /// <param name="services">An <see cref="IServiceCollection"/></param>
-        /// <param name="options">An optional configuration action, used to configure Screenplay in DI</param>
         /// <returns>The service collection, so that calls may be chained</returns>
         /// <exception cref="ArgumentNullException">If <paramref name="services"/> is <see langword="null" />.</exception>
-        public static IServiceCollection AddScreenplay(this IServiceCollection services, Action<ScreenplayOptions> options = null)
+        public static IServiceCollection AddScreenplay(this IServiceCollection services)
         {
             if (services is null)
                 throw new ArgumentNullException(nameof(services));
-            var optionsModel = new ScreenplayOptions();
-            options?.Invoke(optionsModel);
 
-            var eventBus = new PerformanceEventBus();
-            optionsModel.PerformanceEventsConfig?.Invoke(eventBus);
+            services
+                .AddOptions<ScreenplayOptions>()
+                .Configure((ScreenplayOptions o, PerformanceEventBus eventBus) => o.PerformanceEventsConfig?.Invoke(eventBus));
+            
+            services
+                .AddSingleton<Screenplay>()
+                .AddSingleton<PerformanceEventBus>()
+                .AddSingleton<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>())
+                .AddSingleton<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>())
+                .AddSingleton(s => s.GetRequiredService<IOptions<ScreenplayOptions>>().Value.ValueFormatters)
+                .AddSingleton<ScreenplayReportBuilder>()
+                .AddSingleton<IGetsReportPath, ReportPathProvider>()
+                .AddSingleton<IReporter>(s =>
+                {
+                    var reportPath = s.GetRequiredService<IGetsReportPath>().GetReportPath();
+                    if(reportPath is null) return new NoOpReporter();
+                    
+                    var stream = File.Create(reportPath);
+                    return ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(s, stream);
+                });
 
-            services.AddSingleton<Screenplay>();
-            services.AddSingleton(eventBus);
-            services.AddSingleton<IHasPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
-            services.AddSingleton<IRelaysPerformanceEvents>(s => s.GetRequiredService<PerformanceEventBus>());
-            services.AddSingleton(optionsModel);
-            services.AddSingleton(s => s.GetRequiredService<ScreenplayOptions>().ValueFormatters);
-            services.AddSingleton<ScreenplayReportBuilder>();
-            services.AddSingleton<IGetsReportPath, ReportPathProvider>();
-            services.AddSingleton<IReporter>(s =>
-            {
-                var reportPath = s.GetRequiredService<IGetsReportPath>().GetReportPath();
-                if(reportPath is null) return new NoOpReporter();
-                
-                var stream = File.Create(reportPath);
-                return ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(s, stream);
-            });
+            services
+                .AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity))
+                .AddScoped<IStage, Stage>()
+                .AddScoped<PerformanceProvider>()
+                .AddScoped(s => s.GetRequiredService<PerformanceProvider>().GetCurrentPerformance())
+                .AddScoped<IGetsAssetFilePath, AssetPathProvider>();
 
-            services.AddScoped<ICast>(s => new Cast(s, s.GetRequiredService<IPerformance>().PerformanceIdentity));
-            services.AddScoped<IStage, Stage>();
-            services.AddScoped<PerformanceProvider>();
-            services.AddScoped(s => s.GetRequiredService<PerformanceProvider>().GetCurrentPerformance());
-            services.AddScoped<IGetsAssetFilePath, AssetPathProvider>();
-
-            services.AddTransient<IGetsReportFormat, ReportFormatCreator>();
-            services.AddTransient<IGetsValueFormatter, ValueFormatterProvider>();
-            services.AddTransient<IFormatsReportFragment, ReportFragmentFormatter>();
-            services.AddTransient<PerformanceReportBuilder>();
-            services.AddTransient<JsonScreenplayReporter>();
-            services.AddTransient<NoOpReporter>();
-            services.AddTransient<ITestsPathForWritePermissions, WritePermissionTester>();
-            services.AddTransient<Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>>(s =>
-            {
-                return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);
-            });
-            services.AddTransient<GetAssetFilePaths>();
-            foreach(var type in optionsModel.ValueFormatters)
-                services.AddTransient(type);
+            services
+                .AddTransient<IGetsReportFormat, ReportFormatCreator>()
+                .AddTransient<IGetsValueFormatter, ValueFormatterProvider>()
+                .AddTransient<IFormatsReportFragment, ReportFragmentFormatter>()
+                .AddTransient<PerformanceReportBuilder>()
+                .AddTransient<JsonScreenplayReporter>()
+                .AddTransient<NoOpReporter>()
+                .AddTransient<ITestsPathForWritePermissions, WritePermissionTester>()
+                .AddTransient<Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>>(s =>
+                {
+                    return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);
+                })
+                .AddTransient<GetAssetFilePaths>()
+                .AddTransient<ToStringFormatter>()
+                .AddTransient<HumanizerFormatter>()
+                .AddTransient<NameFormatter>()
+                .AddTransient<FormattableFormatter>();
             
             return services;
         }

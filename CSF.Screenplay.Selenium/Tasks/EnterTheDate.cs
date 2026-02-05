@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
@@ -45,9 +46,15 @@ namespace CSF.Screenplay.Selenium.Actions
 
         string FormatDate() => date.HasValue ? date.Value.ToString(GetShortDatePattern()) : null;
 
+        string FormatDateAsIso() => date.HasValue ? date.Value.ToString("yyyy-MM-dd") : null;
+
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
+            var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
+            if(browseTheWeb.WebDriver.HasQuirk(BrowserQuirks.CannotSetInputTypeDateWithSendKeys))
+                return actor.PerformAsync(SetTheValueOf(target).To(FormatDateAsIso()).AsIfSetInteractively(), cancellationToken);
+
             if(!date.HasValue)
                 return actor.PerformAsync(ClearTheContentsOf(target), cancellationToken);
 

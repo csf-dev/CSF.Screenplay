@@ -1,6 +1,8 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using CSF.Screenplay.Selenium.Elements;
+using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -46,6 +48,11 @@ public class EnterTheDateTests
 
         if(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern.StartsWith("y", StringComparison.InvariantCultureIgnoreCase))
             Assert.Inconclusive("This test can't be meaningfully run when the current culture uses Y/M/D date formatting");
+
+       var ability = webster.GetAbility<BrowseTheWeb>();
+       
+       if(ability.WebDriver.HasQuirk(BrowserQuirks.CannotSetInputTypeDateWithSendKeys))
+            Assert.Pass("This test cannot meaningfully be run on a browser which requires a JS workaround to set dates. Treating this test as an implicit pass.");
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await When(webster).AttemptsTo(EnterTheDate(new DateTime(2025, 11, 12)).Into(inputArea).ForTheCultureNamed("ja-JP"));

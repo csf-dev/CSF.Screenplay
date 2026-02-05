@@ -1,5 +1,9 @@
 name: Cross-browser testing
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 on:
   push:
     branches: [ "master" ]

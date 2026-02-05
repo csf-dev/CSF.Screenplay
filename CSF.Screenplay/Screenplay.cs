@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Performances;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using AsyncPerformanceLogic = System.Func<System.IServiceProvider, System.Threading.CancellationToken, System.Threading.Tasks.Task<bool?>>;
 
 namespace CSF.Screenplay
@@ -25,10 +26,10 @@ namespace CSF.Screenplay
     /// </para>
     /// <para>
     /// It is recommended to create instances of this type by adding Screenplay to a dependency injection
-    /// <see cref="IServiceCollection"/> via the extension method <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action{ScreenplayOptions})"/>
+    /// <see cref="IServiceCollection"/> via the extension method <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/>
     /// and then resolving an instance of this class from the service provider.
     /// Alternatively, if you do not wish to configure a service collection manually and just want an instance of this type then
-    /// use the static <see cref="Create(Action{IServiceCollection}, Action{ScreenplayOptions})"/> method.
+    /// use the static <see cref="Create(Action{IServiceCollection})"/> method.
     /// </para>
     /// <para>
     /// The Screenplay object is used to create instances of <see cref="Performance"/> via its <see cref="ServiceProvider"/>.
@@ -46,8 +47,8 @@ namespace CSF.Screenplay
         /// Screenplay has begun.</summary>
         public void BeginScreenplay()
         {
-            var config = ServiceProvider.GetRequiredService<ScreenplayOptions>();
-            foreach (var callback in config.OnBeginScreenplayActions)
+            var config = ServiceProvider.GetRequiredService<IOptions<ScreenplayOptions>>();
+            foreach (var callback in config.Value.OnBeginScreenplayActions)
                 callback(ServiceProvider);
 
             ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayStarted();
@@ -59,8 +60,8 @@ namespace CSF.Screenplay
         {
             ServiceProvider.GetRequiredService<IRelaysPerformanceEvents>().InvokeScreenplayEnded();
 
-            var config = ServiceProvider.GetRequiredService<ScreenplayOptions>();
-            foreach (var callback in config.OnEndScreenplayActions)
+            var config = ServiceProvider.GetRequiredService<IOptions<ScreenplayOptions>>();
+            foreach (var callback in config.Value.OnEndScreenplayActions)
                 callback(ServiceProvider);
         }
 
@@ -135,8 +136,8 @@ namespace CSF.Screenplay
         /// <remarks>
         /// <para>
         /// It is unlikely that developers should be executing this constructor directly. Consider using the static factory method
-        /// <see cref="Create(Action{IServiceCollection}, Action{ScreenplayOptions})"/>.  Alternatively, add Screenplay to an <see cref="IServiceCollection"/> using
-        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action{ScreenplayOptions})"/> and then resolve an instance of
+        /// <see cref="Create(Action{IServiceCollection})"/>.  Alternatively, add Screenplay to an <see cref="IServiceCollection"/> using
+        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/> and then resolve an instance of
         /// this class from the service provider built from that service collection.
         /// </para>
         /// </remarks>
@@ -158,17 +159,15 @@ namespace CSF.Screenplay
         /// </para>
         /// <para>
         /// If you already have an <see cref="IServiceCollection"/> and you wish to integrate Screenplay into it, then use the extension method
-        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection, Action{ScreenplayOptions})"/> instead.
+        /// <see cref="ScreenplayServiceCollectionExtensions.AddScreenplay(IServiceCollection)"/> instead.
         /// </para>
         /// </remarks>
         /// <param name="serviceCollectionCustomisations">An optional action which permits further customization of the service collection that is implicitly created by this method.</param>
-        /// <param name="options">An optional action to configure the <see cref="Screenplay"/> which is created by this method.</param>
         /// <returns>A Screenplay instance created from a new service collection.</returns>
-        public static Screenplay Create(Action<IServiceCollection> serviceCollectionCustomisations = null,
-                                        Action<ScreenplayOptions> options = null)
+        public static Screenplay Create(Action<IServiceCollection> serviceCollectionCustomisations = null)
         {
             var services = new ServiceCollection();
-            services.AddScreenplay(options);
+            services.AddScreenplay();
             serviceCollectionCustomisations?.Invoke(services);
             var serviceProvider = services.BuildServiceProvider();
             return serviceProvider.GetRequiredService<Screenplay>();

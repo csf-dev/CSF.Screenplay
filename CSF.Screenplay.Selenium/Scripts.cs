@@ -15,7 +15,6 @@ namespace CSF.Screenplay.Selenium
         /// <summary>
         /// Gets a <see cref="NamedScript"/> which clears the Local Storage of the browser, for the current domain.
         /// </summary>
-        /// <returns>A named script.</returns>
         public static NamedScript ClearLocalStorage
             => new NamedScript(Resources.ScriptResources.ClearLocalStorage, "clear the local storage");
 
@@ -28,5 +27,17 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         public static NamedScriptWithResult<string> GetTheDocumentReadyState
             => new NamedScriptWithResult<string>(Resources.ScriptResources.GetDocReadyState, "get the readiness of the current page");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScript{T1, T2}"/> which sets the <c>value</c> of a specified HTML element.
+        /// </summary>
+        public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValue
+            => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValue, "set the element's value");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScript{T1, T2}"/> which sets the <c>value</c> of a specified HTML element, simulating setting it interactively.
+        /// </summary>
+        public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValueSimulatedInteractively
+            => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValueSimulatedInteractively, "simulate setting the element's value interactively");
     }
 }

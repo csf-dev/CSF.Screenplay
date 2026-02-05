@@ -65,7 +65,7 @@ public class ScreenplayExtensionsTests
     [Test,AutoMoqData]
     public void ExecuteAsPerformanceGenericShouldExecuteThePerformanceHostLogic()
     {
-        var sut = Screenplay.Create(s => s.AddSingleton<SamplePerformanceHost>(), o => o.ReportPath = null);
+        var sut = Screenplay.Create(s => s.AddSingleton<SamplePerformanceHost>().Configure<ScreenplayOptions>(o => o.ReportPath = null));
 
         sut.ExecuteAsPerformanceAsync<SamplePerformanceHost>();
 

@@ -12,6 +12,13 @@ namespace CSF.Screenplay.Selenium.Resources
         /// <summary>Gets a short JavaScript for <see cref="Actions.ClearLocalStorage"/>.</summary>
         internal static string ClearLocalStorage => resourceManager.GetString("ClearLocalStorage");
 
+        /// <summary>Gets a short JavaScript that returns the value of <c>document.readyState</c>.</summary>
         internal static string GetDocReadyState => resourceManager.GetString("GetDocReadyState");
+
+        /// <summary>Gets a short JavaScript which sets the <c>value</c> of an HTML element.</summary>
+        internal static string SetElementValue => resourceManager.GetString("SetElementValue");
+
+        /// <summary>Gets a short JavaScript which sets the <c>value</c> of an HTML element in a way that simulates updating the element interactively.</summary>
+        internal static string SetElementValueSimulatedInteractively => resourceManager.GetString("SetElementValueSimulatedInteractively");
     }
 }
