@@ -8,6 +8,7 @@
     <IsTestProject>false</IsTestProject>
     <AssemblyName>ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin</AssemblyName>
     <Nullable>Enable</Nullable>
+    <AssemblyName>AutofacDi.ReqnrollPlugin</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

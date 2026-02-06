@@ -8,6 +8,7 @@
     <IsTestProject>false</IsTestProject>
     <AssemblyName>ReqnrollPlugins.DependencyInjection.ToReqnroll.MsdiPlugin</AssemblyName>
     <Nullable>Enable</Nullable>
+    <AssemblyName>MsDi.ReqnrollPlugin</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

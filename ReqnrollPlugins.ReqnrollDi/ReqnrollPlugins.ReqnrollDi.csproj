@@ -8,10 +8,11 @@
     <IsTestProject>false</IsTestProject>
     <AssemblyName>ReqnrollPlugins.ReqnrollDi.ToReqnroll.Runtime.BoDi</AssemblyName>
     <Nullable>Enable</Nullable>
+    <AssemblyName>ReqnrollDi.ReqnrollPlugin</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.3.0" />
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
   </ItemGroup>
 
