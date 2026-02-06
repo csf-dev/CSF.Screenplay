@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ReqnrollPlugins.DependencyInjection.ToReqnroll.MsdiPlugin</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <AssemblyName>ReqnrollPlugins.DependencyInjection.ToReqnroll.MsdiPlugin</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
+  </ItemGroup>
+
+</Project>

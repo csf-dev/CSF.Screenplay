@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <AssemblyName>ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      Shared files common to both Autofac &amp; MSDI plugins
+    -->
+    <Compile Include="..\ReqnrollPlugins.DependencyInjection\Runtime\**\*.cs"
+             Link="Runtime\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
