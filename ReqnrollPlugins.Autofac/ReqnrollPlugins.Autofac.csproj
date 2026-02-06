@@ -1,21 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\Tools\Version.props" />
+
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin</RootNamespace>
     <IsTestProject>false</IsTestProject>
     <AssemblyName>ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin</AssemblyName>
+    <Nullable>Enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
+    <PackageReference Include="Autofac" Version="8.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!--
       Shared files common to both Autofac &amp; MSDI plugins
     -->
-    <Compile Include="..\ReqnrollPlugins.DependencyInjection\Runtime\**\*.cs"
-             Link="Runtime\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\ReqnrollPlugins.DependencyInjection\ToReqnroll\Runtime\**\*.cs"
+             Link="ToReqnroll\Runtime\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>

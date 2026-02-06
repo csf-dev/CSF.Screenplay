@@ -1,14 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\Tools\Version.props" />
+
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>ReqnrollPlugins.DependencyInjection.ToReqnroll.MsdiPlugin</RootNamespace>
     <IsTestProject>false</IsTestProject>
     <AssemblyName>ReqnrollPlugins.DependencyInjection.ToReqnroll.MsdiPlugin</AssemblyName>
+    <Nullable>Enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

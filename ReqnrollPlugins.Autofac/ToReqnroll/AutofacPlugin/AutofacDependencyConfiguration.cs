@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Autofac.Core;
+using System.Linq;
 
 namespace ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin;
 
@@ -119,7 +120,7 @@ public abstract class AutofacDependencyConfiguration(AutofacDependencyConfigurat
     bool IDependencyConfiguration.TryResolve(Type targetType, DependencyLifetime lifetime, IObjectContainer reqnrollContainer, out object instance)
     {
         var lifetimeScope = GetLifetimeScope(lifetime, reqnrollContainer);
-        return lifetimeScope.TryResolve(targetType, out instance);
+        return lifetimeScope.TryResolve(targetType, out instance!);
     }
 
     private ILifetimeScope GetLifetimeScope(DependencyLifetime lifetime, IObjectContainer reqnrollContainer)
