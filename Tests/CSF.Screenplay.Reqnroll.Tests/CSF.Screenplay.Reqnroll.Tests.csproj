@@ -23,7 +23,7 @@
     <ProjectReference Include="..\..\CSF.Screenplay.Abstractions\CSF.Screenplay.Abstractions.csproj" />
     <ProjectReference Include="..\..\CSF.Screenplay\CSF.Screenplay.csproj" />
     <ProjectReference Include="..\..\CSF.Screenplay.Reqnroll\CSF.Screenplay.Reqnroll.csproj" />
-    <ProjectReference Include="..\..\ReqnrollPlugins.ReqnrollDi\ReqnrollPlugins.ReqnrollDi.csproj" />
+    <ProjectReference Include="..\..\ReqnrollPlugins.Autofac\ReqnrollPlugins.Autofac.csproj" />
   </ItemGroup>
 
 </Project>

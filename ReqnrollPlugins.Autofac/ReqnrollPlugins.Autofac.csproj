@@ -12,9 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.0.0" />
+    <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' == ''" Version="2.3.0" />
     <PackageReference Include="Reqnroll" Condition="'$(ReqnrollVersion)' != ''" Version="$(ReqnrollVersion)" />
     <PackageReference Include="Autofac" Version="8.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>

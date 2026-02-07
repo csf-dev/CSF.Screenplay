@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Autofac.Core;
 using System.Linq;
+using Autofac.Extensions.DependencyInjection;
 
 namespace ReqnrollPlugins.Autofac.ToReqnroll.AutofacPlugin;
 
@@ -193,6 +194,7 @@ public abstract class AutofacDependencyConfiguration(AutofacDependencyConfigurat
         var containerBuilder = CreateContainerBuilderInstance();
 
         SetupServices(containerBuilder, testRunContainer);
+        containerBuilder.RegisterType<AutofacServiceProvider>().AsSelf().AsImplementedInterfaces();
 
         if (Options.AutoRegisterBindingTypes)
             RegisterBindingTypes(containerBuilder, DependencyCustomizationsServices.GetBindingAssemblies(testRunContainer));

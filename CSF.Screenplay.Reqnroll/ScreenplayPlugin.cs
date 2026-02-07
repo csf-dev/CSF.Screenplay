@@ -48,6 +48,7 @@ namespace CSF.Screenplay
     public class ScreenplayPlugin : IRuntimePlugin
     {
         readonly object syncRoot = new object();
+        static Lazy<Screenplay> screenplay;
 
         bool initialised;
 
@@ -61,7 +62,7 @@ namespace CSF.Screenplay
         /// <see href="https://docs.reqnroll.net/latest/automation/hooks.html#supported-hook-attributes"/>
         /// </para>
         /// </remarks>
-        static public Screenplay Screenplay { get; private set; }
+        static public Screenplay Screenplay => screenplay.Value;
 
         /// <inheritdoc/>
         public void Initialize(RuntimePluginEvents runtimePluginEvents,
@@ -107,8 +108,8 @@ namespace CSF.Screenplay
                 var boDiContainer = args.ObjectContainer;
                 var services = new ServiceCollectionAdapter(boDiContainer);
                 services.AddScreenplayPlugin();
-                boDiContainer.RegisterFactoryAs(c => c.ToServiceProvider());
-                Screenplay = boDiContainer.Resolve<Screenplay>();
+                // boDiContainer.RegisterFactoryAs(c => c.ToServiceProvider());
+                screenplay = new Lazy<Screenplay>(() => boDiContainer.Resolve<Screenplay>());
                 initialised = true;
             }
         }
