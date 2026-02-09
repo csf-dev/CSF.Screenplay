@@ -28,6 +28,13 @@
       href: dependencyInjection/index.md
     - name: In the testing stack
       href: concepts/ScreenplayInTheTestingStack.md
+- name: Extensions
+  href: extensions/index.md
+  items:
+    - name: Selenium
+      href: extensions/selenium/index.md
+    - name: Web APIs
+      href: extensions/webApis/index.md
 - name: Reference
   items:
     - name: Performables

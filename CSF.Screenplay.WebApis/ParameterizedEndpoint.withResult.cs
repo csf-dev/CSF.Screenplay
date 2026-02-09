@@ -39,8 +39,8 @@ namespace CSF.Screenplay.WebApis
     /// <seealso cref="JsonEndpoint{TParameters}"/>
     /// <seealso cref="JsonEndpoint{TParameters, TResult}"/>
     /// <typeparam name="TParameters">The type of the parameters object which is required to create an HTTP request message</typeparam>
-    /// <typeparam name="TResponse">The type of response that the endpoint is expected to return.</typeparam>
-    public abstract class ParameterizedEndpoint<TParameters,TResponse> : EndpointBase
+    /// <typeparam name="TResult">The type of response that the endpoint is expected to return.</typeparam>
+    public abstract class ParameterizedEndpoint<TParameters,TResult> : EndpointBase
     {
         /// <summary>
         /// Gets a <see cref="HttpRequestMessageBuilder{TResponse}"/> from the state of the current instance
@@ -55,7 +55,7 @@ namespace CSF.Screenplay.WebApis
         /// </remarks>
         /// <param name="parameters">The parameters required to create an HTTP request builder</param>
         /// <returns>An HTTP request message builder</returns>
-        public abstract HttpRequestMessageBuilder<TResponse> GetHttpRequestMessageBuilder(TParameters parameters);
+        public abstract HttpRequestMessageBuilder<TResult> GetHttpRequestMessageBuilder(TParameters parameters);
         
         /// <summary>
         /// Initializes a new instance of <see cref="ParameterizedEndpoint{TParameters,TResponse}"/> with a relative URI and an optional HTTP method.

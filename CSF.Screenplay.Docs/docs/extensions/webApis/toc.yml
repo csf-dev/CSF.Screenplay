@@ -1,0 +1,10 @@
+- name: Web APIs
+  href: index.md
+- name: Endpoints
+  href: Endpoints.md
+- name: Requests
+  href: Requests.md
+- name: Choosing endpoint & request types
+  href: ChoosingEndpointsAndRequests.md
+- name: Responses
+  href: Responses.md
