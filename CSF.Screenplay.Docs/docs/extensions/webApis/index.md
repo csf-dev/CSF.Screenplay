@@ -41,3 +41,23 @@ The Live API represents an actual  HTTP(S) web server which hosts the API with w
 [HTTP requests]: Requests.md
 [Endpoint]: Endpoints.md
 [HTTP Response]: Responses.md
+
+## Usage example
+
+Here is a brief usage example for using a JSON API with a defined endpoint, identified by URL and HTTP method.
+The endpoint expects a parameter of a `PersonId` (a fictitious class, which accepts a person's name as a constructor parameter).
+The endpoint returns a JSON-formatted response which is a representation of an `Animal` (another fictitious class, which has a string `Name` property).
+
+```csharp
+using static CSF.Screenplay.WebApis.WebApiBuilder;
+
+static readonly JsonEndpoint<PersonId,Animal> getFavouriteAnimal = new ("https://api.example.com/person/getFavouriteAnimal", HttpMethod.Post);
+
+// this method would appear as part of a custom-written Task class,
+// deriving from IPerformableWithResult<string>
+public async ValueTask<string> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
+{
+    var animal = await actor.PerformAsync(GetTheJsonResult(getFavouriteAnimal, new("Jane Doe")), cancellationToken);
+    return animal.Name;
+}
+```
