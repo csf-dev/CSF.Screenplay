@@ -2,6 +2,8 @@
 
 The Web APIs Extension allows [Actors] to communicate with HTTP web API endpoints within a Screenplay [Performance].
 
+[Actors]: xref:CSF.Screenplay.Actor
+[Performance]: xref:CSF.Screenplay.IPerformance
 ## Overview
 
 The diagram below shows how this extension works.
@@ -20,6 +22,7 @@ erDiagram
   Ability ||--|| api : sends
   api ||--|| Response : returns
   Response }o--|| Actor : recieves
+  
   style api fill:#ee9,stroke:#bb6
 ```
 
@@ -27,20 +30,9 @@ erDiagram
 [Ability]: xref:AbilityGlossaryItem
 [`MakeWebApiRequests`]: xref:CSF.Screenplay.WebApis.MakeWebApiRequests
 
-## Endpoints
+This extension provides **[Actions]** which allow the Actor to build and send [HTTP requests] based upon [Endpoint] definitions.
+These requests are sent via the HTTP client which is exposed by the [`MakeWebApiRequests`] Ability, to a live API server. 
+The server returns an [HTTP Response], which the extension formats into a result object.
 
-**Endpoints** are a fundamental, first class concept in this extension. An endpoint object is used to define: 
-
-* The URL (route) at which the endpoint is found 
-* Whether use of the endpoint requires any parameters
-  * How many parameters
-  * The .NET types of the parameter values
-  * How those parameters are communicated to the endpoint 
-* The endpoint's expected response/result type, if it is expected to return one
-
-Users of this extension *are encouraged to build a library of endpoint objects*, describing the 'surface area' of the API that they wish to exercise.
-
-[Actors]: xref:CSF.Screenplay.Actor
-[Performance]: xref:CSF.Screenplay.IPerformance
-[Actions]: ../../glossary/Action.md
-[Questions]: ../../glossary/Question.md
+[Actions]: ../../../glossary/Action.md
+[Endpoint]: Endpoints.md
