@@ -37,8 +37,8 @@ Terminologies differ between testing frameworks; the word [Scenario] is used to 
 
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
 [Scenarios]: ../../glossary/Scenario.md
-[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
-[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
 [`IGetsScreenplay`]: xref:CSF.Screenplay.IGetsScreenplay
 [`BeginScreenplay()`]: xref:CSF.Screenplay.Screenplay.BeginScreenplay
 [`CompleteScreenplay()`]: xref:CSF.Screenplay.Screenplay.CompleteScreenplay
