@@ -3909,7 +3909,7 @@
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>",
+      "Title": "CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.yml\" sourcestartlinenumber=\"1\">Base type for a Web API endpoint which has a strongly-typed request payload and which is expected to return a response body that exposes a strongly-typed object.</p>\n"
     },
     {
@@ -4234,6 +4234,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/extensions/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/extensions/selenium/index.md",
       "output": {
         ".html": {
@@ -4244,10 +4254,63 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/extensions/webApis/ChoosingEndpointsAndRequests.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/webApis/ChoosingEndpointsAndRequests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/webApis/Endpoints.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/webApis/Endpoints.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/webApis/Requests.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/webApis/Requests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/webApis/Responses.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/webApis/Responses.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/extensions/webApis/index.md",
       "output": {
         ".html": {
           "relative_path": "docs/extensions/webApis/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/extensions/webApis/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4328,16 +4391,6 @@
       "output": {
         ".html": {
           "relative_path": "docs/introduction/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/performables/WebApis.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/performables/WebApis.html"
         }
       },
       "version": ""

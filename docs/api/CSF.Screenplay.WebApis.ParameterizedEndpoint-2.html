@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ParameterizedEndpoint&lt;TParameters, TResponse&gt; | Screenplay </title>
+      <title>Class ParameterizedEndpoint&lt;TParameters, TResult&gt; | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ParameterizedEndpoint&lt;TParameters, TResponse&gt; | Screenplay ">
+      <meta name="title" content="Class ParameterizedEndpoint&lt;TParameters, TResult&gt; | Screenplay ">
       
       <meta name="description" content="Base type for a Web API endpoint which has a strongly-typed request payload and which is expected to return a response body that exposes a strongly-typed object.">
       <link rel="icon" href="../favicon.ico">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_WebApis_ParameterizedEndpoint_2" data-uid="CSF.Screenplay.WebApis.ParameterizedEndpoint`2" class="text-break">
-Class ParameterizedEndpoint&lt;TParameters, TResponse&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/ParameterizedEndpoint.withResult.cs/#L43"><i class="bi bi-code-slash"></i></a>
+Class ParameterizedEndpoint&lt;TParameters, TResult&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/ParameterizedEndpoint.withResult.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class ParameterizedEndpoint&lt;TParameters, TResponse&gt;  <a class="header-acti
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ParameterizedEndpoint&lt;TParameters, TResponse&gt; : EndpointBase, IHasName</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ParameterizedEndpoint&lt;TParameters, TResult&gt; : EndpointBase, IHasName</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Class ParameterizedEndpoint&lt;TParameters, TResponse&gt;  <a class="header-acti
     <dt><code>TParameters</code></dt>
     <dd><p>The type of the parameters object which is required to create an HTTP request message</p>
 </dd>
-    <dt><code>TResponse</code></dt>
+    <dt><code>TResult</code></dt>
     <dd><p>The type of response that the endpoint is expected to return.</p>
 </dd>
   </dl>
@@ -122,7 +122,7 @@ Class ParameterizedEndpoint&lt;TParameters, TResponse&gt;  <a class="header-acti
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="CSF.Screenplay.WebApis.EndpointBase.html">EndpointBase</a></div>
-      <div><span class="xref">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</span></div>
+      <div><span class="xref">ParameterizedEndpoint&lt;TParameters, TResult&gt;</span></div>
     </dd>
   </dl>
 
@@ -204,7 +204,7 @@ When deriving from this class, developers are strongly encouraged to set the <a 
 name for this endpoint. This will improve the readability of reports.
 </p>
 <p>
-For more information, see the documentation article for <a class="xref" href="../docs/performables/WebApis.html">using web APIs</a>.
+For more information, see the documentation article for <a class="xref" href="../docs/extensions/webApis/index.html">using web APIs</a>.
 </p>
 </div>
 
@@ -220,7 +220,7 @@ For more information, see the documentation article for <a class="xref" href="..
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/ParameterizedEndpoint.withResult.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</a> with a relative URI and an optional HTTP method.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResult&gt;</a> with a relative URI and an optional HTTP method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -265,7 +265,7 @@ If you omit the HTTP method, then the created builder will also not specify an H
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.WebApis/ParameterizedEndpoint.withResult.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResponse&gt;</a> with a URI and an optional HTTP method.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html">ParameterizedEndpoint&lt;TParameters, TResult&gt;</a> with a URI and an optional HTTP method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -317,7 +317,7 @@ and the specified parameters value.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract HttpRequestMessageBuilder&lt;TResponse&gt; GetHttpRequestMessageBuilder(TParameters parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract HttpRequestMessageBuilder&lt;TResult&gt; GetHttpRequestMessageBuilder(TParameters parameters)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -329,7 +329,7 @@ and the specified parameters value.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder</a>&lt;TResponse&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.WebApis.HttpRequestMessageBuilder-1.html">HttpRequestMessageBuilder</a>&lt;TResult&gt;</dt>
     <dd><p>An HTTP request message builder</p>
 </dd>
   </dl>

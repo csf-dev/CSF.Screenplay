@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>CSF.Screenplay.WebApis Extension | Screenplay </title>
+      <title>Request actions | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="CSF.Screenplay.WebApis Extension | Screenplay ">
+      <meta name="title" content="Request actions | Screenplay ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/Requests.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,50 +84,33 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WebApisArticle">
-<h1 id="csfscreenplaywebapis-extension">CSF.Screenplay.WebApis Extension</h1>
+        <article data-uid="">
+<h1 id="request-actions">Request actions</h1>
 
-<p>The Web APIs Extension allows <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actors</a> to communicate with HTTP web API endpoints within a Screenplay <a class="xref" href="../../../api/CSF.Screenplay.IPerformance.html">Performance</a>.</p>
-<h2 id="overview">Overview</h2>
-<p>The fundamentals of this Screenplay extension are shown in the diagram below.
-The concepts of the <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actor</a> and <a class="xref" href="../../../glossary/Ability.html">Ability</a> (the ability is named <a class="xref" href="../../../api/CSF.Screenplay.WebApis.MakeWebApiRequests.html"><code>MakeWebApiRequests</code></a>) are explained in Screenplay's core documentation.
-Other concepts are explained below.</p>
-<p>This extension provides <strong><a href="../../../glossary/Action.html">Actions</a></strong> which allow the Actor to build and send <a href="Requests.html">HTTP requests</a> based upon <a href="Endpoints.html">Endpoint</a> definitions.
-These requests are sent via the HTTP client which is exposed by the <a class="xref" href="../../../api/CSF.Screenplay.WebApis.MakeWebApiRequests.html"><code>MakeWebApiRequests</code></a> Ability, to a live API server.
-The server returns an <a href="Responses.html">HTTP Response</a>, which the extension formats into a result object.</p>
-<pre><code class="lang-mermaid">flowchart 
-  Ability -- &quot;Has ability&quot; --&gt; Actor
-  Actor -- &quot;Makes requests&quot; --&gt; Request
-  Endpoint -- &quot;Requests target&quot; --&gt; Request
-  Request --&gt; api[&quot;Live API&quot;]
-  Ability -- &quot;Facilitates request&quot; --&gt; api
-  api --&gt; Response
-
-  style api fill:#ee9,stroke:#bb6
-</code></pre>
-<p>Note that the <strong>Live API</strong> in this diagram <em>is not a part of Screenplay or this extension</em>.
-The Live API represents an actual  HTTP(S) web server which hosts the API with which Screenplay is communicating.</p>
-<h2 id="usage-example">Usage example</h2>
-<p>Here is a brief usage example for using a JSON API with a defined endpoint, identified by URL and HTTP method.
-The endpoint expects a parameter of a <code>PersonId</code> (a fictitious class, which accepts a person's name as a constructor parameter).
-The endpoint returns a JSON-formatted response which is a representation of an <code>Animal</code> (another fictitious class, which has a string <code>Name</code> property).</p>
-<pre><code class="lang-csharp">using static CSF.Screenplay.WebApis.WebApiBuilder;
-
-static readonly JsonEndpoint&lt;PersonId,Animal&gt; getFavouriteAnimal = new (&quot;https://api.example.com/person/getFavouriteAnimal&quot;, HttpMethod.Post);
-
-// this method would appear as part of a custom-written Task class,
-// deriving from IPerformableWithResult&lt;string&gt;
-public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
-{
-    var animal = await actor.PerformAsync(GetTheJsonResult(getFavouriteAnimal, new(&quot;Jane Doe&quot;)), cancellationToken);
-    return animal.Name;
-}
-</code></pre>
+<p>Sending an HTTP request to an API is accomplished using a Screenplay <a href="../../../glossary/Action.html">Action</a>.
+There are three action types available; which to use depends upon the expected response from the API.
+<a href="ChoosingEndpointsAndRequests.html">This article helps you choose the appropriate combination of Request Action and Endpoint types</a>.</p>
+<h2 id="the-three-action-types">The three action types</h2>
+<p>As might be evident from their names, each request action type is used for a different kind of expected response message.
+In the case of <code>SendTheHttpRequest</code>, there is no response expected (or the response will be ignored).
+The other two types are for either a JSON response or a response which requires custom deserialization.</p>
+<ul>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.SendTheHttpRequest.html"><code>SendTheHttpRequest</code></a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetJsonResponse-1.html"><code>SendTheHttpRequestAndGetJsonResponse&lt;TResponse&gt;</code></a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.SendTheHttpRequestAndGetTheResponse-1.html"><code>SendTheHttpRequestAndGetTheResponse&lt;TResponse&gt;</code></a></li>
+</ul>
+<h2 id="use-webapibuilder-to-simplify-usage">Use <code>WebApiBuilder</code> to simplify usage</h2>
+<p>A builder/helper class is available to simplify getting the appropriate Request action; this is <a class="xref" href="../../../api/CSF.Screenplay.WebApis.WebApiBuilder.html"><code>WebApiBuilder</code></a>.
+The recommended way to consume this is to add <code>using static CSF.Screenplay.WebApis.WebApiBuilder;</code> to the source file for any <a href="../../../glossary/Performable.html">Performable</a> you write which consumes Web APIs via this extension.</p>
+<p>When an approproate <a href="Endpoints.html">Endpoint</a> type has been used, the <a class="xref" href="../../../api/CSF.Screenplay.WebApis.WebApiBuilder.html"><code>WebApiBuilder</code></a> class will make it very easy to select the correct action, via type inference.
+To get a request for an API function which is expected to return a JSON-formatted response, use the method <code>GetTheJsonResult</code>.
+To get a request for any other API function, use the method <code>SendTheHttpRequest</code>.
+Both of these methods have several overloads, for each type of endpoint which could use them.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/Requests.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

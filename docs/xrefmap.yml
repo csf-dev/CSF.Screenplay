@@ -16769,59 +16769,59 @@ references:
   nameWithType: ParameterizedEndpoint<TParameters>.GetHttpRequestMessageBuilder
   nameWithType.vb: ParameterizedEndpoint(Of TParameters).GetHttpRequestMessageBuilder
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2
-  name: ParameterizedEndpoint<TParameters, TResponse>
+  name: ParameterizedEndpoint<TParameters, TResult>
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html
   commentId: T:CSF.Screenplay.WebApis.ParameterizedEndpoint`2
-  name.vb: ParameterizedEndpoint(Of TParameters, TResponse)
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse)
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse)
+  name.vb: ParameterizedEndpoint(Of TParameters, TResult)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult)
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult)
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
   name: ParameterizedEndpoint(string, HttpMethod)
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_System_String_System_Net_Http_HttpMethod_
   commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.String,System.Net.Http.HttpMethod)
   name.vb: New(String, HttpMethod)
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(string, System.Net.Http.HttpMethod)
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New(String, System.Net.Http.HttpMethod)
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(string, HttpMethod)
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New(String, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint(string, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult).New(String, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint(string, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult).New(String, HttpMethod)
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
   name: ParameterizedEndpoint(Uri, HttpMethod)
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_System_Uri_System_Net_Http_HttpMethod_
   commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor(System.Uri,System.Net.Http.HttpMethod)
   name.vb: New(Uri, HttpMethod)
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(System.Uri, System.Net.Http.HttpMethod)
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New(System.Uri, System.Net.Http.HttpMethod)
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint(Uri, HttpMethod)
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New(Uri, HttpMethod)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint(System.Uri, System.Net.Http.HttpMethod)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult).New(System.Uri, System.Net.Http.HttpMethod)
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint(Uri, HttpMethod)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult).New(Uri, HttpMethod)
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor*
   name: ParameterizedEndpoint
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2__ctor_
   commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).New
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.ParameterizedEndpoint
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).New
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult).New
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>.ParameterizedEndpoint
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult).New
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder(`0)
   name: GetHttpRequestMessageBuilder(TParameters)
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2_GetHttpRequestMessageBuilder__0_
   commentId: M:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder(`0)
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder(TParameters)
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder(TParameters)
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder(TParameters)
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder(TParameters)
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder(TParameters)
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder(TParameters)
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder(TParameters)
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder(TParameters)
 - uid: CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder*
   name: GetHttpRequestMessageBuilder
   href: api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html#CSF_Screenplay_WebApis_ParameterizedEndpoint_2_GetHttpRequestMessageBuilder_
   commentId: Overload:CSF.Screenplay.WebApis.ParameterizedEndpoint`2.GetHttpRequestMessageBuilder
   isSpec: "True"
-  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder
-  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder
-  nameWithType: ParameterizedEndpoint<TParameters, TResponse>.GetHttpRequestMessageBuilder
-  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResponse).GetHttpRequestMessageBuilder
+  fullName: CSF.Screenplay.WebApis.ParameterizedEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder
+  fullName.vb: CSF.Screenplay.WebApis.ParameterizedEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder
+  nameWithType: ParameterizedEndpoint<TParameters, TResult>.GetHttpRequestMessageBuilder
+  nameWithType.vb: ParameterizedEndpoint(Of TParameters, TResult).GetHttpRequestMessageBuilder
 - uid: CSF.Screenplay.WebApis.SendTheHttpRequest
   name: SendTheHttpRequest
   href: api/CSF.Screenplay.WebApis.SendTheHttpRequest.html
@@ -17105,5 +17105,5 @@ references:
   name: Task
   href: glossary/Task.html
 - uid: WebApisArticle
-  name: Web APIs
-  href: docs/performables/WebApis.html
+  name: CSF.Screenplay.WebApis Extension
+  href: docs/extensions/webApis/index.html

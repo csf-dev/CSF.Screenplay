@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>CSF.Screenplay.WebApis Extension | Screenplay </title>
+      <title>Endpoints | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="CSF.Screenplay.WebApis Extension | Screenplay ">
+      <meta name="title" content="Endpoints | Screenplay ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/Endpoints.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,50 +84,39 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WebApisArticle">
-<h1 id="csfscreenplaywebapis-extension">CSF.Screenplay.WebApis Extension</h1>
+        <article data-uid="">
+<h1 id="endpoints">Endpoints</h1>
 
-<p>The Web APIs Extension allows <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actors</a> to communicate with HTTP web API endpoints within a Screenplay <a class="xref" href="../../../api/CSF.Screenplay.IPerformance.html">Performance</a>.</p>
-<h2 id="overview">Overview</h2>
-<p>The fundamentals of this Screenplay extension are shown in the diagram below.
-The concepts of the <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actor</a> and <a class="xref" href="../../../glossary/Ability.html">Ability</a> (the ability is named <a class="xref" href="../../../api/CSF.Screenplay.WebApis.MakeWebApiRequests.html"><code>MakeWebApiRequests</code></a>) are explained in Screenplay's core documentation.
-Other concepts are explained below.</p>
-<p>This extension provides <strong><a href="../../../glossary/Action.html">Actions</a></strong> which allow the Actor to build and send <a href="Requests.html">HTTP requests</a> based upon <a href="Endpoints.html">Endpoint</a> definitions.
-These requests are sent via the HTTP client which is exposed by the <a class="xref" href="../../../api/CSF.Screenplay.WebApis.MakeWebApiRequests.html"><code>MakeWebApiRequests</code></a> Ability, to a live API server.
-The server returns an <a href="Responses.html">HTTP Response</a>, which the extension formats into a result object.</p>
-<pre><code class="lang-mermaid">flowchart 
-  Ability -- &quot;Has ability&quot; --&gt; Actor
-  Actor -- &quot;Makes requests&quot; --&gt; Request
-  Endpoint -- &quot;Requests target&quot; --&gt; Request
-  Request --&gt; api[&quot;Live API&quot;]
-  Ability -- &quot;Facilitates request&quot; --&gt; api
-  api --&gt; Response
-
-  style api fill:#ee9,stroke:#bb6
-</code></pre>
-<p>Note that the <strong>Live API</strong> in this diagram <em>is not a part of Screenplay or this extension</em>.
-The Live API represents an actual  HTTP(S) web server which hosts the API with which Screenplay is communicating.</p>
-<h2 id="usage-example">Usage example</h2>
-<p>Here is a brief usage example for using a JSON API with a defined endpoint, identified by URL and HTTP method.
-The endpoint expects a parameter of a <code>PersonId</code> (a fictitious class, which accepts a person's name as a constructor parameter).
-The endpoint returns a JSON-formatted response which is a representation of an <code>Animal</code> (another fictitious class, which has a string <code>Name</code> property).</p>
-<pre><code class="lang-csharp">using static CSF.Screenplay.WebApis.WebApiBuilder;
-
-static readonly JsonEndpoint&lt;PersonId,Animal&gt; getFavouriteAnimal = new (&quot;https://api.example.com/person/getFavouriteAnimal&quot;, HttpMethod.Post);
-
-// this method would appear as part of a custom-written Task class,
-// deriving from IPerformableWithResult&lt;string&gt;
-public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken)
-{
-    var animal = await actor.PerformAsync(GetTheJsonResult(getFavouriteAnimal, new(&quot;Jane Doe&quot;)), cancellationToken);
-    return animal.Name;
-}
-</code></pre>
+<p><strong>Endpoints</strong> are fundamental to this extension; they are .NET class instances which describe a piece of API functionality which may be consumed.
+The single most important (and obvious) piece of information stored in an endpoint object is the URL (route) which is used to communicate with the API function.</p>
+<h2 id="endpoint-classes">Endpoint classes</h2>
+<p>The WebAPIs Screenplay extension provides a number of classes by which to describe endpoints.
+Developers using this extension are encouraged to create 'libraries' of Endpoints within their own logic.
+Such a library might be as simple as a <code>static class</code> which contains <code>public static</code> get-only properties, each of which returns a named endpoint.
+Every endpoint class derives from a base class named <a class="xref" href="../../../api/CSF.Screenplay.WebApis.EndpointBase.html"><code>EndpointBase</code></a>.</p>
+<p>The endpoint classes available are listed below.
+There is also <a href="ChoosingEndpointsAndRequests.html">an article indicating how to choose an appropriate combination</a> of Endpoint and <a href="Requests.html">Request action</a>.</p>
+<ul>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.Endpoint.html"><code>Endpoint</code></a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.Endpoint-1.html"><code>Endpoint&lt;TResponse&gt;</code></a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.ParameterizedEndpoint-1.html"><code>ParameterizedEndpoint&lt;TParameters&gt;</code></a> - <em>intended to be used as a base class</em></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.ParameterizedEndpoint-2.html"><code>ParameterizedEndpoint&lt;TParameters,TResponse&gt;</code></a> - <em>intended to be used as a base class</em></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.JsonEndpoint-1.html"><code>JsonEndpoint&lt;TParameters&gt;</code></a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.JsonEndpoint-2.html"><code>JsonEndpoint&lt;TParameters,TResponse&gt;</code></a></li>
+</ul>
+<h2 id="common-to-all-endpoints">Common to all endpoints</h2>
+<p>All endpoints describe:</p>
+<ul>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase__ctor_System_Uri_System_Net_Http_HttpMethod_">The URL pattern to reach the endpoint</a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase__ctor_System_Uri_System_Net_Http_HttpMethod_">The HTTP method used with the endpoint</a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Name">A human-readable name for the endpoint</a></li>
+<li><a class="xref" href="../../../api/CSF.Screenplay.WebApis.EndpointBase.html#CSF_Screenplay_WebApis_EndpointBase_Timeout">An optional timeout for the endpoint</a></li>
+</ul>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/webApis/Endpoints.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
