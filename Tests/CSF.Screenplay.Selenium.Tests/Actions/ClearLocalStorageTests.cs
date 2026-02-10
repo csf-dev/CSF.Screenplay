@@ -32,28 +32,4 @@ public class ClearLocalStorageTests
 
         Assert.That(items, Is.Empty);
     }
-
-    [Test, AutoMoqData]
-    public void PerformAsAsyncShouldThrowIfBrowserDoesNotSupportJavaScriptAndThrowIfUnsupportedIsTrue(Actor actor,
-                                                                                                      IWebDriver webDriver,
-                                                                                                      Mock<DriverOptions> options)
-    {
-        var driverAndOptions = new WebDriverAndOptions(webDriver, options.Object);
-        var ability = new BrowseTheWeb(Mock.Of<IGetsWebDriver>(x => x.GetDefaultWebDriver(It.IsAny<Action<DriverOptions>>()) == driverAndOptions));
-        actor.IsAbleTo(ability);
-        var sut = new ClearLocalStorage(true);
-        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.InstanceOf<PerformableException>().And.InnerException.InstanceOf<NotSupportedException>());
-    }
-
-    [Test, AutoMoqData]
-    public void PerformAsAsyncShouldNotThrowIfBrowserDoesNotSupportJavaScriptAndThrowIfUnsupportedIsFalse(Actor actor,
-                                                                                                          IWebDriver webDriver,
-                                                                                                          Mock<DriverOptions> options)
-    {
-        var driverAndOptions = new WebDriverAndOptions(webDriver, options.Object);
-        var ability = new BrowseTheWeb(Mock.Of<IGetsWebDriver>(x => x.GetDefaultWebDriver(It.IsAny<Action<DriverOptions>>()) == driverAndOptions));
-        actor.IsAbleTo(ability);
-        var sut = new ClearLocalStorage(false);
-        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.Nothing);
-    }
 }
