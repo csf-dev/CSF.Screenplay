@@ -48,6 +48,9 @@
       "_appTitle": "Screenplay",
       "_enableSearch": true,
       "pdf": false
-    }
+    },
+    "xref": [
+      "https://www.selenium.dev/selenium/docs/api/dotnet/xrefmap.yml"
+    ]
   }
 }
