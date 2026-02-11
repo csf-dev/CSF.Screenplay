@@ -7,10 +7,13 @@ Broadly, these actions fall into the following categories:
 * Actions which interact directly with the web browser, such as _"take a screenshot"_ or _"clear the cookies for the current domain"_.
 * Actions which represent waiting for something, such as _"wait until the progress bar reaches 100%"_ or _"wait until the shopping cart items are visible"_.
 
+Recall that Screenplay Actions _do something_ without getting any result.
+To interrogate a web page (to observe it in some manner), use [one of the Selenium extension's Questions].
 Below is a summary of each of these actions' usage, with a link to their detailed documentation page.
 
 [Actions]: ../../../glossary/Action.md
 [a target]: Targets.md
+[one of the Selenium extension's Questions]: Questions.md
 
 ## Actions that work with targets
 
@@ -45,7 +48,7 @@ Below is a summary of each of these actions' usage, with a link to their detaile
 | [`ClearCookies`]          | Clear the web browser cookies for the current site (domain)                       |
 | [`ClearLocalStorage`]     | Clear the web browser [local storage] for the current site (domain)               |
 | [`DeleteTheCookie`]       | Delete a single named cookie                                                      |
-| [`ExecuteJavaScript`]     | Executes a JavaScript directly in the browser and reads the result, if applicable |
+| [`ExecuteJavaScript`]     | Executes a JavaScript directly in the browser                                     |
 | [`OpenUrl`]               | Directs the browser to open a specified URL                                       |
 | [`SaveScreenshot`]        | Saves a screenshot to a file                                                      |
 

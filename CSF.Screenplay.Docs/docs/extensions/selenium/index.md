@@ -17,14 +17,12 @@ The control of web browsers in this manner is the origin of [the Screenplay patt
 Like many extensions, the Selenium extension provides:
 
 * An **[Ability]** named [`BrowseTheWeb`] which provides access to the WebDriver API
-* Several **[Actions]** and **[Questions]** which interact with the Web Browser in Screenplay syntax
-  * [List of the actions provided by this extension]
-  * [List of the questions provided by this extension]
-* A number of **[Tasks]** which deal with commonly-encountered issues
-  * [List of the tasks provided by this extension]
+* Several [Actions, which allow an actor to interact with the web page]
+* Several [Questions, which allow an actor to read or observe the web page]
+* [Tasks, for commonly-performed combinations of actions & questions]
 * Models representing the UI, URLs and areas of the page
   * The [`NamedUri`] class is used to navigate to specific pages
-  * Types which derive from [`ITarget`] provide [references to HTML elements on the page]
+  * Types which provide [references to HTML elements on the page], deriving from [`ITarget`]
 
 Many of the [Performables] provided by this extension operate in the format _"Actor performs X action upon Y element"_.
 A core benefit of Screenplay (over Page Object pattern) is the separation of _the functionality_ (the logic of the interaction) and _the UI elements_ (the target of the interaction).
@@ -32,12 +30,9 @@ This improves reusability and composability.
 
 [Ability]: ../../../glossary/Ability.md
 [`BrowseTheWeb`]: xref:CSF.Screenplay.Selenium.BrowseTheWeb
-[Actions]: ../../../glossary/Action.md
-[Questions]: ../../../glossary/Question.md
-[List of the actions provided by this extension]: Actions.md
-[List of the questions provided by this extension]: Questions.md
-[Tasks]: ../../../glossary/Task.md
-[List of the tasks provided by this extension]: Tasks.md
+[Actions, which allow an actor to interact with the web page]: Actions.md
+[Questions, which allow an actor to read or observe the web page]: Questions.md
+[Tasks, for commonly-performed combinations of actions & questions]: Tasks.md
 [`NamedUri`]: xref:CSF.Screenplay.Selenium.NamedUri
 [`ITarget`]: xref:CSF.Screenplay.Selenium.Elements.ITarget
 [references to HTML elements on the page]: Targets.md
