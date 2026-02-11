@@ -10,7 +10,7 @@ Broadly, these actions fall into the following categories:
 Below is a summary of each of these actions' usage, with a link to their detailed documentation page.
 
 [Actions]: ../../../glossary/Action.md
-[a target]: Elements.md
+[a target]: Targets.md
 
 ## Actions that work with targets
 

@@ -18,13 +18,13 @@ Like many extensions, the Selenium extension provides:
 
 * An **[Ability]** named [`BrowseTheWeb`] which provides access to the WebDriver API
 * Several **[Actions]** and **[Questions]** which interact with the Web Browser in Screenplay syntax
-    * [List of the actions provided by this extension]
-    * [List of the questions provided by this extension]
+  * [List of the actions provided by this extension]
+  * [List of the questions provided by this extension]
 * A number of **[Tasks]** which deal with commonly-encountered issues
-    * [List of the tasks provided by this extension]
+  * [List of the tasks provided by this extension]
 * Models representing the UI, URLs and areas of the page
-    * The [`NamedUri`] class is used to navigate to specific pages
-    * Types which derive from [`ITarget`] provide [references to HTML elements on the page]
+  * The [`NamedUri`] class is used to navigate to specific pages
+  * Types which derive from [`ITarget`] provide [references to HTML elements on the page]
 
 Many of the [Performables] provided by this extension operate in the format _"Actor performs X action upon Y element"_.
 A core benefit of Screenplay (over Page Object pattern) is the separation of _the functionality_ (the logic of the interaction) and _the UI elements_ (the target of the interaction).
@@ -40,7 +40,7 @@ This improves reusability and composability.
 [List of the tasks provided by this extension]: Tasks.md
 [`NamedUri`]: xref:CSF.Screenplay.Selenium.NamedUri
 [`ITarget`]: xref:CSF.Screenplay.Selenium.Elements.ITarget
-[references to HTML elements on the page]: Elements.md
+[references to HTML elements on the page]: Targets.md
 [Performables]: ../../../glossary/Performable.md
 
 ## Additional contents
@@ -53,4 +53,4 @@ The types listed above are the core of the Selenium plugin, but there's more ava
 
 [the Browser Quirks feature of CSF.Extensions.WebDriver]: https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html
 [`Color`]: xref:CSF.Screenplay.Selenium.Color
-[Named Script]: NamedScripts.cs
+[Named Script]: NamedScripts.md

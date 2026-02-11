@@ -2,3 +2,11 @@
   href: index.md
 - name: Actions
   href: Actions.md
+- name: Questions
+  href: Questions.md
+- name: Tasks
+  href: Tasks.md
+- name: Targets
+  href: Targets.md
+- name: Named scripts
+  href: NamedScripts.md
