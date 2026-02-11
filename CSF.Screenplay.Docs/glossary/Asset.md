@@ -19,6 +19,8 @@ Indeed, _asset files must not be created or saved_ if [reporting is disabled].
 [Screenplay's]: xref:CSF.Screenplay.Screenplay
 [reporting is disabled]: TODO
 
-## How to create assets
+## Learn more about Assets
 
-TODO: Write this docco
+Further information about working with Assets [is available in the documentation].
+
+[is available in the documentation]: xref:AssetsArticle

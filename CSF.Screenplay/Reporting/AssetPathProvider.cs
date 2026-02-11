@@ -28,6 +28,11 @@ namespace CSF.Screenplay.Reporting
     /// This type is somewhat stateful, because it maintains an internal counter in order to provide the asset numbers (described above).
     /// It should be consumed from dependency injection as a scoped service, so that each performance has its own instance of this type.
     /// </para>
+    /// <para>
+    /// This class is intended for internal Screenplay usage.  Normal consumers of Screenplay should not concern themselves
+    /// with this detail.  Instead they should grant the <see cref="Abilities.GetAssetFilePaths"/> to actors who should be
+    /// able to save <xref href="AssetGlossaryItem?text=asset+files"/>.
+    /// </para>
     /// </remarks>
     public class AssetPathProvider : IGetsAssetFilePath
     {
