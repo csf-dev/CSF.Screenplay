@@ -6,14 +6,17 @@
         -->
         <member name="M:CSF.Screenplay.Selenium.Actions.ISingleElementPerformable">
             <para>
-                This class is not a complete action, as it relies upon shared logic to retrieve the
-                <see cref="SeleniumElement"/> upon which it shall act.  It has this in common with most of the Screenplay
-                actions in the Selenium Plugin which operate upon a single element (those which derive from
-                <see cref="ISingleElementPerformable"/>). In order for an instance of this class to be used as a full
-                <xref href="PerformableGlossaryItem?text=performable"/>, the instance must be wrapped within an instance
-                of <see cref="SingleElementPerformableAdapter"/>.
-                Note that the builder method(s) mentioned above take care of this, so normal usage does not need to
-                deal with this factor.
+                This class is not a complete <xref href="PerformableGlossaryItem?text=performable"/>, as it relies
+                upon shared logic to retrieve the <see cref="SeleniumElement"/> upon which it shall act.
+                It has this in common with most of the Screenplay
+                actions in the Selenium Plugin which operate upon a single element, those which derive from
+                <see cref="ISingleElementPerformable"/>. In order for this class to be used as a full-fledged
+                <xref href="PerformableGlossaryItem?text=performable"/>, an instance of this type must be wrapped
+                within an instance of <see cref="SingleElementPerformableAdapter"/>.
+                The adapter class provides the shared boilerplate logic which provides access to the Selenium Element.
+                Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+                logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+                concerned with this factor.
             </para>
         </member>
     </members>
