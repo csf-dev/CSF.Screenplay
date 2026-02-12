@@ -5,13 +5,18 @@ namespace CSF.Screenplay
     /// <summary>A persona is a factory for a commonly-used actor</summary>
     /// <remarks>
     /// <para>
-    /// In Screenplay is is recommended to use memorable actors which are widely understood and recognisable
-    /// by the team. This is easier if the composition of an actor is the same across every <see cref="IPerformance"/> in which
+    /// In Screenplay is is recommended to use &amp; reuse memorable actors, which are widely understood and recognisable
+    /// to the development team. This is easier if the composition of an actor is the same across every <see cref="IPerformance"/> in which
     /// they participate.
     /// </para>
     /// <para>
-    /// By using a separate persona implementation for each named actor, the developer can ensure consistent creation
-    /// for instances of those actors.
+    /// Use classes which derive from this interface to define those memorable
+    /// actors. The persona class should configure the actor it creates with a name and
+    /// a set of abilities appropriate to the actor.
+    /// </para>
+    /// <para>
+    /// Classes which derive from this interface should constructor-inject any dependencies
+    /// they require, such as those required to grant abilities.
     /// </para>
     /// </remarks>
     public interface IPersona : IHasName
