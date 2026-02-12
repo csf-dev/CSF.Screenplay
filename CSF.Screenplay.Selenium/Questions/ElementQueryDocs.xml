@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <members>
+        <!--
+            This documentation node is shared by all Questions which derive from ISingleElementPerformableWithResult<T>.
+        -->
+        <member name="M:CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult`1">
+            <para>
+                This class is not a complete <xref href="PerformableGlossaryItem?text=performable"/>, as it relies
+                upon shared logic to retrieve the <see cref="SeleniumElement"/> which it queries.
+                It has this in common with a number of Screenplay
+                questions in the Selenium Plugin which observe a single element, those which derive from
+                <see cref="ISingleElementPerformableWithResult{TResult}"/>. In order for this class to be used as a full-fledged
+                <xref href="PerformableGlossaryItem?text=performable"/>, an instance of this type must be wrapped
+                within an instance of <see cref="SingleElementPerformableWithResultAdapter{TResult}"/>.
+                The adapter class provides the shared boilerplate logic which provides access to the Selenium Element.
+                Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+                logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+                concerned with this factor.
+            </para>
+        </member>
+        <member name="M:CSF.Screenplay.Selenium.Questions.IElementCollectionPerformableWithResult`1">
+            <para>
+                This class is not a complete <xref href="PerformableGlossaryItem?text=performable"/>, as it relies
+                upon shared logic to retrieve the <see cref="SeleniumElementCollection"/> which it queries.
+                It has this in common with a number of Screenplay
+                questions in the Selenium Plugin which observe collections of elements, those which derive from
+                <see cref="IElementCollectionPerformableWithResult{TResult}"/>. In order for this class to be used as a full-fledged
+                <xref href="PerformableGlossaryItem?text=performable"/>, an instance of this type must be wrapped
+                within an instance of <see cref="ElementCollectionPerformableWithResultAdapter{TResult}"/>.
+                The adapter class provides the shared boilerplate logic which provides access to the Selenium Element Collection.
+                Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+                logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+                concerned with this factor.
+            </para>
+        </member>
+    </members>
+</doc>

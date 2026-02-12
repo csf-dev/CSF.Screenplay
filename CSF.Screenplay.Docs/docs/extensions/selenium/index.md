@@ -16,7 +16,7 @@ The control of web browsers in this manner is the origin of [the Screenplay patt
 
 Like many extensions, the Selenium extension provides:
 
-* An **[Ability]** named [`BrowseTheWeb`] which provides access to the WebDriver API
+* The [Ability] [`BrowseTheWeb`], which provides access to the WebDriver API
 * Several [Actions, which allow an actor to interact with the web page]
 * Several [Questions, which allow an actor to read or observe the web page]
 * [Tasks, for commonly-performed combinations of actions & questions]

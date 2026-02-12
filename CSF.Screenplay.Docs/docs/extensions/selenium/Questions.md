@@ -38,13 +38,14 @@ The possibilities are explained in detail on the questions' detailed documentati
 
 | Question                              | Usage                                                                     |
 | --------                              | -----                                                                     |
-| [`FindElement`]                       | Gets [an element] which matches a [query]                                 |
-| [`FindElements`]                      | Gets [a collection of elements] which match a [query]                     |
+| [`FindElement`]                       | Gets [an element] which matches a [`Locator`]                             |
+| [`FindElements`]                      | Gets [a collection of elements] which match a [`Locator`]                 |
 | [`FilterElements`]                    | Filters [a collection of elements] for those which match a [query]        |
 
 [`FindElement`]: xref:CSF.Screenplay.Selenium.Questions.FindElement
 [`FindElements`]: xref:CSF.Screenplay.Selenium.Questions.FindElements
 [`FilterElements`]: xref:CSF.Screenplay.Selenium.Questions.FilterElements
+[`Locator`]: xref:CSF.Screenplay.Selenium.Elements.Locator
 [query]: Queries.md
 [an element]: xref:CSF.Screenplay.Selenium.Elements.SeleniumElement
 [a collection of elements]: xref:CSF.Screenplay.Selenium.Elements.SeleniumElementCollection

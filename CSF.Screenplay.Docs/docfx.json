@@ -50,7 +50,8 @@
       "pdf": false
     },
     "xref": [
-      "https://www.selenium.dev/selenium/docs/api/dotnet/xrefmap.yml"
+      "https://www.selenium.dev/selenium/docs/api/dotnet/xrefmap.yml",
+      "https://csf-dev.github.io/CSF.Extensions.WebDriver/xrefmap.yml"
     ]
   }
 }
