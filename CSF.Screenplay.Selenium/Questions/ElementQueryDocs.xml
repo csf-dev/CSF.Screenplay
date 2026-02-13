@@ -19,6 +19,9 @@
                 concerned with this factor.
             </para>
         </member>
+        <!--
+            This documentation node is shared by all Questions which derive from IElementCollectionPerformableWithResult<T>.
+        -->
         <member name="M:CSF.Screenplay.Selenium.Questions.IElementCollectionPerformableWithResult`1">
             <para>
                 This class is not a complete <xref href="PerformableGlossaryItem?text=performable"/>, as it relies
