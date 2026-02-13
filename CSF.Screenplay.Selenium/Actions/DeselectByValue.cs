@@ -43,6 +43,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.DeselectTheOptionWithValue(string)"/>
     public class DeselectByValue : ISingleElementPerformable
     {
         readonly string value;

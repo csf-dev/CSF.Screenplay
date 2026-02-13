@@ -35,6 +35,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ClearLocalStorage"/>
     public class ClearLocalStorage : IPerformable, ICanReport
     {
         /// <inheritdoc/>

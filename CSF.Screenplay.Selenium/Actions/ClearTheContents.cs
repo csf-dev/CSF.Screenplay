@@ -41,6 +41,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ClearTheContentsOf(ITarget)"/>
     public class ClearTheContents : ISingleElementPerformable
     {
         /// <inheritdoc/>

@@ -3,6 +3,7 @@ using System.Globalization;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Elements;
+using CSF.Screenplay.Selenium.Tasks;
 
 namespace CSF.Screenplay.Selenium.Builders
 {

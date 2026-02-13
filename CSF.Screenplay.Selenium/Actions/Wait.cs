@@ -84,6 +84,8 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.WaitUntil(Builders.IBuildsElementPredicates)"/>
+    /// <seealso cref="PerformableBuilder.WaitUntil(Func{IWebDriver, bool})"/>
     public class Wait : IPerformable, ICanReport
     {
         static readonly TimeSpan defaultTimeout = TimeSpan.FromSeconds(5);

@@ -43,6 +43,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.DeselectTheOption(int)"/>
     public class DeselectByIndex : ISingleElementPerformable
     {
         readonly int index;

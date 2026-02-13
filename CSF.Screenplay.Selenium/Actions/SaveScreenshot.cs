@@ -57,6 +57,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// </example>
     /// <seealso cref="Questions.TakeScreenshot"/>
     /// <seealso cref="Tasks.TakeAndSaveScreenshot"/>
+    /// <seealso cref="PerformableBuilder.SaveTheScreenshot(Screenshot)"/>
     public class SaveScreenshot : IPerformable, ICanReport
     {
         readonly Screenshot screenshot;

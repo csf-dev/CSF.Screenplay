@@ -5,12 +5,12 @@ using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-namespace CSF.Screenplay.Selenium.Actions
+namespace CSF.Screenplay.Selenium.Tasks
 {
     /// <summary>
     /// An action that sets the value of a web element using JavaScript.
     /// </summary>
-    public class SetTheElementValue : ISingleElementPerformable
+    public class SetTheElementValue : Actions.ISingleElementPerformable
     {
         readonly object value;
         readonly bool simulateInteractiveSet;

@@ -30,6 +30,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.DeleteTheCookieNamed(string)"/>
     public class DeleteTheCookie : IPerformable, ICanReport
     {
         readonly string cookieName;

@@ -41,6 +41,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// </code>
     /// </example>
     /// <seealso cref="Tasks.OpenUrlRespectingBase"/>
+    /// <seealso cref="PerformableBuilder.OpenTheUrl(NamedUri)"/>
     public class OpenUrl : IPerformable, ICanReport
     {
         readonly NamedUri uri;

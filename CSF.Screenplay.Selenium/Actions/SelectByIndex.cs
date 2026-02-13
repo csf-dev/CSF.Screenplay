@@ -52,6 +52,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.SelectTheOption(int)"/>
     public class SelectByIndex : ISingleElementPerformable
     {
         readonly int index;

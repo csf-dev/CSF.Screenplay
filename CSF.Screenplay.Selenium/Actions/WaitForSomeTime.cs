@@ -32,6 +32,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.WaitFor(TimeSpan)"/>
     public class WaitForSomeTime : IPerformable, ICanReport
     {
         readonly TimeSpan duration;

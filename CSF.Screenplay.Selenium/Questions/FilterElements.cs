@@ -68,6 +68,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.Filter(SeleniumElementCollection)"/>
     public class FilterElements : IPerformableWithResult<SeleniumElementCollection>, ICanReport
     {
         readonly IReadOnlyCollection<SeleniumElement> elements;

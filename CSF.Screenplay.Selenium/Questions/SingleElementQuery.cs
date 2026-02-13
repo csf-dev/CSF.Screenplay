@@ -42,6 +42,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ReadFromTheElement(ITarget)"/>
     public class SingleElementQuery<TResult> : ISingleElementPerformableWithResult<TResult>
     {
         readonly IQuery<TResult> query;

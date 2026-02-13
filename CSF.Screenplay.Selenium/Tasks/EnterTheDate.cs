@@ -7,7 +7,7 @@ using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-namespace CSF.Screenplay.Selenium.Actions
+namespace CSF.Screenplay.Selenium.Tasks
 {
     /// <summary>
     /// A <see cref="IPerformable"/> which represents an actor entering a date value into an <c>&lt;input type="date"&gt;</c> element.

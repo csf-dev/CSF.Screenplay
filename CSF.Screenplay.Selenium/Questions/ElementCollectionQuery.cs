@@ -44,6 +44,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ReadFromTheCollectionOfElements(ITarget)"/>
     public class ElementCollectionQuery<TResult> : IElementCollectionPerformableWithResult<TResult>
     {
         readonly IQuery<TResult> query;

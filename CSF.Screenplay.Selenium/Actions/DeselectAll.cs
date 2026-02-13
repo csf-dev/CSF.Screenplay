@@ -42,6 +42,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.DeselectEverythingFrom(ITarget)"/>
     public class DeselectAll : ISingleElementPerformable
     {
         /// <inheritdoc/>

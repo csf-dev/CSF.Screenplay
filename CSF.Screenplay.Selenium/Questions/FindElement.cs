@@ -50,6 +50,8 @@ namespace CSF.Screenplay.Selenium.Questions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.FindAnElementOnThePage"/>
+    /// <seealso cref="PerformableBuilder.FindAnElementWithin(ITarget)"/>
     public class FindElement : ISingleElementPerformableWithResult<SeleniumElement>
     {
         readonly string elementsName;

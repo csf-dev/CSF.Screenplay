@@ -52,6 +52,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.SelectTheOption(string)"/>
     public class SelectByText : ISingleElementPerformable
     {
         readonly string text;

@@ -46,6 +46,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.EnterTheText(string[])"/>
     public class SendKeys : ISingleElementPerformable
     {
         readonly string text;

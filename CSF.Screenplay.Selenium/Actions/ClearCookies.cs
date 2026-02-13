@@ -27,6 +27,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ClearAllDomainCookies"/>
     public class ClearCookies : IPerformable, ICanReport
     {
         /// <inheritdoc/>

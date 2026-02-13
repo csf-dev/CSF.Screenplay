@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using CSF.Screenplay.Selenium.Questions;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
@@ -22,7 +21,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// opening the developer tools Console, typing the script and its parameters there, and pressing enter.
     /// This action does not return any result from the script, so it is useful only when the script to execute
     /// does not return a result, or when the intent is to ignore the result.  If the result is important then use
-    /// <see cref="ExecuteJavaScriptAndGetResult{TResult}"/> instead.
+    /// <see cref="Questions.ExecuteJavaScriptAndGetResult{TResult}"/> instead.
     /// </para>
     /// <para>
     /// Within the script body, any parameters are accessible via the <c>arguments</c> object.  That object exposes the
@@ -49,6 +48,15 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript(NamedScript)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1}(NamedScript{T1}, T1)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2}(NamedScript{T1, T2}, T1, T2)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3}(NamedScript{T1, T2, T3}, T1, T2, T3)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4}(NamedScript{T1, T2, T3, T4}, T1, T2, T3, T4)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5}(NamedScript{T1, T2, T3, T4, T5}, T1, T2, T3, T4, T5)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5, T6}(NamedScript{T1, T2, T3, T4, T5, T6}, T1, T2, T3, T4, T5, T6)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5, T6, T7}(NamedScript{T1, T2, T3, T4, T5, T6, T7}, T1, T2, T3, T4, T5, T6, T7)"/>
+    /// <seealso cref="Questions.ExecuteJavaScriptAndGetResult{TResult}"/>
     public class ExecuteJavaScript : IPerformable, ICanReport
     {
         readonly string script;

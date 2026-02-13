@@ -36,6 +36,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
+    /// <seealso cref="PerformableBuilder.ClickOn(ITarget)"/>
     public class Click : ISingleElementPerformable
     {
         /// <inheritdoc/>
