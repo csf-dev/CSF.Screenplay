@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Scripts" data-uid="CSF.Screenplay.Selenium.Scripts" class="text-break">
-Class Scripts  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class Scripts  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -152,6 +152,8 @@ Class Scripts  <a class="header-action link-secondary" title="View source" href=
 Developers who use Screenplay &amp; Selenium and who need to develop their own custom JavaScripts are encouraged
 to devise their own classes similar to this one.
 This provides a rapid and type-safe mechanism of retrieving and reusing well-known/predefined JavaScripts.
+See <a class="xref" href="../docs/extensions/selenium/NamedScripts.html">the named scripts article</a> for more information about defining
+scripts with human-readable names and type safety.
 </p>
 </div>
 
@@ -164,7 +166,7 @@ This provides a rapid and type-safe mechanism of retrieving and reusing well-kno
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_ClearLocalStorage" data-uid="CSF.Screenplay.Selenium.Scripts.ClearLocalStorage">
   ClearLocalStorage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a> which clears the Local Storage of the browser, for the current domain.</p>
@@ -196,7 +198,7 @@ This provides a rapid and type-safe mechanism of retrieving and reusing well-kno
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState" data-uid="CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState">
   GetTheDocumentReadyState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a> which gets the value of <code>document.readyState</code> for the
@@ -232,7 +234,7 @@ current page.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_SetElementValue" data-uid="CSF.Screenplay.Selenium.Scripts.SetElementValue">
   SetElementValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript&lt;T1, T2&gt;</a> which sets the <code>value</code> of a specified HTML element.</p>
@@ -249,7 +251,7 @@ current page.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;<span class="xref">IWebElement</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -264,7 +266,7 @@ current page.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_SetElementValueSimulatedInteractively" data-uid="CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively">
   SetElementValueSimulatedInteractively
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript&lt;T1, T2&gt;</a> which sets the <code>value</code> of a specified HTML element, simulating setting it interactively.</p>
@@ -281,7 +283,7 @@ current page.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;<span class="xref">IWebElement</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -296,7 +298,7 @@ current page.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

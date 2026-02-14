@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_BrowserQuirks" data-uid="CSF.Screenplay.Selenium.BrowserQuirks" class="text-break">
-Class BrowserQuirks  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class BrowserQuirks  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -147,6 +147,12 @@ Class BrowserQuirks  <a class="header-action link-secondary" title="View source"
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_BrowserQuirks_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Quirks are a feature of the <a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/api/CSF.Extensions.WebDriver.IGetsWebDriver.html">universal WebDriver factory</a>.
+See <a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html">the WebDriver quirks article</a> for more information.
+</p>
+</div>
 
 
   <h2 class="section" id="fields">Fields
@@ -156,11 +162,11 @@ Class BrowserQuirks  <a class="header-action link-secondary" title="View source"
 
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys">
   CannotSetInputTypeDateWithSendKeys
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the name of a browser quirk which means that a Web Driver cannot set the value of an <code>&lt;input type=&quot;date&quot;&gt;</code> using
-&quot;Send Keys&quot;.</p>
+  <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browsers which cannot set the value of an <code>&lt;input type=&quot;date&quot;&gt;</code> using the
+&quot;Send Keys&quot; technique.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -183,24 +189,34 @@ Class BrowserQuirks  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section" id="CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Date input fields have patchy support amongst browsers and web drivers.  The UI which appears in order to set a date often responds
-poorly to typing a new date manually.  Additionally, the calendar UI which most browsers will render is not built from HTML elements
-and thus cannot be interacted with in the traditional way, by Web Drivers.  Thus, if we cannot 'type' a new date and cannot interact
+Some WebDriver implementations permit typing a locale-formatted date string into the HTML element, as if it were any other
+<code>&lt;input&gt;</code> element.  Other WebDriver implementations cannot interact with Date inputs in that way and
+can only enter a new value via a JavaScript workaround.  This quirk marks browsers which require such a workaround.
+</p>
+<p>
+The calendar UI which most browsers will render for a Date input field is not built from HTML elements
+and thus cannot be interacted with by a WebDriver.  Thus, if we cannot 'type' a new date and cannot interact
 by clicking on the calendar, all that remains is to use a JavaScript workaround to set the date.
 </p>
 </div>
 
 
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.EnterTheDate.html">EnterTheDate</a></div>
+    </dd>
+  </dl>
 
 
 
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad">
   NeedsToWaitAfterPageLoad
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the name of a browser quirk which means that - after navigation to a different page - the browser must be instructed to wait
-until the following page document is ready.</p>
+  <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browsers which must be instructed to wait after navigating to a new web page, until that new
+page has finished loading.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -223,17 +239,37 @@ until the following page document is ready.</p>
 
   <h4 class="section" id="CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Most Web Driver implementations, without this quirk, automatically wait for the 'incoming' page (in traditional web document
-navigation) to be ready before they attempt to interact with it.  That is - if the "document ready" event has not yet occurred,
-they will continue waiting.  Some browsers/web drivers (those with this quirk) need to be instructed to wait for that ready-state,
-or else they are liable to attempt to interact with a page which is not yet fully loaded.
+In traditional (non-SPA) web page navigation, there is a brief delay after clicking a hyperlink which navigates to a new web page.
+That delay is the time for the 'incoming' web page to load and render.  During that delay, the 'outgoing' web page is still visible
+on-screen.
 </p>
 <p>
-Note that this only applies to traditional web navigation.  It does not apply to navigating SPA-type apps.
+Most WebDriver implementations, those without this quirk, automatically wait during that loading delay. They do not execute further
+WebDriver commands until the 'incoming' web page has finished loading and is displayed on the screen. This prevents unexpected
+results and <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.NoSuchElementException.html">NoSuchElementException</a> being thrown, and similar.
+Browsers/WebDrivers which are affected by this quirk (at the time of writing, all versions of Apple Safari) do not wait during this
+loading delay. This means that unless they are explicitly instructed to wait, they can attempt to execute further WebDriver commands
+prematurely.
+</p>
+<p>
+The task <a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a> analyses the WebDriver for the presence of this quirk.
+If the quirk is present then the task inserts wait logic, to work around this behaviour of the affected Browser/WebDriver.
+This allows Selenium/Screenplay logic to be written in a manner that behaves consistently cross-browser.
+</p>
+<p>
+It is important to remember that this behaviour and quirk applies only to traditional web browser navigation.  That is a sequence
+in which the outgoing page is fully unloaded and the incoming page is retrieved and loaded from the webserver.  It does not apply
+to navigating through <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Applications</a>.
 </p>
 </div>
 
 
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a></div>
+    </dd>
+  </dl>
 
 
   <h2 class="section" id="methods">Methods
@@ -244,7 +280,7 @@ Note that this only applies to traditional web navigation.  It does not apply to
 
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_GetQuirksData" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData">
   GetQuirksData()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets hard-coded information about known browser quirks.</p>
@@ -258,7 +294,7 @@ Note that this only applies to traditional web navigation.  It does not apply to
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">QuirksData</span></dt>
+    <dt><a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/api/CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
     <dd><p>Quirks data, about the peculiarities of specific browsers.</p>
 </dd>
   </dl>
@@ -272,19 +308,24 @@ Note that this only applies to traditional web navigation.  It does not apply to
   <h4 class="section" id="CSF_Screenplay_Selenium_BrowserQuirks_GetQuirksData_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This information ships with CSF.Screenplay.Selenium.  It may be overridden by user-supplied configuration, should
-things change in the future.  See <a href="https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html">the
-browser quirks reference material</a> for more information.
+things change in the future.  See <a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html">the WebDriver quirks reference material</a>
+for more information.
 </p>
 </div>
 
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/api/CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></div>
+      <div><a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/api/CSF.Extensions.WebDriver.Quirks.IHasQuirks.html">IHasQuirks</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -195,7 +195,7 @@ Consume this class from your own Screenplay logic with <code>using static CSF.Sc
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorage">
   ClearLocalStorage()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable action which clears the local storage for the current domain.</p>
@@ -220,50 +220,6 @@ Consume this class from your own Screenplay logic with <code>using static CSF.Sc
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorage_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method gets a performable which will throw an exception if the WebDriver does not support the execution of JavaScript.
-To avoid this, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported">ClearLocalStorageIfSupported()</a> instead.
-</p>
-</div>
-
-
-
-
-  <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported*"></a>
-
-  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported">
-  ClearLocalStorageIfSupported()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L150"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets a performable action which clears the local storage for the current domain if the WebDriver supports it.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformable ClearLocalStorageIfSupported()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
-    <dd><p>A performable action</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method gets a performable which will do nothing if the WebDriver does not support execution of JavaScript.
-</p>
-</div>
 
 
 
@@ -2303,7 +2259,7 @@ This question makes use of an <a class="xref" href="CSF.Screenplay.Selenium.Quer
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadTheWindowTitle" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadTheWindowTitle">
   ReadTheWindowTitle()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L210"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the title of the current browser window.</p>
@@ -2349,7 +2305,7 @@ This question makes use of an <a class="xref" href="CSF.Screenplay.Selenium.Quer
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>screenshot</code> <span class="xref">Screenshot</span></dt>
+    <dt><code>screenshot</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a></dt>
     <dd><p>The Selenium screenshot instance</p>
 </dd>
   </dl>
@@ -2586,7 +2542,7 @@ human being would interact with the page.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<span class="xref">Screenshot</span>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a>&gt;</dt>
     <dd><p>A performable</p>
 </dd>
   </dl>
@@ -2629,7 +2585,7 @@ using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<span class="xref">Screenshot</span>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a>&gt;</dt>
     <dd><p>A performable</p>
 </dd>
   </dl>
@@ -2746,7 +2702,7 @@ screenshots, consider using <a class="xref" href="CSF.Screenplay.Selenium.Perfor
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_System_TimeSpan_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitFor(System.TimeSpan)">
   WaitFor(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L204"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable action that waits for a specified amount of time.</p>
@@ -2791,7 +2747,7 @@ This kind of wait waits for a specified time.  If you want to wait until a condi
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil(CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates)">
   WaitUntil(IBuildsElementPredicates)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which will create a performable question that waits until a predicate returns a successful result.</p>
@@ -2854,7 +2810,7 @@ as providing a human-readable name for the predicate.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.WaitUntil(System.Func{OpenQA.Selenium.IWebDriver,System.Boolean})">
   WaitUntil(Func&lt;IWebDriver, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which will create a performable question that waits until a predicate returns a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> result.</p>
@@ -2867,7 +2823,7 @@ as providing a human-readable name for the predicate.
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">IWebDriver</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
     <dd><p>A predicate which, when it returns a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> result, the wait is over.</p>
 </dd>
   </dl>

@@ -157,10 +157,10 @@ Class SeleniumElementExtensions  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElementExtensions_AsSelectElement_CSF_Screenplay_Selenium_Elements_SeleniumElement_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElementExtensions.AsSelectElement(CSF.Screenplay.Selenium.Elements.SeleniumElement)">
   AsSelectElement(SeleniumElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElementExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElementExtensions.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets a <span class="xref">OpenQA.Selenium.Support.UI.SelectElement</span> instance from the specified element.</p>
+  <div class="markdown level1 summary"><p>Gets a Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/support/OpenQA.Selenium.Support.UI.SelectElement.html">SelectElement</a> instance from the specified element.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -171,13 +171,13 @@ Class SeleniumElementExtensions  <a class="header-action link-secondary" title="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>element</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a></dt>
-    <dd><p>A Selenium element</p>
+    <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> which should represent an HTML <code>&lt;select&gt;</code> element</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">SelectElement</span></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/support/OpenQA.Selenium.Support.UI.SelectElement.html">SelectElement</a></dt>
     <dd><p>A Selenium select element</p>
 </dd>
   </dl>
@@ -190,14 +190,16 @@ Class SeleniumElementExtensions  <a class="header-action link-secondary" title="
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Elements_SeleniumElementExtensions_AsSelectElement_CSF_Screenplay_Selenium_Elements_SeleniumElement__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-A <code>SelectElement</code> is a Selenium object which represents an HTML <code>&lt;select&gt;</code> element, providing
-convenience functionality for reading and manipulating its state.
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/support/OpenQA.Selenium.Support.UI.SelectElement.html">SelectElement</a> is a Selenium type which represents an HTML <code>&lt;select&gt;</code> element,
+wrapping the native <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a>.
+The select element class provides convenience functionality for reading and manipulating the state of the
+underlying element.
 </p>
 </div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
-    <dt><span class="xref">UnexpectedTagNameException</span></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/support/OpenQA.Selenium.Support.UI.UnexpectedTagNameException.html">UnexpectedTagNameException</a></dt>
     <dd><p>If the element is not a <code>&lt;select&gt;</code> element</p>
 </dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>

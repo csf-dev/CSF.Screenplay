@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>CSF.Screenplay.Selenium Extension | Screenplay </title>
+      <title>Queries | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="CSF.Screenplay.Selenium Extension | Screenplay ">
+      <meta name="title" content="Queries | Screenplay ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Queries.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,41 +84,32 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SeleniumArticle">
-<h1 id="csfscreenplayselenium-extension">CSF.Screenplay.Selenium Extension</h1>
+        <article data-uid="SeleniumQueriesArticle">
+<h1 id="queries">Queries</h1>
 
-<p>The Selenium extension allows <a class="xref" href="../../../api/CSF.Screenplay.Actor.html">Actors</a> to control web browsers using <a href="https://www.selenium.dev/">Selenium WebDriver</a> technology.
-The control of web browsers in this manner is the origin of <a href="https://www.browserstack.com/guide/screenplay-pattern-approach-in-selenium">the Screenplay pattern</a>, in which it was an improvement and thorough refactoring of the older <a href="https://martinfowler.com/bliki/PageObject.html">Page Object pattern</a>.</p>
-<h2 id="core-contents-of-this-extension">Core contents of this extension</h2>
-<p>Like many extensions, the Selenium extension provides:</p>
-<ul>
-<li>The <a href="../../../glossary/Ability.html">Ability</a> <a class="xref" href="../../../api/CSF.Screenplay.Selenium.BrowseTheWeb.html"><code>BrowseTheWeb</code></a>, which provides access to the WebDriver API</li>
-<li>Several <a href="Actions.html">Actions, which allow an actor to interact with the web page</a></li>
-<li>Several <a href="Questions.html">Questions, which allow an actor to read or observe the web page</a></li>
-<li><a href="Tasks.html">Tasks, for commonly-performed combinations of actions &amp; questions</a></li>
-<li>Models representing the UI, URLs and areas of the page
-<ul>
-<li>The <a class="xref" href="../../../api/CSF.Screenplay.Selenium.NamedUri.html"><code>NamedUri</code></a> class is used to navigate to specific pages</li>
-<li>Types which provide <a href="Targets.html">references to HTML elements on the page</a>, deriving from <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.ITarget.html"><code>ITarget</code></a></li>
-</ul>
-</li>
-</ul>
-<p>Many of the <a href="../../../glossary/Performable.html">Performables</a> provided by this extension operate in the format <em>&quot;Actor performs X vaction upon Y element&quot;</em>.
-A core benefit of Screenplay (over Page Object pattern) is the separation of <em>the functionality</em> (the logic of the interaction) and <em>the UI elements</em> (the target of the interaction).
-This improves reusability and composability.</p>
-<h2 id="additional-contents">Additional contents</h2>
-<p>The types listed above are the core of the Selenium plugin, but there's more available.</p>
-<ul>
-<li>This extension integrates with <a href="https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html">the Browser Quirks feature of CSF.Extensions.WebDriver</a>.  That allows it to provide integrated workarounds for the quirks of some browsers. These workarounds are amongst the Tasks noted above.</li>
-<li>This extension provides a <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Color.html"><code>Color</code></a> struct which provides a cross-browser way of describing sRGB color and testing for equality.</li>
-<li>For occasions on which JavaScript must be sent to the browser, this extension provides <a href="NamedScripts.html">Named Script</a> classes which offer a type-safe mechanism to refer to those scripts from .NET code.</li>
-<li>If <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout">the default wait timeout</a> of 5 seconds is unsuitable, the ability <a class="xref" href="../../../api/CSF.Screenplay.Selenium.UseADefaultWaitTime.html"><code>UseADefaultWaitTime</code></a> may be used to specify a default timeout suitable for your use-case.</li>
-</ul>
+<p>Queries are a unified mechanism by which <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElement.html">Elements</a> are interrogated/observed.
+Queries broadly serve two purposes, as described below.</p>
+<h2 id="observing-the-state-of-elements">Observing the state of elements</h2>
+<p>Queries are used directly by the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html"><code>SingleElementQuery&lt;TResult&gt;</code></a> and <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html"><code>ElementCollectionQuery&lt;TResult&gt;</code></a> questions which are included in the Selenium extension for Screenplay.
+In this usage, the query indicates which piece of state is to be retrieved from the element(s) and returned to the consuming performable.</p>
+<h2 id="specifying-criteria">Specifying criteria</h2>
+<p>A mechanism which parallels queries is present in the class <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html"><code>QueryPredicatePrototypeBuilder</code></a>.
+This mechanism uses the combination of a query and a predicate to specify criteria by which element(s) may be matched.
+This applies to two use-cases:</p>
+<p>The methods of <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html"><code>TargetExtensions</code></a> may be used to build instances of the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Actions.Wait.html"><code>Wait</code></a> action.
+Together, the query and predicate specify the condition for the wait to end.</p>
+<p>The query prototype builder is also used by one of the overloads of the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates__"><code>ForThoseWhich</code></a> builder method.
+This builder may be used to create the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FilterElements.html"><code>FilterElements</code></a> question, to specify the criteria by which to match elements which should be accepted by the filter.</p>
+<h2 id="list-of-queries">List of queries</h2>
+<p>The available queries are best found by reading the list of methods available on two classes.
+For usages of queries to observe/read a piece of information, see the functionality present upon the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html"><code>QuestionQueryBuilder</code></a> class.
+For usages relating the the creation of criteria, see the members of the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html"><code>QueryPredicatePrototypeBuilder</code></a> class.
+Recall, each query reads a piece of information from <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElement.html">an HTML element</a> (or <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">elements in a collection</a>), or it creates a criteria for matching either one or a collection of elements.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Queries.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

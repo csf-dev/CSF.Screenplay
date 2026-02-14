@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Reporting_AssetPathProvider" data-uid="CSF.Screenplay.Reporting.AssetPathProvider" class="text-break">
-Class AssetPathProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L32"><i class="bi bi-code-slash"></i></a>
+Class AssetPathProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -172,6 +172,11 @@ method will also return <a href="https://learn.microsoft.com/dotnet/csharp/langu
 This type is somewhat stateful, because it maintains an internal counter in order to provide the asset numbers (described above).
 It should be consumed from dependency injection as a scoped service, so that each performance has its own instance of this type.
 </p>
+<p>
+This class is intended for internal Screenplay usage.  Normal consumers of Screenplay should not concern themselves
+with this detail.  Instead they should grant the <a class="xref" href="CSF.Screenplay.Abilities.GetAssetFilePaths.html">GetAssetFilePaths</a> to actors who should be
+able to save <a class="xref" href="../glossary/Asset.html">asset files</a>.
+</p>
 </div>
 
 
@@ -183,7 +188,7 @@ It should be consumed from dependency injection as a scoped service, so that eac
 
   <h3 id="CSF_Screenplay_Reporting_AssetPathProvider__ctor_CSF_Screenplay_Reporting_IGetsReportPath_CSF_Screenplay_IPerformance_" data-uid="CSF.Screenplay.Reporting.AssetPathProvider.#ctor(CSF.Screenplay.Reporting.IGetsReportPath,CSF.Screenplay.IPerformance)">
   AssetPathProvider(IGetsReportPath, IPerformance)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Reporting.AssetPathProvider.html">AssetPathProvider</a> class.</p>
@@ -223,7 +228,7 @@ It should be consumed from dependency injection as a scoped service, so that eac
 
   <h3 id="CSF_Screenplay_Reporting_AssetPathProvider_GetAssetFilePath_System_String_" data-uid="CSF.Screenplay.Reporting.AssetPathProvider.GetAssetFilePath(System.String)">
   GetAssetFilePath(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the filesystem path to which an asset file should be written.</p>
@@ -276,7 +281,7 @@ the current Screenplay run.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L32" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/AssetPathProvider.cs/#L37" class="edit-link">Edit this page</a>
         </div>
 
 

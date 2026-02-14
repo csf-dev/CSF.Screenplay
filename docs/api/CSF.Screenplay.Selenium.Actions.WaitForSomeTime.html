@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class WaitForSomeTime | Screenplay ">
       
-      <meta name="description" content="A performable action that waits for a specified amount of time.">
+      <meta name="description" content="A Screenplay action which pauses the performance for a specified amount of time.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime" data-uid="CSF.Screenplay.Selenium.Actions.WaitForSomeTime" class="text-break">
-Class WaitForSomeTime  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class WaitForSomeTime  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class WaitForSomeTime  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A performable action that waits for a specified amount of time.</p>
+  <div class="markdown summary"><p>A Screenplay action which pauses the performance for a specified amount of time.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,7 +153,30 @@ Class WaitForSomeTime  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime_examples">Examples</h2>
+  <p>
+In this example, Screenplay waits for 3 seconds.
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(WaitFor(TimeSpan.FromSeconds(3), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Create instances of this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_System_TimeSpan_">WaitFor(TimeSpan)</a>.
+This wait action inserts an arbitrary pause into the progress of the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
+For most kinds of waiting scenario, consider using <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a> instead of this action.
+This kind of wait will always wait for the full time, wheras a <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a> is configured with a
+condition/Predicate.  Once that condition is true it stops waiting and the performance is resumed.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +187,7 @@ Class WaitForSomeTime  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime__ctor_System_TimeSpan_" data-uid="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.#ctor(System.TimeSpan)">
   WaitForSomeTime(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.html">WaitForSomeTime</a> class.</p>
@@ -201,7 +224,7 @@ Class WaitForSomeTime  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -284,7 +307,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_WaitForSomeTime_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -322,11 +345,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitFor_System_TimeSpan_">WaitFor</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/WaitForSomeTime.cs/#L36" class="edit-link">Edit this page</a>
         </div>
 
 

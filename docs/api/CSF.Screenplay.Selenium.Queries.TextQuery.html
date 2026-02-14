@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Queries_TextQuery" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery" class="text-break">
-Class TextQuery  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class TextQuery  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -154,6 +154,21 @@ Class TextQuery  <a class="header-action link-secondary" title="View source" hre
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Queries_TextQuery_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+When reading text from the web browser, depending upon the whitespace-trimming parameter, this
+query will or will not trim leading/trailing whitespace.
+This functionality is present because some browsers (Safari) include whitespace at the beginning/end
+of text read from the browser which isn't visible to the end user.  This is typically the 
+space which is inherent in the markup, but which browsers ignore when actually displaying content.
+Other WebDriver implementations do not include this leading/trailing whitespace.
+</p>
+<p>
+When whitespace is trimmed, this provides a more consistent cross-browser experience when reading
+the text of an element. The consequence is that sometimes, when reading leading/trailing whitespace
+is intended, we must pass a different parameter value.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +179,7 @@ Class TextQuery  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery__ctor_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.#ctor(System.Boolean)">
   TextQuery(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Queries.TextQuery.html">TextQuery</a> class.</p>
@@ -202,7 +217,7 @@ the returned text content; if <a href="https://learn.microsoft.com/dotnet/csharp
 
   <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery_Name" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -244,7 +259,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Queries_TextQuery_GetValue_CSF_Screenplay_Selenium_Elements_SeleniumElement_" data-uid="CSF.Screenplay.Selenium.Queries.TextQuery.GetValue(CSF.Screenplay.Selenium.Elements.SeleniumElement)">
   GetValue(SeleniumElement)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the current value from a Selenium element.</p>
@@ -279,11 +294,20 @@ should return a non-null response from this property.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText">TheText</a>()</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace">TheTextWithoutTrimmingWhitespace</a>()</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_String_">Text</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_Func_System_String_System_Boolean__">Text</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String_">TextWithoutTrimmingWhitespace</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_Func_System_String_System_Boolean__">TextWithoutTrimmingWhitespace</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Queries/TextQuery.cs/#L29" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -1838,7 +1838,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.ClearCookies",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearCookies.yml\" sourcestartlinenumber=\"1\">Represents an action to clear all browser cookies for the current site.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearCookies.yml\" sourcestartlinenumber=\"1\">An action which clears all browser cookies for the current site/domain.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1852,7 +1852,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.ClearLocalStorage",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearLocalStorage.yml\" sourcestartlinenumber=\"1\">Represents an action to clear the browser's local storage for the current site.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearLocalStorage.yml\" sourcestartlinenumber=\"1\">An action which clears the browser's local storage for the current site.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1866,7 +1866,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.ClearTheContents",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearTheContents.yml\" sourcestartlinenumber=\"1\">Represents an action to clear the contents of a specified HTML element.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ClearTheContents.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which clears the contents of an HTML element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1880,7 +1880,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.Click",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.Click.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor clicking upon a single HTML element.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.Click.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which clicks on an HTML element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1894,7 +1894,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.DeleteTheCookie",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeleteTheCookie.yml\" sourcestartlinenumber=\"1\">Represents an action to delete a specific browser cookie by name.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeleteTheCookie.yml\" sourcestartlinenumber=\"1\">An action which deletes a specific browser cookie by name.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1908,7 +1908,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.DeselectAll",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectAll.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor deselecting all options from a <code>&lt;select&gt;</code> element.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectAll.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which de-selects every option from an HTML <code>&lt;select&gt;</code> element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1922,7 +1922,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.DeselectByIndex",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByIndex.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its zero-based index within the available options.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByIndex.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's zero-based index (position).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1936,7 +1936,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.DeselectByText",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByText.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its human-readable display text.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByText.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's displayed text.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1950,21 +1950,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.DeselectByValue",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByValue.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its underlying value.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.EnterTheDate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Selenium.Actions.EnterTheDate",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.EnterTheDate.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.IPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor entering a date value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.DeselectByValue.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's value; the <code>value</code> attribute.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1978,7 +1964,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.ExecuteJavaScript",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.yml\" sourcestartlinenumber=\"1\">An action which executes some arbitrary JavaScript in the web browser.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.yml\" sourcestartlinenumber=\"1\">An action which sends a JavaScript string to a web browser and executes it.\nThis action ignores the result (if any) from that script.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1992,7 +1978,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.ISingleElementPerformable",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.yml\" sourcestartlinenumber=\"1\">Similar to <xref href=\"CSF.Screenplay.IPerformable\" data-throw-if-not-resolved=\"false\"></xref> but provides access to a Selenium WebDriver and a Selenium element.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.yml\" sourcestartlinenumber=\"1\">An object which is similar to <xref href=\"CSF.Screenplay.IPerformable\" data-throw-if-not-resolved=\"false\"></xref> but provides access to a Selenium WebDriver and a Selenium element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2006,7 +1992,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.OpenUrl",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.OpenUrl.yml\" sourcestartlinenumber=\"1\">Screenplay action which opens (navigates) directly to a specified URL using the actor's WebDriver.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.OpenUrl.yml\" sourcestartlinenumber=\"1\">An action which navigates to a specified URL, as if the user had entered it into the browser address bar.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2020,7 +2006,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.SaveScreenshot",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SaveScreenshot.yml\" sourcestartlinenumber=\"1\">Screenplay action which saves a Selenium Screenshot instance as an asset file.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SaveScreenshot.yml\" sourcestartlinenumber=\"1\">An action which saves a Selenium <code>Screenshot</code> object to disk as an asset file.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2034,7 +2020,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.SelectByIndex",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByIndex.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its zero-based index within the available options.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByIndex.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's zero-based index (position).</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2048,7 +2034,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.SelectByText",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByText.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its human-readable display text.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByText.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's displayed text.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2062,7 +2048,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.SelectByValue",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByValue.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,\nwhere the option is specified by its underlying value.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SelectByValue.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based\nupon that option's value; the <code>value</code> attribute.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2076,21 +2062,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.SendKeys",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SendKeys.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Screenplay.Selenium.Actions.ISingleElementPerformable\" data-throw-if-not-resolved=\"false\"></xref> which represents an actor pressing some keys whilst focussed upon a single HTML element.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Selenium.Actions.SetTheElementValue",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.yml\" sourcestartlinenumber=\"1\">An action that sets the value of a web element using JavaScript.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.SendKeys.yml\" sourcestartlinenumber=\"1\">A partial Screenplay Action which sends keys (enters text) to an HTML element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2118,7 +2090,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.Wait",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.Wait.yml\" sourcestartlinenumber=\"1\">A performable action that waits until a specified condition is met, or a timeout expires (whichever is sooner).</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.Wait.yml\" sourcestartlinenumber=\"1\">A Screenplay action which pauses the Performance until either a specified condition is met or a timeout expires,\nwhichever occurs sooner.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2132,7 +2104,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Actions.WaitForSomeTime",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.WaitForSomeTime.yml\" sourcestartlinenumber=\"1\">A performable action that waits for a specified amount of time.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.WaitForSomeTime.yml\" sourcestartlinenumber=\"1\">A Screenplay action which pauses the performance for a specified amount of time.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2206,6 +2178,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.BrowseTheWebExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for the <xref href=\"CSF.Screenplay.Selenium.BrowseTheWeb\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.BrowserQuirks.yml",
       "output": {
         ".html": {
@@ -2244,7 +2230,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.yml\" sourcestartlinenumber=\"1\">A builder type which creates an instance of <xref href=\"CSF.Screenplay.Selenium.Actions.EnterTheDate\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.EnterTheDateBuilder.yml\" sourcestartlinenumber=\"1\">A builder type which creates an instance of <xref href=\"CSF.Screenplay.Selenium.Tasks.EnterTheDate\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2650,7 +2636,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Elements.ITarget",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.ITarget.yml\" sourcestartlinenumber=\"1\">A target is an object which may be interacted with by Selenium-based Screenplay performables.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.ITarget.yml\" sourcestartlinenumber=\"1\">A target is an object which represents one or more HTML elements and which may serve as parameters for performables\nwhich interact with elements on the web page.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2664,7 +2650,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Elements.Locator",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.Locator.yml\" sourcestartlinenumber=\"1\">An object which provides a locator for Selenium elements.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.Locator.yml\" sourcestartlinenumber=\"1\">Base type for implementations of <xref href=\"CSF.Screenplay.Selenium.Elements.ITarget\" data-throw-if-not-resolved=\"false\"></xref> which serve as a specification for Selenium elements\nbut which do not reference those elements directly.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3252,7 +3238,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.ElementCollectionQuery<TResult>",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.yml\" sourcestartlinenumber=\"1\">An implementation of <xref href=\"CSF.Screenplay.Selenium.Questions.IElementCollectionPerformableWithResult%601\" data-throw-if-not-resolved=\"false\"></xref> which gets the value from an <xref href=\"CSF.Screenplay.Selenium.Queries.IQuery%601\" data-throw-if-not-resolved=\"false\"></xref>\nupon each item within a collection of Selenium elements and returns their results.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.yml\" sourcestartlinenumber=\"1\">A question which reads or observes the state from a collection of HTML elements and returns the results.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3280,7 +3266,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult<TResult>",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.yml\" sourcestartlinenumber=\"1\">An action which executes some arbitrary JavaScript in the web browser and gets a result.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.yml\" sourcestartlinenumber=\"1\">A question which executes some arbitrary JavaScript in the web browser and returns the result returned\nby that script.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3294,7 +3280,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.FilterElements",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FilterElements.yml\" sourcestartlinenumber=\"1\">A performable question which filters a collection of elements by specified criteria.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FilterElements.yml\" sourcestartlinenumber=\"1\">A question which filters a collection of elements by specified criteria, getting a new collection\nwhich contains only those which match.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3322,7 +3308,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.FindElement",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FindElement.yml\" sourcestartlinenumber=\"1\">Represents a question that finds a single element within a specified target.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FindElement.yml\" sourcestartlinenumber=\"1\">A question which searches for an HTML element that matches some criteria, optionally within a specified target,\nreturning the element it finds as a <xref href=\"CSF.Screenplay.Selenium.Elements.SeleniumElement\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3336,7 +3322,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.FindElements",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FindElements.yml\" sourcestartlinenumber=\"1\">Represents a question that finds a collection of elements within a specified target.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FindElements.yml\" sourcestartlinenumber=\"1\">A question which searches for HTML elements that matche some criteria, optionally within a specified target,\nreturning the results as a <xref href=\"CSF.Screenplay.Selenium.Elements.SeleniumElementCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3350,7 +3336,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.GetWindowTitle",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.yml\" sourcestartlinenumber=\"1\">A Screenplay question to get the title of the current browser window.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.yml\" sourcestartlinenumber=\"1\">A question which reads and returns the title of the current browser window.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3420,7 +3406,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.SingleElementQuery<TResult>",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.yml\" sourcestartlinenumber=\"1\">An implementation of <xref href=\"CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult%601\" data-throw-if-not-resolved=\"false\"></xref> which gets the value from an <xref href=\"CSF.Screenplay.Selenium.Queries.IQuery%601\" data-throw-if-not-resolved=\"false\"></xref>\nupon a single Selenium element and returns its result.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.yml\" sourcestartlinenumber=\"1\">A question which reads or observes the state of a single HTML element and returns the result.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3476,7 +3462,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Reporting.OptionsFormatter",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.OptionsFormatter.yml\" sourcestartlinenumber=\"1\">A value formatter for collections of <xref href=\"CSF.Screenplay.Selenium.Queries.Option\" data-throw-if-not-resolved=\"false\"></xref> for reporting.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.OptionsFormatter.yml\" sourcestartlinenumber=\"1\">An <xref href=\"CSF.Screenplay.Reporting.IValueFormatter\" data-throw-if-not-resolved=\"false\"></xref> for collections of <xref href=\"CSF.Screenplay.Selenium.Queries.Option\" data-throw-if-not-resolved=\"false\"></xref> for reporting.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3490,7 +3476,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter.yml\" sourcestartlinenumber=\"1\">A value formatter for Selenium screenshot objects, for reporting.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter.yml\" sourcestartlinenumber=\"1\">An <xref href=\"CSF.Screenplay.Reporting.IValueFormatter\" data-throw-if-not-resolved=\"false\"></xref> for Selenium <xref href=\"OpenQA.Selenium.Screenshot\" data-throw-if-not-resolved=\"false\"></xref> objects, for reporting.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3574,7 +3560,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml\" sourcestartlinenumber=\"1\">Screenplay task similar to <xref href=\"CSF.Screenplay.Selenium.Actions.Click\" data-throw-if-not-resolved=\"false\"></xref> but which additionally waits for a page-load to complete after clicking.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml\" sourcestartlinenumber=\"1\">A Screenplay task which combines a <xref href=\"CSF.Screenplay.Selenium.Actions.Click\" data-throw-if-not-resolved=\"false\"></xref> action with cross-browser waiting logic,\nfor navigating to a new web page.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.EnterTheDate",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.yml\" sourcestartlinenumber=\"1\">A Screenplay task for entering a value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3588,7 +3588,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.yml\" sourcestartlinenumber=\"1\">Screenplay task which opens (navigates) to a specified URL using the actor's WebDriver\nThis task respects a base URL, chosen via the ability <xref href=\"CSF.Screenplay.Selenium.UseABaseUri\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.yml\" sourcestartlinenumber=\"1\">A Screenplay task which navigates directly to a specified URL using the actor's WebDriver.\nIf the specified Uri is relative then it is made absolute by basing it upon the Uri indicated by the <xref href=\"CSF.Screenplay.Selenium.UseABaseUri\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.SetTheElementValue",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.yml\" sourcestartlinenumber=\"1\">A Screenplay task which uses JavaScript to directly set the value of an HTML element.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3602,7 +3616,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.yml\" sourcestartlinenumber=\"1\">Screenplay task which represents an actor taking a screenshot of the current web page and saving it as a report asset.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.yml\" sourcestartlinenumber=\"1\">A Screenplay task which combines the taking of a screenshot of the current web browser viewport and saving it\nas an asset file.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3630,7 +3644,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.UseABaseUri",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.UseABaseUri.yml\" sourcestartlinenumber=\"1\">Screenplay ability which allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to use a base URI.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.UseABaseUri.yml\" sourcestartlinenumber=\"1\">Screenplay ability which allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to use a base Uri, 'completing' relative Uris at runtime.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3644,7 +3658,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.UseADefaultWaitTime",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.UseADefaultWaitTime.yml\" sourcestartlinenumber=\"1\">Screenplay ability that allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to use a default time for which\nto wait for <xref href=\"CSF.Screenplay.Selenium.BrowseTheWeb\" data-throw-if-not-resolved=\"false\"></xref> WebDriver operations to complete.</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.UseADefaultWaitTime.yml\" sourcestartlinenumber=\"1\">An ability which specifies a default amount of time for performables which involve waiting.\nthat allows an <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref> to use a default time for which\nto wait for <xref href=\"CSF.Screenplay.Selenium.BrowseTheWeb\" data-throw-if-not-resolved=\"false\"></xref> WebDriver operations to complete.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4000,11 +4014,21 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/Assets.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Assets.html"
         }
       },
       "version": ""
@@ -4083,11 +4107,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4284,10 +4308,83 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/Actions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/Actions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/NamedScripts.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/NamedScripts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/Queries.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/Queries.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/Questions.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/Questions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/Targets.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/Targets.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/extensions/selenium/Tasks.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/extensions/selenium/Tasks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/extensions/selenium/index.md",
       "output": {
         ".html": {
           "relative_path": "docs/extensions/selenium/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/extensions/selenium/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "docs/extensions/selenium/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/selenium/toc.html"
         }
       },
       "version": ""
@@ -4346,11 +4443,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/webApis/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4449,11 +4546,11 @@
       "type": "Toc",
       "source_relative_path": "docs/performables/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/performables/toc.html"
-        },
         ".json": {
           "relative_path": "docs/performables/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/performables/toc.html"
         }
       },
       "version": ""
@@ -4462,11 +4559,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -4725,11 +4822,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -4808,11 +4905,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

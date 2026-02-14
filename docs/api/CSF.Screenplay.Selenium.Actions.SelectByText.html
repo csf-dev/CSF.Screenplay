@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SelectByText | Screenplay ">
       
-      <meta name="description" content="A  which represents an actor selecting an option from a &amp;lt;select&amp;gt; element, where the option is specified by its human-readable display text.">
+      <meta name="description" content="A partial Screenplay Action which selects an option from an HTML &amp;lt;select&amp;gt; element based upon that option&#39;s displayed text.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_SelectByText" data-uid="CSF.Screenplay.Selenium.Actions.SelectByText" class="text-break">
-Class SelectByText  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class SelectByText  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,8 +97,8 @@ Class SelectByText  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its human-readable display text.</p>
+  <div class="markdown summary"><p>A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's displayed text.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -154,7 +154,56 @@ where the option is specified by its human-readable display text.</p>
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_SelectByText_examples">Examples</h2>
+  <p>
+This example selects the option "French Fries" from the element with class <code>optional_extras</code>,
+which is a descendent of an element with the ID <code>confirm_purchase</code>.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+readonly ITarget optionalExtras = new CssSelector("#confirm_purchase .optional_extras", "the list of optional extras");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(SelectTheOption("French Fries").From(optionalExtras), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Actions_SelectByText_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Use this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_String_">SelectTheOption(string)</a>.
+Performing this action, as an actor which has the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability, instructs the web browser
+to select an option from the HTML element indicated by <span class="xref">the target</span>.
+</p>
+<p>
+This action has differing behaviour depending whether the <code>&lt;select&gt;</code> element has the
+<code>multiple</code> attribute or not.
+</p>
+<ul><li>
+For an element which permits multiple-selection, this action adds the chosen option to the option(s) which
+are already selected.
+</li><li>
+For an element which does not permit multiple-selection, this action replaces the option which is currently
+selected with the chosen option.
+</li></ul>
+<p>
+            This class is not a complete <a class="xref" href="../glossary/Performable.html">performable</a>, as it relies
+            upon shared logic to retrieve the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> upon which it shall act.
+            It has this in common with many Screenplay
+            actions &amp; tasks in the Selenium extension which operate upon a single element.  These performables derive from
+            <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a>. In order for this class to be used as a full-fledged
+            <a class="xref" href="../glossary/Performable.html">performable</a>, an instance of this type must be wrapped
+            within an instance of <a class="xref" href="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html">SingleElementPerformableAdapter</a>.
+            The adapter class provides the shared boilerplate logic which provides access to the Selenium Element.
+            Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+            logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+            concerned with this factor.
+        </p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -165,7 +214,7 @@ where the option is specified by its human-readable display text.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SelectByText__ctor_System_String_" data-uid="CSF.Screenplay.Selenium.Actions.SelectByText.#ctor(System.String)">
   SelectByText(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.SelectByText.html">SelectByText</a> class with the specified text.</p>
@@ -202,7 +251,7 @@ where the option is specified by its human-readable display text.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SelectByText_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.SelectByText.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, Lazy&lt;SeleniumElement&gt;, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_">GetReportFragment(Actor, IFormatsReportFragment)</a> except that this method also offers a
@@ -253,7 +302,7 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SelectByText_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.SelectByText.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, IWebDriver, Lazy&lt;SeleniumElement&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.IPerformable.html#CSF_Screenplay_IPerformable_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_">PerformAsAsync(ICanPerform, CancellationToken)</a> except that this method also offers a Selenium WebDriver and element.</p>
@@ -269,7 +318,7 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
     <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
     <dd><p>The actor that is performing.</p>
 </dd>
-    <dt><code>webDriver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>webDriver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>The Selenium WebDriver provided from the actor's abilities.</p>
 </dd>
     <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.lazy-1">Lazy</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
@@ -297,11 +346,15 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SelectTheOption_System_String_">SelectTheOption</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SelectByText.cs/#L56" class="edit-link">Edit this page</a>
         </div>
 
 

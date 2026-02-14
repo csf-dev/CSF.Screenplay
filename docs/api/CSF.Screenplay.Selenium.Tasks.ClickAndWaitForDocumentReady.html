@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ClickAndWaitForDocumentReady | Screenplay ">
       
-      <meta name="description" content="Screenplay task similar to  but which additionally waits for a page-load to complete after clicking.">
+      <meta name="description" content="A Screenplay task which combines a  action with cross-browser waiting logic, for navigating to a new web page.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady" class="text-break">
-Class ClickAndWaitForDocumentReady  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L23"><i class="bi bi-code-slash"></i></a>
+Class ClickAndWaitForDocumentReady  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class ClickAndWaitForDocumentReady  <a class="header-action link-secondary" titl
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Screenplay task similar to <a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a> but which additionally waits for a page-load to complete after clicking.</p>
+  <div class="markdown summary"><p>A Screenplay task which combines a <a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a> action with cross-browser waiting logic,
+for navigating to a new web page.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,12 +154,51 @@ Class ClickAndWaitForDocumentReady  <a class="header-action link-secondary" titl
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_examples">Examples</h2>
+  <p>
+This example demonstrates clicking a link to a settings page and waiting for the page to be ready.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget settingsLink = new CssSelector("nav#app_navigation .settings a", "the link to the settings page");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    await actor.PerformAsync(ClickOn(settingsLink).AndWaitForANewPageToLoad(), cancellationToken);
+    // regardless of WebDriver implementation, further performables here will not execute
+    // until the settings page has completely loaded.
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Use this task via <code>ClickOn(element).AndWaitForANewPageToLoad()</code>.
-The benefit of this task is that it ensures that (following a page-load navigation), the incoming page is ready before
-subsequent performables are executed.
+Use this task in performance logic using the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClickOn_CSF_Screenplay_Selenium_Elements_ITarget_">ClickOn(ITarget)</a>, following this up
+with the <a class="xref" href="CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_AndWaitForANewPageToLoad_System_Nullable_System_TimeSpan__">AndWaitForANewPageToLoad(TimeSpan?)</a> method.
+That builder functionality differentiates the returned performable from the normal <a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a> action.
+</p>
+<p>
+The rationale for this task's existence is primarily to deal with web browsers which are affected by the quirk
+<a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad">NeedsToWaitAfterPageLoad</a>.  See the documentation for that quirk for more information
+on what it means for web browser.
+</p>
+<p>
+This task deals with browsers affected by that quirk by extending the click behaviour. When the WebDriver is
+affected by this quirk, as well as clicking upon an element, a reference to that element is saved. The WebDriver
+is then polled until the element clicked has become <b>stale</b>.  A stale element is one which is no longer
+present in the web browser.  The staleness of the clicked element is used as a proxy for the unloading of the
+'outgoing' web page.
+Once the mechanism describe above has determined that the outgoing web page has unloaded, this task begins a second
+waiting process. The second wait executes the JavaScript <a class="xref" href="CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState">GetTheDocumentReadyState</a> repeatedly
+until it returns the result <code>complete</code>. At that point, the waiting is over and the performance may continue.
+</p>
+<p>
+The mechanism described above also includes an optional (constructor injected) timeout. The timeout is used twice; it applies
+both to the unloading of the old page the ready-state of the new page returning <code>complete</code>.  Thus in a theoretical
+worst-case scenario, this task could lead to a wait of twice the specified timeout value.
+If the timeout is not specified then it will use the value from <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a> if the actor
+has that ability.  If not then the hardcoded fall-back <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout">DefaultTimeout</a> of 5 seconds will be used.
 </p>
 </div>
 
@@ -169,9 +209,9 @@ subsequent performables are executed.
 
   <a id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_System_TimeSpan_" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.TimeSpan)">
-  ClickAndWaitForDocumentReady(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_System_Nullable_System_TimeSpan__" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.Nullable{System.TimeSpan})">
+  ClickAndWaitForDocumentReady(TimeSpan?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a> class.</p>
@@ -179,13 +219,14 @@ subsequent performables are executed.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ClickAndWaitForDocumentReady(TimeSpan waitTimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public ClickAndWaitForDocumentReady(TimeSpan? waitTimeout)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>waitTimeout</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The maximum duration to wait for the document to be ready.</p>
+    <dt><code>waitTimeout</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd><p>The timeout duration for both the page-unload and document-ready waits.
+See the remarks on this class for more info.</p>
 </dd>
   </dl>
 
@@ -208,7 +249,7 @@ subsequent performables are executed.
 
   <h3 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, Lazy&lt;SeleniumElement&gt;, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_">GetReportFragment(Actor, IFormatsReportFragment)</a> except that this method also offers a
@@ -259,7 +300,7 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
 
   <h3 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, IWebDriver, Lazy&lt;SeleniumElement&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.IPerformable.html#CSF_Screenplay_IPerformable_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_">PerformAsAsync(ICanPerform, CancellationToken)</a> except that this method also offers a Selenium WebDriver and element.</p>
@@ -275,7 +316,7 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
     <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
     <dd><p>The actor that is performing.</p>
 </dd>
-    <dt><code>webDriver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>webDriver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>The Selenium WebDriver provided from the actor's abilities.</p>
 </dd>
     <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.lazy-1">Lazy</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
@@ -306,12 +347,16 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad">NeedsToWaitAfterPageLoad</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClickOn_CSF_Screenplay_Selenium_Elements_ITarget_">ClickOn</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.ClickBuilder.html#CSF_Screenplay_Selenium_Builders_ClickBuilder_AndWaitForANewPageToLoad_System_Nullable_System_TimeSpan__">AndWaitForANewPageToLoad</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout">DefaultTimeout</a></div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L23" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/ClickAndWaitForDocumentReady.cs/#L69" class="edit-link">Edit this page</a>
         </div>
 
 

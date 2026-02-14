@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Elements_ElementId" data-uid="CSF.Screenplay.Selenium.Elements.ElementId" class="text-break">
-Class ElementId  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class ElementId  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -171,7 +171,13 @@ Class ElementId  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AllHave(ITarget)</a>
   </div>
   <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AreAll(ITarget)</a>
+  </div>
+  <div>
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Has(ITarget)</a>
+  </div>
+  <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Is(ITarget)</a>
   </div>
   </dd></dl>
 
@@ -179,6 +185,12 @@ Class ElementId  <a class="header-action link-secondary" title="View source" hre
 
   <h2 id="CSF_Screenplay_Selenium_Elements_ElementId_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
+This class wraps Selenium's <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Id(string)</a> functionality. The purpose is provide a type which derives
+from <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>, compatible with the Selenium extension's performables. This class also provides opportunity
+to add a human-readable <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html#CSF_Screenplay_Selenium_Elements_Locator_Name">Name</a> to the element specification. This optional, but recommended, technique
+improves the readability of Screenplay reports.
+</p>
+<p>
 In normal circumstances (with valid HTML) this locator should match a maximum of only one element.
 </p>
 </div>
@@ -192,7 +204,7 @@ In normal circumstances (with valid HTML) this locator should match a maximum of
 
   <h3 id="CSF_Screenplay_Selenium_Elements_ElementId__ctor_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.Elements.ElementId.#ctor(System.String,System.String)">
   ElementId(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Elements.ElementId.html">ElementId</a> class.</p>
@@ -232,7 +244,7 @@ In normal circumstances (with valid HTML) this locator should match a maximum of
 
   <h3 id="CSF_Screenplay_Selenium_Elements_ElementId_GetDefaultName" data-uid="CSF.Screenplay.Selenium.Elements.ElementId.GetDefaultName">
   GetDefaultName()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value for <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html#CSF_Screenplay_Selenium_Elements_Locator_Name">Name</a> if none has been specified.</p>
@@ -265,7 +277,7 @@ In normal circumstances (with valid HTML) this locator should match a maximum of
 
   <h3 id="CSF_Screenplay_Selenium_Elements_ElementId_GetLocator" data-uid="CSF.Screenplay.Selenium.Elements.ElementId.GetLocator">
   GetLocator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the Selenium locator instance for finding HTML elements.</p>
@@ -279,7 +291,7 @@ In normal circumstances (with valid HTML) this locator should match a maximum of
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">By</span></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a></dt>
     <dd><p>A Selenium <code>By</code> object used to locate elements.</p>
 </dd>
   </dl>
@@ -298,7 +310,7 @@ In normal circumstances (with valid HTML) this locator should match a maximum of
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ElementId.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

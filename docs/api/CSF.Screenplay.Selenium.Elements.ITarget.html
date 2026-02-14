@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface ITarget | Screenplay ">
       
-      <meta name="description" content="A target is an object which may be interacted with by Selenium-based Screenplay performables.">
+      <meta name="description" content="A target is an object which represents one or more HTML elements and which may serve as parameters for performables which interact with elements on the web page.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Elements_ITarget" data-uid="CSF.Screenplay.Selenium.Elements.ITarget" class="text-break">
-Interface ITarget  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Interface ITarget  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface ITarget  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A target is an object which may be interacted with by Selenium-based Screenplay performables.</p>
+  <div class="markdown summary"><p>A target is an object which represents one or more HTML elements and which may serve as parameters for performables
+which interact with elements on the web page.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -126,7 +127,13 @@ Interface ITarget  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AllHave(ITarget)</a>
   </div>
   <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AreAll(ITarget)</a>
+  </div>
+  <div>
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Has(ITarget)</a>
+  </div>
+  <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Is(ITarget)</a>
   </div>
   </dd></dl>
 
@@ -134,13 +141,24 @@ Interface ITarget  <a class="header-action link-secondary" title="View source" h
 
   <h2 id="CSF_Screenplay_Selenium_Elements_ITarget_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Targets roughly correspond to the concept of 'elements' in Selenium WebDriver; the targets abstraction may
-by implemented by objects which contain one or more Selenium <code>IWebElement</code> instances.
+See <a class="xref" href="../docs/extensions/selenium/Targets.html">the targets and elements article</a> for more information.
+The <code>ITarget</code> interface unifies two Selenium concepts: <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> instances and the
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a> class.
+Targets correspond to the concept of HTML elements on a web page and may be used as the parameters for
+<a class="xref" href="../glossary/Performable.html">performable classes</a> which interact with those elements.
 </p>
 <p>
-Targets might alternatively be implemented by objects which contain selector information, such as a CSS selector, XPath
-an id attribute.  In this scenario the target is conceptually 'a specification for finding elements'.
-A selector/specification-based target may be used to find elements at runtime, via the <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html#CSF_Screenplay_Selenium_Elements_ITarget_GetElements_OpenQA_Selenium_IWebDriver_">GetElements(IWebDriver)</a> method.
+The <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> and <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a> classes wrap native Selenium
+web element instances. They are concrete references to elements which have been retrieved from the WebDriver.
+In both of these cases, the <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html#CSF_Screenplay_Selenium_Elements_ITarget_GetElement_OpenQA_Selenium_IWebDriver_">GetElement(IWebDriver)</a> &amp; <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html#CSF_Screenplay_Selenium_Elements_ITarget_GetElements_OpenQA_Selenium_IWebDriver_">GetElements(IWebDriver)</a>
+methods will often return references to themselves without making any use of the WebDriver parameter.
+</p>
+<p>
+On the other hand, targets which derive from <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a>, such as <a class="xref" href="CSF.Screenplay.Selenium.Elements.ElementId.html">ElementId</a>, <a class="xref" href="CSF.Screenplay.Selenium.Elements.ClassName.html">ClassName</a>,
+<a class="xref" href="CSF.Screenplay.Selenium.Elements.CssSelector.html">CssSelector</a> and <a class="xref" href="CSF.Screenplay.Selenium.Elements.XPath.html">XPath</a> identify HTML element(s) without being a concrete reference to them.
+A Locator is conceptually 'a specification for finding elements'.
+Locator-based targets will use the WebDriver parameter in their <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html#CSF_Screenplay_Selenium_Elements_ITarget_GetElement_OpenQA_Selenium_IWebDriver_">GetElement(IWebDriver)</a> and
+<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html#CSF_Screenplay_Selenium_Elements_ITarget_GetElements_OpenQA_Selenium_IWebDriver_">GetElements(IWebDriver)</a> methods, in order to retrieve concrete element references.
 </p>
 </div>
 
@@ -153,7 +171,7 @@ A selector/specification-based target may be used to find elements at runtime, v
 
   <h3 id="CSF_Screenplay_Selenium_Elements_ITarget_GetElement_OpenQA_Selenium_IWebDriver_" data-uid="CSF.Screenplay.Selenium.Elements.ITarget.GetElement(OpenQA.Selenium.IWebDriver)">
   GetElement(IWebDriver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single Selenium element which matches the current target.</p>
@@ -166,7 +184,7 @@ A selector/specification-based target may be used to find elements at runtime, v
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>driver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>driver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>A Selenium Web Driver</p>
 </dd>
   </dl>
@@ -206,7 +224,7 @@ Crucially, if the target represents multiple elements then this method will retu
 
   <h3 id="CSF_Screenplay_Selenium_Elements_ITarget_GetElements_OpenQA_Selenium_IWebDriver_" data-uid="CSF.Screenplay.Selenium.Elements.ITarget.GetElements(OpenQA.Selenium.IWebDriver)">
   GetElements(IWebDriver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of Selenium elements which match the current target.</p>
@@ -219,7 +237,7 @@ Crucially, if the target represents multiple elements then this method will retu
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>driver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>driver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>A Selenium Web Driver</p>
 </dd>
   </dl>
@@ -252,7 +270,7 @@ be returned directly.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ITarget.cs/#L31" class="edit-link">Edit this page</a>
         </div>
 
 

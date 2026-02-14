@@ -96,18 +96,30 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a></dt>
-      <dd><p>Screenplay task similar to <a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a> but which additionally waits for a page-load to complete after clicking.</p>
+      <dd><p>A Screenplay task which combines a <a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a> action with cross-browser waiting logic,
+for navigating to a new web page.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Selenium.Tasks.EnterTheDate.html">EnterTheDate</a></dt>
+      <dd><p>A Screenplay task for entering a value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a></dt>
-      <dd><p>Screenplay task which opens (navigates) to a specified URL using the actor's WebDriver
-This task respects a base URL, chosen via the ability <a class="xref" href="CSF.Screenplay.Selenium.UseABaseUri.html">UseABaseUri</a>.</p>
+      <dd><p>A Screenplay task which navigates directly to a specified URL using the actor's WebDriver.
+If the specified Uri is relative then it is made absolute by basing it upon the Uri indicated by the <a class="xref" href="CSF.Screenplay.Selenium.UseABaseUri.html">UseABaseUri</a> ability.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html">SetTheElementValue</a></dt>
+      <dd><p>A Screenplay task which uses JavaScript to directly set the value of an HTML element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html">TakeAndSaveScreenshot</a></dt>
-      <dd><p>Screenplay task which represents an actor taking a screenshot of the current web page and saving it as a report asset.</p>
+      <dd><p>A Screenplay task which combines the taking of a screenshot of the current web browser viewport and saving it
+as an asset file.</p>
 </dd>
     </dl>
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ExecuteJavaScript | Screenplay ">
       
-      <meta name="description" content="An action which executes some arbitrary JavaScript in the web browser.">
+      <meta name="description" content="An action which sends a JavaScript string to a web browser and executes it. This action ignores the result (if any) from that script.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript" data-uid="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript" class="text-break">
-Class ExecuteJavaScript  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class ExecuteJavaScript  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class ExecuteJavaScript  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An action which executes some arbitrary JavaScript in the web browser.</p>
+  <div class="markdown summary"><p>An action which sends a JavaScript string to a web browser and executes it.
+This action ignores the result (if any) from that script.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,11 +154,44 @@ Class ExecuteJavaScript  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_examples">Examples</h2>
+  <p>
+In this example, the script will write "I can count to 5" into the developer console.
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+var iCanCount = new NamedScript&lt;int&gt;("console.log('I can count to ' + arguments[0])", "my counting script");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(ExecuteAScript(iCanCount, 5), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-This performable does not expect or return any result from the script.
-If the script returns a result then use <a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult&lt;TResult&gt;</a> instead.
+The best way to use this action is via the builder method
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_">ExecuteAScript(NamedScript)</a> or one of its same-named overloads.
+The <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a> class, and its counterparts with generic type parameters, provide a manner
+in which scripts to be executed by this action may be stored within the application or test logic, providing
+type safety for their parameters.
+</p>
+<p>
+Performing this action, as an actor which has the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability, sends the body of the
+script and its parameter values to the web browser and executes it. This is roughly equivalent to a user
+opening the developer tools Console, typing the script and its parameters there, and pressing enter.
+This action does not return any result from the script, so it is useful only when the script to execute
+does not return a result, or when the intent is to ignore the result.  If the result is important then use
+<a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult&lt;TResult&gt;</a> instead.
+</p>
+<p>
+Within the script body, any parameters are accessible via the <code>arguments</code> object.  That object exposes the
+parameter values by their zero-based index (position) in the parameters list.  So, a script which takes three
+parameters will expose these to the script as <code>arguments[0]</code>, <code>arguments[1]</code> and
+<code>arguments[2]</code>, respectively for the first, second and third parameter values.
 </p>
 </div>
 
@@ -170,7 +204,7 @@ If the script returns a result then use <a class="xref" href="CSF.Screenplay.Sel
 
   <h3 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript__ctor_System_String_System_String_System_Object___" data-uid="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.#ctor(System.String,System.String,System.Object[])">
   ExecuteJavaScript(string, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a>.</p>
@@ -220,7 +254,7 @@ If the script returns a result then use <a class="xref" href="CSF.Screenplay.Sel
 
   <h3 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -303,7 +337,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -341,11 +375,23 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_">ExecuteAScript</a>(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__1_CSF_Screenplay_Selenium_NamedScript___0____0_">ExecuteAScript</a>&lt;T1&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-1.html">NamedScript</a>&lt;T1&gt;, T1)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__2_CSF_Screenplay_Selenium_NamedScript___0___1____0___1_">ExecuteAScript</a>&lt;T1, T2&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript</a>&lt;T1, T2&gt;, T1, T2)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__3_CSF_Screenplay_Selenium_NamedScript___0___1___2____0___1___2_">ExecuteAScript</a>&lt;T1, T2, T3&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-3.html">NamedScript</a>&lt;T1, T2, T3&gt;, T1, T2, T3)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__4_CSF_Screenplay_Selenium_NamedScript___0___1___2___3____0___1___2___3_">ExecuteAScript</a>&lt;T1, T2, T3, T4&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-4.html">NamedScript</a>&lt;T1, T2, T3, T4&gt;, T1, T2, T3, T4)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__5_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4____0___1___2___3___4_">ExecuteAScript</a>&lt;T1, T2, T3, T4, T5&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-5.html">NamedScript</a>&lt;T1, T2, T3, T4, T5&gt;, T1, T2, T3, T4, T5)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__6_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5____0___1___2___3___4___5_">ExecuteAScript</a>&lt;T1, T2, T3, T4, T5, T6&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-6.html">NamedScript</a>&lt;T1, T2, T3, T4, T5, T6&gt;, T1, T2, T3, T4, T5, T6)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript__7_CSF_Screenplay_Selenium_NamedScript___0___1___2___3___4___5___6____0___1___2___3___4___5___6_">ExecuteAScript</a>&lt;T1, T2, T3, T4, T5, T6, T7&gt;(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript-7.html">NamedScript</a>&lt;T1, T2, T3, T4, T5, T6, T7&gt;, T1, T2, T3, T4, T5, T6, T7)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult</a>&lt;TResult&gt;</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ExecuteJavaScript.cs/#L60" class="edit-link">Edit this page</a>
         </div>
 
 

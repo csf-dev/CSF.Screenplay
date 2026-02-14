@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Elements_SeleniumElement" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement" class="text-break">
-Class SeleniumElement  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class SeleniumElement  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,7 +155,13 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AllHave(ITarget)</a>
   </div>
   <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AreAll(ITarget)</a>
+  </div>
+  <div>
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Has(ITarget)</a>
+  </div>
+  <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Is(ITarget)</a>
   </div>
   <div>
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementExtensions.html#CSF_Screenplay_Selenium_Elements_SeleniumElementExtensions_AsSelectElement_CSF_Screenplay_Selenium_Elements_SeleniumElement_">SeleniumElementExtensions.AsSelectElement(SeleniumElement)</a>
@@ -164,6 +170,13 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This type of <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> contains a reference to a native Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a>.
+This class provides that element under the ITarget interface, as well as allowing the developer to specify
+a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html#CSF_Screenplay_Selenium_Elements_SeleniumElement_Name">Name</a>.  This optional, but recommended, technique facilitates human-readable reporting.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -174,7 +187,7 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement__ctor_OpenQA_Selenium_IWebElement_System_String_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.#ctor(OpenQA.Selenium.IWebElement,System.String)">
   SeleniumElement(IWebElement, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> class.</p>
@@ -187,7 +200,7 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>webElement</code> <span class="xref">IWebElement</span></dt>
+    <dt><code>webElement</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a></dt>
     <dd><p>The native Selenium web element.</p>
 </dd>
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -214,7 +227,7 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_Name" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -252,7 +265,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_WebElement" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.WebElement">
   WebElement
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the native Selenium web element.</p>
@@ -269,7 +282,7 @@ should return a non-null response from this property.
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><span class="xref">IWebElement</span></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a></dt>
     <dd></dd>
   </dl>
 
@@ -288,7 +301,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_ToString" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -319,7 +332,7 @@ should return a non-null response from this property.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

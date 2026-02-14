@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SetTheElementValue | Screenplay ">
       
-      <meta name="description" content="An action that sets the value of a web element using JavaScript.">
+      <meta name="description" content="A Screenplay task which uses JavaScript to directly set the value of an HTML element.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Actions_SetTheElementValue.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Actions.SetTheElementValue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Tasks_SetTheElementValue.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Tasks.SetTheElementValue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,20 +84,20 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue">
+        <article data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Actions_SetTheElementValue" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue" class="text-break">
-Class SetTheElementValue  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SetTheElementValue.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue" class="text-break">
+Class SetTheElementValue  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/SetTheElementValue.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Actions.html">Actions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Tasks.html">Tasks</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An action that sets the value of a web element using JavaScript.</p>
+  <div class="markdown summary"><p>A Screenplay task which uses JavaScript to directly set the value of an HTML element.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,21 +153,77 @@ Class SetTheElementValue  <a class="header-action link-secondary" title="View so
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_examples">Examples</h2>
+  <p>
+This example sets the value of an element that has id <code>impossible_input</code> to "I worked around it!" and triggers events
+which simulate a user changing the value interactively.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+readonly ITarget impossibleInput = new ElementId("impossible_input", "the input field which a WebDriver cannot reach");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(SetTheValueOf(impossibleInput).To("I worked around it!").AsIfSetInteractively(), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Use this task via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_CSF_Screenplay_Selenium_Elements_ITarget_">SetTheValueOf(ITarget)</a>, optionally also using the builder method
+<a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.html#CSF_Screenplay_Selenium_SetTheValueBuilder_AsIfSetInteractively">AsIfSetInteractively()</a>.  When <code>AsIfSetInteractively</code> is used then additional JavaScript
+will be executed in an attempt to simulate a human user interactively setting the value.
+</p>
+<p>
+The rationale for this task is that sometimes, due to limitations of the WebDriver implementation, it is not possible to
+interact with an HTML element in the same way that a human user would.  An example of this is web browsers which are affected
+by <a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys">CannotSetInputTypeDateWithSendKeys</a>. When these limitations are encountered, the only recourse
+is to work around them with JavaScript.
+</p>
+<p>
+If this task is not instructed to simulate setting the value interactively then this task does no more than use JavaScript to
+set the <code>value</code> of the element.  However, if it is simulating setting the value interactively then a number of HTML/JavaScript
+events are manually invoked, to give UI behaviour an opportunity to respond.  These events (and the order in which they are
+triggered) are: <code>focus</code>, <code>input</code>, <code>change</code> and then <code>blur</code>.  The element value is actually updated between
+the focus and input events.
+</p>
+<p>
+Use this task judiciously and sparingly. It is best to interact with the web browser/WebDriver in the same manner in which a human
+user would, particularly when using Screenplay/Selenium for testing. This task is provided just to work around difficulties/limitations;
+it is not intended to be the standard way to update elements on a web page.
+</p>
+<p>
+            This class is not a complete <a class="xref" href="../glossary/Performable.html">performable</a>, as it relies
+            upon shared logic to retrieve the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> upon which it shall act.
+            It has this in common with many Screenplay
+            actions &amp; tasks in the Selenium extension which operate upon a single element.  These performables derive from
+            <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a>. In order for this class to be used as a full-fledged
+            <a class="xref" href="../glossary/Performable.html">performable</a>, an instance of this type must be wrapped
+            within an instance of <a class="xref" href="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html">SingleElementPerformableAdapter</a>.
+            The adapter class provides the shared boilerplate logic which provides access to the Selenium Element.
+            Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+            logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+            concerned with this factor.
+        </p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue__ctor_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_System_Object_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor(System.Object,System.Boolean)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue__ctor_System_Object_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor(System.Object,System.Boolean)">
   SetTheElementValue(object, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SetTheElementValue.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/SetTheElementValue.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.SetTheElementValue.html">SetTheElementValue</a> class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html">SetTheElementValue</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -200,11 +256,11 @@ Class SetTheElementValue  <a class="header-action link-secondary" title="View so
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, Lazy&lt;SeleniumElement&gt;, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SetTheElementValue.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/SetTheElementValue.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_">GetReportFragment(Actor, IFormatsReportFragment)</a> except that this method also offers a
@@ -242,7 +298,7 @@ Selenium element.</p>
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport.html#CSF_Screenplay_ICanReport_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_">GetReportFragment(Actor, IFormatsReportFragment)</a> for more information.
 </p>
@@ -251,11 +307,11 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
 
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, IWebDriver, Lazy&lt;SeleniumElement&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SetTheElementValue.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/SetTheElementValue.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Counterpart to <a class="xref" href="CSF.Screenplay.IPerformable.html#CSF_Screenplay_IPerformable_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_">PerformAsAsync(ICanPerform, CancellationToken)</a> except that this method also offers a Selenium WebDriver and element.</p>
@@ -271,7 +327,7 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
     <dt><code>actor</code> <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a></dt>
     <dd><p>The actor that is performing.</p>
 </dd>
-    <dt><code>webDriver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>webDriver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>The Selenium WebDriver provided from the actor's abilities.</p>
 </dd>
     <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.lazy-1">Lazy</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
@@ -299,11 +355,18 @@ Please see the documentation for <a class="xref" href="CSF.Screenplay.ICanReport
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SetTheValueOf_CSF_Screenplay_Selenium_Elements_ITarget_">SetTheValueOf</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.SetTheValueBuilder.html">SetTheValueBuilder</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_">ExecuteAScript</a>(<a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SetTheElementValue.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/SetTheElementValue.cs/#L63" class="edit-link">Edit this page</a>
         </div>
 
 

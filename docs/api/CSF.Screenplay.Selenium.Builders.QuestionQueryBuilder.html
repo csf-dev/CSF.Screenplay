@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder" class="text-break">
-Class QuestionQueryBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class QuestionQueryBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -147,7 +147,40 @@ querying/interrogating values from that element.</p>
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_examples">Examples</h2>
+  <p>
+All the usages of <a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery&lt;TResult&gt;</a> or <a class="xref" href="CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html">ElementCollectionQuery&lt;TResult&gt;</a>
+follow the same pattern, as demonstrated below. This example reads the <code>background-color</code> from a list
+item.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+readonly ITarget warningItem = new CssSelector("li.warning", "the warning item");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    var bgColor = await actor.PerformAsync(ReadFromTheElement(warningItem).TheCssProperty("background-color"), cancellationToken);
+    // ... other performance logic
+    return bgColor;
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This class is used with the Screenplay questions <a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery&lt;TResult&gt;</a> and/or
+<a class="xref" href="CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html">ElementCollectionQuery&lt;TResult&gt;</a>. The builder methods for these questions,
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_CSF_Screenplay_Selenium_Elements_ITarget_">ReadFromTheElement(ITarget)</a> and
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheCollectionOfElements_CSF_Screenplay_Selenium_Elements_ITarget_">ReadFromTheCollectionOfElements(ITarget)</a> respectively, return an
+instance of this builder type. From this type, the developer should select what it is that they wish
+to read from the element(s).
+</p>
+<p>
+For more information about queries and their usage, see <a class="xref" href="../docs/extensions/selenium/Queries.html">Queries</a>.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -158,7 +191,7 @@ querying/interrogating values from that element.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)">
   QuestionQueryBuilder(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L234"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> class with the specified Selenium element.</p>
@@ -195,7 +228,7 @@ querying/interrogating values from that element.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.AllOptions">
   AllOptions()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads all of the available options (whether selected or not) from a <code>&lt;select&gt;</code> element.</p>
@@ -219,6 +252,10 @@ querying/interrogating values from that element.</p>
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_AllOptions_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -233,7 +270,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.SelectedOptions">
   SelectedOptions()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the selected options from a <code>&lt;select&gt;</code> element.</p>
@@ -257,6 +294,10 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_SelectedOptions_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -271,7 +312,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheAttribute_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheAttribute(System.String)">
   TheAttribute(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the specified attribute from the element.</p>
@@ -301,6 +342,25 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheAttribute_System_String__examples">Examples</h4>
+  <p>
+This example shows how to use the <a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery&lt;TResult&gt;</a> question to read the
+<code>title</code> attribute from a button.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget cancelButton = new CssSelector("button.cancel", "the cancel button");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    var title = await actor.PerformAsync(ReadFromTheElement(cancelButton).TheAttribute("title"), cancellationToken);
+    // ... other performance logic
+    return title;
+}</code></pre>
+
 
 
 
@@ -310,7 +370,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheClickability" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheClickability">
   TheClickability()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which checks the clickability of the element.</p>
@@ -334,7 +394,16 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheClickability_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheClickability_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+</p>
+</div>
 
 
 
@@ -343,7 +412,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheCssProperty_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheCssProperty(System.String)">
   TheCssProperty(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the specified CSS property from the element.</p>
@@ -373,7 +442,19 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheCssProperty_System_String__examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheCssProperty_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this is not limited to reading the styling of an element/elements as it was defined in
+a stylesheet.  It reads the <em>live styling</em> of the element as it is when the question executes.
+Thus, if JavaScript or a class change has altered the styling of the element since it was first rendered
+on-screen, its up-to-date styling information will be returned by this query.
+</p>
+</div>
 
 
 
@@ -382,7 +463,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheLocation" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheLocation">
   TheLocation()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the pixel location (top-left corner) of the element.</p>
@@ -406,6 +487,10 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheLocation_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
 
 
@@ -415,7 +500,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheSize" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheSize">
   TheSize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the pixel size (width and height) of the element.</p>
@@ -439,6 +524,10 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheSize_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
 
 
@@ -448,7 +537,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheText">
   TheText()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L186"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the text content of the element.</p>
@@ -472,7 +561,70 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+When reading text from the web browser, this query will trim leading/trailing whitespace.
+This is because some browsers (Safari)
+include whitespace at the beginning/end of text read from the browser, which isn't visible to the end user.  This is typically the 
+space which is inherent in the markup, but which browsers ignore when actually displaying content.
+</p>
+<p>
+Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+If this causes an issue and you would like the leading/trailing whitespace included then use
+<a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace">TheTextWithoutTrimmingWhitespace()</a> instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace_" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace">
+  TheTextWithoutTrimmingWhitespace()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which reads the text content of the element, preserving leading/trailing whitespace if present.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPerformableWithResult&lt;string&gt; TheTextWithoutTrimmingWhitespace()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Unlike <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText">TheText()</a>, this method will not trim any leading/trailing whitespace.
+Be aware that some browsers (Safari) may include leading/trailing whitespace when reading text,
+which other WebDriver implementations do not.  This can result in inconsistent results when
+operating cross-browser.  If cross-browser consistency is important then consider using <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheText">TheText()</a>
+instead.
+</p>
+</div>
 
 
 
@@ -481,7 +633,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheValue">
   TheValue()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L217"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the value of the element.</p>
@@ -505,7 +657,17 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This query is only meaningful for elements which may have a value.
+Examples of these include <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code> or <code>&lt;select&gt;</code> elements.
+</p>
+</div>
 
 
 
@@ -514,7 +676,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheVisibility" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheVisibility">
   TheVisibility()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L225"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which checks the visibility of the element.</p>
@@ -538,6 +700,10 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheVisibility_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
 
 
@@ -547,7 +713,7 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions" data-uid="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.UnselectedOptions">
   UnselectedOptions()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable question which reads the unselected options from a <code>&lt;select&gt;</code> element.</p>
@@ -571,6 +737,10 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions_examples">Examples</h4>
+  <p>See the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html">QuestionQueryBuilder</a> for an example; all the methods to this
+    class follow the same pattern.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_UnselectedOptions_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -581,11 +751,16 @@ This question is only valid for <code>&lt;select&gt;</code> elements.  For any o
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery</a>&lt;TResult&gt;</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html">ElementCollectionQuery</a>&lt;TResult&gt;</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QuestionQueryBuilder.cs/#L50" class="edit-link">Edit this page</a>
         </div>
 
 

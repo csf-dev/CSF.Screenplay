@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UseADefaultWaitTime | Screenplay ">
       
-      <meta name="description" content="Screenplay ability that allows an  to use a default time for which to wait for  WebDriver operations to complete.">
+      <meta name="description" content="An ability which specifies a default amount of time for performables which involve waiting. that allows an  to use a default time for which to wait for  WebDriver operations to complete.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_UseADefaultWaitTime" data-uid="CSF.Screenplay.Selenium.UseADefaultWaitTime" class="text-break">
-Class UseADefaultWaitTime  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class UseADefaultWaitTime  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class UseADefaultWaitTime  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Screenplay ability that allows an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> to use a default time for which
+  <div class="markdown summary"><p>An ability which specifies a default amount of time for performables which involve waiting.
+that allows an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> to use a default time for which
 to wait for <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> WebDriver operations to complete.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -154,6 +155,18 @@ to wait for <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">Bro
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_UseADefaultWaitTime_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+A small number of performables within the Selenium extension for Screenplay involve waiting,
+along with the opportunity to specify a timeout.  If no timeout is specified and the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a>
+does not have this ability then the default timeout is 5 seconds, as specified by
+<a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout">DefaultTimeout</a>.
+</p>
+<p>
+If the Actor has this ability then, if they perform a waiting-type action and no timeout is explicitly specified,
+they will use the default timeout which is specified within this ability instead of the 5-second hard-coded default.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +177,7 @@ to wait for <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">Bro
 
   <h3 id="CSF_Screenplay_Selenium_UseADefaultWaitTime__ctor_System_TimeSpan_" data-uid="CSF.Screenplay.Selenium.UseADefaultWaitTime.#ctor(System.TimeSpan)">
   UseADefaultWaitTime(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a> class with the specified wait time.</p>
@@ -201,7 +214,7 @@ to wait for <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">Bro
 
   <h3 id="CSF_Screenplay_Selenium_UseADefaultWaitTime_WaitTime" data-uid="CSF.Screenplay.Selenium.UseADefaultWaitTime.WaitTime">
   WaitTime
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the default time for which to wait.</p>
@@ -237,7 +250,7 @@ to wait for <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">Bro
 
   <h3 id="CSF_Screenplay_Selenium_UseADefaultWaitTime_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.UseADefaultWaitTime.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -316,11 +329,16 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseADefaultWaitTime.cs/#L24" class="edit-link">Edit this page</a>
         </div>
 
 

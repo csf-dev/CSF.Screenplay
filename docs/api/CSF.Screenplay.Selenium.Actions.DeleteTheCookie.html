@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DeleteTheCookie | Screenplay ">
       
-      <meta name="description" content="Represents an action to delete a specific browser cookie by name.">
+      <meta name="description" content="An action which deletes a specific browser cookie by name.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie" data-uid="CSF.Screenplay.Selenium.Actions.DeleteTheCookie" class="text-break">
-Class DeleteTheCookie  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class DeleteTheCookie  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class DeleteTheCookie  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an action to delete a specific browser cookie by name.</p>
+  <div class="markdown summary"><p>An action which deletes a specific browser cookie by name.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,7 +153,29 @@ Class DeleteTheCookie  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie_examples">Examples</h2>
+  <p>
+In this example, the action will delete a cookie named "MyCookieName".
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(DeleteTheCookieNamed("MyCookieName"), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Use this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_DeleteTheCookieNamed_System_String_">DeleteTheCookieNamed(string)</a>.
+Performing this action, as an actor which has the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability, instructs the web browser
+to delete the cookie (for the current domain) which has the specified name.
+This is equivalent to a human user entering the browser's developer tools and doing the same.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +186,7 @@ Class DeleteTheCookie  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie__ctor_System_String_" data-uid="CSF.Screenplay.Selenium.Actions.DeleteTheCookie.#ctor(System.String)">
   DeleteTheCookie(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.DeleteTheCookie.html">DeleteTheCookie</a> class with the specified cookie name.</p>
@@ -201,7 +223,7 @@ Class DeleteTheCookie  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.DeleteTheCookie.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -284,7 +306,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.DeleteTheCookie.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -322,11 +344,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_DeleteTheCookieNamed_System_String_">DeleteTheCookieNamed</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/DeleteTheCookie.cs/#L34" class="edit-link">Edit this page</a>
         </div>
 
 

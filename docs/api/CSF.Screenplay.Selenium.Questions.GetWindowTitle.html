@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GetWindowTitle | Screenplay ">
       
-      <meta name="description" content="A Screenplay question to get the title of the current browser window.">
+      <meta name="description" content="A question which reads and returns the title of the current browser window.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Questions_GetWindowTitle" data-uid="CSF.Screenplay.Selenium.Questions.GetWindowTitle" class="text-break">
-Class GetWindowTitle  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class GetWindowTitle  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class GetWindowTitle  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A Screenplay question to get the title of the current browser window.</p>
+  <div class="markdown summary"><p>A question which reads and returns the title of the current browser window.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,7 +153,25 @@ Class GetWindowTitle  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Questions_GetWindowTitle_examples">Examples</h2>
+  <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    return await actor.PerformAsync(ReadTheWindowTitle(), cancellationToken);
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Questions_GetWindowTitle_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The best way to use this action is via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ReadTheWindowTitle">ReadTheWindowTitle()</a>.
+</p>
+<p>
+This very simple question gets the text which is displayed as the browser window (or tab) title.
+In a normal web page, that would be what's contained in the <code>&lt;title&gt;</code> element.
+</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -164,7 +182,7 @@ Class GetWindowTitle  <a class="header-action link-secondary" title="View source
 
   <h3 id="CSF_Screenplay_Selenium_Questions_GetWindowTitle_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.GetWindowTitle.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -247,7 +265,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Questions_GetWindowTitle_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Questions.GetWindowTitle.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
@@ -285,11 +303,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ReadTheWindowTitle">ReadTheWindowTitle</a>()</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetWindowTitle.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 

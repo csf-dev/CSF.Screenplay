@@ -163,7 +163,7 @@ Class ClickBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="CSF_Screenplay_Selenium_Builders_ClickBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Builders.ClickBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)">
   ClickBuilder(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/ClickBuilder.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/ClickBuilder.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.ClickBuilder.html">ClickBuilder</a> class with the specified target.</p>
@@ -206,7 +206,7 @@ Class ClickBuilder  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="CSF_Screenplay_Selenium_Builders_ClickBuilder_AndWaitForANewPageToLoad_System_Nullable_System_TimeSpan__" data-uid="CSF.Screenplay.Selenium.Builders.ClickBuilder.AndWaitForANewPageToLoad(System.Nullable{System.TimeSpan})">
   AndWaitForANewPageToLoad(TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/ClickBuilder.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/ClickBuilder.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a more sophisticated <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> which waits for a page-load to complete after clicking.</p>
@@ -226,7 +226,8 @@ Class ClickBuilder  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></dt>
-    <dd></dd>
+    <dd><p>A performable</p>
+</dd>
   </dl>
 
 
@@ -239,8 +240,7 @@ Class ClickBuilder  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 remarks"><p>
 Use this method when the click is expected to cause a new web page to load into the browser.
 In that case, the performable returned by this method will not only click on the target element.
-It will also wait for the <code>DOMContentLoaded</code> event from the web page which is loaded following that click.
-This ensures that subsequent interactions with the Web Browser are not performed upon a page which is not yet loaded.
+See the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a> task for more information.
 </p>
 <p>
 Note that the meaning of "a new page loading" is a full Web Browser page load (an entirely new HTML document).

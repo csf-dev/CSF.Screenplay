@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Asset | Screenplay </title>
+      <title>Selenium tasks | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Asset | Screenplay ">
+      <meta name="title" content="Selenium tasks | Screenplay ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Asset.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Tasks.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,23 +84,47 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="AssetGlossaryItem">
-<h1 id="asset">Asset</h1>
+        <article data-uid="">
+<h1 id="selenium-tasks">Selenium tasks</h1>
 
-<p>An Asset forms part of a Screenplay <strong><a href="Report.html">Report</a></strong>.
-Assets are <strong>files</strong> which are generated during the course of <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">Performances</a>, which are saved to the filesystem.
-These assets are saved alongside the report, and should be kept with it.</p>
-<p>Assets may be any type of file system file, in any format conceivable.
-Their usage/content is somewhat open-ended but they are best-used for files which help a reader understand the report of the <a class="xref" href="../api/CSF.Screenplay.Screenplay.html">Screenplay's</a> performances.</p>
-<p>Assets <em>are not intended</em> for cases when Screenplay is used to actually generate output which will be used outside of reading the report.
-Indeed, <em>asset files must not be created or saved</em> if <a href="TODO">reporting is disabled</a>.</p>
-<h2 id="learn-more-about-assets">Learn more about Assets</h2>
-<p>Further information about working with Assets <a class="xref" href="../docs/Assets.html">is available in the documentation</a>.</p>
+<p>As noted <a href="../../../glossary/Task.html">in their glossary definition</a>, Tasks are a kind of performable which composes other performables.
+The Selenium extension for Screenplay provides a small number of Tasks, which simplify some common WebDriver processes.
+The table below serves as a list, along with a brief summary of the purpose of each.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html"><code>ClickAndWaitForDocumentReady</code></a></td>
+<td>Clicks a link which navigates to a new page, waiting until it is ready</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html"><code>EnterTheDate</code></a></td>
+<td>Enters a value into an <code>&lt;input type=&quot;date&quot;&gt;</code> in a cross-browser manner</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html"><code>OpenUrlRespectingBase</code></a></td>
+<td>Navigates to a URL, using a base URL provided by the <a class="xref" href="../../../api/CSF.Screenplay.Selenium.UseABaseUri.html"><code>UseABaseUri</code></a> ability</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html"><code>SetTheElementValue</code></a></td>
+<td>Sets the <code>value</code> of an element with JavaScript, emulating updating it interactively</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html"><code>TakeAndSaveScreenshot</code></a></td>
+<td>Convenience task to combine the taking &amp; saving of a browser screenshot</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/glossary/Asset.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Tasks.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

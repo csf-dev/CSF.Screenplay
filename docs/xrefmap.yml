@@ -7,6 +7,9 @@ references:
 - uid: AssetGlossaryItem
   name: Asset
   href: glossary/Asset.html
+- uid: AssetsArticle
+  name: Report assets
+  href: docs/Assets.html
 - uid: BuilderPatternMainArticle
   name: The builder pattern
   href: docs/builderPattern/index.html
@@ -6100,25 +6103,6 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Actions.ClearLocalStorage
   fullName: CSF.Screenplay.Selenium.Actions.ClearLocalStorage
   nameWithType: ClearLocalStorage
-- uid: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor(System.Boolean)
-  name: ClearLocalStorage(bool)
-  href: api/CSF.Screenplay.Selenium.Actions.ClearLocalStorage.html#CSF_Screenplay_Selenium_Actions_ClearLocalStorage__ctor_System_Boolean_
-  commentId: M:CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.ClearLocalStorage(bool)
-  fullName.vb: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.New(Boolean)
-  nameWithType: ClearLocalStorage.ClearLocalStorage(bool)
-  nameWithType.vb: ClearLocalStorage.New(Boolean)
-- uid: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor*
-  name: ClearLocalStorage
-  href: api/CSF.Screenplay.Selenium.Actions.ClearLocalStorage.html#CSF_Screenplay_Selenium_Actions_ClearLocalStorage__ctor_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.ClearLocalStorage.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.ClearLocalStorage
-  fullName.vb: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.New
-  nameWithType: ClearLocalStorage.ClearLocalStorage
-  nameWithType.vb: ClearLocalStorage.New
 - uid: CSF.Screenplay.Selenium.Actions.ClearLocalStorage.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Actions.ClearLocalStorage.html#CSF_Screenplay_Selenium_Actions_ClearLocalStorage_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -6481,57 +6465,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.DeselectByValue.PerformAsAsync
   nameWithType: DeselectByValue.PerformAsAsync
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate
-  name: EnterTheDate
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html
-  commentId: T:CSF.Screenplay.Selenium.Actions.EnterTheDate
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate
-  nameWithType: EnterTheDate
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
-  name: EnterTheDate(DateTime?, ITarget, CultureInfo)
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_System_Nullable_System_DateTime__CSF_Screenplay_Selenium_Elements_ITarget_System_Globalization_CultureInfo_
-  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
-  name.vb: New(Date?, ITarget, CultureInfo)
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.EnterTheDate(System.DateTime?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
-  fullName.vb: CSF.Screenplay.Selenium.Actions.EnterTheDate.New(Date?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
-  nameWithType: EnterTheDate.EnterTheDate(DateTime?, ITarget, CultureInfo)
-  nameWithType.vb: EnterTheDate.New(Date?, ITarget, CultureInfo)
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor*
-  name: EnterTheDate
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.EnterTheDate
-  fullName.vb: CSF.Screenplay.Selenium.Actions.EnterTheDate.New
-  nameWithType: EnterTheDate.EnterTheDate
-  nameWithType.vb: EnterTheDate.New
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
-  name: GetReportFragment(Actor, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: EnterTheDate.GetReportFragment(Actor, IFormatsReportFragment)
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment*
-  name: GetReportFragment
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment
-  nameWithType: EnterTheDate.GetReportFragment
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, CancellationToken)
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  nameWithType: EnterTheDate.PerformAsAsync(ICanPerform, CancellationToken)
-- uid: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync*
-  name: PerformAsAsync
-  href: api/CSF.Screenplay.Selenium.Actions.EnterTheDate.html#CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync
-  nameWithType: EnterTheDate.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.ExecuteJavaScript
   name: ExecuteJavaScript
   href: api/CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html
@@ -6935,63 +6868,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.SendKeys.PerformAsAsync
   nameWithType: SendKeys.PerformAsAsync
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue
-  name: SetTheElementValue
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html
-  commentId: T:CSF.Screenplay.Selenium.Actions.SetTheElementValue
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue
-  nameWithType: SetTheElementValue
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor(System.Object,System.Boolean)
-  name: SetTheElementValue(object, bool)
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_System_Object_System_Boolean_
-  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor(System.Object,System.Boolean)
-  name.vb: New(Object, Boolean)
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.SetTheElementValue(object, bool)
-  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.New(Object, Boolean)
-  nameWithType: SetTheElementValue.SetTheElementValue(object, bool)
-  nameWithType.vb: SetTheElementValue.New(Object, Boolean)
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor*
-  name: SetTheElementValue
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue__ctor_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.SetTheElementValue
-  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.New
-  nameWithType: SetTheElementValue.SetTheElementValue
-  nameWithType.vb: SetTheElementValue.New
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
-  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: SetTheElementValue.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  nameWithType.vb: SetTheElementValue.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment*
-  name: GetReportFragment
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.GetReportFragment
-  nameWithType: SetTheElementValue.GetReportFragment
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
-  nameWithType: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  nameWithType.vb: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
-- uid: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync*
-  name: PerformAsAsync
-  href: api/CSF.Screenplay.Selenium.Actions.SetTheElementValue.html#CSF_Screenplay_Selenium_Actions_SetTheElementValue_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Actions.SetTheElementValue.PerformAsAsync
-  nameWithType: SetTheElementValue.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter
   name: SingleElementPerformableAdapter
   href: api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html
@@ -7081,6 +6957,12 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Actions.Wait.New
   nameWithType: Wait.Wait
   nameWithType.vb: Wait.New
+- uid: CSF.Screenplay.Selenium.Actions.Wait.DefaultTimeout
+  name: DefaultTimeout
+  href: api/CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout
+  commentId: F:CSF.Screenplay.Selenium.Actions.Wait.DefaultTimeout
+  fullName: CSF.Screenplay.Selenium.Actions.Wait.DefaultTimeout
+  nameWithType: Wait.DefaultTimeout
 - uid: CSF.Screenplay.Selenium.Actions.Wait.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Actions.Wait.html#CSF_Screenplay_Selenium_Actions_Wait_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -7280,15 +7162,15 @@ references:
   commentId: T:CSF.Screenplay.Selenium.BrowseTheWeb
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb
   nameWithType: BrowseTheWeb
-- uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver)
-  name: BrowseTheWeb(IGetsWebDriver)
-  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_
-  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver)
-  name.vb: New(IGetsWebDriver)
-  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.BrowseTheWeb(CSF.Extensions.WebDriver.IGetsWebDriver)
-  fullName.vb: CSF.Screenplay.Selenium.BrowseTheWeb.New(CSF.Extensions.WebDriver.IGetsWebDriver)
-  nameWithType: BrowseTheWeb.BrowseTheWeb(IGetsWebDriver)
-  nameWithType.vb: BrowseTheWeb.New(IGetsWebDriver)
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String)
+  name: BrowseTheWeb(IGetsWebDriver, string)
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_
+  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String)
+  name.vb: New(IGetsWebDriver, String)
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.BrowseTheWeb(CSF.Extensions.WebDriver.IGetsWebDriver, string)
+  fullName.vb: CSF.Screenplay.Selenium.BrowseTheWeb.New(CSF.Extensions.WebDriver.IGetsWebDriver, String)
+  nameWithType: BrowseTheWeb.BrowseTheWeb(IGetsWebDriver, string)
+  nameWithType.vb: BrowseTheWeb.New(IGetsWebDriver, String)
 - uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor*
   name: BrowseTheWeb
   href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_
@@ -7334,19 +7216,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb.DriverOptions
   nameWithType: BrowseTheWeb.DriverOptions
-- uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
-  name: GetJavaScriptExecutor()
-  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor
-  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
-  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor()
-  nameWithType: BrowseTheWeb.GetJavaScriptExecutor()
-- uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor*
-  name: GetJavaScriptExecutor
-  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetJavaScriptExecutor_
-  commentId: Overload:CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.GetJavaScriptExecutor
-  nameWithType: BrowseTheWeb.GetJavaScriptExecutor
 - uid: CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -7373,6 +7242,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb.WebDriver
   nameWithType: BrowseTheWeb.WebDriver
+- uid: CSF.Screenplay.Selenium.BrowseTheWebExtensions
+  name: BrowseTheWebExtensions
+  href: api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.html
+  commentId: T:CSF.Screenplay.Selenium.BrowseTheWebExtensions
+  fullName: CSF.Screenplay.Selenium.BrowseTheWebExtensions
+  nameWithType: BrowseTheWebExtensions
+- uid: CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor(CSF.Screenplay.Selenium.BrowseTheWeb)
+  name: GetJavaScriptExecutor(BrowseTheWeb)
+  href: api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.html#CSF_Screenplay_Selenium_BrowseTheWebExtensions_GetJavaScriptExecutor_CSF_Screenplay_Selenium_BrowseTheWeb_
+  commentId: M:CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor(CSF.Screenplay.Selenium.BrowseTheWeb)
+  fullName: CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor(CSF.Screenplay.Selenium.BrowseTheWeb)
+  nameWithType: BrowseTheWebExtensions.GetJavaScriptExecutor(BrowseTheWeb)
+- uid: CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor*
+  name: GetJavaScriptExecutor
+  href: api/CSF.Screenplay.Selenium.BrowseTheWebExtensions.html#CSF_Screenplay_Selenium_BrowseTheWebExtensions_GetJavaScriptExecutor_
+  commentId: Overload:CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.BrowseTheWebExtensions.GetJavaScriptExecutor
+  nameWithType: BrowseTheWebExtensions.GetJavaScriptExecutor
 - uid: CSF.Screenplay.Selenium.BrowserQuirks
   name: BrowserQuirks
   href: api/CSF.Screenplay.Selenium.BrowserQuirks.html
@@ -9174,6 +9062,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheText
   nameWithType: QuestionQueryBuilder.TheText
+- uid: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace
+  name: TheTextWithoutTrimmingWhitespace()
+  href: api/CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace
+  commentId: M:CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace
+  fullName: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace()
+  nameWithType: QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace()
+- uid: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace*
+  name: TheTextWithoutTrimmingWhitespace
+  href: api/CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheTextWithoutTrimmingWhitespace_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace
+  nameWithType: QuestionQueryBuilder.TheTextWithoutTrimmingWhitespace
 - uid: CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.TheValue
   name: TheValue()
   href: api/CSF.Screenplay.Selenium.Builders.QuestionQueryBuilder.html#CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_TheValue
@@ -12423,6 +12324,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.AllHave
   nameWithType: TargetExtensions.AllHave
+- uid: CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: AreAll(ITarget)
+  href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: TargetExtensions.AreAll(ITarget)
+- uid: CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll*
+  name: AreAll
+  href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll
+  nameWithType: TargetExtensions.AreAll
 - uid: CSF.Screenplay.Selenium.Elements.TargetExtensions.Has(CSF.Screenplay.Selenium.Elements.ITarget)
   name: Has(ITarget)
   href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_
@@ -12436,6 +12350,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.Has
   nameWithType: TargetExtensions.Has
+- uid: CSF.Screenplay.Selenium.Elements.TargetExtensions.Is(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: Is(ITarget)
+  href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Elements.TargetExtensions.Is(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.Is(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: TargetExtensions.Is(ITarget)
+- uid: CSF.Screenplay.Selenium.Elements.TargetExtensions.Is*
+  name: Is
+  href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.TargetExtensions.Is
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.TargetExtensions.Is
+  nameWithType: TargetExtensions.Is
 - uid: CSF.Screenplay.Selenium.Elements.TargetNotFoundException
   name: TargetNotFoundException
   href: api/CSF.Screenplay.Selenium.Elements.TargetNotFoundException.html
@@ -13234,19 +13161,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorage
   nameWithType: PerformableBuilder.ClearLocalStorage
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported
-  name: ClearLocalStorageIfSupported()
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported
-  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported()
-  nameWithType: PerformableBuilder.ClearLocalStorageIfSupported()
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported*
-  name: ClearLocalStorageIfSupported
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearLocalStorageIfSupported_
-  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.ClearLocalStorageIfSupported
-  nameWithType: PerformableBuilder.ClearLocalStorageIfSupported
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.ClearTheContentsOf(CSF.Screenplay.Selenium.Elements.ITarget)
   name: ClearTheContentsOf(ITarget)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearTheContentsOf_CSF_Screenplay_Selenium_Elements_ITarget_
@@ -15323,15 +15237,15 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
   fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
   nameWithType: ClickAndWaitForDocumentReady
-- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.TimeSpan)
-  name: ClickAndWaitForDocumentReady(TimeSpan)
-  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_System_TimeSpan_
-  commentId: M:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.TimeSpan)
-  name.vb: New(TimeSpan)
-  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(System.TimeSpan)
-  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.New(System.TimeSpan)
-  nameWithType: ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(TimeSpan)
-  nameWithType.vb: ClickAndWaitForDocumentReady.New(TimeSpan)
+- uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.Nullable{System.TimeSpan})
+  name: ClickAndWaitForDocumentReady(TimeSpan?)
+  href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_System_Nullable_System_TimeSpan__
+  commentId: M:CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor(System.Nullable{System.TimeSpan})
+  name.vb: New(TimeSpan?)
+  fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(System.TimeSpan?)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.New(System.TimeSpan?)
+  nameWithType: ClickAndWaitForDocumentReady.ClickAndWaitForDocumentReady(TimeSpan?)
+  nameWithType.vb: ClickAndWaitForDocumentReady.New(TimeSpan?)
 - uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.#ctor*
   name: ClickAndWaitForDocumentReady
   href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html#CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady__ctor_
@@ -15374,6 +15288,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.PerformAsAsync
   nameWithType: ClickAndWaitForDocumentReady.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate
+  name: EnterTheDate
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.EnterTheDate
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate
+  nameWithType: EnterTheDate
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
+  name: EnterTheDate(DateTime?, ITarget, CultureInfo)
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate__ctor_System_Nullable_System_DateTime__CSF_Screenplay_Selenium_Elements_ITarget_System_Globalization_CultureInfo_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)
+  name.vb: New(Date?, ITarget, CultureInfo)
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.EnterTheDate(System.DateTime?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.EnterTheDate.New(Date?, CSF.Screenplay.Selenium.Elements.ITarget, System.Globalization.CultureInfo)
+  nameWithType: EnterTheDate.EnterTheDate(DateTime?, ITarget, CultureInfo)
+  nameWithType.vb: EnterTheDate.New(Date?, ITarget, CultureInfo)
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor*
+  name: EnterTheDate
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.EnterTheDate
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.EnterTheDate.New
+  nameWithType: EnterTheDate.EnterTheDate
+  nameWithType.vb: EnterTheDate.New
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: EnterTheDate.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment
+  nameWithType: EnterTheDate.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: EnterTheDate.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.html#CSF_Screenplay_Selenium_Tasks_EnterTheDate_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync
+  nameWithType: EnterTheDate.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
   name: OpenUrlRespectingBase
   href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html
@@ -15425,6 +15390,63 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync
   nameWithType: OpenUrlRespectingBase.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue
+  name: SetTheElementValue
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.SetTheElementValue
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue
+  nameWithType: SetTheElementValue
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor(System.Object,System.Boolean)
+  name: SetTheElementValue(object, bool)
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue__ctor_System_Object_System_Boolean_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor(System.Object,System.Boolean)
+  name.vb: New(Object, Boolean)
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.SetTheElementValue(object, bool)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.New(Object, Boolean)
+  nameWithType: SetTheElementValue.SetTheElementValue(object, bool)
+  nameWithType.vb: SetTheElementValue.New(Object, Boolean)
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor*
+  name: SetTheElementValue
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.SetTheElementValue
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.New
+  nameWithType: SetTheElementValue.SetTheElementValue
+  nameWithType.vb: SetTheElementValue.New
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SetTheElementValue.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  nameWithType.vb: SetTheElementValue.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.GetReportFragment
+  nameWithType: SetTheElementValue.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
+  nameWithType: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  nameWithType.vb: SetTheElementValue.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html#CSF_Screenplay_Selenium_Tasks_SetTheElementValue_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.SetTheElementValue.PerformAsAsync
+  nameWithType: SetTheElementValue.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot
   name: TakeAndSaveScreenshot
   href: api/CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html
@@ -17089,6 +17111,9 @@ references:
 - uid: IntegrationGlossaryItem
   name: Integration
   href: glossary/Integration.html
+- uid: NamedScriptsArticle
+  name: Named JavaScripts
+  href: docs/extensions/selenium/NamedScripts.html
 - uid: PerformableGlossaryItem
   name: Performable
   href: glossary/Performable.html
@@ -17098,6 +17123,15 @@ references:
 - uid: ScenarioGlossaryItem
   name: Scenario
   href: glossary/Scenario.html
+- uid: SeleniumArticle
+  name: CSF.Screenplay.Selenium Extension
+  href: docs/extensions/selenium/index.html
+- uid: SeleniumQueriesArticle
+  name: Queries
+  href: docs/extensions/selenium/Queries.html
+- uid: SeleniumTargetsAndElementsArticle
+  name: Targets and elements
+  href: docs/extensions/selenium/Targets.html
 - uid: SpotlightGlossaryItem
   name: Spotlight
   href: glossary/Spotlight.html

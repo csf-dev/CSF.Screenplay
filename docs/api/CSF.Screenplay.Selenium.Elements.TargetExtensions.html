@@ -157,7 +157,7 @@ Class TargetExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.AllHave(CSF.Screenplay.Selenium.Elements.ITarget)">
   AllHave(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for the specified target, which represents a collection of HTML elements.</p>
@@ -193,6 +193,59 @@ Class TargetExtensions  <a class="header-action link-secondary" title="View sour
 This method is used with the creation of predicates for <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a>
 to wait until every element expsed by the current target instance meets the specified conditions.
 </p>
+<p>
+The method <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">AreAll(ITarget)</a> is functionally identical to this method; the two overloads are
+provided just so developers may create a more readable fluent method chain.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.AreAll(CSF.Screenplay.Selenium.Elements.ITarget)">
+  AreAll(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for the specified target, which represents a collection of HTML elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryPredicatePrototypeBuilder AreAll(this ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target for which to create the query builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a></dt>
+    <dd><p>A new instance of <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is used with the creation of predicates for <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a>
+to wait until every element expsed by the current target instance meets the specified conditions.
+</p>
+<p>
+The method <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">AllHave(ITarget)</a> is functionally identical to this method; the two overloads are
+provided just so developers may create a more readable fluent method chain.
+</p>
 </div>
 
 
@@ -202,7 +255,7 @@ to wait until every element expsed by the current target instance meets the spec
 
   <h3 id="CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.Has(CSF.Screenplay.Selenium.Elements.ITarget)">
   Has(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for the specified target, which represents a single HTML element.</p>
@@ -237,6 +290,59 @@ to wait until every element expsed by the current target instance meets the spec
   <div class="markdown level1 remarks"><p>
 This method is used with the creation of predicates for <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a>
 to wait until the current target instance meets the specified conditions.
+</p>
+<p>
+The method <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">Is(ITarget)</a> is functionally identical to this method; the two overloads are
+provided just so developers may create a more readable fluent method chain.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.Is*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Elements.TargetExtensions.Is(CSF.Screenplay.Selenium.Elements.ITarget)">
+  Is(ITarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/TargetExtensions.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for the specified target, which represents a single HTML element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryPredicatePrototypeBuilder Is(this ITarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dd><p>The target for which to create the query builder.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a></dt>
+    <dd><p>A new instance of <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method is used with the creation of predicates for <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a>
+to wait until the current target instance meets the specified conditions.
+</p>
+<p>
+The method <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">Has(ITarget)</a> is functionally identical to this method; the two overloads are
+provided just so developers may create a more readable fluent method chain.
 </p>
 </div>
 

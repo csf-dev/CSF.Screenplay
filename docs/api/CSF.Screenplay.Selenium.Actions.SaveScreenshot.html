@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SaveScreenshot | Screenplay ">
       
-      <meta name="description" content="Screenplay action which saves a Selenium Screenshot instance as an asset file.">
+      <meta name="description" content="An action which saves a Selenium Screenshot object to disk as an asset file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot" data-uid="CSF.Screenplay.Selenium.Actions.SaveScreenshot" class="text-break">
-Class SaveScreenshot  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Class SaveScreenshot  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class SaveScreenshot  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Screenplay action which saves a Selenium Screenshot instance as an asset file.</p>
+  <div class="markdown summary"><p>An action which saves a Selenium <code>Screenshot</code> object to disk as an asset file.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,10 +153,49 @@ Class SaveScreenshot  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot_examples">Examples</h2>
+  <p>
+In this example, the action will save the screenshot with the name <code>Shopping cart items</code>, using the JPEG
+file format.
+Note that because of the internal workings of the <a class="xref" href="CSF.Screenplay.Abilities.GetAssetFilePaths.html">GetAssetFilePaths</a> mechanism, the precise file
+name by which the asset is saved is indeterminate. The precise details of file naming are determined by
+<a class="xref" href="CSF.Screenplay.Reporting.AssetPathProvider.html">AssetPathProvider</a>.
+</p>
+<pre><code class="lang-csharp">using OpenQA.Selenium;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+// Retrieved via (for example) the TakeScreenshot question
+readonly Screenshot screenshot;
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(SaveTheScreenshot(screenshot)
+                                 .WithTheName("Shopping cart items")
+                                 .WithTheFormat(ScreenshotImageFormat.Jpeg),
+                             cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Use of this performable requires the actor to have the ability <a class="xref" href="CSF.Screenplay.Abilities.GetAssetFilePaths.html">GetAssetFilePaths</a>.
+Use this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SaveTheScreenshot_OpenQA_Selenium_Screenshot_">SaveTheScreenshot(Screenshot)</a>.
+Instead of this action, consider using the task <a class="xref" href="CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html">TakeAndSaveScreenshot</a>,
+via either of the builder methods <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported">TakeAndSaveAScreenshotIfSupported()</a>. Use of this action (standalone)
+is only required if you wish to examine or interact with the Screenshot object. If all you want to
+achieve is to take the screenshot and save it, the task is likely to be more convenient.
+</p>
+<p>
+Performing this action with a specified Screenshot object, such as one retrieved via the
+<a class="xref" href="CSF.Screenplay.Selenium.Questions.TakeScreenshot.html">TakeScreenshot</a> question, saves that Screenshot object to disk as
+<a class="xref" href="../glossary/Asset.html">an asset file</a>
+</p>
+<p>
+To perform this action, the actor <em>must have</em> the ability <a class="xref" href="CSF.Screenplay.Abilities.GetAssetFilePaths.html">GetAssetFilePaths</a>.
+If the actor does not have the ability then this action will throw an exception.
 </p>
 </div>
 
@@ -169,7 +208,7 @@ Use of this performable requires the actor to have the ability <a class="xref" h
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot__ctor_OpenQA_Selenium_Screenshot_System_String_OpenQA_Selenium_ScreenshotImageFormat_" data-uid="CSF.Screenplay.Selenium.Actions.SaveScreenshot.#ctor(OpenQA.Selenium.Screenshot,System.String,OpenQA.Selenium.ScreenshotImageFormat)">
   SaveScreenshot(Screenshot, string, ScreenshotImageFormat)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.SaveScreenshot.html">SaveScreenshot</a> class.</p>
@@ -182,7 +221,7 @@ Use of this performable requires the actor to have the ability <a class="xref" h
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>screenshot</code> <span class="xref">Screenshot</span></dt>
+    <dt><code>screenshot</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a></dt>
     <dd><p>The screenshot to save.</p>
 </dd>
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -212,7 +251,7 @@ Use of this performable requires the actor to have the ability <a class="xref" h
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.SaveScreenshot.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -295,7 +334,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SaveScreenshot_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.SaveScreenshot.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -333,11 +372,17 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.TakeScreenshot.html">TakeScreenshot</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html">TakeAndSaveScreenshot</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_SaveTheScreenshot_OpenQA_Selenium_Screenshot_">SaveTheScreenshot</a>(<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SaveScreenshot.cs/#L61" class="edit-link">Edit this page</a>
         </div>
 
 

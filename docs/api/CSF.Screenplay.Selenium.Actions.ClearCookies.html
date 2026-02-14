@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ClearCookies | Screenplay ">
       
-      <meta name="description" content="Represents an action to clear all browser cookies for the current site.">
+      <meta name="description" content="An action which clears all browser cookies for the current site/domain.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_ClearCookies" data-uid="CSF.Screenplay.Selenium.Actions.ClearCookies" class="text-break">
-Class ClearCookies  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class ClearCookies  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class ClearCookies  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an action to clear all browser cookies for the current site.</p>
+  <div class="markdown summary"><p>An action which clears all browser cookies for the current site/domain.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,7 +153,26 @@ Class ClearCookies  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_ClearCookies_examples">Examples</h2>
+  <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(ClearAllDomainCookies(), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Actions_ClearCookies_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Use this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies">ClearAllDomainCookies()</a>.
+Performing this action, as an actor which has the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability, instructs the web browser
+to clear all cookies for the current domain.  This is equivalent to a human user entering the browser's
+settings and doing the same.
+</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -164,7 +183,7 @@ Class ClearCookies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="CSF_Screenplay_Selenium_Actions_ClearCookies_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.ClearCookies.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -247,7 +266,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_ClearCookies_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.ClearCookies.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -285,11 +304,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies">ClearAllDomainCookies</a>()</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/ClearCookies.cs/#L31" class="edit-link">Edit this page</a>
         </div>
 
 

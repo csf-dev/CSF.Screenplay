@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class FilterElements | Screenplay ">
       
-      <meta name="description" content="A performable question which filters a collection of elements by specified criteria.">
+      <meta name="description" content="A question which filters a collection of elements by specified criteria, getting a new collection which contains only those which match.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Questions_FilterElements" data-uid="CSF.Screenplay.Selenium.Questions.FilterElements" class="text-break">
-Class FilterElements  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L22"><i class="bi bi-code-slash"></i></a>
+Class FilterElements  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class FilterElements  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A performable question which filters a collection of elements by specified criteria.</p>
+  <div class="markdown summary"><p>A question which filters a collection of elements by specified criteria, getting a new collection
+which contains only those which match.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,14 +154,60 @@ Class FilterElements  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Questions_FilterElements_examples">Examples</h2>
+  <p>
+This example filters a collection of items in a todo list, only for those with red background colors.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium;
+using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget todoListItems = new CssSelector("ul#todo li", "the to-do list items");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    var elements = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(todoListItems), cancellationToken);
+    var redElements = await actor.PerformAsync(Filter(elements)
+                                                .ForThoseWhich(q =&gt; q.CssProperty("background-color",
+                                                                                  x =&gt; x == Colors.RED)),
+                                               cancellationToken);
+    return redElements;
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Questions_FilterElements_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
+Use this question via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_">Filter(SeleniumElementCollection)</a>.
+The builder will then guide you through specifying the
+criteria by which you wish to filter those elements. There are two primary routes by which to do this,
+which depend upon which overload of <code>ForThoseWhich</code> you choose.
+</p>
+<p>
+You may specify the criteria within a Specification class.  That is a class which implements
+<code>ISpecificationFunction&lt;SeleniumElement&gt;</code>, from
+<a href="https://github.com/csf-dev/CSF.Specifications">the CSF.Specifications</a> package.
+This allows you to pass just a variable into the builder, containing an instance of that specification.
+This is the recommended technique, as the specification class becomes a reusable and first-class named
+part of the Screenplay.
+When using this technique, use the <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_CSF_Specifications_ISpecificationFunction_CSF_Screenplay_Selenium_Elements_SeleniumElement__">ForThoseWhich(ISpecificationFunction&lt;SeleniumElement&gt;)</a>
+overload.
+</p>
+<p>
+Alternatively, you may specify the criteria ad-hoc within the filter-elements builder.
+To use this technique, use the
+<a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates__">ForThoseWhich(Func&lt;QueryPredicatePrototypeBuilder, IBuildsElementPredicates&gt;)</a>
+overload.  You must specify a function which interrogates one or more aspects of the element, specifying each
+criterion individually. This approach allows fast specification of criteria, but at the cost of reusability.
+</p>
+<p>
 Note that this question is evaluated with an already-in-memory collection of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>.
-It does not interact with the web browser/web driver directly.
-This could lead to unexpected impacts upon performance.
+However, each criterion that is evaluated may cause communication with the WebDriver, for each element in the source collection.
+This nested loop could lead to unexpected impacts upon performance, particularly with larger collections of elements
+or where the WebDriver is hosted remotely.
 If you are able to find the elements you want using an implementation of <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a>, then prefer
-using <a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElements.html">FindElements</a> instead, which will query the web driver directly for only the elements you want.
+using <a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElements.html">FindElements</a> instead.  Finding elements performs far better than this question.
+On the other hand, this question offers far greater power in the creation of custom criteria.
 </p>
 </div>
 
@@ -173,7 +220,7 @@ using <a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElements.html"
 
   <h3 id="CSF_Screenplay_Selenium_Questions_FilterElements__ctor_System_Collections_Generic_IReadOnlyCollection_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Specifications_ISpecificationFunction_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_String_" data-uid="CSF.Screenplay.Selenium.Questions.FilterElements.#ctor(System.Collections.Generic.IReadOnlyCollection{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Specifications.ISpecificationFunction{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.String)">
   FilterElements(IReadOnlyCollection&lt;SeleniumElement&gt;, ISpecificationFunction&lt;SeleniumElement&gt;, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a> class.</p>
@@ -216,7 +263,7 @@ using <a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElements.html"
 
   <h3 id="CSF_Screenplay_Selenium_Questions_FilterElements_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.FilterElements.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -299,7 +346,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Questions_FilterElements_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Questions.FilterElements.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
@@ -337,11 +384,15 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_">Filter</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L22" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/FilterElements.cs/#L72" class="edit-link">Edit this page</a>
         </div>
 
 

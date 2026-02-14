@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot" data-uid="CSF.Screenplay.Selenium.Questions.TakeScreenshot" class="text-break">
-Class TakeScreenshot  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class TakeScreenshot  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -119,7 +119,7 @@ Class TakeScreenshot  <a class="header-action link-secondary" title="View source
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<span class="xref">Screenshot</span>&gt;</div>
+      <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a>&gt;</div>
       <div><a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a></div>
     </dd>
   </dl>
@@ -153,7 +153,35 @@ Class TakeScreenshot  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot_examples">Examples</h2>
+  <pre><code class="lang-csharp">using OpenQA.Selenium;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;Screenshot&gt;
+public async ValueTask&lt;Screenshot&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    return await actor.PerformAsync(TakeAScreenshot(), cancellationToken);
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+The best way to use this action is via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot">TakeAScreenshot()</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported">TakeAScreenshotIfSupported()</a>. The second method will not raise an exception
+if the browser is incapable of providing screenshots.
+</p>
+<p>
+This question instructs the WebDriver to capture the currently-visible area of the browser window (the viewport)
+in a screenshot, and return that screenshot to the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
+</p>
+<p>
+Since the most common thing to do with a <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a> object is to save it to disk, consumers should
+consider using the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html">TakeAndSaveScreenshot</a> task instead, via either the builder methods
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshot">TakeAndSaveAScreenshot()</a> or
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAndSaveAScreenshotIfSupported">TakeAndSaveAScreenshotIfSupported()</a>. These deal with both the taking and saving of
+the screenshot in a single step.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +192,7 @@ Class TakeScreenshot  <a class="header-action link-secondary" title="View source
 
   <h3 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot__ctor_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Questions.TakeScreenshot.#ctor(System.Boolean)">
   TakeScreenshot(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Questions.TakeScreenshot.html">TakeScreenshot</a> class.</p>
@@ -201,7 +229,7 @@ Class TakeScreenshot  <a class="header-action link-secondary" title="View source
 
   <h3 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.TakeScreenshot.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -284,7 +312,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Questions_TakeScreenshot_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Questions.TakeScreenshot.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
@@ -307,7 +335,7 @@ are seldom presented as paragraphs of prose.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<span class="xref">Screenshot</span>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Screenshot.html">Screenshot</a>&gt;</dt>
     <dd><p>A task which exposes a strongly-typed 'result' value when the performable represented by the current instance is complete.</p>
 </dd>
   </dl>
@@ -322,11 +350,18 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshot">TakeAScreenshot</a>()</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_TakeAScreenshotIfSupported">TakeAScreenshotIfSupported</a>()</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.SaveScreenshot.html">SaveScreenshot</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.TakeAndSaveScreenshot.html">TakeAndSaveScreenshot</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/TakeScreenshot.cs/#L45" class="edit-link">Edit this page</a>
         </div>
 
 

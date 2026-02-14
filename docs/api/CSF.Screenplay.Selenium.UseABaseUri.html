@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class UseABaseUri | Screenplay ">
       
-      <meta name="description" content="Screenplay ability which allows an  to use a base URI.">
+      <meta name="description" content="Screenplay ability which allows an  to use a base Uri, &#39;completing&#39; relative Uris at runtime.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_UseABaseUri" data-uid="CSF.Screenplay.Selenium.UseABaseUri" class="text-break">
-Class UseABaseUri  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class UseABaseUri  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class UseABaseUri  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Screenplay ability which allows an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> to use a base URI.</p>
+  <div class="markdown summary"><p>Screenplay ability which allows an <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> to use a base Uri, 'completing' relative Uris at runtime.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,6 +153,44 @@ Class UseABaseUri  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_UseABaseUri_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This ability enables the use of a technique whereby the environment/location of a web application (which is being
+tested or manipulated by the Selenium Extension for Screenplay) may be set and changed at runtime, instead of hard-coded.
+This could be particularly useful if you are using this extension for testing and wish to be able to run the same suite
+of tests against multiple environments.  For example:
+</p>
+<ul><li>Locally, on a developer's computer, with a base Uri such as <code>https://localhost:8080/</code></li><li>On a testing environment, with a base Uri such as <code>https://testing.example.com/</code></li><li>On a staging environment, with a base Uri such as <code>https://staging.example.com/</code></li></ul>
+<p>
+If you wish to use this technique then when writing instances of <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>, specify these using relative Uris, such as
+<code>new NamedUri("user/shoppingCart", "the user's shopping cart")</code>.  Then, grant your actor this ability, using
+<a class="xref" href="CSF.Screenplay.Actor.html#CSF_Screenplay_Actor_IsAbleTo_System_Object_">IsAbleTo(object)</a>:
+</p>
+<pre><code class="lang-csharp">// The following would not realistically be expected to be seen together in one place.
+// This is a 'compressed' example for brevity.
+// In a realistic Screenplay, the Actor set-up would be in an IPersona implementation,
+// the NamedUri would be declared in a library class and the Actor's performance would
+// be within an IPerformable implementation.
+
+using CSF.Screenplay.Selenium;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+var useABaseUri = new UseABaseUri(new Uri("https://testing.example.com/"));
+myActor.IsAbleTo(useABaseUri);
+// Details of getting a BrowseTheWeb ability instance are omitted for brevity.
+myActor.IsAbleTo(GetBrowseTheWeb());
+
+var shoppingCart = new NamedUri("user/shoppingCart", "the user's shopping cart");
+await myActor.PerformAsync(OpenTheUrl(shoppingCart));
+
+// Actually opens the URL https://testing.example.com/user/shoppingCart</code></pre>
+<p>
+The Uri to use as the base Uri does not need to be hard-coded, it could come from configuration or an environment variable etc.
+When the actor makes use of the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability and opens a Url using the performable returned from
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl(NamedUri)</a>, the specified named Uri <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri_">will be rebased</a>
+to the base Uri specified by this ability.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -163,7 +201,7 @@ Class UseABaseUri  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="CSF_Screenplay_Selenium_UseABaseUri__ctor_System_Uri_" data-uid="CSF.Screenplay.Selenium.UseABaseUri.#ctor(System.Uri)">
   UseABaseUri(Uri)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.UseABaseUri.html">UseABaseUri</a> class.</p>
@@ -215,7 +253,7 @@ The Uri held within this ability will be used as that base URI, as described abo
 
   <h3 id="CSF_Screenplay_Selenium_UseABaseUri_BaseUri" data-uid="CSF.Screenplay.Selenium.UseABaseUri.BaseUri">
   BaseUri
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the base URI which is associated with the current ability instance.</p>
@@ -251,7 +289,7 @@ The Uri held within this ability will be used as that base URI, as described abo
 
   <h3 id="CSF_Screenplay_Selenium_UseABaseUri_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.UseABaseUri.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -330,11 +368,17 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/UseABaseUri.cs/#L55" class="edit-link">Edit this page</a>
         </div>
 
 

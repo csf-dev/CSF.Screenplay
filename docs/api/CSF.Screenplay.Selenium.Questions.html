@@ -111,18 +111,19 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html">ElementCollectionQuery&lt;TResult&gt;</a></dt>
-      <dd><p>An implementation of <a class="xref" href="CSF.Screenplay.Selenium.Questions.IElementCollectionPerformableWithResult-1.html">IElementCollectionPerformableWithResult&lt;TResult&gt;</a> which gets the value from an <a class="xref" href="CSF.Screenplay.Selenium.Queries.IQuery-1.html">IQuery&lt;T&gt;</a>
-upon each item within a collection of Selenium elements and returns their results.</p>
+      <dd><p>A question which reads or observes the state from a collection of HTML elements and returns the results.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html">ExecuteJavaScriptAndGetResult&lt;TResult&gt;</a></dt>
-      <dd><p>An action which executes some arbitrary JavaScript in the web browser and gets a result.</p>
+      <dd><p>A question which executes some arbitrary JavaScript in the web browser and returns the result returned
+by that script.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a></dt>
-      <dd><p>A performable question which filters a collection of elements by specified criteria.</p>
+      <dd><p>A question which filters a collection of elements by specified criteria, getting a new collection
+which contains only those which match.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -132,17 +133,19 @@ upon each item within a collection of Selenium elements and returns their result
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElement.html">FindElement</a></dt>
-      <dd><p>Represents a question that finds a single element within a specified target.</p>
+      <dd><p>A question which searches for an HTML element that matches some criteria, optionally within a specified target,
+returning the element it finds as a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.FindElements.html">FindElements</a></dt>
-      <dd><p>Represents a question that finds a collection of elements within a specified target.</p>
+      <dd><p>A question which searches for HTML elements that matche some criteria, optionally within a specified target,
+returning the results as a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">SeleniumElementCollection</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetWindowTitle.html">GetWindowTitle</a></dt>
-      <dd><p>A Screenplay question to get the title of the current browser window.</p>
+      <dd><p>A question which reads and returns the title of the current browser window.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -162,8 +165,7 @@ upon each item within a collection of Selenium elements and returns their result
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery&lt;TResult&gt;</a></dt>
-      <dd><p>An implementation of <a class="xref" href="CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult-1.html">ISingleElementPerformableWithResult&lt;TResult&gt;</a> which gets the value from an <a class="xref" href="CSF.Screenplay.Selenium.Queries.IQuery-1.html">IQuery&lt;T&gt;</a>
-upon a single Selenium element and returns its result.</p>
+      <dd><p>A question which reads or observes the state of a single HTML element and returns the result.</p>
 </dd>
     </dl>
     <dl class="jumplist">

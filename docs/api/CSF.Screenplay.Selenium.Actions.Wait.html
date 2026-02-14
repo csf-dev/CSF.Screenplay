@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Wait | Screenplay ">
       
-      <meta name="description" content="A performable action that waits until a specified condition is met, or a timeout expires (whichever is sooner).">
+      <meta name="description" content="A Screenplay action which pauses the Performance until either a specified condition is met or a timeout expires, whichever occurs sooner.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_Wait" data-uid="CSF.Screenplay.Selenium.Actions.Wait" class="text-break">
-Class Wait  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L29"><i class="bi bi-code-slash"></i></a>
+Class Wait  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class Wait  <a class="header-action link-secondary" title="View source" href="ht
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A performable action that waits until a specified condition is met, or a timeout expires (whichever is sooner).</p>
+  <div class="markdown summary"><p>A Screenplay action which pauses the Performance until either a specified condition is met or a timeout expires,
+whichever occurs sooner.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,16 +154,71 @@ Class Wait  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_Wait_examples">Examples</h2>
+  <p>
+In this example, Screenplay instructs the WebDriver to wait for up to 2 seconds, or until no element
+with the class <code>loading_spinner</code> is visible on the web page.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget spinner = new ClassName("loading_spinner", "the loading spinner");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(WaitUntil(spinner.Is().NotVisible().ForAtMost(TimeSpan.FromSeconds(2)), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Actions_Wait_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-This action makes use of Selenium's <span class="xref">OpenQA.Selenium.Support.UI.WebDriverWait</span> class to implement the waiting logic.
-The maximum time (the timeout) for which to wait is determined by the following rules of precedence:
+Use this action via either the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_">WaitUntil(IBuildsElementPredicates)</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil(Func&lt;IWebDriver, bool&gt;)</a>.  The former is preferred over the latter,
+as it permits the use of a fluent builder syntax to specify the behaviour of the wait.
+See the documentation of those builder methods to learn more about their use.
 </p>
-<ol><li>If a timeout was specified when constructing this instance, that value is used.</li><li>If the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> performing this question has the ability <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a>, then the
-time specified by <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html#CSF_Screenplay_Selenium_UseADefaultWaitTime_WaitTime">WaitTime</a> is used.</li><li>If neither of the above apply, a default timeout of 5 seconds is used.</li></ol>
 <p>
-If the wait fails to complete within the timeout period, a <span class="xref">OpenQA.Selenium.WebDriverTimeoutException</span> is thrown.
+This action forces the progress of the <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> to be delayed
+whilst the WebDriver waits for a condition to be true.  Internally, this action makes use of Selenium's
+<code>WebDriverWait</code> functionality to implement the waiting logic. Documentation for the WebDriver Wait
+functionality from the web may be useful if you would like a deeper understanding of this action.
+This action accepts a number of parameters.
+</p>
+<p>
+The <b>Predicate</b> is the condition for which we are waiting.  In other words, we are waiting until the Predicate
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.  This is expressed using a <a class="xref" href="CSF.Screenplay.Selenium.Actions.WaitUntilPredicate-1.html">WaitUntilPredicate&lt;T&gt;</a>, of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>.
+See <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html">TargetExtensions</a> for extension methods which act as builders for a predicate:
+<a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">Has(ITarget)</a> builds a predicate for a single element whereas
+<a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">AllHave(ITarget)</a> builds a predicate for a collection of
+elements.
+</p>
+<p>
+The <b>Timeout</b> is the maximum time which this Action will wait. If the Predicate (above) is not true.
+If the timeout elapses before the Predicate is true then this action will throw
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.WebDriverTimeoutException.html">WebDriverTimeoutException</a>. In fact, it is the underlying Selenium WebDriver which will throw
+this exception; this action does not change that.
+It is impossible to specify an indefinite timeout.  The following rules of precedence are used to ensure that
+the timeout is always set:
+</p>
+<ol><li>If a timeout was specified when constructing this instance, that value is used.</li><li>If the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> performing this question has the ability <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a>,
+then the time specified by <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html#CSF_Screenplay_Selenium_UseADefaultWaitTime_WaitTime">WaitTime</a> is used.</li><li>If neither of the above apply, a default timeout of 5 seconds is used.</li></ol>
+<p>
+The <b>Polling Interval</b> controls how often the WebDriver queries the web browser to determine if the
+Predicate (above) has been fulfilled.  Shorter polling intervals can lead to more responsive waits, the Performance
+is not left waiting longer than it needs.  The 'cost' of a shorter polling interval is increased traffic between
+the Screenplay and the WebDriver. This is particularly relevant when using a Remote WebDriver, as this translates
+to actual network/Internet traffic and latency.
+If unspecified, Selenium's default polling interval is used.  At the time of writing that is 500 milliseconds.
+</p>
+<p>
+Lastly, the <b>Ignored Exception Types</b> is a collection of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>. Each entry should be a type which
+derives from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a> which should be silently ignored whilst testing the Predicate (above).
+This can be useful to ignore errors which are raised because the Predicate isn't true yet, without needing
+expensive (and performance-impacting) defensive programming.  If this collection is specified then these exception
+types will be caught and silently ignored whilst evaluating the Predicate, treating an exception as "not true".
 </p>
 </div>
 
@@ -175,7 +231,7 @@ If the wait fails to complete within the timeout period, a <span class="xref">Op
 
   <h3 id="CSF_Screenplay_Selenium_Actions_Wait__ctor_CSF_Screenplay_Selenium_Actions_WaitUntilPredicate_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_TimeSpan__System_Collections_Generic_ICollection_System_Type__" data-uid="CSF.Screenplay.Selenium.Actions.Wait.#ctor(CSF.Screenplay.Selenium.Actions.WaitUntilPredicate{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Collections.Generic.ICollection{System.Type})">
   Wait(WaitUntilPredicate&lt;bool&gt;, TimeSpan?, TimeSpan?, ICollection&lt;Type&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a> class.</p>
@@ -214,6 +270,50 @@ presence of the <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTim
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout" data-uid="CSF.Screenplay.Selenium.Actions.Wait.DefaultTimeout">
+  DefaultTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This default timeout of 5 seconds used when no timeout is specified and the actor has no <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a> ability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultTimeout</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_Wait_DefaultTimeout_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This, along with a few other performables in the Selenium extension for Screenplay involve waiting, with a timeout
+to prevent waiting indefinitely.
+If no timeout has been specified then this 5-second timeout is used as a fall-back default.
+This may be overridden by granting the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> the ability <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a>, with a different
+timeout specified.
+</p>
+</div>
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -222,7 +322,7 @@ presence of the <a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTim
 
   <h3 id="CSF_Screenplay_Selenium_Actions_Wait_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.Wait.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -305,7 +405,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_Wait_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.Wait.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -343,11 +443,17 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates_">WaitUntil</a>(<a class="xref" href="CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates.html">IBuildsElementPredicates</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_WaitUntil_System_Func_OpenQA_Selenium_IWebDriver_System_Boolean__">WaitUntil</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.UseADefaultWaitTime.html">UseADefaultWaitTime</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L29" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/Wait.cs/#L90" class="edit-link">Edit this page</a>
         </div>
 
 

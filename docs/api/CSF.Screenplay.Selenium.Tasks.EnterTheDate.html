@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EnterTheDate | Screenplay ">
       
-      <meta name="description" content="A  which represents an actor entering a date value into an &amp;lt;input type=&amp;quot;date&amp;quot;&amp;gt; element.">
+      <meta name="description" content="A Screenplay task for entering a value into an &amp;lt;input type=&amp;quot;date&amp;quot;&amp;gt; element.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Actions_EnterTheDate.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Actions.EnterTheDate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Tasks_EnterTheDate.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Tasks.EnterTheDate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,20 +84,20 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate">
+        <article data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Actions_EnterTheDate" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate" class="text-break">
-Class EnterTheDate  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate" class="text-break">
+Class EnterTheDate  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Actions.html">Actions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Tasks.html">Tasks</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> which represents an actor entering a date value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>
+  <div class="markdown summary"><p>A Screenplay task for entering a value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,20 +153,57 @@ Class EnterTheDate  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <h2 id="CSF_Screenplay_Selenium_Actions_EnterTheDate_examples">Examples</h2>
+  <h2 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_examples">Examples</h2>
   <p>
-For example, a British English browser <code>en-GB</code> expects dates to be entered in the format ddMMyyyy.
+A British English browser <code>en-GB</code> expects dates to be entered in the format ddMMyyyy.
 However, a US English browser <code>en-US</code> expects dates to be entered in the format MMddyyyy.
 </p>
+<p>The code sample below shows how to enter the date 5th April 2025 into a date input element with the id <code>due_date</code>,
+using the British English format.</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget dueDate = new ElementId("due_date", "the due date");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(EnterTheDate(new DateTime(2025, 4, 5)).Into(dueDate).ForTheCultureNamed("en-GB"), cancellationToken);
+    // ... other performance logic
+}</code></pre>
 
 
-  <h2 id="CSF_Screenplay_Selenium_Actions_EnterTheDate_remarks">Remarks</h2>
+  <h2 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Note that this task is culture-sensitive.  Ensure that the date value is entered into the browser using the culture in which the browser is
-running.
-If no culture information is specified then this task defaults to the current culture: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo.currentculture">CurrentCulture</a>.
-However, this is not certain to be correct, particularly in remote/cloud configurations where the web browser is operating on different
-infrastructure to the computer which is executing the Screenplay performance.  These two computers might be operating in different cultures.
+Use this task with the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheDate_System_Nullable_System_DateTime__">EnterTheDate(DateTime?)</a>.
+This builder will guide you through picking the element into which the date should be entered.
+</p>
+<p>
+The rationale for this task is that web browsers or WebDriver implementations are inconsistent in the manner in which
+they support interacting with Date input elements.
+Browsers which require a JavaScript workaround are marked with the browser quirk
+<a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys">CannotSetInputTypeDateWithSendKeys</a>.
+See the documentation for that quirk for more information.
+This task provides date-setting capabilities in a cross-browser manner.
+</p>
+<p>
+For browsers which are affected by the quirk, the date is set via a separate task: <a class="xref" href="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html">SetTheElementValue</a>,
+with the 'simulate setting the value interactively' behaviour enabled.
+For browsers which are not affected by the quirk, the date is first cleared via the action <a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearTheContents.html">ClearTheContents</a>,
+and then keypresses are sent to the web browser to enter the date in a locale-specific format via <a class="xref" href="CSF.Screenplay.Selenium.Actions.SendKeys.html">SendKeys</a>.
+</p>
+<p>
+Note that because entering a date interactively (by sending keys) requires a locale-specific format, that makes this task
+culture-sensitive.  It is important to ensure that the date value entered into the browser is entered using the same culture
+as which the browser is currently operating.  If the culture does not match then this could lead to mistakes in the value;
+consider muddling up US English and UK English dates.  In US English <code>04/05/2010</code> means the 5th April 2010.  In UK English
+that same date string means 4th May 2010, because the days and months are transposed in that format.
+If no culture information is specified in the constructor then this task defaults to the current culture: <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo.currentculture">CurrentCulture</a>.
+That is often sufficient, particularly if the WebDriver is running locally on the same computer as is executing the Screenplay
+Performance. It could be problematic, though, if a Remote WebDriver is in use. A Remote WebDriver could be hosted in another
+nation and thus be operating under a different culture to the Screenplay Performance. In this case, be sure to specify the
+correct culture in the constructor of this task.
 </p>
 <p>
 If the date specified to this task is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then this task will clear the date from the target.
@@ -178,14 +215,14 @@ If the date specified to this task is <a href="https://learn.microsoft.com/dotne
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_EnterTheDate__ctor_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_EnterTheDate__ctor_System_Nullable_System_DateTime__CSF_Screenplay_Selenium_Elements_ITarget_System_Globalization_CultureInfo_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate__ctor_System_Nullable_System_DateTime__CSF_Screenplay_Selenium_Elements_ITarget_System_Globalization_CultureInfo_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.#ctor(System.Nullable{System.DateTime},CSF.Screenplay.Selenium.Elements.ITarget,System.Globalization.CultureInfo)">
   EnterTheDate(DateTime?, ITarget, CultureInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.EnterTheDate.html">EnterTheDate</a> class with the specified date.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.EnterTheDate.html">EnterTheDate</a> class with the specified date.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -221,11 +258,11 @@ If the date specified to this task is <a href="https://learn.microsoft.com/dotne
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -259,7 +296,7 @@ If the date specified to this task is <a href="https://learn.microsoft.com/dotne
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -277,7 +314,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -304,11 +341,11 @@ are seldom presented as paragraphs of prose.
 
 
 
-  <a id="CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Actions_EnterTheDate_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -346,11 +383,19 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_EnterTheDate_System_Nullable_System_DateTime__">EnterTheDate</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys">CannotSetInputTypeDateWithSendKeys</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html">SetTheElementValue</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearTheContents.html">ClearTheContents</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.SendKeys.html">SendKeys</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L33" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/EnterTheDate.cs/#L77" class="edit-link">Edit this page</a>
         </div>
 
 

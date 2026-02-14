@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder" class="text-break">
-Class QueryPredicatePrototypeBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Class QueryPredicatePrototypeBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -146,10 +146,55 @@ Class QueryPredicatePrototypeBuilder  <a class="header-action link-secondary" ti
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_examples">Examples</h2>
+  <p>
+This first example shows how a <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a> action may be written, to wait until the text of a status display reads "finished".
+Note the section <code>.Has.Text("finished")</code>, which demonstrates use of the functionality of this class.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget status = new CssSelector("#footer .status", "the status display");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(WaitUntil(status.Has().Text("finished"), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+<p>
+The second example, below, shows the usage of <a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a>, matching only elements
+which are larger than 50×50 pixels in both dimensions.  Imagine a bubble chart, in which we are looking for bubbles
+larger than a certain size.
+Note the section <code>.ForThoseWhich(q =&gt; q.Size(s =&gt; s.Height &gt; 50 &amp;&amp; s.Width &gt; 50))</code>, which demonstrates
+use of the functionality of this class.
+</p>
+<pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
+
+readonly ITarget bubbles = new CssSelector(".bubble_chart .bubble", "the items in the bubble chart");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    var allBubbles = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(bubbles), cancellationToken);
+    var largeBubbles = await actor.PerformAsync(Filter(allBubbles)
+                                                .ForThoseWhich(q =&gt; q.Size(s =&gt; s.Height &gt; 50 &amp;&amp; s.Width &gt; 50)),
+                                               cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
 
   <h2 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-These are generally used for WebDriver waits, to wait until a target element meets the specified conditions.
+Predicates, built by the members of this class, are primarily used for two purposes:
+</p>
+<ul><li>The <a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a> action, to specify the condition under which the wait should end.</li><li>The <a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a> question, to specify the criteria by which to match elements.</li></ul>
+<p>
+For more information about interrogating the state of targets, see <a class="xref" href="../docs/extensions/selenium/Queries.html">Queries</a>;
+queries are the foundation upon which this predicate functionality is based.
 </p>
 </div>
 
@@ -162,7 +207,7 @@ These are generally used for WebDriver waits, to wait until a target element mee
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget,System.Boolean)">
   QueryPredicatePrototypeBuilder(ITarget, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L705"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> class for creating instances of
@@ -206,7 +251,7 @@ element.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AllClasses_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.AllClasses(System.String[])">
   AllClasses(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate for the presence of all the specified HTML classes (amongst the class attribute's values).</p>
@@ -236,14 +281,26 @@ element.</p>
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AllClasses_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AllClasses_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
+</p>
+<p>
+This method inspects the <code>class</code> attribute and determines whether every one of the specified classes are present
+in the element's class list.
 </p>
 </div>
 
@@ -254,7 +311,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Attribute_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Attribute(System.String)">
   Attribute(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate for the presence of a specified HTML attribute.</p>
@@ -284,14 +341,26 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Attribute_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Attribute_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
+</p>
+<p>
+This method specifically targets that last behaviour, described above.  It verifies that the response for attribute's
+value is not <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
 </p>
 </div>
 
@@ -302,7 +371,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_Func_System_String_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.AttributeValue(System.String,System.Func{System.String,System.Boolean})">
   AttributeValue(string, Func&lt;string, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on a specified HTML attribute and a predicate for the attribute's value.</p>
@@ -335,13 +404,21 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_Func_System_String_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_Func_System_String_System_Boolean___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
 </p>
 <p>
@@ -357,7 +434,7 @@ by using a predicate which checks for <a href="https://learn.microsoft.com/dotne
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.AttributeValue(System.String,System.String)">
   AttributeValue(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L138"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate for the presence of a specified HTML attribute, with a specified value.</p>
@@ -390,14 +467,26 @@ by using a predicate which checks for <a href="https://learn.microsoft.com/dotne
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_AttributeValue_System_String_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
+</p>
+<p>
+Note that the last behaviour, described above, means that this method may be used to match elements which <em>do not</em> have the specified attribute,
+by using <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> as the desired value.
 </p>
 </div>
 
@@ -408,7 +497,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Class_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Class(System.String)">
   Class(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L192"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate for the presence of a specified HTML class (amongst the class attribute's values).</p>
@@ -438,14 +527,26 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Class_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Class_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
+</p>
+<p>
+This method inspects the <code>class</code> attribute and determines whether the specified class is present amongst the element's
+class list.
 </p>
 </div>
 
@@ -456,10 +557,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Clickability(System.Boolean)">
   Clickability(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L294"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether or not the element is clickable.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is clickable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -486,7 +587,16 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Boolean__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+</p>
+</div>
 
 
 
@@ -495,10 +605,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Func_System_Boolean_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Clickability(System.Func{System.Boolean,System.Boolean})">
   Clickability(Func&lt;bool, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L279"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether or not the element is clickable.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate based on the element's clickability.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -525,7 +635,16 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Func_System_Boolean_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickability_System_Func_System_Boolean_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+</p>
+</div>
 
 
 
@@ -534,10 +653,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickable" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Clickable">
   Clickable()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L308"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is clickable.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate for only clickable elements.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -558,7 +677,16 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickable_examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Clickable_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+</p>
+</div>
 
 
 
@@ -567,7 +695,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_Func_System_String_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.CssProperty(System.String,System.Func{System.String,System.Boolean})">
   CssProperty(string, Func&lt;string, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L339"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on a specified CSS property and a predicate for the property's value.</p>
@@ -600,7 +728,19 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_Func_System_String_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_Func_System_String_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this is not limited to reading the styling of an element/elements as it was defined in
+a stylesheet.  It reads the <em>live styling</em> of the element as it is when the question executes.
+Thus, if JavaScript or a class change has altered the styling of the element since it was first rendered
+on-screen, its up-to-date styling information will be inspected.
+</p>
+</div>
 
 
 
@@ -609,7 +749,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.CssProperty(System.String,System.String)">
   CssProperty(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L358"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on a specified CSS property and a desired value for that property.</p>
@@ -642,7 +782,19 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CssProperty_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this is not limited to reading the styling of an element/elements as it was defined in
+a stylesheet.  It reads the <em>live styling</em> of the element as it is when the question executes.
+Thus, if JavaScript or a class change has altered the styling of the element since it was first rendered
+on-screen, its up-to-date styling information will be inspected.
+</p>
+</div>
 
 
 
@@ -651,7 +803,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Location_System_Drawing_Point_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Location(System.Drawing.Point)">
   Location(Point)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L378"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's location (its top-left corner).</p>
@@ -681,6 +833,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Location_System_Drawing_Point__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -690,7 +846,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Location_System_Func_System_Drawing_Point_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Location(System.Func{System.Drawing.Point,System.Boolean})">
   Location(Func&lt;Point, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L368"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's location (its top-left corner).</p>
@@ -720,6 +876,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Location_System_Func_System_Drawing_Point_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -729,7 +889,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClass_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.NotClass(System.String)">
   NotClass(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate for the absence of a specified HTML class (amongst the class attribute's values).</p>
@@ -759,14 +919,26 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClass_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClass_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this specification makes use of Selenium's <code>GetAttribute</code> method.
-The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-It also has special handling for certain attributes such as <code>class</code> &amp; <code>readonly</code> attributes (substituting them with <code>className</code>
-and <code>readOnly</code> respectively when querying DOM properties).
+The underlying implementation of this method makes use of the <code>GetAttribute</code> method of Selenium's
+<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a> type to query the current attribute value.  The get-attribute behaviour
+queries the corresponding DOM property of the element first, before querying the HTML attribute.
+Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+of the element will be used.
+Selenium's get-attribute functionality also has special handling for certain attributes such as <code>class</code>
+&amp; <code>readonly</code>.  When inspecting the DOM properties, these names are transparently normalised to
+<code>className</code> and <code>readOnly</code> respectively.
 Finally, 'boolean' attribute values are returned with either the string <code>true</code> if present or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if not.
+</p>
+<p>
+This method inspects the <code>class</code> attribute and determines whether the specified class is not present amongst the element's
+class list.
 </p>
 </div>
 
@@ -777,10 +949,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClickable" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.NotClickable">
   NotClickable()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L321"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is clickable.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate for only elements which are not clickable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -801,7 +973,16 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClickable_examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotClickable_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+</p>
+</div>
 
 
 
@@ -810,10 +991,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotVisible" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.NotVisible">
   NotVisible()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L541"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is not visible.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate for elements that are not visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -834,6 +1015,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_NotVisible_examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -843,7 +1028,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Options_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Options(System.Func{System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Selenium.Queries.Option},System.Boolean})">
   Options(Func&lt;IReadOnlyList&lt;Option&gt;, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L648"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, regardless of their selected state.</p>
@@ -873,6 +1058,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Options_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -882,7 +1071,7 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithText_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.OptionsWithText(System.String[])">
   OptionsWithText(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L454"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L665"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, regardless of their selected state.</p>
@@ -912,6 +1101,10 @@ Finally, 'boolean' attribute values are returned with either the string <code>tr
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithText_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithText_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -928,7 +1121,7 @@ This method identifies the options by their display text.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithValue_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.OptionsWithValue(System.String[])">
   OptionsWithValue(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L684"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, regardless of their selected state.</p>
@@ -958,6 +1151,10 @@ This method identifies the options by their display text.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithValue_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_OptionsWithValue_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -974,7 +1171,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptions_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.SelectedOptions(System.Func{System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Selenium.Queries.Option},System.Boolean})">
   SelectedOptions(Func&lt;IReadOnlyList&lt;Option&gt;, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L550"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are selected.</p>
@@ -1004,6 +1201,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptions_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1013,7 +1214,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithText_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.SelectedOptionsWithText(System.String[])">
   SelectedOptionsWithText(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L567"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are selected.</p>
@@ -1043,6 +1244,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithText_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithText_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1059,7 +1264,7 @@ This method identifies the options by their display text.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithValue_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.SelectedOptionsWithValue(System.String[])">
   SelectedOptionsWithValue(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L586"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are selected.</p>
@@ -1089,6 +1294,10 @@ This method identifies the options by their display text.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithValue_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_SelectedOptionsWithValue_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1105,7 +1314,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Size_System_Drawing_Size_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Size(System.Drawing.Size)">
   Size(Size)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L398"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's size (width &amp; height in pixels).</p>
@@ -1135,6 +1344,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Size_System_Drawing_Size__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1144,7 +1357,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Size_System_Func_System_Drawing_Size_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Size(System.Func{System.Drawing.Size,System.Boolean})">
   Size(Func&lt;Size, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L388"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's size (width &amp; height in pixels).</p>
@@ -1174,6 +1387,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Size_System_Func_System_Drawing_Size_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1183,7 +1400,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_Func_System_String_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Text(System.Func{System.String,System.Boolean})">
   Text(Func&lt;string, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L422"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's text content.</p>
@@ -1213,6 +1430,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_Func_System_String_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_Func_System_String_System_Boolean___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1222,10 +1443,10 @@ include whitespace at the beginning/end of text read from the browser, which isn
 space which is inherent in the markup, but which browsers ignore when actually displaying content.
 </p>
 <p>
-Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+By trimming whitespace, the Selenium extension for Screenplay ensures that behaviour is consistent
+cross-browser.
 If this causes an issue and you would like the leading/trailing whitespace included the use
 <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String_">TextWithoutTrimmingWhitespace(string)</a> instead.
-Note that you may see different results in browsers which include leading/trailing whitespace anyway.
 </p>
 </div>
 
@@ -1236,7 +1457,7 @@ Note that you may see different results in browsers which include leading/traili
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Text(System.String)">
   Text(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L446"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's text content.</p>
@@ -1266,6 +1487,10 @@ Note that you may see different results in browsers which include leading/traili
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1275,10 +1500,10 @@ include whitespace at the beginning/end of text read from the browser, which isn
 space which is inherent in the markup, but which browsers ignore when actually displaying content.
 </p>
 <p>
-Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+By trimming whitespace, the Selenium extension for Screenplay ensures that behaviour is consistent
+cross-browser.
 If this causes an issue and you would like the leading/trailing whitespace included the use
 <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String_">TextWithoutTrimmingWhitespace(string)</a> instead.
-Note that you may see different results in browsers which include leading/trailing whitespace anyway.
 </p>
 </div>
 
@@ -1289,7 +1514,7 @@ Note that you may see different results in browsers which include leading/traili
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_Func_System_String_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.Func{System.String,System.Boolean})">
   TextWithoutTrimmingWhitespace(Func&lt;string, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L465"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's text content.</p>
@@ -1319,12 +1544,18 @@ Note that you may see different results in browsers which include leading/traili
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_Func_System_String_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_Func_System_String_System_Boolean___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
-without trimming it.
-Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+When reading text from the web browser, this predicate will preserve any leading/trailing whitespace in the text
+without trimming it. Be aware that some browsers (Safari) may include leading/trailing whitespace when reading text,
+which other WebDriver implementations do not.  This can result in inconsistent results when
+operating cross-browser.  If cross-browser consistency is important then consider using <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_Func_System_String_System_Boolean__">Text(Func&lt;string, bool&gt;)</a>
+instead.
 </p>
 </div>
 
@@ -1335,7 +1566,7 @@ Note that you may see different results in browsers which include leading/traili
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.TextWithoutTrimmingWhitespace(System.String)">
   TextWithoutTrimmingWhitespace(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L484"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's text content, without trimming leading/trailing whitespace.</p>
@@ -1365,12 +1596,18 @@ Note that you may see different results in browsers which include leading/traili
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_TextWithoutTrimmingWhitespace_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
-without trimming it.
-Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+When reading text from the web browser, this predicate will preserve any leading/trailing whitespace in the text
+without trimming it. Be aware that some browsers (Safari) may include leading/trailing whitespace when reading text,
+which other WebDriver implementations do not.  This can result in inconsistent results when
+operating cross-browser.  If cross-browser consistency is important then consider using <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html#CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Text_System_String_">Text(string)</a>
+instead.
 </p>
 </div>
 
@@ -1381,7 +1618,7 @@ Note that you may see different results in browsers which include leading/traili
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptions_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.UnselectedOptions(System.Func{System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Selenium.Queries.Option},System.Boolean})">
   UnselectedOptions(Func&lt;IReadOnlyList&lt;Option&gt;, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L598"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are not selected.</p>
@@ -1411,6 +1648,10 @@ Note that you may see different results in browsers which include leading/traili
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptions_System_Func_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Selenium_Queries_Option__System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1420,7 +1661,7 @@ Note that you may see different results in browsers which include leading/traili
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithText_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.UnselectedOptionsWithText(System.String[])">
   UnselectedOptionsWithText(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L412"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L617"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are not selected.</p>
@@ -1450,6 +1691,10 @@ Note that you may see different results in browsers which include leading/traili
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithText_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithText_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1466,7 +1711,7 @@ This method identifies the options by their display text.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithValue_System_String___" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.UnselectedOptionsWithValue(System.String[])">
   UnselectedOptionsWithValue(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L636"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the <code>&lt;option&gt;</code> elements, which are children of the current element, which are not selected.</p>
@@ -1496,6 +1741,10 @@ This method identifies the options by their display text.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithValue_System_String____examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
   <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_UnselectedOptionsWithValue_System_String____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
@@ -1512,7 +1761,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Value_System_Func_System_String_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Value(System.Func{System.String,System.Boolean})">
   Value(Func&lt;string, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L494"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's DOM <code>value</code>.</p>
@@ -1542,6 +1791,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Value_System_Func_System_String_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1551,7 +1804,7 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Value_System_String_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Value(System.String)">
   Value(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L504"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a query predicate based on the element's DOM <code>value</code>.</p>
@@ -1581,6 +1834,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Value_System_String__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1590,10 +1847,10 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visibility_System_Boolean_" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Visibility(System.Boolean)">
   Visibility(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L524"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether or not the element is visible.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1620,6 +1877,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visibility_System_Boolean__examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1629,10 +1890,10 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visibility_System_Func_System_Boolean_System_Boolean__" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Visibility(System.Func{System.Boolean,System.Boolean})">
   Visibility(Func&lt;bool, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L514"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether or not the element is visible.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1659,6 +1920,10 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visibility_System_Func_System_Boolean_System_Boolean___examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
+
 
 
 
@@ -1668,10 +1933,10 @@ This method identifies the options by their DOM value.
 
   <h3 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visible" data-uid="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.Visible">
   Visible()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L533"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a query predicate based on whether the element is visible.</p>
+  <div class="markdown level1 summary"><p>Creates a query predicate for elements that are visible.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1692,16 +1957,30 @@ This method identifies the options by their DOM value.
 
 
 
+  <h4 class="section" id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_Visible_examples">Examples</h4>
+  <p>See the remarks for the class <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> for two examples of
+    usage. The methods of this type all follow the same broad pattern to create predicates.</p>
 
 
 
 
 
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">AllHave</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">AreAll</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">Has</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">Is</a>(<a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FilterElementsBuilder_ForThoseWhich_System_Func_CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_CSF_Screenplay_Selenium_Builders_IBuildsElementPredicates__">ForThoseWhich</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a>, <a class="xref" href="CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates.html">IBuildsElementPredicates</a>&gt;)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Builders/QueryPredicatePrototypeBuilder.cs/#L80" class="edit-link">Edit this page</a>
         </div>
 
 

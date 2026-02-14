@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Selenium questions | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Selenium questions | Screenplay ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Questions.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="selenium-questions">Selenium questions</h1>
+
+<p>The Selenium extension for Screenplay provides <a href="../../../glossary/Question.html">Questions</a>, each of which observes the web browser and its current contents in some manner, returning a result.
+There are three broad categories of questions in the Selenium extension:</p>
+<ul>
+<li>Questions which read something from a specified element or elements, such as <em>&quot;get the text of the username label&quot;</em> or <em>&quot;get the color of each of the status indicators&quot;</em>.</li>
+<li>Questions which find or query-for HTML elements, such as <em>find all checkboxes in the to-do list which are checked</em> or <em>get the first status label which has a red background</em>.</li>
+<li>Questions which interact directly with the web browser.</li>
+</ul>
+<p>What is common to all Screenplay Questions is that they get information, or a result object.
+They do not make changes to the state of the application/web browser.
+To interact with the web page in a way which could change its state, use <a href="Actions.html">one of the Selenium extension's Actions</a>.
+Below is a summary of each of these questions' usage, with a link to their detailed documentation page.</p>
+<h2 id="questions-which-query-the-state-of-elements">Questions which query the state of elements</h2>
+<p>Questions which read-from or observe HTML elements operate using a common mechamism, named <a href="Queries.html">Queries</a>.
+Queries provide a builder-friendly manner by which to read state from either one or a collection of elements.
+Each of the Questions listed below makes use of a Query to identify the state which is to be read from the element.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html"><code>SingleElementQuery&lt;TResult&gt;</code></a></td>
+<td>Reads the state from a <a href="Targets.html">target</a> representing a single element</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html"><code>ElementCollectionQuery&lt;TResult&gt;</code></a></td>
+<td>Reads the state from a <a href="Targets.html">target</a> representing a collection of elements</td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-which-find-or-filter-elements">Questions which find or filter elements</h2>
+<p>There are many ways to use these questions, chosen by the way in which you use the relevant builder(s).
+The possibilities are explained in detail on the questions' detailed documentation pages.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FindElement.html"><code>FindElement</code></a></td>
+<td>Gets <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElement.html">an element</a> which matches a <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.Locator.html"><code>Locator</code></a></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FindElements.html"><code>FindElements</code></a></td>
+<td>Gets <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">a collection of elements</a> which match a <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.Locator.html"><code>Locator</code></a></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FilterElements.html"><code>FilterElements</code></a></td>
+<td>Filters <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">a collection of elements</a> for those which match a <a href="Queries.html">query</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="questions-for-the-web-browser">Questions for the web browser</h2>
+<p>These questions don't neccesarily involve elements, instead they query the web browser directly.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html"><code>ExecuteJavaScriptAndGetResult&lt;TResult&gt;</code></a></td>
+<td>Executes a JavaScript directly in the browser and reads the result</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.html"><code>GetWindowTitle</code></a></td>
+<td>Reads the text of the Window/Tab title</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.TakeScreenshot.html"><code>TakeScreenshot</code></a></td>
+<td>Takes a Screenshot of the browser window</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/extensions/selenium/Questions.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

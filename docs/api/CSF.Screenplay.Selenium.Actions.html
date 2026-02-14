@@ -96,98 +96,89 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearCookies.html">ClearCookies</a></dt>
-      <dd><p>Represents an action to clear all browser cookies for the current site.</p>
+      <dd><p>An action which clears all browser cookies for the current site/domain.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearLocalStorage.html">ClearLocalStorage</a></dt>
-      <dd><p>Represents an action to clear the browser's local storage for the current site.</p>
+      <dd><p>An action which clears the browser's local storage for the current site.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ClearTheContents.html">ClearTheContents</a></dt>
-      <dd><p>Represents an action to clear the contents of a specified HTML element.</p>
+      <dd><p>A partial Screenplay Action which clears the contents of an HTML element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.Click.html">Click</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor clicking upon a single HTML element.</p>
+      <dd><p>A partial Screenplay Action which clicks on an HTML element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.DeleteTheCookie.html">DeleteTheCookie</a></dt>
-      <dd><p>Represents an action to delete a specific browser cookie by name.</p>
+      <dd><p>An action which deletes a specific browser cookie by name.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.DeselectAll.html">DeselectAll</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor deselecting all options from a <code>&lt;select&gt;</code> element.</p>
+      <dd><p>A partial Screenplay Action which de-selects every option from an HTML <code>&lt;select&gt;</code> element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.DeselectByIndex.html">DeselectByIndex</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its zero-based index within the available options.</p>
+      <dd><p>A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's zero-based index (position).</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.DeselectByText.html">DeselectByText</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its human-readable display text.</p>
+      <dd><p>A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's displayed text.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.DeselectByValue.html">DeselectByValue</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor deselecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its underlying value.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.EnterTheDate.html">EnterTheDate</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> which represents an actor entering a date value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>
+      <dd><p>A partial Screenplay Action which de-selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's value; the <code>value</code> attribute.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ExecuteJavaScript.html">ExecuteJavaScript</a></dt>
-      <dd><p>An action which executes some arbitrary JavaScript in the web browser.</p>
+      <dd><p>An action which sends a JavaScript string to a web browser and executes it.
+This action ignores the result (if any) from that script.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a></dt>
-      <dd><p>Screenplay action which opens (navigates) directly to a specified URL using the actor's WebDriver.</p>
+      <dd><p>An action which navigates to a specified URL, as if the user had entered it into the browser address bar.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SaveScreenshot.html">SaveScreenshot</a></dt>
-      <dd><p>Screenplay action which saves a Selenium Screenshot instance as an asset file.</p>
+      <dd><p>An action which saves a Selenium <code>Screenshot</code> object to disk as an asset file.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SelectByIndex.html">SelectByIndex</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its zero-based index within the available options.</p>
+      <dd><p>A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's zero-based index (position).</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SelectByText.html">SelectByText</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its human-readable display text.</p>
+      <dd><p>A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's displayed text.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SelectByValue.html">SelectByValue</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor selecting an option from a <code>&lt;select&gt;</code> element,
-where the option is specified by its underlying value.</p>
+      <dd><p>A partial Screenplay Action which selects an option from an HTML <code>&lt;select&gt;</code> element based
+upon that option's value; the <code>value</code> attribute.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SendKeys.html">SendKeys</a></dt>
-      <dd><p>A <a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a> which represents an actor pressing some keys whilst focussed upon a single HTML element.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.SetTheElementValue.html">SetTheElementValue</a></dt>
-      <dd><p>An action that sets the value of a web element using JavaScript.</p>
+      <dd><p>A partial Screenplay Action which sends keys (enters text) to an HTML element.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -197,12 +188,13 @@ where the option is specified by its underlying value.</p>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.Wait.html">Wait</a></dt>
-      <dd><p>A performable action that waits until a specified condition is met, or a timeout expires (whichever is sooner).</p>
+      <dd><p>A Screenplay action which pauses the Performance until either a specified condition is met or a timeout expires,
+whichever occurs sooner.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.WaitForSomeTime.html">WaitForSomeTime</a></dt>
-      <dd><p>A performable action that waits for a specified amount of time.</p>
+      <dd><p>A Screenplay action which pauses the performance for a specified amount of time.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -220,7 +212,7 @@ Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable.html">ISingleElementPerformable</a></dt>
-      <dd><p>Similar to <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> but provides access to a Selenium WebDriver and a Selenium element.</p>
+      <dd><p>An object which is similar to <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> but provides access to a Selenium WebDriver and a Selenium element.</p>
 </dd>
     </dl>
 

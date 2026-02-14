@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Locator | Screenplay ">
       
-      <meta name="description" content="An object which provides a locator for Selenium elements.">
+      <meta name="description" content="Base type for implementations of  which serve as a specification for Selenium elements but which do not reference those elements directly.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Elements_Locator" data-uid="CSF.Screenplay.Selenium.Elements.Locator" class="text-break">
-Class Locator  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class Locator  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class Locator  <a class="header-action link-secondary" title="View source" href=
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An object which provides a locator for Selenium elements.</p>
+  <div class="markdown summary"><p>Base type for implementations of <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> which serve as a specification for Selenium elements
+but which do not reference those elements directly.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -167,7 +168,13 @@ Class Locator  <a class="header-action link-secondary" title="View source" href=
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AllHave(ITarget)</a>
   </div>
   <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AreAll(ITarget)</a>
+  </div>
+  <div>
       <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Has(ITarget)</a>
+  </div>
+  <div>
+      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Is(ITarget)</a>
   </div>
   </dd></dl>
 
@@ -175,8 +182,10 @@ Class Locator  <a class="header-action link-secondary" title="View source" href=
 
   <h2 id="CSF_Screenplay_Selenium_Elements_Locator_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-The Selenium <code>By</code> object is a specification of sorts, which can be used to find HTML elements on a web page.
-Concrete implementations of this class provide various ways to get a <code>By</code> object.
+All derived types of this class are Screenplay wrappers (adapters) for the Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a> class.
+The 'By' class is a specification of sorts, describing how a WebDriver may find an element on a page.
+Implementations of this type provide that specification, but additionally a <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html#CSF_Screenplay_Selenium_Elements_Locator_Name">Name</a>, providing
+human-readable content in Screenplay reports.
 </p>
 </div>
 
@@ -189,7 +198,7 @@ Concrete implementations of this class provide various ways to get a <code>By</c
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator__ctor_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.Elements.Locator.#ctor(System.String,System.String)">
   Locator(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a> class.</p>
@@ -229,7 +238,7 @@ Concrete implementations of this class provide various ways to get a <code>By</c
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_Name" data-uid="CSF.Screenplay.Selenium.Elements.Locator.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -267,7 +276,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_Specification" data-uid="CSF.Screenplay.Selenium.Elements.Locator.Specification">
   Specification
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the locator specification string.</p>
@@ -303,7 +312,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_GetDefaultName" data-uid="CSF.Screenplay.Selenium.Elements.Locator.GetDefaultName">
   GetDefaultName()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value for <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html#CSF_Screenplay_Selenium_Elements_Locator_Name">Name</a> if none has been specified.</p>
@@ -336,7 +345,7 @@ should return a non-null response from this property.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_GetElement_OpenQA_Selenium_IWebDriver_" data-uid="CSF.Screenplay.Selenium.Elements.Locator.GetElement(OpenQA.Selenium.IWebDriver)">
   GetElement(IWebDriver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a single Selenium element which matches the current target.</p>
@@ -349,7 +358,7 @@ should return a non-null response from this property.
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>driver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>driver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>A Selenium Web Driver</p>
 </dd>
   </dl>
@@ -389,7 +398,7 @@ Crucially, if the target represents multiple elements then this method will retu
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_GetElements_OpenQA_Selenium_IWebDriver_" data-uid="CSF.Screenplay.Selenium.Elements.Locator.GetElements(OpenQA.Selenium.IWebDriver)">
   GetElements(IWebDriver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a collection of Selenium elements which match the current target.</p>
@@ -402,7 +411,7 @@ Crucially, if the target represents multiple elements then this method will retu
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>driver</code> <span class="xref">IWebDriver</span></dt>
+    <dt><code>driver</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebDriver.html">IWebDriver</a></dt>
     <dd><p>A Selenium Web Driver</p>
 </dd>
   </dl>
@@ -435,7 +444,7 @@ be returned directly.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_GetLocator" data-uid="CSF.Screenplay.Selenium.Elements.Locator.GetLocator">
   GetLocator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the Selenium locator instance for finding HTML elements.</p>
@@ -449,7 +458,7 @@ be returned directly.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">By</span></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a></dt>
     <dd><p>A Selenium <code>By</code> object used to locate elements.</p>
 </dd>
   </dl>
@@ -472,10 +481,10 @@ be returned directly.
 
   <h3 id="CSF_Screenplay_Selenium_Elements_Locator_op_Implicit_CSF_Screenplay_Selenium_Elements_Locator__OpenQA_Selenium_By" data-uid="CSF.Screenplay.Selenium.Elements.Locator.op_Implicit(CSF.Screenplay.Selenium.Elements.Locator)~OpenQA.Selenium.By">
   implicit operator By(Locator)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Implicitly converts a <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a> to a Selenium <span class="xref">OpenQA.Selenium.By</span> object.</p>
+  <div class="markdown level1 summary"><p>Implicitly converts a <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a> to a Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a> object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -492,8 +501,8 @@ be returned directly.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">By</span></dt>
-    <dd><p>A Selenium <span class="xref">OpenQA.Selenium.By</span> object.</p>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a></dt>
+    <dd><p>A Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.By.html">By</a> object.</p>
 </dd>
   </dl>
 
@@ -511,7 +520,7 @@ be returned directly.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/Locator.cs/#L18" class="edit-link">Edit this page</a>
         </div>
 
 

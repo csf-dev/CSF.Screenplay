@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_NamedScript_7" data-uid="CSF.Screenplay.Selenium.NamedScript`7" class="text-break">
-Class NamedScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L267"><i class="bi bi-code-slash"></i></a>
+Class NamedScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -186,23 +186,24 @@ Class NamedScript&lt;T1, T2, T3, T4, T5, T6, T7&gt;  <a class="header-action lin
 
   <h2 id="CSF_Screenplay_Selenium_NamedScript_7_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Whilst the generic type parameters of this type have no direct bearing upon its members (such as properties), they are very useful when
-combined with the builder methods <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ExecuteAScript_CSF_Screenplay_Selenium_NamedScript_">ExecuteAScript(NamedScript)</a> and its many overloads.
-Developers are encouraged to represent JavaScripts that they wish to execute in the web browser using this type (and related types, see "See Also").
-Where the script accepts parameters and/or returns a result, choose a type which specifies appropriate generic type arguments for those parameters
-and returned type.
-</p>
+            Whilst the generic type parameters of this type have no direct bearing upon its members (such as properties), they are very useful when
+            combined with the many overloads of the builder method <code>ExecuteAScript</code> in the <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html">PerformableBuilder</a> class.
+        </p>
 <p>
-For scripts which are created in this manner, getting an <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> or <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a> for those
-scripts is very easy and type safe.  Use the <code>ExecuteAScript</code> method from the <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html">PerformableBuilder</a> and the compiler will
-use the generic type arguments of <em>this type</em> to select an appropriate overload which provides type-safety for specifying the parameter
-values and the return type, as appropriate.
-</p>
-<p>
-Another benefit is that scripts defined and stored in instances of this type are reusable and easily catalogued.  See the <a class="xref" href="CSF.Screenplay.Selenium.Scripts.html">Scripts</a> helper
-class for an example of a catalogue of script objects which may be executed.  Once again, developers are encouraged to follow this pattern in their
-own applications/tests which use Screenplay &amp; Selenium.
-</p>
+            Developers are encouraged to store JavaScripts in their apps/tests as instances of this type and other
+            related types (see the "See Also" section).
+            This improves the reusability of the script, improves its presence in Screenplay reports and provides type safety.
+            For more information, see <a class="xref" href="../docs/extensions/selenium/NamedScripts.html">the named scripts article</a>.
+        </p><p>
+            For scripts which are created in this manner, getting an <a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a> or <a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult&lt;TResult&gt;</a> for those
+            scripts is very easy and type safe.  Use the <code>ExecuteAScript</code> method from the <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html">PerformableBuilder</a> and
+            the compiler will use generic type inference to select an appropriate overload.
+            The parameters and return type will then be type-safe and of the appropriate number.
+        </p><p>
+            Another benefit is that scripts defined and stored in instances of this type are reusable and easily catalogued.  See the <a class="xref" href="CSF.Screenplay.Selenium.Scripts.html">Scripts</a> helper
+            class for an example of a catalogue of script objects which may be executed.  Once again, developers are encouraged to follow this pattern in their
+            own applications/tests which use Screenplay &amp; Selenium.
+        </p>
 </div>
 
 
@@ -214,7 +215,7 @@ own applications/tests which use Screenplay &amp; Selenium.
 
   <h3 id="CSF_Screenplay_Selenium_NamedScript_7__ctor_System_String_System_String_" data-uid="CSF.Screenplay.Selenium.NamedScript`7.#ctor(System.String,System.String)">
   NamedScript(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a>.</p>
@@ -274,7 +275,7 @@ own applications/tests which use Screenplay &amp; Selenium.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L267" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/NamedScript.cs/#L196" class="edit-link">Edit this page</a>
         </div>
 
 

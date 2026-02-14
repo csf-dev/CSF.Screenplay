@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class OpenUrl | Screenplay ">
       
-      <meta name="description" content="Screenplay action which opens (navigates) directly to a specified URL using the actor&#39;s WebDriver.">
+      <meta name="description" content="An action which navigates to a specified URL, as if the user had entered it into the browser address bar.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Actions_OpenUrl" data-uid="CSF.Screenplay.Selenium.Actions.OpenUrl" class="text-break">
-Class OpenUrl  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class OpenUrl  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class OpenUrl  <a class="header-action link-secondary" title="View source" href=
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Screenplay action which opens (navigates) directly to a specified URL using the actor's WebDriver.</p>
+  <div class="markdown summary"><p>An action which navigates to a specified URL, as if the user had entered it into the browser address bar.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -153,7 +153,38 @@ Class OpenUrl  <a class="header-action link-secondary" title="View source" href=
 
 
 
+  <h2 id="CSF_Screenplay_Selenium_Actions_OpenUrl_examples">Examples</h2>
+  <p>
+In this example, the action will navigate the web browser to <code>https://example.com/myPage</code>.
+</p>
+<pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
 
+var examplePage = new NamedUri("https://example.com/myPage", "the example web page");
+
+// Within the logic of a custom task, deriving from IPerformable
+public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+{
+    // ... other performance logic
+    await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
+    // ... other performance logic
+}</code></pre>
+
+
+  <h2 id="CSF_Screenplay_Selenium_Actions_OpenUrl_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Use this action via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl(NamedUri)</a>.
+The <code>OpenTheUrl</code> builder method does not have a one-to-one relationship with this action, though.
+The builder method actually returns a <a class="xref" href="../glossary/Task.html">Screenplay task</a> named
+<a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a>.  The purpose of that task is to prepend a base URL to
+URLs which are relative.  This action is capable only of navigating to absolute URLs, and it will
+raise an exception if the URL is not absolute.
+</p>
+<p>
+Performing this action, as an actor which has the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability, instructs the web browser
+to navigate to the specified URL.  This is performed in the same way as if the user had entered
+the URL into their web browser address bar and pressed enter.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,7 +195,7 @@ Class OpenUrl  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="CSF_Screenplay_Selenium_Actions_OpenUrl__ctor_CSF_Screenplay_Selenium_NamedUri_" data-uid="CSF.Screenplay.Selenium.Actions.OpenUrl.#ctor(CSF.Screenplay.Selenium.NamedUri)">
   OpenUrl(NamedUri)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a> class with the specified URL.</p>
@@ -201,7 +232,7 @@ Class OpenUrl  <a class="header-action link-secondary" title="View source" href=
 
   <h3 id="CSF_Screenplay_Selenium_Actions_OpenUrl_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Actions.OpenUrl.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -284,7 +315,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Actions_OpenUrl_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Actions.OpenUrl.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -322,11 +353,16 @@ are seldom presented as paragraphs of prose.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl</a>(<a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>)</div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/OpenUrl.cs/#L45" class="edit-link">Edit this page</a>
         </div>
 
 
