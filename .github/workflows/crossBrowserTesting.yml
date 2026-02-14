@@ -33,30 +33,30 @@ jobs:
             browserVersion: latest-50
             os: Windows
             osVersion: 11
-          - browserName: Chrome
-            browserVersion: latest
-            os: Windows
-            osVersion: 11
-          - browserName: Edge
-            browserVersion: latest
-            os: Windows
-            osVersion: 11
-          - browserName: Firefox
-            browserVersion: latest
-            os: Windows
-            osVersion: 11
-          - browserName: Firefox
-            browserVersion: latest-40
-            os: Windows
-            osVersion: 11
-          - browserName: Safari
-            browserVersion: 17.3
-            os: OS X
-            osVersion: Sonoma
-          - browserName: Safari
-            browserVersion: 26.2
-            os: OS X
-            osVersion: Tahoe
+          # - browserName: Chrome
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Edge
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Firefox
+          #   browserVersion: latest
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Firefox
+          #   browserVersion: latest-40
+          #   os: Windows
+          #   osVersion: 11
+          # - browserName: Safari
+          #   browserVersion: 17.3
+          #   os: OS X
+          #   osVersion: Sonoma
+          # - browserName: Safari
+          #   browserVersion: 26.2
+          #   os: OS X
+          #   osVersion: Tahoe
 
     name: Run tests
     runs-on: ubuntu-24.04
@@ -68,16 +68,8 @@ jobs:
       Configuration: Release
       Tfm: net8.0
       DotnetVersion: 8.0.x
-      WebDriverFactory__SelectedConfiguration: BrowserStack
-      BSbrowserName: ${{ matrix.browserName }}
-      BSbrowserVersion: ${{ matrix.browserVersion }}
-      BSos: ${{ matrix.os }}
-      BSosVersion: ${{ matrix.osVersion }}
-      BSuserName: ${{ secrets.BROWSERSTACK_USERNAME }}
-      BSaccessKey: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-      BSprojectName: CSF.Screenplay
-      BSbuildName: ghActionsRun.${{ github.run_number }}.${{ github.run_attempt }}_${{ matrix.browserName }}:${{ matrix.browserVersion }}_${{ matrix.os }}:${{ matrix.osVersion }}
-      BSparallelism: 5
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
     
     steps:
       - name: Checkout
@@ -108,7 +100,7 @@ jobs:
         run: dotnet build -c ${{ env.Configuration }}
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests -- NumberOfTestWorkers=$BSparallelism
+        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)

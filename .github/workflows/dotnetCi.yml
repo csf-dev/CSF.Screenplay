@@ -42,6 +42,7 @@ jobs:
       DISPLAY: :99
       # Change selected factory to VerboseChrome to debug Chrome-related issues
       WebDriverFactory__SelectedConfiguration: DefaultChrome
+      BROWSERSTACK_AUTOMATION: false
     
     steps:
       - name: Checkout
