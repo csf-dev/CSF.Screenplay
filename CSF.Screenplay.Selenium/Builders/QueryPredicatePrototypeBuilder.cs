@@ -15,9 +15,68 @@ namespace CSF.Screenplay.Selenium.Builders
     /// </summary>
     /// <remarks>
     /// <para>
-    /// These are generally used for WebDriver waits, to wait until a target element meets the specified conditions.
+    /// Predicates, built by the members of this class, are primarily used for two purposes:
+    /// </para>
+    /// <list type="bullet">
+    /// <item><description>The <see cref="Wait"/> action, to specify the condition under which the wait should end.</description></item>
+    /// <item><description>The <see cref="Questions.FilterElements"/> question, to specify the criteria by which to match elements.</description></item>
+    /// </list>
+    /// <para>
+    /// For more information about interrogating the state of targets, see <xref href="SeleniumQueriesArticle?the+Queries+documentation+article"/>;
+    /// queries are the foundation upon which this predicate functionality is based.
     /// </para>
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// This first example shows how a <see cref="Wait"/> action may be written, to wait until the text of a status display reads "finished".
+    /// Note the section <c>.Has.Text("finished")</c>, which demonstrates use of the functionality of this class.
+    /// </para>
+    /// <code>
+    /// using CSF.Screenplay.Selenium.Elements;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// readonly ITarget status = new CssSelector("#footer .status", "the status display");
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformable
+    /// public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     await actor.PerformAsync(WaitUntil(status.Has().Text("finished"), cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// <para>
+    /// The second example, below, shows the usage of <see cref="Questions.FilterElements"/>, matching only elements
+    /// which are larger than 50×50 pixels in both dimensions.  Imagine a bubble chart, in which we are looking for bubbles
+    /// larger than a certain size.
+    /// Note the section <c>.ForThoseWhich(q => q.Size(s => s.Height &gt; 50 &amp;&amp; s.Width &gt; 50))</c>, which demonstrates
+    /// use of the functionality of this class.
+    /// </para>
+    /// <code>
+    /// using CSF.Screenplay.Selenium.Elements;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// readonly ITarget bubbles = new CssSelector(".bubble_chart .bubble", "the items in the bubble chart");
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+    /// public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     var allBubbles = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(bubbles), cancellationToken);
+    ///     var largeBubbles = await actor.PerformAsync(Filter(allBubbles)
+    ///                                                 .ForThoseWhich(q => q.Size(s => s.Height &gt; 50 &amp;&amp; s.Width &gt; 50)),
+    ///                                                cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="Wait"/>
+    /// <seealso cref="Questions.FilterElements"/>
+    /// <seealso cref="TargetExtensions.AllHave(ITarget)"/>
+    /// <seealso cref="TargetExtensions.AreAll(ITarget)"/>
+    /// <seealso cref="TargetExtensions.Has(ITarget)"/>
+    /// <seealso cref="TargetExtensions.Is(ITarget)"/>
+    /// <seealso cref="FilterElementsBuilder.ForThoseWhich(Func{QueryPredicatePrototypeBuilder, IBuildsElementPredicates})"/>
     public class QueryPredicatePrototypeBuilder
     {
         readonly ITarget target;
@@ -28,10 +87,14 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
         /// <para>
@@ -39,6 +102,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// by using a predicate which checks for <see langword="null"/>.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="attributeName">The name of the attribute to query.</param>
         /// <param name="predicate">The predicate to apply to the attribute value.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
@@ -50,13 +115,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
+        /// <para>
+        /// Note that the last behaviour, described above, means that this method may be used to match elements which <em>do not</em> have the specified attribute,
+        /// by using <see langword="null"/> as the desired value.
+        /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="attributeName">The name of the attribute to query.</param>
         /// <param name="value">The value of the attribute to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
@@ -68,13 +143,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
+        /// <para>
+        /// This method specifically targets that last behaviour, described above.  It verifies that the response for attribute's
+        /// value is not <see langword="null"/>.
+        /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="attributeName">The name of the attribute to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Attribute(string attributeName)
@@ -85,13 +170,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
+        /// <para>
+        /// This method inspects the <c>class</c> attribute and determines whether the specified class is present amongst the element's
+        /// class list.
+        /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="class">The name of the class to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Class(string @class)
@@ -102,13 +197,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
+        /// <para>
+        /// This method inspects the <c>class</c> attribute and determines whether the specified class is not present amongst the element's
+        /// class list.
+        /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="class">The name of the class to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> NotClass(string @class)
@@ -119,13 +224,23 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this specification makes use of Selenium's <c>GetAttribute</c> method.
-        /// The behaviour of that method in fact queries the DOM property of the element first, before querying the HTML attribute.
-        /// It also has special handling for certain attributes such as <c>class</c> &amp; <c>readonly</c> attributes (substituting them with <c>className</c>
-        /// and <c>readOnly</c> respectively when querying DOM properties).
+        /// The underlying implementation of this method makes use of the <c>GetAttribute</c> method of Selenium's
+        /// <see cref="OpenQA.Selenium.IWebElement"/> type to query the current attribute value.  The get-attribute behaviour
+        /// queries the corresponding DOM property of the element first, before querying the HTML attribute.
+        /// Thus, if the DOM has been updated since the element was rendered onto the page, the current <em>live value</em>
+        /// of the element will be used.
+        /// Selenium's get-attribute functionality also has special handling for certain attributes such as <c>class</c>
+        /// &amp; <c>readonly</c>.  When inspecting the DOM properties, these names are transparently normalised to
+        /// <c>className</c> and <c>readOnly</c> respectively.
         /// Finally, 'boolean' attribute values are returned with either the string <c>true</c> if present or <see langword="null"/> if not.
         /// </para>
+        /// <para>
+        /// This method inspects the <c>class</c> attribute and determines whether every one of the specified classes are present
+        /// in the element's class list.
+        /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="classes">The names of the classes to query.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> AllClasses(params string[] classes)
@@ -150,36 +265,74 @@ namespace CSF.Screenplay.Selenium.Builders
         }
 
         /// <summary>
-        /// Creates a query predicate based on whether or not the element is clickable.
+        /// Creates a query predicate based on the element's clickability.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's "clickability".</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Clickability(Func<bool,bool> predicate)
             => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => predicate(x)), t => $"{t.Name} has clickability matching a predicate");
 
         /// <summary>
-        /// Creates a query predicate based on whether or not the element is clickable.
+        /// Creates a query predicate based on whether the element is clickable.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's "clickability".</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Clickability(bool value)
             => CreatePrototype(new ClickableQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} {(value ? "is clickable" : "is not clickable")}");
 
         /// <summary>
-        /// Creates a query predicate based on whether the element is clickable.
+        /// Creates a query predicate for only clickable elements.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Clickable() => Clickability(true);
 
         /// <summary>
-        /// Creates a query predicate based on whether the element is clickable.
+        /// Creates a query predicate for only elements which are not clickable.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// An element is considered 'clickable' if it is both visible in the web browser and it is not disabled.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> NotClickable() => Clickability(false);
 
         /// <summary>
         /// Creates a query predicate based on a specified CSS property and a predicate for the property's value.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note that this is not limited to reading the styling of an element/elements as it was defined in
+        /// a stylesheet.  It reads the <em>live styling</em> of the element as it is when the question executes.
+        /// Thus, if JavaScript or a class change has altered the styling of the element since it was first rendered
+        /// on-screen, its up-to-date styling information will be inspected.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="propertyName">The name of the property to query.</param>
         /// <param name="predicate">The predicate to apply to the property value.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
@@ -189,6 +342,16 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on a specified CSS property and a desired value for that property.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note that this is not limited to reading the styling of an element/elements as it was defined in
+        /// a stylesheet.  It reads the <em>live styling</em> of the element as it is when the question executes.
+        /// Thus, if JavaScript or a class change has altered the styling of the element since it was first rendered
+        /// on-screen, its up-to-date styling information will be inspected.
+        /// </para>
+        /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="propertyName">The name of the property to query.</param>
         /// <param name="value">The value to compare against the property value.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
@@ -198,6 +361,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's location (its top-left corner).
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's location.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Point}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<Point> Location(Func<Point,bool> predicate)
@@ -206,6 +371,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's location (its top-left corner).
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's location.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Point}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<Point> Location(Point value)
@@ -214,6 +381,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's size (width &amp; height in pixels).
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's size.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Size}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<Size> Size(Func<Size,bool> predicate)
@@ -222,6 +391,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's size (width &amp; height in pixels).
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's size.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Size}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<Size> Size(Size value)
@@ -238,12 +409,14 @@ namespace CSF.Screenplay.Selenium.Builders
         /// space which is inherent in the markup, but which browsers ignore when actually displaying content.
         /// </para>
         /// <para>
-        /// Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+        /// By trimming whitespace, the Selenium extension for Screenplay ensures that behaviour is consistent
+        /// cross-browser.
         /// If this causes an issue and you would like the leading/trailing whitespace included the use
         /// <see cref="TextWithoutTrimmingWhitespace(string)"/> instead.
-        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Text(Func<string,bool> predicate)
@@ -260,12 +433,14 @@ namespace CSF.Screenplay.Selenium.Builders
         /// space which is inherent in the markup, but which browsers ignore when actually displaying content.
         /// </para>
         /// <para>
-        /// Trimming it by default ensures that Screenplay reproduces functionality reliably cross-browser.
+        /// By trimming whitespace, the Selenium extension for Screenplay ensures that behaviour is consistent
+        /// cross-browser.
         /// If this causes an issue and you would like the leading/trailing whitespace included the use
         /// <see cref="TextWithoutTrimmingWhitespace(string)"/> instead.
-        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Text(string value)
@@ -276,11 +451,15 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
-        /// without trimming it.
-        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// When reading text from the web browser, this predicate will preserve any leading/trailing whitespace in the text
+        /// without trimming it. Be aware that some browsers (Safari) may include leading/trailing whitespace when reading text,
+        /// which other WebDriver implementations do not.  This can result in inconsistent results when
+        /// operating cross-browser.  If cross-browser consistency is important then consider using <see cref="Text(Func{string, bool})"/>
+        /// instead.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> TextWithoutTrimmingWhitespace(Func<string,bool> predicate)
@@ -291,11 +470,15 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </summary>
         /// <remarks>
         /// <para>
-        /// When reading text from the web browser, this predicate will leave any leading/trailing whitespace in the text
-        /// without trimming it.
-        /// Note that you may see different results in browsers which include leading/trailing whitespace anyway.
+        /// When reading text from the web browser, this predicate will preserve any leading/trailing whitespace in the text
+        /// without trimming it. Be aware that some browsers (Safari) may include leading/trailing whitespace when reading text,
+        /// which other WebDriver implementations do not.  This can result in inconsistent results when
+        /// operating cross-browser.  If cross-browser consistency is important then consider using <see cref="Text(string)"/>
+        /// instead.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's text.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> TextWithoutTrimmingWhitespace(string value)
@@ -304,6 +487,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's DOM <c>value</c>.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's DOM value.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Value(Func<string,bool> predicate)
@@ -312,42 +497,54 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the element's DOM <c>value</c>.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's DOM value.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{String}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<string> Value(string value)
             => CreatePrototype(new ValueQuery(), Spec.Func<string>(x => x == value), t => $"{t.Name} has a DOM value equal to '{value}'");
 
         /// <summary>
-        /// Creates a query predicate based on whether or not the element is visible.
+        /// Creates a query predicate based on whether the element is visible.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's visibility.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Visibility(Func<bool,bool> predicate)
             => CreatePrototype(new VisibilityQuery(), Spec.Func(predicate), t => $"{t.Name} has visibility matching a predicate");
 
         /// <summary>
-        /// Creates a query predicate based on whether or not the element is visible.
+        /// Creates a query predicate based on whether the element is visible.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="value">The value to compare against the element's visibility.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Visibility(bool value)
             => CreatePrototype(new VisibilityQuery(), Spec.Func<bool>(x => x == value), t => $"{t.Name} {(value ? "is visible" : "is not visible")}");
 
         /// <summary>
-        /// Creates a query predicate based on whether the element is visible.
+        /// Creates a query predicate for elements that are visible.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> Visible() => Visibility(true);
 
         /// <summary>
-        /// Creates a query predicate based on whether the element is not visible.
+        /// Creates a query predicate for elements that are not visible.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <returns>A <see cref="QueryPredicatePrototype{Boolean}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<bool> NotVisible() => Visibility(false);
 
         /// <summary>
         /// Creates a query predicate based on the <c>&lt;option&gt;</c> elements, which are children of the current element, which are selected.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's selected options.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> SelectedOptions(Func<IReadOnlyList<Option>,bool> predicate)
@@ -363,6 +560,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their display text.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionTexts">The display text of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> SelectedOptionsWithText(params string[] optionTexts)
@@ -380,6 +579,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their DOM value.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionValues">The DOM values of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> SelectedOptionsWithValue(params string[] optionValues)
@@ -390,6 +591,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the <c>&lt;option&gt;</c> elements, which are children of the current element, which are not selected.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's unselected options.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> UnselectedOptions(Func<IReadOnlyList<Option>,bool> predicate)
@@ -407,6 +610,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their display text.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionTexts">The display text of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> UnselectedOptionsWithText(params string[] optionTexts)
@@ -424,6 +629,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their DOM value.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionValues">The DOM values of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> UnselectedOptionsWithValue(params string[] optionValues)
@@ -434,6 +641,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <summary>
         /// Creates a query predicate based on the <c>&lt;option&gt;</c> elements, which are children of the current element, regardless of their selected state.
         /// </summary>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="predicate">The predicate to apply to the element's options.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> Options(Func<IReadOnlyList<Option>,bool> predicate)
@@ -449,6 +658,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their display text.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionTexts">The display text of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> OptionsWithText(params string[] optionTexts)
@@ -466,6 +677,8 @@ namespace CSF.Screenplay.Selenium.Builders
         /// This method identifies the options by their DOM value.
         /// </para>
         /// </remarks>
+        /// <example><para>See the remarks for the class <see cref="QueryPredicatePrototypeBuilder"/> for two examples of
+        /// usage. The methods of this type all follow the same broad pattern to create predicates.</para></example>
         /// <param name="optionValues">The DOM values of the options to match against.</param>
         /// <returns>A <see cref="QueryPredicatePrototype{IReadOnlyList}"/>, which may be converted to a full predicate.</returns>
         public QueryPredicatePrototype<IReadOnlyList<Option>> OptionsWithValue(params string[] optionValues)
