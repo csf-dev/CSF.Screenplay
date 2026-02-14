@@ -1,0 +1,8 @@
+platforms:
+  - browserName: Safari
+    os: OS X
+    osVersion: Tahoe
+    browserVersion: 26.2
+browserstackLocal: true
+buildName: bs-sdk-build
+projectName: CSF.Screenplay

@@ -1,0 +1,8 @@
+platforms:
+  - browserName: Chrome
+    os: Windows
+    osVersion: 11
+    browserVersion: latest-50
+browserstackLocal: true
+buildName: bs-sdk-build
+projectName: CSF.Screenplay

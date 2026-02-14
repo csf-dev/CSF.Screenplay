@@ -1,0 +1,11 @@
+parallelsPerPlatform: 5
+platforms:
+  - browserName: Chrome
+    os: Windows
+    osVersion: 11
+    browserVersion: latest
+browserstackLocal: true
+buildName: bs-sdk-build
+projectName: CSF.Screenplay
+video: true
+testObservability: true
