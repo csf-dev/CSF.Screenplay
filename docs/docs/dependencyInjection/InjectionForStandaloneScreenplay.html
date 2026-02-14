@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dependency injection for standalone Screenplay | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dependency injection for standalone Screenplay | Screenplay ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/InjectionForStandaloneScreenplay.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dependency-injection-for-standalone-screenplay">Dependency injection for standalone Screenplay</h1>
+
+<p>If you are <a href="../gettingStarted/nonTesting/index.html">using Screenplay standalone</a> then you are likely using the method <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a> or one of its overloads.</p>
+<h2 id="recommended-use-ihostsperformance">Recommended: Use <code>IHostsPerformance</code></h2>
+<p>Developers are urged to consider encapsulating their performance logic in a class which derives from <a class="xref" href="../../api/CSF.Screenplay.IHostsPerformance.html"><code>IHostsPerformance</code></a>.
+Through an overload (extension method) named <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync__1_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformanceAsync&lt;T&gt;</code></a>, developers may specify the concrete implementation type of that class as a generic type parameter.
+This overload of <code>ExecuteAsPerformanceAsync</code> will resolve your class which derives from <code>IHostsPerformance</code> from dependency injection (<em>remember to add it to the container!</em>).
+This resolution will include all the class' dependencies which are constructor-injected and leads to very clean code.
+The service provider is never exposed, thus removing the temptation to use the service locator anti-pattern.</p>
+<h3 id="example-of-the-performance-host-technique">Example of the performance host technique</h3>
+<p>This example is functionally identical to the example below.</p>
+<pre><code class="lang-csharp">public class MyPerformance(ICast cast) : IHostsPerformance
+{
+    public Task&lt;bool?&gt; ExecutePerformanceAsync(CancellationToken cancellationToken)
+    {
+        var aaron = cast.GetActor&lt;Aaron&gt;();
+        // Further performance logic ...
+    }
+}
+
+// To consume the above:
+await screenplay.ExecuteAsPerformanceAsync&lt;MyPerformance&gt;();
+</code></pre>
+<h2 id="alternative-use-a-function">Alternative: Use a function</h2>
+<p>The original <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a> overload accepts up to three parameters, the first of which is a function.
+That function should contain the logic which makes up the performance.
+The function (which drives the performance logic) provides two parameters itself:</p>
+<ul>
+<li>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider"><code>IServiceProvider</code></a></li>
+<li>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken"><code>CancellationToken</code></a></li>
+</ul>
+<p>The serivce provider may be used to resolve services which may be used by the performance logic.</p>
+<h3 id="example-of-the-function-based-technique">Example of the function-based technique</h3>
+<p>This example is functionally identical to the example above.</p>
+<pre><code class="lang-csharp">await screenplay.ExecuteAsPerformanceAsync((services, cancellationToken) =&gt; {
+    var cast = services.GetRequiredService&lt;ICast&gt;();
+    var aaron = cast.GetActor&lt;Aaron&gt;();
+    // Further performance logic ...
+});
+
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/InjectionForStandaloneScreenplay.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

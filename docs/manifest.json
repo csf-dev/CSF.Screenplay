@@ -536,7 +536,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "CSF.Screenplay.IPersona",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.IPersona.yml\" sourcestartlinenumber=\"1\">A persona is a factory for a commonly-used actor</p>\n"
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.IPersona.yml\" sourcestartlinenumber=\"1\">A persona is a factory for a commonly-used <xref href=\"CSF.Screenplay.Actor\" data-throw-if-not-resolved=\"false\"></xref></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4000,11 +4000,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -4083,11 +4083,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/builderPattern/toc.json"
-        },
         ".html": {
           "relative_path": "docs/builderPattern/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/builderPattern/toc.json"
         }
       },
       "version": ""
@@ -4134,6 +4134,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/ConstructorInjectIntoThePersona.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/ConstructorInjectIntoThePersona.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/ConstructorInjectionForBindings.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/ConstructorInjectionForBindings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/dependencyInjection/DependencyInjectionScope.md",
       "output": {
         ".html": {
@@ -4158,6 +4178,26 @@
       "output": {
         ".html": {
           "relative_path": "docs/dependencyInjection/InjectingServices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/InjectionForStandaloneScreenplay.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/InjectionForStandaloneScreenplay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/dependencyInjection/ParameterInjectionForTests.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencyInjection/ParameterInjectionForTests.html"
         }
       },
       "version": ""
@@ -4306,11 +4346,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/webApis/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/webApis/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/webApis/toc.json"
         }
       },
       "version": ""
@@ -4409,11 +4449,11 @@
       "type": "Toc",
       "source_relative_path": "docs/performables/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/performables/toc.json"
-        },
         ".html": {
           "relative_path": "docs/performables/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/performables/toc.json"
         }
       },
       "version": ""
@@ -4422,11 +4462,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -4685,11 +4725,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "glossary/toc.json"
-        },
         ".html": {
           "relative_path": "glossary/toc.html"
+        },
+        ".json": {
+          "relative_path": "glossary/toc.json"
         }
       },
       "version": ""
@@ -4768,11 +4808,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

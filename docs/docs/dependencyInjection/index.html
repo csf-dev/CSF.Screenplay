@@ -88,20 +88,14 @@
 <h1 id="dependency-injection">Dependency injection</h1>
 
 <p>The Screenplay design pattern is fundamentally compatible with and based upon <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>, aka DI.
-You may add Screenplay to an existing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">container</a> if you wish, via the <a href="xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action%7BCSF.Screenplay.ScreenplayOptions%7D)"><code>AddScreenplay</code></a> extension method.
-Alternatively you may create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> which uses its own self-contained DI container with the static <a href="xref:CSF.Screenplay.Screenplay.Create(System.Action%7BMicrosoft.Extensions.DependencyInjection.IServiceCollection%7D,System.Action%7BCSF.Screenplay.ScreenplayOptions%7D)"><code>Screenplay.Create</code></a> helper method.</p>
-<h2 id="scopes">Scopes</h2>
-<p>Screenplay makes use of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped">Dependency Injection Scopes</a>.
-As you can see on <a href="../concepts/MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many <a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a>.
-Each performance is executed within its own DI scope, thus scoped services will have <em>one shared instance per performance</em>.</p>
-<p>It is also important to note that within DI, the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object <em>must be added</em> as a singleton (the mechanisms described above all do this for you).
-As a consequence there may be <em>at most one</em> Screenplay object per dependency injection container.</p>
-<h2 id="using-di-in-screenplay">Using DI in Screenplay</h2>
-<p>TODO: Write this section!</p>
+You may add Screenplay to an existing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">container</a> if you wish, via the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_"><code>AddScreenplay</code></a> extension method.
+Alternatively you may create an instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> which uses its own self-contained DI container with the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__"><code>Screenplay.Create</code></a> helper method.</p>
+<h2 id="learn-more-about-di-in-screenplay">Learn more about DI in Screenplay</h2>
 <ul>
-<li><a href="InjectingServices.html">Injecting services</a></li>
-<li><a href="AddingServices.html">Adding services</a></li>
-<li><a href="../../glossary/Ability.html">Abilities as a form of DI</a></li>
+<li><a href="AddingServices.html">How to add services to the container</a></li>
+<li><a href="InjectableServices.html">Which services are injectable</a></li>
+<li><a href="InjectingServices.html">Getting/injecting services</a></li>
+<li><a href="DependencyInjectionScope.html">DI scopes</a></li>
 </ul>
 
 </article>

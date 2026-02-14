@@ -88,9 +88,11 @@
 <h1 id="dependency-injection-scope">Dependency injection scope</h1>
 
 <p>Developers familiar with dependency injection are likely to be familiar with the concept of <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#service-lifetimes">DI Scopes</a>.
-That is - some services which are designated as <em>scoped</em> or <em>instance per scope</em> use a common/shared instance for the lifetime/duration of the scope.</p>
-<p>Within Screenplay logic, a DI scope is automatically created, with a lifetime matching that of the current <a class="xref" href="../../api/CSF.Screenplay.Performance.html">Performance</a>.
-Within a performance, when any of the scoped services (listed below) are injected, each point of injection will receive the same shared instance of that service.
+Screenplay uses this concept; a number of its services are added to the container with <em>a per-scope lifetime</em>.
+Screenplay creates <strong>a new DI scope per <a class="xref" href="../../api/CSF.Screenplay.Performance.html">Performance</a></strong>.
+As you can see on <a href="../concepts/MakeupOfAScreenplay.html">the diagram of how Actors, Abilities and Performables relate to one another</a>, each <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> contains and executes many performances.
+This scope-creation is handled automatically by the Screenplay framework logic.</p>
+<p>Within a performance, when any of the scoped services (listed below) are injected, each point of injection will receive the same shared instance of that service.
 Instances are independent per-performance; each performance gets its own shared instance of each of the listed services.</p>
 <h2 id="list-of-scoped-services">List of scoped services</h2>
 <p>The following services are added to DI &quot;per lifetime scope&quot;.</p>
@@ -100,7 +102,8 @@ Instances are independent per-performance; each performance gets its own shared 
 <li><a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">The current performance</a></li>
 </ul>
 <h2 id="list-of-singleton-services">List of singleton services</h2>
-<p>The following services are added to DI as singletons.</p>
+<p>The following services are added to DI as singletons.
+There is only ever a single instance of these services per Screenplay.</p>
 <ul>
 <li><a class="xref" href="../../api/CSF.Screenplay.Screenplay.html">The Screenplay</a></li>
 <li><a class="xref" href="../../api/CSF.Screenplay.Performances.PerformanceEventBus.html">The event bus</a>

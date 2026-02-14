@@ -87,31 +87,38 @@
         <article data-uid="InjectingServicesArticle">
 <h1 id="injecting-services">Injecting services</h1>
 
-<p>There are a few techniques in which injecting dependencies is relevant. These are summarised below.
-All but one of these techniques provide access to <a href="InjectableServices.html">the services which are added to the container</a>.</p>
-<h2 id="into-test-logic">Into test logic</h2>
-<p>When using automated test logic based upon Screenplay, the use of dependency injection typically takes one of two forms.
-Which of these depends upon the nature and paradigm of the test framework.</p>
-<p>For frameworks which are based on <strong>test methods</strong> such as <a href="https://nunit.org/">NUnit</a>, services are typically injected via <em>method parameter injection</em> into the test methods.
-<a href="../extendingScreenplay/TestIntegrations.html">If Screenplay were to be extended</a> to work with frameworks such as xUnit or MSTest then this is likely to be the technique used.</p>
-<p>For frameworks which are based on <strong>binding classes</strong> such as <a href="https://reqnroll.net/">Reqnroll</a>, services are constructor-injected into binding classes.</p>
-<p>Use dependencies injected in this way to get access to <a href="InjectableServices.html">commonly-used Screenplay services</a> and anything else required at the root level of your test logic.</p>
-<h2 id="into-standalone-performance-logic">Into standalone performance logic</h2>
-<p>If you are <a href="../gettingStarted/nonTesting/index.html">using Screenplay standalone</a> then the <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>Screenplay.ExecuteAsPerformanceAsync</code></a> permits resolution of dependencies via its parameter.
-That parameter is a <code>Func&lt;IServiceProvider,CancellationToken,Task&lt;bool?&gt;&gt;</code>.
-The service provider may be used to resolve dependency services for the performance's logic.</p>
-<p>Developers are urged to consider encapsulating their performance logic in implementations of <a class="xref" href="../../api/CSF.Screenplay.IHostsPerformance.html"><code>IHostsPerformance</code></a>.
-Through an overload (extension method) named <a class="xref" href="../../api/CSF.Screenplay.ScreenplayExtensions.html#CSF_Screenplay_ScreenplayExtensions_ExecuteAsPerformanceAsync__1_CSF_Screenplay_Screenplay_System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformanceAsync&lt;T&gt;</code></a>, developers may specify the concrete implementation of that interface.
-This extension method will resolve that implementation type along with any of its constructor-injected dependencies.
-This avoids the service locator anti-pattern and provides a convenient pattern by which to write performance logic.</p>
-<p>Use services resolved from the service provider, or injected into your <a class="xref" href="../../api/CSF.Screenplay.IHostsPerformance.html"><code>IHostsPerformance</code></a> implementation, to get access to <a href="InjectableServices.html">commonly-used Screenplay services</a> and anything else required at the root level of your performance logic.</p>
-<h2 id="into-personas">Into personas</h2>
-<p>Types which derive from <a class="xref" href="../../api/CSF.Screenplay.IPersona.html"><code>IPersona</code></a> support constructor-injected dependencies.
-Personas are typically used by either <a class="xref" href="../../api/CSF.Screenplay.ICast.html">the cast</a> or <a class="xref" href="../../api/CSF.Screenplay.IStage.html">the stage</a> to get an <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actor</a>.
-The technique in which they are used means that they are resolved, along with their constructor-injected dependencies, from DI.</p>
-<p>Use constructor-injected dependencies in persona classes to provide access to the APIs required to resolve <a href="../../glossary/Ability.html">Abilities</a> that the actor is to be granted.</p>
-<h2 id="into-performables">Into performables</h2>
-<p><em>See the article explaining <a href="Performables.html">how performables get their dependencies</a></em>.</p>
+<p>The table below summarises how to get services, from various contexts. In the first column are contexts/situations in which a developer could require services from DI. The second column indicates and links to the appropriate technique for that scenario.</p>
+<p>All but one of these techniques (the last) provides full access to <a href="InjectableServices.html">the services which are added to the container</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUnit style test method</td>
+<td><a href="ParameterInjectionForTests.html">Parameter inject into the test</a> method</td>
+</tr>
+<tr>
+<td>Reqnroll style binding class</td>
+<td><a href="ConstructorInjectionForBindings.html">Constructor inject into the binding</a> class</td>
+</tr>
+<tr>
+<td>Standalone Screenplay: <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_ExecuteAsPerformanceAsync_System_Func_System_IServiceProvider_System_Threading_CancellationToken_System_Threading_Tasks_Task_System_Nullable_System_Boolean____System_Collections_Generic_IList_CSF_Screenplay_Performances_IdentifierAndName__System_Threading_CancellationToken_"><code>ExecuteAsPerformanceAsync</code></a></td>
+<td><a href="InjectionForStandaloneScreenplay.html">Create a performance host, or use the service provider</a></td>
+</tr>
+<tr>
+<td>Persona class</td>
+<td><a href="ConstructorInjectIntoThePersona.html">Constructor inject into the Persona</a> class</td>
+</tr>
+<tr>
+<td>Performable class, such as a Task</td>
+<td><a href="Performables.html">Use the actor's abilities</a></td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

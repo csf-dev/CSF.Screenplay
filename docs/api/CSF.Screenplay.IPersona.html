@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IPersona | Screenplay ">
       
-      <meta name="description" content="A persona is a factory for a commonly-used actor">
+      <meta name="description" content="A persona is a factory for a commonly-used">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_IPersona" data-uid="CSF.Screenplay.IPersona" class="text-break">
-Interface IPersona  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L17"><i class="bi bi-code-slash"></i></a>
+Interface IPersona  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Interface IPersona  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A persona is a factory for a commonly-used actor</p>
+  <div class="markdown summary"><p>A persona is a factory for a commonly-used <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a></p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -124,13 +124,19 @@ Interface IPersona  <a class="header-action link-secondary" title="View source" 
 
   <h2 id="CSF_Screenplay_IPersona_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-In Screenplay is is recommended to use memorable actors which are widely understood and recognisable
-by the team. This is easier if the composition of an actor is the same across every <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> in which
-they participate.
+In Screenplay is is recommended to use &amp; reuse memorable actors, which are widely understood and recognisable
+to the development team. This is easier if the composition of an actor is the same across every
+<a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a> in which they participate. Personas facilitate this; the persona class serves
+as a consistent factory which creates the same named actor in the same manner every time.
 </p>
 <p>
-By using a separate persona implementation for each named actor, the developer can ensure consistent creation
-for instances of those actors.
+Developers should create an implementation of this interface for each actor which they wish to
+define, ideally named the same as the name as the Actor.  Each persona implementation should
+name the actor and grant them <a class="xref" href="../glossary/Ability.html">the abilities</a> which are appropriate.
+</p>
+<p>
+Instance of persona classes are resolved from the Dependency Injection container, so it is appropriate
+and correct to constructor-inject any services which are required in order to get the ability instances.
 </p>
 </div>
 
@@ -143,7 +149,7 @@ for instances of those actors.
 
   <h3 id="CSF_Screenplay_IPersona_GetActor_System_Guid_" data-uid="CSF.Screenplay.IPersona.GetActor(System.Guid)">
   GetActor(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the actor which is associated with the current persona</p>
@@ -187,7 +193,7 @@ configure the actor with the standard abilities associated with this persona.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/IPersona.cs/#L23" class="edit-link">Edit this page</a>
         </div>
 
 

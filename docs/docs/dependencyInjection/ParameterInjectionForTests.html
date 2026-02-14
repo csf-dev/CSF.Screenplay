@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>How Performables get their dependencies | Screenplay </title>
+      <title>Parameter injection for tests | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="How Performables get their dependencies | Screenplay ">
+      <meta name="title" content="Parameter injection for tests | Screenplay ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/Performables.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/ParameterInjectionForTests.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,30 +85,28 @@
         </div>
 
         <article data-uid="">
-<h1 id="how-performables-get-their-dependencies">How Performables get their dependencies</h1>
+<h1 id="parameter-injection-for-tests">Parameter injection for tests</h1>
 
-<p>Importantly, <a href="../../glossary/Performable.html">Performable</a> types <em>do not participate in dependency injection from the container</em>.
-This means that dependency services <em>cannot be constructor-injected</em> into performable types.</p>
-<h2 id="performables-state-represents-parameters">Performables' state represents parameters</h2>
-<p>Performables are <a href="../builderPattern/index.html">created using the builder pattern</a> and do not hold references to any dependency services.
-Instead, the state of the performable (and thus their constructor parameters) represent the <em>parameters for the performable's behaviour</em>.
-This state should be set via constructor parameters and should be immutable.</p>
-<h3 id="an-example">An example</h3>
-<p>For example, a <a href="../../glossary/Task.html">Task</a> which adds an item to the user's shopping basket might accept a constructor parameter representing the unique ID of the product to be added to the basket.
-That unique ID would be stored within the performable instance, in a <code>readonly</code> field.
-When the relevant <code>ExecuteAsync</code> method is executed, the unique ID stored in the performable instance is used to conduct whatever logic is appropriate.</p>
-<h2 id="use-abilities-to-get-dependencies">Use abilities to get dependencies</h2>
-<p>Performables, specifcally <a href="../../glossary/Action.html">Actions</a> and <a href="../../glossary/Question.html">Questions</a>, should access their dependencies via the Actor's <strong><a href="../../glossary/Ability.html">Abilities</a></strong> by using the <a class="xref" href="../../api/CSF.Screenplay.ActorExtensions.html#CSF_Screenplay_ActorExtensions_GetAbility__1_CSF_Screenplay_ICanPerform_"><code>GetAbility&lt;T&gt;</code></a> method or similar.
-In this sense, Abilities are a form of dependency injection or service locator (for a specific use case).
-Whilst service locators are usually considered an anti-pattern, the benefits in this specific case outweigh the disadvantages.
-The primary benefit is <a href="../builderPattern/index.html">the ability to create performables from static builders</a>.</p>
-<p>Generally-speaking, <em><a href="../writingPerformables/TasksDoNotUseAbilities.html"><strong>Tasks</strong> should not make use of Abilities</a></em>.
-Only Actions and Questions should use Abilities.</p>
+<p>For testing frameworks which are based on <strong>test methods</strong> such as <a href="https://nunit.org/">NUnit</a>, services are injected via <em>method parameter injection</em>. This is performed directly into each test method which is decorated with the <code>[Screenplay]</code> attribute.
+Use dependencies injected in this way to get access to <a href="InjectableServices.html">commonly-used Screenplay services</a> and anything else required at the root level of your test logic.</p>
+<p><a href="../extendingScreenplay/TestIntegrations.html">If Screenplay were to be extended</a> to work with frameworks such as xUnit or MSTest, then this same technique would be used.</p>
+<h2 id="example">Example</h2>
+<p>This is an example of an NUnit-style test method with a parameter-injected dependency.
+This would require <a href="../gettingStarted/nunit3/index.html">installing the NUnit test integration</a> to run.
+Take note of the Screenplay attribute and the <code>cast</code> parameter.</p>
+<pre><code class="lang-csharp">[Test, Screenplay]
+public async Task TheSampleTestShouldBeInformative(ICast cast)
+{
+    var janeSmith = cast.GetActor&lt;JaneSmith&gt;();
+
+    // ... use the actor with some performables, then make assertions etc
+}
+</code></pre>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/Performables.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/ParameterInjectionForTests.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
