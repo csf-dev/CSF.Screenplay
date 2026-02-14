@@ -8,6 +8,8 @@ namespace CSF.Screenplay.Selenium
     /// Developers who use Screenplay &amp; Selenium and who need to develop their own custom JavaScripts are encouraged
     /// to devise their own classes similar to this one.
     /// This provides a rapid and type-safe mechanism of retrieving and reusing well-known/predefined JavaScripts.
+    /// See <xref href="NamedScriptsArticle?text=the+named+scripts+article"/> for more information about defining
+    /// scripts with human-readable names and type safety.
     /// </para>
     /// </remarks>
     public static class Scripts

@@ -1,18 +1,62 @@
 using System.Threading;
 using System.Threading.Tasks;
-using CSF.Screenplay.Selenium.Questions;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
     /// <summary>
-    /// An action which executes some arbitrary JavaScript in the web browser.
+    /// An action which sends a JavaScript string to a web browser and executes it.
+    /// This action ignores the result (if any) from that script.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This performable does not expect or return any result from the script.
-    /// If the script returns a result then use <see cref="ExecuteJavaScriptAndGetResult{TResult}"/> instead.
+    /// The best way to use this action is via the builder method
+    /// <see cref="PerformableBuilder.ExecuteAScript(NamedScript)"/> or one of its same-named overloads.
+    /// The <see cref="NamedScript"/> class, and its counterparts with generic type parameters, provide a manner
+    /// in which scripts to be executed by this action may be stored within the application or test logic, providing
+    /// type safety for their parameters.
+    /// </para>
+    /// <para>
+    /// Performing this action, as an actor which has the <see cref="BrowseTheWeb"/> ability, sends the body of the
+    /// script and its parameter values to the web browser and executes it. This is roughly equivalent to a user
+    /// opening the developer tools Console, typing the script and its parameters there, and pressing enter.
+    /// This action does not return any result from the script, so it is useful only when the script to execute
+    /// does not return a result, or when the intent is to ignore the result.  If the result is important then use
+    /// <see cref="Questions.ExecuteJavaScriptAndGetResult{TResult}"/> instead.
+    /// </para>
+    /// <para>
+    /// Within the script body, any parameters are accessible via the <c>arguments</c> object.  That object exposes the
+    /// parameter values by their zero-based index (position) in the parameters list.  So, a script which takes three
+    /// parameters will expose these to the script as <c>arguments[0]</c>, <c>arguments[1]</c> and
+    /// <c>arguments[2]</c>, respectively for the first, second and third parameter values.
     /// </para>
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// In this example, the script will write "I can count to 5" into the developer console.
+    /// </para>
+    /// <code>
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// var iCanCount = new NamedScript&lt;int&gt;("console.log('I can count to ' + arguments[0])", "my counting script");
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformable
+    /// public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     await actor.PerformAsync(ExecuteAScript(iCanCount, 5), cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript(NamedScript)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1}(NamedScript{T1}, T1)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2}(NamedScript{T1, T2}, T1, T2)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3}(NamedScript{T1, T2, T3}, T1, T2, T3)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4}(NamedScript{T1, T2, T3, T4}, T1, T2, T3, T4)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5}(NamedScript{T1, T2, T3, T4, T5}, T1, T2, T3, T4, T5)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5, T6}(NamedScript{T1, T2, T3, T4, T5, T6}, T1, T2, T3, T4, T5, T6)"/>
+    /// <seealso cref="PerformableBuilder.ExecuteAScript{T1, T2, T3, T4, T5, T6, T7}(NamedScript{T1, T2, T3, T4, T5, T6, T7}, T1, T2, T3, T4, T5, T6, T7)"/>
+    /// <seealso cref="Questions.ExecuteJavaScriptAndGetResult{TResult}"/>
     public class ExecuteJavaScript : IPerformable, ICanReport
     {
         readonly string script;

@@ -6,17 +6,38 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 namespace CSF.Screenplay.Selenium.Tasks
 {
     /// <summary>
-    /// Screenplay task which represents an actor taking a screenshot of the current web page and saving it as a report asset.
+    /// A Screenplay task which combines the taking of a screenshot of the current web browser viewport and saving it
+    /// as an asset file.
     /// </summary>
     /// <remarks>
     /// <para>
+    /// Use this task via one of the builder methods <see cref="TakeAndSaveAScreenshot"/> or <see cref="TakeAndSaveAScreenshotIfSupported"/>.
     /// This performable task is a composition of two others: <see cref="Questions.TakeScreenshot"/> and <see cref="Actions.SaveScreenshot"/>.
-    /// It offers an optional name for the screenshot, which is used as part of its asset filename if specified.
+    /// See the documentation for this question and action for more information.
     /// </para>
     /// <para>
     /// As with <see cref="Actions.SaveScreenshot"/>, this performable requires the actor to have the ability <see cref="Abilities.GetAssetFilePaths"/>.
     /// </para>
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// using OpenQA.Selenium;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformable
+    /// public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     await actor.PerformAsync(TakeAndSaveAScreenshot().WithTheName("Shopping cart items"), cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="TakeAndSaveAScreenshot"/>
+    /// <seealso cref="TakeAndSaveAScreenshotIfSupported"/>
+    /// <seealso cref="Questions.TakeScreenshot"/>
+    /// <seealso cref="Actions.SaveScreenshot"/>
+    /// <seealso cref="Abilities.GetAssetFilePaths"/>
     public class TakeAndSaveScreenshot : IPerformable, ICanReport
     {
         readonly string name;

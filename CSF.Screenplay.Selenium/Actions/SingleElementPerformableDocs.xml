@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <members>
+        <!--
+            This documentation node is shared by all performables which derive from ISingleElementPerformable.
+        -->
+        <member name="M:CSF.Screenplay.Selenium.Actions.ISingleElementPerformable">
+            <para>
+                This class is not a complete <xref href="PerformableGlossaryItem?text=performable"/>, as it relies
+                upon shared logic to retrieve the <see cref="CSF.Screenplay.Selenium.Elements.SeleniumElement"/> upon which it shall act.
+                It has this in common with many Screenplay
+                actions &amp; tasks in the Selenium extension which operate upon a single element.  These performables derive from
+                <see cref="CSF.Screenplay.Selenium.Actions.ISingleElementPerformable"/>. In order for this class to be used as a full-fledged
+                <xref href="PerformableGlossaryItem?text=performable"/>, an instance of this type must be wrapped
+                within an instance of <see cref="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter"/>.
+                The adapter class provides the shared boilerplate logic which provides access to the Selenium Element.
+                Note that the builder method(s) which create instances of this type include the 'wrap within an adapter'
+                logic.  Normal usage of this performable, when creating it from a builder, does not need to be
+                concerned with this factor.
+            </para>
+        </member>
+    </members>
+</doc>

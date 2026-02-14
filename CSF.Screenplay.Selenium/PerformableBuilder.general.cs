@@ -129,25 +129,8 @@ namespace CSF.Screenplay.Selenium
         /// <summary>
         /// Gets a performable action which clears the local storage for the current domain.
         /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This method gets a performable which will throw an exception if the WebDriver does not support the execution of JavaScript.
-        /// To avoid this, consider using <see cref="ClearLocalStorageIfSupported"/> instead.
-        /// </para>
-        /// </remarks>
         /// <returns>A performable action</returns>
         public static IPerformable ClearLocalStorage() => new ClearLocalStorage();
-
-        /// <summary>
-        /// Gets a performable action which clears the local storage for the current domain if the WebDriver supports it.
-        /// </summary>
-        /// <remarks>
-        /// <para>
-        /// This method gets a performable which will do nothing if the WebDriver does not support execution of JavaScript.
-        /// </para>
-        /// </remarks>
-        /// <returns>A performable action</returns>
-        public static IPerformable ClearLocalStorageIfSupported() => new ClearLocalStorage(false);
 
         /// <summary>
         /// Gets a builder which will create a performable question that waits until a predicate returns a successful result.

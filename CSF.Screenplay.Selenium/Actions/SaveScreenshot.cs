@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Abilities;
@@ -8,13 +7,57 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Actions
 {
     /// <summary>
-    /// Screenplay action which saves a Selenium Screenshot instance as an asset file.
+    /// An action which saves a Selenium <c>Screenshot</c> object to disk as an asset file.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use of this performable requires the actor to have the ability <see cref="GetAssetFilePaths"/>.
+    /// Use this action via the builder method <see cref="PerformableBuilder.SaveTheScreenshot"/>.
+    /// Instead of this action, consider using the task <see cref="Tasks.TakeAndSaveScreenshot"/>,
+    /// via either of the builder methods <see cref="PerformableBuilder.TakeAndSaveAScreenshot"/>
+    /// or <see cref="PerformableBuilder.TakeAndSaveAScreenshotIfSupported"/>. Use of this action (standalone)
+    /// is only required if you wish to examine or interact with the Screenshot object. If all you want to
+    /// achieve is to take the screenshot and save it, the task is likely to be more convenient.
+    /// </para>
+    /// <para>
+    /// Performing this action with a specified Screenshot object, such as one retrieved via the
+    /// <see cref="Questions.TakeScreenshot"/> question, saves that Screenshot object to disk as
+    /// <xref href="AssetGlossaryItem?text=an+asset+file"/>
+    /// </para>
+    /// <para>
+    /// To perform this action, the actor <em>must have</em> the ability <see cref="GetAssetFilePaths"/>.
+    /// If the actor does not have the ability then this action will throw an exception.
     /// </para>
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// In this example, the action will save the screenshot with the name <c>Shopping cart items</c>, using the JPEG
+    /// file format.
+    /// Note that because of the internal workings of the <see cref="GetAssetFilePaths"/> mechanism, the precise file
+    /// name by which the asset is saved is indeterminate. The precise details of file naming are determined by
+    /// <see cref="CSF.Screenplay.Reporting.AssetPathProvider"/>.
+    /// </para>
+    /// <code>
+    /// using OpenQA.Selenium;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// // Retrieved via (for example) the TakeScreenshot question
+    /// readonly Screenshot screenshot;
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformable
+    /// public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     await actor.PerformAsync(SaveTheScreenshot(screenshot)
+    ///                                  .WithTheName("Shopping cart items")
+    ///                                  .WithTheFormat(ScreenshotImageFormat.Jpeg),
+    ///                              cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="Questions.TakeScreenshot"/>
+    /// <seealso cref="Tasks.TakeAndSaveScreenshot"/>
+    /// <seealso cref="PerformableBuilder.SaveTheScreenshot(Screenshot)"/>
     public class SaveScreenshot : IPerformable, ICanReport
     {
         readonly Screenshot screenshot;

@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Actions
 {
     /// <summary>
-    /// Similar to <see cref="IPerformable"/> but provides access to a Selenium WebDriver and a Selenium element.
+    /// An object which is similar to <see cref="IPerformable"/> but provides access to a Selenium WebDriver and a Selenium element.
     /// </summary>
     /// <remarks>
     /// <para>

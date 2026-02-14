@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <members>
+        <!--
+            These documentation nodes are shared by types which derive from NamedScriptBasis
+        -->
+        <member name="M:CSF.Screenplay.Selenium.NamedScript">
+            <para>
+                Developers are encouraged to store JavaScripts in their apps/tests as instances of this type and other
+                related types (see the "See Also" section).
+                This improves the reusability of the script, improves its presence in Screenplay reports and provides type safety.
+                For more information, see <xref href="NamedScriptsArticle?text=the+named+scripts+article"/>.
+            </para>
+            <para>
+                For scripts which are created in this manner, getting an <see cref="IPerformable"/> or <see cref="IPerformableWithResult{TResult}"/> for those
+                scripts is very easy and type safe.  Use the <c>ExecuteAScript</c> method from the <see cref="PerformableBuilder"/> and
+                the compiler will use generic type inference to select an appropriate overload.
+                The parameters and return type will then be type-safe and of the appropriate number.
+            </para>
+            <para>
+                Another benefit is that scripts defined and stored in instances of this type are reusable and easily catalogued.  See the <see cref="Scripts"/> helper
+                class for an example of a catalogue of script objects which may be executed.  Once again, developers are encouraged to follow this pattern in their
+                own applications/tests which use Screenplay &amp; Selenium.
+            </para>
+        </member>
+        <member name="M:CSF.Screenplay.Selenium.NamedScript.ParamNote">
+            <para>
+                Whilst the generic type parameters of this type have no direct bearing upon its members (such as properties), they are very useful when
+                combined with the many overloads of the builder method <c>ExecuteAScript</c> in the <see cref="PerformableBuilder"/> class.
+            </para>
+        </member>
+        <member name="M:CSF.Screenplay.Selenium.NamedScript.AllVoidTypes">
+            <seealso cref="NamedScript"/>
+            <seealso cref="NamedScript{T1}"/>
+            <seealso cref="NamedScript{T1, T2}"/>
+            <seealso cref="NamedScript{T1, T2, T3}"/>
+            <seealso cref="NamedScript{T1, T2, T3, T4}"/>
+            <seealso cref="NamedScript{T1, T2, T3, T4, T5}"/>
+            <seealso cref="NamedScript{T1, T2, T3, T4, T5, T6}"/>
+            <seealso cref="NamedScript{T1, T2, T3, T4, T5, T6, T7}"/>
+        </member>
+        <member name="M:CSF.Screenplay.Selenium.NamedScript.AllResultTypes">
+            <seealso cref="NamedScriptWithResult{TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, T3, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, TResult}"/>
+            <seealso cref="NamedScriptWithResult{T1, T2, T3, T4, T5, T6, T7, TResult}"/>
+        </member>
+    </members>
+</doc>

@@ -5,7 +5,7 @@ using CSF.Screenplay.Selenium.Queries;
 namespace CSF.Screenplay.Selenium.Reporting
 {
     /// <summary>
-    /// A value formatter for collections of <see cref="Option"/> for reporting.
+    /// An <see cref="IValueFormatter"/> for collections of <see cref="Option"/> for reporting.
     /// </summary>
     public class OptionsFormatter : IValueFormatter
     {

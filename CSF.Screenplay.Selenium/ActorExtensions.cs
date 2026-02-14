@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium
     public static class ActorExtensions
     {
         /// <summary>
-        /// Gets a lazy-loaded <see cref="SeleniumElement"/> instance for the given actor and target.
+        /// Gets a lazy-loaded <see cref="SeleniumElement"/> instance matching the specified <paramref name="target"/>.
         /// </summary>
         /// <param name="actor">An actor, who must have the <see cref="BrowseTheWeb"/> ability.</param>
         /// <param name="target">A target which describes an HTML element</param>
@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium
             => new Lazy<SeleniumElement>(() => target.GetElement(actor.GetAbility<BrowseTheWeb>().WebDriver));
 
         /// <summary>
-        /// Gets a lazy-loaded <see cref="SeleniumElementCollection"/> instance for the given actor and target.
+        /// Gets a lazy-loaded <see cref="SeleniumElementCollection"/> instance matching the specified <paramref name="target"/>.
         /// </summary>
         /// <param name="actor">An actor, who must have the <see cref="BrowseTheWeb"/> ability.</param>
         /// <param name="target">A target which describes a collection of HTML elements</param>

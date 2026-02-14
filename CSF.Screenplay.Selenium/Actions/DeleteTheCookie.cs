@@ -4,8 +4,33 @@ using System.Threading.Tasks;
 namespace CSF.Screenplay.Selenium.Actions
 {
     /// <summary>
-    /// Represents an action to delete a specific browser cookie by name.
+    /// An action which deletes a specific browser cookie by name.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this action via the builder method <see cref="PerformableBuilder.DeleteTheCookieNamed(string)"/>.
+    /// Performing this action, as an actor which has the <see cref="BrowseTheWeb"/> ability, instructs the web browser
+    /// to delete the cookie (for the current domain) which has the specified name.
+    /// This is equivalent to a human user entering the browser's developer tools and doing the same.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <para>
+    /// In this example, the action will delete a cookie named "MyCookieName".
+    /// </para>
+    /// <code>
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformable
+    /// public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     await actor.PerformAsync(DeleteTheCookieNamed("MyCookieName"), cancellationToken);
+    ///     // ... other performance logic
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="PerformableBuilder.DeleteTheCookieNamed(string)"/>
     public class DeleteTheCookie : IPerformable, ICanReport
     {
         readonly string cookieName;

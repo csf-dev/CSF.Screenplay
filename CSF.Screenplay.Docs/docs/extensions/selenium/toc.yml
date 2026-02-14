@@ -1,0 +1,15 @@
+- name: The Selenium extension
+  href: index.md
+- name: Actions
+  href: Actions.md
+- name: Questions
+  href: Questions.md
+  items:
+    - name: Queries
+      href: Queries.md
+- name: Tasks
+  href: Tasks.md
+- name: Targets
+  href: Targets.md
+- name: Named scripts
+  href: NamedScripts.md

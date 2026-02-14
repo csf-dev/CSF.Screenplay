@@ -7,18 +7,50 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Questions
 {
     /// <summary>
-    /// Represents a question that finds a collection of elements within a specified target.
+    /// A question which searches for HTML elements that matche some criteria, optionally within a specified target,
+    /// returning the results as a <see cref="SeleniumElementCollection"/>.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This question is used to find a collection of elements within a target.  The matched/returned elements may be filtered
-    /// by a <see cref="Locator"/> if one is specified, otherwise all descendent elements of the target will be returned.
+    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindElementsWithin(ITarget)"/>
+    /// or <see cref="PerformableBuilder.FindElementsOnThePage"/>. The first searches within a specified target,
+    /// the second searches within the whole page <c>&lt;body&gt;</c>. This question returns a collection of elements
+    /// but that collection could be empty if the search does not find any matching elements.
+    /// If you are looking for a single element and a 'nothing found' result should raise an exception then
+    /// consider using the <see cref="FindElement"/> question instead.
     /// </para>
     /// <para>
-    /// Consumers are encouraged to specify a human-readable name for the collection of elements which are found, this will be
-    /// kept with the returned collection of elements and will be visible in reports.
+    /// The criteria by which an element is searched by this question is a class that derives from <see cref="Locator"/>.
+    /// Particularly useful are the <see cref="CssSelector"/>, <see cref="ClassName"/> and <see cref="XPath"/>
+    /// locators.  <see cref="ElementId"/> is less likely to be useful, as it should only ever match a single element per
+    /// web page.
     /// </para>
+    /// <include file="ElementQueryDocs.xml" path="doc/members/member[@name='M:CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult`1']/*" />
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// This example gets a <see cref="SeleniumElementCollection"/> which contains every element in the list which has
+    /// the ID <c>todo</c>, which also the class <c>low_priority</c>.
+    /// </para>
+    /// <code>
+    /// using CSF.Screenplay.Selenium.Elements;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// readonly ITarget todoList = new CssSelector("ul#todo", "the to-do list");
+    /// readonly Locator lowPriority = new ClassName("low_priority", "the low priority items");
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+    /// public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     var elements = await actor.PerformAsync(FindElementsWithin(todoList).WhichMatch(lowPriority), cancellationToken);
+    ///     // ... other performance logic
+    ///     return elements;
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="PerformableBuilder.FindElementsOnThePage"/>
+    /// <seealso cref="PerformableBuilder.FindElementsWithin(ITarget)"/>
     public class FindElements : ISingleElementPerformableWithResult<SeleniumElementCollection>
     {
         readonly string elementsName;

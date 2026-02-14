@@ -9,8 +9,7 @@ namespace CSF.Screenplay.Selenium
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Adds the required services to the service collection, so that performances may incorporate Selenium-based performables
-        /// and abilities.
+        /// Activates the Selenium extension for Screenplay by adding relevant services to the dependency injection container.
         /// </summary>
         /// <param name="services">The service collection</param>
         /// <returns>The same service collection, so calls may be chained.</returns>

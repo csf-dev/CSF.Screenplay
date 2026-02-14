@@ -11,7 +11,14 @@ namespace CSF.Screenplay.Selenium.Elements
     /// </summary>
     /// <remarks>
     /// <para>
-    /// It is perfectly acceptable for this collection to contain only a single element, or even to contain zero elements.
+    /// This type of <see cref="ITarget"/> contains a collection of <see cref="SeleniumElement"/>, each of which
+    /// contains a native Selenium <see cref="IWebElement"/>.
+    /// This class provides those elements under the ITarget interface, as well as allowing the developer to specify
+    /// a <see cref="Name"/> for this collection of elements.  This optional, but recommended, technique facilitates
+    /// human-readable reporting.
+    /// </para>
+    /// <para>
+    /// It is perfectly acceptable for an element collection to contain zero elements.
     /// </para>
     /// </remarks>
     public class SeleniumElementCollection : ITarget, IReadOnlyList<SeleniumElement>

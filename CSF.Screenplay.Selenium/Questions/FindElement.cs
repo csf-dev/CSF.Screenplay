@@ -7,23 +7,51 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Questions
 {
     /// <summary>
-    /// Represents a question that finds a single element within a specified target.
+    /// A question which searches for an HTML element that matches some criteria, optionally within a specified target,
+    /// returning the element it finds as a <see cref="SeleniumElement"/>.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// This question is used to find a single element within a target. If more than one element would have been matched by the specified locator
-    /// then the first matching element (only) will be returned.
+    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindAnElementWithin(ITarget)"/>
+    /// or <see cref="PerformableBuilder.FindAnElementOnThePage"/>. The first searches within a specified target,
+    /// the second searches within the whole page <c>&lt;body&gt;</c>. This question will only ever return a single
+    /// <see cref="SeleniumElement"/>, or it will raise an exception if the search does not find any matching elements.
+    /// If multiple elements are found which match the criteria then this question will return only the first.
+    /// If you are expecting to find multiple elements, then consider using the <see cref="FindElements"/> question
+    /// instead.
     /// </para>
     /// <para>
-    /// Consumers are encouraged to specify a human-readable name for the collection of elements which are found, this will be
-    /// kept with the returned collection of elements and will be visible in reports.
+    /// The criteria by which an element is searched by this question is a class that derives from <see cref="Locator"/>.
+    /// Particularly useful are the <see cref="CssSelector"/>, <see cref="ClassName"/> and <see cref="XPath"/>
+    /// locators.  <see cref="ElementId"/> is less likely to be useful, as it should only ever match a single element per
+    /// web page.
     /// </para>
-    /// <para>
-    /// Note that if no element is found, which is a descendent of the target and which is matched by the locator, then the
-    /// <see cref="PerformAsAsync(ICanPerform, IWebDriver, Lazy{SeleniumElement}, CancellationToken)"/> method of this question will return
-    /// a value task of a <see langword="null" /> reference.
-    /// </para>
+    /// <include file="ElementQueryDocs.xml" path="doc/members/member[@name='M:CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult`1']/*" />
     /// </remarks>
+    /// <example>
+    /// <para>
+    /// This example gets a <see cref="SeleniumElement"/> within the list which has the ID <c>todo</c> which has the class
+    /// <c>urgent</c>.
+    /// </para>
+    /// <code>
+    /// using CSF.Screenplay.Selenium.Elements;
+    /// using static CSF.Screenplay.Selenium.PerformableBuilder;
+    /// 
+    /// readonly ITarget todoList = new CssSelector("ul#todo", "the to-do list");
+    /// readonly Locator urgent = new ClassName("urgent", "the urgent item");
+    /// 
+    /// // Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElement&gt;
+    /// public async ValueTask&lt;SeleniumElement&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    /// {
+    ///     // ... other performance logic
+    ///     var element = await actor.PerformAsync(FindAnElementWithin(todoList).WhichMatches(urgent), cancellationToken);
+    ///     // ... other performance logic
+    ///     return element;
+    /// }
+    /// </code>
+    /// </example>
+    /// <seealso cref="PerformableBuilder.FindAnElementOnThePage"/>
+    /// <seealso cref="PerformableBuilder.FindAnElementWithin(ITarget)"/>
     public class FindElement : ISingleElementPerformableWithResult<SeleniumElement>
     {
         readonly string elementsName;

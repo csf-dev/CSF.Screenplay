@@ -3,7 +3,7 @@ using System.Resources;
 namespace CSF.Screenplay.Selenium.Resources
 {
     /// <summary>
-    /// A resources class, providing access to pre-written/stock JavaScript strings.
+    /// A library of pre-written JavaScripts, stored in the assembly as resource strings.
     /// </summary>
     static class ScriptResources
     {
