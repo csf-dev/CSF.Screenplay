@@ -17,7 +17,7 @@ The default filename includes a representation of the current timestamp, so each
 This path may be altered by specifying a different set of options to the [`AddScreenplay`] service collection extension method.
 
 [`ScreenplayOptions.ReportPath`]: xref:CSF.Screenplay.ScreenplayOptions.ReportPath
-[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
+[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
 
 ## Converting JSON to a human-readable report
 

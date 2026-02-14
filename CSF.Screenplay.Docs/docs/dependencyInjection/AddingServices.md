@@ -3,7 +3,7 @@
 There are two techniques to add dependency services to Screenplay.
 You may either integrate Screenplay into an existing container for your application or tests or you may add additional services via the static [`Create`] factory method.
 
-[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
 
 ## Integrating with an existing container
 
@@ -29,7 +29,7 @@ var screenplay = Screenplay.Create(services => {
 });
 ```
 
-[`Screenplay.Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+[`Screenplay.Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
 
 ## A reminder on lifetime scopes
 
