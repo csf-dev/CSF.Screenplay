@@ -25,7 +25,7 @@ If Screenplay is not being used for testing, then the consuming logic has the fo
 
 [Performance]: xref:CSF.Screenplay.IPerformance
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
-[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+[`Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
 [`BeginScreenplay`]: xref:CSF.Screenplay.Screenplay.BeginScreenplay
 [`ExecuteAsPerformanceAsync<TPerformance>`]: xref:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformanceAsync``1(CSF.Screenplay.Screenplay,System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)
 [`ExecuteAsPerformance`]: xref:CSF.Screenplay.ScreenplayExtensions.ExecuteAsPerformance(CSF.Screenplay.Screenplay,System.Func{System.IServiceProvider,System.Nullable{System.Boolean}},System.Collections.Generic.IList{CSF.Screenplay.Performances.IdentifierAndName},System.Threading.CancellationToken)

@@ -1,4 +1,5 @@
 # Injecting services into Personas
+
 Types which derive from [`IPersona`] support constructor-injected dependencies.
 Personas are typically used by either [the cast] or [the stage] to get an [Actor].
 The technique in which they are used means that they are resolved, along with their constructor-injected dependencies, from DI.

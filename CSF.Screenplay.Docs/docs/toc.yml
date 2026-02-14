@@ -26,6 +26,26 @@
       href: concepts/HowScreenplayAndPerformanceRelate.md
     - name: Dependency injection
       href: dependencyInjection/index.md
+      items:
+        - name: Adding services
+          href: dependencyInjection/AddingServices.md
+        - name: Injectable services
+          href: dependencyInjection/InjectableServices.md
+        - name: Injecting services
+          href: dependencyInjection/InjectingServices.md
+          items:
+            - name: Test parameter injection
+              href: dependencyInjection/ParameterInjectionForTests.md
+            - name: Test binding injection
+              href: dependencyInjection/ConstructorInjectionForBindings.md
+            - name: Standalone Screenplay
+              href: dependencyInjection/InjectionForStandaloneScreenplay.md
+            - name: Persona classes
+              href: dependencyInjection/ConstructorInjectIntoThePersona.md
+            - name: Into performables
+              href: dependencyInjection/Performables.md
+        - name: DI scope
+          href: dependencyInjection/DependencyInjectionScope.md
     - name: In the testing stack
       href: concepts/ScreenplayInTheTestingStack.md
 - name: Extensions

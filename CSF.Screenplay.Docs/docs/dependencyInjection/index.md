@@ -10,27 +10,13 @@ Alternatively you may create an instance of [`Screenplay`] which uses its own se
 
 [dependency injection]: https://en.wikipedia.org/wiki/Dependency_injection
 [container]: xref:Microsoft.Extensions.DependencyInjection.IServiceCollection
-[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{CSF.Screenplay.ScreenplayOptions})
+[`AddScreenplay`]: xref:CSF.Screenplay.ScreenplayServiceCollectionExtensions.AddScreenplay(Microsoft.Extensions.DependencyInjection.IServiceCollection)
 [`Screenplay`]: xref:CSF.Screenplay.Screenplay
-[`Screenplay.Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.Action{CSF.Screenplay.ScreenplayOptions})
+[`Screenplay.Create`]: xref:CSF.Screenplay.Screenplay.Create(System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})
 
-## Scopes
+## Learn more about DI in Screenplay
 
-Screenplay makes use of [Dependency Injection Scopes].
-As you can see on [the diagram of how Actors, Abilities and Performables relate to one another], each [`Screenplay`] contains and executes many [Performances].
-Each performance is executed within its own DI scope, thus scoped services will have _one shared instance per performance_.
-
-It is also important to note that within DI, the [`Screenplay`] object _must be added_ as a singleton (the mechanisms described above all do this for you).
-As a consequence there may be _at most one_ Screenplay object per dependency injection container.
-
-[Dependency Injection Scopes]: https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#scoped
-[the diagram of how Actors, Abilities and Performables relate to one another]: ../concepts/MakeupOfAScreenplay.md
-[Performances]: xref:CSF.Screenplay.IPerformance
-
-## Using DI in Screenplay
-
-TODO: Write this section!
-
-* [Injecting services](InjectingServices.md)
-* [Adding services](AddingServices.md)
-* [Abilities as a form of DI](../../glossary/Ability.md)
+* [How to add services to the container](AddingServices.md)
+* [Which services are injectable](InjectableServices.md)
+* [Getting/injecting services](InjectingServices.md)
+* [DI scopes](DependencyInjectionScope.md)

@@ -5,14 +5,18 @@ uid: DependencyInjectionScopeArticle
 # Dependency injection scope
 
 Developers familiar with dependency injection are likely to be familiar with the concept of [DI Scopes].
-That is - some services which are designated as _scoped_ or _instance per scope_ use a common/shared instance for the lifetime/duration of the scope.
+Screenplay uses this concept; a number of its services are added to the container with _a per-scope lifetime_.
+Screenplay creates **a new DI scope per [Performance]**.
+As you can see on [the diagram of how Actors, Abilities and Performables relate to one another], each [`Screenplay`] contains and executes many performances.
+This scope-creation is handled automatically by the Screenplay framework logic.
 
-Within Screenplay logic, a DI scope is automatically created, with a lifetime matching that of the current [Performance].
 Within a performance, when any of the scoped services (listed below) are injected, each point of injection will receive the same shared instance of that service.
 Instances are independent per-performance; each performance gets its own shared instance of each of the listed services.
 
 [DI Scopes]: https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#service-lifetimes
 [Performance]: xref:CSF.Screenplay.Performance
+[the diagram of how Actors, Abilities and Performables relate to one another]: ../concepts/MakeupOfAScreenplay.md
+[`Screenplay`]: xref:CSF.Screenplay.Screenplay
 
 ## List of scoped services
 
@@ -25,6 +29,7 @@ The following services are added to DI "per lifetime scope".
 ## List of singleton services
 
 The following services are added to DI as singletons.
+There is only ever a single instance of these services per Screenplay.
 
 * [The Screenplay](xref:CSF.Screenplay.Screenplay)
 * [The event bus](xref:CSF.Screenplay.Performances.PerformanceEventBus)

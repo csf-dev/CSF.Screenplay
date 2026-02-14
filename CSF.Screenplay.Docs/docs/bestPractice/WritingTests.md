@@ -1,6 +1,6 @@
 # Advice for writing tests with Screenplay
 
-Whichever testing integration you choose to use, there are some general pieces of advice and best practice which apply. 
+Whichever testing integration you choose to use, there are some general pieces of advice and best practice which apply.
 
 ## Use high-level tasks
 
@@ -38,15 +38,15 @@ Assertion libraries to consider include [Shouldly] and [Fluent Assertions].
 ## Do not include assertions in performables
 
 It might be tempting to include assertion syntax within [performables] such as [tasks].
-This is not recommended. 
+This is not recommended.
 Where assertions appear within performables:
 
 * They reduce the reusability of the performables
 * They create a dependency between your performables and your testing framework/assertion library
 * They can make test logic harder to read and understand
 
-It is recommended to keep your performables/tasks free from assertions. 
-In your test code, use [questions] or question-like tasks to get values/data from the system under test. 
+It is recommended to keep your performables/tasks free from assertions.
+In your test code, use [questions] or question-like tasks to get values/data from the system under test.
 Write your assertions in your main test logic, asserting that the values retrieved are as-expected.
 
 [tasks]: ../../glossary/Task.md
