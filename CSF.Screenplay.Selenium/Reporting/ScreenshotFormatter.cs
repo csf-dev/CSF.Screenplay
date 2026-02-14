@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Reporting
 {
     /// <summary>
-    /// A value formatter for Selenium screenshot objects, for reporting.
+    /// An <see cref="IValueFormatter"/> for Selenium <see cref="Screenshot"/> objects, for reporting.
     /// </summary>
     public class ScreenshotFormatter : IValueFormatter
     {

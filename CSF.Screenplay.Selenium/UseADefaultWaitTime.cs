@@ -3,9 +3,24 @@ using System;
 namespace CSF.Screenplay.Selenium
 {
     /// <summary>
-    /// Screenplay ability that allows an <see cref="Actor"/> to use a default time for which
+    /// An ability which specifies a default amount of time for performables which involve waiting.
+    /// that allows an <see cref="Actor"/> to use a default time for which
     /// to wait for <see cref="BrowseTheWeb"/> WebDriver operations to complete.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// A small number of performables within the Selenium extension for Screenplay involve waiting,
+    /// along with the opportunity to specify a timeout.  If no timeout is specified and the <see cref="Actor"/>
+    /// does not have this ability then the default timeout is 5 seconds, as specified by
+    /// <see cref="Actions.Wait.DefaultTimeout"/>.
+    /// </para>
+    /// <para>
+    /// If the Actor has this ability then, if they perform a waiting-type action and no timeout is explicitly specified,
+    /// they will use the default timeout which is specified within this ability instead of the 5-second hard-coded default.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="Actions.Wait"/>
+    /// <seealso cref="Tasks.ClickAndWaitForDocumentReady"/>
     public class UseADefaultWaitTime : ICanReport
     {
         /// <summary>

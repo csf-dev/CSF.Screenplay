@@ -86,9 +86,22 @@ namespace CSF.Screenplay.Selenium.Actions
     /// </example>
     /// <seealso cref="PerformableBuilder.WaitUntil(Builders.IBuildsElementPredicates)"/>
     /// <seealso cref="PerformableBuilder.WaitUntil(Func{IWebDriver, bool})"/>
+    /// <seealso cref="UseADefaultWaitTime"/>
     public class Wait : IPerformable, ICanReport
     {
-        static readonly TimeSpan defaultTimeout = TimeSpan.FromSeconds(5);
+        /// <summary>
+        /// This default timeout of 5 seconds used when no timeout is specified and the actor has no <see cref="UseADefaultWaitTime"/> ability.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This, along with a few other performables in the Selenium extension for Screenplay involve waiting, with a timeout
+        /// to prevent waiting indefinitely.
+        /// If no timeout has been specified then this 5-second timeout is used as a fall-back default.
+        /// This may be overridden by granting the <see cref="Actor"/> the ability <see cref="UseADefaultWaitTime"/>, with a different
+        /// timeout specified.
+        /// </para>
+        /// </remarks>
+        public static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(5);
 
         readonly TimeSpan? timeout;
         readonly TimeSpan? pollingInterval;
@@ -122,7 +135,7 @@ namespace CSF.Screenplay.Selenium.Actions
             if(actor.TryGetAbility<UseADefaultWaitTime>(out var ability))
                 return ability.WaitTime;
 
-            return defaultTimeout;
+            return DefaultTimeout;
         }
 
         /// <summary>

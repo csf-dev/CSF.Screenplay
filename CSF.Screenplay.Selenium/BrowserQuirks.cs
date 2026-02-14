@@ -6,6 +6,14 @@ namespace CSF.Screenplay.Selenium
     /// <summary>
     /// Static class which holds known browser quirks information.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Quirks are a feature of the <see cref="Extensions.WebDriver.IGetsWebDriver">universal WebDriver factory</see>.
+    /// See <xref href="WebBrowserQuirksArticle?text=the+WebDriver+quirks+article"/> for more information.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="QuirksData"/>
+    /// <seealso cref="IHasQuirks"/>
     public static class BrowserQuirks
     {
         /// <summary>
@@ -65,8 +73,8 @@ namespace CSF.Screenplay.Selenium
         /// <remarks>
         /// <para>
         /// This information ships with CSF.Screenplay.Selenium.  It may be overridden by user-supplied configuration, should
-        /// things change in the future.  See <see href="https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html">the
-        /// browser quirks reference material</see> for more information.
+        /// things change in the future.  See <xref href="WebBrowserQuirksArticle?text=the+WebDriver+quirks+reference+material"/>
+        /// for more information.
         /// </para>
         /// </remarks>
         /// <returns>Quirks data, about the peculiarities of specific browsers.</returns>

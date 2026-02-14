@@ -5,6 +5,13 @@ namespace CSF.Screenplay.Selenium.Elements
     /// <summary>
     /// An implementation of <see cref="ITarget"/> which represents a single native Selenium HTML element.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This type of <see cref="ITarget"/> contains a reference to a native Selenium <see cref="IWebElement"/>.
+    /// This class provides that element under the ITarget interface, as well as allowing the developer to specify
+    /// a <see cref="Name"/>.  This optional, but recommended, technique facilitates human-readable reporting.
+    /// </para>
+    /// </remarks>
     public class SeleniumElement : ITarget
     {
         const string unknownNameFormat = "an HTML {0} element";

@@ -35,9 +35,11 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// until it returns the result <c>complete</c>. At that point, the waiting is over and the performance may continue.
     /// </para>
     /// <para>
-    /// The mechanism described above also includes a (constructor injected) timeout. The timeout is used twice; it applies
+    /// The mechanism described above also includes an optional (constructor injected) timeout. The timeout is used twice; it applies
     /// both to the unloading of the old page the ready-state of the new page returning <c>complete</c>.  Thus in a theoretical
     /// worst-case scenario, this task could lead to a wait of twice the specified timeout value.
+    /// If the timeout is not specified then it will use the value from <see cref="UseADefaultWaitTime"/> if the actor
+    /// has that ability.  If not then the hardcoded fall-back <see cref="Wait.DefaultTimeout"/> of 5 seconds will be used.
     /// </para>
     /// </remarks>
     /// <example>
@@ -62,15 +64,17 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <seealso cref="BrowserQuirks.NeedsToWaitAfterPageLoad"/>
     /// <seealso cref="ClickOn(ITarget)"/>
     /// <seealso cref="Builders.ClickBuilder.AndWaitForANewPageToLoad(TimeSpan?)"/>
+    /// <seealso cref="UseADefaultWaitTime"/>
+    /// <seealso cref="Wait.DefaultTimeout"/>
     public class ClickAndWaitForDocumentReady : ISingleElementPerformable
     {
         const string completeReadyState = "complete";
 
-        readonly TimeSpan waitTimeout;
+        readonly TimeSpan? waitTimeout;
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} clicks on {Element} and waits up to {Time} for the next page to load", actor, element.Value, waitTimeout);
+            => formatter.Format("{Actor} clicks on {Element} and waits up to {Time} for the next page to load", actor, element.Value, GetTimeout(actor));
 
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
@@ -78,11 +82,12 @@ namespace CSF.Screenplay.Selenium.Tasks
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
             if(!webDriver.HasQuirk(BrowserQuirks.NeedsToWaitAfterPageLoad)) return;
 
+            var timeout = GetTimeout(actor);
             await actor.PerformAsync(WaitUntil(ElementIsStale(element.Value.WebElement))
-                                                .ForAtMost(waitTimeout)
+                                                .ForAtMost(timeout)
                                                 .Named($"{element.Value} is no longer on the page"),
                                      cancellationToken);
-            await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(waitTimeout).Named("the next page is ready"),
+            await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(timeout).Named("the next page is ready"),
                                      cancellationToken);
         }
 
@@ -120,12 +125,23 @@ namespace CSF.Screenplay.Selenium.Tasks
         static Func<IWebDriver,bool> PageIsReady => driver
             => driver.ExecuteJavaScript<string>(Scripts.GetTheDocumentReadyState.ScriptBody) == completeReadyState;
 
+        TimeSpan GetTimeout(ICanPerform actor)
+        {
+            if(waitTimeout.HasValue)
+                return waitTimeout.Value;
+
+            if(actor.TryGetAbility<UseADefaultWaitTime>(out var ability))
+                return ability.WaitTime;
+
+            return Wait.DefaultTimeout;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ClickAndWaitForDocumentReady"/> class.
         /// </summary>
         /// <param name="waitTimeout">The timeout duration for both the page-unload and document-ready waits.
         /// See the remarks on this class for more info.</param>
-        public ClickAndWaitForDocumentReady(TimeSpan waitTimeout)
+        public ClickAndWaitForDocumentReady(TimeSpan? waitTimeout)
         {
             this.waitTimeout = waitTimeout;
         }

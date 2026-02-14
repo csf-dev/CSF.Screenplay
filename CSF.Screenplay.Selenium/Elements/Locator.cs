@@ -4,12 +4,15 @@ using OpenQA.Selenium;
 namespace CSF.Screenplay.Selenium.Elements
 {
     /// <summary>
-    /// An object which provides a locator for Selenium elements.
+    /// Base type for implementations of <see cref="ITarget"/> which serve as a specification for Selenium elements
+    /// but which do not reference those elements directly.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// The Selenium <c>By</c> object is a specification of sorts, which can be used to find HTML elements on a web page.
-    /// Concrete implementations of this class provide various ways to get a <c>By</c> object.
+    /// All derived types of this class are Screenplay wrappers (adapters) for the Selenium <see cref="By"/> class.
+    /// The 'By' class is a specification of sorts, describing how a WebDriver may find an element on a page.
+    /// Implementations of this type provide that specification, but additionally a <see cref="Name"/>, providing
+    /// human-readable content in Screenplay reports.
     /// </para>
     /// </remarks>
     public abstract class Locator : ITarget

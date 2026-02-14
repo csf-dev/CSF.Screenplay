@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using CSF.Screenplay.Selenium.Actions;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
 

@@ -24,8 +24,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// <para>
         /// Use this method when the click is expected to cause a new web page to load into the browser.
         /// In that case, the performable returned by this method will not only click on the target element.
-        /// It will also wait for the <c>DOMContentLoaded</c> event from the web page which is loaded following that click.
-        /// This ensures that subsequent interactions with the Web Browser are not performed upon a page which is not yet loaded.
+        /// See the <see cref="ClickAndWaitForDocumentReady"/> task for more information.
         /// </para>
         /// <para>
         /// Note that the meaning of "a new page loading" is a full Web Browser page load (an entirely new HTML document).
@@ -33,9 +32,9 @@ namespace CSF.Screenplay.Selenium.Builders
         /// </para>
         /// </remarks>
         /// <param name="forAtMost"></param>
-        /// <returns></returns>
+        /// <returns>A performable</returns>
         public IPerformable AndWaitForANewPageToLoad(TimeSpan? forAtMost = null)
-            => SingleElementPerformableAdapter.From(new ClickAndWaitForDocumentReady(forAtMost ?? TimeSpan.FromSeconds(5)), target);
+            => SingleElementPerformableAdapter.From(new ClickAndWaitForDocumentReady(forAtMost), target);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ClickBuilder"/> class with the specified target.
