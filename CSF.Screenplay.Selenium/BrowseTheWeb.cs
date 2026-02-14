@@ -102,7 +102,7 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         public DriverOptions DriverOptions => webDriverAndOptions.Value.DriverOptions;
 
-        Lazy<WebDriverAndOptions> GetLazyWebDriverAndOptions(IGetsWebDriver webDriverFactory, string webDriverName)
+        static Lazy<WebDriverAndOptions> GetLazyWebDriverAndOptions(IGetsWebDriver webDriverFactory, string webDriverName)
         {
             if (webDriverFactory is null) throw new ArgumentNullException(nameof(webDriverFactory));
 

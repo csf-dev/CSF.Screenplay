@@ -34,7 +34,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// user would, particularly when using Screenplay/Selenium for testing. This task is provided just to work around difficulties/limitations;
     /// it is not intended to be the standard way to update elements on a web page.
     /// </para>
-    /// <include file="..\Actions\SingleElementPerformableDocs.xml" path="doc/members/member[@name='M:CSF.Screenplay.Selenium.Actions.ISingleElementPerformable']/*" />
+    /// <include file="../Actions/SingleElementPerformableDocs.xml" path="doc/members/member[@name='M:CSF.Screenplay.Selenium.Actions.ISingleElementPerformable']/*" />
     /// </remarks>
     /// <example>
     /// <para>
