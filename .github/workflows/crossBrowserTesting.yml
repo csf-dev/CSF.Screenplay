@@ -85,9 +85,11 @@ jobs:
 
       # Build and test the solution
 
+      - name: Build the solution
+        run: dotnet build -c ${{ env.Configuration }} 
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} --filter TestCategory=WebDriver Tests/CSF.Screenplay.Selenium.Tests
+        run: dotnet test -c ${{ env.Configuration }} --no-build --filter TestCategory=WebDriver Tests/CSF.Screenplay.Selenium.Tests
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
