@@ -3,6 +3,9 @@ platforms:
     os: OS X
     osVersion: Sonoma
     browserVersion: 17.3
+parallelsPerPlatform: 5
 browserstackLocal: true
-buildName: bs-sdk-build
+buildName: CBT Safari (17.3/OS X Sonoma)
 projectName: CSF.Screenplay
+video: true
+testObservability: true

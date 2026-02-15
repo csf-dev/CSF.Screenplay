@@ -3,6 +3,9 @@ platforms:
     os: OS X
     osVersion: Tahoe
     browserVersion: 26.2
+parallelsPerPlatform: 5
 browserstackLocal: true
-buildName: bs-sdk-build
+buildName: CBT Safari (26.2/OS X Tahoe)
 projectName: CSF.Screenplay
+video: true
+testObservability: true

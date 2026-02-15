@@ -29,34 +29,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - browserName: Chrome
-            browserVersion: latest-50
-            os: Windows
-            osVersion: 11
-          # - browserName: Chrome
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Edge
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Firefox
-          #   browserVersion: latest
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Firefox
-          #   browserVersion: latest-40
-          #   os: Windows
-          #   osVersion: 11
-          # - browserName: Safari
-          #   browserVersion: 17.3
-          #   os: OS X
-          #   osVersion: Sonoma
-          # - browserName: Safari
-          #   browserVersion: 26.2
-          #   os: OS X
-          #   osVersion: Tahoe
+          - browserStackConfig: chromeLatest
+          - browserStackConfig: chromeOld
+          - browserStackConfig: edgeLatest
+          - browserStackConfig: firefoxLatest
+          - browserStackConfig: firefoxOld
+          - browserStackConfig: safari17
+          - browserStackConfig: safari26
 
     name: Run tests
     runs-on: ubuntu-24.04
@@ -93,21 +72,23 @@ jobs:
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm ci
           cd ../..
+      - name: Copy appropriate BrowserStack config
+        run: cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
 
       # Build and test the solution
 
       - name: Build the solution
-        run: dotnet build -c ${{ env.Configuration }}
+        run: dotnet build -c ${{ env.Configuration }} -p:BrowserStack=true
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} --no-build Tests/CSF.Screenplay.Selenium.Tests
+        run: dotnet test -c ${{ env.Configuration }} -p:BrowserStack=true --no-build Tests/CSF.Screenplay.Selenium.Tests
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay JSON reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
+          name: Screenplay JSON reports ${{ matrix.browserStackConfig }}
           path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport_*.json
       - name: Convert Screenplay reports to HTML
         continue-on-error: true
@@ -121,7 +102,7 @@ jobs:
       - name: Upload Screenplay HTML report artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Screenplay HTML reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
+          name: Screenplay HTML reports ${{ matrix.browserStackConfig }}
           path: Tests/**/ScreenplayReport.html
       - name: Fail the build if any test failures
         if: steps.dotnet_tests.outcome == 'failure'
