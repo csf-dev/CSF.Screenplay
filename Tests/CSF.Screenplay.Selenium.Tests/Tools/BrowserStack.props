@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);NO_NUNIT_PARALLELISM</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.23.0" />
+  </ItemGroup>
+</Project>

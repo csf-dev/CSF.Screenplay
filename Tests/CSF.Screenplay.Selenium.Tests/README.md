@@ -30,17 +30,17 @@ There are two steps to enabling this, in this project.
 
 [the BrowserStack SDK]: https://www.browserstack.com/blog/introducing-browserstack-sdk/
 
-### An environment variable
+### Add the .props file
 
-Before executing `dotnet build` or `dotnet test`, ensure that the environment variable `ENABLE_BROWSERSTACK` is set to the value `true`.
+Before executing `dotnet build` or `dotnet test`, copy the file `Tools/BrowserStack.props` into this directory (that contains both the `.csproj` and this README files).
 For example:
 
 ```cmd
-SET ENABLE_BROWSERSTACK="true"
+copy Tools/BrowserStack.props .
 dotnet test
 ```
 
-The presence of this environment variable will activate two changes in the `.csproj` file in this directory:
+The presence of this props file will activate two changes in the `.csproj` file in this directory:
 
 * It will install the BrowserStack SDK NuGet package: `BrowserStack.TestAdapter`
 * It will disable NUnit's parallelism feature
