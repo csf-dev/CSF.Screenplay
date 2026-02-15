@@ -5,7 +5,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class ClearTheContentsTests
 {
     static readonly ITarget

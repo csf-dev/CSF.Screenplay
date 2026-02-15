@@ -22,17 +22,8 @@ One such extension is [CSF.Screenplay.Selenium], which allows Screenplay to cont
 CI builds are configured via **GitHub Actions**, with static code analysis & reporting in **SonarCloud**.
 This project is tested with BrowserStack.
 
-[![.NET CI](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml/badge.svg)](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml)
-[![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=csf-dev_CSF.Screenplay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=csf-dev_CSF.Screenplay)
-
 The contents of the `docs/` directory of this repository is auto-generated from the `CSF.Screenplay.Docs` project.
 There is nothing hand-editable inside.
 
-**When running tests** for this solution, there is a [BrowserStack] integration available for
-[the tests for the Selenium extension].
-It is disabled by default, but instructions for enabling it and using it are available
-in [the README.md file in the test directory].
-
-[the tests for the Selenium extension]: https://github.com/csf-dev/CSF.Screenplay/tree/master/Tests/CSF.Screenplay.Selenium.Tests
-[BrowserStack]: https://browserstack.com/
-[the README.md file in the test directory]: https://github.com/csf-dev/CSF.Screenplay/tree/master/Tests/CSF.Screenplay.Selenium.Tests/README.md
+[![.NET CI](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml/badge.svg)](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml)
+[![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=csf-dev_CSF.Screenplay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=csf-dev_CSF.Screenplay)

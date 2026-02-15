@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
@@ -7,7 +8,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class EnterTheDateTests
 {
     static readonly ITarget

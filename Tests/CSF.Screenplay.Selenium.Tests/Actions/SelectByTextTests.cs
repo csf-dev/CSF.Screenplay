@@ -5,7 +5,7 @@ using static CSF.Screenplay.Selenium.Tasks.ReadTheListItemsBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class SelectByTextTests
 {
     static readonly ITarget

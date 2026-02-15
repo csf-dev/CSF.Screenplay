@@ -6,7 +6,7 @@ using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-[TestFixture, Description("Tests for many classes in the Queries namespace"), Parallelizable, Category("WebDriver")]
+[TestFixture, Description("Tests for many classes in the Queries namespace"), Parallelizable]
 public class QueriesTests
 {
     static readonly ITarget

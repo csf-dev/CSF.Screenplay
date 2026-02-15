@@ -1,3 +1,4 @@
+using CSF.Extensions.WebDriver;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -15,9 +16,6 @@ public class ScreenplayFactory : IGetsScreenplay
             services.AddSelenium();
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();
-#if BROWSER_STACK_ENABLED
-            services.AddTransient<CSF.Extensions.WebDriver.IGetsWebDriver, NonCastleWebDriverFactory>();
-#endif
         });
 
         return screenplay;

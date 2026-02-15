@@ -6,7 +6,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class SelectByIndexTests
 {
     static readonly ITarget

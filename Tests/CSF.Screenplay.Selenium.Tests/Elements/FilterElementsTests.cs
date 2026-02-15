@@ -3,7 +3,7 @@ namespace CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class FilterElementsTests
 {
     static readonly Locator

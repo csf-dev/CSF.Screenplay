@@ -10,7 +10,7 @@ using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Tasks;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class OpenUrlRespectingBaseTests
 {
     [Test, AutoMoqData]

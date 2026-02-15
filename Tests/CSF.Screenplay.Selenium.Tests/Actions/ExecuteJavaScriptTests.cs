@@ -4,7 +4,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable, Category("WebDriver")]
+[TestFixture, Parallelizable]
 public class ExecuteJavaScriptTests
 {
     const string scriptBody = """
