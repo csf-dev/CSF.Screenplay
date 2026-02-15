@@ -70,7 +70,7 @@ jobs:
         run: cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
       - name: Force .NET 8 with global.json
         run: |
-          echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > Tests/CSF.Screenplay.Selenium.Tests/global.json
+          echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > global.json
       - name: Restore .NET packages
         run: dotnet restore -p:BrowserStack=true
       - name: Restore Node modules
