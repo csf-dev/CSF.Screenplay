@@ -13,7 +13,7 @@ namespace CSF.Screenplay.Selenium.BrowserStack;
 
 public sealed class BrowserStackExtension : IDisposable
 {
-    const string urlPattern = "https://www.browserstack.com/automate/sessions/{0}.json";
+    const string urlPattern = "https://api.browserstack.com/automate/sessions/{0}.json";
 
     Local? browserStackLocal;
     IHasPerformanceEvents? eventBus;
