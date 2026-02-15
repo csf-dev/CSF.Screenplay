@@ -16,13 +16,13 @@ namespace CSF.Screenplay.Selenium;
 /// </remarks>
 public class NonCastleWebDriverFactory : IGetsWebDriver
 {
-    public WebDriverAndOptions GetDefaultWebDriver(Action<OpenQA.Selenium.DriverOptions> supplementaryConfiguration = null)
+    public WebDriverAndOptions GetDefaultWebDriver(Action<OpenQA.Selenium.DriverOptions>? supplementaryConfiguration = null)
     {
         var options = new ChromeOptions();
         var driver = new ChromeDriver(options);
         return new WebDriverAndOptions(driver, options);
     }
 
-    public WebDriverAndOptions GetWebDriver(string configurationName, Action<OpenQA.Selenium.DriverOptions> supplementaryConfiguration = null)
+    public WebDriverAndOptions GetWebDriver(string configurationName, Action<OpenQA.Selenium.DriverOptions>? supplementaryConfiguration = null)
         => GetDefaultWebDriver();
 }
