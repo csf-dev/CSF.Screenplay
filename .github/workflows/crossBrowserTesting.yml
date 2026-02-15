@@ -64,7 +64,13 @@ jobs:
         uses: actions/setup-node@v6.2.0
 
       # Environment setup pre-build
+      # Note that the BrowserStack SDK is presently incompatible with .NET 10
 
+      - name: Copy appropriate BrowserStack config
+        run: cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
+      - name: Force .NET 8 with global.json
+        run: |
+          echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > Tests/CSF.Screenplay.Selenium.Tests/global.json
       - name: Restore .NET packages
         run: dotnet restore -p:BrowserStack=true
       - name: Restore Node modules
@@ -72,8 +78,6 @@ jobs:
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm ci
           cd ../..
-      - name: Copy appropriate BrowserStack config
-        run: cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
 
       # Build and test the solution
 
