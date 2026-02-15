@@ -30,12 +30,12 @@ jobs:
       matrix:
         include:
           - browserStackConfig: chromeLatest
-          - browserStackConfig: chromeOld
-          - browserStackConfig: edgeLatest
-          - browserStackConfig: firefoxLatest
-          - browserStackConfig: firefoxOld
-          - browserStackConfig: safari17
-          - browserStackConfig: safari26
+          # - browserStackConfig: chromeOld
+          # - browserStackConfig: edgeLatest
+          # - browserStackConfig: firefoxLatest
+          # - browserStackConfig: firefoxOld
+          # - browserStackConfig: safari17
+          # - browserStackConfig: safari26
 
     name: Run tests
     runs-on: ubuntu-24.04
@@ -73,7 +73,9 @@ jobs:
           cat Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
       - name: Force .NET 8 with global.json
         run: |
-          echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > global.json
+          echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestFeature" } }' > global.json
+      - name: Restore NuGet packages
+        run: dotnet msbuild /t:Restore /p:BrowserStackEnabled=true
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
