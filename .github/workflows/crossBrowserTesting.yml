@@ -49,6 +49,7 @@ jobs:
       DotnetVersion: 8.0.x
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
       BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      BROWSERSTACK_BUILD_IDENTIFIER: gh-actions-cbt.${{ github.run_number }}.${{ github.run_attempt }}
     
     steps:
       - name: Checkout
@@ -67,7 +68,9 @@ jobs:
       # Note that the BrowserStack SDK is presently incompatible with .NET 10
 
       - name: Copy appropriate BrowserStack config
-        run: cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
+        run: |
+          cp Tests/CSF.Screenplay.Selenium.Tests/Tools/browserstack.${{ matrix.browserStackConfig }}.yml Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
+          cat Tests/CSF.Screenplay.Selenium.Tests/browserstack.yml
       - name: Force .NET 8 with global.json
         run: |
           echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > global.json

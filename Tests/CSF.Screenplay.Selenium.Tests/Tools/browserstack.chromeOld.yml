@@ -5,7 +5,7 @@ platforms:
     browserVersion: latest-50
 parallelsPerPlatform: 5
 browserstackLocal: true
-buildName: CBT Chrome (50 versions old/Windows 11)
+buildName: CBT_Chrome_50_versions_old_Windows_11
 projectName: CSF.Screenplay
 video: true
 testObservability: true
