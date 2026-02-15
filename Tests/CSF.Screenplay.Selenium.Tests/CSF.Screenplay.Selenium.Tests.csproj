@@ -6,7 +6,16 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <RootNamespace>CSF.Screenplay.Selenium</RootNamespace>
-    <DefineConstants Condition="'$(BrowserStackEnabled)' == 'true'">$(DefineConstants);NO_NUNIT_PARALLELISM</DefineConstants>
+    <!--
+      Note that ENABLE_BROWSERSTACK must be set via environment variable and not by MSBuild property.
+      This is because the BrowserStack SDK re-enters the dotnet build process and does not pass
+      MSBuild properties forward.  This is problematic because during that (inner) build process triggered
+      by the BS SDK, the property which enables the TestAdapter NuGet reference (below) won't be present,
+      and the build fails.
+
+      By using an env variable instead, it ensures that it's always present.
+    -->
+    <DefineConstants Condition="'$(ENABLE_BROWSERSTACK)' == 'true'">$(DefineConstants);NO_NUNIT_PARALLELISM</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +33,7 @@
     <PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="AutoFixture.NUnit3" Version="4.18.1" />
     <PackageReference Include="AutoFixture.AutoMoq" Version="4.18.1" />
-    <PackageReference Include="BrowserStack.TestAdapter" Version="0.23.0" Condition="'$(BrowserStackEnabled)' == 'true'" />
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.23.0" Condition="'$(ENABLE_BROWSERSTACK)' == 'true'" />
     <PackageReference Include="System.Text.Json" Version="9.0.7" />
   </ItemGroup>
 
