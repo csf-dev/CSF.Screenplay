@@ -118,7 +118,7 @@ jobs:
 
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} --filter TestCategory=WebDriver Tests/CSF.Screenplay.Selenium.Tests
+        run: dotnet test -c ${{ env.Configuration }} --filter TestCategory=WebDriver Tests/CSF.Screenplay.Selenium.Tests -- NumberOfTestWorkers=1
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
