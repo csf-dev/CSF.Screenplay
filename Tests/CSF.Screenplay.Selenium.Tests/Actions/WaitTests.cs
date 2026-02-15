@@ -9,7 +9,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class WaitTests
 {
     static readonly ITarget

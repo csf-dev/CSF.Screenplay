@@ -1,17 +1,10 @@
-
-using System;
-using CSF.Extensions.WebDriver;
-using CSF.Extensions.WebDriver.Factories;
-using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
-using Moq;
-using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class ClearLocalStorageTests
 {
     static readonly ITarget

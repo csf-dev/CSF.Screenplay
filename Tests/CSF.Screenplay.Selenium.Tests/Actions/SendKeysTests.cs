@@ -4,7 +4,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class SendKeysTests
 {
     static readonly ITarget

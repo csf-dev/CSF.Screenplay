@@ -1,13 +1,12 @@
 
 using System;
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class OpenUrlTests
 {
     static readonly ITarget

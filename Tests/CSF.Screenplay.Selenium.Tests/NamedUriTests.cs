@@ -1,5 +1,4 @@
 using System;
-using CSF.Screenplay.Selenium;
 
 namespace CSF.Screenplay.Selenium;
 

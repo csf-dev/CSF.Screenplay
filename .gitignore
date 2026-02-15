@@ -11,3 +11,7 @@ node_modules/
 **/TestResult.xml
 .obsidian/
 packages/
+log/
+local.log
+.config/
+/Tests/CSF.Screenplay.Selenium.Tests/BrowserStack.props

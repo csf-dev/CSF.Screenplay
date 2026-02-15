@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
@@ -8,7 +7,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class ClickAndWaitForDocumentReadyTests
 {
     static readonly NamedUri startPage = new NamedUri("DelayedNavigation.html", "the test page");
