@@ -8,3 +8,4 @@ browserstackLocal: true
 buildName: CBT_Safari_26.2_OS_X_Tahoe
 projectName: CSF.Screenplay
 video: true
+testObservability: true
