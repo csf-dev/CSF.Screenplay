@@ -74,7 +74,7 @@ jobs:
       # - name: Restore .NET packages
       #   run: dotnet restore -p:BrowserStack=true
       - name: Install BrowserStack SDK
-        run:  dotnet tool install --local browserstack-sdk --version 1.26.0
+        run:  dotnet tool install --global browserstack-sdk --version 1.26.0
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
