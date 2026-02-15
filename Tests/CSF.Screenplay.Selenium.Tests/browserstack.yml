@@ -8,4 +8,4 @@ browserstackLocal: true
 buildName: ${BROWSERSTACK_BUILD_IDENTIFIER}
 projectName: CSF.Screenplay
 video: true
-testObservability: true
+testObservability: false
