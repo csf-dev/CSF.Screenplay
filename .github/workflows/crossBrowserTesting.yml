@@ -71,10 +71,6 @@ jobs:
       - name: Force .NET 8 with global.json
         run: |
           echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > global.json
-      # - name: Restore .NET packages
-      #   run: dotnet restore -p:BrowserStack=true
-      - name: Install BrowserStack SDK
-        run:  dotnet tool install --global browserstack-sdk --version 1.26.0
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
@@ -85,7 +81,7 @@ jobs:
 
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} -p:BrowserStack=true Tests/CSF.Screenplay.Selenium.Tests
+        run: dotnet test -c ${{ env.Configuration }} -p:BrowserStackEnabled=true Tests/CSF.Screenplay.Selenium.Tests
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)

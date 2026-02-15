@@ -36,7 +36,7 @@ When using `dotnet build` or `dotnet test`, include the property `BrowserStack` 
 For example:
 
 ```cmd
-dotnet test -p:BrowserStack=true
+dotnet test -p:BrowserStackEnabled=true
 ```
 
 This will activate two changes in the `.csproj` file in this directory:
