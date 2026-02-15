@@ -8,4 +8,3 @@ browserstackLocal: true
 buildName: CBT_Firefox_Latest_Windows_11
 projectName: CSF.Screenplay
 video: true
-testObservability: true
