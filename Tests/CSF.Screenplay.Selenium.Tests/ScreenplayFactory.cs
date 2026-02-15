@@ -16,7 +16,7 @@ public class ScreenplayFactory : IGetsScreenplay
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();
 #if BROWSER_STACK_ENABLED
-            services.AddTransient<IGetsWebDriver, NonCastleWebDriverFactory>()
+            services.AddTransient<IGetsWebDriver, NonCastleWebDriverFactory>();
 #endif
         });
 
