@@ -1,9 +1,7 @@
-# Sample BrowserStack configs
+# BrowserStack properties file
 
-These configs are present for Cross Browser Testing (CBT) using [BrowserStack].
-They are used only by the appropriate CBT CI builds on GitHub Actions.
-
-Note that each omits the `userName` and `accessKey` properties, as these are secrets.
-If you wish to use them, you must provide your own BrowserStack credentials.
+This properties file is only used for running Cross-Browser Tests (CBT) with [BrowserStack].
+This is used by the CI build `.github\workflows\crossBrowserTesting.yml`.
+Copy this file into the `CSF.Screenplay.Selenium.Tests` directory (IE: the parent of this one) to activate BrowserStack testing.
 
 [BrowserStack]: https://browserstack.com

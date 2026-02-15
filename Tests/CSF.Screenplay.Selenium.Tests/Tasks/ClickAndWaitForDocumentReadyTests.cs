@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;

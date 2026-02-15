@@ -26,6 +26,7 @@
     <PackageReference Include="System.Text.Json" Version="9.0.7" />
   </ItemGroup>
 
+  <!-- Activate BrowserStack CBT if this props file exists, find the original in the Tools directory -->
   <Import Project="BrowserStack.props" Condition="Exists('BrowserStack.props')" />
 
   <ItemGroup>
@@ -40,7 +41,6 @@
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Remove="BrowserStack\**\*"/>
   </ItemGroup>
 
 </Project>

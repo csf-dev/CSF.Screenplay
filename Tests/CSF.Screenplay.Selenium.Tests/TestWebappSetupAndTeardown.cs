@@ -2,8 +2,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
-using CSF.Screenplay.Performances;
-// using CSF.Screenplay.Selenium.BrowserStack;
 
 namespace CSF.Screenplay.Selenium;
 
@@ -14,7 +12,6 @@ public class TestWebappSetupAndTeardown
     const int secondsDelay = 2;
 
     static Process? webAppProcess;
-    // static BrowserStackExtension browserStack;
 
     [OneTimeSetUp]
     public async Task StartWebAppAsync()
@@ -22,8 +19,7 @@ public class TestWebappSetupAndTeardown
         webAppProcess = Process.Start("dotnet", $"run --project {GetPathToWebappProject()}");
         await WaitForWebAppToBeAvailableAsync();
 
-        // browserStack = new BrowserStackExtension();
-        // await browserStack.OnTestRunStarting();
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 
     [OneTimeTearDown]
@@ -31,8 +27,6 @@ public class TestWebappSetupAndTeardown
     {
         webAppProcess?.Kill(true);
         webAppProcess?.Dispose();
-
-        // browserStack?.Dispose();
     }
 
     /// <summary>

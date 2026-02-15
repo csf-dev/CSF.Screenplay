@@ -1,7 +1,6 @@
 
 using System;
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 

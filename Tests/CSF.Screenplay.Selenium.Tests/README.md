@@ -46,18 +46,15 @@ The presence of this props file will activate two changes in the `.csproj` file 
 * It will disable NUnit's parallelism feature
   * _When NUnit parallelism is enabled, it interferes with BrowserStack's own parallelism, creating confusing results_
 
-### Add a `browserstack.yml` configuration
+### Review the `browserstack.yml` configuration
 
 To use the BrowserStack SDK, you must provide a configuration file.
-The configuration file must be named `browserstack.yml` and it must be in the directory which contains the tests `.csproj` file _(IE: this directory, which contains this README file)_.
+There is a `browserstack.yml` already present in this directory but it is configured so that most of its settings are read from environment variables.
 
-There are seven sample configuration files available in the `Tools/` directory, which target seven different web browser/OS combinations.
-These happen to be the targets for the CBT CI run.
-You are welcome to copy one of these YAML files into the `CSF.Screenplay.Selenium.Tests` directory and rename it to `browserstack.yml`.
-Alternatively [you may craft your own BrowserStack configuration file].
-
-If you use one of the sample configurations, note that the `userName` and `accessKey` properties are omitted.
+You may wish to adjust the configuration file and replace the environment variable usage with selections of your own choice.
+Also note that the `userName` and `accessKey` properties are omitted in the provided configuration file, as these are secrets.
 _You will need to provide your own BrowserStack credentials_.
+Alternatively [you may craft your own BrowserStack configuration file].
 
 [you may craft your own BrowserStack configuration file]: https://www.browserstack.com/docs/automate/capabilities
 
