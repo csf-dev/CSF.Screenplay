@@ -71,8 +71,8 @@ jobs:
       - name: Force .NET 8 with global.json
         run: |
           echo '{ "sdk": { "version": "8.0.418", "rollForward": "latestMinor" } }' > global.json
-      - name: Restore .NET packages
-        run: dotnet restore -p:BrowserStack=true
+      # - name: Restore .NET packages
+      #   run: dotnet restore -p:BrowserStack=true
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
