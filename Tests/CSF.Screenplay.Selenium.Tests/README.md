@@ -26,7 +26,7 @@ You may select a different browser/WebDriver for tests by either:
 ## Enabling BrowserStack
 
 The BrowserStack integration is via [the BrowserStack SDK].
-There are two steps to enabling this, in this project.
+There are three steps to enabling this, in this project.
 
 [the BrowserStack SDK]: https://www.browserstack.com/blog/introducing-browserstack-sdk/
 
@@ -37,7 +37,7 @@ For example:
 
 ```cmd
 copy Tools/BrowserStack.props .
-dotnet test
+dotnet test --filter TestCategory=WebDriver
 ```
 
 The presence of this props file will activate two changes in the `.csproj` file in this directory:
@@ -60,3 +60,12 @@ If you use one of the sample configurations, note that the `userName` and `acces
 _You will need to provide your own BrowserStack credentials_.
 
 [you may craft your own BrowserStack configuration file]: https://www.browserstack.com/docs/automate/capabilities
+
+### Advice: Only run WebDriver tests
+
+When running tests, use `dotnet test --filter TestCategory=WebDriver`.
+This limits the test run to only those which have the `WebDriver` test category.
+
+The `WebDriver` category is shared by all tests which make use of a WebDriver (and are meaningful to run with BrowserStack).
+Some other tests make use of NUnit attributes such as `[TestCase]` which seems not to play well with BrowserStack.
+These appear to cause the BrowserStack SDK to repeat tests needlessly and to report on many more tests than are actually taking place.

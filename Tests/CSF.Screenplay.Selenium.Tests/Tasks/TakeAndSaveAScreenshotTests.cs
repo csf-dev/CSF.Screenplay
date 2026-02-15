@@ -4,7 +4,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Questions;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class TakeAndSaveAScreenshotTests
 {
     static readonly NamedUri testPage = new NamedUri("OpenUrlTests.html", "the test page");

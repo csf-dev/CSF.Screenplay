@@ -8,7 +8,7 @@ using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks;
 
-[TestFixture, Parallelizable]
+[TestFixture, Parallelizable, Category("WebDriver")]
 public class ClickAndWaitForDocumentReadyTests
 {
     static readonly NamedUri startPage = new NamedUri("DelayedNavigation.html", "the test page");
