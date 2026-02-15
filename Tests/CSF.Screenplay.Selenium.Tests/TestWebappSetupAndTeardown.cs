@@ -19,7 +19,10 @@ public class TestWebappSetupAndTeardown
         webAppProcess = Process.Start("dotnet", $"run --project {GetPathToWebappProject()}");
         await WaitForWebAppToBeAvailableAsync();
 
+#if BROWSER_STACK_ENABLED
+        // If running with BrowserStack then delay because I suspect a race condition
         await Task.Delay(TimeSpan.FromSeconds(5));
+#endif
     }
 
     [OneTimeTearDown]

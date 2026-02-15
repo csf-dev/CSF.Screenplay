@@ -3,6 +3,6 @@
  * test runs, with many duplicate tests.
  */
 
-#if NO_NUNIT_PARALLELISM
+#if BROWSER_STACK_ENABLED
 [assembly:LevelOfParallelism(1)]
 #endif

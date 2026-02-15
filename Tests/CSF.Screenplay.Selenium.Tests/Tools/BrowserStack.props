@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <DefineConstants>$(DefineConstants);NO_NUNIT_PARALLELISM</DefineConstants>
+    <DefineConstants>$(DefineConstants);BROWSER_STACK_ENABLED</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
