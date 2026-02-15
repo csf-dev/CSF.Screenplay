@@ -72,7 +72,7 @@ jobs:
     env:
       RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
       VersionSuffix: crossbrowser.${{ github.run_number }}
-      Configuration: Release
+      Configuration: Debug
       Tfm: net8.0
       DotnetVersion: 8.0.x
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
