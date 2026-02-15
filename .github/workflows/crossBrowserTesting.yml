@@ -66,7 +66,7 @@ jobs:
       # Environment setup pre-build
 
       - name: Restore .NET packages
-        run: dotnet restore
+        run: dotnet restore -p:BrowserStack=true
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
@@ -77,11 +77,9 @@ jobs:
 
       # Build and test the solution
 
-      - name: Build the solution
-        run: dotnet build -c ${{ env.Configuration }} -p:BrowserStack=true
       - name: Run .NET Selenium tests only
         id: dotnet_tests
-        run: dotnet test -c ${{ env.Configuration }} -p:BrowserStack=true --no-build Tests/CSF.Screenplay.Selenium.Tests
+        run: dotnet test -c ${{ env.Configuration }} -p:BrowserStack=true Tests/CSF.Screenplay.Selenium.Tests
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
