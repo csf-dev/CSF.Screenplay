@@ -4,6 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BrowserStack.TestAdapter" Version="0.23.0" />
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.22.2" />
   </ItemGroup>
 </Project>
