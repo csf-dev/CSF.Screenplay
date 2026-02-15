@@ -80,6 +80,8 @@ jobs:
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm ci
           cd ../..
+      - name: Restore NuGet packages
+        run: dotnet restore
 
       # Build and test the solution
 
