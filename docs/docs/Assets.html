@@ -87,7 +87,63 @@
         <article data-uid="AssetsArticle">
 <h1 id="report-assets">Report assets</h1>
 
-<p>TODO: Write this docco page; #301</p>
+<p><a href="GettingReports.html">Screenplay reports</a> provide a deep record of how each <a class="xref" href="../api/CSF.Screenplay.IPerformance.html">performance</a> has progressed.
+Sometimes, though, a performance creates our generates things.
+Imagine a (fictitious) performance which exports a spreadsheet of sales figures into a PDF file with graphs and charts.
+Wouldn't it be useful to be able to retrieve/access that PDF file from the report?
+<em>This is the use-case facilitated by assets.</em></p>
+<h2 id="saving-assets">Saving assets</h2>
+<p>Assets are <strong>files</strong> which are saved to the file system, alongside the report.
+There are four steps to doing this:</p>
+<ol>
+<li>Grant the actor the <a class="xref" href="../api/CSF.Screenplay.Abilities.GetAssetFilePaths.html"><code>GetAssetFilePaths</code></a> ability</li>
+<li>In the performable class which is to save the asset, use the ability (above) to get the file path</li>
+<li>Save (or copy) the file to the path retrieved above</li>
+<li>Use the <a class="xref" href="../api/CSF.Screenplay.ICanPerform.html#CSF_Screenplay_ICanPerform_RecordAsset_System_Object_System_String_System_String_"><code>RecordAsset</code></a> actor method to associate the asset file with the report and the current performable</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>This example shows how to get an asset file and save it alongside the report.
+Note that this example is compressed; these three classes should be in separate source files and some implementations are omitted.</p>
+<pre><code class="lang-csharp">using CSF.Screenplay;
+using CSF.Screenplay.Abilities;
+using static CSF.Screenplay.PerformanceStarter;
+using static AssetBuilder;
+using NUnit.Framework;
+
+[TestFixture]
+public class AssetTests
+{
+    [Test, Screenplay]
+    public async Task TheAssetShouldBeRecorded(ICast cast)
+    {
+        var aston = cast.GetActor(&quot;Aston&quot;);
+        aston.IsAbleTo&lt;GetAssetFilePaths&gt;();
+
+        await When(aston).AttemptsTo(SaveTheText(&quot;Content for my asset file&quot;).AsAnAssetNamed(&quot;MyAssetFile.txt&quot;));
+
+        // ... assertions etc
+    }
+}
+
+// Implementation of IGetsReport omitted for brevity
+public class SaveTheTextAsAnAsset(string baseName, string content) : IPerformable
+{
+    public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+    {
+        var pathProvider = aston.GetAbility&lt;GetAssetFilePaths&gt;();
+        var path = pathProvider.GetAssetFilePath(baseName);
+        System.IO.File.WriteAllText(path, content);
+        actor.RecordAsset(this, path, &quot;An asset text file&quot;);
+    }
+}
+
+public class AssetBuilder(string text)
+{
+    public static AssetBuilder SaveTheText(string text) =&gt; new AssetBuilder(text);
+
+    public IPerformable AsAnAssetNamed(string baseName) =&gt; new SaveTheTextAsAnAsset(baseName, text);
+}
+</code></pre>
 
 </article>
 
