@@ -58,7 +58,7 @@ public class AssetPathProviderTests
                                                                  AssetPathProvider sut)
     {
         Mock.Get(reportPathProvider).Setup(x => x.GetReportPath()).Returns(Path.Combine("foo", "bar"));
-        Mock.Get(performance).SetupGet(x => x.NamingHierarchy).Returns([new ("first***Id")]);
-        Assert.That(() => sut.GetAssetFilePath("my***Asset.png"), Is.EqualTo(Path.Combine("foo", "bar", "firstId_001_myAsset.png")));
+        Mock.Get(performance).SetupGet(x => x.NamingHierarchy).Returns([new ("first///Id")]);
+        Assert.That(() => sut.GetAssetFilePath("my///Asset.png"), Is.EqualTo(Path.Combine("foo", "bar", "firstId_001_myAsset.png")));
     }
 }
