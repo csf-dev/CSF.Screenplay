@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Reporting
     public class WritePermissionTester : ITestsPathForWritePermissions
     {
         /// <summary>
-        /// Gets a value indicating whether or not the current process has write permission to the specified file path.
+        /// Gets a value indicating whether or not the current process has write permission to the specified path.
         /// </summary>
         /// <remarks>
         /// <para>

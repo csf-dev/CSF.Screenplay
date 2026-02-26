@@ -1,5 +1,5 @@
 using System;
-using System.Globalization;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CSF.Screenplay.Performances;
@@ -36,6 +36,7 @@ namespace CSF.Screenplay.Reporting
     /// </remarks>
     public class AssetPathProvider : IGetsAssetFilePath
     {
+        static readonly List<string> invalidFilenameChars = Path.GetInvalidFileNameChars().Select(x => x.ToString()).ToList();
         readonly IGetsReportPath reportPathProvider;
         readonly IPerformance performance;
         int assetNumber = 1;
@@ -55,14 +56,12 @@ namespace CSF.Screenplay.Reporting
             var performanceId = performance.NamingHierarchy.LastOrDefault()?.Identifier ?? performance.PerformanceIdentity.ToString();
             var sanitisedPerformanceId = RemoveInvalidFilenameChars(performanceId);
             var sanitisedBaseFilename = RemoveInvalidFilenameChars(baseFilename);
-            var filename = $"{GetTimestamp()}_{sanitisedPerformanceId}_{assetNumber++:000}_{sanitisedBaseFilename}";
-            return Path.Combine(Path.GetDirectoryName(reportPath), filename);
+            var filename = $"{sanitisedPerformanceId}_{assetNumber++:000}_{sanitisedBaseFilename}";
+            return Path.Combine(reportPath, filename);
         }
 
         static string RemoveInvalidFilenameChars(string input)
-            => Path.GetInvalidFileNameChars().Select(c => c.ToString()).Aggregate(input, (current, c) => current.Replace(c, string.Empty));
-
-        static string GetTimestamp() => DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture);
+            => invalidFilenameChars.Aggregate(input, (current, c) => current.Replace(c, string.Empty));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AssetPathProvider"/> class.

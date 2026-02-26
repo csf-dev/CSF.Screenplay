@@ -165,11 +165,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Screenplay JSON reports
-          path: Tests/**/ScreenplayReport_*.json
+          path: Tests/**/ScreenplayReport.json
       - name: Convert Screenplay reports to HTML
         continue-on-error: true
         run: |
-          for report in $(find Tests/ -type f -name "ScreenplayReport_*.json")
+          for report in $(find Tests/ -type f -name "ScreenplayReport.json")
           do
             reportDir=$(dirname "$report")
             outputFile="$reportDir/ScreenplayReport.html"
