@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Reporting
 
         bool hasCachedReportPath;
         string cachedReportPath;
-        object syncRoot = new object();
+        readonly object syncRoot = new object();
 
         /// <inheritdoc/>
         public string GetReportPath()
