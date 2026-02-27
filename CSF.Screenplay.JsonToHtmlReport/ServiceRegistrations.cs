@@ -1,3 +1,4 @@
+using CSF.Screenplay.Reporting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay.JsonToHtmlReport
@@ -21,6 +22,9 @@ namespace CSF.Screenplay.JsonToHtmlReport
         {
             services.AddTransient<IConvertsReportJsonToHtml, ReportConverter>();
             services.AddTransient<IGetsHtmlTemplate, TemplateReader>();
+            services.AddTransient<IEmbedsReportAssets, AssetEmbedder>();
+            services.AddTransient<IDeserializesReport, ScreenplayReportSerializer>();
+            services.AddTransient<ISerializesReport, ScreenplayReportSerializer>();
         }
     }
 }

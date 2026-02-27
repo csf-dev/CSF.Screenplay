@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Performances;
@@ -187,7 +188,7 @@ namespace CSF.Screenplay.Reporting
         /// <param name="assetPath">The file path to the asset</param>
         /// <param name="assetSummary">The human readable summary of the asset</param>
         public void RecordAssetForCurrentPerformable(string assetPath, string assetSummary)
-            => CurrentPerformable.Assets.Add(new PerformableAsset { FilePath = assetPath, FileSummary = assetSummary });
+            => CurrentPerformable.Assets.Add(new PerformableAsset { FilePath = assetPath, FileSummary = assetSummary, FileName = Path.GetFileName(assetPath) });
 
         /// <summary>
         /// Enriches the current performable with information about its result.
