@@ -20,11 +20,12 @@ namespace CSF.Screenplay.JsonToHtmlReport
         /// <param name="services">The service collection to which the services will be added.</param>
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddTransient<IConvertsReportJsonToHtml, ReportConverter>();
-            services.AddTransient<IGetsHtmlTemplate, TemplateReader>();
-            services.AddTransient<IEmbedsReportAssets, AssetEmbedder>();
-            services.AddTransient<IDeserializesReport, ScreenplayReportSerializer>();
-            services.AddTransient<ISerializesReport, ScreenplayReportSerializer>();
+            services
+                .AddTransient<IConvertsReportJsonToHtml, ReportConverter>()
+                .AddTransient<IGetsHtmlTemplate, TemplateReader>()
+                .AddTransient<IEmbedsReportAssets, AssetEmbedder>()
+                .AddTransient<IDeserializesReport, ScreenplayReportSerializer>()
+                .AddTransient<ISerializesReport, ScreenplayReportSerializer>();
         }
     }
 }

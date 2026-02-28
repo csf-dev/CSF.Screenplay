@@ -27,12 +27,17 @@ namespace CSF.Screenplay.ReportModel
     public class PerformableAsset
     {
         /// <summary>
+        /// Gets the content type (aka MIME type) of the asset.
+        /// </summary>
+        public string ContentType { get; set; }
+
+        /// <summary>
         /// Gets or sets a full/absolute path to the asset file.
         /// </summary>
         public string FilePath { get; set; }
 
         /// <summary>
-        /// Gets or sets base64-encoded data which contains the data for the asset file.
+        /// Gets or sets base64-encoded data which contains the data for the asset.
         /// </summary>
         public string FileData { get; set; }
 

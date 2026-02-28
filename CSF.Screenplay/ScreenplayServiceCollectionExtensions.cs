@@ -67,6 +67,7 @@ namespace CSF.Screenplay
                 .AddTransient<IGetsReportFormat, ReportFormatCreator>()
                 .AddTransient<IGetsValueFormatter, ValueFormatterProvider>()
                 .AddTransient<IFormatsReportFragment, ReportFragmentFormatter>()
+                .AddTransient<IGetsContentType, ContentTypeProvider>()
                 .AddTransient<PerformanceReportBuilder>()
                 .AddTransient<JsonScreenplayReporter>()
                 .AddTransient<NoOpReporter>()
