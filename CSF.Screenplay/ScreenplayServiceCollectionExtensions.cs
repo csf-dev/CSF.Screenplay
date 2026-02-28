@@ -48,9 +48,10 @@ namespace CSF.Screenplay
                 .AddSingleton<IGetsReportPath, ReportPathProvider>()
                 .AddSingleton<IReporter>(s =>
                 {
-                    var reportPath = s.GetRequiredService<IGetsReportPath>().GetReportPath();
+                    var reportPath = s.GetRequiredService<IGetsReportPath>().GetReportFilePath();
                     if(reportPath is null) return new NoOpReporter();
                     
+                    Directory.CreateDirectory(Path.GetDirectoryName(reportPath));
                     var stream = File.Create(reportPath);
                     return ActivatorUtilities.CreateInstance<JsonScreenplayReporter>(s, stream);
                 });
@@ -66,6 +67,7 @@ namespace CSF.Screenplay
                 .AddTransient<IGetsReportFormat, ReportFormatCreator>()
                 .AddTransient<IGetsValueFormatter, ValueFormatterProvider>()
                 .AddTransient<IFormatsReportFragment, ReportFragmentFormatter>()
+                .AddTransient<IGetsContentType, ContentTypeProvider>()
                 .AddTransient<PerformanceReportBuilder>()
                 .AddTransient<JsonScreenplayReporter>()
                 .AddTransient<NoOpReporter>()

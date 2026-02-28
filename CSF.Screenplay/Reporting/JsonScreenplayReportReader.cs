@@ -8,17 +8,30 @@ namespace CSF.Screenplay.Reporting
 {
 
     /// <summary>
-    /// Implementation of <see cref="IDeserializesReport"/> that deserializes a Screenplay report from a JSON stream.
+    /// Implementation of <see cref="IDeserializesReport"/> and <see cref="ISerializesReport"/>
+    /// which serializes and/or deserializes a Screenplay report to/from a JSON stream.
     /// </summary>
-    public class JsonScreenplayReportReader : IDeserializesReport
+    public class ScreenplayReportSerializer : IDeserializesReport, ISerializesReport
     {
         /// <inheritdoc/>
         public async Task<ScreenplayReport> DeserializeAsync(Stream stream)
         {
-            if (stream == null)
+            if (stream is null)
                 throw new ArgumentNullException(nameof(stream));
 
-            return await JsonSerializer.DeserializeAsync<ScreenplayReport>(stream);
+            return await JsonSerializer.DeserializeAsync<ScreenplayReport>(stream).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc/>
+        public async Task<Stream> SerializeAsync(ScreenplayReport report)
+        {
+            if (report is null)
+                throw new ArgumentNullException(nameof(report));
+
+            var stream = new BufferedStream(new MemoryStream());
+            await JsonSerializer.SerializeAsync(stream, report).ConfigureAwait(false);
+            stream.Position = 0;
+            return stream;
         }
     }
 }

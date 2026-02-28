@@ -15,7 +15,7 @@ namespace CSF.Screenplay.Reporting
     /// </para>
     /// <para>
     /// If <see cref="ScreenplayOptions.ReportPath"/> is a relative path then it is combined with the current working directory to form an
-    /// absolute path, thus (if <see cref="GetReportPath"/> does not return null), its return value will always be an absolute path.
+    /// absolute path.  Thus, if <see cref="GetReportPath"/> does not return null, its return value <em>will always be</em> an absolute path.
     /// </para>
     /// <para>
     /// Because of the caching functionality, this class is stateful and should be used as a singleton.
@@ -28,14 +28,18 @@ namespace CSF.Screenplay.Reporting
 
         bool hasCachedReportPath;
         string cachedReportPath;
+        readonly object syncRoot = new object();
 
         /// <inheritdoc/>
         public string GetReportPath()
         {
-            if(!hasCachedReportPath)
+            lock(syncRoot)
             {
-                cachedReportPath = ShouldEnableReporting(out var reportPath) ? reportPath : null;
-                hasCachedReportPath = true;
+                if(!hasCachedReportPath)
+                {
+                    cachedReportPath = ShouldEnableReporting(out var reportPath) ? reportPath : null;
+                    hasCachedReportPath = true;
+                }
             }
 
             return cachedReportPath;

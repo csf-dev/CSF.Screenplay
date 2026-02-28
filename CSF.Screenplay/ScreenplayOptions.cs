@@ -61,24 +61,27 @@ namespace CSF.Screenplay
             };
 
         /// <summary>
-        /// Gets a file system path at which a Screenplay report file will be written.
+        /// Gets a file system directory path at which a Screenplay report will be written.
         /// </summary>
         /// <remarks>
         /// <para>
         /// As a <see cref="Screenplay"/> executes each <see cref="IPerformance"/>, it accumulates data relating to those performances, via its reporting
-        /// mechanism. This information is then written to a JSON-formatted report file, which is saved at the path specified by this property.
-        /// Once the Screenplay has completed this file may be inspected, converted into a different format and otherwise used to learn-about and diagnose the
+        /// mechanism. This information is then written to a JSON-formatted report file, which is saved into a directory specified by this property.
+        /// Once the Screenplay has completed the file may be inspected, converted into a different format and otherwise used to learn-about and diagnose the
         /// Screenplay.
         /// </para>
         /// <para>
-        /// If this value is set to a relative file path, then it will be relative to the current working directory.
-        /// If using Screenplay with a software testing integration, then this directory might not be easily determined.
+        /// This value must indicate a directory, and not a file path, as a Screenplay Report may comprise of many files.
+        /// If this value is set to a relative path, then it will be relative to the current working directory.
+        /// If using Screenplay with a software testing integration, then the current working directory might not be easily determined.
+        /// It is strongly recommended that each Screenplay run should create its own directory, so files for the same report are kept together.
+        /// As such, it is advised that the directory name should contain some form of time-based value which will differ upon each run.
         /// </para>
         /// <para>
-        /// The default value for this property is a relative file path in the current working directory, using the filename <c>ScreenplayReport_[timestamp].json</c>
-        /// where <c>[timestamp]</c> is replaced by the current UTC date &amp; time in a format which is similar to ISO 8601, except that the <c>:</c> characters separating
-        /// the hours, minutes and second are omitted.  This is because they are typically not legal filename characters.  A sample of a Screenplay Report filename using
-        /// this default path is <c>ScreenplayReport_2024-10-04T192345Z.json</c>.
+        /// The default value for this property is a relative directory path in the current working directory, using the format <c>ScreenplayReport_[timestamp]</c>.
+        /// The <c>[timestamp]</c> portion is replaced by the current UTC date &amp; time in a format which is similar to ISO 8601, except that the <c>:</c> characters
+        /// separating the hours, minutes and second are omitted.  This is because they are typically not legal path characters.  A sample of a Screenplay Report path using
+        /// this convention is <c>ScreenplayReport_2024-10-04T192345Z</c>.
         /// </para>
         /// <para>
         /// If this property is set to <see langword="null" />, or an empty/whitespace-only string, or if the path is not writable, then the reporting functionality
@@ -88,7 +91,7 @@ namespace CSF.Screenplay
         /// At runtime, do not read this value directly; instead use an implementation of <see cref="IGetsReportPath"/> service to get the report path.
         /// </para>
         /// </remarks>
-        public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture)}.json";
+        public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture)}";
 
         /// <summary>
         /// An optional callback/action which exposes the various <see cref="IHasPerformanceEvents"/> which may be subscribed-to in order to be notified

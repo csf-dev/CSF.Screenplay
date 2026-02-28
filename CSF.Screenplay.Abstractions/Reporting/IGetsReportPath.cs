@@ -6,7 +6,7 @@ namespace CSF.Screenplay.Reporting
     public interface IGetsReportPath
     {
         /// <summary>
-        /// Gets the path to which the report should be written.
+        /// Gets the directory path to which the report files should be written.
         /// </summary>
         /// <remarks>
         /// <para>

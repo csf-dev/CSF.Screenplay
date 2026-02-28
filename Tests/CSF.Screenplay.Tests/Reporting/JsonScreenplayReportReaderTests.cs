@@ -38,7 +38,7 @@ namespace CSF.Screenplay.Reporting
 ]}";
 
         [Test, AutoMoqData]
-        public async Task DeserializeAsyncShouldReturnAScreenplayReport(JsonScreenplayReportReader sut)
+        public async Task DeserializeAsyncShouldReturnAScreenplayReport(ScreenplayReportSerializer sut)
         {
             using var stream = new MemoryStream(Encoding.UTF8.GetBytes(reportJson));
             var result = await sut.DeserializeAsync(stream);
