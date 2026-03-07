@@ -104,7 +104,7 @@ jobs:
       - name: Restore .NET packages
         run: dotnet restore
       - name: Build the solution
-        run: dotnet build -c ${{ env.Configuration }} --no-incremental
+        run: dotnet build -c ${{ env.Configuration }} --no-incremental --no-restore
       - name: Run .NET tests with coverage
         id: dotnet_tests
         shell: bash {0}
