@@ -16,7 +16,7 @@ public class ExecuteJavaScriptTests
 
     static readonly ITarget textContent = new ElementId("textContent");
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task ExecuteJavaScriptShouldBeAbleToExecuteAScriptWithParameters(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

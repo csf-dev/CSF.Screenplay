@@ -11,7 +11,7 @@ public class TakeAndSaveAScreenshotTests
 
     string? screenshotPath;
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task TakeAndSaveAScreenshotShouldSaveAFile(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

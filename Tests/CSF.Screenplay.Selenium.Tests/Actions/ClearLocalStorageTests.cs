@@ -20,7 +20,7 @@ public class ClearLocalStorageTests
 
     static readonly NamedUri testPage = new NamedUri("ClearLocalStorageTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task ClearLocalStorageShouldClearItems(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

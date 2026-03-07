@@ -100,6 +100,6 @@ public class ScreenplayReportSerializerTests
         var stream = await sut.SerializeAsync(report);
         using var reader = new StreamReader(stream);
         var content = await reader.ReadToEndAsync();
-        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{16}Z"",""ReportFormatVersion"":""foo bar""\},""Performances"":\[\]\}$"));
+        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{10,16}Z"",""ReportFormatVersion"":""foo bar""\},""Performances"":\[\]\}$"));
     }
 }

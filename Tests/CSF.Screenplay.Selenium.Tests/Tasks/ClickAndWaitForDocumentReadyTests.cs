@@ -16,7 +16,7 @@ public class ClickAndWaitForDocumentReadyTests
         link = new ElementId("clickable"),
         displayText = new ElementId("textContent");
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task PerformAsAsyncShouldWaitSoItCanGetTheAppropriateContent(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -28,7 +28,7 @@ public class ClickAndWaitForDocumentReadyTests
         Assert.That(result, Is.EqualTo("You're finally here!"));
     }
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task PerformAsAsyncShouldThrowIfWeDontWaitLongEnough(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

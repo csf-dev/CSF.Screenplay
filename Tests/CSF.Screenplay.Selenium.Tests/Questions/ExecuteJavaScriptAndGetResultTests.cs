@@ -20,7 +20,7 @@ public class ExecuteJavaScriptAndGetResultTests
 
     static readonly Locator textContent = new ElementId("textContent", "the text content");
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task ExecuteJavaScriptAndGetResultShouldBeAbleToExecuteAScriptWithParameters(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

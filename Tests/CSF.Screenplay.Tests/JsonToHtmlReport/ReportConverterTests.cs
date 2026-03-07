@@ -2,6 +2,7 @@ using System.IO;
 using System.Text;
 using CSF.Screenplay.Reporting;
 using CSF.Screenplay.ReportModel;
+using NUnit.Framework.Legacy;
 
 namespace CSF.Screenplay.JsonToHtmlReport;
 
@@ -35,7 +36,7 @@ public class ReportConverterTests
 
         Assert.Multiple(async () =>
         {
-            FileAssert.Exists(options.ReportPath, "Report exists");
+            Assert.That(options.ReportPath, Does.Exist, "Report exists");
             using var reader = new StreamReader(File.Open(options.OutputPath, FileMode.Open));
             var reportContent = await reader.ReadToEndAsync();
             Assert.That(reportContent, Is.EqualTo("<html><script>SAMPLE REPORT</script></html>"), "Report has correct content");

@@ -8,6 +8,8 @@ public class HasPrivateFieldEqualTo : Constraint
     readonly string fieldName;
     readonly object expectedValue;
 
+    public override string Description => $"The object must have a private field named {fieldName}, equal to {expectedValue}";
+
     public override ConstraintResult ApplyTo<TActual>(TActual actual)
     {
         var field = typeof(TActual).GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
@@ -32,6 +34,6 @@ public class HasPrivateFieldEqualTo : Constraint
         public override void WriteMessageTo(MessageWriter writer)
             => writer.Write(Problem);
 
-        public PrivateFieldEqualToConstraintResult(IConstraint constraint, object actualValue) : base(constraint, actualValue, false) {}
+        public PrivateFieldEqualToConstraintResult(IConstraint constraint, object? actualValue) : base(constraint, actualValue, false) {}
     }
 }

@@ -13,7 +13,7 @@ public class ClearCookiesTests
 
     static readonly NamedUri testPage = new NamedUri("ClearCookiesTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
+    [Test, Screenplay]
     public async Task ClearCookiesShouldClearCookies(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
