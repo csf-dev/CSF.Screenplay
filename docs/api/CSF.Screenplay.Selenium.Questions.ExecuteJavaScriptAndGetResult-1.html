@@ -165,14 +165,12 @@ by that script.</p>
 In this example, the script will return the integer value 10 to the performance.
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var addFour = new NamedScriptWithResult&lt;int, int&gt;("4 + arguments[0]", "add four");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;int&gt;
+<p>var addFour = new NamedScriptWithResult&lt;int, int&gt;(&quot;4 + arguments[0]&quot;, &quot;add four&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;int&gt;
 public async ValueTask&lt;int&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    return await actor.PerformAsync(ExecuteAScript(addFour, 6), cancellationToken);
-}</code></pre>
+return await actor.PerformAsync(ExecuteAScript(addFour, 6), cancellationToken);
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_ExecuteJavaScriptAndGetResult_1_remarks">Remarks</h2>

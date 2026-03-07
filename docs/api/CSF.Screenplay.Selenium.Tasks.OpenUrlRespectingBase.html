@@ -162,15 +162,13 @@ This task is used in exactly the same way as <a class="xref" href="CSF.Screenpla
 This example is 'compressed' for brevity.
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var examplePage = new NamedUri("user/shoppingCart", "the user's shopping cart");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>var examplePage = new NamedUri(&quot;user/shoppingCart&quot;, &quot;the user's shopping cart&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    actor.IsAbleTo(new UseABaseUri(new Uri("https://example.com")));
-    await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
-}</code></pre>
+actor.IsAbleTo(new UseABaseUri(new Uri(&quot;https://example.com&quot;)));
+await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_remarks">Remarks</h2>

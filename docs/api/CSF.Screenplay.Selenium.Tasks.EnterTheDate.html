@@ -162,16 +162,14 @@ However, a US English browser <code>en-US</code> expects dates to be entered in 
 using the British English format.</p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget dueDate = new ElementId("due_date", "the due date");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget dueDate = new ElementId(&quot;due_date&quot;, &quot;the due date&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(EnterTheDate(new DateTime(2025, 4, 5)).Into(dueDate).ForTheCultureNamed("en-GB"), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(EnterTheDate(new DateTime(2025, 4, 5)).Into(dueDate).ForTheCultureNamed(&quot;en-GB&quot;), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_EnterTheDate_remarks">Remarks</h2>

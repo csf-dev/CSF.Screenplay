@@ -554,6 +554,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.JsonToHtmlReport.AssetEmbedder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.yml",
       "output": {
         ".html": {
@@ -565,6 +579,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.yml\" sourcestartlinenumber=\"1\">An object which can convert a JSON Screenplay report to an HTML format.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.yml\" sourcestartlinenumber=\"1\">A service which reworks a <xref href=\"CSF.Screenplay.ReportModel.ScreenplayReport\" data-throw-if-not-resolved=\"false\"></xref>, embedding assets within the report.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1296,6 +1324,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ContentTypeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ContentTypeProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.ContentTypeProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ContentTypeProvider.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Screenplay.Reporting.IGetsContentType\" data-throw-if-not-resolved=\"false\"></xref> which makes use of the MimeTypes NuGet package.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.FormattableFormatter.yml",
       "output": {
         ".html": {
@@ -1380,6 +1422,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IGetsContentType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IGetsContentType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.IGetsContentType",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.IGetsContentType.yml\" sourcestartlinenumber=\"1\">An object which can get the MIME type for a given filename.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.IGetsReportFormat.yml",
       "output": {
         ".html": {
@@ -1436,6 +1492,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ISerializesReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ISerializesReport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.ISerializesReport",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ISerializesReport.yml\" sourcestartlinenumber=\"1\">An object which serializes a Screenplay report into a stream.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.yml",
       "output": {
         ".html": {
@@ -1464,20 +1534,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Reporting.JsonScreenplayReportReader",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Screenplay.Reporting.IDeserializesReport\" data-throw-if-not-resolved=\"false\"></xref> that deserializes a Screenplay report from a JSON stream.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.JsonScreenplayReporter.yml",
       "output": {
         ".html": {
@@ -1489,6 +1545,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Reporting.JsonScreenplayReporter",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.JsonScreenplayReporter.yml\" sourcestartlinenumber=\"1\">An object which subscribes/listens to the events of <xref href=\"CSF.Screenplay.Performances.IHasPerformanceEvents\" data-throw-if-not-resolved=\"false\"></xref> and which\nproduces a JSON-formatted report from them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.MimeTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.MimeTypes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.MimeTypes",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.MimeTypes.yml\" sourcestartlinenumber=\"1\">Provides utilities for mapping file names and extensions to MIME-types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1590,6 +1660,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.ReportPathProviderExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"CSF.Screenplay.Reporting.IGetsReportPath\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.yml",
       "output": {
         ".html": {
@@ -1601,6 +1685,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Reporting.ScreenplayReportBuilder",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.yml\" sourcestartlinenumber=\"1\">Builder type accumulates <xref href=\"CSF.Screenplay.Reporting.PerformanceReportBuilder\" data-throw-if-not-resolved=\"false\"></xref> as performances occur within the Screenplay.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.ScreenplayReportSerializer",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Screenplay.Reporting.IDeserializesReport\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"CSF.Screenplay.Reporting.ISerializesReport\" data-throw-if-not-resolved=\"false\"></xref>\nwhich serializes and/or deserializes a Screenplay report to/from a JSON stream.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4014,11 +4112,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -4107,11 +4205,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/builderPattern/toc.json"
-        },
         ".html": {
           "relative_path": "docs/builderPattern/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/builderPattern/toc.json"
         }
       },
       "version": ""
@@ -4380,11 +4478,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/selenium/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/selenium/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/selenium/toc.json"
         }
       },
       "version": ""
@@ -4443,11 +4541,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/webApis/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/webApis/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/webApis/toc.json"
         }
       },
       "version": ""
@@ -4546,11 +4644,11 @@
       "type": "Toc",
       "source_relative_path": "docs/performables/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/performables/toc.json"
-        },
         ".html": {
           "relative_path": "docs/performables/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/performables/toc.json"
         }
       },
       "version": ""
@@ -4559,11 +4657,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -4822,11 +4920,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "glossary/toc.json"
-        },
         ".html": {
           "relative_path": "glossary/toc.html"
+        },
+        ".json": {
+          "relative_path": "glossary/toc.json"
         }
       },
       "version": ""
@@ -4905,11 +5003,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

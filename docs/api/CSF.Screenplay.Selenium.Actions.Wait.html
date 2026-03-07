@@ -161,16 +161,14 @@ with the class <code>loading_spinner</code> is visible on the web page.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget spinner = new ClassName("loading_spinner", "the loading spinner");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget spinner = new ClassName(&quot;loading_spinner&quot;, &quot;the loading spinner&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(WaitUntil(spinner.Is().NotVisible().ForAtMost(TimeSpan.FromSeconds(2)), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(WaitUntil(spinner.Is().NotVisible().ForAtMost(TimeSpan.FromSeconds(2)), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_Wait_remarks">Remarks</h2>

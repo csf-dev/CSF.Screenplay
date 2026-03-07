@@ -158,16 +158,14 @@ Class OpenUrl  <a class="header-action link-secondary" title="View source" href=
 In this example, the action will navigate the web browser to <code>https://example.com/myPage</code>.
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var examplePage = new NamedUri("https://example.com/myPage", "the example web page");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>var examplePage = new NamedUri(&quot;https://example.com/myPage&quot;, &quot;the example web page&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_OpenUrl_remarks">Remarks</h2>

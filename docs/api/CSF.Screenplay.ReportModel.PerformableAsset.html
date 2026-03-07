@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ReportModel_PerformableAsset" data-uid="CSF.Screenplay.ReportModel.PerformableAsset" class="text-break">
-Class PerformableAsset  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class PerformableAsset  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -149,10 +149,18 @@ Class PerformableAsset  <a class="header-action link-secondary" title="View sour
 
   <h2 id="CSF_Screenplay_ReportModel_PerformableAsset_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Assets are files which are saved to disk, containing arbitrary information, recorded by a performable.
+Assets are typically files which are saved to disk, containing arbitrary information, recorded by a performable.
 This might be a screenshot, some generated content or diagnostic information.  Its real content is arbitrary and
 down to the implementation.
-An asset is described here by a file path and an optional human-readable summary.
+</p>
+<p>
+Every asset has one or two properties in common, the <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileName">FileName</a> and optionally <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileSummary">FileSummary</a>.
+The data for the asset file is then described by one of two ways:
+</p>
+<ul><li>The content of the asset is located on disk at a path indicated by <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FilePath">FilePath</a></li><li>The content of the asset is embedded within this model as base64-encoded text, within <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileData">FileData</a></li></ul>
+<p>
+Typically when reports are first created, for expedience, assets are recorded to disk as files.
+However, for portability, it is often useful to embed the asset data within the report so that the entire report may be transported as a single file.
 </p>
 </div>
 
@@ -161,11 +169,107 @@ An asset is described here by a file path and an optional human-readable summary
 </h2>
 
 
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_ContentType_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.ContentType*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_ContentType" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.ContentType">
+  ContentType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content type (aka MIME type) of the asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContentType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FileData_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileData*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileData" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileData">
+  FileData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets base64-encoded data which contains the data for the asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FileData { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FileName_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileName*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileName" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of the asset file, including its extension.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FileName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_ReportModel_PerformableAsset_FilePath_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FilePath*"></a>
 
   <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FilePath" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FilePath">
   FilePath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a full/absolute path to the asset file.</p>
@@ -197,7 +301,7 @@ An asset is described here by a file path and an optional human-readable summary
 
   <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileSummary" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileSummary">
   FileSummary
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets an optional human-readable summary of what this asset represents.  This should be one sentence at most, suitable
@@ -230,7 +334,7 @@ for display in a UI tool-tip.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L27" class="edit-link">Edit this page</a>
         </div>
 
 

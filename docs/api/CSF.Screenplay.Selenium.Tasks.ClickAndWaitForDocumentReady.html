@@ -160,16 +160,14 @@ This example demonstrates clicking a link to a settings page and waiting for the
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget settingsLink = new CssSelector("nav#app_navigation .settings a", "the link to the settings page");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget settingsLink = new CssSelector(&quot;nav#app_navigation .settings a&quot;, &quot;the link to the settings page&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    await actor.PerformAsync(ClickOn(settingsLink).AndWaitForANewPageToLoad(), cancellationToken);
-    // regardless of WebDriver implementation, further performables here will not execute
-    // until the settings page has completely loaded.
-}</code></pre>
+await actor.PerformAsync(ClickOn(settingsLink).AndWaitForANewPageToLoad(), cancellationToken);
+// regardless of WebDriver implementation, further performables here will not execute
+// until the settings page has completely loaded.
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_ClickAndWaitForDocumentReady_remarks">Remarks</h2>

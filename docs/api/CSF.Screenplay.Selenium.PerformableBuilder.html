@@ -1933,8 +1933,7 @@ pre-specified at design time.
 Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
+<p>var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text(&quot;Buy now&quot;)), cancellationToken);</p></code></pre>
 <p>
 The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
 of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.
