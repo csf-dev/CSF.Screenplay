@@ -153,16 +153,14 @@ Note the section <code>.Has.Text("finished")</code>, which demonstrates use of t
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget status = new CssSelector("#footer .status", "the status display");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget status = new CssSelector(&quot;#footer .status&quot;, &quot;the status display&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(WaitUntil(status.Has().Text("finished"), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(WaitUntil(status.Has().Text(&quot;finished&quot;), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 <p>
 The second example, below, shows the usage of <a class="xref" href="CSF.Screenplay.Selenium.Questions.FilterElements.html">FilterElements</a>, matching only elements
 which are larger than 50×50 pixels in both dimensions.  Imagine a bubble chart, in which we are looking for bubbles
@@ -172,19 +170,17 @@ use of the functionality of this class.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget bubbles = new CssSelector(".bubble_chart .bubble", "the items in the bubble chart");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+<p>readonly ITarget bubbles = new CssSelector(&quot;.bubble_chart .bubble&quot;, &quot;the items in the bubble chart&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
 public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var allBubbles = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(bubbles), cancellationToken);
-    var largeBubbles = await actor.PerformAsync(Filter(allBubbles)
-                                                .ForThoseWhich(q =&gt; q.Size(s =&gt; s.Height &gt; 50 &amp;&amp; s.Width &gt; 50)),
-                                               cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+var allBubbles = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(bubbles), cancellationToken);
+var largeBubbles = await actor.PerformAsync(Filter(allBubbles)
+.ForThoseWhich(q =&gt; q.Size(s =&gt; s.Height &gt; 50 &amp;&amp; s.Width &gt; 50)),
+cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Builders_QueryPredicatePrototypeBuilder_remarks">Remarks</h2>

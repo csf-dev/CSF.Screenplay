@@ -155,17 +155,15 @@ item.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget warningItem = new CssSelector("li.warning", "the warning item");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+<p>readonly ITarget warningItem = new CssSelector(&quot;li.warning&quot;, &quot;the warning item&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
 public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var bgColor = await actor.PerformAsync(ReadFromTheElement(warningItem).TheCssProperty("background-color"), cancellationToken);
-    // ... other performance logic
-    return bgColor;
-}</code></pre>
+// ... other performance logic
+var bgColor = await actor.PerformAsync(ReadFromTheElement(warningItem).TheCssProperty(&quot;background-color&quot;), cancellationToken);
+// ... other performance logic
+return bgColor;
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Builders_QuestionQueryBuilder_remarks">Remarks</h2>
@@ -349,17 +347,15 @@ This example shows how to use the <a class="xref" href="CSF.Screenplay.Selenium.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget cancelButton = new CssSelector("button.cancel", "the cancel button");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+<p>readonly ITarget cancelButton = new CssSelector(&quot;button.cancel&quot;, &quot;the cancel button&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
 public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var title = await actor.PerformAsync(ReadFromTheElement(cancelButton).TheAttribute("title"), cancellationToken);
-    // ... other performance logic
-    return title;
-}</code></pre>
+// ... other performance logic
+var title = await actor.PerformAsync(ReadFromTheElement(cancelButton).TheAttribute(&quot;title&quot;), cancellationToken);
+// ... other performance logic
+return title;
+}</p></code></pre>
 
 
 

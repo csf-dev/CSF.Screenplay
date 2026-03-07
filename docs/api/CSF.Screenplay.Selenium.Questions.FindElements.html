@@ -161,18 +161,16 @@ the ID <code>todo</code>, which also the class <code>low_priority</code>.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget todoList = new CssSelector("ul#todo", "the to-do list");
-readonly Locator lowPriority = new ClassName("low_priority", "the low priority items");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+<p>readonly ITarget todoList = new CssSelector(&quot;ul#todo&quot;, &quot;the to-do list&quot;);
+readonly Locator lowPriority = new ClassName(&quot;low_priority&quot;, &quot;the low priority items&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
 public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var elements = await actor.PerformAsync(FindElementsWithin(todoList).WhichMatch(lowPriority), cancellationToken);
-    // ... other performance logic
-    return elements;
-}</code></pre>
+// ... other performance logic
+var elements = await actor.PerformAsync(FindElementsWithin(todoList).WhichMatch(lowPriority), cancellationToken);
+// ... other performance logic
+return elements;
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_FindElements_remarks">Remarks</h2>

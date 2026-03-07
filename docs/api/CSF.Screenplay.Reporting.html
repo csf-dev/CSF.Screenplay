@@ -100,6 +100,11 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ContentTypeProvider.html">ContentTypeProvider</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IGetsContentType.html">IGetsContentType</a> which makes use of the MimeTypes NuGet package.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a></dt>
       <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IValueFormatter.html">IValueFormatter</a> which formats objects that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a>.</p>
 </dd>
@@ -111,14 +116,14 @@ value types.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="CSF.Screenplay.Reporting.JsonScreenplayReportReader.html">JsonScreenplayReportReader</a></dt>
-      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IDeserializesReport.html">IDeserializesReport</a> that deserializes a Screenplay report from a JSON stream.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.JsonScreenplayReporter.html">JsonScreenplayReporter</a></dt>
       <dd><p>An object which subscribes/listens to the events of <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> and which
 produces a JSON-formatted report from them.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.MimeTypes.html">MimeTypes</a></dt>
+      <dd><p>Provides utilities for mapping file names and extensions to MIME-types.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -159,8 +164,19 @@ to be inserted into that format.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ReportPathProviderExtensions.html">ReportPathProviderExtensions</a></dt>
+      <dd><p>Extension methods for <a class="xref" href="CSF.Screenplay.Reporting.IGetsReportPath.html">IGetsReportPath</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a></dt>
       <dd><p>Builder type accumulates <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a> as performances occur within the Screenplay.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportSerializer.html">ScreenplayReportSerializer</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Screenplay.Reporting.IDeserializesReport.html">IDeserializesReport</a> and <a class="xref" href="CSF.Screenplay.Reporting.ISerializesReport.html">ISerializesReport</a>
+which serializes and/or deserializes a Screenplay report to/from a JSON stream.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -213,6 +229,11 @@ Interfaces
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsContentType.html">IGetsContentType</a></dt>
+      <dd><p>An object which can get the MIME type for a given filename.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.IGetsReportFormat.html">IGetsReportFormat</a></dt>
       <dd><p>An object which can get a <a class="xref" href="CSF.Screenplay.Reporting.ReportFormat.html">ReportFormat</a> from a report format template and the associated values.</p>
 </dd>
@@ -230,6 +251,11 @@ Interfaces
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Screenplay.Reporting.IReporter.html">IReporter</a></dt>
       <dd><p>Defines a reporter that subscribes to and processes events from a Screenplay event notifier.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Screenplay.Reporting.ISerializesReport.html">ISerializesReport</a></dt>
+      <dd><p>An object which serializes a Screenplay report into a stream.</p>
 </dd>
     </dl>
     <dl class="jumplist">

@@ -161,7 +161,7 @@ functionality.
 </p>
 <p>
 If <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath">ReportPath</a> is a relative path then it is combined with the current working directory to form an
-absolute path, thus (if <a class="xref" href="CSF.Screenplay.Reporting.ReportPathProvider.html#CSF_Screenplay_Reporting_ReportPathProvider_GetReportPath">GetReportPath()</a> does not return null), its return value will always be an absolute path.
+absolute path.  Thus, if <a class="xref" href="CSF.Screenplay.Reporting.ReportPathProvider.html#CSF_Screenplay_Reporting_ReportPathProvider_GetReportPath">GetReportPath()</a> does not return null, its return value <em>will always be</em> an absolute path.
 </p>
 <p>
 Because of the caching functionality, this class is stateful and should be used as a singleton.
@@ -177,7 +177,7 @@ Because of the caching functionality, this class is stateful and should be used 
 
   <h3 id="CSF_Screenplay_Reporting_ReportPathProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Screenplay_ScreenplayOptions__CSF_Screenplay_Reporting_ITestsPathForWritePermissions_" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Screenplay.ScreenplayOptions},CSF.Screenplay.Reporting.ITestsPathForWritePermissions)">
   ReportPathProvider(IOptions&lt;ScreenplayOptions&gt;, ITestsPathForWritePermissions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Reporting.ReportPathProvider.html">ReportPathProvider</a> class.</p>
@@ -217,10 +217,10 @@ Because of the caching functionality, this class is stateful and should be used 
 
   <h3 id="CSF_Screenplay_Reporting_ReportPathProvider_GetReportPath" data-uid="CSF.Screenplay.Reporting.ReportPathProvider.GetReportPath">
   GetReportPath()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ReportPathProvider.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the path to which the report should be written.</p>
+  <div class="markdown level1 summary"><p>Gets the directory path to which the report files should be written.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

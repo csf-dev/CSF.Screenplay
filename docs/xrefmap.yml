@@ -1842,6 +1842,25 @@ references:
   commentId: N:CSF.Screenplay.JsonToHtmlReport
   fullName: CSF.Screenplay.JsonToHtmlReport
   nameWithType: CSF.Screenplay.JsonToHtmlReport
+- uid: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder
+  name: AssetEmbedder
+  href: api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.html
+  commentId: T:CSF.Screenplay.JsonToHtmlReport.AssetEmbedder
+  fullName: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder
+  nameWithType: AssetEmbedder
+- uid: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport,CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  name: EmbedReportAssetsAsync(ScreenplayReport, ReportConverterOptions)
+  href: api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.html#CSF_Screenplay_JsonToHtmlReport_AssetEmbedder_EmbedReportAssetsAsync_CSF_Screenplay_ReportModel_ScreenplayReport_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport,CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  fullName: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport, CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  nameWithType: AssetEmbedder.EmbedReportAssetsAsync(ScreenplayReport, ReportConverterOptions)
+- uid: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync*
+  name: EmbedReportAssetsAsync
+  href: api/CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.html#CSF_Screenplay_JsonToHtmlReport_AssetEmbedder_EmbedReportAssetsAsync_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.AssetEmbedder.EmbedReportAssetsAsync
+  nameWithType: AssetEmbedder.EmbedReportAssetsAsync
 - uid: CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml
   name: IConvertsReportJsonToHtml
   href: api/CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.html
@@ -1861,6 +1880,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.JsonToHtmlReport.IConvertsReportJsonToHtml.ConvertAsync
   nameWithType: IConvertsReportJsonToHtml.ConvertAsync
+- uid: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets
+  name: IEmbedsReportAssets
+  href: api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.html
+  commentId: T:CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets
+  fullName: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets
+  nameWithType: IEmbedsReportAssets
+- uid: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport,CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  name: EmbedReportAssetsAsync(ScreenplayReport, ReportConverterOptions)
+  href: api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.html#CSF_Screenplay_JsonToHtmlReport_IEmbedsReportAssets_EmbedReportAssetsAsync_CSF_Screenplay_ReportModel_ScreenplayReport_CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport,CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  fullName: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync(CSF.Screenplay.ReportModel.ScreenplayReport, CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions)
+  nameWithType: IEmbedsReportAssets.EmbedReportAssetsAsync(ScreenplayReport, ReportConverterOptions)
+- uid: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync*
+  name: EmbedReportAssetsAsync
+  href: api/CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.html#CSF_Screenplay_JsonToHtmlReport_IEmbedsReportAssets_EmbedReportAssetsAsync_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets.EmbedReportAssetsAsync
+  nameWithType: IEmbedsReportAssets.EmbedReportAssetsAsync
 - uid: CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate
   name: IGetsHtmlTemplate
   href: api/CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate.html
@@ -1908,15 +1946,15 @@ references:
   commentId: T:CSF.Screenplay.JsonToHtmlReport.ReportConverter
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter
   nameWithType: ReportConverter
-- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
-  name: ReportConverter(IGetsHtmlTemplate)
-  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter__ctor_CSF_Screenplay_JsonToHtmlReport_IGetsHtmlTemplate_
-  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
-  name.vb: New(IGetsHtmlTemplate)
-  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter.ReportConverter(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
-  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverter.New(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate)
-  nameWithType: ReportConverter.ReportConverter(IGetsHtmlTemplate)
-  nameWithType.vb: ReportConverter.New(IGetsHtmlTemplate)
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate,CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets,CSF.Screenplay.Reporting.IDeserializesReport,CSF.Screenplay.Reporting.ISerializesReport)
+  name: ReportConverter(IGetsHtmlTemplate, IEmbedsReportAssets, IDeserializesReport, ISerializesReport)
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter__ctor_CSF_Screenplay_JsonToHtmlReport_IGetsHtmlTemplate_CSF_Screenplay_JsonToHtmlReport_IEmbedsReportAssets_CSF_Screenplay_Reporting_IDeserializesReport_CSF_Screenplay_Reporting_ISerializesReport_
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate,CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets,CSF.Screenplay.Reporting.IDeserializesReport,CSF.Screenplay.Reporting.ISerializesReport)
+  name.vb: New(IGetsHtmlTemplate, IEmbedsReportAssets, IDeserializesReport, ISerializesReport)
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverter.ReportConverter(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate, CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets, CSF.Screenplay.Reporting.IDeserializesReport, CSF.Screenplay.Reporting.ISerializesReport)
+  fullName.vb: CSF.Screenplay.JsonToHtmlReport.ReportConverter.New(CSF.Screenplay.JsonToHtmlReport.IGetsHtmlTemplate, CSF.Screenplay.JsonToHtmlReport.IEmbedsReportAssets, CSF.Screenplay.Reporting.IDeserializesReport, CSF.Screenplay.Reporting.ISerializesReport)
+  nameWithType: ReportConverter.ReportConverter(IGetsHtmlTemplate, IEmbedsReportAssets, IDeserializesReport, ISerializesReport)
+  nameWithType.vb: ReportConverter.New(IGetsHtmlTemplate, IEmbedsReportAssets, IDeserializesReport, ISerializesReport)
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverter.#ctor*
   name: ReportConverter
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverter.html#CSF_Screenplay_JsonToHtmlReport_ReportConverter__ctor_
@@ -1997,6 +2035,45 @@ references:
   commentId: T:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions
   nameWithType: ReportConverterOptions
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions
+  name: EmbeddedFileExtensions
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions
+  commentId: P:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions
+  nameWithType: ReportConverterOptions.EmbeddedFileExtensions
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions*
+  name: EmbeddedFileExtensions
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions
+  nameWithType: ReportConverterOptions.EmbeddedFileExtensions
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb
+  name: EmbeddedFileSizeThresholdKb
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb
+  commentId: P:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb
+  nameWithType: ReportConverterOptions.EmbeddedFileSizeThresholdKb
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb*
+  name: EmbeddedFileSizeThresholdKb
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb
+  nameWithType: ReportConverterOptions.EmbeddedFileSizeThresholdKb
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions
+  name: GetEmbeddedFileExtensions()
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_GetEmbeddedFileExtensions
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions()
+  nameWithType: ReportConverterOptions.GetEmbeddedFileExtensions()
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions*
+  name: GetEmbeddedFileExtensions
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_GetEmbeddedFileExtensions_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions
+  nameWithType: ReportConverterOptions.GetEmbeddedFileExtensions
 - uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath
   name: OutputPath
   href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_OutputPath
@@ -2023,6 +2100,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ReportPath
   nameWithType: ReportConverterOptions.ReportPath
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes
+  name: ShouldEmbedAllFileTypes()
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ShouldEmbedAllFileTypes
+  commentId: M:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes()
+  nameWithType: ReportConverterOptions.ShouldEmbedAllFileTypes()
+- uid: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes*
+  name: ShouldEmbedAllFileTypes
+  href: api/CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ShouldEmbedAllFileTypes_
+  commentId: Overload:CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes
+  isSpec: "True"
+  fullName: CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes
+  nameWithType: ReportConverterOptions.ShouldEmbedAllFileTypes
 - uid: CSF.Screenplay.JsonToHtmlReport.ServiceRegistrations
   name: ServiceRegistrations
   href: api/CSF.Screenplay.JsonToHtmlReport.ServiceRegistrations.html
@@ -3922,6 +4012,45 @@ references:
   commentId: T:CSF.Screenplay.ReportModel.PerformableAsset
   fullName: CSF.Screenplay.ReportModel.PerformableAsset
   nameWithType: PerformableAsset
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.ContentType
+  name: ContentType
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_ContentType
+  commentId: P:CSF.Screenplay.ReportModel.PerformableAsset.ContentType
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.ContentType
+  nameWithType: PerformableAsset.ContentType
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.ContentType*
+  name: ContentType
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_ContentType_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableAsset.ContentType
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.ContentType
+  nameWithType: PerformableAsset.ContentType
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileData
+  name: FileData
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileData
+  commentId: P:CSF.Screenplay.ReportModel.PerformableAsset.FileData
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileData
+  nameWithType: PerformableAsset.FileData
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileData*
+  name: FileData
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileData_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableAsset.FileData
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileData
+  nameWithType: PerformableAsset.FileData
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileName
+  name: FileName
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileName
+  commentId: P:CSF.Screenplay.ReportModel.PerformableAsset.FileName
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileName
+  nameWithType: PerformableAsset.FileName
+- uid: CSF.Screenplay.ReportModel.PerformableAsset.FileName*
+  name: FileName
+  href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileName_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableAsset.FileName
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableAsset.FileName
+  nameWithType: PerformableAsset.FileName
 - uid: CSF.Screenplay.ReportModel.PerformableAsset.FilePath
   name: FilePath
   href: api/CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FilePath
@@ -4252,6 +4381,28 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.AssetPathProvider.GetAssetFilePath
   nameWithType: AssetPathProvider.GetAssetFilePath
+- uid: CSF.Screenplay.Reporting.ContentTypeProvider
+  name: ContentTypeProvider
+  href: api/CSF.Screenplay.Reporting.ContentTypeProvider.html
+  commentId: T:CSF.Screenplay.Reporting.ContentTypeProvider
+  fullName: CSF.Screenplay.Reporting.ContentTypeProvider
+  nameWithType: ContentTypeProvider
+- uid: CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType(System.String)
+  name: GetContentType(string)
+  href: api/CSF.Screenplay.Reporting.ContentTypeProvider.html#CSF_Screenplay_Reporting_ContentTypeProvider_GetContentType_System_String_
+  commentId: M:CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType(System.String)
+  name.vb: GetContentType(String)
+  fullName: CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType(string)
+  fullName.vb: CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType(String)
+  nameWithType: ContentTypeProvider.GetContentType(string)
+  nameWithType.vb: ContentTypeProvider.GetContentType(String)
+- uid: CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType*
+  name: GetContentType
+  href: api/CSF.Screenplay.Reporting.ContentTypeProvider.html#CSF_Screenplay_Reporting_ContentTypeProvider_GetContentType_
+  commentId: Overload:CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ContentTypeProvider.GetContentType
+  nameWithType: ContentTypeProvider.GetContentType
 - uid: CSF.Screenplay.Reporting.FormattableFormatter
   name: FormattableFormatter
   href: api/CSF.Screenplay.Reporting.FormattableFormatter.html
@@ -4394,6 +4545,28 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IGetsAssetFilePath.GetAssetFilePath
   nameWithType: IGetsAssetFilePath.GetAssetFilePath
+- uid: CSF.Screenplay.Reporting.IGetsContentType
+  name: IGetsContentType
+  href: api/CSF.Screenplay.Reporting.IGetsContentType.html
+  commentId: T:CSF.Screenplay.Reporting.IGetsContentType
+  fullName: CSF.Screenplay.Reporting.IGetsContentType
+  nameWithType: IGetsContentType
+- uid: CSF.Screenplay.Reporting.IGetsContentType.GetContentType(System.String)
+  name: GetContentType(string)
+  href: api/CSF.Screenplay.Reporting.IGetsContentType.html#CSF_Screenplay_Reporting_IGetsContentType_GetContentType_System_String_
+  commentId: M:CSF.Screenplay.Reporting.IGetsContentType.GetContentType(System.String)
+  name.vb: GetContentType(String)
+  fullName: CSF.Screenplay.Reporting.IGetsContentType.GetContentType(string)
+  fullName.vb: CSF.Screenplay.Reporting.IGetsContentType.GetContentType(String)
+  nameWithType: IGetsContentType.GetContentType(string)
+  nameWithType.vb: IGetsContentType.GetContentType(String)
+- uid: CSF.Screenplay.Reporting.IGetsContentType.GetContentType*
+  name: GetContentType
+  href: api/CSF.Screenplay.Reporting.IGetsContentType.html#CSF_Screenplay_Reporting_IGetsContentType_GetContentType_
+  commentId: Overload:CSF.Screenplay.Reporting.IGetsContentType.GetContentType
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IGetsContentType.GetContentType
+  nameWithType: IGetsContentType.GetContentType
 - uid: CSF.Screenplay.Reporting.IGetsReportFormat
   name: IGetsReportFormat
   href: api/CSF.Screenplay.Reporting.IGetsReportFormat.html
@@ -4489,6 +4662,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IReporter.UnsubscribeFrom
   nameWithType: IReporter.UnsubscribeFrom
+- uid: CSF.Screenplay.Reporting.ISerializesReport
+  name: ISerializesReport
+  href: api/CSF.Screenplay.Reporting.ISerializesReport.html
+  commentId: T:CSF.Screenplay.Reporting.ISerializesReport
+  fullName: CSF.Screenplay.Reporting.ISerializesReport
+  nameWithType: ISerializesReport
+- uid: CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  name: SerializeAsync(ScreenplayReport)
+  href: api/CSF.Screenplay.Reporting.ISerializesReport.html#CSF_Screenplay_Reporting_ISerializesReport_SerializeAsync_CSF_Screenplay_ReportModel_ScreenplayReport_
+  commentId: M:CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  fullName: CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  nameWithType: ISerializesReport.SerializeAsync(ScreenplayReport)
+- uid: CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync*
+  name: SerializeAsync
+  href: api/CSF.Screenplay.Reporting.ISerializesReport.html#CSF_Screenplay_Reporting_ISerializesReport_SerializeAsync_
+  commentId: Overload:CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ISerializesReport.SerializeAsync
+  nameWithType: ISerializesReport.SerializeAsync
 - uid: CSF.Screenplay.Reporting.ITestsPathForWritePermissions
   name: ITestsPathForWritePermissions
   href: api/CSF.Screenplay.Reporting.ITestsPathForWritePermissions.html
@@ -4549,25 +4741,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IValueFormatter.FormatForReport
   nameWithType: IValueFormatter.FormatForReport
-- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader
-  name: JsonScreenplayReportReader
-  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html
-  commentId: T:CSF.Screenplay.Reporting.JsonScreenplayReportReader
-  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader
-  nameWithType: JsonScreenplayReportReader
-- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
-  name: DeserializeAsync(Stream)
-  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html#CSF_Screenplay_Reporting_JsonScreenplayReportReader_DeserializeAsync_System_IO_Stream_
-  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
-  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync(System.IO.Stream)
-  nameWithType: JsonScreenplayReportReader.DeserializeAsync(Stream)
-- uid: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync*
-  name: DeserializeAsync
-  href: api/CSF.Screenplay.Reporting.JsonScreenplayReportReader.html#CSF_Screenplay_Reporting_JsonScreenplayReportReader_DeserializeAsync_
-  commentId: Overload:CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync
-  isSpec: "True"
-  fullName: CSF.Screenplay.Reporting.JsonScreenplayReportReader.DeserializeAsync
-  nameWithType: JsonScreenplayReportReader.DeserializeAsync
 - uid: CSF.Screenplay.Reporting.JsonScreenplayReporter
   name: JsonScreenplayReporter
   href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html
@@ -4632,6 +4805,73 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom
   nameWithType: JsonScreenplayReporter.UnsubscribeFrom
+- uid: CSF.Screenplay.Reporting.MimeTypes
+  name: MimeTypes
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html
+  commentId: T:CSF.Screenplay.Reporting.MimeTypes
+  fullName: CSF.Screenplay.Reporting.MimeTypes
+  nameWithType: MimeTypes
+- uid: CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType
+  name: FallbackMimeType
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_FallbackMimeType
+  commentId: P:CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType
+  fullName: CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType
+  nameWithType: MimeTypes.FallbackMimeType
+- uid: CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType*
+  name: FallbackMimeType
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_FallbackMimeType_
+  commentId: Overload:CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.MimeTypes.FallbackMimeType
+  nameWithType: MimeTypes.FallbackMimeType
+- uid: CSF.Screenplay.Reporting.MimeTypes.GetMimeType(System.String)
+  name: GetMimeType(string)
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_GetMimeType_System_String_
+  commentId: M:CSF.Screenplay.Reporting.MimeTypes.GetMimeType(System.String)
+  name.vb: GetMimeType(String)
+  fullName: CSF.Screenplay.Reporting.MimeTypes.GetMimeType(string)
+  fullName.vb: CSF.Screenplay.Reporting.MimeTypes.GetMimeType(String)
+  nameWithType: MimeTypes.GetMimeType(string)
+  nameWithType.vb: MimeTypes.GetMimeType(String)
+- uid: CSF.Screenplay.Reporting.MimeTypes.GetMimeType*
+  name: GetMimeType
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_GetMimeType_
+  commentId: Overload:CSF.Screenplay.Reporting.MimeTypes.GetMimeType
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.MimeTypes.GetMimeType
+  nameWithType: MimeTypes.GetMimeType
+- uid: CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions(System.String)
+  name: GetMimeTypeExtensions(string)
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_GetMimeTypeExtensions_System_String_
+  commentId: M:CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions(System.String)
+  name.vb: GetMimeTypeExtensions(String)
+  fullName: CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions(string)
+  fullName.vb: CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions(String)
+  nameWithType: MimeTypes.GetMimeTypeExtensions(string)
+  nameWithType.vb: MimeTypes.GetMimeTypeExtensions(String)
+- uid: CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions*
+  name: GetMimeTypeExtensions
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_GetMimeTypeExtensions_
+  commentId: Overload:CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.MimeTypes.GetMimeTypeExtensions
+  nameWithType: MimeTypes.GetMimeTypeExtensions
+- uid: CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType(System.String,System.String@)
+  name: TryGetMimeType(string, out string)
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_TryGetMimeType_System_String_System_String__
+  commentId: M:CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType(System.String,System.String@)
+  name.vb: TryGetMimeType(String, String)
+  fullName: CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType(string, out string)
+  fullName.vb: CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType(String, String)
+  nameWithType: MimeTypes.TryGetMimeType(string, out string)
+  nameWithType.vb: MimeTypes.TryGetMimeType(String, String)
+- uid: CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType*
+  name: TryGetMimeType
+  href: api/CSF.Screenplay.Reporting.MimeTypes.html#CSF_Screenplay_Reporting_MimeTypes_TryGetMimeType_
+  commentId: Overload:CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.MimeTypes.TryGetMimeType
+  nameWithType: MimeTypes.TryGetMimeType
 - uid: CSF.Screenplay.Reporting.NameAndValue
   name: NameAndValue
   href: api/CSF.Screenplay.Reporting.NameAndValue.html
@@ -4772,15 +5012,15 @@ references:
   commentId: T:CSF.Screenplay.Reporting.PerformanceReportBuilder
   fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder
   nameWithType: PerformanceReportBuilder
-- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment)
-  name: PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment)
-  name.vb: New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment)
-  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder(System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment)
-  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New(System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment)
-  nameWithType.vb: PerformanceReportBuilder.New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType)
+  name: PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_CSF_Screenplay_Reporting_IGetsContentType_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType)
+  name.vb: New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder(System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New(System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType)
+  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
+  nameWithType.vb: PerformanceReportBuilder.New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
 - uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor*
   name: PerformanceReportBuilder
   href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_
@@ -5063,6 +5303,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.ReportPathProvider.GetReportPath
   nameWithType: ReportPathProvider.GetReportPath
+- uid: CSF.Screenplay.Reporting.ReportPathProviderExtensions
+  name: ReportPathProviderExtensions
+  href: api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.html
+  commentId: T:CSF.Screenplay.Reporting.ReportPathProviderExtensions
+  fullName: CSF.Screenplay.Reporting.ReportPathProviderExtensions
+  nameWithType: ReportPathProviderExtensions
+- uid: CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath(CSF.Screenplay.Reporting.IGetsReportPath)
+  name: GetReportFilePath(IGetsReportPath)
+  href: api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.html#CSF_Screenplay_Reporting_ReportPathProviderExtensions_GetReportFilePath_CSF_Screenplay_Reporting_IGetsReportPath_
+  commentId: M:CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath(CSF.Screenplay.Reporting.IGetsReportPath)
+  fullName: CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath(CSF.Screenplay.Reporting.IGetsReportPath)
+  nameWithType: ReportPathProviderExtensions.GetReportFilePath(IGetsReportPath)
+- uid: CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath*
+  name: GetReportFilePath
+  href: api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.html#CSF_Screenplay_Reporting_ReportPathProviderExtensions_GetReportFilePath_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath
+  nameWithType: ReportPathProviderExtensions.GetReportFilePath
 - uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder
   name: ScreenplayReportBuilder
   href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html
@@ -5133,6 +5392,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder
   nameWithType: ScreenplayReportBuilder.GetPerformanceBuilder
+- uid: CSF.Screenplay.Reporting.ScreenplayReportSerializer
+  name: ScreenplayReportSerializer
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html
+  commentId: T:CSF.Screenplay.Reporting.ScreenplayReportSerializer
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportSerializer
+  nameWithType: ScreenplayReportSerializer
+- uid: CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync(System.IO.Stream)
+  name: DeserializeAsync(Stream)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html#CSF_Screenplay_Reporting_ScreenplayReportSerializer_DeserializeAsync_System_IO_Stream_
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync(System.IO.Stream)
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync(System.IO.Stream)
+  nameWithType: ScreenplayReportSerializer.DeserializeAsync(Stream)
+- uid: CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync*
+  name: DeserializeAsync
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html#CSF_Screenplay_Reporting_ScreenplayReportSerializer_DeserializeAsync_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportSerializer.DeserializeAsync
+  nameWithType: ScreenplayReportSerializer.DeserializeAsync
+- uid: CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  name: SerializeAsync(ScreenplayReport)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html#CSF_Screenplay_Reporting_ScreenplayReportSerializer_SerializeAsync_CSF_Screenplay_ReportModel_ScreenplayReport_
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync(CSF.Screenplay.ReportModel.ScreenplayReport)
+  nameWithType: ScreenplayReportSerializer.SerializeAsync(ScreenplayReport)
+- uid: CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync*
+  name: SerializeAsync
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportSerializer.html#CSF_Screenplay_Reporting_ScreenplayReportSerializer_SerializeAsync_
+  commentId: Overload:CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportSerializer.SerializeAsync
+  nameWithType: ScreenplayReportSerializer.SerializeAsync
 - uid: CSF.Screenplay.Reporting.ToStringFormatter
   name: ToStringFormatter
   href: api/CSF.Screenplay.Reporting.ToStringFormatter.html

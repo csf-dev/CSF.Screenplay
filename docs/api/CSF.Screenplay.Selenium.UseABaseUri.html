@@ -171,19 +171,15 @@ If you wish to use this technique then when writing instances of <a class="xref"
 // In a realistic Screenplay, the Actor set-up would be in an IPersona implementation,
 // the NamedUri would be declared in a library class and the Actor's performance would
 // be within an IPerformable implementation.
-
-using CSF.Screenplay.Selenium;
-using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var useABaseUri = new UseABaseUri(new Uri("https://testing.example.com/"));
+<p>using CSF.Screenplay.Selenium;
+using static CSF.Screenplay.Selenium.PerformableBuilder;</p>
+<p>var useABaseUri = new UseABaseUri(new Uri(&quot;https://testing.example.com/&quot;));
 myActor.IsAbleTo(useABaseUri);
 // Details of getting a BrowseTheWeb ability instance are omitted for brevity.
-myActor.IsAbleTo(GetBrowseTheWeb());
-
-var shoppingCart = new NamedUri("user/shoppingCart", "the user's shopping cart");
-await myActor.PerformAsync(OpenTheUrl(shoppingCart));
-
-// Actually opens the URL https://testing.example.com/user/shoppingCart</code></pre>
+myActor.IsAbleTo(GetBrowseTheWeb());</p>
+<p>var shoppingCart = new NamedUri(&quot;user/shoppingCart&quot;, &quot;the user's shopping cart&quot;);
+await myActor.PerformAsync(OpenTheUrl(shoppingCart));</p>
+<p>// Actually opens the URL <a href="https://testing.example.com/user/shoppingCart">https://testing.example.com/user/shoppingCart</a></p></code></pre>
 <p>
 The Uri to use as the base Uri does not need to be hard-coded, it could come from configuration or an environment variable etc.
 When the actor makes use of the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability and opens a Url using the performable returned from

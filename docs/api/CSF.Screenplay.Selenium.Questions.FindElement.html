@@ -161,18 +161,16 @@ This example gets a <a class="xref" href="CSF.Screenplay.Selenium.Elements.Selen
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget todoList = new CssSelector("ul#todo", "the to-do list");
-readonly Locator urgent = new ClassName("urgent", "the urgent item");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElement&gt;
+<p>readonly ITarget todoList = new CssSelector(&quot;ul#todo&quot;, &quot;the to-do list&quot;);
+readonly Locator urgent = new ClassName(&quot;urgent&quot;, &quot;the urgent item&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElement&gt;
 public async ValueTask&lt;SeleniumElement&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var element = await actor.PerformAsync(FindAnElementWithin(todoList).WhichMatches(urgent), cancellationToken);
-    // ... other performance logic
-    return element;
-}</code></pre>
+// ... other performance logic
+var element = await actor.PerformAsync(FindAnElementWithin(todoList).WhichMatches(urgent), cancellationToken);
+// ... other performance logic
+return element;
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_FindElement_remarks">Remarks</h2>

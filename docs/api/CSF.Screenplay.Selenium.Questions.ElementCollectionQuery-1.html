@@ -165,17 +165,15 @@ This example gets the text of every list item which has the class <code>todo</co
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget todoItems = new CssSelector("li.todo", "the todo items");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;IReadOnlyList&lt;string&gt;&gt;
+<p>readonly ITarget todoItems = new CssSelector(&quot;li.todo&quot;, &quot;the todo items&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;IReadOnlyList&lt;string&gt;&gt;
 public async ValueTask&lt;IReadOnlyList&lt;string&gt;&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    var texts = await actor.PerformAsync(ReadFromTheCollectionOfElements(todoItems).Text(), cancellationToken);
-    // ... other performance logic
-    return texts;
-}</code></pre>
+// ... other performance logic
+var texts = await actor.PerformAsync(ReadFromTheCollectionOfElements(todoItems).Text(), cancellationToken);
+// ... other performance logic
+return texts;
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_ElementCollectionQuery_1_remarks">Remarks</h2>

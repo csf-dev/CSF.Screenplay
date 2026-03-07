@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions" class="text-break">
-Class ReportConverterOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class ReportConverterOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -122,10 +122,16 @@ Class ReportConverterOptions  <a class="header-action link-secondary" title="Vie
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
@@ -135,12 +141,6 @@ Class ReportConverterOptions  <a class="header-action link-secondary" title="Vie
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
@@ -153,11 +153,111 @@ Class ReportConverterOptions  <a class="header-action link-secondary" title="Vie
 </h2>
 
 
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions*"></a>
+
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileExtensions">
+  EmbeddedFileExtensions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a comma-separated list of file extensions which are supported for embedding into report.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string EmbeddedFileExtensions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+By default, the report converter will attempt to embed file data into the HTML report file.
+This is desirable because it means that the report file is likely to be portable as a single file, even when
+<a class="xref" href="../docs/Assets.html">it contains linked assets</a>.  Any asset files with a size less than or equal to the threshold
+are embedded into the HTML file if their file extension is amongst those listed in this property.
+</p>
+<p>
+The default value for this property is <code>jpg,jpeg,png,gif,webp,svg,mp4,mov,avi,wmv,mkv,webm</code>.
+These are common image and video file types, seen on the web.
+Note that the wildcard <code>*</code>, if included anywhere this property value, denotes that files of all (any) extension
+should be embedded into the report.
+Setting this value to an empty string will disable embedding of files into the report.
+</p>
+<p>
+The file-size threshold for files which may be embedded into the report is controlled by the option property
+<a class="xref" href="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb">EmbeddedFileSizeThresholdKb</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb*"></a>
+
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.EmbeddedFileSizeThresholdKb">
+  EmbeddedFileSizeThresholdKb
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a threshold (in Kilobytes) for files which should be embedded into the report.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int EmbeddedFileSizeThresholdKb { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+By default, the report converter will attempt to embed file data into the HTML report file.
+This is desirable because it means that the report file is likely to be portable as a single file, even when
+<a class="xref" href="../docs/Assets.html">it contains linked assets</a>.  Any asset files of supported file extensions are
+embedded into the HTML file if their file size (in kilobytes) is less than or equal to this value.
+</p>
+<p>
+The default value for this property is 500 (500 kilobytes, half a megabyte). Setting this value to zero
+or a negative number will disable embedding of files into the report.
+Setting this value to an arbitrarily high number (such as 1000000, meaning a gigabyte) will cause all files to be
+embedded.
+</p>
+<p>
+The supported file extensions are listed in the option property <a class="xref" href="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions">EmbeddedFileExtensions</a>.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_OutputPath_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath*"></a>
 
   <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_OutputPath" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.OutputPath">
   OutputPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the file system path where the HTML report will be saved.</p>
@@ -189,7 +289,7 @@ Class ReportConverterOptions  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ReportPath" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ReportPath">
   ReportPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the file system path to the JSON report which is to be converted to HTML.</p>
@@ -217,11 +317,87 @@ Class ReportConverterOptions  <a class="header-action link-secondary" title="Vie
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_GetEmbeddedFileExtensions_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions*"></a>
+
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_GetEmbeddedFileExtensions" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.GetEmbeddedFileExtensions">
+  GetEmbeddedFileExtensions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a collection of file extensions (including the leading period) which should be embedded into HTML reports.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;string&gt; GetEmbeddedFileExtensions()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A collection of the extensions to embed</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ShouldEmbedAllFileTypes_" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes*"></a>
+
+  <h3 id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ShouldEmbedAllFileTypes" data-uid="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.ShouldEmbedAllFileTypes">
+  ShouldEmbedAllFileTypes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether all file types (regardless of extension) should be embedded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShouldEmbedAllFileTypes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if all file types are to be embedded; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_ShouldEmbedAllFileTypes_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileExtensions">EmbeddedFileExtensions</a> contains the character <code>*</code>.
+Note that a file must still have a size equal to or less than <a class="xref" href="CSF.Screenplay.JsonToHtmlReport.ReportConverterOptions.html#CSF_Screenplay_JsonToHtmlReport_ReportConverterOptions_EmbeddedFileSizeThresholdKb">EmbeddedFileSizeThresholdKb</a> to be embedded.
+</p>
+</div>
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.JsonToHtmlReport/ReportConverterOptions.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

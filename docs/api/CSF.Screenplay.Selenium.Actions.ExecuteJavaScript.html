@@ -159,16 +159,14 @@ This action ignores the result (if any) from that script.</p>
 In this example, the script will write "I can count to 5" into the developer console.
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-var iCanCount = new NamedScript&lt;int&gt;("console.log('I can count to ' + arguments[0])", "my counting script");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>var iCanCount = new NamedScript&lt;int&gt;(&quot;console.log('I can count to ' + arguments[0])&quot;, &quot;my counting script&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(ExecuteAScript(iCanCount, 5), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(ExecuteAScript(iCanCount, 5), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_ExecuteJavaScript_remarks">Remarks</h2>

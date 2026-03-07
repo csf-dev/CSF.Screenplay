@@ -159,16 +159,14 @@ This example clears the contents of the element with ID <code>username</code>.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget username = new ElementId("username", "the username field");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget username = new ElementId(&quot;username&quot;, &quot;the username field&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(ClearTheContentsOf(username), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(ClearTheContentsOf(username), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_ClearTheContents_remarks">Remarks</h2>

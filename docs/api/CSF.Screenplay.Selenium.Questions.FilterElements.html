@@ -161,19 +161,17 @@ This example filters a collection of items in a todo list, only for those with r
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium;
 using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget todoListItems = new CssSelector("ul#todo li", "the to-do list items");
-
-// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
+<p>readonly ITarget todoListItems = new CssSelector(&quot;ul#todo li&quot;, &quot;the to-do list items&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElementCollection&gt;
 public async ValueTask&lt;SeleniumElementCollection&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    var elements = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(todoListItems), cancellationToken);
-    var redElements = await actor.PerformAsync(Filter(elements)
-                                                .ForThoseWhich(q =&gt; q.CssProperty("background-color",
-                                                                                  x =&gt; x == Colors.RED)),
-                                               cancellationToken);
-    return redElements;
-}</code></pre>
+var elements = await actor.PerformAsync(FindElementsOnThePage().WhichMatch(todoListItems), cancellationToken);
+var redElements = await actor.PerformAsync(Filter(elements)
+.ForThoseWhich(q =&gt; q.CssProperty(&quot;background-color&quot;,
+x =&gt; x == Colors.RED)),
+cancellationToken);
+return redElements;
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_FilterElements_remarks">Remarks</h2>

@@ -158,14 +158,13 @@ Class DeleteTheCookie  <a class="header-action link-secondary" title="View sourc
 In this example, the action will delete a cookie named "MyCookieName".
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(DeleteTheCookieNamed("MyCookieName"), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(DeleteTheCookieNamed(&quot;MyCookieName&quot;), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_DeleteTheCookie_remarks">Remarks</h2>

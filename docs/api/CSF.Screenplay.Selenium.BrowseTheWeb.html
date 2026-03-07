@@ -187,19 +187,18 @@ environment variable to switch between them at execution time.
 </p>
 <pre><code class="lang-csharp">using CSF.Extensions.WebDriver;
 using CSF.Screenplay.Selenium;
-
-public class Webster(IGetsWebDriver webDriverFactory) : IPersona
+<p>public class Webster(IGetsWebDriver webDriverFactory) : IPersona
 {
-    public string Name =&gt; "Webster";
-
-    public Actor GetActor(Guid performanceIdentity)
-    {
-        var webster = new Actor(Name, performanceIdentity);
-        var browseTheWeb = new BrowseTheWeb(webDriverFactory);
-        webster.IsAbleTo(browseTheWeb);
-        return webster;
-    }
-}</code></pre>
+public string Name =&gt; &quot;Webster&quot;;</p>
+<pre><code>public Actor GetActor(Guid performanceIdentity)
+{
+    var webster = new Actor(Name, performanceIdentity);
+    var browseTheWeb = new BrowseTheWeb(webDriverFactory);
+    webster.IsAbleTo(browseTheWeb);
+    return webster;
+}
+</code></pre>
+<p>}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_BrowseTheWeb_remarks">Remarks</h2>

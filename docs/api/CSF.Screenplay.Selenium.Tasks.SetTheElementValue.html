@@ -160,16 +160,14 @@ which simulate a user changing the value interactively.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-
-readonly ITarget impossibleInput = new ElementId("impossible_input", "the input field which a WebDriver cannot reach");
-
-// Within the logic of a custom task, deriving from IPerformable
+<p>readonly ITarget impossibleInput = new ElementId(&quot;impossible_input&quot;, &quot;the input field which a WebDriver cannot reach&quot;);</p>
+<p>// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-    // ... other performance logic
-    await actor.PerformAsync(SetTheValueOf(impossibleInput).To("I worked around it!").AsIfSetInteractively(), cancellationToken);
-    // ... other performance logic
-}</code></pre>
+// ... other performance logic
+await actor.PerformAsync(SetTheValueOf(impossibleInput).To(&quot;I worked around it!&quot;).AsIfSetInteractively(), cancellationToken);
+// ... other performance logic
+}</p></code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_SetTheElementValue_remarks">Remarks</h2>
