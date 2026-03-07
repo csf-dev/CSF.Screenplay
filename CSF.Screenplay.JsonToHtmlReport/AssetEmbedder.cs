@@ -24,7 +24,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
             var ignoreExtension = options.ShouldEmbedAllFileTypes();
             var maxSizeKb = options.EmbeddedFileSizeThresholdKb;
 
-            var allAssets = GetAssets(report);
+            var allAssets = GetAssets(report).ToList();
             foreach(var asset in allAssets)
                 await EmbedAssetIfApplicable(asset, maxSizeKb, applicableExtensions, ignoreExtension);
         }
@@ -37,7 +37,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
                    select asset;
         }
 
-        static IEnumerable<PerformableReport> GetAllPerformables(PerformanceReport performance)
+        static List<PerformableReport> GetAllPerformables(PerformanceReport performance)
         {
             var open = new List<PerformableReport>();
             var closed = new List<PerformableReport>();
@@ -45,7 +45,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
 
             while(open.Count > 0)
             {
-                var current = open.First();
+                var current = open[0];
                 open.RemoveAt(0);
                 closed.Add(current);
                 open.AddRange(current.Reportables.OfType<PerformableReport>());

@@ -40,7 +40,7 @@ namespace CSF.Screenplay.JsonToHtmlReport
                 return await textReader.ReadToEndAsync().ConfigureAwait(false);
         }
 
-        async Task WriteReport(string path, string report)
+        static async Task WriteReport(string path, string report)
         {
             using (var stream = File.Create(path))
             using (var writer = new StreamWriter(stream))
