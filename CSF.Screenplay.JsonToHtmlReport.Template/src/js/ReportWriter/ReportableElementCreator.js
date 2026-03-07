@@ -17,7 +17,7 @@ export class ReportableElementCreator {
         this.#setupResult(reportableElement, reportable);
         this.#setupPerformableType(reportableElement, reportable);
         this.#setupAssets(reportableElement, reportable, litebox);
-        this.#setupContainedReportables(reportableElement, reportable);
+        this.#setupContainedReportables(reportableElement, reportable, litebox);
 
         return reportableElement;
     }
@@ -65,7 +65,7 @@ export class ReportableElementCreator {
         assetsWriter.writeAssets(reportable);
     }
 
-    #setupContainedReportables(reportableElement, reportable) {
+    #setupContainedReportables(reportableElement, reportable, litebox) {
         const containedReportablesElement = reportableElement.querySelector('.reportableList');
         if (!reportable.Reportables?.length) {
             reportableElement.firstElementChild.classList.remove('collapsed');
@@ -81,7 +81,7 @@ export class ReportableElementCreator {
 
 
         for (const containedReportable of reportable.Reportables) {
-            const reportableElement = this.createReportableElement(containedReportable);
+            const reportableElement = this.createReportableElement(containedReportable, litebox);
             containedReportablesElement.appendChild(reportableElement);
         }
     }

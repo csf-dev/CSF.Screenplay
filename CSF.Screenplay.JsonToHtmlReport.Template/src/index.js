@@ -17,7 +17,7 @@ import { Litebox } from "./js/Litebox";
 document.onreadystatechange = () => {
     if (document.readyState !== "complete") return;
 
-    var litebox = new Litebox();
+    const litebox = new Litebox();
     const loader = getReportLoader();
     const report = loader.loadJson();
 

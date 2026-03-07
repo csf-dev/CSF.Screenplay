@@ -1,3 +1,6 @@
+import { AssetBehaviour } from "../ReportBehaviour";
+import { getElementById } from "../getElementById";
+
 export class AssetsWriter {
     #litebox;
     #reportableElement;
@@ -13,13 +16,11 @@ export class AssetsWriter {
 
             for (const asset of reportable.Assets) {
                 const assetElement = this.#assetTemplateElement.content.cloneNode(true);
-                const assetLinkElement = assetElement.querySelector('a');
-                assetLinkElement.textContent = asset.FileSummary;
-                assetLinkElement.href = asset.FilePath;
+                const behaviour = new AssetBehaviour(this.#litebox, assetElement, asset);
                 assetsElement.appendChild(assetElement);
+                behaviour.initialise();
             }
         }
-
     }
 
     constructor(litebox, reportableElement, assetTemplateElement) {
@@ -29,6 +30,6 @@ export class AssetsWriter {
     }
 }
 
-export function getAssetsWriter(reportableELement, litebox) {
-    return new AssetsWriter(litebox, reportableELement, getElementById('assetTemplate'));
+export function getAssetsWriter(reportableElement, litebox) {
+    return new AssetsWriter(litebox, reportableElement, getElementById('assetTemplate'));
 }
