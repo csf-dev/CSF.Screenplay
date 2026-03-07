@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Performances;
@@ -22,6 +23,7 @@ namespace CSF.Screenplay.Reporting
         readonly Stack<PerformableReport> performableStack = new Stack<PerformableReport>();
         readonly IGetsValueFormatter valueFormatterProvider;
         readonly IFormatsReportFragment formatter;
+        readonly IGetsContentType contentTypeProvider;
 
         /// <summary>
         /// Gets a value indicating whether or not this builder has a 'current' performable that it is building.
@@ -187,7 +189,17 @@ namespace CSF.Screenplay.Reporting
         /// <param name="assetPath">The file path to the asset</param>
         /// <param name="assetSummary">The human readable summary of the asset</param>
         public void RecordAssetForCurrentPerformable(string assetPath, string assetSummary)
-            => CurrentPerformable.Assets.Add(new PerformableAsset { FilePath = assetPath, FileSummary = assetSummary });
+        {
+            var fileName = Path.GetFileName(assetPath);
+            var asset = new PerformableAsset
+            {
+                FilePath = assetPath,
+                FileSummary = assetSummary,
+                FileName = fileName,
+                ContentType = contentTypeProvider.GetContentType(fileName),
+            };
+            CurrentPerformable.Assets.Add(asset);
+        }
 
         /// <summary>
         /// Enriches the current performable with information about its result.
@@ -245,7 +257,7 @@ namespace CSF.Screenplay.Reporting
             performableStack.Pop();
         }
 
-#endregion
+        #endregion
 
         /// <summary>
         /// Initialises a new instance of <see cref="PerformanceReportBuilder"/>.
@@ -253,17 +265,19 @@ namespace CSF.Screenplay.Reporting
         /// <param name="namingHierarchy">The naming hierarchy of the performance; see <see cref="IPerformance.NamingHierarchy"/></param>
         /// <param name="valueFormatterProvider">A value formatter factory</param>
         /// <param name="formatter">A report-fragment formatter</param>
+        /// <param name="contentTypeProvider">A content type provider service</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
         public PerformanceReportBuilder(List<IdentifierAndNameModel> namingHierarchy,
                                         IGetsValueFormatter valueFormatterProvider,
-                                        IFormatsReportFragment formatter)
+                                        IFormatsReportFragment formatter,
+                                        IGetsContentType contentTypeProvider)
         {
             if (namingHierarchy is null)
                 throw new ArgumentNullException(nameof(namingHierarchy));
 
             this.valueFormatterProvider = valueFormatterProvider ?? throw new ArgumentNullException(nameof(valueFormatterProvider));
             this.formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
-
+            this.contentTypeProvider = contentTypeProvider ?? throw new ArgumentNullException(nameof(contentTypeProvider));
             report = new PerformanceReport
             {
                 NamingHierarchy = namingHierarchy.ToList(),

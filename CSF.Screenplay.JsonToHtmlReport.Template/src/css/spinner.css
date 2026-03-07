@@ -1,5 +1,5 @@
 @layer spinner {
-    #pageMask {
+    #loadingMask {
         position: fixed;
         top: 0;
         left: 0;

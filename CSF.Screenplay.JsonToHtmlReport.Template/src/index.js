@@ -5,16 +5,19 @@ import "./css/layout.css";
 import "./css/content.css";
 import "./css/summaryTable.css";
 import "./css/scenarioList.css";
+import "./css/litebox.css";
 import { getReportLoader } from "./js/ReportLoader";
 import { activatePage } from "./js/activatePage";
 import { updateReportTime } from "./js/updateReportTime";
 import { getScenarioAggregator } from "./js/ScenarioAggregator";
 import { getSummaryGenerator } from "./js/SummaryGenerator";
 import { getReportWriter } from "./js/ReportWriter";
+import { Litebox } from "./js/Litebox";
 
 document.onreadystatechange = () => {
     if (document.readyState !== "complete") return;
 
+    const litebox = new Litebox();
     const loader = getReportLoader();
     const report = loader.loadJson();
 
@@ -26,7 +29,7 @@ document.onreadystatechange = () => {
     const summaryGenerator = getSummaryGenerator(scenariosByFeature);
     const summary = summaryGenerator.generateSummary();
     const reportWriter = getReportWriter();
-    const featureReport = reportWriter.getReport(scenariosByFeature);
+    const featureReport = reportWriter.getReport(scenariosByFeature, litebox);
 
     activatePage(summary, featureReport);
 }

@@ -13,5 +13,5 @@ export const activatePage = (summaryTable, featureList) => {
     showFeatures();
 };
 
-const hideSpinner = () => getElementById("pageMask").classList.add("hidden");
+const hideSpinner = () => getElementById("loadingMask").classList.add("hidden");
 const showFeatures = () => getElementById("features").classList.remove("hidden");

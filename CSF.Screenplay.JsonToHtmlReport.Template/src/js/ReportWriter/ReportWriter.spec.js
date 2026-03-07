@@ -68,11 +68,13 @@ const testData = {
                     "Assets": [
                         {
                             "FilePath": "abc.txt",
-                            "FileSummary": "A text file"
+                            "FileSummary": "A text file",
+                            "ContentType": "text/plain"
                         },
                         {
                             "FilePath": "one.png",
-                            "FileSummary": "A picture"
+                            "FileSummary": "A picture",
+                            "ContentType": "image/png"
                         }
                     ],
                     "Reportables": [],

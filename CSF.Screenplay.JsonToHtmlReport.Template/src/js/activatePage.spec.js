@@ -21,7 +21,7 @@ test('activatePage should append the summary table and feature list to the speci
                 return summaryElement;
             case "featureList":
                 return featuresElement;
-            case "pageMask":
+            case "loadingMask":
                 return pageMask;
             case "features":
                 return features;

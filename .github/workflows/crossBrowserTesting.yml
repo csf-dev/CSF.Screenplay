@@ -116,11 +116,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Screenplay JSON reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
-          path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport_*.json
+          path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport.json
       - name: Convert Screenplay reports to HTML
         continue-on-error: true
         run: |
-          for report in $(find Tests/CSF.Screenplay.Selenium.Tests/ -type f -name "ScreenplayReport_*.json")
+          for report in $(find Tests/CSF.Screenplay.Selenium.Tests/ -type f -name "ScreenplayReport.json")
           do
             reportDir=$(dirname "$report")
             outputFile="$reportDir/ScreenplayReport.html"
