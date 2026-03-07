@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
-*/
-
 import { getReportWriter } from './ReportWriter';
 import { ScenarioAggregator } from '../ScenarioAggregator';
 

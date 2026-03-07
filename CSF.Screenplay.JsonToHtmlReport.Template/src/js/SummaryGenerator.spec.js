@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
-*/
-
 import { SummaryDataGenerator } from './SummaryDataGenerator';
 import { getElementById } from './getElementById';
 import { SummaryGenerator } from './SummaryGenerator';

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
-*/
-
 import { activatePage } from "./activatePage";
 import { getElementById } from './getElementById';
 
