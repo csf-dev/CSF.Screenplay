@@ -28,4 +28,13 @@
     <ProjectReference Include="..\..\CSF.Screenplay.JsonToHtmlReport\CSF.Screenplay.JsonToHtmlReport.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="SampleAsset*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleReport.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
