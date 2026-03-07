@@ -84,6 +84,8 @@ jobs:
           cp Tools/se-config.toml ~/.cache/selenium
       - name: Restore .NET packages
         run: dotnet restore
+      - name: Check NuGet content files
+        run: find ~/.nuget/packages/mimetypes -name "*.cs" 2>/dev/null
       - name: Restore Node modules
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
