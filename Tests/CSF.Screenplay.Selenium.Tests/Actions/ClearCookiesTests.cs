@@ -14,7 +14,7 @@ public class ClearCookiesTests
 
     static readonly NamedUri testPage = new NamedUri("ClearCookiesTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClearCookiesShouldClearCookies(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

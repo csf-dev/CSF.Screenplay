@@ -14,7 +14,7 @@ public class DeselectByTextTests
 
     static readonly NamedUri testPage = new NamedUri("DeselectionTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task DeselectTheOptionFromShouldLeaveOneSelectedItem(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

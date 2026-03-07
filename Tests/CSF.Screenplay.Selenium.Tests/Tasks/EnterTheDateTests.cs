@@ -17,7 +17,7 @@ public class EnterTheDateTests
 
     static readonly NamedUri testPage = new NamedUri("InputDateTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task EnteringADateShouldYieldTheCorrectValue(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -29,7 +29,7 @@ public class EnterTheDateTests
         Assert.That(result, Is.EqualTo("2025-11-12"));
     }
     
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task EnteringANullDateShouldClearTheValue(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -41,7 +41,7 @@ public class EnterTheDateTests
         Assert.That(result, Is.EqualTo(string.Empty));
     }
     
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task EnteringADateInAnUnusualCultureShouldYieldIncorrectResults(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

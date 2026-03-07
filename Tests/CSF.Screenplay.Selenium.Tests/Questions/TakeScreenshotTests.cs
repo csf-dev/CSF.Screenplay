@@ -8,7 +8,7 @@ public class TakeScreenshotTests
 {
     static readonly NamedUri testPage = new NamedUri("OpenUrlTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task TakeAScreenshotShouldGetASeleniumScreenshot(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

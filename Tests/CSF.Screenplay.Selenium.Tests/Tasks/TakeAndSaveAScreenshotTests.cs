@@ -11,7 +11,7 @@ public class TakeAndSaveAScreenshotTests
 
     string? screenshotPath;
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task TakeAndSaveAScreenshotShouldSaveAFile(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

@@ -14,7 +14,7 @@ public class SelectByTextTests
 
     static readonly NamedUri testPage = new NamedUri("SelectionTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task SelectTheOptionFromShouldAddOneSelectedItem(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

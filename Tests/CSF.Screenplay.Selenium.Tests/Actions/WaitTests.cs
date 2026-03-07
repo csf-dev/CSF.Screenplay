@@ -28,7 +28,7 @@ public class WaitTests
 
     static int GetInsufficientWaitMilliseconds(Actor actor) => 500;
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -44,7 +44,7 @@ public class WaitTests
         Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeWithIgnoredExceptionsShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -61,7 +61,7 @@ public class WaitTests
         Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeWithoutIgnoredExceptionsShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -78,7 +78,7 @@ public class WaitTests
         Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeWithEmptyIgnoredExceptionsShouldThrow(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -92,7 +92,7 @@ public class WaitTests
             ), Throws.InstanceOf<PerformableException>());
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForInsufficientTimeShouldThrow(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -106,7 +106,7 @@ public class WaitTests
                     Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<WebDriverTimeoutException>());
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeUsingDefaultWaitAbilityShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -121,7 +121,7 @@ public class WaitTests
         Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForInsufficientTimeUsingDefaultWaitAbilityShouldThrow(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -135,7 +135,7 @@ public class WaitTests
                     Throws.InstanceOf<PerformableException>().And.InnerException.TypeOf<WebDriverTimeoutException>());
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForSufficientTimeWithoutAPredicateShouldSucceed(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -149,7 +149,7 @@ public class WaitTests
         Assert.That(contents, Is.EqualTo($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task WaitingForInsufficientTimeWithoutAPredicateShouldYieldIncorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

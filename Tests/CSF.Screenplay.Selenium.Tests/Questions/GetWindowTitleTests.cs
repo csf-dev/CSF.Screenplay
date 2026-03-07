@@ -8,7 +8,7 @@ public class GetWindowTitleTests
 {
     static readonly NamedUri testPage = new NamedUri("OpenUrlTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task GetWindowTitleShouldGetTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

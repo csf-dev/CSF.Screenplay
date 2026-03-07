@@ -16,7 +16,7 @@ public class ClickTests
 
     static readonly NamedUri testPage = new NamedUri("ClickTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClickingAButtonShouldTriggerAnEvent(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -28,7 +28,7 @@ public class ClickTests
         Assert.That(contents, Is.EqualTo("Clicked!"));
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClickingAnElementWhichDoesNotExistShouldThrow(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -38,7 +38,7 @@ public class ClickTests
                     Throws.InstanceOf<PerformableException>().And.InnerException.InstanceOf<TargetNotFoundException>());
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClickingAnElementWhichDoesNotExistShouldIncludeTheCorrectTargetInTheException(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

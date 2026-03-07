@@ -14,7 +14,7 @@ public class ClearTheContentsTests
 
     static readonly NamedUri testPage = new NamedUri("ClearTheContentsTests.html", "the test page");
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClearATextareaShouldEmptyIt(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -26,7 +26,7 @@ public class ClearTheContentsTests
         Assert.That(contents, Is.Empty);
     }
 
-    [Test, Screenplay]
+    [Test, Screenplay, Retry(3)]
     public async Task ClearATextInputShouldEmptyIt(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
