@@ -5,7 +5,7 @@ const config = {
   coverageDirectory: "TestResults",
   testEnvironment: 'jsdom',
   testEnvironmentOptions: {
-    url: 'http://localhost',
+    url: 'http://localhost/',
   },
 };
 
