@@ -1,13 +1,13 @@
 import { setContentOrRemove } from './setContentOrRemove';
 import { getElementById } from '../getElementById';
+import { getAssetsWriter } from './AssetsWriter';
 
 export class ReportableElementCreator {
-    constructor(templateElement, assetTemplateElement) {
+    constructor(templateElement) {
         this.templateElement = templateElement;
-        this.assetTemplate = assetTemplateElement;
     }
 
-    createReportableElement(reportable) {
+    createReportableElement(reportable, litebox) {
         const reportableElement = this.templateElement.content.cloneNode(true);
 
         this.#setupReportableType(reportableElement, reportable);
@@ -16,7 +16,7 @@ export class ReportableElementCreator {
         setContentOrRemove(reportableElement, reportable, '.exception', r => r.Exception && !r.ExceptionIsFromConsumedPerformable, r => r.Exception);
         this.#setupResult(reportableElement, reportable);
         this.#setupPerformableType(reportableElement, reportable);
-        this.#setupAssets(reportableElement, reportable);
+        this.#setupAssets(reportableElement, reportable, litebox);
         this.#setupContainedReportables(reportableElement, reportable);
 
         return reportableElement;
@@ -60,22 +60,9 @@ export class ReportableElementCreator {
         else performableTypeElement.remove()
     }
 
-    #setupAssets(reportableElement, reportable) {
-        const assetsRootElement = reportableElement.querySelector('.assets');
-        if (!reportable.Assets?.length) {
-            assetsRootElement.remove();
-        }
-        else {
-            const assetsElement = assetsRootElement.querySelector('ul');
-
-            for (const asset of reportable.Assets) {
-                const assetElement = this.assetTemplate.content.cloneNode(true);
-                const assetLinkElement = assetElement.querySelector('a');
-                assetLinkElement.textContent = asset.FileSummary;
-                assetLinkElement.href = asset.FilePath;
-                assetsElement.appendChild(assetElement);
-            }
-        }
+    #setupAssets(reportableElement, reportable, litebox) {
+        const assetsWriter = getAssetsWriter(reportableElement, litebox);
+        assetsWriter.writeAssets(reportable);
     }
 
     #setupContainedReportables(reportableElement, reportable) {
@@ -101,6 +88,5 @@ export class ReportableElementCreator {
 }
 
 export function getReportableElementCreator() {
-    return new ReportableElementCreator(getElementById('reportableTemplate'),
-                                        getElementById('assetTemplate'));                                      
+    return new ReportableElementCreator(getElementById('reportableTemplate'));                                      
 }

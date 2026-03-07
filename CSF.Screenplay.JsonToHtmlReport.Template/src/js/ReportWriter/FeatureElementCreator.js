@@ -7,7 +7,7 @@ export class FeatureElementCreator {
         this.scenarioElementCreator = scenarioElementCreator;
     }
 
-    createFeatureElement(feature) {
+    createFeatureElement(feature, litebox) {
         const featureElement = this.featureTemplate.content.cloneNode(true);
         const hasFailures = feature.scenarios.some(x => x.performance.Outcome == 'Failed');
 
@@ -26,7 +26,7 @@ export class FeatureElementCreator {
 
         const scenariosElement = featureElement.querySelector('.scenarioList');
         for (const scenario of feature.scenarios) {
-            const scenarioElement = this.scenarioElementCreator.createScenarioElement(scenario);
+            const scenarioElement = this.scenarioElementCreator.createScenarioElement(scenario, litebox);
             scenariosElement.appendChild(scenarioElement);
         }
         return featureElement;

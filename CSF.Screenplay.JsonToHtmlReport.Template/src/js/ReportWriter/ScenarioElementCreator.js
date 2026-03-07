@@ -8,7 +8,7 @@ export class ScenarioElementCreator {
         this.reportableElementCreator = reportableElementCreator;
     }
 
-    createScenarioElement(scenario) {
+    createScenarioElement(scenario, litebox) {
         const scenarioElement = this.scenarioTemplate.content.cloneNode(true);
 
         if(scenario.performance.Outcome == 'Failed')
@@ -21,7 +21,7 @@ export class ScenarioElementCreator {
 
         const reportablesElement = scenarioElement.querySelector('.reportableList');
         for (const reportable of scenario.performance.Reportables) {
-            const reportableElement = this.reportableElementCreator.createReportableElement(reportable);
+            const reportableElement = this.reportableElementCreator.createReportableElement(reportable, litebox);
             reportablesElement.appendChild(reportableElement);
         }
 
