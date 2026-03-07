@@ -14,7 +14,7 @@ public class LocatorTests
 
     static readonly NamedUri testPage = new NamedUri("LocatorTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task GettingTextFromTheParagraphShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -25,7 +25,7 @@ public class LocatorTests
         Assert.That(result, Is.EqualTo("This is a paragraph of test which is selectable by the element id theParagraph."));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task GettingTextFromTheDivShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -36,7 +36,7 @@ public class LocatorTests
         Assert.That(result, Is.EqualTo("This is a div which is selectable by the class attribute theDiv."));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task GettingTheValueFromTheMultiInputsShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -47,7 +47,7 @@ public class LocatorTests
         Assert.That(result, Is.EqualTo(new [] {"First input", "Second input", "Third input"}));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task GettingTheValueFromTheSpecialInputsShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -58,7 +58,7 @@ public class LocatorTests
         Assert.That(result, Is.EqualTo(new [] {"Second input", "Third input"}));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task GettingTheTextFromTheSpansInTheListShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

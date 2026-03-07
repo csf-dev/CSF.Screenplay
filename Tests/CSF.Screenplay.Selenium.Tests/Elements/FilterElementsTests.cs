@@ -10,7 +10,7 @@ public class FilterElementsTests
         allInputs = new ClassName("multiInput", "all input elements with the 'multiInput' class");
     static readonly NamedUri testPage = new NamedUri("LocatorTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task FilteringTheInputElementsForOnlySpecialInputsShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

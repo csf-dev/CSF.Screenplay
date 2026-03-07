@@ -16,7 +16,7 @@ public class FindElementsTests
         secondSpanDeepSelector = new CssSelector("#theList li:nth-child(3) > span");
     static readonly NamedUri testPage = new NamedUri("LocatorTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task FindElementsWithinShouldFindCorrectElements(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -27,7 +27,7 @@ public class FindElementsTests
         Assert.That(inputs.Select(i => i.WebElement.GetDomProperty("value")).ToList(), Is.EqualTo(new[] { "Second input", "Third input" }));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task FindAnElementWithinShouldFindCorrectElement(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -38,7 +38,7 @@ public class FindElementsTests
         Assert.That(span.WebElement.Text, Is.EqualTo("Second text inside a span"));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task FindAnElementOnThePageShouldFindCorrectElement(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

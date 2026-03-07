@@ -15,7 +15,7 @@ public class OpenUrlTests
 
     static readonly NamedUri testPage = new NamedUri("OpenUrlTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task OpenTheUrlShouldShouldYieldExpectedContent(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -26,7 +26,7 @@ public class OpenUrlTests
         Assert.That(contents, Is.EqualTo("This is the page content."));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task OpenTheUrlWithDifferentBasePathShouldYieldDifferentContent(IStage stage)
     {
         var pattie = stage.Spotlight<Pattie>();

@@ -19,7 +19,7 @@ public class QueriesTests
         multiSelect = new ElementId("multiSelect", "the multi-select element");
     static readonly NamedUri testPage = new NamedUri("QueriesTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheTypeAttributeFromAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -30,7 +30,7 @@ public class QueriesTests
         Assert.That(value, Is.EqualTo("password"));
     }
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheClickabilityFromSomeElementsShouldReturnTheCorrectResults(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -41,7 +41,7 @@ public class QueriesTests
         Assert.That(values, Is.EqualTo(new bool[] { true, false }));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheCssPropertyFromAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -52,7 +52,7 @@ public class QueriesTests
         Assert.That(result, Is.EqualTo(Selenium.Color.Parse("rgba(170, 170, 255, 1)")));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheLocationOfAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -63,7 +63,7 @@ public class QueriesTests
         Assert.That(result, Is.EqualTo(new Point(700, 120)));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheSizeOfAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -74,7 +74,7 @@ public class QueriesTests
         Assert.That(result, Is.EqualTo(new Size(400, 150)));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheTextOfAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -85,7 +85,7 @@ public class QueriesTests
         Assert.That(result, Is.EqualTo("This div has a size of 400px by 150px."));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheValueOfAnElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -96,7 +96,7 @@ public class QueriesTests
         Assert.That(result, Is.EqualTo("secret"));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheVisibilityOfAVisibleElementShouldReturnTrue(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -107,7 +107,7 @@ public class QueriesTests
         Assert.That(result, Is.True);
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheVisibilityOfAnInvisibleElementShouldReturnFalse(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -118,7 +118,7 @@ public class QueriesTests
         Assert.That(result, Is.False);
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingAllOptionsFromASelectElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -129,7 +129,7 @@ public class QueriesTests
         Assert.That(result.Select(x => x.Text), Is.EqualTo(new string[] { "Option 1", "Option 2", "Option 3", "Option 4" }));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheSelectedOptionsFromASelectElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
@@ -140,7 +140,7 @@ public class QueriesTests
         Assert.That(result.Select(x => x.Text), Is.EqualTo(new string[] { "Option 1", "Option 3" }));
     }
     
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task ReadingTheUnselectedOptionsFromASelectElementShouldReturnTheCorrectResult(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();

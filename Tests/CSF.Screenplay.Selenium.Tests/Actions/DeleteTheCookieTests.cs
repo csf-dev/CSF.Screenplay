@@ -14,7 +14,7 @@ public class DeleteTheCookieTests
 
     static readonly NamedUri testPage = new NamedUri("DeleteTheCookieTests.html", "the test page");
 
-    [Test, Screenplay, Retry(3)]
+    [Test, Screenplay, Retry(3, RetryExceptions = [typeof(System.InvalidOperationException)])]
     public async Task DeleteTheCookieNamedShouldLeaveOneCookie(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
