@@ -8,18 +8,19 @@ export class AssetsWriter {
 
     writeAssets(reportable) {
         const assetsRootElement = this.#reportableElement.querySelector('.assets');
+
         if (!reportable.Assets?.length) {
             assetsRootElement.remove();
+            return;
         }
-        else {
-            const assetsElement = assetsRootElement.querySelector('ul');
 
-            for (const asset of reportable.Assets) {
-                const assetElement = this.#assetTemplateElement.content.cloneNode(true);
-                const behaviour = new AssetBehaviour(this.#litebox, assetElement, asset);
-                assetsElement.appendChild(assetElement);
-                behaviour.initialise();
-            }
+        const assetsElement = assetsRootElement.querySelector('ul');
+
+        for (const asset of reportable.Assets) {
+            const assetElement = this.#assetTemplateElement.content.cloneNode(true);
+            const behaviour = new AssetBehaviour(this.#litebox, assetElement, asset);
+            assetsElement.appendChild(assetElement);
+            behaviour.initialise();
         }
     }
 

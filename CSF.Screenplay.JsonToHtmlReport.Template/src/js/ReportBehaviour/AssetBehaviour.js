@@ -41,7 +41,7 @@ export class AssetBehaviour {
         const binaryData = atob(base64Data);
         const buffer = new Uint8Array(binaryData.length);
         for (let i = 0; i < binaryData.length; i++) {
-            buffer[i] = binaryData.charCodeAt(i);
+            buffer[i] = binaryData.codePointAt(i);
         }
         return buffer;
     }
