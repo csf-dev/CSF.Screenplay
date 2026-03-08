@@ -58,8 +58,7 @@ public class ScreenplayReportSerializerTests
         using var stream = new MemoryStream(Encoding.UTF8.GetBytes(reportJson));
         var result = await sut.DeserializeAsync(stream);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.Null, "The deserialized report should not be null.");
             Assert.That(result.Metadata.Timestamp, Is.EqualTo(new DateTime(2021, 1, 1, 0, 0, 0, DateTimeKind.Utc)), "The timestamp should be correct.");
             Assert.That(result.Metadata.ReportFormatVersion, Is.EqualTo("2.0.0"), "The report format version should be correct.");
@@ -84,7 +83,6 @@ public class ScreenplayReportSerializerTests
             Assert.That(performableReport.Assets.Single().FilePath, Is.EqualTo("../a/file/path.txt"), "The asset file path should be correct.");
             Assert.That(performableReport.Assets.Single().FileSummary, Is.EqualTo("This is a test asset"), "The asset file summary should be correct.");
             Assert.That(performableReport.Reportables, Has.Count.EqualTo(1), "There should be one nested reportable.");
-        });
     }
 
     [Test, AutoMoqData]

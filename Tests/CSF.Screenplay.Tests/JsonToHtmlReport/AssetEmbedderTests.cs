@@ -25,15 +25,13 @@ public class AssetEmbedderTests
         await sut.EmbedReportAssetsAsync(report, new () { EmbeddedFileExtensions = "jpeg", EmbeddedFileSizeThresholdKb = 50 });
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(performable.Assets,
                         Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset2Filename, FileData: not null }),
                         "JPEG asset has been embedded");
             Assert.That(performable.Assets,
                         Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset1Filename, FileData: null }),
                         "PNG asset has not been embedded");
-        });
     }
 
     [Test, AutoMoqData]
@@ -50,15 +48,13 @@ public class AssetEmbedderTests
         await sut.EmbedReportAssetsAsync(report, new () { EmbeddedFileExtensions = "png,jpeg", EmbeddedFileSizeThresholdKb = 10 });
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(performable.Assets,
                         Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset2Filename, FileData: null }),
                         "JPEG asset has not been embedded");
             Assert.That(performable.Assets,
                         Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset1Filename, FileData: not null }),
                         "PNG asset has been embedded");
-        });
     }
 
     [Test, AutoMoqData]
@@ -67,14 +63,12 @@ public class AssetEmbedderTests
         await sut.EmbedReportAssetsAsync(report, new () { EmbeddedFileExtensions = "png,jpeg", EmbeddedFileSizeThresholdKb = 50 });
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             var asset1Data = performable.Assets.FirstOrDefault(x => x.FileName == SampleAssetsCustomization.Asset1Filename)?.FileData;
             Assert.That(asset1Data, Is.EqualTo(asset1Base64), "PNG asset encoded correctly");
 
             var asset2Data = performable.Assets.FirstOrDefault(x => x.FileName == SampleAssetsCustomization.Asset2Filename)?.FileData;
             Assert.That(asset2Data, Is.EqualTo(asset2Base64), "JPEG asset encoded correctly");
-        });
     }
 
 }

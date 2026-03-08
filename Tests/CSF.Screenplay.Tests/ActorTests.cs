@@ -63,11 +63,9 @@ public class ActorTests
 
         sut.Dispose();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             ability1.Verify(x => x.Dispose(), Times.Once, "Ability 1 has been disposed");
             ability2.Verify(x => x.Dispose(), Times.Once, "Ability 2 has been disposed");
-        });
     }
 
     [Test,AutoMoqData]
@@ -150,11 +148,9 @@ public class ActorTests
         sut.BeginPerformable -= OnBeginPerformable;
         sut.EndPerformable -= OnEndPerformable;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(beginPerformable, Is.True, "BeginPerformable was triggered");
             Assert.That(endPerformable, Is.True, "EndPerformable was triggered");
-        });
     }
 
     [Test,AutoMoqData]
@@ -166,12 +162,10 @@ public class ActorTests
 
         Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws<InvalidOperationException>();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
-        });
     }
 
     [Test,AutoMoqData]
@@ -211,12 +205,10 @@ public class ActorTests
         sut.PerformableResult -= OnPerformableResult;
         sut.EndPerformable -= OnEndPerformable;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(beginPerformable, Is.True, "BeginPerformable was triggered");
             Assert.That(result, Is.SameAs(expectedResult), "PerformableResult was triggered");
             Assert.That(endPerformable, Is.True, "EndPerformable was triggered");
-        });
     }
 
     [Test,AutoMoqData]
@@ -228,12 +220,10 @@ public class ActorTests
 
         Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws<InvalidOperationException>();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
-        });
     }
 
     [Test,AutoMoqData]
@@ -273,12 +263,10 @@ public class ActorTests
         sut.PerformableResult -= OnPerformableResult;
         sut.EndPerformable -= OnEndPerformable;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(beginPerformable, Is.True, "BeginPerformable was triggered");
             Assert.That(result, Is.SameAs(expectedResult), "PerformableResult was triggered");
             Assert.That(endPerformable, Is.True, "EndPerformable was triggered");
-        });
     }
 
     [Test,AutoMoqData]
@@ -290,12 +278,10 @@ public class ActorTests
 
         Mock.Get(performable).Setup(x => x.PerformAsAsync(sut, It.IsAny<CancellationToken>())).Throws<InvalidOperationException>();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(async () => await ((ICanPerform)sut).PerformAsync(performable), Throws.InstanceOf<PerformableException>(), "PerformAsync throws an exception");
             sut.PerformableFailed -= OnPerformableFailed;
             Assert.That(exceptionCaught, Is.InstanceOf<InvalidOperationException>(), "The correct exception was caught");
-        });
     }
 
     [Test,AutoMoqData]

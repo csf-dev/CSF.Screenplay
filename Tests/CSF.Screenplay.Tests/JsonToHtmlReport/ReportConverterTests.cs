@@ -34,12 +34,10 @@ public class ReportConverterTests
         
         await sut.ConvertAsync(options);
 
-        Assert.Multiple(async () =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(options.ReportPath, Does.Exist, "Report exists");
             using var reader = new StreamReader(File.Open(options.OutputPath, FileMode.Open));
             var reportContent = await reader.ReadToEndAsync();
             Assert.That(reportContent, Is.EqualTo("<html><script>SAMPLE REPORT</script></html>"), "Report has correct content");
-        });
     }
 }

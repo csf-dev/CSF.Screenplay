@@ -21,11 +21,9 @@ public class ReportFormatCreatorTests
         var sut = new ReportFormatCreator();
         var actual = sut.GetReportFormat(original, Array.Empty<object>());
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(actual?.OriginalTemplate, Is.EqualTo(original), "Original value is unchanged");
             Assert.That(actual?.FormatTemplate, Is.EqualTo(expected), "Expected value is correct");
-        });
     }
 
     [TestCase("", "", "", "")]
@@ -53,13 +51,11 @@ public class ReportFormatCreatorTests
     {
         var template = "{foo} content {bar} content {baz}";
         var actual = sut.GetReportFormat(template, [value1, value2, value3]);
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(actual.Values, Has.Count.EqualTo(3), "Count");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "foo" && x.Value == value1), "Value 1");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "bar" && x.Value == value2), "Value 2");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "baz" && x.Value == value3), "Value 3");
-        });
     }
 
     [Test,AutoMoqData]
@@ -68,12 +64,10 @@ public class ReportFormatCreatorTests
         var template = "{foo} content {bar} content";
         var actual = sut.GetReportFormat(template, [value1, value2, value3]);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(actual.Values, Has.Count.EqualTo(2), "Count");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "foo" && x.Value == value1), "Value 1");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "bar" && x.Value == value2), "Value 2");
-        });
     }
 
     [Test,AutoMoqData]
@@ -82,12 +76,10 @@ public class ReportFormatCreatorTests
         var template = "{foo} content {bar} content {baz}";
         var actual = sut.GetReportFormat(template, [value1, value2]);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(actual.Values, Has.Count.EqualTo(3), "Count");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "foo" && x.Value == value1), "Value 1");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "bar" && x.Value == value2), "Value 2");
             Assert.That(actual.Values, Has.One.Matches<NameAndValue>(x => x.Name == "baz" && x.Value == null), "Value 3");
-        });
     }
 }

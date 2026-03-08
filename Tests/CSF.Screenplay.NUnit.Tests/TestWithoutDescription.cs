@@ -29,10 +29,8 @@ public class TestWithoutDescription
 
     static void AssertThatPerformanceHasCorrectState(IPerformance performance, IdentifierAndName[] expectedNamingHierarchy)
     {
-        Assert.Multiple(() =>
-        {
-            Assert.That(performance, Is.Not.Null, "Performance must not be null");
-            Assert.That(performance.NamingHierarchy, Is.EqualTo(expectedNamingHierarchy), "Performance naming hierarchy is correct");
-        });
+        using var scope = Assert.EnterMultipleScope();
+        Assert.That(performance, Is.Not.Null, "Performance must not be null");
+        Assert.That(performance.NamingHierarchy, Is.EqualTo(expectedNamingHierarchy), "Performance naming hierarchy is correct");
     }
 }

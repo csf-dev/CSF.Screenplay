@@ -28,11 +28,9 @@ public class ColorTests
     public void TryParseShouldReturnTrueAndExposeACorrespondingColorForAValidString(string colorString, byte red, byte green, byte blue, double alpha)
     {
         var result = Color.TryParse(colorString, out var color);
-        Assert.Multiple(() =>
-        {
-            Assert.That(result, Is.True, "Parsing success");
-            Assert.That(color, Is.EqualTo(new Color(red, green, blue, alpha)), "Expected color matches");
-        });
+        using var scope = Assert.EnterMultipleScope();
+        Assert.That(result, Is.True, "Parsing success");
+        Assert.That(color, Is.EqualTo(new Color(red, green, blue, alpha)), "Expected color matches");
     }
 
     [TestCase("rgb(1, 2, 3)", 1, 2, 3, 1)]

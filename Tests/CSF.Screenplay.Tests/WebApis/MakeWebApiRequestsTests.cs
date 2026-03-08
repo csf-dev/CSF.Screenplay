@@ -19,11 +19,9 @@ public class MakeWebApiRequestsTests
 
         actor.Dispose();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(IsDisposed(client1), Is.True, "Client 1 disposed");
             Assert.That(IsDisposed(client2), Is.True, "Client 2 disposed");
-        });
     }
 
     [Test,AutoMoqData]

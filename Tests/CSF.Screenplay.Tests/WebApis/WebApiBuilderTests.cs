@@ -90,11 +90,9 @@ public class WebApiBuilderTests
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         var result = await When(actor).AttemptsTo(GetTheJsonResult(endpoint));
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.SameAs(expectedPayload), "Result and expected payload are not the same object (it has been through a serialization roundtrip)");
             Assert.That(result, Is.EqualTo(expectedPayload), "Result is equal to expected payload");
-        });
     }
 
     [Test,AutoMoqData]
@@ -111,11 +109,9 @@ public class WebApiBuilderTests
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         var result = await When(actor).AttemptsTo(GetTheJsonResult(endpoint, parameters));
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.SameAs(expectedPayload), "Result and expected payload are not the same object (it has been through a serialization roundtrip)");
             Assert.That(result, Is.EqualTo(expectedPayload), "Result is equal to expected payload");
-        });
     }
 }
 

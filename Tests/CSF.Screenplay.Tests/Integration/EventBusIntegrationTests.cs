@@ -54,15 +54,13 @@ public class EventBusIntegrationTests
         eventPublisher.EndPerformable -= OnEndPerformable;
         eventPublisher.PerformableResult -= OnPerformableResult;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(performanceBegun, Is.True, $"{nameof(OnPerformanceBegun)} was triggered");
             Assert.That(performanceFinished, Is.True, $"{nameof(OnPerformanceFinished)} was triggered");
             Assert.That(createdActor, Has.Property(nameof(IHasName.Name)).EqualTo("Joe"), $"{nameof(OnActorCreated)} was triggered");
             Assert.That(performablesBegun, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnBeginPerformable)} was triggered with the right performables");
             Assert.That(performablesEnded, Is.EqualTo(new object[] { sampleAction, sampleQuestion }),  $"{nameof(OnEndPerformable)} was triggered with the right performables");
             Assert.That(performableResults, Is.EqualTo(new object[] { "Joe" }),  $"{nameof(OnPerformableResult)} was triggered with the right performables");
-        });
     }
 
     [Test,AutoMoqData]
@@ -91,11 +89,9 @@ public class EventBusIntegrationTests
         eventPublisher.ActorSpotlit -= OnActorSpotlit;
         eventPublisher.SpotlightTurnedOff -= OnSpotlightTurnedOff;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(spotlitActor, Has.Property(nameof(IHasName.Name)).EqualTo("Joe"), $"{nameof(OnActorSpotlit)} was triggered");
             Assert.That(spotlightOff, Is.True, $"{nameof(OnSpotlightTurnedOff)} was triggered");
-        });
     }
 
     [Test,AutoMoqData]
@@ -149,13 +145,11 @@ public class EventBusIntegrationTests
         eventPublisher.PerformableFailed -= OnPerformableFailed;
         eventPublisher.PerformanceFinished -= OnPerformanceFinished;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(exceptionCaught,
                         Is.InstanceOf<InvalidOperationException>().And.Property(nameof(Exception.Message)).EqualTo(ThrowingAction.Message),
                         $"{nameof(OnPerformableFailed)} was triggered");
             Assert.That(result, Is.False, $"{nameof(OnPerformanceFinished)} was triggered");
-        });
     }
 
     [Test,AutoMoqData]
@@ -230,10 +224,8 @@ public class EventBusIntegrationTests
 
         eventPublisher.RecordAsset -= OnRecordsAsset;
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(filePath, Is.EqualTo(expectedPath), "File path");
             Assert.That(fileSummary, Is.EqualTo(expectedSummary), "File summary");
-        });
     }
 }

@@ -14,8 +14,7 @@ public class ServiceCollectionAdapterTests
         var container = new ObjectContainer();
         var sut = new ServiceCollectionAdapter(container);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(() => sut[0], Throws.InstanceOf<NotSupportedException>(), "Indexer get");
             Assert.That(() => sut[0] = null, Throws.InstanceOf<NotSupportedException>(), "Indexer set");
             Assert.That(() => sut.Clear(), Throws.InstanceOf<NotSupportedException>(), nameof(IServiceCollection.Clear));
@@ -27,7 +26,6 @@ public class ServiceCollectionAdapterTests
             Assert.That(() => sut.Insert(default, null), Throws.InstanceOf<NotSupportedException>(), nameof(IServiceCollection.Insert));
             Assert.That(() => sut.Remove(null), Throws.InstanceOf<NotSupportedException>(), nameof(IServiceCollection.Remove));
             Assert.That(() => sut.RemoveAt(default), Throws.InstanceOf<NotSupportedException>(), nameof(IServiceCollection.RemoveAt));
-        });
     }
 
     [Test]
