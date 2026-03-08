@@ -1,23 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Reflection;
-using System.Text;
 using BrowserStack;
 using CSF.Screenplay.Performances;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CSF.Screenplay.Selenium.BrowserStack;
 
 public sealed class BrowserStackExtension : IDisposable
 {
-    const string urlPattern = "https://api.browserstack.com/automate/sessions/{0}.json";
-
     Local? browserStackLocal;
     IHasPerformanceEvents? eventBus;
-    HttpClient? httpClient;
 
     public async Task OnTestRunStarting()
     {
@@ -33,8 +27,6 @@ public sealed class BrowserStackExtension : IDisposable
         }
         if(!browserStackLocal.isRunning()) throw new TimeoutException("BrowserStack Local is still not running after 20 seconds");
 
-        httpClient = GetHttpClient();
-
         eventBus = ScreenplayLocator.GetScreenplay(Assembly.GetExecutingAssembly()).GetEventBus();
         eventBus.PerformanceFinished += UpdateBrowserStackSession;
 
@@ -44,43 +36,24 @@ public sealed class BrowserStackExtension : IDisposable
     {
         if(!e.Success.HasValue) return;
 
-        var sessionId = BrowserStackSessionIdProvider.GetBrowserStackSessionId(e.Performance);
-        if(sessionId is null) return;
-        
-        var uri = GetApiUri(sessionId);
-        var requestMessage = GetRequestMessage(uri, e.Success.Value);
-        httpClient!.Send(requestMessage);
-    }
+        var cast = e.Performance.ServiceProvider.GetRequiredService<ICast>();
+        var ability = (from actorName in cast.GetCastList()
+                       let actor = cast.GetActor(actorName)
+                       where ((IHasAbilities) actor).HasAbility<BrowseTheWeb>()
+                       select actor.GetAbility<BrowseTheWeb>())
+            .FirstOrDefault();
 
-    static HttpRequestMessage GetRequestMessage(Uri requestUri, bool success)
-    {
-        return new (HttpMethod.Put, requestUri)
-        {
-            Content = JsonContent.Create(@$"{{""status"":""{ (success ? "passed" : "failed") }"", ""reason"":""""}}"),
-        };
-    }
+        if(ability is null) return;
 
-    static Uri GetApiUri(string sessionId) => new(string.Format(urlPattern, sessionId));
-
-    static HttpClient GetHttpClient()
-    {
-        var client = new HttpClient();
-        client.DefaultRequestHeaders.Authorization = GetAuthenticationHeaderValue();
-        return client;
-    }
-
-    static AuthenticationHeaderValue GetAuthenticationHeaderValue()
-    {
-        var headerBytes = Encoding.ASCII.GetBytes($"{BrowserStackEnvironment.GetBrowserStackUserName()}:{BrowserStackEnvironment.GetBrowserStackAccessKey()}");
-        var headerValue = Convert.ToBase64String(headerBytes);
-        return new ("Basic", headerValue);
+        var jsExecutor = ability.GetJavaScriptExecutor();
+        var json = $@"{{""action"":""setSessionStatus"",""arguments"":{{""status"":""{(e.Success.Value ? "passed" : "failed")}"",""reason"":""Test completion""}}}}";
+        jsExecutor.ExecuteScript("browserstack_executor: " + json);
     }
 
     /// <inheritdoc/>
     public void Dispose()
     {
         browserStackLocal?.stop();
-        httpClient?.Dispose();
 
         if(eventBus is null) return;
         eventBus.PerformanceFinished -= UpdateBrowserStackSession;
