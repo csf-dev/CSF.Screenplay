@@ -66,8 +66,6 @@
       items:
         - name: Assets
           href: Assets.md
-    - name: Performables
-      href: performables/toc.yml
 - name: Best practices
   items:
     - name: When to use for tests

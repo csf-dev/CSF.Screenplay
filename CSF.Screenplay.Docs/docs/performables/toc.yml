@@ -1,6 +1,0 @@
-- name: Introduction
-  href: index.md
-- name: Stopwatch
-  uid: CSF.Screenplay.Performables.StopwatchBuilder
-- name: TimeSpan builder
-  uid: CSF.Screenplay.Performables.TimeSpanBuilder`1
