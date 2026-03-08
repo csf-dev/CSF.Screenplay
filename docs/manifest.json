@@ -764,20 +764,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performables.IProvidesTimeSpan.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Performables.IProvidesTimeSpan.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Performables.IProvidesTimeSpan",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.IProvidesTimeSpan.yml\" sourcestartlinenumber=\"1\">A type which may provide a <xref href=\"System.TimeSpan\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.PerformableException.yml",
       "output": {
         ".html": {
@@ -859,34 +845,6 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Performables.StopwatchBuilder",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.StopwatchBuilder.yml\" sourcestartlinenumber=\"1\">A builder for actions relating to the <xref href=\"CSF.Screenplay.Abilities.UseAStopwatch\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder-1.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Performables.TimeSpanBuilder<TOtherBuilder>",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.TimeSpanBuilder-1.yml\" sourcestartlinenumber=\"1\">A supplementary builder type which enables the collection of <xref href=\"System.TimeSpan\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Performables.TimeSpanBuilder.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Performables.TimeSpanBuilder",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.TimeSpanBuilder.yml\" sourcestartlinenumber=\"1\">Static helper class for creating instances of <xref href=\"CSF.Screenplay.Performables.TimeSpanBuilder%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4112,11 +4070,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -4205,11 +4163,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/builderPattern/toc.json"
-        },
         ".html": {
           "relative_path": "docs/builderPattern/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/builderPattern/toc.json"
         }
       },
       "version": ""
@@ -4478,11 +4436,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/selenium/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/selenium/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/selenium/toc.json"
         }
       },
       "version": ""
@@ -4541,11 +4499,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/webApis/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/webApis/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/webApis/toc.json"
         }
       },
       "version": ""
@@ -4631,37 +4589,14 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "docs/performables/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/performables/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "docs/performables/toc.yml",
-      "output": {
-        ".json": {
-          "relative_path": "docs/performables/toc.json"
-        },
-        ".html": {
-          "relative_path": "docs/performables/toc.html"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -4920,11 +4855,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "glossary/toc.json"
-        },
         ".html": {
           "relative_path": "glossary/toc.html"
+        },
+        ".json": {
+          "relative_path": "glossary/toc.json"
         }
       },
       "version": ""
@@ -5003,11 +4938,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

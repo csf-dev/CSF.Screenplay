@@ -87,11 +87,21 @@
         <article data-uid="">
 <h1 id="screenplay-extensions">Screenplay extensions</h1>
 
-<p>This page lists the officially-supported <strong><a href="../../glossary/Extension.html">Screenplay Extensions</a></strong>.</p>
+<p>Most of the useful functionality of Screenplay comes from <strong><a href="../../glossary/Extension.html">Screenplay Extensions</a></strong>.
+Extensions typically provide <a href="../../glossary/Ability.html">Abilities</a>, <a href="../../glossary/Performable.html">Performables</a> and <a href="../builderPattern/index.html">Builders</a> which offer functionality relevant to that extension's technology.</p>
+<h2 id="officially-supported-extensions">Officially-supported extensions</h2>
+<p>These extensions are authored and maintained alongside the main Screenplay library.
+Developers are encouraged and welcomed to create their own extensions, too.</p>
 <ul>
 <li><strong><a href="selenium/index.html">Selenium</a></strong>: <em>remote control Web Browsers using Selenium Web Driver</em></li>
 <li><strong><a href="webApis/index.html">Web APIs</a></strong>: <em>communicate with Web APIs with an HTTP Client</em></li>
 </ul>
+<h2 id="built-in-abilities-and-performables">Built-in abilities and performables</h2>
+<p>Screenplay offers a very small number of abilities and performables within the base library; these do not require the installation of an extension.</p>
+<h3 id="using-a-stopwatch">Using a Stopwatch</h3>
+<p>When an actor needs to keep precise track of time, you may give them the <a class="xref" href="../../api/CSF.Screenplay.Abilities.UseAStopwatch.html"><code>UseAStopwatch</code></a> ability.
+Actors with this ability may use Actions and Questions which relate to use of the stopwatch.
+These are all accessible from the builder class <a class="xref" href="../../api/CSF.Screenplay.Performables.StopwatchBuilder.html"><code>StopwatchBuilder</code></a>.</p>
 
 </article>
 
