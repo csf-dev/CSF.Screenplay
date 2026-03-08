@@ -58,10 +58,8 @@ public class EnterTheDateTests
         await When(webster).AttemptsTo(EnterTheDate(new DateTime(2025, 11, 12)).Into(inputArea).ForTheCultureNamed("ja-JP"));
         var result = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.EqualTo(string.Empty), "The date shouldn't be empty");
             Assert.That(result, Is.Not.EqualTo("2025-11-12"), "The date shouldn't be the value which was entered either, because of the culture/format difference"); 
-        });
     }
 }

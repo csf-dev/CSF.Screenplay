@@ -25,10 +25,9 @@ public class PerformanceIntegrationTests
             return true;
         });
 
-        Assert.Multiple(() => {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sampleAction.ActorName, Is.EqualTo("Joe"), "Action result");
             Assert.That(question1Result, Is.EqualTo(5), "Question 1 result");
             Assert.That(question2Result, Is.EqualTo("Joe"), "Question 2 result");
-        });
     }
 }

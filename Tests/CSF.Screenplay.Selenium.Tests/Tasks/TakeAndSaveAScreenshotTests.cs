@@ -28,11 +28,9 @@ public class TakeAndSaveAScreenshotTests
             webster.RecordsAsset -= OnRecordsAsset;
         }
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(screenshotPath, Is.Not.Null);
             Assert.That(screenshotPath, Does.Exist);
-        });
     }
 
     void OnRecordsAsset(object? sender, PerformableAssetEventArgs e)

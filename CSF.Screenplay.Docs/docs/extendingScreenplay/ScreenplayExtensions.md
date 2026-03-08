@@ -3,18 +3,18 @@
 Screenplay ships [with a small number of Abilities and performables] but it is designed to be extended with new ones.
 New [Abilities], [Actions] and [Questions] extend [Screenplay] by allowing [Actors] to interact with new APIs, services and libraries.
 
-Broadly-speaking to extend Screenplay in this way you must: 
+Broadly-speaking, to extend Screenplay in this way you must:
 
 * Write one or more new ability types which provide access to the API of the service or library with which you'd like to interact
 * Write one or more Action and/or Question [Performables] which make use of that ability
 
-[with a small number of Abilities and performables]: ../performables/index.md
+[with a small number of Abilities and performables]: ../extensions/index.md#built-in-abilities-and-performables
 [Screenplay]: xref:CSF.Screenplay.Screenplay
 
 ## Writing abilities
 
 Recall that [Abilities] represent capabilities & dependencies granted to or associated with [Actors].
-It is normal for developers to want to write new Ability classes in order to provide capabilities/dependencies which are not yet catered-for. 
+It is normal for developers to want to write new Ability classes in order to provide capabilities/dependencies which are not yet catered-for.
 
 Ability classes do not _need to derive_ from any particular base type, although it is strongly recommended that they implement [`ICanReport`].
 Ability classes [may constructor-inject dependencies] and should declare whatever API is appropriate.

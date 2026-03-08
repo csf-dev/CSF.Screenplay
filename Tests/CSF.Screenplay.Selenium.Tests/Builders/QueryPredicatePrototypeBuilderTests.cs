@@ -24,11 +24,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.AttributeValue("data-test", v => v.StartsWith("foo")).GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -45,11 +43,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.AttributeValue("data-test", "foobar").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -66,11 +62,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Attribute("data-test").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -87,11 +81,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Class("foobar").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -108,11 +100,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.NotClass("qux").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -129,11 +119,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.AllClasses("foobar", "baz").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -154,13 +142,11 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Clickable().GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement1), Is.False, "Non-matching element 1 should not match");
             Assert.That(sut.Matches(nonMatchingElement2), Is.False, "Non-matching element 2 should not match");
             Assert.That(sut.Matches(nonMatchingElement3), Is.False, "Non-matching element 3 should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -177,11 +163,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.CssProperty("color", v => v == Colors.RED).GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -198,11 +182,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.CssProperty("color", Colors.RED.ToRgbaString()).GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -215,11 +197,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Location(new Point(100, 200)).GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -232,11 +212,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Size(new Size(100, 200)).GetElementSpecification(); 
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -249,11 +227,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Text("Hello World").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -266,11 +242,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Value("Hello World").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -283,11 +257,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.Visible().GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -312,11 +284,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.SelectedOptionsWithText("Option 1", "Option 3").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -341,11 +311,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.SelectedOptionsWithValue("1", "3").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -370,11 +338,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.UnselectedOptionsWithText("Option 2").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -399,11 +365,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.UnselectedOptionsWithValue("2").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 
     [Test, AutoMoqData]
@@ -427,11 +391,9 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.OptionsWithText("Option 1", "Option 2", "Option 3").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
     
     [Test, AutoMoqData]
@@ -455,10 +417,8 @@ public class QueryPredicatePrototypeBuilderTests
 
         var sut = builder.OptionsWithValue("1", "2", "3").GetElementSpecification();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(sut.Matches(matchingElement), Is.True, "Matching element should match");
             Assert.That(sut.Matches(nonMatchingElement), Is.False, "Non-matching element should not match");
-        });
     }
 }

@@ -8,11 +8,9 @@ namespace CSF.Screenplay.JsonToHtmlReport
         {
             var result = await sut.ReadTemplate();
 
-            Assert.Multiple(() =>
-            {
+        using var scope = Assert.EnterMultipleScope();
                 Assert.That(result, Is.Not.Null, "Not null");
                 Assert.That(result, Is.Not.Empty, "Not empty");
-            });
         }
     }
 }

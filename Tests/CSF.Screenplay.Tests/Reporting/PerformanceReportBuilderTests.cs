@@ -123,8 +123,7 @@ public class PerformanceReportBuilderTest
         sut.EndPerformable(performable1, actor);
         var report = sut.GetReport(outcome);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(report.Reportables, Has.Count.EqualTo(1), "Only one reportable should be present at root level");
 
             var taskReport = report.Reportables.OfType<PerformableReport>().Single();
@@ -132,7 +131,6 @@ public class PerformanceReportBuilderTest
             Assert.That(taskReport.Reportables.OfType<PerformableReport>().Select(x => x.PerformableType),
                         Is.EqualTo(new[] { "CSF.Screenplay.Performables.StartTheStopwatch", "CSF.Screenplay.Performables.StopTheStopwatch" }),
                         "The child reports should be of the correct performable types");
-        });
     }
 
 

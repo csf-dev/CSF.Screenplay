@@ -22,13 +22,11 @@ public class ReportFragmentFormatterTests
 
         var result = sut.Format(template, values);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(result.OriginalTemplate, Is.EqualTo(template), "Original template is correct");
             Assert.That(result.FormattedFragment, Is.EqualTo("Joe washes 5 dishes"), "Formatted fragment is correct");
             Assert.That(result.PlaceholderValues, Has.Count.EqualTo(2), "Count of placeholder items");
             Assert.That(result.PlaceholderValues, Has.One.Matches<NameAndValue>(x => x.Name == "Actor" && Equals(x.Value, "Joe")), "First placeholder item");
             Assert.That(result.PlaceholderValues, Has.One.Matches<NameAndValue>(x => x.Name == "Count" && Equals(x.Value, 5)), "Second placeholder item");
-        });
     }
 }

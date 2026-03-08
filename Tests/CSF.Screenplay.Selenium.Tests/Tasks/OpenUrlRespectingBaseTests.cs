@@ -36,13 +36,11 @@ public class OpenUrlRespectingBaseTests
         {
             await sut.PerformAsAsync(actor);
 
-            Assert.Multiple(() =>
-            {
+            using var scope = Assert.EnterMultipleScope();
                 Assert.That(performable, Is.InstanceOf<OpenUrl>(), "Performable is correct type");
                 Assert.That(((OpenUrl) performable!).GetReportFragment(actor, formatter).ToString(),
                             Is.EqualTo("Anthony opens their browser at the test page: https://example.com/test.html"),
                             "The report is correct");
-            });
         }
         finally
         {
@@ -71,13 +69,11 @@ public class OpenUrlRespectingBaseTests
         {
             await sut.PerformAsAsync(actor);
 
-            Assert.Multiple(() =>
-            {
+        using var scope = Assert.EnterMultipleScope();
                 Assert.That(performable, Is.InstanceOf<OpenUrl>(), "Performable is correct type");
                 Assert.That(((OpenUrl) performable!).GetReportFragment(actor, formatter).ToString(),
                             Is.EqualTo("Anthony opens their browser at the test page: https://contoso.com/test.html"),
                             "The report is correct");
-            });
         }
         finally
         {

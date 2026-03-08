@@ -27,11 +27,9 @@ public class CastTests
         var actor1 = sut.GetActor(name);
         var actor2 = sut.GetActor(name);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             Assert.That(actor1, Is.Not.Null, "Actors aren't null");
             Assert.That(actor1, Is.SameAs(actor2), "Same actor for second usage of the method");
-        });
     }
 
     [Test, AutoMoqData]

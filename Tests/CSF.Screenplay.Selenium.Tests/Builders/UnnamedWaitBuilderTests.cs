@@ -19,11 +19,10 @@ public class UnnamedWaitBuilderTests
 
         var performable = (Wait) ((IGetsPerformable) sut).GetPerformable();
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
+
             Assert.That(performable, Has.PrivateFieldEqualTo("timeout", TimeSpan.FromSeconds(10)));
             Assert.That(performable, Has.PrivateFieldEqualTo("pollingInterval", TimeSpan.FromMilliseconds(500)));
             Assert.That(performable, Has.PrivateFieldEqualTo("ignoredExceptionTypes", new [] { typeof(InvalidOperationException), typeof(ArgumentException) }));
-        });
     }
 }

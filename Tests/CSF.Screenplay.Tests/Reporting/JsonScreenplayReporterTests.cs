@@ -13,8 +13,7 @@ public class JsonScreenplayReporterTest
     {
         sut.SubscribeTo(mockEvents.Object);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             mockEvents.VerifyAdd(e => e.ScreenplayStarted += It.IsAny<EventHandler>(), Times.Once);
             mockEvents.VerifyAdd(e => e.ScreenplayEnded += It.IsAny<EventHandler>(), Times.Once);
             mockEvents.VerifyAdd(e => e.PerformanceBegun += It.IsAny<EventHandler<PerformanceEventArgs>>(), Times.Once);
@@ -28,7 +27,6 @@ public class JsonScreenplayReporterTest
             mockEvents.VerifyAdd(e => e.GainedAbility += It.IsAny<EventHandler<GainAbilityEventArgs>>(), Times.Once);
             mockEvents.VerifyAdd(e => e.ActorSpotlit += It.IsAny<EventHandler<ActorEventArgs>>(), Times.Once);
             mockEvents.VerifyAdd(e => e.SpotlightTurnedOff += It.IsAny<EventHandler<PerformanceScopeEventArgs>>(), Times.Once);
-        });
     }
 
     [Test, AutoMoqData]
@@ -39,8 +37,7 @@ public class JsonScreenplayReporterTest
 
         sut.UnsubscribeFrom(mockEvents.Object);
 
-        Assert.Multiple(() =>
-        {
+        using var scope = Assert.EnterMultipleScope();
             mockEvents.VerifyRemove(e => e.ScreenplayStarted -= It.IsAny<EventHandler>(), Times.Once);
             mockEvents.VerifyRemove(e => e.ScreenplayEnded -= It.IsAny<EventHandler>(), Times.Once);
             mockEvents.VerifyRemove(e => e.PerformanceBegun -= It.IsAny<EventHandler<PerformanceEventArgs>>(), Times.Once);
@@ -54,7 +51,6 @@ public class JsonScreenplayReporterTest
             mockEvents.VerifyRemove(e => e.GainedAbility -= It.IsAny<EventHandler<GainAbilityEventArgs>>(), Times.Once);
             mockEvents.VerifyRemove(e => e.ActorSpotlit -= It.IsAny<EventHandler<ActorEventArgs>>(), Times.Once);
             mockEvents.VerifyRemove(e => e.SpotlightTurnedOff -= It.IsAny<EventHandler<PerformanceScopeEventArgs>>(), Times.Once);
-        });
     }
 
     [Test, AutoMoqData]
