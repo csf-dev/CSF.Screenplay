@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ReportModel_ReportableModelBase" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase" class="text-break">
-Class ReportableModelBase  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class ReportableModelBase  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -178,7 +178,7 @@ This base model has subclasses for each of the specific types of event which may
 
   <h3 id="CSF_Screenplay_ReportModel_ReportableModelBase_ActorName" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.ActorName">
   ActorName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the name of the <a class="xref" href="CSF.Screenplay.Actor.html">Actor</a> who is associated with this report.</p>
@@ -215,7 +215,7 @@ Almost all reportables involve an actor, it is rare for this value to be unset (
 
   <h3 id="CSF_Screenplay_ReportModel_ReportableModelBase_Report" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.Report">
   Report
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the human-readable text of the report.</p>
@@ -243,11 +243,66 @@ Almost all reportables involve an actor, it is rare for this value to be unset (
 
 
 
+  <a id="CSF_Screenplay_ReportModel_ReportableModelBase_Started_" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.Started*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_ReportableModelBase_Started" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.Started">
+  Started
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the relative time at which this reportable event occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Started { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_ReportableModelBase_Started_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+For many types of reportable items (derived from this type), only the start time is recorded, because it is expected that the
+activity upon which is being reported takes a trivial amount of time.
+For <a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html">PerformableReport</a> instances, an end time is also recorded, as these are expected to take an appreciable amount of time.
+</p>
+<p>
+This property is expressed as an amount of time since the Screenplay began.  The beginning of the Screenplay is recorded in the
+report metadata, at <a class="xref" href="CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp">Timestamp</a>.
+</p>
+<p>
+Recall that it is quite normal for performances and thus reportable actions to occur in parallel.
+Do not be alarmed if it appears that unrelated performances are interleaved with regard to their timings.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp">Timestamp</a></div>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Started">Started</a></div>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Ended">Ended</a></div>
+    </dd>
+  </dl>
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -160,9 +160,9 @@ This is a stateful builder, so instances of this type are not reusable for more 
 
   <a id="CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_CSF_Screenplay_Reporting_IGetsContentType_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType)">
-  PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt;, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_CSF_Screenplay_Reporting_IGetsContentType_CSF_Screenplay_Reporting_IMeasuresTime_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType,CSF.Screenplay.Reporting.IMeasuresTime)">
+  PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt;, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType, IMeasuresTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L279"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a>.</p>
@@ -170,7 +170,7 @@ This is a stateful builder, so instances of this type are not reusable for more 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt; namingHierarchy, IGetsValueFormatter valueFormatterProvider, IFormatsReportFragment formatter, IGetsContentType contentTypeProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public PerformanceReportBuilder(List&lt;IdentifierAndNameModel&gt; namingHierarchy, IGetsValueFormatter valueFormatterProvider, IFormatsReportFragment formatter, IGetsContentType contentTypeProvider, IMeasuresTime reportTimer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -186,6 +186,9 @@ This is a stateful builder, so instances of this type are not reusable for more 
 </dd>
     <dt><code>contentTypeProvider</code> <a class="xref" href="CSF.Screenplay.Reporting.IGetsContentType.html">IGetsContentType</a></dt>
     <dd><p>A content type provider service</p>
+</dd>
+    <dt><code>reportTimer</code> <a class="xref" href="CSF.Screenplay.Reporting.IMeasuresTime.html">IMeasuresTime</a></dt>
+    <dd><p>A report timer</p>
 </dd>
   </dl>
 
@@ -214,7 +217,7 @@ This is a stateful builder, so instances of this type are not reusable for more 
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorCreated_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorCreated(CSF.Screenplay.Actor)">
   ActorCreated(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has been created/added to the performance.</p>
@@ -247,7 +250,7 @@ This is a stateful builder, so instances of this type are not reusable for more 
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorGainedAbility_CSF_Screenplay_Actor_System_Object_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorGainedAbility(CSF.Screenplay.Actor,System.Object)">
   ActorGainedAbility(Actor, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has gained/been granted a new ability.</p>
@@ -283,7 +286,7 @@ This is a stateful builder, so instances of this type are not reusable for more 
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_ActorSpotlit_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.ActorSpotlit(CSF.Screenplay.Actor)">
   ActorSpotlit(Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that an actor has been placed into the spotlight.</p>
@@ -321,7 +324,7 @@ For more information, see <a class="xref" href="../glossary/Spotlight.html">the 
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_BeginPerformable_System_Object_CSF_Screenplay_Actor_System_String_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.BeginPerformable(System.Object,CSF.Screenplay.Actor,System.String)">
   BeginPerformable(object, Actor, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Begins a new report within the current performance, that a new performable has been begun.</p>
@@ -381,7 +384,7 @@ Thus, as performables begin and end, the current performable stack will be pushe
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_EndPerformable_System_Object_CSF_Screenplay_Actor_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.EndPerformable(System.Object,CSF.Screenplay.Actor)">
   EndPerformable(object, Actor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L239"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates that the current performable has finished normally and that it should no longer be current.</p>
@@ -431,7 +434,7 @@ performance).
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_GetReport_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.GetReport(System.Nullable{System.Boolean})">
   GetReport(bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Records the outcome of this performance and gets the report.</p>
@@ -477,7 +480,7 @@ that this builder instance will not be used any further.
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordAssetForCurrentPerformable_System_String_System_String_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable(System.String,System.String)">
   RecordAssetForCurrentPerformable(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L197"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enriches the current performable with information about a file asset.</p>
@@ -518,7 +521,7 @@ This method may be called many times for the same performable, or it might not b
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)">
   RecordFailureForCurrentPerformable(Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L260"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Records the current performable as a failure, due to an uncaught exception.</p>
@@ -559,7 +562,7 @@ performance).
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordResultForCurrentPerformable_System_Object_" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordResultForCurrentPerformable(System.Object)">
   RecordResultForCurrentPerformable(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Enriches the current performable with information about its result.</p>
@@ -597,7 +600,7 @@ This method is only applicable to performables which may return a result.
 
   <h3 id="CSF_Screenplay_Reporting_PerformanceReportBuilder_SpotlightTurnedOff" data-uid="CSF.Screenplay.Reporting.PerformanceReportBuilder.SpotlightTurnedOff">
   SpotlightTurnedOff()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/PerformanceReportBuilder.cs/#L138"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a report to the current performance indicating that the spotlight has been turned off.</p>

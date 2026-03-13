@@ -187,9 +187,9 @@ This means that all that is left to be done when the Screenplay completes is to 
 
   <a id="CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_System_IO_Stream_CSF_Screenplay_Reporting_ScreenplayReportBuilder_" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,CSF.Screenplay.Reporting.ScreenplayReportBuilder)">
-  JsonScreenplayReporter(Stream, ScreenplayReportBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_System_IO_Stream_System_Func_CSF_Screenplay_Reporting_IMeasuresTime_CSF_Screenplay_Reporting_ScreenplayReportBuilder__CSF_Screenplay_Reporting_IMeasuresTime_" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,System.Func{CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.ScreenplayReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)">
+  JsonScreenplayReporter(Stream, Func&lt;IMeasuresTime, ScreenplayReportBuilder&gt;, IMeasuresTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Reporting.JsonScreenplayReporter.html">JsonScreenplayReporter</a> for a specified file path.</p>
@@ -197,7 +197,7 @@ This means that all that is left to be done when the Screenplay completes is to 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JsonScreenplayReporter(Stream writeStream, ScreenplayReportBuilder builder)</code></pre>
+    <pre><code class="lang-csharp hljs">public JsonScreenplayReporter(Stream writeStream, Func&lt;IMeasuresTime, ScreenplayReportBuilder&gt; builderFactory, IMeasuresTime reportTimer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -205,8 +205,11 @@ This means that all that is left to be done when the Screenplay completes is to 
     <dt><code>writeStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
     <dd><p>The stream to which the JSON report shall be written.</p>
 </dd>
-    <dt><code>builder</code> <a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a></dt>
-    <dd><p>The Screenplay report builder</p>
+    <dt><code>builderFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="CSF.Screenplay.Reporting.IMeasuresTime.html">IMeasuresTime</a>, <a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a>&gt;</dt>
+    <dd><p>A factory for a Screenplay report builder</p>
+</dd>
+    <dt><code>reportTimer</code> <a class="xref" href="CSF.Screenplay.Reporting.IMeasuresTime.html">IMeasuresTime</a></dt>
+    <dd><p>A timing service for reports</p>
 </dd>
   </dl>
 
@@ -235,7 +238,7 @@ This means that all that is left to be done when the Screenplay completes is to 
 
   <h3 id="CSF_Screenplay_Reporting_JsonScreenplayReporter_Dispose" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -261,7 +264,7 @@ This means that all that is left to be done when the Screenplay completes is to 
 
   <h3 id="CSF_Screenplay_Reporting_JsonScreenplayReporter_SubscribeTo_CSF_Screenplay_Performances_IHasPerformanceEvents_" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.SubscribeTo(CSF.Screenplay.Performances.IHasPerformanceEvents)">
   SubscribeTo(IHasPerformanceEvents)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Subscribes to the events emitted by the specified Screenplay event notifier.</p>
@@ -299,7 +302,7 @@ As events are received, this reporter instance may accumulate information about 
 
   <h3 id="CSF_Screenplay_Reporting_JsonScreenplayReporter_UnsubscribeFrom_CSF_Screenplay_Performances_IHasPerformanceEvents_" data-uid="CSF.Screenplay.Reporting.JsonScreenplayReporter.UnsubscribeFrom(CSF.Screenplay.Performances.IHasPerformanceEvents)">
   UnsubscribeFrom(IHasPerformanceEvents)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/JsonScreenplayReporter.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Unsubscribes from the specified Screenplay event notifier.</p>

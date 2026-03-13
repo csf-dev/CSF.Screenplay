@@ -169,9 +169,9 @@ Once the performance is over, use <a class="xref" href="CSF.Screenplay.Reporting
 
   <a id="CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_System_Func_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_PerformanceReportBuilder__" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.PerformanceReportBuilder})">
-  ScreenplayReportBuilder(Func&lt;List&lt;IdentifierAndNameModel&gt;, PerformanceReportBuilder&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_System_Func_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IMeasuresTime_CSF_Screenplay_Reporting_PerformanceReportBuilder__CSF_Screenplay_Reporting_IMeasuresTime_" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.PerformanceReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)">
+  ScreenplayReportBuilder(Func&lt;List&lt;IdentifierAndNameModel&gt;, IMeasuresTime, PerformanceReportBuilder&gt;, IMeasuresTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Screenplay.Reporting.ScreenplayReportBuilder.html">ScreenplayReportBuilder</a>.</p>
@@ -179,13 +179,16 @@ Once the performance is over, use <a class="xref" href="CSF.Screenplay.Reporting
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenplayReportBuilder(Func&lt;List&lt;IdentifierAndNameModel&gt;, PerformanceReportBuilder&gt; performanceBuilderFactory)</code></pre>
+    <pre><code class="lang-csharp hljs">public ScreenplayReportBuilder(Func&lt;List&lt;IdentifierAndNameModel&gt;, IMeasuresTime, PerformanceReportBuilder&gt; performanceBuilderFactory, IMeasuresTime reportTimer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>performanceBuilderFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.ReportModel.IdentifierAndNameModel.html">IdentifierAndNameModel</a>&gt;, <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a>&gt;</dt>
+    <dt><code>performanceBuilderFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="CSF.Screenplay.ReportModel.IdentifierAndNameModel.html">IdentifierAndNameModel</a>&gt;, <a class="xref" href="CSF.Screenplay.Reporting.IMeasuresTime.html">IMeasuresTime</a>, <a class="xref" href="CSF.Screenplay.Reporting.PerformanceReportBuilder.html">PerformanceReportBuilder</a>&gt;</dt>
     <dd><p>A factory function for performance report builders</p>
+</dd>
+    <dt><code>reportTimer</code> <a class="xref" href="CSF.Screenplay.Reporting.IMeasuresTime.html">IMeasuresTime</a></dt>
+    <dd><p>A report timer</p>
 </dd>
   </dl>
 
@@ -214,7 +217,7 @@ Once the performance is over, use <a class="xref" href="CSF.Screenplay.Reporting
 
   <h3 id="CSF_Screenplay_Reporting_ScreenplayReportBuilder_BeginPerformance_System_Guid_System_Collections_Generic_IReadOnlyList_CSF_Screenplay_Performances_IdentifierAndName__" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.BeginPerformance(System.Guid,System.Collections.Generic.IReadOnlyList{CSF.Screenplay.Performances.IdentifierAndName})">
   BeginPerformance(Guid, IReadOnlyList&lt;IdentifierAndName&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Begins building a report about a new performance.</p>
@@ -267,7 +270,7 @@ remove it from the current Screenplay builder.
 
   <h3 id="CSF_Screenplay_Reporting_ScreenplayReportBuilder_EndPerformanceAndGetReport_System_Guid_System_Nullable_System_Boolean__" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.EndPerformanceAndGetReport(System.Guid,System.Nullable{System.Boolean})">
   EndPerformanceAndGetReport(Guid, bool?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Ends the specified performance, removing its builder from the current instance, and returns the completed/built report.</p>
@@ -325,7 +328,7 @@ to <a class="xref" href="CSF.Screenplay.Performances.IBeginsAndEndsPerformance.h
 
   <h3 id="CSF_Screenplay_Reporting_ScreenplayReportBuilder_GetPerformanceBuilder_System_Guid_" data-uid="CSF.Screenplay.Reporting.ScreenplayReportBuilder.GetPerformanceBuilder(System.Guid)">
   GetPerformanceBuilder(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/Reporting/ScreenplayReportBuilder.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the performance builder corresponding to the specified identifier.</p>

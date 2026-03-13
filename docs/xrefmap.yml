@@ -3942,6 +3942,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ReportModel.PerformableReport.Assets
   nameWithType: PerformableReport.Assets
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Ended
+  name: Ended
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Ended
+  commentId: P:CSF.Screenplay.ReportModel.PerformableReport.Ended
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Ended
+  nameWithType: PerformableReport.Ended
+- uid: CSF.Screenplay.ReportModel.PerformableReport.Ended*
+  name: Ended
+  href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Ended_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformableReport.Ended
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformableReport.Ended
+  nameWithType: PerformableReport.Ended
 - uid: CSF.Screenplay.ReportModel.PerformableReport.Exception
   name: Exception
   href: api/CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Exception
@@ -4078,6 +4091,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ReportModel.PerformanceReport.Reportables
   nameWithType: PerformanceReport.Reportables
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Started
+  name: Started
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Started
+  commentId: P:CSF.Screenplay.ReportModel.PerformanceReport.Started
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Started
+  nameWithType: PerformanceReport.Started
+- uid: CSF.Screenplay.ReportModel.PerformanceReport.Started*
+  name: Started
+  href: api/CSF.Screenplay.ReportModel.PerformanceReport.html#CSF_Screenplay_ReportModel_PerformanceReport_Started_
+  commentId: Overload:CSF.Screenplay.ReportModel.PerformanceReport.Started
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.PerformanceReport.Started
+  nameWithType: PerformanceReport.Started
 - uid: CSF.Screenplay.ReportModel.ReportMetadata
   name: ReportMetadata
   href: api/CSF.Screenplay.ReportModel.ReportMetadata.html
@@ -4142,6 +4168,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Report
   nameWithType: ReportableModelBase.Report
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.Started
+  name: Started
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Started
+  commentId: P:CSF.Screenplay.ReportModel.ReportableModelBase.Started
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Started
+  nameWithType: ReportableModelBase.Started
+- uid: CSF.Screenplay.ReportModel.ReportableModelBase.Started*
+  name: Started
+  href: api/CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Started_
+  commentId: Overload:CSF.Screenplay.ReportModel.ReportableModelBase.Started
+  isSpec: "True"
+  fullName: CSF.Screenplay.ReportModel.ReportableModelBase.Started
+  nameWithType: ReportableModelBase.Started
 - uid: CSF.Screenplay.ReportModel.ScreenplayReport
   name: ScreenplayReport
   href: api/CSF.Screenplay.ReportModel.ScreenplayReport.html
@@ -4476,6 +4515,38 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.IGetsValueFormatter.GetValueFormatter
   nameWithType: IGetsValueFormatter.GetValueFormatter
+- uid: CSF.Screenplay.Reporting.IMeasuresTime
+  name: IMeasuresTime
+  href: api/CSF.Screenplay.Reporting.IMeasuresTime.html
+  commentId: T:CSF.Screenplay.Reporting.IMeasuresTime
+  fullName: CSF.Screenplay.Reporting.IMeasuresTime
+  nameWithType: IMeasuresTime
+- uid: CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming
+  name: BeginTiming()
+  href: api/CSF.Screenplay.Reporting.IMeasuresTime.html#CSF_Screenplay_Reporting_IMeasuresTime_BeginTiming
+  commentId: M:CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming
+  fullName: CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming()
+  nameWithType: IMeasuresTime.BeginTiming()
+- uid: CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming*
+  name: BeginTiming
+  href: api/CSF.Screenplay.Reporting.IMeasuresTime.html#CSF_Screenplay_Reporting_IMeasuresTime_BeginTiming_
+  commentId: Overload:CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IMeasuresTime.BeginTiming
+  nameWithType: IMeasuresTime.BeginTiming
+- uid: CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime
+  name: GetCurrentTime()
+  href: api/CSF.Screenplay.Reporting.IMeasuresTime.html#CSF_Screenplay_Reporting_IMeasuresTime_GetCurrentTime
+  commentId: M:CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime
+  fullName: CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime()
+  nameWithType: IMeasuresTime.GetCurrentTime()
+- uid: CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime*
+  name: GetCurrentTime
+  href: api/CSF.Screenplay.Reporting.IMeasuresTime.html#CSF_Screenplay_Reporting_IMeasuresTime_GetCurrentTime_
+  commentId: Overload:CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.IMeasuresTime.GetCurrentTime
+  nameWithType: IMeasuresTime.GetCurrentTime
 - uid: CSF.Screenplay.Reporting.IReporter
   name: IReporter
   href: api/CSF.Screenplay.Reporting.IReporter.html
@@ -4593,15 +4664,15 @@ references:
   commentId: T:CSF.Screenplay.Reporting.JsonScreenplayReporter
   fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter
   nameWithType: JsonScreenplayReporter
-- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,CSF.Screenplay.Reporting.ScreenplayReportBuilder)
-  name: JsonScreenplayReporter(Stream, ScreenplayReportBuilder)
-  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_System_IO_Stream_CSF_Screenplay_Reporting_ScreenplayReportBuilder_
-  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,CSF.Screenplay.Reporting.ScreenplayReportBuilder)
-  name.vb: New(Stream, ScreenplayReportBuilder)
-  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.JsonScreenplayReporter(System.IO.Stream, CSF.Screenplay.Reporting.ScreenplayReportBuilder)
-  fullName.vb: CSF.Screenplay.Reporting.JsonScreenplayReporter.New(System.IO.Stream, CSF.Screenplay.Reporting.ScreenplayReportBuilder)
-  nameWithType: JsonScreenplayReporter.JsonScreenplayReporter(Stream, ScreenplayReportBuilder)
-  nameWithType.vb: JsonScreenplayReporter.New(Stream, ScreenplayReportBuilder)
+- uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,System.Func{CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.ScreenplayReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)
+  name: JsonScreenplayReporter(Stream, Func<IMeasuresTime, ScreenplayReportBuilder>, IMeasuresTime)
+  href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_System_IO_Stream_System_Func_CSF_Screenplay_Reporting_IMeasuresTime_CSF_Screenplay_Reporting_ScreenplayReportBuilder__CSF_Screenplay_Reporting_IMeasuresTime_
+  commentId: M:CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor(System.IO.Stream,System.Func{CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.ScreenplayReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)
+  name.vb: New(Stream, Func(Of IMeasuresTime, ScreenplayReportBuilder), IMeasuresTime)
+  fullName: CSF.Screenplay.Reporting.JsonScreenplayReporter.JsonScreenplayReporter(System.IO.Stream, System.Func<CSF.Screenplay.Reporting.IMeasuresTime, CSF.Screenplay.Reporting.ScreenplayReportBuilder>, CSF.Screenplay.Reporting.IMeasuresTime)
+  fullName.vb: CSF.Screenplay.Reporting.JsonScreenplayReporter.New(System.IO.Stream, System.Func(Of CSF.Screenplay.Reporting.IMeasuresTime, CSF.Screenplay.Reporting.ScreenplayReportBuilder), CSF.Screenplay.Reporting.IMeasuresTime)
+  nameWithType: JsonScreenplayReporter.JsonScreenplayReporter(Stream, Func<IMeasuresTime, ScreenplayReportBuilder>, IMeasuresTime)
+  nameWithType.vb: JsonScreenplayReporter.New(Stream, Func(Of IMeasuresTime, ScreenplayReportBuilder), IMeasuresTime)
 - uid: CSF.Screenplay.Reporting.JsonScreenplayReporter.#ctor*
   name: JsonScreenplayReporter
   href: api/CSF.Screenplay.Reporting.JsonScreenplayReporter.html#CSF_Screenplay_Reporting_JsonScreenplayReporter__ctor_
@@ -4858,15 +4929,15 @@ references:
   commentId: T:CSF.Screenplay.Reporting.PerformanceReportBuilder
   fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder
   nameWithType: PerformanceReportBuilder
-- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType)
-  name: PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
-  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_CSF_Screenplay_Reporting_IGetsContentType_
-  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType)
-  name.vb: New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
-  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder(System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType)
-  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New(System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType)
-  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
-  nameWithType.vb: PerformanceReportBuilder.New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType,CSF.Screenplay.Reporting.IMeasuresTime)
+  name: PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType, IMeasuresTime)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IGetsValueFormatter_CSF_Screenplay_IFormatsReportFragment_CSF_Screenplay_Reporting_IGetsContentType_CSF_Screenplay_Reporting_IMeasuresTime_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor(System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IGetsValueFormatter,CSF.Screenplay.IFormatsReportFragment,CSF.Screenplay.Reporting.IGetsContentType,CSF.Screenplay.Reporting.IMeasuresTime)
+  name.vb: New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType, IMeasuresTime)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.PerformanceReportBuilder(System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType, CSF.Screenplay.Reporting.IMeasuresTime)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.New(System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IGetsValueFormatter, CSF.Screenplay.IFormatsReportFragment, CSF.Screenplay.Reporting.IGetsContentType, CSF.Screenplay.Reporting.IMeasuresTime)
+  nameWithType: PerformanceReportBuilder.PerformanceReportBuilder(List<IdentifierAndNameModel>, IGetsValueFormatter, IFormatsReportFragment, IGetsContentType, IMeasuresTime)
+  nameWithType.vb: PerformanceReportBuilder.New(List(Of IdentifierAndNameModel), IGetsValueFormatter, IFormatsReportFragment, IGetsContentType, IMeasuresTime)
 - uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.#ctor*
   name: PerformanceReportBuilder
   href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder__ctor_
@@ -5168,21 +5239,66 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.ReportPathProviderExtensions.GetReportFilePath
   nameWithType: ReportPathProviderExtensions.GetReportFilePath
+- uid: CSF.Screenplay.Reporting.ReportTimer
+  name: ReportTimer
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html
+  commentId: T:CSF.Screenplay.Reporting.ReportTimer
+  fullName: CSF.Screenplay.Reporting.ReportTimer
+  nameWithType: ReportTimer
+- uid: CSF.Screenplay.Reporting.ReportTimer.BeginTiming
+  name: BeginTiming()
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_BeginTiming
+  commentId: M:CSF.Screenplay.Reporting.ReportTimer.BeginTiming
+  fullName: CSF.Screenplay.Reporting.ReportTimer.BeginTiming()
+  nameWithType: ReportTimer.BeginTiming()
+- uid: CSF.Screenplay.Reporting.ReportTimer.BeginTiming*
+  name: BeginTiming
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_BeginTiming_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportTimer.BeginTiming
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportTimer.BeginTiming
+  nameWithType: ReportTimer.BeginTiming
+- uid: CSF.Screenplay.Reporting.ReportTimer.Dispose
+  name: Dispose()
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_Dispose
+  commentId: M:CSF.Screenplay.Reporting.ReportTimer.Dispose
+  fullName: CSF.Screenplay.Reporting.ReportTimer.Dispose()
+  nameWithType: ReportTimer.Dispose()
+- uid: CSF.Screenplay.Reporting.ReportTimer.Dispose*
+  name: Dispose
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_Dispose_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportTimer.Dispose
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportTimer.Dispose
+  nameWithType: ReportTimer.Dispose
+- uid: CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime
+  name: GetCurrentTime()
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_GetCurrentTime
+  commentId: M:CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime
+  fullName: CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime()
+  nameWithType: ReportTimer.GetCurrentTime()
+- uid: CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime*
+  name: GetCurrentTime
+  href: api/CSF.Screenplay.Reporting.ReportTimer.html#CSF_Screenplay_Reporting_ReportTimer_GetCurrentTime_
+  commentId: Overload:CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime
+  isSpec: "True"
+  fullName: CSF.Screenplay.Reporting.ReportTimer.GetCurrentTime
+  nameWithType: ReportTimer.GetCurrentTime
 - uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder
   name: ScreenplayReportBuilder
   href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html
   commentId: T:CSF.Screenplay.Reporting.ScreenplayReportBuilder
   fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder
   nameWithType: ScreenplayReportBuilder
-- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.PerformanceReportBuilder})
-  name: ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>)
-  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_System_Func_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_PerformanceReportBuilder__
-  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.PerformanceReportBuilder})
-  name.vb: New(Func(Of List(Of IdentifierAndNameModel), PerformanceReportBuilder))
-  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.ScreenplayReportBuilder(System.Func<System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.PerformanceReportBuilder>)
-  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.New(System.Func(Of System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.PerformanceReportBuilder))
-  nameWithType: ScreenplayReportBuilder.ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>)
-  nameWithType.vb: ScreenplayReportBuilder.New(Func(Of List(Of IdentifierAndNameModel), PerformanceReportBuilder))
+- uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.PerformanceReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)
+  name: ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, IMeasuresTime, PerformanceReportBuilder>, IMeasuresTime)
+  href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_System_Func_System_Collections_Generic_List_CSF_Screenplay_ReportModel_IdentifierAndNameModel__CSF_Screenplay_Reporting_IMeasuresTime_CSF_Screenplay_Reporting_PerformanceReportBuilder__CSF_Screenplay_Reporting_IMeasuresTime_
+  commentId: M:CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor(System.Func{System.Collections.Generic.List{CSF.Screenplay.ReportModel.IdentifierAndNameModel},CSF.Screenplay.Reporting.IMeasuresTime,CSF.Screenplay.Reporting.PerformanceReportBuilder},CSF.Screenplay.Reporting.IMeasuresTime)
+  name.vb: New(Func(Of List(Of IdentifierAndNameModel), IMeasuresTime, PerformanceReportBuilder), IMeasuresTime)
+  fullName: CSF.Screenplay.Reporting.ScreenplayReportBuilder.ScreenplayReportBuilder(System.Func<System.Collections.Generic.List<CSF.Screenplay.ReportModel.IdentifierAndNameModel>, CSF.Screenplay.Reporting.IMeasuresTime, CSF.Screenplay.Reporting.PerformanceReportBuilder>, CSF.Screenplay.Reporting.IMeasuresTime)
+  fullName.vb: CSF.Screenplay.Reporting.ScreenplayReportBuilder.New(System.Func(Of System.Collections.Generic.List(Of CSF.Screenplay.ReportModel.IdentifierAndNameModel), CSF.Screenplay.Reporting.IMeasuresTime, CSF.Screenplay.Reporting.PerformanceReportBuilder), CSF.Screenplay.Reporting.IMeasuresTime)
+  nameWithType: ScreenplayReportBuilder.ScreenplayReportBuilder(Func<List<IdentifierAndNameModel>, IMeasuresTime, PerformanceReportBuilder>, IMeasuresTime)
+  nameWithType.vb: ScreenplayReportBuilder.New(Func(Of List(Of IdentifierAndNameModel), IMeasuresTime, PerformanceReportBuilder), IMeasuresTime)
 - uid: CSF.Screenplay.Reporting.ScreenplayReportBuilder.#ctor*
   name: ScreenplayReportBuilder
   href: api/CSF.Screenplay.Reporting.ScreenplayReportBuilder.html#CSF_Screenplay_Reporting_ScreenplayReportBuilder__ctor_

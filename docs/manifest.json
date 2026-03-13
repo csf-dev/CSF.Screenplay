@@ -1436,6 +1436,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.IMeasuresTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.IMeasuresTime.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.IMeasuresTime",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.IMeasuresTime.yml\" sourcestartlinenumber=\"1\">An object which acts as a stopwatch, intended for used in providing timing data for reports.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Reporting.IReporter.yml",
       "output": {
         ".html": {
@@ -1629,6 +1643,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Reporting.ReportPathProviderExtensions",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ReportPathProviderExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"CSF.Screenplay.Reporting.IGetsReportPath\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Reporting.ReportTimer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Reporting.ReportTimer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Reporting.ReportTimer",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Reporting.ReportTimer.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Screenplay.Reporting.IMeasuresTime\" data-throw-if-not-resolved=\"false\"></xref> which uses a <xref href=\"System.Diagnostics.Stopwatch\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4070,11 +4098,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -4163,11 +4191,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4436,11 +4464,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/selenium/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/selenium/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/selenium/toc.html"
         }
       },
       "version": ""
@@ -4499,11 +4527,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/webApis/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4592,11 +4620,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -4855,11 +4883,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -4938,11 +4966,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

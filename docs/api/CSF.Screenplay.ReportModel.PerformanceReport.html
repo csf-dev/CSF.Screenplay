@@ -268,6 +268,56 @@ Thus, this property indicates the final outcome of the performance, rather than 
 
 
 
+  <a id="CSF_Screenplay_ReportModel_PerformanceReport_Started_" data-uid="CSF.Screenplay.ReportModel.PerformanceReport.Started*"></a>
+
+  <h3 id="CSF_Screenplay_ReportModel_PerformanceReport_Started" data-uid="CSF.Screenplay.ReportModel.PerformanceReport.Started">
+  Started
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformanceReport.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the time at which this performance was begun.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Started { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_ReportModel_PerformanceReport_Started_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property is expressed as an amount of time since the Screenplay began.  The beginning of the Screenplay is recorded in the
+report metadata, at <a class="xref" href="CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp">Timestamp</a>.
+</p>
+<p>
+Recall that it is quite normal for performances and thus reportable actions to occur in parallel.
+Do not be alarmed if it appears that unrelated performances are interleaved with regard to their timings.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.ReportMetadata.html#CSF_Screenplay_ReportModel_ReportMetadata_Timestamp">Timestamp</a></div>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.ReportableModelBase.html#CSF_Screenplay_ReportModel_ReportableModelBase_Started">Started</a></div>
+    <div><a class="xref" href="CSF.Screenplay.ReportModel.PerformableReport.html#CSF_Screenplay_ReportModel_PerformableReport_Ended">Ended</a></div>
+    </dd>
+  </dl>
+
+
 
 </article>
 
