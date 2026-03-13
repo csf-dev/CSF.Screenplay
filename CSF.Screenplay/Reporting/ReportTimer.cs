@@ -1,5 +1,8 @@
 using System;
 using System.Diagnostics;
+
+namespace CSF.Screenplay.Reporting
+{
 /// <summary>
 /// Default implementation of <see cref="IMeasuresTime"/> which uses a <see cref="Stopwatch"/>.
 /// </summary>
@@ -29,4 +32,5 @@ public sealed class ReportTimer : IMeasuresTime
         if(!stopwatch.IsRunning) throw new InvalidOperationException($"The {nameof(GetCurrentTime)} method may not be used before {nameof(BeginTiming)}.");
         return stopwatch.Elapsed;
     }
+}
 }
