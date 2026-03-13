@@ -60,7 +60,7 @@ public class ScreenplayReportSerializerTests
 
         using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.Null, "The deserialized report should not be null.");
-            Assert.That(result.Metadata.Timestamp, Is.EqualTo(new DateTime(2021, 1, 1, 0, 0, 0, DateTimeKind.Utc)), "The timestamp should be correct.");
+            Assert.That(result.Metadata.Timestamp, Is.EqualTo(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero)), "The timestamp should be correct.");
             Assert.That(result.Metadata.ReportFormatVersion, Is.EqualTo("2.0.0"), "The report format version should be correct.");
             Assert.That(result.Performances, Has.Count.EqualTo(1), "There should be one performance.");
 
@@ -94,10 +94,10 @@ public class ScreenplayReportSerializerTests
     [Test, AutoMoqData]
     public async Task SerializeAsyncShouldSerializeToAStream(ScreenplayReportSerializer sut)
     {
-        var report = new ScreenplayReport() { Metadata = new () { ReportFormatVersion = "foo bar" } };
+        var report = new ScreenplayReport() { Metadata = new () { ReportFormatVersion = "foo bar", Timestamp = DateTimeOffset.UtcNow } };
         var stream = await sut.SerializeAsync(report);
         using var reader = new StreamReader(stream);
         var content = await reader.ReadToEndAsync();
-        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{10,16}Z"",""ReportFormatVersion"":""foo bar""\},""Performances"":\[\]\}$"));
+        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{10,16}\+00:00"",""ReportFormatVersion"":""foo bar""\},""Performances"":\[\]\}$"));
     }
 }

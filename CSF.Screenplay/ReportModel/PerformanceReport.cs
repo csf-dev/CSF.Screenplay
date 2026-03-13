@@ -52,5 +52,23 @@ namespace CSF.Screenplay.ReportModel
             get => reportables;
             set => reportables = value ?? throw new ArgumentNullException(nameof(value));
         }
+
+        /// <summary>
+        /// Gets or sets the time at which this performance was begun.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property is expressed as an amount of time since the Screenplay began.  The beginning of the Screenplay is recorded in the
+        /// report metadata, at <see cref="ReportMetadata.Timestamp"/>.
+        /// </para>
+        /// <para>
+        /// Recall that it is quite normal for performances and thus reportable actions to occur in parallel.
+        /// Do not be alarmed if it appears that unrelated performances are interleaved with regard to their timings.
+        /// </para>
+        /// </remarks>
+        /// <seealso cref="ReportMetadata.Timestamp"/>
+        /// <seealso cref="ReportableModelBase.Started"/>
+        /// <seealso cref="PerformableReport.Ended"/>
+        public TimeSpan Started { get; set; }
     }
 }

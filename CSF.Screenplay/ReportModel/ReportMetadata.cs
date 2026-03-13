@@ -10,9 +10,14 @@ namespace CSF.Screenplay.ReportModel
         const string reportFormatVersion = "2.0.0";
 
         /// <summary>
-        /// Gets or sets the UTC timestamp at which the report was generated.
+        /// Gets or sets the date &amp; time at which the Screenplay began.
         /// </summary>
-        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+        /// <remarks>
+        /// <para>
+        /// Other time-related values within the Screenplay report are expressed relative to this time.
+        /// </para>
+        /// </remarks>
+        public DateTimeOffset Timestamp { get; set; } = DateTimeOffset.UtcNow;
 
         /// <summary>
         /// Gets or sets a version number for the format of report that has been produced.
