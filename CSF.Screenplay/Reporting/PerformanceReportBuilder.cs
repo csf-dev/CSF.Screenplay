@@ -24,6 +24,7 @@ namespace CSF.Screenplay.Reporting
         readonly IGetsValueFormatter valueFormatterProvider;
         readonly IFormatsReportFragment formatter;
         readonly IGetsContentType contentTypeProvider;
+        readonly IMeasuresTime reportTimer;
 
         /// <summary>
         /// Gets a value indicating whether or not this builder has a 'current' performable that it is building.
@@ -84,6 +85,7 @@ namespace CSF.Screenplay.Reporting
             {
                 ActorName = actor.Name,
                 Report = string.Format(ReportStrings.ActorCreatedFormat, actor.Name),
+                Started = reportTimer.GetCurrentTime(),
             });
         }
 
@@ -102,6 +104,7 @@ namespace CSF.Screenplay.Reporting
             {
                 ActorName = actor.Name,
                 Report = reportText,
+                Started = reportTimer.GetCurrentTime(),
             });
         }
 
@@ -120,6 +123,7 @@ namespace CSF.Screenplay.Reporting
             {
                 ActorName = actor.Name,
                 Report = string.Format(ReportStrings.ActorSpotlitFormat, actor.Name),
+                Started = reportTimer.GetCurrentTime(),
             });
         }
 
@@ -136,6 +140,7 @@ namespace CSF.Screenplay.Reporting
             NewPerformableList.Add(new SpotlightTurnedOffReport
             {
                 Report = ReportStrings.SpotlightTurnedOff,
+                Started = reportTimer.GetCurrentTime(),
             });
         }
 
@@ -172,6 +177,7 @@ namespace CSF.Screenplay.Reporting
                 PerformableType = performable.GetType().FullName,
                 ActorName = actor.Name,
                 PerformancePhase = performancePhase,
+                Started = reportTimer.GetCurrentTime(),
             };
 
             NewPerformableList.Add(performableReport);
@@ -235,6 +241,7 @@ namespace CSF.Screenplay.Reporting
             CurrentPerformable.Report = performable is ICanReport reporter
                 ? reporter.GetReportFragment(actor, formatter).FormattedFragment
                 : string.Format(ReportStrings.FallbackReportFormat, actor.Name, performable.GetType().FullName);
+            CurrentPerformable.Ended = reportTimer.GetCurrentTime();
             performableStack.Pop();
         }
 
@@ -254,6 +261,7 @@ namespace CSF.Screenplay.Reporting
         {
             CurrentPerformable.Exception = exception.ToString();
             CurrentPerformable.ExceptionIsFromConsumedPerformable = exception is PerformableException;
+            CurrentPerformable.Ended = reportTimer.GetCurrentTime();
             performableStack.Pop();
         }
 
@@ -266,11 +274,13 @@ namespace CSF.Screenplay.Reporting
         /// <param name="valueFormatterProvider">A value formatter factory</param>
         /// <param name="formatter">A report-fragment formatter</param>
         /// <param name="contentTypeProvider">A content type provider service</param>
+        /// <param name="reportTimer">A report timer</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
         public PerformanceReportBuilder(List<IdentifierAndNameModel> namingHierarchy,
                                         IGetsValueFormatter valueFormatterProvider,
                                         IFormatsReportFragment formatter,
-                                        IGetsContentType contentTypeProvider)
+                                        IGetsContentType contentTypeProvider,
+                                        IMeasuresTime reportTimer)
         {
             if (namingHierarchy is null)
                 throw new ArgumentNullException(nameof(namingHierarchy));
@@ -278,9 +288,12 @@ namespace CSF.Screenplay.Reporting
             this.valueFormatterProvider = valueFormatterProvider ?? throw new ArgumentNullException(nameof(valueFormatterProvider));
             this.formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
             this.contentTypeProvider = contentTypeProvider ?? throw new ArgumentNullException(nameof(contentTypeProvider));
+            this.reportTimer = reportTimer ?? throw new ArgumentNullException(nameof(reportTimer));
+
             report = new PerformanceReport
             {
                 NamingHierarchy = namingHierarchy.ToList(),
+                Started = reportTimer.GetCurrentTime(),
             };
         }
     }

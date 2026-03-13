@@ -41,6 +41,7 @@ namespace CSF.Screenplay.Reporting
     public sealed class JsonScreenplayReporter : IReporter
     {
         readonly ScreenplayReportBuilder builder;
+        readonly IMeasuresTime reportTimer;
         readonly Utf8JsonWriter jsonWriter;
         readonly object syncRoot = new object();
         IHasPerformanceEvents subscribed;
@@ -134,7 +135,7 @@ namespace CSF.Screenplay.Reporting
         void OnScreenplayStarted(object sender, EventArgs e)
         {
             jsonWriter.WriteStartObject();
-            var metadata = new ReportMetadata();
+            var metadata = new ReportMetadata() { Timestamp = reportTimer.BeginTiming() };
             jsonWriter.WritePropertyName(nameof(ScreenplayReport.Metadata));
             JsonSerializer.Serialize(jsonWriter, metadata);
             jsonWriter.WriteStartArray(nameof(ScreenplayReport.Performances));
@@ -171,15 +172,19 @@ namespace CSF.Screenplay.Reporting
         /// Initializes a new instance of <see cref="JsonScreenplayReporter"/> for a specified file path.
         /// </summary>
         /// <param name="writeStream">The stream to which the JSON report shall be written.</param>
-        /// <param name="builder">The Screenplay report builder</param>
+        /// <param name="builderFactory">A factory for a Screenplay report builder</param>
+        /// <param name="reportTimer">A timing service for reports</param>
         /// <exception cref="ArgumentNullException">If <paramref name="writeStream"/> is <see langword="null" />.</exception>
-        public JsonScreenplayReporter(Stream writeStream, ScreenplayReportBuilder builder)
+        public JsonScreenplayReporter(Stream writeStream, Func<IMeasuresTime,ScreenplayReportBuilder> builderFactory, IMeasuresTime reportTimer)
         {
             if (writeStream is null)
                 throw new ArgumentNullException(nameof(writeStream));
+            if(builderFactory is null)
+                throw new ArgumentNullException(nameof(builderFactory));
 
             jsonWriter = new Utf8JsonWriter(writeStream, new JsonWriterOptions { Indented = false });
-            this.builder = builder ?? throw new ArgumentNullException(nameof(builder));
+            this.reportTimer = reportTimer ?? throw new ArgumentNullException(nameof(reportTimer));
+            builder = builderFactory(reportTimer);
         }
     }
 }

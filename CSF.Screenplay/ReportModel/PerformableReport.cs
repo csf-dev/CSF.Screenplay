@@ -36,6 +36,24 @@ namespace CSF.Screenplay.ReportModel
         public string PerformancePhase { get; set; }
 
         /// <summary>
+        /// Gets or sets the relative time at which this performable ended/finished.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This property is expressed as an amount of time since the Screenplay began.  The beginning of the Screenplay is recorded in the
+        /// report metadata, at <see cref="ReportMetadata.Timestamp"/>.
+        /// </para>
+        /// <para>
+        /// Recall that it is quite normal for performances and thus reportable actions to occur in parallel.
+        /// Do not be alarmed if it appears that unrelated performances are interleaved with regard to their timings.
+        /// </para>
+        /// </remarks>
+        /// <seealso cref="ReportMetadata.Timestamp"/>
+        /// <seealso cref="PerformanceReport.Started"/>
+        /// <seealso cref="ReportableModelBase.Started"/>
+        public TimeSpan Ended { get; set; }
+
+        /// <summary>
         /// Gets or sets a string representation of the result which was emitted by the corresponding performable.
         /// </summary>
         /// <remarks>

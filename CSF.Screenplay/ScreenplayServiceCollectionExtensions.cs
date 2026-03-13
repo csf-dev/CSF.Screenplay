@@ -72,15 +72,20 @@ namespace CSF.Screenplay
                 .AddTransient<JsonScreenplayReporter>()
                 .AddTransient<NoOpReporter>()
                 .AddTransient<ITestsPathForWritePermissions, WritePermissionTester>()
-                .AddTransient<Func<List<IdentifierAndNameModel>, PerformanceReportBuilder>>(s =>
+                .AddTransient<Func<List<IdentifierAndNameModel>, IMeasuresTime, PerformanceReportBuilder>>(s =>
                 {
-                    return idsAndNames => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames);
+                    return (idsAndNames, timer) => ActivatorUtilities.CreateInstance<PerformanceReportBuilder>(s, idsAndNames, timer);
                 })
                 .AddTransient<GetAssetFilePaths>()
                 .AddTransient<ToStringFormatter>()
                 .AddTransient<HumanizerFormatter>()
                 .AddTransient<NameFormatter>()
-                .AddTransient<FormattableFormatter>();
+                .AddTransient<FormattableFormatter>()
+                .AddTransient<IMeasuresTime, ReportTimer>()
+                .AddTransient<Func<IMeasuresTime, ScreenplayReportBuilder>>(s =>
+                {
+                    return timer => ActivatorUtilities.CreateInstance<ScreenplayReportBuilder>(s, timer);
+                });
             
             return services;
         }
