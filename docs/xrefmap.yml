@@ -7520,6 +7520,12 @@ references:
   commentId: T:CSF.Screenplay.Selenium.BrowserQuirks
   fullName: CSF.Screenplay.Selenium.BrowserQuirks
   nameWithType: BrowserQuirks
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.CannotGetShadowRoot
+  name: CannotGetShadowRoot
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotGetShadowRoot
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.CannotGetShadowRoot
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.CannotGetShadowRoot
+  nameWithType: BrowserQuirks.CannotGetShadowRoot
 - uid: CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys
   name: CannotSetInputTypeDateWithSendKeys
   href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys
@@ -7539,6 +7545,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
   nameWithType: BrowserQuirks.GetQuirksData
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.NeedsJavaScriptToGetShadowRoot
+  name: NeedsJavaScriptToGetShadowRoot
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsJavaScriptToGetShadowRoot
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.NeedsJavaScriptToGetShadowRoot
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.NeedsJavaScriptToGetShadowRoot
+  nameWithType: BrowserQuirks.NeedsJavaScriptToGetShadowRoot
 - uid: CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad
   name: NeedsToWaitAfterPageLoad
   href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad
@@ -12558,6 +12570,296 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.SeleniumElementExtensions.AsSelectElement
   nameWithType: SeleniumElementExtensions.AsSelectElement
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
+  name: ShadowRootAdapter
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html
+  commentId: T:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
+  nameWithType: ShadowRootAdapter
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor(OpenQA.Selenium.ISearchContext)
+  name: ShadowRootAdapter(ISearchContext)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter__ctor_OpenQA_Selenium_ISearchContext_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor(OpenQA.Selenium.ISearchContext)
+  name.vb: New(ISearchContext)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.ShadowRootAdapter(OpenQA.Selenium.ISearchContext)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.New(OpenQA.Selenium.ISearchContext)
+  nameWithType: ShadowRootAdapter.ShadowRootAdapter(ISearchContext)
+  nameWithType.vb: ShadowRootAdapter.New(ISearchContext)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor*
+  name: ShadowRootAdapter
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.ShadowRootAdapter
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.New
+  nameWithType: ShadowRootAdapter.ShadowRootAdapter
+  nameWithType.vb: ShadowRootAdapter.New
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
+  name: Clear()
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Clear
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear()
+  nameWithType: ShadowRootAdapter.Clear()
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear*
+  name: Clear
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Clear_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
+  nameWithType: ShadowRootAdapter.Clear
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
+  name: Click()
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Click
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click()
+  nameWithType: ShadowRootAdapter.Click()
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click*
+  name: Click
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Click_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
+  nameWithType: ShadowRootAdapter.Click
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
+  name: Displayed
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Displayed
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
+  nameWithType: ShadowRootAdapter.Displayed
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed*
+  name: Displayed
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Displayed_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
+  nameWithType: ShadowRootAdapter.Displayed
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
+  name: Enabled
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Enabled
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
+  nameWithType: ShadowRootAdapter.Enabled
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled*
+  name: Enabled
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Enabled_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
+  nameWithType: ShadowRootAdapter.Enabled
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
+  name: FindElement(By)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElement_OpenQA_Selenium_By_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
+  nameWithType: ShadowRootAdapter.FindElement(By)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement*
+  name: FindElement
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElement_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement
+  nameWithType: ShadowRootAdapter.FindElement
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
+  name: FindElements(By)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElements_OpenQA_Selenium_By_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
+  nameWithType: ShadowRootAdapter.FindElements(By)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements*
+  name: FindElements
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElements_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements
+  nameWithType: ShadowRootAdapter.FindElements
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(System.String)
+  name: GetAttribute(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetAttribute_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(System.String)
+  name.vb: GetAttribute(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(String)
+  nameWithType: ShadowRootAdapter.GetAttribute(string)
+  nameWithType.vb: ShadowRootAdapter.GetAttribute(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute*
+  name: GetAttribute
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetAttribute_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute
+  nameWithType: ShadowRootAdapter.GetAttribute
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(System.String)
+  name: GetCssValue(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetCssValue_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(System.String)
+  name.vb: GetCssValue(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(String)
+  nameWithType: ShadowRootAdapter.GetCssValue(string)
+  nameWithType.vb: ShadowRootAdapter.GetCssValue(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue*
+  name: GetCssValue
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetCssValue_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue
+  nameWithType: ShadowRootAdapter.GetCssValue
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(System.String)
+  name: GetDomAttribute(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomAttribute_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(System.String)
+  name.vb: GetDomAttribute(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(String)
+  nameWithType: ShadowRootAdapter.GetDomAttribute(string)
+  nameWithType.vb: ShadowRootAdapter.GetDomAttribute(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute*
+  name: GetDomAttribute
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomAttribute_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute
+  nameWithType: ShadowRootAdapter.GetDomAttribute
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(System.String)
+  name: GetDomProperty(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomProperty_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(System.String)
+  name.vb: GetDomProperty(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(String)
+  nameWithType: ShadowRootAdapter.GetDomProperty(string)
+  nameWithType.vb: ShadowRootAdapter.GetDomProperty(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty*
+  name: GetDomProperty
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomProperty_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty
+  nameWithType: ShadowRootAdapter.GetDomProperty
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(System.String)
+  name: GetProperty(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetProperty_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(System.String)
+  name.vb: GetProperty(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(String)
+  nameWithType: ShadowRootAdapter.GetProperty(string)
+  nameWithType.vb: ShadowRootAdapter.GetProperty(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty*
+  name: GetProperty
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetProperty_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty
+  nameWithType: ShadowRootAdapter.GetProperty
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
+  name: GetShadowRoot()
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetShadowRoot
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot()
+  nameWithType: ShadowRootAdapter.GetShadowRoot()
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot*
+  name: GetShadowRoot
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetShadowRoot_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
+  nameWithType: ShadowRootAdapter.GetShadowRoot
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
+  name: Location
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Location
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
+  nameWithType: ShadowRootAdapter.Location
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location*
+  name: Location
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Location_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
+  nameWithType: ShadowRootAdapter.Location
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
+  name: Selected
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Selected
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
+  nameWithType: ShadowRootAdapter.Selected
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected*
+  name: Selected
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Selected_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
+  nameWithType: ShadowRootAdapter.Selected
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(System.String)
+  name: SendKeys(string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_SendKeys_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(System.String)
+  name.vb: SendKeys(String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(String)
+  nameWithType: ShadowRootAdapter.SendKeys(string)
+  nameWithType.vb: ShadowRootAdapter.SendKeys(String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys*
+  name: SendKeys
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_SendKeys_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys
+  nameWithType: ShadowRootAdapter.SendKeys
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
+  name: Size
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Size
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
+  nameWithType: ShadowRootAdapter.Size
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size*
+  name: Size
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Size_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
+  nameWithType: ShadowRootAdapter.Size
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
+  name: Submit()
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Submit
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit()
+  nameWithType: ShadowRootAdapter.Submit()
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit*
+  name: Submit
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Submit_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
+  nameWithType: ShadowRootAdapter.Submit
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
+  name: TagName
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_TagName
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
+  nameWithType: ShadowRootAdapter.TagName
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName*
+  name: TagName
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_TagName_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
+  nameWithType: ShadowRootAdapter.TagName
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
+  name: Text
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Text
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
+  nameWithType: ShadowRootAdapter.Text
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text*
+  name: Text
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Text_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
+  nameWithType: ShadowRootAdapter.Text
 - uid: CSF.Screenplay.Selenium.Elements.TargetExtensions
   name: TargetExtensions
   href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html
@@ -13787,6 +14089,45 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin
   nameWithType: PerformableBuilder.FindElementsWithin
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: GetTheShadowRootFrom(ITarget)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootFrom_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: PerformableBuilder.GetTheShadowRootFrom(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom*
+  name: GetTheShadowRootFrom
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootFrom_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom
+  nameWithType: PerformableBuilder.GetTheShadowRootFrom
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: GetTheShadowRootNativelyFrom(ITarget)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootNativelyFrom_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: PerformableBuilder.GetTheShadowRootNativelyFrom(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom*
+  name: GetTheShadowRootNativelyFrom
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootNativelyFrom_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom
+  nameWithType: PerformableBuilder.GetTheShadowRootNativelyFrom
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: GetTheShadowRootWithJavaScriptFrom(ITarget)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootWithJavaScriptFrom_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: PerformableBuilder.GetTheShadowRootWithJavaScriptFrom(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom*
+  name: GetTheShadowRootWithJavaScriptFrom
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootWithJavaScriptFrom_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom
+  nameWithType: PerformableBuilder.GetTheShadowRootWithJavaScriptFrom
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.OpenTheUrl(CSF.Screenplay.Selenium.NamedUri)
   name: OpenTheUrl(NamedUri)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_
@@ -14936,6 +15277,82 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync
   nameWithType: FindElements.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
+  name: GetShadowRootNatively
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
+  nameWithType: GetShadowRootNatively
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetShadowRootNatively.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  nameWithType.vb: GetShadowRootNatively.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment
+  nameWithType: GetShadowRootNatively.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
+  nameWithType: GetShadowRootNatively.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  nameWithType.vb: GetShadowRootNatively.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.PerformAsAsync
+  nameWithType: GetShadowRootNatively.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
+  name: GetShadowRootWithJavaScript
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
+  nameWithType: GetShadowRootWithJavaScript
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
+  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetShadowRootWithJavaScript.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
+  nameWithType.vb: GetShadowRootWithJavaScript.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment
+  nameWithType: GetShadowRootWithJavaScript.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
+  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
+  nameWithType: GetShadowRootWithJavaScript.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
+  nameWithType.vb: GetShadowRootWithJavaScript.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.PerformAsAsync
+  nameWithType: GetShadowRootWithJavaScript.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Questions.GetWindowTitle
   name: GetWindowTitle
   href: api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.html
@@ -15344,6 +15761,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
   nameWithType: Scripts.ClearLocalStorage
+- uid: CSF.Screenplay.Selenium.Scripts.GetShadowRoot
+  name: GetShadowRoot
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetShadowRoot
+  commentId: P:CSF.Screenplay.Selenium.Scripts.GetShadowRoot
+  fullName: CSF.Screenplay.Selenium.Scripts.GetShadowRoot
+  nameWithType: Scripts.GetShadowRoot
+- uid: CSF.Screenplay.Selenium.Scripts.GetShadowRoot*
+  name: GetShadowRoot
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetShadowRoot_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.GetShadowRoot
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.GetShadowRoot
+  nameWithType: Scripts.GetShadowRoot
 - uid: CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState
   name: GetTheDocumentReadyState
   href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState
@@ -15592,6 +16022,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Tasks.EnterTheDate.PerformAsAsync
   nameWithType: EnterTheDate.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot
+  name: GetShadowRoot
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.GetShadowRoot
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot
+  nameWithType: GetShadowRoot
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name: GetShadowRoot(ITarget)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
+  name.vb: New(ITarget)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetShadowRoot(CSF.Screenplay.Selenium.Elements.ITarget)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.New(CSF.Screenplay.Selenium.Elements.ITarget)
+  nameWithType: GetShadowRoot.GetShadowRoot(ITarget)
+  nameWithType.vb: GetShadowRoot.New(ITarget)
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.#ctor*
+  name: GetShadowRoot
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetShadowRoot
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.New
+  nameWithType: GetShadowRoot.GetShadowRoot
+  nameWithType.vb: GetShadowRoot.New
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetShadowRoot.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.GetReportFragment
+  nameWithType: GetShadowRoot.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: GetShadowRoot.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html#CSF_Screenplay_Selenium_Tasks_GetShadowRoot_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync
+  nameWithType: GetShadowRoot.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
   name: OpenUrlRespectingBase
   href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html

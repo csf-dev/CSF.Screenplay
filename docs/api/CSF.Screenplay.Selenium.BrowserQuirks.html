@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_BrowserQuirks" data-uid="CSF.Screenplay.Selenium.BrowserQuirks" class="text-break">
-Class BrowserQuirks  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L17"><i class="bi bi-code-slash"></i></a>
+Class BrowserQuirks  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -160,9 +160,46 @@ See <a class="xref" href="https://csf-dev.github.io/CSF.Extensions.WebDriver/doc
 
 
 
+  <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_CannotGetShadowRoot" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.CannotGetShadowRoot">
+  CannotGetShadowRoot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browser which cannot get a Shadow Root node at all.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string CannotGetShadowRoot</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_BrowserQuirks_CannotGetShadowRoot_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Browsers with this quirk cannot use any technique to get a Shadow Root node from a Shadow Host.
+They will fail with an exception stating that the technique is unsupported if such an operation is attempted.
+</p>
+</div>
+
+
+
+
+
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_CannotSetInputTypeDateWithSendKeys" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.CannotSetInputTypeDateWithSendKeys">
   CannotSetInputTypeDateWithSendKeys
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browsers which cannot set the value of an <code>&lt;input type=&quot;date&quot;&gt;</code> using the
@@ -210,9 +247,46 @@ by clicking on the calendar, all that remains is to use a JavaScript workaround 
 
 
 
+  <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_NeedsJavaScriptToGetShadowRoot" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.NeedsJavaScriptToGetShadowRoot">
+  NeedsJavaScriptToGetShadowRoot
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browser which cannot get a Shadow Root node using the native Selenium technique.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string NeedsJavaScriptToGetShadowRoot</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_BrowserQuirks_NeedsJavaScriptToGetShadowRoot_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Browsers with this quirk cannot use <a class="xref" href="CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html">GetShadowRootNatively</a> and must fall back to <a class="xref" href="CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html">GetShadowRootWithJavaScript</a>.
+This makes use of a JavaScript fallback to get the Shadow Root node from the Shadow Host.
+</p>
+</div>
+
+
+
+
+
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_NeedsToWaitAfterPageLoad" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.NeedsToWaitAfterPageLoad">
   NeedsToWaitAfterPageLoad
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the name of a browser quirk, for browsers which must be instructed to wait after navigating to a new web page, until that new
@@ -280,7 +354,7 @@ to navigating through <a href="https://en.wikipedia.org/wiki/Single-page_applica
 
   <h3 id="CSF_Screenplay_Selenium_BrowserQuirks_GetQuirksData" data-uid="CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData">
   GetQuirksData()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets hard-coded information about known browser quirks.</p>
@@ -325,7 +399,7 @@ for more information.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowserQuirks.cs/#L18" class="edit-link">Edit this page</a>
         </div>
 
 

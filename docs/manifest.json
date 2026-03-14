@@ -2780,6 +2780,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Elements.ShadowRootAdapter",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.yml\" sourcestartlinenumber=\"1\">An adapter for Shadow Root objects, to use them as if they were <xref href=\"OpenQA.Selenium.IWebElement\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.TargetExtensions.yml",
       "output": {
         ".html": {
@@ -3410,6 +3424,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.GetShadowRootNatively",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.yml\" sourcestartlinenumber=\"1\">A Screenplay Question which gets the Shadow Root element from the specified Selenium Element, using the native Selenium technique.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.yml\" sourcestartlinenumber=\"1\">A Screenplay Question which gets the Shadow Root element from the specified Selenium Element, using the simple JavaScript technique.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.yml",
       "output": {
         ".html": {
@@ -3659,6 +3701,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Tasks.EnterTheDate",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.EnterTheDate.yml\" sourcestartlinenumber=\"1\">A Screenplay task for entering a value into an <code>&lt;input type=&quot;date&quot;&gt;</code> element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.GetShadowRoot",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.yml\" sourcestartlinenumber=\"1\">A Screenplay Task which gets the Shadow Root element from the specified Selenium Element, using the best available technique for the current web browser.</p>\n"
     },
     {
       "type": "ManagedReference",
