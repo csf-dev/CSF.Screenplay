@@ -135,8 +135,9 @@ namespace CSF.Screenplay.Selenium
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 new BrowserInfo { Name = "safari" },
-                                // There is no Chrome 95.1 but this covers any 95.0.x
-                                new BrowserInfo { Name = "chrome", MaxVersion = "95.1" },
+                                // There is no Chrome 95.1.0.0 but this covers any 95.0.x
+                                // The additional trailing zeroes are to work around https://github.com/csf-dev/CSF.Extensions.WebDriver/issues/56
+                                new BrowserInfo { Name = "chrome", MaxVersion = "95.1.0.0" },
                             }
                         }
                     },
