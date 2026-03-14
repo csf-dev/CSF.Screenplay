@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Selenium Shadow Root tests</title>
+    </head>
+    <body>
+        <h1>Selenium Shadow Root tests</h1>
+        <p>
+            This page includes <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">a Shadow DOM</a>,
+            which means that its elements cannot be selected by Selenium natively.
+        </p>
+        <div id="shadowHost"></div>
+        <script>
+            window.onload = function() {
+                const host = document.getElementById("shadowHost");
+                const shadow = host.attachShadow({mode: 'open'});
+                const shadowContents = document.createElement('p');
+                shadowContents.textContent = 'I am an element inside the Shadow DOM';
+                shadowContents.classList.add('content');
+                shadow.appendChild(shadowContents);
+            }
+        </script>
+    </body>
+</html>

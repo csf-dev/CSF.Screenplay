@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CSF.Extensions.WebDriver.Quirks;
+using CSF.Screenplay.Selenium.Questions;
 
 namespace CSF.Screenplay.Selenium
 {
@@ -68,6 +69,28 @@ namespace CSF.Screenplay.Selenium
         public static readonly string NeedsToWaitAfterPageLoad = "NeedsToWaitAfterPageLoad";
 
         /// <summary>
+        /// Gets the name of a browser quirk, for browser which cannot get a Shadow Root node using the native Selenium technique.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Browsers with this quirk cannot use <see cref="GetShadowRootNatively"/> and must fall back to <see cref="GetShadowRootWithJavaScript"/>.
+        /// This makes use of a JavaScript fallback to get the Shadow Root node from the Shadow Host.
+        /// </para>
+        /// </remarks>
+        public static readonly string NeedsJavaScriptToGetShadowRoot = "NeedsJavaScriptToGetShadowRoot";
+
+        /// <summary>
+        /// Gets the name of a browser quirk, for browser which cannot get a Shadow Root node at all.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Browsers with this quirk cannot use any technique to get a Shadow Root node from a Shadow Host.
+        /// They will fail with an exception stating that the technique is unsupported if such an operation is attempted.
+        /// </para>
+        /// </remarks>
+        public static readonly string CannotGetShadowRoot = "CannotGetShadowRoot";
+
+        /// <summary>
         /// Gets hard-coded information about known browser quirks.
         /// </summary>
         /// <remarks>
@@ -102,6 +125,27 @@ namespace CSF.Screenplay.Selenium
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 new BrowserInfo { Name = "safari" },
+                            }
+                        }
+                    },
+                    {
+                        NeedsJavaScriptToGetShadowRoot,
+                        new BrowserInfoCollection
+                        {
+                            AffectedBrowsers = new HashSet<BrowserInfo>
+                            {
+                                new BrowserInfo { Name = "safari" },
+                                new BrowserInfo { Name = "chrome", MaxVersion = "95" },
+                            }
+                        }
+                    },
+                    {
+                        CannotGetShadowRoot,
+                        new BrowserInfoCollection
+                        {
+                            AffectedBrowsers = new HashSet<BrowserInfo>
+                            {
+                                new BrowserInfo { Name = "firefox", MaxVersion = "112" }
                             }
                         }
                     }

@@ -41,5 +41,11 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         public static NamedScript<OpenQA.Selenium.IWebElement, object> SetElementValueSimulatedInteractively
             => new NamedScript<OpenQA.Selenium.IWebElement, object>(Resources.ScriptResources.SetElementValueSimulatedInteractively, "simulate setting the element's value interactively");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScriptWithResult{T1, TResult}"/> which gets the shadow root contained within the specified shadow host.
+        /// </summary>
+        public static NamedScriptWithResult<OpenQA.Selenium.IWebElement, OpenQA.Selenium.ISearchContext> GetShadowRoot
+            => new NamedScriptWithResult<OpenQA.Selenium.IWebElement, OpenQA.Selenium.ISearchContext>(Resources.ScriptResources.GetShadowRoot, "get a shadow root");
     }
 }
