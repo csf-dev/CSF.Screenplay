@@ -122,8 +122,7 @@
         text-align: right;
         padding-right: 0.4em;
     }
-    .reportableList .result,
-    .reportableList .exception {
+    .reportableList .result {
         margin-left: 5em;
     }
     .reportableList .type+.report {
@@ -143,14 +142,19 @@
         font-family: 'Lucida Console', 'Courier New', Courier, monospace;
         white-space: pre;
         display: block;
-        text-indent: -3em;
-        padding-left: 3em;
-        background: #FF000022;
+        background: #FF000011;
+        padding: 0.25em;
+        margin-left: 6.25em;
+        font-size: 80%;
+        line-height: 120%;
+        overflow: auto;
+        max-height: 15em;
     }
     .reportableList .exception::before {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        content: "Error: ";
+        content: "Error";
         color: #888;
+        display: block;
     }
     .reportableList aside {
         position: absolute;

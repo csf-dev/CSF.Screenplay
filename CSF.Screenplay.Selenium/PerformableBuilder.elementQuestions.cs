@@ -1,7 +1,10 @@
+using System;
 using System.Threading;
 using CSF.Screenplay.Selenium.Builders;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Queries;
+using CSF.Screenplay.Selenium.Questions;
+using CSF.Screenplay.Selenium.Tasks;
 
 namespace CSF.Screenplay.Selenium
 {
@@ -106,5 +109,93 @@ namespace CSF.Screenplay.Selenium
         /// <param name="element">The elements to interrogate for values.</param>
         /// <returns>A builder which chooses the query</returns>
         public static QuestionMultiQueryBuilder ReadFromTheCollectionOfElements(ITarget element) => new QuestionMultiQueryBuilder(element);
+
+        /// <summary>
+        /// Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is used when working with web pages which use
+        /// <see href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">The Shadow DOM technique</see>.
+        /// This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Root element, so that the Performance
+        /// may continue and interact with elements which are inside the Shadow DOM.
+        /// </para>
+        /// <para>
+        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
+        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
+        /// <see cref="NotSupportedException"/>.
+        /// </para>
+        /// <para>
+        /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
+        /// throw.
+        /// </para>
+        /// <para>
+        /// This technique is supported only by recent Chromium and Firefox versions, and not by Safari.
+        /// Use <see cref="GetTheShadowRootFrom(ITarget)"/> in order to automatically select the best technique for the current web browser.
+        /// </para>
+        /// </remarks>
+        /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
+        /// <returns>A performable which gets the Shadow Root.</returns>
+        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootNativelyFrom(ITarget shadowHost)
+            => SingleElementPerformableWithResultAdapter.From(new GetShadowRootNatively(), shadowHost);
+
+        /// <summary>
+        /// Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is used when working with web pages which use
+        /// <see href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">The Shadow DOM technique</see>.
+        /// This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Root element, so that the Performance
+        /// may continue and interact with elements which are inside the Shadow DOM.
+        /// </para>
+        /// <para>
+        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
+        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
+        /// <see cref="NotSupportedException"/>.
+        /// </para>
+        /// <para>
+        /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
+        /// throw.
+        /// </para>
+        /// <para>
+        /// This technique is supported only by older Chromium versions and Safari.
+        /// Use <see cref="GetTheShadowRootFrom(ITarget)"/> in order to automatically select the best technique for the current web browser.
+        /// </para>
+        /// </remarks>
+        /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
+        /// <returns>A performable which gets the Shadow Root.</returns>
+        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootWithJavaScriptFrom(ITarget shadowHost)
+            => SingleElementPerformableWithResultAdapter.From(new GetShadowRootWithJavaScript(), shadowHost);
+
+        /// <summary>
+        /// Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is used when working with web pages which use
+        /// <see href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">The Shadow DOM technique</see>.
+        /// This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Root element, so that the Performance
+        /// may continue and interact with elements which are inside the Shadow DOM.
+        /// </para>
+        /// <para>
+        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
+        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
+        /// <see cref="NotSupportedException"/>.
+        /// </para>
+        /// <para>
+        /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
+        /// throw.
+        /// </para>
+        /// <para>
+        /// Use this method to automatically select the best technique to use for the current web browser.
+        /// This functionality is unavailable for Firefox versions 112 and below, which do not support piercing the Shadow DOM from
+        /// Selenium.
+        /// </para>
+        /// </remarks>
+        /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
+        /// <returns>A performable which gets the Shadow Root.</returns>
+        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootFrom(ITarget shadowHost)
+            => new GetShadowRoot(shadowHost);
     }
 }

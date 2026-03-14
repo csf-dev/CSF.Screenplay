@@ -20,5 +20,8 @@ namespace CSF.Screenplay.Selenium.Resources
 
         /// <summary>Gets a short JavaScript which sets the <c>value</c> of an HTML element in a way that simulates updating the element interactively.</summary>
         internal static string SetElementValueSimulatedInteractively => resourceManager.GetString("SetElementValueSimulatedInteractively");
+
+        /// <summary>Gets a short JavaScript which gets a Shadow Root node from a Shadow Host element.</summary>
+        internal static string GetShadowRoot => resourceManager.GetString("GetShadowRoot");
     }
 }
