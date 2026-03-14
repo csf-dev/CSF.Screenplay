@@ -135,7 +135,8 @@ namespace CSF.Screenplay.Selenium
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 new BrowserInfo { Name = "safari" },
-                                new BrowserInfo { Name = "chrome", MaxVersion = "95" },
+                                // There is no Chrome 95.1 but this covers any 95.0.x
+                                new BrowserInfo { Name = "chrome", MaxVersion = "95.1" },
                             }
                         }
                     },
@@ -145,7 +146,8 @@ namespace CSF.Screenplay.Selenium
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
-                                new BrowserInfo { Name = "firefox", MaxVersion = "112" }
+                                // There is no Firefox 112.1 but this covers any 112.0.x
+                                new BrowserInfo { Name = "firefox", MaxVersion = "112.1" }
                             }
                         }
                     }
