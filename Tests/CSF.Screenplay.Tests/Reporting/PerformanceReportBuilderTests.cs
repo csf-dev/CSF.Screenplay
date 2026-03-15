@@ -195,10 +195,39 @@ public class PerformanceReportBuilderTest
                                                                                              string performancePhase)
     {
         sut.BeginPerformable(performable, actor, performancePhase);
-        sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"));
+        sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"), performable, actor);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables,
                     Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsFromConsumedPerformable == false));
+    }
+
+    [Test, AutoMoqData]
+    public void RecordFailureForCurrentPerformableShouldSetTheReportString(PerformanceReportBuilder sut,
+                                                                           [NamedActor("Joe")] Actor actor,
+                                                                           bool? outcome,
+                                                                           string performable,
+                                                                           string performancePhase)
+    {
+        sut.BeginPerformable(performable, actor, performancePhase);
+        sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"), performable, actor);
+        var report = sut.GetReport(outcome);
+        Assert.That(report.Reportables,
+                    Has.One.Matches<PerformableReport>(x => x.Report != null));
+    }
+
+    [Test, AutoMoqData]
+    public void RecordFailureForCurrentPerformableShouldUseAFallbackReportIfGettingTheReportThrows(PerformanceReportBuilder sut,
+                                                                                                   [NamedActor("Joe")] Actor actor,
+                                                                                                   bool? outcome,
+                                                                                                   ICanReport performable,
+                                                                                                   string performancePhase)
+    {
+        Mock.Get(performable).Setup(x => x.GetReportFragment(actor, It.IsAny<IFormatsReportFragment>())).Throws<InvalidOperationException>();
+        sut.BeginPerformable(performable, actor, performancePhase);
+        sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"), performable, actor);
+        var report = sut.GetReport(outcome);
+        Assert.That(report.Reportables,
+                    Has.One.Matches<PerformableReport>(x => x.Report == "An unexpected error occurred getting the report text for this performable"));
     }
 
     [Test, AutoMoqData]
@@ -209,7 +238,7 @@ public class PerformanceReportBuilderTest
                                                                                                                                         string performancePhase)
     {
         sut.BeginPerformable(performable, actor, performancePhase);
-        sut.RecordFailureForCurrentPerformable(new PerformableException("An error occurred"));
+        sut.RecordFailureForCurrentPerformable(new PerformableException("An error occurred"), performable, actor);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables,
                     Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsFromConsumedPerformable == true));

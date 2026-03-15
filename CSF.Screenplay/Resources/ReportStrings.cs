@@ -21,5 +21,8 @@ namespace CSF.Screenplay.Resources
 
         /// <summary>Gets a fallback report format string for an actor performing a performable which does not implement <see cref="ICanReport"/>.</summary>
         internal static string FallbackReportFormat => resourceManager.GetString("FallbackReportFormat");
+
+        /// <summary>Gets a report text which is recorded when a performable raises an exception from <see cref="ICanReport.GetReportFragment(Actor, IFormatsReportFragment)"/>.</summary>
+        internal static string ReportErrorMessage => resourceManager.GetString("ReportErrorMessage");
     }
 }
