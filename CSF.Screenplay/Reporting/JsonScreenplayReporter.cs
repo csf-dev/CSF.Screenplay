@@ -118,7 +118,7 @@ namespace CSF.Screenplay.Reporting
             => GetPerformanceBuilder(e).RecordAssetForCurrentPerformable(e.FilePath, e.FileSummary);
 
         void OnPerformableFailed(object sender, PerformableFailureEventArgs e)
-            => GetPerformanceBuilder(e).RecordFailureForCurrentPerformable(e.Exception);
+            => GetPerformanceBuilder(e).RecordFailureForCurrentPerformable(e.Exception, e.Performable, e.Actor);
 
         void OnPerformableResult(object sender, PerformableResultEventArgs e)
             => GetPerformanceBuilder(e).RecordResultForCurrentPerformable(e.Result);

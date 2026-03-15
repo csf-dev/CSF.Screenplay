@@ -169,7 +169,7 @@ namespace CSF.Screenplay.Reporting
         /// <param name="actor">The actor executing the performable</param>
         /// <param name="performancePhase">The performance phase in which the performable occurs</param>
         /// <seealso cref="EndPerformable(object, Actor)"/>
-        /// <seealso cref="RecordFailureForCurrentPerformable(Exception)"/>
+        /// <seealso cref="RecordFailureForCurrentPerformable(Exception,object,Actor)"/>
         public void BeginPerformable(object performable, Actor actor, string performancePhase)
         {
             var performableReport = new PerformableReport
@@ -239,7 +239,7 @@ namespace CSF.Screenplay.Reporting
         public void EndPerformable(object performable, Actor actor)
         {
             CurrentPerformable.Report = performable is ICanReport reporter
-                ? reporter.GetReportFragment(actor, formatter).FormattedFragment
+                ? TryGetReport(reporter, actor, formatter)
                 : string.Format(ReportStrings.FallbackReportFormat, actor.Name, performable.GetType().FullName);
             CurrentPerformable.Ended = reportTimer.GetCurrentTime();
             performableStack.Pop();
@@ -257,12 +257,25 @@ namespace CSF.Screenplay.Reporting
         /// </para>
         /// </remarks>
         /// <param name="exception">The exception which lead to the failure</param>
-        public void RecordFailureForCurrentPerformable(Exception exception)
+        /// <param name="performable">The performable which is ending</param>
+        /// <param name="actor">The actor which was executing the performable</param>
+        public void RecordFailureForCurrentPerformable(Exception exception, object performable, Actor actor)
         {
             CurrentPerformable.Exception = exception.ToString();
             CurrentPerformable.ExceptionIsFromConsumedPerformable = exception is PerformableException;
-            CurrentPerformable.Ended = reportTimer.GetCurrentTime();
-            performableStack.Pop();
+            EndPerformable(performable, actor);
+        }
+
+        static string TryGetReport(ICanReport reporter, Actor actor, IFormatsReportFragment formatter)
+        {
+            try
+            {
+                return reporter.GetReportFragment(actor, formatter).FormattedFragment;
+            }
+            catch
+            {
+                return ReportStrings.ReportErrorMessage;
+            }
         }
 
         #endregion
