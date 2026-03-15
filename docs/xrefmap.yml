@@ -5054,12 +5054,15 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordAssetForCurrentPerformable
   nameWithType: PerformanceReportBuilder.RecordAssetForCurrentPerformable
-- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
-  name: RecordFailureForCurrentPerformable(Exception)
-  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_
-  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
-  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception)
-  nameWithType: PerformanceReportBuilder.RecordFailureForCurrentPerformable(Exception)
+- uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception,System.Object,CSF.Screenplay.Actor)
+  name: RecordFailureForCurrentPerformable(Exception, object, Actor)
+  href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_System_Exception_System_Object_CSF_Screenplay_Actor_
+  commentId: M:CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception,System.Object,CSF.Screenplay.Actor)
+  name.vb: RecordFailureForCurrentPerformable(Exception, Object, Actor)
+  fullName: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception, object, CSF.Screenplay.Actor)
+  fullName.vb: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable(System.Exception, Object, CSF.Screenplay.Actor)
+  nameWithType: PerformanceReportBuilder.RecordFailureForCurrentPerformable(Exception, object, Actor)
+  nameWithType.vb: PerformanceReportBuilder.RecordFailureForCurrentPerformable(Exception, Object, Actor)
 - uid: CSF.Screenplay.Reporting.PerformanceReportBuilder.RecordFailureForCurrentPerformable*
   name: RecordFailureForCurrentPerformable
   href: api/CSF.Screenplay.Reporting.PerformanceReportBuilder.html#CSF_Screenplay_Reporting_PerformanceReportBuilder_RecordFailureForCurrentPerformable_
