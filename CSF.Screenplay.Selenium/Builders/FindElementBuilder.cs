@@ -19,6 +19,7 @@ namespace CSF.Screenplay.Selenium.Builders
     public class FindElementBuilder : IGetsPerformableWithResult<SeleniumElement>
     {
         readonly ITarget target;
+        readonly IHasSearchContext searchContext;
         Locator locator;
         string name;
 
@@ -46,7 +47,9 @@ namespace CSF.Screenplay.Selenium.Builders
 
         IPerformableWithResult<SeleniumElement> IGetsPerformableWithResult<SeleniumElement>.GetPerformable()
         {
-            return SingleElementPerformableWithResultAdapter.From(new FindElement(name, locator), target);
+            return target != null
+                ? new FindElement(target, name, locator)
+                : new FindElement(searchContext, name, locator);
         }
 
         /// <summary>
@@ -59,13 +62,12 @@ namespace CSF.Screenplay.Selenium.Builders
         }
 
         /// <summary>
-        /// Converts a <see cref="FindElementsBuilder"/> to a <see cref="SingleElementPerformableWithResultAdapter{SeleniumElement}"/>.
+        /// Initializes a new instance of the <see cref="FindElementsBuilder"/> class with the specified target.
         /// </summary>
-        /// <param name="builder">The <see cref="FindElementBuilder"/> instance to convert.</param>
-        /// <returns>A <see cref="SingleElementPerformableWithResultAdapter{SeleniumElement}"/> instance.</returns>
-        public static implicit operator SingleElementPerformableWithResultAdapter<SeleniumElement>(FindElementBuilder builder)
+        /// <param name="searchContext">The target within which elements will be found.</param>
+        public FindElementBuilder(IHasSearchContext searchContext)
         {
-            return SingleElementPerformableWithResultAdapter.From(new FindElement(builder.name, builder.locator), builder.target);
+            this.searchContext = searchContext ?? throw new System.ArgumentNullException(nameof(searchContext));
         }
     }
 }

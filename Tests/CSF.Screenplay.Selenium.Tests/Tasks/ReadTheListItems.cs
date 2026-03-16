@@ -8,7 +8,7 @@ public class ReadTheListItems : IPerformableWithResult<IReadOnlyList<string>>, I
 {
     static readonly Locator listItems = new CssSelector("li", "the list items");
 
-    readonly ITarget target;
+    readonly Locator target;
 
     public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         => formatter.Format("{Actor} reads the text from list items within {Target}", actor, target);
@@ -19,7 +19,7 @@ public class ReadTheListItems : IPerformableWithResult<IReadOnlyList<string>>, I
         return await actor.PerformAsync(ReadFromTheCollectionOfElements(items).Text(), cancellationToken);
     }
 
-    public ReadTheListItems(ITarget target)
+    public ReadTheListItems(Locator target)
     {
         this.target = target ?? throw new System.ArgumentNullException(nameof(target));
     }
@@ -27,6 +27,6 @@ public class ReadTheListItems : IPerformableWithResult<IReadOnlyList<string>>, I
 
 public static class ReadTheListItemsBuilder
 {
-    public static IPerformableWithResult<IReadOnlyList<string>> ReadTheListItemsIn(ITarget target)
+    public static IPerformableWithResult<IReadOnlyList<string>> ReadTheListItemsIn(Locator target)
         => new ReadTheListItems(target);
 }

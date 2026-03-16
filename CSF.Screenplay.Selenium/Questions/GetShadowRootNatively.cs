@@ -28,17 +28,17 @@ namespace CSF.Screenplay.Selenium.Questions
     /// This technique is known to work on Chromium-based browsers from 96 onward and Firefox 113 onward.
     /// </para>
     /// </remarks>
-    public class GetShadowRootNatively : ISingleElementPerformableWithResult<SeleniumElement>
+    public class GetShadowRootNatively : ISingleElementPerformableWithResult<Elements.ShadowRoot>
     {
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} gets the Shadow Root node from {Element} using the native Selenium technique", actor, element.Value);
 
         /// <inheritdoc/>
-        public ValueTask<SeleniumElement> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
+        public ValueTask<Elements.ShadowRoot> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             var shadowRoot = element.Value.WebElement.GetShadowRoot();
-            return new ValueTask<SeleniumElement>(new SeleniumElement(new ShadowRootAdapter(shadowRoot)));
+            return new ValueTask<Elements.ShadowRoot>(new Elements.ShadowRoot(shadowRoot));
         }
     }
 }

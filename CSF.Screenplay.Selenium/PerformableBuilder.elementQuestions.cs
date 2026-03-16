@@ -21,15 +21,28 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="target">The target within which to find HTML elements</param>
         /// <returns>A builder, which may be used to configure/get a question that finds elements</returns>
-        public static FindElementsBuilder FindElementsWithin(ITarget target) => new FindElementsBuilder(target);
+        public static FindElementsBuilder FindElementsWithin(Locator target) => new FindElementsBuilder(target);
+
+        /// <summary>
+        /// Gets a builder which may be used to create a performable action which finds a collection of elements within a specified target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If you only want to find elements within the <c>&lt;body&gt;</c> element of the page, consider using <see cref="FindElementsOnThePage"/>
+        /// instead.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target within which to find HTML elements</param>
+        /// <returns>A builder, which may be used to configure/get a question that finds elements</returns>
+        public static FindElementsBuilder FindElementsWithin(IHasSearchContext target) => new FindElementsBuilder(target);
 
         /// <summary>
         /// Gets a builder which may be used to create a performable action which finds a collection of elements within the body of the page.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// If you want to find elements which are descendents of a specified target, consider using <see cref="FindElementsWithin(ITarget)"/>
-        /// instead.
+        /// If you want to find elements which are descendents of a specified target, consider using <see cref="FindElementsWithin(Locator)"/>
+        /// or <see cref="FindElementsWithin(IHasSearchContext)"/> instead.
         /// </para>
         /// </remarks>
         /// <returns>A builder, which may be used to configure/get a question that finds elements</returns>
@@ -46,15 +59,28 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="target">The target within which to find HTML elements</param>
         /// <returns>A builder, which may be used to configure/get a question that finds an element</returns>
-        public static FindElementBuilder FindAnElementWithin(ITarget target) => new FindElementBuilder(target);
+        public static FindElementBuilder FindAnElementWithin(Locator target) => new FindElementBuilder(target);
+
+        /// <summary>
+        /// Gets a builder which may be used to create a performable action which finds a single element within a specified target.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If you only want to find an element within the <c>&lt;body&gt;</c> element of the page, consider using <see cref="FindAnElementOnThePage"/>
+        /// instead.
+        /// </para>
+        /// </remarks>
+        /// <param name="target">The target within which to find HTML elements</param>
+        /// <returns>A builder, which may be used to configure/get a question that finds an element</returns>
+        public static FindElementBuilder FindAnElementWithin(IHasSearchContext target) => new FindElementBuilder(target);
 
         /// <summary>
         /// Gets a builder which may be used to create a performable action which finds a single element within the body of the page.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// If you want to find an element which is a descendent of a specified target, consider using <see cref="FindAnElementWithin(ITarget)"/>
-        /// instead.
+        /// If you want to find an element which is a descendent of a specified target, consider using <see cref="FindAnElementWithin(Locator)"/>
+        /// or <see cref="FindAnElementWithin(IHasSearchContext)"/> instead.
         /// </para>
         /// </remarks>
         /// <returns>A builder, which may be used to configure/get a question that finds an element</returns>
@@ -121,11 +147,6 @@ namespace CSF.Screenplay.Selenium
         /// may continue and interact with elements which are inside the Shadow DOM.
         /// </para>
         /// <para>
-        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
-        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-        /// <see cref="NotSupportedException"/>.
-        /// </para>
-        /// <para>
         /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
         /// throw.
         /// </para>
@@ -136,7 +157,7 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
         /// <returns>A performable which gets the Shadow Root.</returns>
-        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootNativelyFrom(ITarget shadowHost)
+        public static IPerformableWithResult<ShadowRoot> GetTheShadowRootNativelyFrom(ITarget shadowHost)
             => SingleElementPerformableWithResultAdapter.From(new GetShadowRootNatively(), shadowHost);
 
         /// <summary>
@@ -150,11 +171,6 @@ namespace CSF.Screenplay.Selenium
         /// may continue and interact with elements which are inside the Shadow DOM.
         /// </para>
         /// <para>
-        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
-        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-        /// <see cref="NotSupportedException"/>.
-        /// </para>
-        /// <para>
         /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
         /// throw.
         /// </para>
@@ -165,7 +181,7 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
         /// <returns>A performable which gets the Shadow Root.</returns>
-        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootWithJavaScriptFrom(ITarget shadowHost)
+        public static IPerformableWithResult<ShadowRoot> GetTheShadowRootWithJavaScriptFrom(ITarget shadowHost)
             => SingleElementPerformableWithResultAdapter.From(new GetShadowRootWithJavaScript(), shadowHost);
 
         /// <summary>
@@ -179,11 +195,6 @@ namespace CSF.Screenplay.Selenium
         /// may continue and interact with elements which are inside the Shadow DOM.
         /// </para>
         /// <para>
-        /// Note that the <see cref="SeleniumElement"/> which is returned from this question is not a fully-fledged Selenium Element.
-        /// It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-        /// <see cref="NotSupportedException"/>.
-        /// </para>
-        /// <para>
         /// The <see cref="ITarget"/> passed to this performable as a parameter must be the Shadow Host element, or else this question will
         /// throw.
         /// </para>
@@ -195,7 +206,7 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="shadowHost">The Shadow Host element, or a locator which identifies it</param>
         /// <returns>A performable which gets the Shadow Root.</returns>
-        public static IPerformableWithResult<SeleniumElement> GetTheShadowRootFrom(ITarget shadowHost)
+        public static IPerformableWithResult<ShadowRoot> GetTheShadowRootFrom(ITarget shadowHost)
             => new GetShadowRoot(shadowHost);
     }
 }
