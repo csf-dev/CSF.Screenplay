@@ -29,17 +29,17 @@ namespace CSF.Screenplay.Selenium.Questions
     /// This technique is known to work on older Chromium versions (before 96) and Safari.
     /// </para>
     /// </remarks>
-    public class GetShadowRootWithJavaScript : ISingleElementPerformableWithResult<SeleniumElement>
+    public class GetShadowRootWithJavaScript : ISingleElementPerformableWithResult<Elements.ShadowRoot>
     {
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
             => formatter.Format("{Actor} gets the Shadow Root node from {Element} using JavaScript", actor, element.Value);
 
         /// <inheritdoc/>
-        public async ValueTask<SeleniumElement> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
+        public async ValueTask<Elements.ShadowRoot> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             var shadowRoot = await actor.PerformAsync(ExecuteAScript(Scripts.GetShadowRoot, element.Value.WebElement), cancellationToken).ConfigureAwait(false);
-            return new SeleniumElement(new ShadowRootAdapter(shadowRoot));
+            return new Elements.ShadowRoot(shadowRoot);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// For very old versions of Firefox, this performable will throw an exception, as there is no supported way to get a Shadow Root.
     /// </para>
     /// </remarks>
-    public class GetShadowRoot : IPerformableWithResult<SeleniumElement>, ICanReport
+    public class GetShadowRoot : IPerformableWithResult<Elements.ShadowRoot>, ICanReport
     {
         readonly ITarget element;
 
@@ -41,7 +41,7 @@ namespace CSF.Screenplay.Selenium.Tasks
             => formatter.Format("{Actor} gets the Shadow Root from {Element}", actor, element);
 
         /// <inheritdoc/>
-        public ValueTask<SeleniumElement> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        public ValueTask<Elements.ShadowRoot> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var browseTheWeb = actor.GetAbility<BrowseTheWeb>();
 

@@ -12,9 +12,10 @@ namespace CSF.Screenplay.Selenium.Questions
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindElementsWithin(ITarget)"/>
-    /// or <see cref="PerformableBuilder.FindElementsOnThePage"/>. The first searches within a specified target,
-    /// the second searches within the whole page <c>&lt;body&gt;</c>. This question returns a collection of elements
+    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindElementsWithin(Locator)"/>,
+    /// <see cref="PerformableBuilder.FindElementsWithin(IHasSearchContext)"/> or <see cref="PerformableBuilder.FindElementsOnThePage"/>.
+    /// The first two search within a specified target, the third searches within the whole page <c>&lt;body&gt;</c>.
+    /// This question returns a collection of elements
     /// but that collection could be empty if the search does not find any matching elements.
     /// If you are looking for a single element and a 'nothing found' result should raise an exception then
     /// consider using the <see cref="FindElement"/> question instead.
@@ -50,32 +51,61 @@ namespace CSF.Screenplay.Selenium.Questions
     /// </code>
     /// </example>
     /// <seealso cref="PerformableBuilder.FindElementsOnThePage"/>
-    /// <seealso cref="PerformableBuilder.FindElementsWithin(ITarget)"/>
-    public class FindElements : ISingleElementPerformableWithResult<SeleniumElementCollection>
+    /// <seealso cref="PerformableBuilder.FindElementsWithin(Locator)"/>
+    /// <seealso cref="PerformableBuilder.FindElementsWithin(IHasSearchContext)"/>
+    public class FindElements : IPerformableWithResult<SeleniumElementCollection>, ICanReport
     {
+        readonly ITarget target;
+        readonly IHasSearchContext searchContext;
         readonly string elementsName;
         readonly Locator locatorBasedMatcher;
+        Lazy<IHasSearchContext> lazyElement;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(element.Value) ?? "HTML elements", element.Value);
-
-        /// <inheritdoc/>
-        public ValueTask<SeleniumElementCollection> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         {
-            var elements = element.Value.WebElement.FindElements(locatorBasedMatcher ?? CssSelector.AnyElement);
-            return new ValueTask<SeleniumElementCollection>(new SeleniumElementCollection(elements, GetElementsName(element.Value)));
+            lazyElement = lazyElement ?? GetLazyElement(actor);
+            return formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(lazyElement.Value) ?? "HTML elements", lazyElement.Value);
         }
 
-        string GetElementsName(SeleniumElement element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
+        /// <inheritdoc/>
+        public ValueTask<SeleniumElementCollection> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        {
+            lazyElement = lazyElement ?? GetLazyElement(actor);
+            var elements = lazyElement.Value.SearchContext.FindElements(locatorBasedMatcher ?? CssSelector.AnyElement);
+            return new ValueTask<SeleniumElementCollection>(new SeleniumElementCollection(elements, GetElementsName(lazyElement.Value)));
+        }
+
+        string GetElementsName(IHasName element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
+
+        Lazy<IHasSearchContext> GetLazyElement(ICanPerform actor)
+        {
+            if(target != null) return new Lazy<IHasSearchContext>(() => actor.GetLazyElement(target).Value);
+            return new Lazy<IHasSearchContext>(() => searchContext);
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FindElements"/> class.
         /// </summary>
+        /// <param name="target">A target which describes an element</param>
         /// <param name="elementsName">An optional short, descriptive, human-readable name to give to the collection of elements which are found.</param>
         /// <param name="locatorBasedMatcher">An optional <see cref="Locator"/> which should be used to filter the elements which are returned.</param>
-        public FindElements(string elementsName = null, Locator locatorBasedMatcher = null)
+        public FindElements(ITarget target, string elementsName = null, Locator locatorBasedMatcher = null)
         {
+            this.target = target ?? throw new ArgumentNullException(nameof(target));
+            this.elementsName = elementsName;
+            this.locatorBasedMatcher = locatorBasedMatcher;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FindElements"/> class.
+        /// </summary>
+        /// <param name="searchContext">An object which provides a search context, within which we can find elements</param>
+        /// <param name="elementsName">An optional short, descriptive, human-readable name to give to the collection of elements which are found.</param>
+        /// <param name="locatorBasedMatcher">An optional <see cref="Locator"/> which should be used to filter the elements which are returned.</param>
+        public FindElements(IHasSearchContext searchContext, string elementsName = null, Locator locatorBasedMatcher = null)
+        {
+            this.searchContext = searchContext ?? throw new ArgumentNullException(nameof(searchContext));
             this.elementsName = elementsName;
             this.locatorBasedMatcher = locatorBasedMatcher;
         }
