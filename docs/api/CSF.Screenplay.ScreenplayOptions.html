@@ -168,7 +168,7 @@ to the options pattern</a>/
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnBeginScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnBeginScreenplayActions">
   OnBeginScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> begins, before the first
@@ -214,7 +214,7 @@ You may add further callbacks if you wish, to extend Screenplay; they are execut
 
   <h3 id="CSF_Screenplay_ScreenplayOptions_OnEndScreenplayActions" data-uid="CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions">
   OnEndScreenplayActions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L166"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an ordered collection of actions which should be executed when the <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> finished, after the last
@@ -259,20 +259,20 @@ that it will be terminated early by the ending of the overall process.
 
 
 
-  <a id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig*"></a>
+  <a id="CSF_Screenplay_ScreenplayOptions_PerformanceEventHandlers_" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers*"></a>
 
-  <h3 id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig">
-  PerformanceEventsConfig
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_ScreenplayOptions_PerformanceEventHandlers" data-uid="CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers">
+  PerformanceEventHandlers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ScreenplayOptions.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An optional callback/action which exposes the various <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> which may be subscribed-to in order to be notified
+  <div class="markdown level1 summary"><p>A collection of optional callbacks/actions which expose the various <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> which may be subscribed-to in order to be notified
 of the progress of a screenplay.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;IHasPerformanceEvents&gt; PerformanceEventsConfig { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Action&lt;IHasPerformanceEvents, IServiceProvider&gt;&gt; PerformanceEventHandlers { get; }</code></pre>
   </div>
 
 
@@ -281,23 +281,29 @@ of the progress of a screenplay.</p>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>&gt;&gt;</dt>
     <dd></dd>
   </dl>
 
 
 
 
-  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_ScreenplayOptions_PerformanceEventHandlers_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The implementation of <a class="xref" href="CSF.Screenplay.Performances.IHasPerformanceEvents.html">IHasPerformanceEvents</a> is an event publisher which emits notifications when key evens occur during the lifetime
 of a <a class="xref" href="CSF.Screenplay.Screenplay.html">Screenplay</a> and its performances: <a class="xref" href="CSF.Screenplay.IPerformance.html">IPerformance</a>.
 If you wish, you may subscribe to these events from your own logic in order to develop new functionality or extend Screenplay.
 </p>
 <p>
-There is no need to add an explicit subscription to any events for the reporting infrastructure.
-Screenplay will automatically subscribe to this object from the reporting mechanism, unless the value of <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath">ReportPath</a> means that
-reporting is disabled.
+There is no need to use this mechanism in order to use the Screenplay Reporting infrastructure.
+Built-in logic will automatically subscribe to the event published from the reporting infrastructure.
+Note that if <a class="xref" href="CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath">ReportPath</a> is a null or whitepsace-only string, the reporting infrastructure will be disabled.
+</p>
+<p>
+This collection of configuration callbacks may be used to subscribe to the event publisher from custom Screenplay extensions, in order
+be notified at particular points in the Screenplay's lifecycle.
+Each extension should add a single item to this list of callbacks. In this manner, multiple extensions may coexist without worrying about
+overwriting one another's event subscriptions.
 </p>
 </div>
 
@@ -401,7 +407,7 @@ Thus, generalized formatters should be placed at the beginning of this collectio
 </p>
 <p>
 Make use of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">Add(T)</a> to add new formatters to the end of this collection.
-It comes pre-loaded with three generalised formatters by default, in the following order.
+It comes pre-loaded with some general-use formatters by default, in the following order.
 </p>
 <ol><li><a class="xref" href="CSF.Screenplay.Reporting.ToStringFormatter.html">ToStringFormatter</a> - a default/fallback implementation which may format any value at all</li><li><a class="xref" href="CSF.Screenplay.Reporting.HumanizerFormatter.html">HumanizerFormatter</a> - a formatter for dates, times &amp; time spans which uses the Humanizer library</li><li><a class="xref" href="CSF.Screenplay.Reporting.NameFormatter.html">NameFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a> by emitting their name</li><li><a class="xref" href="CSF.Screenplay.Reporting.FormattableFormatter.html">FormattableFormatter</a> - which formats values that implement <a class="xref" href="CSF.Screenplay.Reporting.IFormattableValue.html">IFormattableValue</a></li></ol>
 <p>

@@ -2766,6 +2766,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.yml\" sourcestartlinenumber=\"1\">A value formatter for <xref href=\"System.Lazy%601\" data-throw-if-not-resolved=\"false\"></xref> of <xref href=\"CSF.Screenplay.Selenium.Elements.SeleniumElement\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.Locator.yml",
       "output": {
         ".html": {
@@ -3620,6 +3634,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.yml\" sourcestartlinenumber=\"1\">A service which subscribes to the <xref href=\"CSF.Screenplay.Actors.IHasPerformableEvents.PerformableFailed\" data-throw-if-not-resolved=\"false\"></xref> event and takes a screenshot\nwhen a performable fails.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Reporting.OptionsFormatter.yml",
       "output": {
         ".html": {
@@ -3631,6 +3659,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Reporting.OptionsFormatter",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.OptionsFormatter.yml\" sourcestartlinenumber=\"1\">An <xref href=\"CSF.Screenplay.Reporting.IValueFormatter\" data-throw-if-not-resolved=\"false\"></xref> for collections of <xref href=\"CSF.Screenplay.Selenium.Queries.Option\" data-throw-if-not-resolved=\"false\"></xref> for reporting.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails\" data-throw-if-not-resolved=\"false\"></xref> which takes a screenshot in PNG format, with the name\n<code>Auto-screenshot on performable failure</code>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4196,11 +4238,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -4289,11 +4331,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4562,11 +4604,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/selenium/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/selenium/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/selenium/toc.html"
         }
       },
       "version": ""
@@ -4625,11 +4667,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/webApis/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4718,11 +4760,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -4981,11 +5023,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -5064,11 +5106,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

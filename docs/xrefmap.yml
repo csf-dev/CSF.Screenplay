@@ -6238,19 +6238,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ScreenplayOptions.OnEndScreenplayActions
   nameWithType: ScreenplayOptions.OnEndScreenplayActions
-- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
-  name: PerformanceEventsConfig
-  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig
-  commentId: P:CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
-  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
-  nameWithType: ScreenplayOptions.PerformanceEventsConfig
-- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig*
-  name: PerformanceEventsConfig
-  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventsConfig_
-  commentId: Overload:CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
+- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers
+  name: PerformanceEventHandlers
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventHandlers
+  commentId: P:CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers
+  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers
+  nameWithType: ScreenplayOptions.PerformanceEventHandlers
+- uid: CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers*
+  name: PerformanceEventHandlers
+  href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_PerformanceEventHandlers_
+  commentId: Overload:CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers
   isSpec: "True"
-  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventsConfig
-  nameWithType: ScreenplayOptions.PerformanceEventsConfig
+  fullName: CSF.Screenplay.ScreenplayOptions.PerformanceEventHandlers
+  nameWithType: ScreenplayOptions.PerformanceEventHandlers
 - uid: CSF.Screenplay.ScreenplayOptions.ReportPath
   name: ReportPath
   href: api/CSF.Screenplay.ScreenplayOptions.html#CSF_Screenplay_ScreenplayOptions_ReportPath
@@ -12313,6 +12313,44 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.ITarget.GetElements
   nameWithType: ITarget.GetElements
+- uid: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter
+  name: LazySeleniumElementFormatter
+  href: api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html
+  commentId: T:CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter
+  fullName: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter
+  nameWithType: LazySeleniumElementFormatter
+- uid: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat(System.Object)
+  name: CanFormat(object)
+  href: api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html#CSF_Screenplay_Selenium_Elements_LazySeleniumElementFormatter_CanFormat_System_Object_
+  commentId: M:CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat(System.Object)
+  name.vb: CanFormat(Object)
+  fullName: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat(object)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat(Object)
+  nameWithType: LazySeleniumElementFormatter.CanFormat(object)
+  nameWithType.vb: LazySeleniumElementFormatter.CanFormat(Object)
+- uid: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat*
+  name: CanFormat
+  href: api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html#CSF_Screenplay_Selenium_Elements_LazySeleniumElementFormatter_CanFormat_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.CanFormat
+  nameWithType: LazySeleniumElementFormatter.CanFormat
+- uid: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport(System.Object)
+  name: FormatForReport(object)
+  href: api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html#CSF_Screenplay_Selenium_Elements_LazySeleniumElementFormatter_FormatForReport_System_Object_
+  commentId: M:CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport(System.Object)
+  name.vb: FormatForReport(Object)
+  fullName: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport(object)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport(Object)
+  nameWithType: LazySeleniumElementFormatter.FormatForReport(object)
+  nameWithType.vb: LazySeleniumElementFormatter.FormatForReport(Object)
+- uid: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport*
+  name: FormatForReport
+  href: api/CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.html#CSF_Screenplay_Selenium_Elements_LazySeleniumElementFormatter_FormatForReport_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.LazySeleniumElementFormatter.FormatForReport
+  nameWithType: LazySeleniumElementFormatter.FormatForReport
 - uid: CSF.Screenplay.Selenium.Elements.Locator
   name: Locator
   href: api/CSF.Screenplay.Selenium.Elements.Locator.html
@@ -15618,6 +15656,28 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Reporting
   fullName: CSF.Screenplay.Selenium.Reporting
   nameWithType: CSF.Screenplay.Selenium.Reporting
+- uid: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails
+  name: ITakesScreenshotWhenPerformableFails
+  href: api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.html
+  commentId: T:CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails
+  fullName: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails
+  nameWithType: ITakesScreenshotWhenPerformableFails
+- uid: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed(System.Object,CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  name: OnPerformableFailed(object, PerformableFailureEventArgs)
+  href: api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.html#CSF_Screenplay_Selenium_Reporting_ITakesScreenshotWhenPerformableFails_OnPerformableFailed_System_Object_CSF_Screenplay_Actors_PerformableFailureEventArgs_
+  commentId: M:CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed(System.Object,CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  name.vb: OnPerformableFailed(Object, PerformableFailureEventArgs)
+  fullName: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed(object, CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  fullName.vb: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed(Object, CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  nameWithType: ITakesScreenshotWhenPerformableFails.OnPerformableFailed(object, PerformableFailureEventArgs)
+  nameWithType.vb: ITakesScreenshotWhenPerformableFails.OnPerformableFailed(Object, PerformableFailureEventArgs)
+- uid: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed*
+  name: OnPerformableFailed
+  href: api/CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.html#CSF_Screenplay_Selenium_Reporting_ITakesScreenshotWhenPerformableFails_OnPerformableFailed_
+  commentId: Overload:CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Reporting.ITakesScreenshotWhenPerformableFails.OnPerformableFailed
+  nameWithType: ITakesScreenshotWhenPerformableFails.OnPerformableFailed
 - uid: CSF.Screenplay.Selenium.Reporting.OptionsFormatter
   name: OptionsFormatter
   href: api/CSF.Screenplay.Selenium.Reporting.OptionsFormatter.html
@@ -15656,6 +15716,28 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Reporting.OptionsFormatter.FormatForReport
   nameWithType: OptionsFormatter.FormatForReport
+- uid: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker
+  name: PerformableFailureScreenshotTaker
+  href: api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.html
+  commentId: T:CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker
+  fullName: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker
+  nameWithType: PerformableFailureScreenshotTaker
+- uid: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed(System.Object,CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  name: OnPerformableFailed(object, PerformableFailureEventArgs)
+  href: api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.html#CSF_Screenplay_Selenium_Reporting_PerformableFailureScreenshotTaker_OnPerformableFailed_System_Object_CSF_Screenplay_Actors_PerformableFailureEventArgs_
+  commentId: M:CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed(System.Object,CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  name.vb: OnPerformableFailed(Object, PerformableFailureEventArgs)
+  fullName: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed(object, CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  fullName.vb: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed(Object, CSF.Screenplay.Actors.PerformableFailureEventArgs)
+  nameWithType: PerformableFailureScreenshotTaker.OnPerformableFailed(object, PerformableFailureEventArgs)
+  nameWithType.vb: PerformableFailureScreenshotTaker.OnPerformableFailed(Object, PerformableFailureEventArgs)
+- uid: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed*
+  name: OnPerformableFailed
+  href: api/CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.html#CSF_Screenplay_Selenium_Reporting_PerformableFailureScreenshotTaker_OnPerformableFailed_
+  commentId: Overload:CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Reporting.PerformableFailureScreenshotTaker.OnPerformableFailed
+  nameWithType: PerformableFailureScreenshotTaker.OnPerformableFailed
 - uid: CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter
   name: ScreenshotFormatter
   href: api/CSF.Screenplay.Selenium.Reporting.ScreenshotFormatter.html
