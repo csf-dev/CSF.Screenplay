@@ -19,7 +19,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// to fetch it using the WebDriver more than once.  As such, instances of this adapter (like all performables) should not be re-used.
     /// </para>
     /// </remarks>
-    public class ElementCollectionPerformableWithResultAdapter<TResult> : IPerformableWithResult<IReadOnlyList<TResult>>, ICanReport
+    public class ElementCollectionPerformableWithResultAdapter<TResult> : IPerformableWithResult<IReadOnlyList<TResult>>, ICanReport, IHasCustomTypeName
     {
         readonly IElementCollectionPerformableWithResult<TResult> performable;
         readonly ITarget target;
@@ -38,6 +38,10 @@ namespace CSF.Screenplay.Selenium.Questions
             lazyElements = lazyElements ?? actor.GetLazyElements(target);
             return performable.PerformAsAsync(actor, actor.GetAbility<BrowseTheWeb>().WebDriver, lazyElements, cancellationToken);
         }
+
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName()
+            => $"{performable.GetHumanReadableTypeName()}, via {nameof(ElementCollectionPerformableWithResultAdapter)}";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementCollectionPerformableWithResultAdapter{TResult}"/> class with the specified performable and target.

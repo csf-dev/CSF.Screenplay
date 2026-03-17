@@ -55,6 +55,10 @@ namespace CSF.Screenplay.Selenium.Questions
         public ValueTask<TResult> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
             => new ValueTask<TResult>(query.GetValue(element.Value));
 
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName()
+            => $"{query.GetType().FullName}, via {nameof(SingleElementQuery)}";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleElementQuery{TResult}"/> class with the specified query.
         /// </summary>

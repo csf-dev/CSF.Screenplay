@@ -36,6 +36,9 @@ namespace CSF.Screenplay.Selenium.Questions
             => formatter.Format("{Actor} gets the Shadow Root node from {Element} using JavaScript", actor, element.Value);
 
         /// <inheritdoc/>
+        public string GetHumanReadableTypeName() => GetType().FullName;
+
+        /// <inheritdoc/>
         public async ValueTask<Elements.ShadowRoot> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             var shadowRoot = await actor.PerformAsync(ExecuteAScript(Scripts.GetShadowRoot, element.Value.WebElement), cancellationToken).ConfigureAwait(false);

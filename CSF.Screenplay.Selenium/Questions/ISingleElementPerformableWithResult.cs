@@ -20,7 +20,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// <see cref="SingleElementPerformableWithResultAdapter{TResult}"/>.
     /// </para>
     /// </remarks>
-    public interface ISingleElementPerformableWithResult<TResult> : ICanReportForElement
+    public interface ISingleElementPerformableWithResult<TResult> : ICanReportForElement, IHasCustomTypeName
     {
         /// <summary>
         /// Counterpart to <see cref="IPerformableWithResult{TResult}.PerformAsAsync(ICanPerform, CancellationToken)"/> except that this method also offers

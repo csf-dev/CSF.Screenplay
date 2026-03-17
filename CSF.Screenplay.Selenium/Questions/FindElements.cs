@@ -84,6 +84,9 @@ namespace CSF.Screenplay.Selenium.Questions
             return new Lazy<IHasSearchContext>(() => searchContext);
         }
 
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName() => GetType().FullName;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FindElements"/> class.
         /// </summary>

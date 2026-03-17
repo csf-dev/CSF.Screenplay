@@ -35,6 +35,9 @@ namespace CSF.Screenplay.Selenium.Questions
             => formatter.Format("{Actor} gets the Shadow Root node from {Element} using the native Selenium technique", actor, element.Value);
 
         /// <inheritdoc/>
+        public string GetHumanReadableTypeName() => GetType().FullName;
+
+        /// <inheritdoc/>
         public ValueTask<Elements.ShadowRoot> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             var shadowRoot = element.Value.WebElement.GetShadowRoot();
