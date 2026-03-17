@@ -222,12 +222,12 @@ public class PerformanceReportBuilderTest
                                                                                                    ICanReport performable,
                                                                                                    string performancePhase)
     {
-        Mock.Get(performable).Setup(x => x.GetReportFragment(actor, It.IsAny<IFormatsReportFragment>())).Throws<InvalidOperationException>();
+        Mock.Get(performable).Setup(x => x.GetReportFragment(actor, It.IsAny<IFormatsReportFragment>())).Throws(new Exception("Report Generation error"));
         sut.BeginPerformable(performable, actor, performancePhase);
         sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"), performable, actor);
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables,
-                    Has.One.Matches<PerformableReport>(x => x.Report == "An unexpected error occurred getting the report text for this performable"));
+        Assert.That(report.Reportables.Single().Report,
+                    Is.EqualTo("An unexpected error occurred getting the report text for this performable. System.Exception: Report Generation error"));
     }
 
     [Test, AutoMoqData]

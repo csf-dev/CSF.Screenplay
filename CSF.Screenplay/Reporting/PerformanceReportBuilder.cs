@@ -274,9 +274,9 @@ namespace CSF.Screenplay.Reporting
             {
                 return reporter.GetReportFragment(actor, formatter).FormattedFragment;
             }
-            catch
+            catch(Exception e)
             {
-                return ReportStrings.ReportErrorMessage;
+                return string.Format(ReportStrings.ReportErrorMessageFormat, e.GetType().FullName, e.Message);
             }
         }
 

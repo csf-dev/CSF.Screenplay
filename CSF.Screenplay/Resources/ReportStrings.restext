@@ -3,4 +3,4 @@ ActorGainedAbilityFormat = {0} is able to {1}
 ActorSpotlitFormat = {0} was put into the spotlight
 SpotlightTurnedOff = The spotlight was turned off
 FallbackReportFormat = {0} performed {1}
-ReportErrorMessage = An unexpected error occurred getting the report text for this performable
+ReportErrorMessage = An unexpected error occurred getting the report text for this performable. {0}: {1}
