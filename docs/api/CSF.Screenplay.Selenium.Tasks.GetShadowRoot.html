@@ -102,7 +102,7 @@ Class GetShadowRoot  <a class="header-action link-secondary" title="View source"
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GetShadowRoot : IPerformableWithResult&lt;SeleniumElement&gt;, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class GetShadowRoot : IPerformableWithResult&lt;ShadowRoot&gt;, ICanReport</code></pre>
   </div>
 
 
@@ -119,7 +119,7 @@ Class GetShadowRoot  <a class="header-action link-secondary" title="View source"
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</div>
+      <div><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>&gt;</div>
       <div><a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a></div>
     </dd>
   </dl>
@@ -320,7 +320,7 @@ are seldom presented as paragraphs of prose.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ValueTask&lt;SeleniumElement&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public ValueTask&lt;ShadowRoot&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -335,7 +335,7 @@ are seldom presented as paragraphs of prose.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>&gt;</dt>
     <dd><p>A task which exposes a strongly-typed 'result' value when the performable represented by the current instance is complete.</p>
 </dd>
   </dl>

@@ -7957,6 +7957,15 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Builders.FindElementBuilder
   fullName: CSF.Screenplay.Selenium.Builders.FindElementBuilder
   nameWithType: FindElementBuilder
+- uid: CSF.Screenplay.Selenium.Builders.FindElementBuilder.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name: FindElementBuilder(IHasSearchContext)
+  href: api/CSF.Screenplay.Selenium.Builders.FindElementBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementBuilder__ctor_CSF_Screenplay_Selenium_Elements_IHasSearchContext_
+  commentId: M:CSF.Screenplay.Selenium.Builders.FindElementBuilder.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name.vb: New(IHasSearchContext)
+  fullName: CSF.Screenplay.Selenium.Builders.FindElementBuilder.FindElementBuilder(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementBuilder.New(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  nameWithType: FindElementBuilder.FindElementBuilder(IHasSearchContext)
+  nameWithType.vb: FindElementBuilder.New(IHasSearchContext)
 - uid: CSF.Screenplay.Selenium.Builders.FindElementBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
   name: FindElementBuilder(ITarget)
   href: api/CSF.Screenplay.Selenium.Builders.FindElementBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
@@ -8005,31 +8014,21 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.FindElementBuilder.WhichMatches
   nameWithType: FindElementBuilder.WhichMatches
-- uid: CSF.Screenplay.Selenium.Builders.FindElementBuilder.op_Implicit(CSF.Screenplay.Selenium.Builders.FindElementBuilder)~CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter{CSF.Screenplay.Selenium.Elements.SeleniumElement}
-  name: implicit operator SingleElementPerformableWithResultAdapter<SeleniumElement>(FindElementBuilder)
-  href: api/CSF.Screenplay.Selenium.Builders.FindElementBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementBuilder_op_Implicit_CSF_Screenplay_Selenium_Builders_FindElementBuilder__CSF_Screenplay_Selenium_Questions_SingleElementPerformableWithResultAdapter_CSF_Screenplay_Selenium_Elements_SeleniumElement_
-  commentId: M:CSF.Screenplay.Selenium.Builders.FindElementBuilder.op_Implicit(CSF.Screenplay.Selenium.Builders.FindElementBuilder)~CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter{CSF.Screenplay.Selenium.Elements.SeleniumElement}
-  name.vb: CType(FindElementBuilder)
-  fullName: CSF.Screenplay.Selenium.Builders.FindElementBuilder.implicit operator CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter<CSF.Screenplay.Selenium.Elements.SeleniumElement>(CSF.Screenplay.Selenium.Builders.FindElementBuilder)
-  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementBuilder.CType(CSF.Screenplay.Selenium.Builders.FindElementBuilder)
-  nameWithType: FindElementBuilder.implicit operator SingleElementPerformableWithResultAdapter<SeleniumElement>(FindElementBuilder)
-  nameWithType.vb: FindElementBuilder.CType(FindElementBuilder)
-- uid: CSF.Screenplay.Selenium.Builders.FindElementBuilder.op_Implicit*
-  name: implicit operator
-  href: api/CSF.Screenplay.Selenium.Builders.FindElementBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementBuilder_op_Implicit_
-  commentId: Overload:CSF.Screenplay.Selenium.Builders.FindElementBuilder.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: CSF.Screenplay.Selenium.Builders.FindElementBuilder.implicit operator
-  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementBuilder.CType
-  nameWithType: FindElementBuilder.implicit operator
-  nameWithType.vb: FindElementBuilder.CType
 - uid: CSF.Screenplay.Selenium.Builders.FindElementsBuilder
   name: FindElementsBuilder
   href: api/CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html
   commentId: T:CSF.Screenplay.Selenium.Builders.FindElementsBuilder
   fullName: CSF.Screenplay.Selenium.Builders.FindElementsBuilder
   nameWithType: FindElementsBuilder
+- uid: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name: FindElementsBuilder(IHasSearchContext)
+  href: api/CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementsBuilder__ctor_CSF_Screenplay_Selenium_Elements_IHasSearchContext_
+  commentId: M:CSF.Screenplay.Selenium.Builders.FindElementsBuilder.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name.vb: New(IHasSearchContext)
+  fullName: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.FindElementsBuilder(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.New(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  nameWithType: FindElementsBuilder.FindElementsBuilder(IHasSearchContext)
+  nameWithType.vb: FindElementsBuilder.New(IHasSearchContext)
 - uid: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.#ctor(CSF.Screenplay.Selenium.Elements.ITarget)
   name: FindElementsBuilder(ITarget)
   href: api/CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementsBuilder__ctor_CSF_Screenplay_Selenium_Elements_ITarget_
@@ -8078,25 +8077,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.WhichMatch
   nameWithType: FindElementsBuilder.WhichMatch
-- uid: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.op_Implicit(CSF.Screenplay.Selenium.Builders.FindElementsBuilder)~CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter{CSF.Screenplay.Selenium.Elements.SeleniumElementCollection}
-  name: implicit operator SingleElementPerformableWithResultAdapter<SeleniumElementCollection>(FindElementsBuilder)
-  href: api/CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementsBuilder_op_Implicit_CSF_Screenplay_Selenium_Builders_FindElementsBuilder__CSF_Screenplay_Selenium_Questions_SingleElementPerformableWithResultAdapter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_
-  commentId: M:CSF.Screenplay.Selenium.Builders.FindElementsBuilder.op_Implicit(CSF.Screenplay.Selenium.Builders.FindElementsBuilder)~CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter{CSF.Screenplay.Selenium.Elements.SeleniumElementCollection}
-  name.vb: CType(FindElementsBuilder)
-  fullName: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.implicit operator CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter<CSF.Screenplay.Selenium.Elements.SeleniumElementCollection>(CSF.Screenplay.Selenium.Builders.FindElementsBuilder)
-  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.CType(CSF.Screenplay.Selenium.Builders.FindElementsBuilder)
-  nameWithType: FindElementsBuilder.implicit operator SingleElementPerformableWithResultAdapter<SeleniumElementCollection>(FindElementsBuilder)
-  nameWithType.vb: FindElementsBuilder.CType(FindElementsBuilder)
-- uid: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.op_Implicit*
-  name: implicit operator
-  href: api/CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html#CSF_Screenplay_Selenium_Builders_FindElementsBuilder_op_Implicit_
-  commentId: Overload:CSF.Screenplay.Selenium.Builders.FindElementsBuilder.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.implicit operator
-  fullName.vb: CSF.Screenplay.Selenium.Builders.FindElementsBuilder.CType
-  nameWithType: FindElementsBuilder.implicit operator
-  nameWithType.vb: FindElementsBuilder.CType
 - uid: CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder
   name: FromTargetActionBuilder
   href: api/CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.html
@@ -12231,6 +12211,44 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.ICanReportForElements.GetReportFragment
   nameWithType: ICanReportForElements.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Elements.IHasSearchContext
+  name: IHasSearchContext
+  href: api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.html
+  commentId: T:CSF.Screenplay.Selenium.Elements.IHasSearchContext
+  fullName: CSF.Screenplay.Selenium.Elements.IHasSearchContext
+  nameWithType: IHasSearchContext
+- uid: CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext
+  name: SearchContext
+  href: api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.html#CSF_Screenplay_Selenium_Elements_IHasSearchContext_SearchContext
+  commentId: P:CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext
+  fullName: CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext
+  nameWithType: IHasSearchContext.SearchContext
+- uid: CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext*
+  name: SearchContext
+  href: api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.html#CSF_Screenplay_Selenium_Elements_IHasSearchContext_SearchContext_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.IHasSearchContext.SearchContext
+  nameWithType: IHasSearchContext.SearchContext
+- uid: CSF.Screenplay.Selenium.Elements.IHasWebElement
+  name: IHasWebElement
+  href: api/CSF.Screenplay.Selenium.Elements.IHasWebElement.html
+  commentId: T:CSF.Screenplay.Selenium.Elements.IHasWebElement
+  fullName: CSF.Screenplay.Selenium.Elements.IHasWebElement
+  nameWithType: IHasWebElement
+- uid: CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement
+  name: WebElement
+  href: api/CSF.Screenplay.Selenium.Elements.IHasWebElement.html#CSF_Screenplay_Selenium_Elements_IHasWebElement_WebElement
+  commentId: P:CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement
+  fullName: CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement
+  nameWithType: IHasWebElement.WebElement
+- uid: CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement*
+  name: WebElement
+  href: api/CSF.Screenplay.Selenium.Elements.IHasWebElement.html#CSF_Screenplay_Selenium_Elements_IHasWebElement_WebElement_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Elements.IHasWebElement.WebElement
+  nameWithType: IHasWebElement.WebElement
 - uid: CSF.Screenplay.Selenium.Elements.ITarget
   name: ITarget
   href: api/CSF.Screenplay.Selenium.Elements.ITarget.html
@@ -12573,296 +12591,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Elements.SeleniumElementExtensions.AsSelectElement
   nameWithType: SeleniumElementExtensions.AsSelectElement
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
-  name: ShadowRootAdapter
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html
-  commentId: T:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter
-  nameWithType: ShadowRootAdapter
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor(OpenQA.Selenium.ISearchContext)
-  name: ShadowRootAdapter(ISearchContext)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter__ctor_OpenQA_Selenium_ISearchContext_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor(OpenQA.Selenium.ISearchContext)
-  name.vb: New(ISearchContext)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.ShadowRootAdapter(OpenQA.Selenium.ISearchContext)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.New(OpenQA.Selenium.ISearchContext)
-  nameWithType: ShadowRootAdapter.ShadowRootAdapter(ISearchContext)
-  nameWithType.vb: ShadowRootAdapter.New(ISearchContext)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor*
-  name: ShadowRootAdapter
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter__ctor_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.#ctor
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot
+  name: ShadowRoot
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html
+  commentId: T:CSF.Screenplay.Selenium.Elements.ShadowRoot
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot
+  nameWithType: ShadowRoot
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor(OpenQA.Selenium.ISearchContext,System.String)
+  name: ShadowRoot(ISearchContext, string)
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot__ctor_OpenQA_Selenium_ISearchContext_System_String_
+  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor(OpenQA.Selenium.ISearchContext,System.String)
+  name.vb: New(ISearchContext, String)
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.ShadowRoot(OpenQA.Selenium.ISearchContext, string)
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRoot.New(OpenQA.Selenium.ISearchContext, String)
+  nameWithType: ShadowRoot.ShadowRoot(ISearchContext, string)
+  nameWithType.vb: ShadowRoot.New(ISearchContext, String)
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor*
+  name: ShadowRoot
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.ShadowRootAdapter
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.New
-  nameWithType: ShadowRootAdapter.ShadowRootAdapter
-  nameWithType.vb: ShadowRootAdapter.New
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
-  name: Clear()
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Clear
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear()
-  nameWithType: ShadowRootAdapter.Clear()
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear*
-  name: Clear
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Clear_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.ShadowRoot
+  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRoot.New
+  nameWithType: ShadowRoot.ShadowRoot
+  nameWithType.vb: ShadowRoot.New
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.Name
+  name: Name
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot_Name
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRoot.Name
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.Name
+  nameWithType: ShadowRoot.Name
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.Name*
+  name: Name
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot_Name_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRoot.Name
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Clear
-  nameWithType: ShadowRootAdapter.Clear
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
-  name: Click()
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Click
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click()
-  nameWithType: ShadowRootAdapter.Click()
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click*
-  name: Click
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Click_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.Name
+  nameWithType: ShadowRoot.Name
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext
+  name: SearchContext
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot_SearchContext
+  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext
+  nameWithType: ShadowRoot.SearchContext
+- uid: CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext*
+  name: SearchContext
+  href: api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html#CSF_Screenplay_Selenium_Elements_ShadowRoot_SearchContext_
+  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Click
-  nameWithType: ShadowRootAdapter.Click
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
-  name: Displayed
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Displayed
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
-  nameWithType: ShadowRootAdapter.Displayed
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed*
-  name: Displayed
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Displayed_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Displayed
-  nameWithType: ShadowRootAdapter.Displayed
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
-  name: Enabled
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Enabled
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
-  nameWithType: ShadowRootAdapter.Enabled
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled*
-  name: Enabled
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Enabled_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Enabled
-  nameWithType: ShadowRootAdapter.Enabled
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
-  name: FindElement(By)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElement_OpenQA_Selenium_By_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement(OpenQA.Selenium.By)
-  nameWithType: ShadowRootAdapter.FindElement(By)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement*
-  name: FindElement
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElement_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElement
-  nameWithType: ShadowRootAdapter.FindElement
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
-  name: FindElements(By)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElements_OpenQA_Selenium_By_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements(OpenQA.Selenium.By)
-  nameWithType: ShadowRootAdapter.FindElements(By)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements*
-  name: FindElements
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_FindElements_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.FindElements
-  nameWithType: ShadowRootAdapter.FindElements
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(System.String)
-  name: GetAttribute(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetAttribute_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(System.String)
-  name.vb: GetAttribute(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute(String)
-  nameWithType: ShadowRootAdapter.GetAttribute(string)
-  nameWithType.vb: ShadowRootAdapter.GetAttribute(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute*
-  name: GetAttribute
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetAttribute_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetAttribute
-  nameWithType: ShadowRootAdapter.GetAttribute
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(System.String)
-  name: GetCssValue(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetCssValue_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(System.String)
-  name.vb: GetCssValue(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue(String)
-  nameWithType: ShadowRootAdapter.GetCssValue(string)
-  nameWithType.vb: ShadowRootAdapter.GetCssValue(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue*
-  name: GetCssValue
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetCssValue_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetCssValue
-  nameWithType: ShadowRootAdapter.GetCssValue
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(System.String)
-  name: GetDomAttribute(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomAttribute_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(System.String)
-  name.vb: GetDomAttribute(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute(String)
-  nameWithType: ShadowRootAdapter.GetDomAttribute(string)
-  nameWithType.vb: ShadowRootAdapter.GetDomAttribute(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute*
-  name: GetDomAttribute
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomAttribute_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomAttribute
-  nameWithType: ShadowRootAdapter.GetDomAttribute
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(System.String)
-  name: GetDomProperty(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomProperty_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(System.String)
-  name.vb: GetDomProperty(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty(String)
-  nameWithType: ShadowRootAdapter.GetDomProperty(string)
-  nameWithType.vb: ShadowRootAdapter.GetDomProperty(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty*
-  name: GetDomProperty
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetDomProperty_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetDomProperty
-  nameWithType: ShadowRootAdapter.GetDomProperty
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(System.String)
-  name: GetProperty(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetProperty_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(System.String)
-  name.vb: GetProperty(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty(String)
-  nameWithType: ShadowRootAdapter.GetProperty(string)
-  nameWithType.vb: ShadowRootAdapter.GetProperty(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty*
-  name: GetProperty
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetProperty_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetProperty
-  nameWithType: ShadowRootAdapter.GetProperty
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
-  name: GetShadowRoot()
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetShadowRoot
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot()
-  nameWithType: ShadowRootAdapter.GetShadowRoot()
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot*
-  name: GetShadowRoot
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_GetShadowRoot_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.GetShadowRoot
-  nameWithType: ShadowRootAdapter.GetShadowRoot
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
-  name: Location
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Location
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
-  nameWithType: ShadowRootAdapter.Location
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location*
-  name: Location
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Location_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Location
-  nameWithType: ShadowRootAdapter.Location
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
-  name: Selected
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Selected
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
-  nameWithType: ShadowRootAdapter.Selected
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected*
-  name: Selected
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Selected_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Selected
-  nameWithType: ShadowRootAdapter.Selected
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(System.String)
-  name: SendKeys(string)
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_SendKeys_System_String_
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(System.String)
-  name.vb: SendKeys(String)
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(string)
-  fullName.vb: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys(String)
-  nameWithType: ShadowRootAdapter.SendKeys(string)
-  nameWithType.vb: ShadowRootAdapter.SendKeys(String)
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys*
-  name: SendKeys
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_SendKeys_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.SendKeys
-  nameWithType: ShadowRootAdapter.SendKeys
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
-  name: Size
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Size
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
-  nameWithType: ShadowRootAdapter.Size
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size*
-  name: Size
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Size_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Size
-  nameWithType: ShadowRootAdapter.Size
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
-  name: Submit()
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Submit
-  commentId: M:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit()
-  nameWithType: ShadowRootAdapter.Submit()
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit*
-  name: Submit
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Submit_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Submit
-  nameWithType: ShadowRootAdapter.Submit
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
-  name: TagName
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_TagName
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
-  nameWithType: ShadowRootAdapter.TagName
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName*
-  name: TagName
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_TagName_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.TagName
-  nameWithType: ShadowRootAdapter.TagName
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
-  name: Text
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Text
-  commentId: P:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
-  nameWithType: ShadowRootAdapter.Text
-- uid: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text*
-  name: Text
-  href: api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html#CSF_Screenplay_Selenium_Elements_ShadowRootAdapter_Text_
-  commentId: Overload:CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
-  isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.Text
-  nameWithType: ShadowRootAdapter.Text
+  fullName: CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext
+  nameWithType: ShadowRoot.SearchContext
 - uid: CSF.Screenplay.Selenium.Elements.TargetExtensions
   name: TargetExtensions
   href: api/CSF.Screenplay.Selenium.Elements.TargetExtensions.html
@@ -14053,12 +13832,18 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementOnThePage
   nameWithType: PerformableBuilder.FindAnElementOnThePage
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  name: FindAnElementWithin(ITarget)
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget_
-  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  nameWithType: PerformableBuilder.FindAnElementWithin(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name: FindAnElementWithin(IHasSearchContext)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  nameWithType: PerformableBuilder.FindAnElementWithin(IHasSearchContext)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindAnElementWithin(Locator)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: PerformableBuilder.FindAnElementWithin(Locator)
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin*
   name: FindAnElementWithin
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_
@@ -14079,12 +13864,18 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsOnThePage
   nameWithType: PerformableBuilder.FindElementsOnThePage
-- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  name: FindElementsWithin(ITarget)
-  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget_
-  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.ITarget)
-  nameWithType: PerformableBuilder.FindElementsWithin(ITarget)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  name: FindElementsWithin(IHasSearchContext)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)
+  nameWithType: PerformableBuilder.FindElementsWithin(IHasSearchContext)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindElementsWithin(Locator)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: PerformableBuilder.FindElementsWithin(Locator)
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin*
   name: FindElementsWithin
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_
@@ -15172,15 +14963,24 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Questions.FindElement
   fullName: CSF.Screenplay.Selenium.Questions.FindElement
   nameWithType: FindElement
-- uid: CSF.Screenplay.Selenium.Questions.FindElement.#ctor(System.String,CSF.Screenplay.Selenium.Elements.Locator)
-  name: FindElement(string, Locator)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement__ctor_System_String_CSF_Screenplay_Selenium_Elements_Locator_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.#ctor(System.String,CSF.Screenplay.Selenium.Elements.Locator)
-  name.vb: New(String, Locator)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElement.FindElement(string, CSF.Screenplay.Selenium.Elements.Locator)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.New(String, CSF.Screenplay.Selenium.Elements.Locator)
-  nameWithType: FindElement.FindElement(string, Locator)
-  nameWithType.vb: FindElement.New(String, Locator)
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindElement(IHasSearchContext, string, Locator)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement__ctor_CSF_Screenplay_Selenium_Elements_IHasSearchContext_System_String_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name.vb: New(IHasSearchContext, String, Locator)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.FindElement(CSF.Screenplay.Selenium.Elements.IHasSearchContext, string, CSF.Screenplay.Selenium.Elements.Locator)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.New(CSF.Screenplay.Selenium.Elements.IHasSearchContext, String, CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: FindElement.FindElement(IHasSearchContext, string, Locator)
+  nameWithType.vb: FindElement.New(IHasSearchContext, String, Locator)
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.#ctor(CSF.Screenplay.Selenium.Elements.ITarget,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindElement(ITarget, string, Locator)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement__ctor_CSF_Screenplay_Selenium_Elements_ITarget_System_String_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.#ctor(CSF.Screenplay.Selenium.Elements.ITarget,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name.vb: New(ITarget, String, Locator)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.FindElement(CSF.Screenplay.Selenium.Elements.ITarget, string, CSF.Screenplay.Selenium.Elements.Locator)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.New(CSF.Screenplay.Selenium.Elements.ITarget, String, CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: FindElement.FindElement(ITarget, string, Locator)
+  nameWithType.vb: FindElement.New(ITarget, String, Locator)
 - uid: CSF.Screenplay.Selenium.Questions.FindElement.#ctor*
   name: FindElement
   href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement__ctor_
@@ -15191,15 +14991,12 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.New
   nameWithType: FindElement.FindElement
   nameWithType.vb: FindElement.New
-- uid: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: FindElement.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  nameWithType.vb: FindElement.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: FindElement.GetReportFragment(Actor, IFormatsReportFragment)
 - uid: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetReportFragment_
@@ -15207,15 +15004,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment
   nameWithType: FindElement.GetReportFragment
-- uid: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
-  nameWithType: FindElement.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  nameWithType.vb: FindElement.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: FindElement.PerformAsAsync(ICanPerform, CancellationToken)
 - uid: CSF.Screenplay.Selenium.Questions.FindElement.PerformAsAsync*
   name: PerformAsAsync
   href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_PerformAsAsync_
@@ -15229,15 +15023,24 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Questions.FindElements
   fullName: CSF.Screenplay.Selenium.Questions.FindElements
   nameWithType: FindElements
-- uid: CSF.Screenplay.Selenium.Questions.FindElements.#ctor(System.String,CSF.Screenplay.Selenium.Elements.Locator)
-  name: FindElements(string, Locator)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements__ctor_System_String_CSF_Screenplay_Selenium_Elements_Locator_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.#ctor(System.String,CSF.Screenplay.Selenium.Elements.Locator)
-  name.vb: New(String, Locator)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElements.FindElements(string, CSF.Screenplay.Selenium.Elements.Locator)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.New(String, CSF.Screenplay.Selenium.Elements.Locator)
-  nameWithType: FindElements.FindElements(string, Locator)
-  nameWithType.vb: FindElements.New(String, Locator)
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindElements(IHasSearchContext, string, Locator)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements__ctor_CSF_Screenplay_Selenium_Elements_IHasSearchContext_System_String_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.#ctor(CSF.Screenplay.Selenium.Elements.IHasSearchContext,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name.vb: New(IHasSearchContext, String, Locator)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.FindElements(CSF.Screenplay.Selenium.Elements.IHasSearchContext, string, CSF.Screenplay.Selenium.Elements.Locator)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.New(CSF.Screenplay.Selenium.Elements.IHasSearchContext, String, CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: FindElements.FindElements(IHasSearchContext, string, Locator)
+  nameWithType.vb: FindElements.New(IHasSearchContext, String, Locator)
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.#ctor(CSF.Screenplay.Selenium.Elements.ITarget,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name: FindElements(ITarget, string, Locator)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements__ctor_CSF_Screenplay_Selenium_Elements_ITarget_System_String_CSF_Screenplay_Selenium_Elements_Locator_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.#ctor(CSF.Screenplay.Selenium.Elements.ITarget,System.String,CSF.Screenplay.Selenium.Elements.Locator)
+  name.vb: New(ITarget, String, Locator)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.FindElements(CSF.Screenplay.Selenium.Elements.ITarget, string, CSF.Screenplay.Selenium.Elements.Locator)
+  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.New(CSF.Screenplay.Selenium.Elements.ITarget, String, CSF.Screenplay.Selenium.Elements.Locator)
+  nameWithType: FindElements.FindElements(ITarget, string, Locator)
+  nameWithType.vb: FindElements.New(ITarget, String, Locator)
 - uid: CSF.Screenplay.Selenium.Questions.FindElements.#ctor*
   name: FindElements
   href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements__ctor_
@@ -15248,15 +15051,12 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.New
   nameWithType: FindElements.FindElements
   nameWithType.vb: FindElements.New
-- uid: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
-  name.vb: GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, CSF.Screenplay.IFormatsReportFragment)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: FindElements.GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
-  nameWithType.vb: FindElements.GetReportFragment(Actor, Lazy(Of SeleniumElement), IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: FindElements.GetReportFragment(Actor, IFormatsReportFragment)
 - uid: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment*
   name: GetReportFragment
   href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetReportFragment_
@@ -15264,15 +15064,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment
   nameWithType: FindElements.GetReportFragment
-- uid: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name: PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_PerformAsAsync_CSF_Screenplay_ICanPerform_OpenQA_Selenium_IWebDriver_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform,OpenQA.Selenium.IWebDriver,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},System.Threading.CancellationToken)
-  name.vb: PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
-  fullName: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy<CSF.Screenplay.Selenium.Elements.SeleniumElement>, System.Threading.CancellationToken)
-  fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform, OpenQA.Selenium.IWebDriver, System.Lazy(Of CSF.Screenplay.Selenium.Elements.SeleniumElement), System.Threading.CancellationToken)
-  nameWithType: FindElements.PerformAsAsync(ICanPerform, IWebDriver, Lazy<SeleniumElement>, CancellationToken)
-  nameWithType.vb: FindElements.PerformAsAsync(ICanPerform, IWebDriver, Lazy(Of SeleniumElement), CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: FindElements.PerformAsAsync(ICanPerform, CancellationToken)
 - uid: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync*
   name: PerformAsAsync
   href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_PerformAsAsync_

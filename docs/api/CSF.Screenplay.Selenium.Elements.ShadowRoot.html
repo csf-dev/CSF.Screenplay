@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class SeleniumElement | Screenplay </title>
+      <title>Class ShadowRoot | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class SeleniumElement | Screenplay ">
+      <meta name="title" content="Class ShadowRoot | Screenplay ">
       
-      <meta name="description" content="An implementation of  which represents a single native Selenium HTML element.">
+      <meta name="description" content="Implementation of  which represents an HTML shadow-root node.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Elements_SeleniumElement.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Elements.SeleniumElement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Elements_ShadowRoot.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Elements.ShadowRoot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement">
+        <article data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Elements_SeleniumElement" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement" class="text-break">
-Class SeleniumElement  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Elements_ShadowRoot" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot" class="text-break">
+Class ShadowRoot  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ShadowRoot.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An implementation of <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> which represents a single native Selenium HTML element.</p>
+  <div class="markdown summary"><p>Implementation of <a class="xref" href="CSF.Screenplay.Selenium.Elements.IHasSearchContext.html">IHasSearchContext</a> which represents an HTML shadow-root node.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SeleniumElement : ITarget, IHasWebElement, IHasSearchContext, IHasName</code></pre>
+    <pre><code class="lang-csharp hljs">public class ShadowRoot : IHasSearchContext, IHasName</code></pre>
   </div>
 
 
@@ -112,15 +112,13 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">SeleniumElement</span></div>
+      <div><span class="xref">ShadowRoot</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.IHasWebElement.html">IHasWebElement</a></div>
       <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.IHasSearchContext.html">IHasSearchContext</a></div>
       <div><a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a></div>
     </dd>
@@ -148,65 +146,42 @@ Class SeleniumElement  <a class="header-action link-secondary" title="View sourc
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
-  </dd></dl>
-
-  <dl class="typelist extensionMethods">
-    <dt>Extension Methods</dt>
-    <dd>
-  <div>
-      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AllHave_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AllHave(ITarget)</a>
-  </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_AreAll_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.AreAll(ITarget)</a>
-  </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Has_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Has(ITarget)</a>
-  </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.Selenium.Elements.TargetExtensions.html#CSF_Screenplay_Selenium_Elements_TargetExtensions_Is_CSF_Screenplay_Selenium_Elements_ITarget_">TargetExtensions.Is(ITarget)</a>
-  </div>
-  <div>
-      <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElementExtensions.html#CSF_Screenplay_Selenium_Elements_SeleniumElementExtensions_AsSelectElement_CSF_Screenplay_Selenium_Elements_SeleniumElement_">SeleniumElementExtensions.AsSelectElement(SeleniumElement)</a>
-  </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
   </dd></dl>
 
 
 
-  <h2 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>
-This type of <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> contains a reference to a native Selenium <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a>.
-This class provides that element under the ITarget interface, as well as allowing the developer to specify
-a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html#CSF_Screenplay_Selenium_Elements_SeleniumElement_Name">Name</a>.  This optional, but recommended, technique facilitates human-readable reporting.
-</p>
-</div>
+
 
 
   <h2 class="section" id="constructors">Constructors
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Elements_SeleniumElement__ctor_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Elements_ShadowRoot__ctor_" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement__ctor_OpenQA_Selenium_IWebElement_System_String_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.#ctor(OpenQA.Selenium.IWebElement,System.String)">
-  SeleniumElement(IWebElement, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Elements_ShadowRoot__ctor_OpenQA_Selenium_ISearchContext_System_String_" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.#ctor(OpenQA.Selenium.ISearchContext,System.String)">
+  ShadowRoot(ISearchContext, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ShadowRoot.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SeleniumElement(IWebElement webElement, string name = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ShadowRoot(ISearchContext shadowRoot, string name = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>webElement</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a></dt>
-    <dd><p>The native Selenium web element.</p>
+    <dt><code>shadowRoot</code> <a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.ISearchContext.html">ISearchContext</a></dt>
+    <dd><p>The wrapped shadow root element</p>
 </dd>
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>An optional human-readable name which describes the element.</p>
+    <dd><p>The name of this Shadow Root object</p>
 </dd>
   </dl>
 
@@ -218,6 +193,12 @@ a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html#CS
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">shadowRoot</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></p>
+</dd>
+  </dl>
 
 
 
@@ -225,11 +206,11 @@ a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html#CS
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Elements_SeleniumElement_Name_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.Name*"></a>
+  <a id="CSF_Screenplay_Selenium_Elements_ShadowRoot_Name_" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.Name*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_Name" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.Name">
+  <h3 id="CSF_Screenplay_Selenium_Elements_ShadowRoot_Name" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ShadowRoot.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the human-readable name of the current object.</p>
@@ -253,7 +234,7 @@ a <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html#CS
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Elements_SeleniumElement_Name_remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Elements_ShadowRoot_Name_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is strongly discouraged here.  All types which implement <a class="xref" href="CSF.Screenplay.IHasName.html">IHasName</a>
 should return a non-null response from this property.
@@ -263,19 +244,19 @@ should return a non-null response from this property.
 
 
 
-  <a id="CSF_Screenplay_Selenium_Elements_SeleniumElement_WebElement_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.WebElement*"></a>
+  <a id="CSF_Screenplay_Selenium_Elements_ShadowRoot_SearchContext_" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_WebElement" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.WebElement">
-  WebElement
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Elements_ShadowRoot_SearchContext" data-uid="CSF.Screenplay.Selenium.Elements.ShadowRoot.SearchContext">
+  SearchContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ShadowRoot.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the native Selenium web element.</p>
+  <div class="markdown level1 summary"><p>Gets the native Selenium search context.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IWebElement WebElement { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ISearchContext SearchContext { get; }</code></pre>
   </div>
 
 
@@ -284,7 +265,7 @@ should return a non-null response from this property.
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.IWebElement.html">IWebElement</a></dt>
+    <dt><a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.ISearchContext.html">ISearchContext</a></dt>
     <dd></dd>
   </dl>
 
@@ -295,46 +276,17 @@ should return a non-null response from this property.
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="CSF_Screenplay_Selenium_Elements_SeleniumElement_ToString_" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.ToString*"></a>
-
-  <h3 id="CSF_Screenplay_Selenium_Elements_SeleniumElement_ToString" data-uid="CSF.Screenplay.Selenium.Elements.SeleniumElement.ToString">
-  ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L32"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html">GetShadowRootNatively</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html">GetShadowRootWithJavaScript</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.GetShadowRoot.html">GetShadowRoot</a></div>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/SeleniumElement.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Elements/ShadowRoot.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

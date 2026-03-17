@@ -1898,7 +1898,7 @@ pre-specified at design time.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_Filter_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.Filter(CSF.Screenplay.Selenium.Elements.SeleniumElementCollection)">
   Filter(SeleniumElementCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which filters a collection of elements for those which match a specification.</p>
@@ -1956,7 +1956,7 @@ It would filter the elements in <code>someElements</code> to only those which ar
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementOnThePage">
   FindAnElementOnThePage()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a single element within the body of the page.</p>
@@ -1983,8 +1983,8 @@ It would filter the elements in <code>someElements</code> to only those which ar
 
   <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-If you want to find an element which is a descendent of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget_">FindAnElementWithin(ITarget)</a>
-instead.
+If you want to find an element which is a descendent of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_Locator_">FindAnElementWithin(Locator)</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_">FindAnElementWithin(IHasSearchContext)</a> instead.
 </p>
 </div>
 
@@ -1993,9 +1993,9 @@ instead.
 
   <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.ITarget)">
-  FindAnElementWithin(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)">
+  FindAnElementWithin(IHasSearchContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a single element within a specified target.</p>
@@ -2003,12 +2003,12 @@ instead.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FindElementBuilder FindAnElementWithin(ITarget target)</code></pre>
+    <pre><code class="lang-csharp hljs">public static FindElementBuilder FindAnElementWithin(IHasSearchContext target)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.IHasSearchContext.html">IHasSearchContext</a></dt>
     <dd><p>The target within which to find HTML elements</p>
 </dd>
   </dl>
@@ -2026,7 +2026,52 @@ instead.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to find an element within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage">FindAnElementOnThePage()</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_Locator_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindAnElementWithin(CSF.Screenplay.Selenium.Elements.Locator)">
+  FindAnElementWithin(Locator)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a single element within a specified target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementBuilder FindAnElementWithin(Locator target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a></dt>
+    <dd><p>The target within which to find HTML elements</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementBuilder.html">FindElementBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds an element</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementWithin_CSF_Screenplay_Selenium_Elements_Locator__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 If you only want to find an element within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindAnElementOnThePage">FindAnElementOnThePage()</a>
 instead.
@@ -2040,7 +2085,7 @@ instead.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsOnThePage">
   FindElementsOnThePage()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a collection of elements within the body of the page.</p>
@@ -2067,8 +2112,8 @@ instead.
 
   <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-If you want to find elements which are descendents of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget_">FindElementsWithin(ITarget)</a>
-instead.
+If you want to find elements which are descendents of a specified target, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_Locator_">FindElementsWithin(Locator)</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_">FindElementsWithin(IHasSearchContext)</a> instead.
 </p>
 </div>
 
@@ -2077,9 +2122,9 @@ instead.
 
   <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.ITarget)">
-  FindElementsWithin(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.IHasSearchContext)">
+  FindElementsWithin(IHasSearchContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a collection of elements within a specified target.</p>
@@ -2087,12 +2132,12 @@ instead.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FindElementsBuilder FindElementsWithin(ITarget target)</code></pre>
+    <pre><code class="lang-csharp hljs">public static FindElementsBuilder FindElementsWithin(IHasSearchContext target)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a></dt>
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.IHasSearchContext.html">IHasSearchContext</a></dt>
     <dd><p>The target within which to find HTML elements</p>
 </dd>
   </dl>
@@ -2110,7 +2155,52 @@ instead.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_ITarget__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_IHasSearchContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If you only want to find elements within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage">FindElementsOnThePage()</a>
+instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_Locator_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin(CSF.Screenplay.Selenium.Elements.Locator)">
+  FindElementsWithin(Locator)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable action which finds a collection of elements within a specified target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FindElementsBuilder FindElementsWithin(Locator target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="CSF.Screenplay.Selenium.Elements.Locator.html">Locator</a></dt>
+    <dd><p>The target within which to find HTML elements</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.FindElementsBuilder.html">FindElementsBuilder</a></dt>
+    <dd><p>A builder, which may be used to configure/get a question that finds elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_FindElementsWithin_CSF_Screenplay_Selenium_Elements_Locator__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 If you only want to find elements within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage">FindElementsOnThePage()</a>
 instead.
@@ -2124,7 +2214,7 @@ instead.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootFrom_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom(CSF.Screenplay.Selenium.Elements.ITarget)">
   GetTheShadowRootFrom(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L209"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.</p>
@@ -2132,7 +2222,7 @@ instead.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;SeleniumElement&gt; GetTheShadowRootFrom(ITarget shadowHost)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;ShadowRoot&gt; GetTheShadowRootFrom(ITarget shadowHost)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2144,7 +2234,7 @@ instead.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>&gt;</dt>
     <dd><p>A performable which gets the Shadow Root.</p>
 </dd>
   </dl>
@@ -2161,11 +2251,6 @@ This is used when working with web pages which use
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">The Shadow DOM technique</a>.
 This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Root element, so that the Performance
 may continue and interact with elements which are inside the Shadow DOM.
-</p>
-<p>
-Note that the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> which is returned from this question is not a fully-fledged Selenium Element.
-It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
 </p>
 <p>
 The <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> passed to this performable as a parameter must be the Shadow Host element, or else this question will
@@ -2185,7 +2270,7 @@ Selenium.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootNativelyFrom_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootNativelyFrom(CSF.Screenplay.Selenium.Elements.ITarget)">
   GetTheShadowRootNativelyFrom(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.</p>
@@ -2193,7 +2278,7 @@ Selenium.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;SeleniumElement&gt; GetTheShadowRootNativelyFrom(ITarget shadowHost)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;ShadowRoot&gt; GetTheShadowRootNativelyFrom(ITarget shadowHost)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2205,7 +2290,7 @@ Selenium.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>&gt;</dt>
     <dd><p>A performable which gets the Shadow Root.</p>
 </dd>
   </dl>
@@ -2224,11 +2309,6 @@ This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Ro
 may continue and interact with elements which are inside the Shadow DOM.
 </p>
 <p>
-Note that the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> which is returned from this question is not a fully-fledged Selenium Element.
-It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
-</p>
-<p>
 The <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> passed to this performable as a parameter must be the Shadow Host element, or else this question will
 throw.
 </p>
@@ -2245,7 +2325,7 @@ Use <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Sc
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootWithJavaScriptFrom_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom(CSF.Screenplay.Selenium.Elements.ITarget)">
   GetTheShadowRootWithJavaScriptFrom(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L184"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a performable task/question which gets a Shadow Root from the specified Shadow Host target.</p>
@@ -2253,7 +2333,7 @@ Use <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Sc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;SeleniumElement&gt; GetTheShadowRootWithJavaScriptFrom(ITarget shadowHost)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IPerformableWithResult&lt;ShadowRoot&gt; GetTheShadowRootWithJavaScriptFrom(ITarget shadowHost)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2265,7 +2345,7 @@ Use <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Sc
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a>&gt;</dt>
+    <dt><a class="xref" href="CSF.Screenplay.IPerformableWithResult-1.html">IPerformableWithResult</a>&lt;<a class="xref" href="CSF.Screenplay.Selenium.Elements.ShadowRoot.html">ShadowRoot</a>&gt;</dt>
     <dd><p>A performable which gets the Shadow Root.</p>
 </dd>
   </dl>
@@ -2282,11 +2362,6 @@ This is used when working with web pages which use
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">The Shadow DOM technique</a>.
 This question allows Screenplay to 'pierce' the Shadow DOM and get the Shadow Root element, so that the Performance
 may continue and interact with elements which are inside the Shadow DOM.
-</p>
-<p>
-Note that the <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> which is returned from this question is not a fully-fledged Selenium Element.
-It may be used only to get/find elements from inside the Shadow DOM. Use with any other performables will raise
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
 </p>
 <p>
 The <a class="xref" href="CSF.Screenplay.Selenium.Elements.ITarget.html">ITarget</a> passed to this performable as a parameter must be the Shadow Host element, or else this question will
@@ -2350,7 +2425,7 @@ to transform the relative Uri into an absolute one.  The specified Uri will be u
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheCollectionOfElements_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheCollectionOfElements(CSF.Screenplay.Selenium.Elements.ITarget)">
   ReadFromTheCollectionOfElements(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which reads a collection of the same information from a collection of elements.</p>
@@ -2395,7 +2470,7 @@ corresponding values.
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ReadFromTheElement_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ReadFromTheElement(CSF.Screenplay.Selenium.Elements.ITarget)">
   ReadFromTheElement(ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.elementQuestions.cs/#L124"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a builder which may be used to create a performable question which reads a piece of information from a single element.</p>
