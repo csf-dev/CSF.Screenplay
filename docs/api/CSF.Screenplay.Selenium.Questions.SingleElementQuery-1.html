@@ -102,7 +102,7 @@ Class SingleElementQuery&lt;TResult&gt;  <a class="header-action link-secondary"
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SingleElementQuery&lt;TResult&gt; : ISingleElementPerformableWithResult&lt;TResult&gt;, ICanReportForElement</code></pre>
+    <pre><code class="lang-csharp hljs">public class SingleElementQuery&lt;TResult&gt; : ISingleElementPerformableWithResult&lt;TResult&gt;, ICanReportForElement, IHasCustomTypeName</code></pre>
   </div>
 
 
@@ -127,6 +127,7 @@ Class SingleElementQuery&lt;TResult&gt;  <a class="header-action link-secondary"
     <dd>
       <div><a class="xref" href="CSF.Screenplay.Selenium.Questions.ISingleElementPerformableWithResult-1.html">ISingleElementPerformableWithResult</a>&lt;TResult&gt;</div>
       <div><a class="xref" href="CSF.Screenplay.Selenium.Elements.ICanReportForElement.html">ICanReportForElement</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IHasCustomTypeName.html">IHasCustomTypeName</a></div>
     </dd>
   </dl>
 
@@ -209,7 +210,7 @@ Crucially, to decide which piece of information to retrieve from the target, you
 
   <h3 id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1__ctor_CSF_Screenplay_Selenium_Queries_IQuery__0__" data-uid="CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.#ctor(CSF.Screenplay.Selenium.Queries.IQuery{`0})">
   SingleElementQuery(IQuery&lt;TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/SingleElementQuery.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/SingleElementQuery.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html">SingleElementQuery&lt;TResult&gt;</a> class with the specified query.</p>
@@ -240,6 +241,43 @@ Crucially, to decide which piece of information to retrieve from the target, you
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetHumanReadableTypeName_" data-uid="CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetHumanReadableTypeName" data-uid="CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName">
+  GetHumanReadableTypeName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/SingleElementQuery.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a human-readable name of the type of the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetHumanReadableTypeName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A human-readable name of the .NET type of the current instance, which could (for example) be
+qualified with additional context, such as a wrapped implementation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetHumanReadableTypeName_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the remarks on <a class="xref" href="CSF.Screenplay.IHasCustomTypeName.html">IHasCustomTypeName</a>; this does not need to be the same as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.gettype#system-type-gettype">GetType()</a>.</p>
+</div>
+
+
 
 
   <a id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetReportFragment*"></a>

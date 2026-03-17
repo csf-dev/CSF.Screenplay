@@ -102,7 +102,7 @@ Class SingleElementPerformableAdapter  <a class="header-action link-secondary" t
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SingleElementPerformableAdapter : IPerformable, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class SingleElementPerformableAdapter : IPerformable, ICanReport, IHasCustomTypeName</code></pre>
   </div>
 
 
@@ -121,6 +121,7 @@ Class SingleElementPerformableAdapter  <a class="header-action link-secondary" t
     <dd>
       <div><a class="xref" href="CSF.Screenplay.IPerformable.html">IPerformable</a></div>
       <div><a class="xref" href="CSF.Screenplay.ICanReport.html">ICanReport</a></div>
+      <div><a class="xref" href="CSF.Screenplay.IHasCustomTypeName.html">IHasCustomTypeName</a></div>
     </dd>
   </dl>
 
@@ -174,7 +175,7 @@ to fetch it using the WebDriver more than once.  As such, instances of this adap
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter__ctor_CSF_Screenplay_Selenium_Actions_ISingleElementPerformable_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.#ctor(CSF.Screenplay.Selenium.Actions.ISingleElementPerformable,CSF.Screenplay.Selenium.Elements.ITarget)">
   SingleElementPerformableAdapter(ISingleElementPerformable, ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SingleElementPerformableAdapter.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SingleElementPerformableAdapter.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html">SingleElementPerformableAdapter</a> class with the specified performable and target.</p>
@@ -214,7 +215,7 @@ to fetch it using the WebDriver more than once.  As such, instances of this adap
 
   <h3 id="CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_From_CSF_Screenplay_Selenium_Actions_ISingleElementPerformable_CSF_Screenplay_Selenium_Elements_ITarget_" data-uid="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.From(CSF.Screenplay.Selenium.Actions.ISingleElementPerformable,CSF.Screenplay.Selenium.Elements.ITarget)">
   From(ISingleElementPerformable, ITarget)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SingleElementPerformableAdapter.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SingleElementPerformableAdapter.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html">SingleElementPerformableAdapter</a> class with the specified performable and target.</p>
@@ -248,6 +249,43 @@ to fetch it using the WebDriver more than once.  As such, instances of this adap
 
 
 
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetHumanReadableTypeName_" data-uid="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetHumanReadableTypeName" data-uid="CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName">
+  GetHumanReadableTypeName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Actions/SingleElementPerformableAdapter.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a human-readable name of the type of the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetHumanReadableTypeName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A human-readable name of the .NET type of the current instance, which could (for example) be
+qualified with additional context, such as a wrapped implementation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetHumanReadableTypeName_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the remarks on <a class="xref" href="CSF.Screenplay.IHasCustomTypeName.html">IHasCustomTypeName</a>; this does not need to be the same as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.gettype#system-type-gettype">GetType()</a>.</p>
+</div>
 
 
 

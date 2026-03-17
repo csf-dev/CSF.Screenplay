@@ -1581,6 +1581,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.IHasAbilities.IsAbleTo
   nameWithType: IHasAbilities.IsAbleTo
+- uid: CSF.Screenplay.IHasCustomTypeName
+  name: IHasCustomTypeName
+  href: api/CSF.Screenplay.IHasCustomTypeName.html
+  commentId: T:CSF.Screenplay.IHasCustomTypeName
+  fullName: CSF.Screenplay.IHasCustomTypeName
+  nameWithType: IHasCustomTypeName
+- uid: CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.IHasCustomTypeName.html#CSF_Screenplay_IHasCustomTypeName_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName()
+  nameWithType: IHasCustomTypeName.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.IHasCustomTypeName.html#CSF_Screenplay_IHasCustomTypeName_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.IHasCustomTypeName.GetHumanReadableTypeName
+  nameWithType: IHasCustomTypeName.GetHumanReadableTypeName
 - uid: CSF.Screenplay.IHasName
   name: IHasName
   href: api/CSF.Screenplay.IHasName.html
@@ -7162,6 +7181,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.From
   nameWithType: SingleElementPerformableAdapter.From
+- uid: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html#CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName()
+  nameWithType: SingleElementPerformableAdapter.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html#CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetHumanReadableTypeName
+  nameWithType: SingleElementPerformableAdapter.GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Actions.SingleElementPerformableAdapter.html#CSF_Screenplay_Selenium_Actions_SingleElementPerformableAdapter_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -14679,6 +14711,23 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter(Of TResult).New
   nameWithType: ElementCollectionPerformableWithResultAdapter<TResult>.ElementCollectionPerformableWithResultAdapter
   nameWithType.vb: ElementCollectionPerformableWithResultAdapter(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionPerformableWithResultAdapter_1_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName()
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName()
+  nameWithType: ElementCollectionPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName()
+  nameWithType.vb: ElementCollectionPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter`1.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionPerformableWithResultAdapter_1_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName
+  nameWithType: ElementCollectionPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName
+  nameWithType.vb: ElementCollectionPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionPerformableWithResultAdapter_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -14763,6 +14812,23 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery(Of TResult).New
   nameWithType: ElementCollectionQuery<TResult>.ElementCollectionQuery
   nameWithType.vb: ElementCollectionQuery(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery`1.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionQuery_1_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.ElementCollectionQuery`1.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery<TResult>.GetHumanReadableTypeName()
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery(Of TResult).GetHumanReadableTypeName()
+  nameWithType: ElementCollectionQuery<TResult>.GetHumanReadableTypeName()
+  nameWithType.vb: ElementCollectionQuery(Of TResult).GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery`1.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionQuery_1_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.ElementCollectionQuery`1.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery<TResult>.GetHumanReadableTypeName
+  fullName.vb: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery(Of TResult).GetHumanReadableTypeName
+  nameWithType: ElementCollectionQuery<TResult>.GetHumanReadableTypeName
+  nameWithType.vb: ElementCollectionQuery(Of TResult).GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.ElementCollectionQuery`1.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElementCollection},CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, Lazy<SeleniumElementCollection>, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionQuery-1.html#CSF_Screenplay_Selenium_Questions_ElementCollectionQuery_1_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElementCollection__CSF_Screenplay_IFormatsReportFragment_
@@ -14991,6 +15057,19 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.FindElement.New
   nameWithType: FindElement.FindElement
   nameWithType.vb: FindElement.New
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName()
+  nameWithType: FindElement.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.FindElement.GetHumanReadableTypeName
+  nameWithType: FindElement.GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.FindElement.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.FindElement.html#CSF_Screenplay_Selenium_Questions_FindElement_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -15051,6 +15130,19 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.FindElements.New
   nameWithType: FindElements.FindElements
   nameWithType.vb: FindElements.New
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName()
+  nameWithType: FindElements.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.FindElements.GetHumanReadableTypeName
+  nameWithType: FindElements.GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.FindElements.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.FindElements.html#CSF_Screenplay_Selenium_Questions_FindElements_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -15083,6 +15175,19 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
   fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
   nameWithType: GetShadowRootNatively
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName()
+  nameWithType: GetShadowRootNatively.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetHumanReadableTypeName
+  nameWithType: GetShadowRootNatively.GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html#CSF_Screenplay_Selenium_Questions_GetShadowRootNatively_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
@@ -15121,6 +15226,19 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
   fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
   nameWithType: GetShadowRootWithJavaScript
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName()
+  nameWithType: GetShadowRootWithJavaScript.GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetHumanReadableTypeName
+  nameWithType: GetShadowRootWithJavaScript.GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetShadowRootWithJavaScript_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
@@ -15289,6 +15407,23 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter(Of TResult).New
   nameWithType: SingleElementPerformableWithResultAdapter<TResult>.SingleElementPerformableWithResultAdapter
   nameWithType.vb: SingleElementPerformableWithResultAdapter(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_SingleElementPerformableWithResultAdapter_1_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName()
+  fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName()
+  nameWithType: SingleElementPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName()
+  nameWithType.vb: SingleElementPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter`1.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_SingleElementPerformableWithResultAdapter_1_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter`1.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName
+  fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName
+  nameWithType: SingleElementPerformableWithResultAdapter<TResult>.GetHumanReadableTypeName
+  nameWithType.vb: SingleElementPerformableWithResultAdapter(Of TResult).GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter`1.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.SingleElementPerformableWithResultAdapter-1.html#CSF_Screenplay_Selenium_Questions_SingleElementPerformableWithResultAdapter_1_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
@@ -15373,6 +15508,23 @@ references:
   fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementQuery(Of TResult).New
   nameWithType: SingleElementQuery<TResult>.SingleElementQuery
   nameWithType.vb: SingleElementQuery(Of TResult).New
+- uid: CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName
+  name: GetHumanReadableTypeName()
+  href: api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html#CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetHumanReadableTypeName
+  commentId: M:CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName
+  fullName: CSF.Screenplay.Selenium.Questions.SingleElementQuery<TResult>.GetHumanReadableTypeName()
+  fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementQuery(Of TResult).GetHumanReadableTypeName()
+  nameWithType: SingleElementQuery<TResult>.GetHumanReadableTypeName()
+  nameWithType.vb: SingleElementQuery(Of TResult).GetHumanReadableTypeName()
+- uid: CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName*
+  name: GetHumanReadableTypeName
+  href: api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html#CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetHumanReadableTypeName_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetHumanReadableTypeName
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.SingleElementQuery<TResult>.GetHumanReadableTypeName
+  fullName.vb: CSF.Screenplay.Selenium.Questions.SingleElementQuery(Of TResult).GetHumanReadableTypeName
+  nameWithType: SingleElementQuery<TResult>.GetHumanReadableTypeName
+  nameWithType.vb: SingleElementQuery(Of TResult).GetHumanReadableTypeName
 - uid: CSF.Screenplay.Selenium.Questions.SingleElementQuery`1.GetReportFragment(CSF.Screenplay.Actor,System.Lazy{CSF.Screenplay.Selenium.Elements.SeleniumElement},CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, Lazy<SeleniumElement>, IFormatsReportFragment)
   href: api/CSF.Screenplay.Selenium.Questions.SingleElementQuery-1.html#CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_GetReportFragment_CSF_Screenplay_Actor_System_Lazy_CSF_Screenplay_Selenium_Elements_SeleniumElement__CSF_Screenplay_IFormatsReportFragment_
