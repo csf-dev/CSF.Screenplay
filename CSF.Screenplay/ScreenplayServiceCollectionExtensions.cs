@@ -36,7 +36,10 @@ namespace CSF.Screenplay
 
             services
                 .AddOptions<ScreenplayOptions>()
-                .Configure((ScreenplayOptions o, PerformanceEventBus eventBus) => o.PerformanceEventsConfig?.Invoke(eventBus));
+                .PostConfigure((ScreenplayOptions o, PerformanceEventBus eventBus, IServiceProvider s) => {
+                    foreach(var callback in o.PerformanceEventHandlers)
+                        callback.Invoke(eventBus, s);
+                });
             
             services
                 .AddSingleton<Screenplay>()

@@ -38,7 +38,7 @@ namespace CSF.Screenplay
         /// </para>
         /// <para>
         /// Make use of <see cref="ICollection{T}.Add(T)"/> to add new formatters to the end of this collection.
-        /// It comes pre-loaded with three generalised formatters by default, in the following order.
+        /// It comes pre-loaded with some general-use formatters by default, in the following order.
         /// </para>
         /// <list type="number">
         /// <item><description><see cref="ToStringFormatter"/> - a default/fallback implementation which may format any value at all</description></item>
@@ -94,7 +94,7 @@ namespace CSF.Screenplay
         public string ReportPath { get; set; } = $"ScreenplayReport_{DateTime.UtcNow.ToString("yyyy-MM-ddTHHmmssZ", CultureInfo.InvariantCulture)}";
 
         /// <summary>
-        /// An optional callback/action which exposes the various <see cref="IHasPerformanceEvents"/> which may be subscribed-to in order to be notified
+        /// A collection of optional callbacks/actions which expose the various <see cref="IHasPerformanceEvents"/> which may be subscribed-to in order to be notified
         /// of the progress of a screenplay.
         /// </summary>
         /// <remarks>
@@ -104,12 +104,18 @@ namespace CSF.Screenplay
         /// If you wish, you may subscribe to these events from your own logic in order to develop new functionality or extend Screenplay.
         /// </para>
         /// <para>
-        /// There is no need to add an explicit subscription to any events for the reporting infrastructure.
-        /// Screenplay will automatically subscribe to this object from the reporting mechanism, unless the value of <see cref="ReportPath"/> means that
-        /// reporting is disabled.
+        /// There is no need to use this mechanism in order to use the Screenplay Reporting infrastructure.
+        /// Built-in logic will automatically subscribe to the event published from the reporting infrastructure.
+        /// Note that if <see cref="ReportPath"/> is a null or whitepsace-only string, the reporting infrastructure will be disabled.
+        /// </para>
+        /// <para>
+        /// This collection of configuration callbacks may be used to subscribe to the event publisher from custom Screenplay extensions, in order
+        /// be notified at particular points in the Screenplay's lifecycle.
+        /// Each extension should add a single item to this list of callbacks. In this manner, multiple extensions may coexist without worrying about
+        /// overwriting one another's event subscriptions.
         /// </para>
         /// </remarks>
-        public Action<IHasPerformanceEvents> PerformanceEventsConfig { get; set; }
+        public List<Action<IHasPerformanceEvents, IServiceProvider>> PerformanceEventHandlers { get; } = new List<Action<IHasPerformanceEvents, IServiceProvider>>();
 
         /// <summary>
         /// Gets an ordered collection of actions which should be executed when the <see cref="Screenplay"/> begins, before the first

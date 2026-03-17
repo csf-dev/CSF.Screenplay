@@ -18,12 +18,22 @@ namespace CSF.Screenplay.Selenium
             services.AddWebDriverFactory();
             services.AddWebDriverQuirks(BrowserQuirks.GetQuirksData());
 
+            services.AddSingleton<Reporting.ITakesScreenshotWhenPerformableFails, Reporting.PerformableFailureScreenshotTaker>();
+
             services.AddTransient<Reporting.OptionsFormatter>();
             services.AddTransient<Reporting.ScreenshotFormatter>();
             services.Configure<ScreenplayOptions>(o =>
             {
                 o.ValueFormatters.Add(typeof(Reporting.OptionsFormatter));
                 o.ValueFormatters.Add(typeof(Reporting.ScreenshotFormatter));
+                
+                o.PerformanceEventHandlers.Add((eventBus, s) =>
+                {
+                    var screenshotTaker = s.GetRequiredService<Reporting.ITakesScreenshotWhenPerformableFails>();
+
+                    eventBus.PerformableFailed -= screenshotTaker.OnPerformableFailed;
+                    eventBus.PerformableFailed += screenshotTaker.OnPerformableFailed;
+                });
             });
 
             return services;
