@@ -74,7 +74,7 @@ namespace CSF.Screenplay.Selenium.Tasks
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} clicks on {Element} and waits up to {Time} for the next page to load", actor, element.Value, GetTimeout(actor));
+            => formatter.Format("{Actor} clicks on {Element} and waits up to {Time} for the next page to load", actor, element, GetTimeout(actor));
 
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)

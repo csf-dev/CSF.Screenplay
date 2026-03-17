@@ -50,7 +50,7 @@ namespace CSF.Screenplay.Selenium.Actions
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} deselects the option with value {Value} from {Element}", actor.Name, value, element.Value);
+            => formatter.Format("{Actor} deselects the option with value {Value} from {Element}", actor.Name, value, element);
 
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)

@@ -33,7 +33,7 @@ namespace CSF.Screenplay.Selenium.Questions
     {
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} gets the Shadow Root node from {Element} using JavaScript", actor, element.Value);
+            => formatter.Format("{Actor} gets the Shadow Root node from {Element} using JavaScript", actor, element);
 
         /// <inheritdoc/>
         public string GetHumanReadableTypeName() => GetType().FullName;

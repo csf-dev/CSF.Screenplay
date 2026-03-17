@@ -59,7 +59,7 @@ namespace CSF.Screenplay.Selenium.Actions
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} selects '{Text}' from {Element}", actor.Name, text, element.Value);
+            => formatter.Format("{Actor} selects '{Text}' from {Element}", actor.Name, text, element);
 
         /// <inheritdoc/>
         public ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)

@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Selenium.Elements;
-using OpenQA.Selenium;
 
 namespace CSF.Screenplay.Selenium.Questions
 {
@@ -66,7 +65,7 @@ namespace CSF.Screenplay.Selenium.Questions
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         {
             lazyElement = lazyElement ?? GetLazyElement(actor);
-            return formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(lazyElement.Value) ?? "HTML elements", lazyElement.Value);
+            return formatter.Format("{Actor} finds {ElementsName} within {Element}", actor, GetElementsName(), lazyElement);
         }
 
         /// <inheritdoc/>
@@ -74,10 +73,10 @@ namespace CSF.Screenplay.Selenium.Questions
         {
             lazyElement = lazyElement ?? GetLazyElement(actor);
             var element = lazyElement.Value.SearchContext.FindElement(locatorBasedMatcher ?? CssSelector.AnyElement);
-            return new ValueTask<SeleniumElement>(new SeleniumElement(element, GetElementsName(lazyElement.Value)));
+            return new ValueTask<SeleniumElement>(new SeleniumElement(element, GetElementsName()));
         }
 
-        string GetElementsName(IHasName element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
+        string GetElementsName() => elementsName != null ? elementsName : (locatorBasedMatcher?.Name ?? "HTML elements");
 
         Lazy<IHasSearchContext> GetLazyElement(ICanPerform actor)
         {

@@ -49,7 +49,7 @@ namespace CSF.Screenplay.Selenium.Questions
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} reads {Query} from {Element}", actor, query, element.Value);
+            => formatter.Format("{Actor} reads {Query} from {Element}", actor, query, element);
 
         /// <inheritdoc/>
         public ValueTask<TResult> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)

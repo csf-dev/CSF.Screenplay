@@ -22,10 +22,12 @@ namespace CSF.Screenplay.Selenium
 
             services.AddTransient<Reporting.OptionsFormatter>();
             services.AddTransient<Reporting.ScreenshotFormatter>();
+            services.AddTransient<Elements.LazySeleniumElementFormatter>();
             services.Configure<ScreenplayOptions>(o =>
             {
                 o.ValueFormatters.Add(typeof(Reporting.OptionsFormatter));
                 o.ValueFormatters.Add(typeof(Reporting.ScreenshotFormatter));
+                o.ValueFormatters.Add(typeof(Elements.LazySeleniumElementFormatter));
                 
                 o.PerformanceEventHandlers.Add((eventBus, s) =>
                 {

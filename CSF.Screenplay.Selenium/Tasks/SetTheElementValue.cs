@@ -69,8 +69,8 @@ namespace CSF.Screenplay.Selenium.Tasks
         public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
         {
             return simulateInteractiveSet
-                ? formatter.Format("{Actor} uses JavaScript to simulate setting the value of {Element} to {Value} interactively", actor, element.Value, value)
-                : formatter.Format("{Actor} uses JavaScript to set the value of {Element} to {Value}", actor, element.Value, value);
+                ? formatter.Format("{Actor} uses JavaScript to simulate setting the value of {Element} to {Value} interactively", actor, element, value)
+                : formatter.Format("{Actor} uses JavaScript to set the value of {Element} to {Value}", actor, element, value);
         }
 
         /// <inheritdoc/>
