@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// to fetch it using the WebDriver more than once.  As such, instances of this adapter (like all performables) should not be re-used.
     /// </para>
     /// </remarks>
-    public class SingleElementPerformableAdapter : IPerformable, ICanReport
+    public class SingleElementPerformableAdapter : IPerformable, ICanReport, IHasCustomTypeName
     {
         readonly ISingleElementPerformable performable;
         readonly ITarget target;
@@ -37,6 +37,10 @@ namespace CSF.Screenplay.Selenium.Actions
             lazyElement = lazyElement ?? actor.GetLazyElement(target);
             return performable.PerformAsAsync(actor, actor.GetAbility<BrowseTheWeb>().WebDriver, lazyElement, cancellationToken);
         }
+
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName()
+            => $"{performable.GetType().FullName}, via {nameof(SingleElementPerformableAdapter)}";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleElementPerformableAdapter"/> class with the specified performable and target.

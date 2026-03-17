@@ -174,7 +174,9 @@ namespace CSF.Screenplay.Reporting
         {
             var performableReport = new PerformableReport
             {
-                PerformableType = performable.GetType().FullName,
+                PerformableType = performable is IHasCustomTypeName customName
+                    ? customName.GetHumanReadableTypeName()
+                    : performable.GetType().FullName,
                 ActorName = actor.Name,
                 PerformancePhase = performancePhase,
                 Started = reportTimer.GetCurrentTime(),

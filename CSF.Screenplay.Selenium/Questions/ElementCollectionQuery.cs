@@ -57,6 +57,10 @@ namespace CSF.Screenplay.Selenium.Questions
         public ValueTask<IReadOnlyList<TResult>> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElementCollection> elements, CancellationToken cancellationToken = default)
             => new ValueTask<IReadOnlyList<TResult>>(elements.Value.Select(query.GetValue).ToList());
 
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName()
+            => $"{query.GetType().FullName}, via {nameof(ElementCollectionQuery)}";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementCollectionQuery{TResult}"/> class with the specified query.
         /// </summary>

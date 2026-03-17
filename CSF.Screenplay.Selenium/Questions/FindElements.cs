@@ -69,6 +69,9 @@ namespace CSF.Screenplay.Selenium.Questions
 
         string GetElementsName(SeleniumElement element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
 
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName() => GetType().FullName;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FindElements"/> class.
         /// </summary>

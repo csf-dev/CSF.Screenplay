@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// to fetch it using the WebDriver more than once.  As such, instances of this adapter (like all performables) should not be re-used.
     /// </para>
     /// </remarks>
-    public class SingleElementPerformableWithResultAdapter<TResult> : IPerformableWithResult<TResult>, ICanReport
+    public class SingleElementPerformableWithResultAdapter<TResult> : IPerformableWithResult<TResult>, ICanReport, IHasCustomTypeName
     {
         readonly ISingleElementPerformableWithResult<TResult> performable;
         readonly ITarget target;
@@ -45,6 +45,10 @@ namespace CSF.Screenplay.Selenium.Questions
                 return new ValueTask<TResult>(default(TResult));
             }
         }
+
+        /// <inheritdoc/>
+        public string GetHumanReadableTypeName()
+            => $"{performable.GetHumanReadableTypeName()}, via {nameof(SingleElementPerformableWithResultAdapter)}";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleElementPerformableWithResultAdapter{TResult}"/> class with the specified performable and target.
