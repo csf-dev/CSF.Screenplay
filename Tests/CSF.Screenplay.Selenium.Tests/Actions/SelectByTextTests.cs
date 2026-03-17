@@ -8,7 +8,7 @@ namespace CSF.Screenplay.Selenium.Actions;
 [TestFixture, Parallelizable]
 public class SelectByTextTests
 {
-    static readonly ITarget
+    static readonly Locator
         selectElement = new ElementId("selectElement", "the select element"),
         displayText = new ElementId("display", "the displayable text");
 

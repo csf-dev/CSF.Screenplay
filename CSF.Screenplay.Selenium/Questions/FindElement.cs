@@ -12,9 +12,10 @@ namespace CSF.Screenplay.Selenium.Questions
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindAnElementWithin(ITarget)"/>
-    /// or <see cref="PerformableBuilder.FindAnElementOnThePage"/>. The first searches within a specified target,
-    /// the second searches within the whole page <c>&lt;body&gt;</c>. This question will only ever return a single
+    /// Use this question via either of the builder methods <see cref="PerformableBuilder.FindAnElementWithin(Locator)"/>,
+    /// <see cref="PerformableBuilder.FindAnElementWithin(IHasSearchContext)"/> or <see cref="PerformableBuilder.FindAnElementOnThePage"/>.
+    /// The first two search within a specified target,
+    /// the third searches within the whole page <c>&lt;body&gt;</c>. This question will only ever return a single
     /// <see cref="SeleniumElement"/>, or it will raise an exception if the search does not find any matching elements.
     /// If multiple elements are found which match the criteria then this question will return only the first.
     /// If you are expecting to find multiple elements, then consider using the <see cref="FindElements"/> question
@@ -51,24 +52,38 @@ namespace CSF.Screenplay.Selenium.Questions
     /// </code>
     /// </example>
     /// <seealso cref="PerformableBuilder.FindAnElementOnThePage"/>
-    /// <seealso cref="PerformableBuilder.FindAnElementWithin(ITarget)"/>
-    public class FindElement : ISingleElementPerformableWithResult<SeleniumElement>
+    /// <seealso cref="PerformableBuilder.FindAnElementWithin(Locator)"/>
+    /// <seealso cref="PerformableBuilder.FindAnElementWithin(IHasSearchContext)"/>
+    public class FindElement : IPerformableWithResult<SeleniumElement>, ICanReport
     {
+        readonly ITarget target;
+        readonly IHasSearchContext searchContext;
         readonly string elementsName;
         readonly Locator locatorBasedMatcher;
+        Lazy<IHasSearchContext> lazyElement;
 
         /// <inheritdoc/>
-        public ReportFragment GetReportFragment(Actor actor, Lazy<SeleniumElement> element, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(element.Value) ?? "HTML elements", element.Value);
-
-        /// <inheritdoc/>
-        public ValueTask<SeleniumElement> PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
+        public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
         {
-            var webElement = element.Value.WebElement.FindElement(locatorBasedMatcher ?? CssSelector.AnyElement);
-            return new ValueTask<SeleniumElement>(new SeleniumElement(webElement, GetElementsName(element.Value)));
+            lazyElement = lazyElement ?? GetLazyElement(actor);
+            return formatter.Format("{Actor} finds {ElementsName} from {Element}", actor, GetElementsName(lazyElement.Value) ?? "HTML elements", lazyElement.Value);
         }
 
-        string GetElementsName(SeleniumElement element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
+        /// <inheritdoc/>
+        public ValueTask<SeleniumElement> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        {
+            lazyElement = lazyElement ?? GetLazyElement(actor);
+            var element = lazyElement.Value.SearchContext.FindElement(locatorBasedMatcher ?? CssSelector.AnyElement);
+            return new ValueTask<SeleniumElement>(new SeleniumElement(element, GetElementsName(lazyElement.Value)));
+        }
+
+        string GetElementsName(IHasName element) => elementsName ?? $"{locatorBasedMatcher?.Name} within {element.Name}";
+
+        Lazy<IHasSearchContext> GetLazyElement(ICanPerform actor)
+        {
+            if(target != null) return new Lazy<IHasSearchContext>(() => actor.GetLazyElement(target).Value);
+            return new Lazy<IHasSearchContext>(() => searchContext);
+        }
 
         /// <inheritdoc/>
         public string GetHumanReadableTypeName() => GetType().FullName;
@@ -76,10 +91,25 @@ namespace CSF.Screenplay.Selenium.Questions
         /// <summary>
         /// Initializes a new instance of the <see cref="FindElement"/> class.
         /// </summary>
+        /// <param name="target">A target which describes an element</param>
         /// <param name="elementsName">An optional short, descriptive, human-readable name to give to the collection of elements which are found.</param>
         /// <param name="locatorBasedMatcher">An optional <see cref="Locator"/> which should be used to filter the elements which are returned.</param>
-        public FindElement(string elementsName = null, Locator locatorBasedMatcher = null)
+        public FindElement(ITarget target, string elementsName = null, Locator locatorBasedMatcher = null)
         {
+            this.target = target ?? throw new ArgumentNullException(nameof(target));
+            this.elementsName = elementsName;
+            this.locatorBasedMatcher = locatorBasedMatcher;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FindElement"/> class.
+        /// </summary>
+        /// <param name="searchContext">An object which provides a search context, within which we can find elements</param>
+        /// <param name="elementsName">An optional short, descriptive, human-readable name to give to the collection of elements which are found.</param>
+        /// <param name="locatorBasedMatcher">An optional <see cref="Locator"/> which should be used to filter the elements which are returned.</param>
+        public FindElement(IHasSearchContext searchContext, string elementsName = null, Locator locatorBasedMatcher = null)
+        {
+            this.searchContext = searchContext ?? throw new ArgumentNullException(nameof(searchContext));
             this.elementsName = elementsName;
             this.locatorBasedMatcher = locatorBasedMatcher;
         }

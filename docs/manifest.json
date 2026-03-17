@@ -2710,6 +2710,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Elements.IHasSearchContext",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.IHasSearchContext.yml\" sourcestartlinenumber=\"1\">An object which exposes a Selenium search context.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.IHasWebElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Elements.IHasWebElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Elements.IHasWebElement",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.IHasWebElement.yml\" sourcestartlinenumber=\"1\">An object which exposes a Selenium web element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.ITarget.yml",
       "output": {
         ".html": {
@@ -2780,17 +2808,17 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.yml",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRoot.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.html"
+          "relative_path": "api/CSF.Screenplay.Selenium.Elements.ShadowRoot.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "CSF.Screenplay.Selenium.Elements.ShadowRootAdapter",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.ShadowRootAdapter.yml\" sourcestartlinenumber=\"1\">An adapter for Shadow Root objects, to use them as if they were <xref href=\"OpenQA.Selenium.IWebElement\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "CSF.Screenplay.Selenium.Elements.ShadowRoot",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Elements.ShadowRoot.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Screenplay.Selenium.Elements.IHasSearchContext\" data-throw-if-not-resolved=\"false\"></xref> which represents an HTML shadow-root node.</p>\n"
     },
     {
       "type": "ManagedReference",

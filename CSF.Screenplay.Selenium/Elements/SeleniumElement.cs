@@ -12,17 +12,17 @@ namespace CSF.Screenplay.Selenium.Elements
     /// a <see cref="Name"/>.  This optional, but recommended, technique facilitates human-readable reporting.
     /// </para>
     /// </remarks>
-    public class SeleniumElement : ITarget
+    public class SeleniumElement : ITarget, IHasWebElement, IHasSearchContext
     {
         const string unknownNameFormat = "an HTML {0} element";
 
         /// <inheritdoc/>
         public string Name { get; }
 
-        /// <summary>
-        /// Gets the native Selenium web element.
-        /// </summary>
+        /// <inheritdoc/>
         public IWebElement WebElement { get; }
+
+        ISearchContext IHasSearchContext.SearchContext => WebElement;
 
         SeleniumElementCollection ITarget.GetElements(IWebDriver driver) => new SeleniumElementCollection(new[] { this }, Name);
 
@@ -41,5 +41,27 @@ namespace CSF.Screenplay.Selenium.Elements
             WebElement = webElement ?? throw new System.ArgumentNullException(nameof(webElement));
             Name = name ?? string.Format(unknownNameFormat, webElement.TagName);
         }
+    }
+
+    /// <summary>
+    /// An object which exposes a Selenium web element.
+    /// </summary>
+    public interface IHasWebElement : IHasName
+    {
+        /// <summary>
+        /// Gets the native Selenium web element.
+        /// </summary>
+        IWebElement WebElement { get; }
+    }
+
+    /// <summary>
+    /// An object which exposes a Selenium search context.
+    /// </summary>
+    public interface IHasSearchContext : IHasName
+    {
+        /// <summary>
+        /// Gets the native Selenium search context.
+        /// </summary>
+        ISearchContext SearchContext { get; }
     }
 }
