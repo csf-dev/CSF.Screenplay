@@ -32,13 +32,13 @@ public class SampleAssetsCustomization : ICustomization
                                 Assets = [
                                     new () {
                                         ContentType = MimeTypes.GetMimeType(Asset1Filename),
-                                        FileName = Asset1Filename,
-                                        FilePath = Path.Combine(Environment.CurrentDirectory, Asset1Filename)
+                                        Name = Asset1Filename,
+                                        Path = Path.Combine(Environment.CurrentDirectory, Asset1Filename)
                                     },
                                     new () {
                                         ContentType = MimeTypes.GetMimeType(Asset2Filename),
-                                        FileName = Asset2Filename,
-                                        FilePath = Path.Combine(Environment.CurrentDirectory, Asset2Filename)
+                                        Name = Asset2Filename,
+                                        Path = Path.Combine(Environment.CurrentDirectory, Asset2Filename)
                                     },
                                 ]
                             }

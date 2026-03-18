@@ -11,9 +11,9 @@ export class ReportableElementCreator {
         const reportableElement = this.templateElement.content.cloneNode(true);
 
         this.#setupReportableType(reportableElement, reportable);
-        setContentOrRemove(reportableElement, reportable, '.phase', r => r.PerformancePhase, r => r.PerformancePhase);
+        setContentOrRemove(reportableElement, reportable, '.phase', r => r.Phase, r => r.Phase);
         setContentOrRemove(reportableElement, reportable, '.report', r => r.Report, r => r.Report);
-        setContentOrRemove(reportableElement, reportable, '.exception', r => r.Exception && !r.ExceptionIsFromConsumedPerformable, r => r.Exception);
+        setContentOrRemove(reportableElement, reportable, '.exception', r => r.Exception && !r.ExceptionIsBubbling, r => r.Exception);
         this.#setupResult(reportableElement, reportable);
         this.#setupPerformableType(reportableElement, reportable);
         this.#setupAssets(reportableElement, reportable, litebox);
@@ -24,8 +24,8 @@ export class ReportableElementCreator {
 
     #setupReportableType(reportableElement, reportable) {
         const typeElement = reportableElement.querySelector('.type');
-        typeElement.classList.add(reportable.Type);
-        switch (reportable.Type) {
+        typeElement.classList.add(reportable.Kind);
+        switch (reportable.Kind) {
         case 'ActorCreatedReport':
             typeElement.setAttribute('title', 'Actor created');
             break;
@@ -43,7 +43,7 @@ export class ReportableElementCreator {
             break;
         }
 
-        reportableElement.querySelector('.type i').textContent = reportable.Type;
+        reportableElement.querySelector('.type i').textContent = reportable.Kind;
     }
 
     #setupResult(reportableElement, reportable) {
@@ -56,7 +56,7 @@ export class ReportableElementCreator {
 
     #setupPerformableType(reportableElement, reportable) {
         const performableTypeElement = reportableElement.querySelector('.performableType');
-        if (reportable.PerformableType) performableTypeElement.querySelector('i').textContent = reportable.PerformableType;
+        if (reportable.Type) performableTypeElement.querySelector('i').textContent = reportable.Type;
         else performableTypeElement.remove()
     }
 

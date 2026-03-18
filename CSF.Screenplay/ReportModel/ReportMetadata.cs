@@ -28,6 +28,6 @@ namespace CSF.Screenplay.ReportModel
         /// It may be used to assist parsing logic determine whether or not it is reading a compatible report file.
         /// </para>
         /// </remarks>
-        public string ReportFormatVersion { get; set; } = reportFormatVersion;
+        public string ReportVersion { get; set; } = reportFormatVersion;
     }
 }

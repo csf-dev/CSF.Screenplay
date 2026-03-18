@@ -35,7 +35,7 @@ public class PerformanceReportBuilderTest
     {
         sut.ActorCreated(actor);
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables, Has.One.Matches<ActorCreatedReport>(x => x.ActorName == "Joe" && x.Report == "Joe joined the performance"));
+        Assert.That(report.Reportables, Has.One.Matches<ActorCreatedReport>(x => x.Actor == "Joe" && x.Report == "Joe joined the performance"));
     }
 
     [Test, AutoMoqData]
@@ -48,7 +48,7 @@ public class PerformanceReportBuilderTest
         Mock.Get(ability).Setup(x => x.GetReportFragment(actor, formatter)).Returns(new ReportFragment("Original", "Formatted", Array.Empty<NameAndValue>()));
         sut.ActorGainedAbility(actor, ability);
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables, Has.One.Matches<ActorGainedAbilityReport>(x => x.ActorName == "Joe" && x.Report == "Formatted"));
+        Assert.That(report.Reportables, Has.One.Matches<ActorGainedAbilityReport>(x => x.Actor == "Joe" && x.Report == "Formatted"));
     }
 
     [Test, AutoMoqData]
@@ -63,7 +63,7 @@ public class PerformanceReportBuilderTest
         Mock.Get(valueFormatter).Setup(x => x.FormatForReport(ability)).Returns("Ability Name");
         sut.ActorGainedAbility(actor, ability);
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables, Has.One.Matches<ActorGainedAbilityReport>(x => x.ActorName == "Joe" && x.Report == "Joe is able to Ability Name"));
+        Assert.That(report.Reportables, Has.One.Matches<ActorGainedAbilityReport>(x => x.Actor == "Joe" && x.Report == "Joe is able to Ability Name"));
     }
 
     [Test, AutoMoqData]
@@ -73,7 +73,7 @@ public class PerformanceReportBuilderTest
     {
         sut.ActorSpotlit(actor);
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables, Has.One.Matches<ActorSpotlitReport>(x => x.ActorName == "Joe" && x.Report == "Joe was put into the spotlight"));
+        Assert.That(report.Reportables, Has.One.Matches<ActorSpotlitReport>(x => x.Actor == "Joe" && x.Report == "Joe was put into the spotlight"));
     }
 
     [Test,AutoMoqData]
@@ -82,7 +82,7 @@ public class PerformanceReportBuilderTest
     {
         sut.SpotlightTurnedOff();
         var report = sut.GetReport(outcome);
-        Assert.That(report.Reportables, Has.One.Matches<SpotlightTurnedOffReport>(x => x.ActorName == null && x.Report == "The spotlight was turned off"));
+        Assert.That(report.Reportables, Has.One.Matches<SpotlightTurnedOffReport>(x => x.Actor == null && x.Report == "The spotlight was turned off"));
     }
 
     [Test, AutoMoqData]
@@ -98,10 +98,10 @@ public class PerformanceReportBuilderTest
         sut.EndPerformable(performable, actor);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables,
-                    Has.One.Matches<PerformableReport>(x => x.ActorName == "Joe"
+                    Has.One.Matches<PerformableReport>(x => x.Actor == "Joe"
                                                             && x.Report == "Formatted"
-                                                            && x.PerformancePhase == performancePhase
-                                                            && x.PerformableType == "CSF.Screenplay.Performables.StartTheStopwatch"));
+                                                            && x.Phase == performancePhase
+                                                            && x.Type == "CSF.Screenplay.Performables.StartTheStopwatch"));
     }
     
     [Test, AutoMoqData]
@@ -128,7 +128,7 @@ public class PerformanceReportBuilderTest
 
             var taskReport = report.Reportables.OfType<PerformableReport>().Single();
             Assert.That(taskReport.Reportables, Has.Count.EqualTo(2), "Two child reports should be present");
-            Assert.That(taskReport.Reportables.OfType<PerformableReport>().Select(x => x.PerformableType),
+            Assert.That(taskReport.Reportables.OfType<PerformableReport>().Select(x => x.Type),
                         Is.EqualTo(new[] { "CSF.Screenplay.Performables.StartTheStopwatch", "CSF.Screenplay.Performables.StopTheStopwatch" }),
                         "The child reports should be of the correct performable types");
     }
@@ -163,7 +163,7 @@ public class PerformanceReportBuilderTest
         var report = sut.GetReport(outcome);
 
         Assert.That(report.Reportables.OfType<PerformableReport>().Single().Assets,
-                    Has.One.Matches<PerformableAsset>(x => x.FilePath == assetFilename && x.FileSummary == assetSummary));
+                    Has.One.Matches<PerformableAsset>(x => x.Path == assetFilename && x.Summary == assetSummary));
     }
 
     [Test, AutoMoqData]
@@ -198,7 +198,7 @@ public class PerformanceReportBuilderTest
         sut.RecordFailureForCurrentPerformable(new Exception("An error occurred"), performable, actor);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables,
-                    Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsFromConsumedPerformable == false));
+                    Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsBubbling == false));
     }
 
     [Test, AutoMoqData]
@@ -241,7 +241,7 @@ public class PerformanceReportBuilderTest
         sut.RecordFailureForCurrentPerformable(new PerformableException("An error occurred"), performable, actor);
         var report = sut.GetReport(outcome);
         Assert.That(report.Reportables,
-                    Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsFromConsumedPerformable == true));
+                    Has.One.Matches<PerformableReport>(x => x.Exception.Contains("An error occurred") && x.ExceptionIsBubbling == true));
     }
 
     public class TaskPerformable : IPerformable, ICanReport

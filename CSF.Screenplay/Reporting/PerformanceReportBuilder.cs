@@ -83,7 +83,7 @@ namespace CSF.Screenplay.Reporting
         {
             NewPerformableList.Add(new ActorCreatedReport
             {
-                ActorName = actor.Name,
+                Actor = actor.Name,
                 Report = string.Format(ReportStrings.ActorCreatedFormat, actor.Name),
                 Started = reportTimer.GetCurrentTime(),
             });
@@ -102,7 +102,7 @@ namespace CSF.Screenplay.Reporting
 
             NewPerformableList.Add(new ActorGainedAbilityReport
             {
-                ActorName = actor.Name,
+                Actor = actor.Name,
                 Report = reportText,
                 Started = reportTimer.GetCurrentTime(),
             });
@@ -121,7 +121,7 @@ namespace CSF.Screenplay.Reporting
         {
             NewPerformableList.Add(new ActorSpotlitReport
             {
-                ActorName = actor.Name,
+                Actor = actor.Name,
                 Report = string.Format(ReportStrings.ActorSpotlitFormat, actor.Name),
                 Started = reportTimer.GetCurrentTime(),
             });
@@ -174,11 +174,11 @@ namespace CSF.Screenplay.Reporting
         {
             var performableReport = new PerformableReport
             {
-                PerformableType = performable is IHasCustomTypeName customName
+                Type = performable is IHasCustomTypeName customName
                     ? customName.GetHumanReadableTypeName()
                     : performable.GetType().FullName,
-                ActorName = actor.Name,
-                PerformancePhase = performancePhase,
+                Actor = actor.Name,
+                Phase = performancePhase,
                 Started = reportTimer.GetCurrentTime(),
             };
 
@@ -201,9 +201,9 @@ namespace CSF.Screenplay.Reporting
             var fileName = Path.GetFileName(assetPath);
             var asset = new PerformableAsset
             {
-                FilePath = assetPath,
-                FileSummary = assetSummary,
-                FileName = fileName,
+                Path = assetPath,
+                Summary = assetSummary,
+                Name = fileName,
                 ContentType = contentTypeProvider.GetContentType(fileName),
             };
             CurrentPerformable.Assets.Add(asset);
@@ -264,7 +264,7 @@ namespace CSF.Screenplay.Reporting
         public void RecordFailureForCurrentPerformable(Exception exception, object performable, Actor actor)
         {
             CurrentPerformable.Exception = exception.ToString();
-            CurrentPerformable.ExceptionIsFromConsumedPerformable = exception is PerformableException;
+            CurrentPerformable.ExceptionIsBubbling = exception is PerformableException;
             EndPerformable(performable, actor);
         }
 

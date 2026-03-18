@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using CSF.Screenplay.Actors;
 using CSF.Screenplay.Performances;
 using CSF.Screenplay.ReportModel;
@@ -40,6 +41,11 @@ namespace CSF.Screenplay.Reporting
     /// </remarks>
     public sealed class JsonScreenplayReporter : IReporter
     {
+        static readonly JsonSerializerOptions jsonOptions = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
+        };
+
         readonly ScreenplayReportBuilder builder;
         readonly IMeasuresTime reportTimer;
         readonly Utf8JsonWriter jsonWriter;
@@ -154,7 +160,7 @@ namespace CSF.Screenplay.Reporting
             var report = builder.EndPerformanceAndGetReport(e.PerformanceIdentity, e.Success);
             lock(syncRoot)
             {
-                JsonSerializer.Serialize(jsonWriter, report);
+                JsonSerializer.Serialize(jsonWriter, report, jsonOptions);
                 jsonWriter.Flush();
             }
         }

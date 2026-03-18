@@ -12,12 +12,12 @@ namespace CSF.Screenplay.ReportModel
     /// down to the implementation.
     /// </para>
     /// <para>
-    /// Every asset has one or two properties in common, the <see cref="FileName"/> and optionally <see cref="FileSummary"/>.
+    /// Every asset has one or two properties in common, the <see cref="Name"/> and optionally <see cref="Summary"/>.
     /// The data for the asset file is then described by one of two ways:
     /// </para>
     /// <list type="bullet">
-    /// <item><description>The content of the asset is located on disk at a path indicated by <see cref="FilePath"/></description></item>
-    /// <item><description>The content of the asset is embedded within this model as base64-encoded text, within <see cref="FileData"/></description></item>
+    /// <item><description>The content of the asset is located on disk at a path indicated by <see cref="Path"/></description></item>
+    /// <item><description>The content of the asset is embedded within this model as base64-encoded text, within <see cref="Data"/></description></item>
     /// </list>
     /// <para>
     /// Typically when reports are first created, for expedience, assets are recorded to disk as files.
@@ -34,23 +34,23 @@ namespace CSF.Screenplay.ReportModel
         /// <summary>
         /// Gets or sets a full/absolute path to the asset file.
         /// </summary>
-        public string FilePath { get; set; }
+        public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets base64-encoded data which contains the data for the asset.
         /// </summary>
-        public string FileData { get; set; }
+        public string Data { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the asset file, including its extension.
         /// </summary>
-        public string FileName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets an optional human-readable summary of what this asset represents.  This should be one sentence at most, suitable
         /// for display in a UI tool-tip.
         /// </summary>
-        public string FileSummary { get; set; }
+        public string Summary { get; set; }
 
     }
 }

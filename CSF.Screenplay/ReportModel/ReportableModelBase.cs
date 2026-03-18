@@ -11,7 +11,7 @@ namespace CSF.Screenplay.ReportModel
     /// This base model has subclasses for each of the specific types of event which may be reported-upon.
     /// </para>
     /// </remarks>
-    [JsonPolymorphic(TypeDiscriminatorPropertyName = "Type")]
+    [JsonPolymorphic(TypeDiscriminatorPropertyName = "Kind")]
     [JsonDerivedType(typeof(ActorCreatedReport), nameof(ActorCreatedReport))]
     [JsonDerivedType(typeof(ActorGainedAbilityReport), nameof(ActorGainedAbilityReport))]
     [JsonDerivedType(typeof(ActorSpotlitReport), nameof(ActorSpotlitReport))]
@@ -23,16 +23,16 @@ namespace CSF.Screenplay.ReportModel
         /// Gets or sets the human-readable text of the report.
         /// </summary>
         public string Report { get; set; }
-        
+
         /// <summary>
-        /// Gets or sets the name of the <see cref="Actor"/> who is associated with this report.
+        /// Gets or sets the name of the <see cref="CSF.Screenplay.Actor"/> who is associated with this report.
         /// </summary>
         /// <remarks>
         /// <para>
         /// Almost all reportables involve an actor, it is rare for this value to be unset (IE: <see langword="null" />).
         /// </para>
         /// </remarks>
-        public string ActorName { get; set; }
+        public string Actor { get; set; }
 
         /// <summary>
         /// Gets or sets the relative time at which this reportable event occurred.

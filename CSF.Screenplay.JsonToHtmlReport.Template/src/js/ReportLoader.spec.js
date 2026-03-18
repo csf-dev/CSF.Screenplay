@@ -30,7 +30,7 @@ test('ReportLoader should return an empty report if the specified script element
     expect(jsonData).toEqual({
         Metadata: {
             Timestamp: new Date(),
-            ReportFormatVersion: "0.0.0",
+            ReportVersion: "0.0.0",
         },
         Performances: [],
     });
