@@ -154,10 +154,10 @@ This might be a screenshot, some generated content or diagnostic information.  I
 down to the implementation.
 </p>
 <p>
-Every asset has one or two properties in common, the <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileName">FileName</a> and optionally <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileSummary">FileSummary</a>.
+Every asset has one or two properties in common, the <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_Name">Name</a> and optionally <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_Summary">Summary</a>.
 The data for the asset file is then described by one of two ways:
 </p>
-<ul><li>The content of the asset is located on disk at a path indicated by <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FilePath">FilePath</a></li><li>The content of the asset is embedded within this model as base64-encoded text, within <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_FileData">FileData</a></li></ul>
+<ul><li>The content of the asset is located on disk at a path indicated by <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_Path">Path</a></li><li>The content of the asset is embedded within this model as base64-encoded text, within <a class="xref" href="CSF.Screenplay.ReportModel.PerformableAsset.html#CSF_Screenplay_ReportModel_PerformableAsset_Data">Data</a></li></ul>
 <p>
 Typically when reports are first created, for expedience, assets are recorded to disk as files.
 However, for portability, it is often useful to embed the asset data within the report so that the entire report may be transported as a single file.
@@ -201,10 +201,10 @@ However, for portability, it is often useful to embed the asset data within the 
 
 
 
-  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FileData_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileData*"></a>
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_Data_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Data*"></a>
 
-  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileData" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileData">
-  FileData
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_Data" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Data">
+  Data
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -213,7 +213,7 @@ However, for portability, it is often useful to embed the asset data within the 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FileData { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Data { get; set; }</code></pre>
   </div>
 
 
@@ -233,10 +233,10 @@ However, for portability, it is often useful to embed the asset data within the 
 
 
 
-  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FileName_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileName*"></a>
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_Name_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Name*"></a>
 
-  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileName" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileName">
-  FileName
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_Name" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Name">
+  Name
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -245,7 +245,7 @@ However, for portability, it is often useful to embed the asset data within the 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FileName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
   </div>
 
 
@@ -265,10 +265,10 @@ However, for portability, it is often useful to embed the asset data within the 
 
 
 
-  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FilePath_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FilePath*"></a>
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_Path_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Path*"></a>
 
-  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FilePath" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FilePath">
-  FilePath
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_Path" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Path">
+  Path
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -277,7 +277,7 @@ However, for portability, it is often useful to embed the asset data within the 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FilePath { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Path { get; set; }</code></pre>
   </div>
 
 
@@ -297,10 +297,10 @@ However, for portability, it is often useful to embed the asset data within the 
 
 
 
-  <a id="CSF_Screenplay_ReportModel_PerformableAsset_FileSummary_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileSummary*"></a>
+  <a id="CSF_Screenplay_ReportModel_PerformableAsset_Summary_" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Summary*"></a>
 
-  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_FileSummary" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.FileSummary">
-  FileSummary
+  <h3 id="CSF_Screenplay_ReportModel_PerformableAsset_Summary" data-uid="CSF.Screenplay.ReportModel.PerformableAsset.Summary">
+  Summary
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/PerformableAsset.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -310,7 +310,7 @@ for display in a UI tool-tip.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FileSummary { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Summary { get; set; }</code></pre>
   </div>
 
 

@@ -102,7 +102,7 @@ Class ReportableModelBase  <a class="header-action link-secondary" title="View s
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonPolymorphic(TypeDiscriminatorPropertyName = &quot;Type&quot;)]
+    <pre><code class="lang-csharp hljs">[JsonPolymorphic(TypeDiscriminatorPropertyName = &quot;Kind&quot;)]
 [JsonDerivedType(typeof(ActorCreatedReport), &quot;ActorCreatedReport&quot;)]
 [JsonDerivedType(typeof(ActorGainedAbilityReport), &quot;ActorGainedAbilityReport&quot;)]
 [JsonDerivedType(typeof(ActorSpotlitReport), &quot;ActorSpotlitReport&quot;)]
@@ -174,10 +174,10 @@ This base model has subclasses for each of the specific types of event which may
 </h2>
 
 
-  <a id="CSF_Screenplay_ReportModel_ReportableModelBase_ActorName_" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.ActorName*"></a>
+  <a id="CSF_Screenplay_ReportModel_ReportableModelBase_Actor_" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.Actor*"></a>
 
-  <h3 id="CSF_Screenplay_ReportModel_ReportableModelBase_ActorName" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.ActorName">
-  ActorName
+  <h3 id="CSF_Screenplay_ReportModel_ReportableModelBase_Actor" data-uid="CSF.Screenplay.ReportModel.ReportableModelBase.Actor">
+  Actor
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay/ReportModel/ReportableModelBase.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -186,7 +186,7 @@ This base model has subclasses for each of the specific types of event which may
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ActorName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Actor { get; set; }</code></pre>
   </div>
 
 
@@ -202,7 +202,7 @@ This base model has subclasses for each of the specific types of event which may
 
 
 
-  <h4 class="section" id="CSF_Screenplay_ReportModel_ReportableModelBase_ActorName_remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_ReportModel_ReportableModelBase_Actor_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Almost all reportables involve an actor, it is rare for this value to be unset (IE: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>).
 </p>
