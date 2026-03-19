@@ -8,28 +8,28 @@ namespace CSF.Screenplay.Reporting;
 [TestFixture, Parallelizable]
 public class ScreenplayReportSerializerTests
 {
-        const string reportJson = @"{""Metadata"": {""Timestamp"": ""2021-01-01T00:00:00Z"",""ReportFormatVersion"": ""2.0.0""},
+        const string reportJson = @"{""Metadata"": {""Timestamp"": ""2021-01-01T00:00:00Z"",""ReportVersion"": ""2.0.0""},
 ""Performances"": [
     {
         ""NamingHierarchy"": [
-            {""Identifier"": ""1"",""Name"": ""First""},
-            {""Identifier"": ""2"",""Name"": ""Second""}
+            {""Id"": ""1"",""Name"": ""First""},
+            {""Id"": ""2"",""Name"": ""Second""}
         ],
         ""Reportables"": [
             {
-                ""Type"": ""PerformableReport"",
+                ""Kind"": ""PerformableReport"",
                 ""Report"": ""This is a report string"",
-                ""ActorName"": ""Joe"",
-                ""PerformableType"": ""APerformableType"",
-                ""PerformancePhase"": ""Given"",
+                ""Actor"": ""Joe"",
+                ""Type"": ""APerformableType"",
+                ""Phase"": ""Given"",
                 ""Result"": ""A result"",
                 ""HasResult"": true,
-                ""Assets"": [{""FilePath"": ""../a/file/path.txt"",""FileSummary"": ""This is a test asset""}],
+                ""Assets"": [{""Path"": ""../a/file/path.txt"",""Summary"": ""This is a test asset""}],
                 ""Reportables"": [
                     {
-                        ""Type"": ""ActorCreatedReport"",
+                        ""Kind"": ""ActorCreatedReport"",
                         ""Report"": ""This is a nested report string"",
-                        ""ActorName"": ""Joe""
+                        ""Actor"": ""Joe""
                     }
                 ]
             }
@@ -46,10 +46,10 @@ public class ScreenplayReportSerializerTests
     [Test, AutoMoqData]
     public async Task DeserializeAsyncShouldDeserializeAStream(ScreenplayReportSerializer sut)
     {
-        var bytes = Encoding.UTF8.GetBytes(@"{""Metadata"": { ""ReportFormatVersion"": ""foo bar"" }}");
+        var bytes = Encoding.UTF8.GetBytes(@"{""Metadata"": { ""ReportVersion"": ""foo bar"" }}");
         var stream = new MemoryStream(bytes);
         var report = await sut.DeserializeAsync(stream);
-        Assert.That(report.Metadata.ReportFormatVersion, Is.EqualTo("foo bar"));
+        Assert.That(report.Metadata.ReportVersion, Is.EqualTo("foo bar"));
     }
 
     [Test, AutoMoqData]
@@ -61,7 +61,7 @@ public class ScreenplayReportSerializerTests
         using var scope = Assert.EnterMultipleScope();
             Assert.That(result, Is.Not.Null, "The deserialized report should not be null.");
             Assert.That(result.Metadata.Timestamp, Is.EqualTo(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero)), "The timestamp should be correct.");
-            Assert.That(result.Metadata.ReportFormatVersion, Is.EqualTo("2.0.0"), "The report format version should be correct.");
+            Assert.That(result.Metadata.ReportVersion, Is.EqualTo("2.0.0"), "The report format version should be correct.");
             Assert.That(result.Performances, Has.Count.EqualTo(1), "There should be one performance.");
 
             var firstPerformance = result.Performances.Single();
@@ -71,17 +71,17 @@ public class ScreenplayReportSerializerTests
 
             var firstReportable = firstPerformance.Reportables.Single();
             Assert.That(firstReportable.Report, Is.EqualTo("This is a report string"), "The report string should be correct.");
-            Assert.That(firstReportable.ActorName, Is.EqualTo("Joe"), "The actor name should be correct.");
+            Assert.That(firstReportable.Actor, Is.EqualTo("Joe"), "The actor name should be correct.");
             Assert.That(firstReportable, Is.InstanceOf<PerformableReport>(), "The reportable should be a PerformableReport.");
 
             var performableReport = (PerformableReport) firstReportable;
-            Assert.That(performableReport.PerformableType, Is.EqualTo("APerformableType"), "The performable type should be correct.");
-            Assert.That(performableReport.PerformancePhase, Is.EqualTo("Given"), "The performance phase should be correct.");
+            Assert.That(performableReport.Type, Is.EqualTo("APerformableType"), "The performable type should be correct.");
+            Assert.That(performableReport.Phase, Is.EqualTo("Given"), "The performance phase should be correct.");
             Assert.That(performableReport.Result, Is.EqualTo("A result"), "The result should be correct.");
             Assert.That(performableReport.HasResult, Is.True, "The HasResult flag should be correct.");
             Assert.That(performableReport.Assets, Has.Count.EqualTo(1), "There should be one asset.");
-            Assert.That(performableReport.Assets.Single().FilePath, Is.EqualTo("../a/file/path.txt"), "The asset file path should be correct.");
-            Assert.That(performableReport.Assets.Single().FileSummary, Is.EqualTo("This is a test asset"), "The asset file summary should be correct.");
+            Assert.That(performableReport.Assets.Single().Path, Is.EqualTo("../a/file/path.txt"), "The asset file path should be correct.");
+            Assert.That(performableReport.Assets.Single().Summary, Is.EqualTo("This is a test asset"), "The asset file summary should be correct.");
             Assert.That(performableReport.Reportables, Has.Count.EqualTo(1), "There should be one nested reportable.");
     }
 
@@ -94,10 +94,10 @@ public class ScreenplayReportSerializerTests
     [Test, AutoMoqData]
     public async Task SerializeAsyncShouldSerializeToAStream(ScreenplayReportSerializer sut)
     {
-        var report = new ScreenplayReport() { Metadata = new () { ReportFormatVersion = "foo bar", Timestamp = DateTimeOffset.UtcNow } };
+        var report = new ScreenplayReport() { Metadata = new () { ReportVersion = "foo bar", Timestamp = DateTimeOffset.UtcNow } };
         var stream = await sut.SerializeAsync(report);
         using var reader = new StreamReader(stream);
         var content = await reader.ReadToEndAsync();
-        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{10,16}\+00:00"",""ReportFormatVersion"":""foo bar""\},""Performances"":\[\]\}$"));
+        Assert.That(content, Does.Match(@"^\{""Metadata"":\{""Timestamp"":""[\d-]{10}T[\d:.]{10,16}\+00:00"",""ReportVersion"":""foo bar""\},""Performances"":\[\]\}$"));
     }
 }

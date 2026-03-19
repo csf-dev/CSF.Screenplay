@@ -6,7 +6,7 @@ export class AssetBehaviour {
     #assetModel;
 
     initialise() {
-        this.#linkElement.textContent = this.#assetModel.FileSummary;
+        this.#linkElement.textContent = this.#assetModel.Summary;
 
         if(imageTypes.includes(this.#assetModel.ContentType))
             this.#initialiseImage();
@@ -16,23 +16,23 @@ export class AssetBehaviour {
 
     #initialiseImage() {
         this.#linkElement.addEventListener('click', ev => {
-            const usesBlobUrl = !!this.#assetModel.FileData
-            const url = usesBlobUrl ? this.#getBlobUrl() : this.#assetModel.FilePath;
-            this.#litebox.open(url, this.#assetModel.FileName, this.#assetModel.FileSummary, usesBlobUrl);
+            const usesBlobUrl = !!this.#assetModel.Data
+            const url = usesBlobUrl ? this.#getBlobUrl() : this.#assetModel.Path;
+            this.#litebox.open(url, this.#assetModel.Name, this.#assetModel.Summary, usesBlobUrl);
             ev.preventDefault();
         });
         this.#linkElement.href = null;
     }
 
     #initialiseDownload() {
-        const usesBlobUrl = !!this.#assetModel.FileData
-        const url = usesBlobUrl ? this.#getBlobUrl() : this.#assetModel.FilePath;
+        const usesBlobUrl = !!this.#assetModel.Data
+        const url = usesBlobUrl ? this.#getBlobUrl() : this.#assetModel.Path;
         this.#linkElement.href = url;
-        this.#linkElement.download = this.#assetModel.FileName;
+        this.#linkElement.download = this.#assetModel.Name;
     }
 
     #getBlobUrl() {
-        const dataBytes = this.#base64ToBytes(this.#assetModel.FileData);
+        const dataBytes = this.#base64ToBytes(this.#assetModel.Data);
         const blob = new Blob([dataBytes], { type: this.#assetModel.ContentType });
         return URL.createObjectURL(blob);
     }

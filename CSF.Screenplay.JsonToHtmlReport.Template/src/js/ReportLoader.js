@@ -28,7 +28,7 @@ export class ReportLoader {
         return {
             Metadata: {
                 Timestamp: new Date(),
-                ReportFormatVersion: "0.0.0",
+                ReportVersion: "0.0.0",
             },
             Performances: [],
         };

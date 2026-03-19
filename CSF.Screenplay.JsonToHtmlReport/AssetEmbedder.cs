@@ -68,9 +68,9 @@ namespace CSF.Screenplay.JsonToHtmlReport
                                 IReadOnlyCollection<string> applicableExtensions,
                                 bool ignoreExtension)
         {
-            if(string.IsNullOrWhiteSpace(asset.FilePath)) return false;
+            if(string.IsNullOrWhiteSpace(asset.Path)) return false;
 
-            var info = new FileInfo(asset.FilePath);
+            var info = new FileInfo(asset.Path);
             var fileSizeBytes = info.Length;
             var extension = info.Extension;
 
@@ -81,15 +81,15 @@ namespace CSF.Screenplay.JsonToHtmlReport
 #if !NETSTANDARD2_0 && !NET462
         static async Task EmbedAssetIfApplicableAsync(PerformableAsset asset)
         {
-            var bytes = await File.ReadAllBytesAsync(asset.FilePath).ConfigureAwait(false);
+            var bytes = await File.ReadAllBytesAsync(asset.Path).ConfigureAwait(false);
 #else
         static Task EmbedAssetIfApplicableAsync(PerformableAsset asset)
         {
-            var bytes = File.ReadAllBytes(asset.FilePath);
+            var bytes = File.ReadAllBytes(asset.Path);
 #endif
 
-            asset.FileData = Convert.ToBase64String(bytes);
-            asset.FilePath = null;
+            asset.Data = Convert.ToBase64String(bytes);
+            asset.Path = null;
 #if NETSTANDARD2_0 || NET462
             return Task.CompletedTask;
 #endif

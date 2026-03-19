@@ -16,7 +16,7 @@ public class AssetEmbedderTests
     {
         await sut.EmbedReportAssetsAsync(report, new () { EmbeddedFileExtensions = "png,jpeg", EmbeddedFileSizeThresholdKb = 50 });
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
-        Assert.That(performable.Assets, Has.All.Matches<PerformableAsset>(a => a is { FilePath: null, FileData: not null }), "Assets have been embedded");
+        Assert.That(performable.Assets, Has.All.Matches<PerformableAsset>(a => a is { Path: null, Data: not null }), "Assets have been embedded");
     }
 
     [Test, AutoMoqData]
@@ -27,10 +27,10 @@ public class AssetEmbedderTests
 
         using var scope = Assert.EnterMultipleScope();
             Assert.That(performable.Assets,
-                        Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset2Filename, FileData: not null }),
+                        Has.One.Matches<PerformableAsset>(a => a is { Name: SampleAssetsCustomization.Asset2Filename, Data: not null }),
                         "JPEG asset has been embedded");
             Assert.That(performable.Assets,
-                        Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset1Filename, FileData: null }),
+                        Has.One.Matches<PerformableAsset>(a => a is { Name: SampleAssetsCustomization.Asset1Filename, Data: null }),
                         "PNG asset has not been embedded");
     }
 
@@ -39,7 +39,7 @@ public class AssetEmbedderTests
     {
         await sut.EmbedReportAssetsAsync(report, new () { EmbeddedFileExtensions = "*", EmbeddedFileSizeThresholdKb = 50 });
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
-        Assert.That(performable.Assets, Has.All.Matches<PerformableAsset>(a => a is { FilePath: null, FileData: not null }), "Assets have been embedded");
+        Assert.That(performable.Assets, Has.All.Matches<PerformableAsset>(a => a is { Path: null, Data: not null }), "Assets have been embedded");
     }
 
     [Test, AutoMoqData]
@@ -50,10 +50,10 @@ public class AssetEmbedderTests
 
         using var scope = Assert.EnterMultipleScope();
             Assert.That(performable.Assets,
-                        Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset2Filename, FileData: null }),
+                        Has.One.Matches<PerformableAsset>(a => a is { Name: SampleAssetsCustomization.Asset2Filename, Data: null }),
                         "JPEG asset has not been embedded");
             Assert.That(performable.Assets,
-                        Has.One.Matches<PerformableAsset>(a => a is { FileName: SampleAssetsCustomization.Asset1Filename, FileData: not null }),
+                        Has.One.Matches<PerformableAsset>(a => a is { Name: SampleAssetsCustomization.Asset1Filename, Data: not null }),
                         "PNG asset has been embedded");
     }
 
@@ -64,10 +64,10 @@ public class AssetEmbedderTests
         var performable = report.Performances.First().Reportables.OfType<PerformableReport>().First();
 
         using var scope = Assert.EnterMultipleScope();
-            var asset1Data = performable.Assets.FirstOrDefault(x => x.FileName == SampleAssetsCustomization.Asset1Filename)?.FileData;
+            var asset1Data = performable.Assets.FirstOrDefault(x => x.Name == SampleAssetsCustomization.Asset1Filename)?.Data;
             Assert.That(asset1Data, Is.EqualTo(asset1Base64), "PNG asset encoded correctly");
 
-            var asset2Data = performable.Assets.FirstOrDefault(x => x.FileName == SampleAssetsCustomization.Asset2Filename)?.FileData;
+            var asset2Data = performable.Assets.FirstOrDefault(x => x.Name == SampleAssetsCustomization.Asset2Filename)?.Data;
             Assert.That(asset2Data, Is.EqualTo(asset2Base64), "JPEG asset encoded correctly");
     }
 
