@@ -30,7 +30,8 @@ export class ScenarioAggregator {
     #getFeatureContainer(accumulator, feature) {
         if (feature.Id === null) return accumulator.noFeatureScenarios;
         if (Object.hasOwn(accumulator.features, feature.Id)) return accumulator.features[feature.Id];
-        return accumulator.features[feature.Id] = this.#createFeatureContainer(feature);
+        accumulator.features[feature.Id] = this.#createFeatureContainer(feature);
+        return accumulator.features[feature.Id];
     }
 
     #createFeatureContainer(feature) {
