@@ -7,6 +7,6 @@ public class CiChromeOptionsCustomizer : ICustomizesOptions<ChromeOptions>
 {
     public void CustomizeOptions(ChromeOptions options)
     {
-        options.AddArguments("--disable-dev-shm-usage", "--headless", "--no-sandbox", "--window-size=1280,1024");
+        options.AddArguments("--disable-dev-shm-usage", "--headless", "--no-sandbox", "--disable-gpu", "--window-size=1280,1024");
     }
 }
