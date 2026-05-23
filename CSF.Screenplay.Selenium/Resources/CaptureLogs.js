@@ -1,37 +1,37 @@
 (function() {
-    if(window['__csfScreenplayLogs']) return;
+    if(globalThis['__csfScreenplayLogs']) return;
 
-    window['__csfScreenplayLogs'] = {originalFunctions:{},messages:[]};
-    const logs = window['__csfScreenplayLogs'];
+    globalThis['__csfScreenplayLogs'] = {originalFunctions:{},messages:[]};
+    const logs = globalThis['__csfScreenplayLogs'];
 
-    logs.originalFunctions.log = window.console.log;
-    logs.originalFunctions.info = window.console.info;
-    logs.originalFunctions.warn = window.console.warn;
-    logs.originalFunctions.error = window.console.error;
-    logs.originalFunctions.debug = window.console.debug;
-    logs.originalFunctions.clear = window.console.clear;
+    logs.originalFunctions.log = globalThis.console.log;
+    logs.originalFunctions.info = globalThis.console.info;
+    logs.originalFunctions.warn = globalThis.console.warn;
+    logs.originalFunctions.error = globalThis.console.error;
+    logs.originalFunctions.debug = globalThis.console.debug;
+    logs.originalFunctions.clear = globalThis.console.clear;
 
-    window.console.log = function(...args) {
+    globalThis.console.log = function(...args) {
         captureMessage('Info', args);
         logs.originalFunctions.log(...args);
     }
-    window.console.info = function(...args) {
+    globalThis.console.info = function(...args) {
         captureMessage('Info', args);
         logs.originalFunctions.info(...args);
     }
-    window.console.warn = function(...args) {
+    globalThis.console.warn = function(...args) {
         captureMessage('Warning', args);
         logs.originalFunctions.warn(...args);
     }
-    window.console.error = function(...args) {
+    globalThis.console.error = function(...args) {
         captureMessage('Severe', args);
         logs.originalFunctions.error(...args);
     }
-    window.console.debug = function(...args) {
+    globalThis.console.debug = function(...args) {
         captureMessage('Debug', args);
         logs.originalFunctions.debug(...args);
     }
-    window.console.clear = function() {
+    globalThis.console.clear = function() {
         for(const message of logs.messages)
             message.Consumed = true;
         logs.originalFunctions.clear();
