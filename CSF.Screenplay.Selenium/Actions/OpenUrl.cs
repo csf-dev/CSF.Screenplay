@@ -1,6 +1,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
@@ -47,13 +49,15 @@ namespace CSF.Screenplay.Selenium.Actions
         readonly NamedUri uri;
 
         /// <inheritdoc/>
-        public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<BrowseTheWeb>();
             if(!uri.Uri.IsAbsoluteUri)
                 throw new InvalidOperationException($"The URL to open must be absolute; have you forgotten to grant {actor} the {nameof(UseABaseUri)} ability?");
             ability.WebDriver.Url = uri.Uri.ToString();
-            return default;
+
+            if(ability.ShouldCollectLogs && ability.WebDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+                await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
         }
         
         /// <inheritdoc/>

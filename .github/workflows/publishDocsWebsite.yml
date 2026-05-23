@@ -41,6 +41,6 @@ jobs:
         committer_email: github-actions-workflow@bots.noreply.github.com
         fetch: true
         message: Publish updated documentation website
-        push: origin master --force
+        push: origin master
     
 
