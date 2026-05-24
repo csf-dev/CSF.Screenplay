@@ -2,7 +2,6 @@ using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
