@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Selenium.Questions
             if(!driver.WebDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport))
                 throw new NotSupportedException("The WebDriver must have support for native log retrieval.");
             
-            var logProvider = driver.WebDriver.Manage()?.Logs;
+            var logProvider = driver.WebDriver.Manage().Logs;
             var logs = logProvider.GetLog(LogType.Browser);
             return new ValueTask<IReadOnlyList<BrowserLog>>(logs
                 .Select(x => new BrowserLog { Level = x.Level.ToString(), Message = x.Message, Timestamp = x.Timestamp })

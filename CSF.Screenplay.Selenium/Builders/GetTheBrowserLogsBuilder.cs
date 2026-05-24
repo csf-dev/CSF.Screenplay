@@ -26,8 +26,7 @@ namespace CSF.Screenplay.Selenium.Builders
         /// Implicitly converts the builder to an instance of <see cref="GetTheBrowserLogs"/>.
         /// The task will throw if no viable technique for getting logs is available.
         /// </summary>
-        /// <param name="builder">The builder instance</param>
-        public static implicit operator GetTheBrowserLogs(GetTheBrowserLogsBuilder builder)
+        public static implicit operator GetTheBrowserLogs(GetTheBrowserLogsBuilder _)
             => new GetTheBrowserLogs();
     }
 }
