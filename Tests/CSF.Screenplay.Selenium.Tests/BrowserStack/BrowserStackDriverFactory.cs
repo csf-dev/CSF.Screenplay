@@ -30,7 +30,7 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
     {
         var driverOptions = GetDriverOptions();
         driverOptions.AddAdditionalOption(BrowserStackOptionsCapability, GetBrowserStackOptions());
-        driverOptions.AddAdditionalOption(BrowserStackConsoleLoggingCapability, "info");
+        // driverOptions.AddAdditionalOption(BrowserStackConsoleLoggingCapability, "info");
         var driver = new RemoteWebDriver(new Uri(GridUrl), driverOptions);
         return new (driver, driverOptions);
     }
@@ -60,7 +60,8 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
             { "local", bool.TrueString.ToLowerInvariant() },
             { "projectName", GetProjectName() },
             { "buildName", GetBuildName() },
-            { "sessionName", GetTestName() }
+            { "sessionName", GetTestName() },
+            { "console", "info" },
         };
     }
 
