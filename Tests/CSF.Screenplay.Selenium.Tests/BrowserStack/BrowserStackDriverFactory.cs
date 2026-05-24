@@ -29,6 +29,7 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
     public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
     {
         var driverOptions = GetDriverOptions();
+        driverOptions.SetLoggingPreference(LogType.Browser.ToString(), LogLevel.Info);
         driverOptions.AddAdditionalOption(BrowserStackOptionsCapability, GetBrowserStackOptions());
         var driver = new RemoteWebDriver(new Uri(GridUrl), driverOptions);
         return new (driver, driverOptions);
