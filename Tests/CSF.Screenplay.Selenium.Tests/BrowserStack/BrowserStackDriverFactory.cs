@@ -61,7 +61,7 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
             { "projectName", GetProjectName() },
             { "buildName", GetBuildName() },
             { "sessionName", GetTestName() },
-            { "console", "verbose" }
+            { "consoleLogs", "verbose" }
         };
     }
 
