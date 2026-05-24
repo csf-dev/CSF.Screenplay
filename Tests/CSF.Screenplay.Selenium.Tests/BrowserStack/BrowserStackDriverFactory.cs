@@ -60,7 +60,8 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
             { "projectName", GetProjectName() },
             { "buildName", GetBuildName() },
             { "sessionName", GetTestName() },
-            { "consoleLogs", "info" },
+            { "consoleLogs", "verbose" },
+            { "networkLogs", bool.TrueString.ToLowerInvariant() }
         };
     }
 
