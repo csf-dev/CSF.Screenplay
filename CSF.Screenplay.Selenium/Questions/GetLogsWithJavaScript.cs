@@ -32,7 +32,7 @@ namespace CSF.Screenplay.Selenium.Questions
     /// <para>
     /// Note that this question will not (and cannot) respect the WebDriver's logging preference, such as set at
     /// <see cref="Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel"/> or
-    /// <see cref="DriverOptions.SetLoggingPreference(string, LogLevel)"/>.
+    /// <see cref="OpenQA.Selenium.DriverOptions.SetLoggingPreference(string, OpenQA.Selenium.LogLevel)"/>.
     /// Consumers will need to manually filter for messages which they care about, based upon the log level.
     /// </para>
     /// </remarks>
