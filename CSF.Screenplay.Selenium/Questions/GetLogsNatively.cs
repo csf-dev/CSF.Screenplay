@@ -16,6 +16,19 @@ namespace CSF.Screenplay.Selenium.Questions
     /// Note that the logs exposed to this technique are affected by the WebDriver's logging preferences.
     /// See <see cref="Extensions.WebDriver.Factories.WebDriverCreationOptions"/> for more info.
     /// </para>
+    /// <para>
+    /// Also note that this technique is not viable with Remote WebDrivers which use the W3C WebDriver protocol.
+    /// See <see href="https://github.com/w3c/webdriver/issues/1428">this issue for the W3C protocol</see> in which it is
+    /// confirmed that retrieving logs is not part of the protocol and has not been implemented.  That discussion signposts
+    /// <see href="https://www.w3.org/2018/10/25-webdriver-minutes.html#item05">these minutes from a meeting in 2018</see>
+    /// where the reasons behind that were discussed.
+    /// </para>
+    /// <para>
+    /// As a result of the above, this Question will throw an exception if the underlying WebDriver is an instance of
+    /// <see cref="OpenQA.Selenium.Remote.RemoteWebDriver"/>.  Instead of using this technique, use the remote web driver's
+    /// own built-in technique to access console logs.  For example, some providers offer a separate non-WebDriver-based API
+    /// to read the logs.  Accessing these is outside the scope of this class.
+    /// </para>
     /// </remarks>
     public class GetLogsNatively : IPerformableWithResult<IReadOnlyList<BrowserLog>>, ICanReport
     {
@@ -29,6 +42,8 @@ namespace CSF.Screenplay.Selenium.Questions
             var driver = actor.GetAbility<BrowseTheWeb>();
             if(!driver.WebDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport))
                 throw new NotSupportedException("The WebDriver must have support for native log retrieval.");
+            if(driver.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+                throw new NotSupportedException("Getting native logs is not supported for Remote Web Drivers, see the documentation for this class for more information");
             
             var logProvider = driver.WebDriver.Manage().Logs;
             var logs = logProvider.GetLog(LogType.Browser);

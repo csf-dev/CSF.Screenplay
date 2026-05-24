@@ -35,6 +35,13 @@ namespace CSF.Screenplay.Selenium.Questions
     /// <see cref="OpenQA.Selenium.DriverOptions.SetLoggingPreference(string, OpenQA.Selenium.LogLevel)"/>.
     /// Consumers will need to manually filter for messages which they care about, based upon the log level.
     /// </para>
+    /// <para>
+    /// Also note that this technique is not viable with Remote WebDrivers.  It has been tested and found to be unreliable.
+    /// This Question will throw an exception if the underlying WebDriver is an instance of
+    /// <see cref="OpenQA.Selenium.Remote.RemoteWebDriver"/>.  Instead of using this technique, use the remote web driver's
+    /// own built-in technique to access console logs.  For example, some providers offer a separate non-WebDriver-based API
+    /// to read the logs.  Accessing these is outside the scope of this class.
+    /// </para>
     /// </remarks>
     public class GetLogsWithJavaScript : IPerformableWithResult<IReadOnlyList<BrowserLog>>, ICanReport
     {
@@ -48,7 +55,9 @@ namespace CSF.Screenplay.Selenium.Questions
             var driver = actor.GetAbility<BrowseTheWeb>();
             if(!driver.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 throw new NotSupportedException("The WebDriver must have support for retrieving logs using a Javascript workaround.");
-
+            if(driver.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+                throw new NotSupportedException("Getting logs via JavaScript is not supported for Remote Web Drivers, see the documentation for this class for more information");
+            
             var result = await actor.PerformAsync(PerformableBuilder.ExecuteAScript(Scripts.GetLogs), cancellationToken);
             return result
                 .Cast<IDictionary<string,object>>()

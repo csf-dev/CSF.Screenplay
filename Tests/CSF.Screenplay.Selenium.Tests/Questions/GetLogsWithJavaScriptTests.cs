@@ -17,6 +17,8 @@ public class GetLogsWithJavaScriptTests
         var webster = stage.Spotlight<Webster>();
         var ability = webster.GetAbility<BrowseTheWeb>();
         if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
+        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
@@ -32,6 +34,8 @@ public class GetLogsWithJavaScriptTests
         var webster = stage.Spotlight<Webster>();
         var ability = webster.GetAbility<BrowseTheWeb>();
         if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
+        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
@@ -50,6 +54,8 @@ public class GetLogsWithJavaScriptTests
         var webster = stage.Spotlight<Webster>();
         var ability = webster.GetAbility<BrowseTheWeb>();
         if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
+        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
         await Given(webster).WasAbleTo(OpenTheUrl(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));

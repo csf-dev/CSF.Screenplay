@@ -16,6 +16,10 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// The order of precedence is:
     /// </para>
     /// <list type="number">
+    /// <item><description>If the WebDriver is an instance of <see cref="OpenQA.Selenium.Remote.RemoteWebDriver"/> then this
+    /// task is incapable of getting logs.  If the current instance has been constructed in such a manner that it throws if
+    /// getting logs is unsupported, then this task will throw <see cref="NotSupportedException"/>. If not, then it will return an 
+    /// empty collection of logs.</description></item>
     /// <item><description>If the WebDriver has the quirk/capability <see cref="BrowserQuirks.HasNativeLogsSupport"/> then
     /// <see cref="GetNativeBrowserLogs"/> is used.</description></item>
     /// <item><description>If the WebDriver has the quirk/capability <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> then
@@ -25,6 +29,10 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <item><description>If the current instance has been constructed not to throw if unsupported, then if neither technique
     /// of getting logs is available, this task will always return an empty collection of log entries.</description></item>
     /// </list>
+    /// <para>
+    /// See the documentation for <see cref="GetLogsNatively"/> and <see cref="GetLogsWithJavaScript"/> for more information about
+    /// why these techniques are not viable when using remote web drivers.
+    /// </para>
     /// </remarks>
     public class GetTheBrowserLogs : IPerformableWithResult<IReadOnlyList<BrowserLog>>, ICanReport
     {
@@ -38,6 +46,13 @@ namespace CSF.Screenplay.Selenium.Tasks
         public ValueTask<IReadOnlyList<BrowserLog>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<BrowseTheWeb>();
+            if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
+            {
+                if(throwIfUnsupported)
+                    throw new NotSupportedException("Getting logs is not supported for Remote Web Drivers, see the documentation for this class for more information");
+                return new ValueTask<IReadOnlyList<BrowserLog>>(Array.Empty<BrowserLog>());
+            }
+                
             if(ability.WebDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport))
                 return actor.PerformAsync(GetNativeBrowserLogs(), cancellationToken);
 
