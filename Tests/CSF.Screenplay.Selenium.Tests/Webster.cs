@@ -25,7 +25,7 @@ public class Webster(IGetsWebDriver webDriverFactory, IGetsAssetFilePath pathPro
         return webster;
     }
 
-    BrowseTheWeb BrowseTheWeb() => new(webDriverFactory);
+    BrowseTheWeb BrowseTheWeb() => new(webDriverFactory, collectLogs: true);
 
     GetAssetFilePaths GetAssetFilePaths() => new(pathProvider);
 

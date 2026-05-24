@@ -208,5 +208,62 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <returns>A performable question.</returns>
         public static GetWindowTitle ReadTheWindowTitle() => new GetWindowTitle();
+
+        /// <summary>
+        /// Gets a performable action which begins collecting log information with a Javascript workaround.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is usually not required to use this action directly.
+        /// The recommended way to consume this action is to set <see cref="BrowseTheWeb.ShouldCollectLogs"/> to <see langword="true"/>
+        /// via the ability's constructor. If the WebDriver has the quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> then
+        /// this action will be executed automatically at appropriate times, such as immediately after <see cref="ClickAndWaitForDocumentReady"/>
+        /// or <see cref="OpenUrl"/> is executed.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable action</returns>
+        public static BeginCollectingLogsWithJavaScript BeginCollectingLogsWithJavaScript() => new BeginCollectingLogsWithJavaScript();
+
+        /// <summary>
+        /// Gets a performable question which retrieves the native web browser console logs.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is recommended not to invoke this question directly, rather to use <see cref="GetTheBrowserLogs"/>.
+        /// The general-purpose GetTheBrowserLogs task will retrieve the logs, selecting an appropriate technique for the current WebDriver implementation.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable question</returns>
+        public static GetLogsNatively GetNativeBrowserLogs() => new GetLogsNatively();
+
+        /// <summary>
+        /// Gets a performable question which retrieves the web browser console logs using a Javascript workaround.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is recommended not to invoke this question directly, rather to use <see cref="GetTheBrowserLogs"/>.
+        /// The general-purpose GetTheBrowserLogs task will retrieve the logs, selecting an appropriate technique for the current WebDriver implementation.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable question</returns>
+        public static GetLogsWithJavaScript GetBrowserLogsWithJavascript() => new GetLogsWithJavaScript();
+
+        /// <summary>
+        /// Gets a performable task which retrieves the web browser console logs using an appropriate technique.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The task returned by this builder method is the recommended way in which to get the browser console logs.
+        /// It will pick between the available techniques, based upon the current WebDriver's support.
+        /// </para>
+        /// <para>
+        /// Use the builder object returned by this method to select what should happen in case that the current WebDriver
+        /// offers no viable technique in which to retrieve the console logs.  The default behaviour is to throw <see cref="NotSupportedException"/>,
+        /// but <see cref="GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported"/> may be used to alter this. If that method is used,
+        /// then an empty collection of logs will be returned in that scenario, instead of throwing.
+        /// </para>
+        /// </remarks>
+        /// <returns>A builder for a performable task</returns>
+        public static GetTheBrowserLogsBuilder GetTheBrowserLogs() => new GetTheBrowserLogsBuilder();
     }
 }

@@ -17,6 +17,8 @@ namespace CSF.Screenplay.Selenium
     /// <seealso cref="IHasQuirks"/>
     public static class BrowserQuirks
     {
+        const string chrome = "chrome", firefox = "firefox", safari = "safari", edge = "edge";
+
         /// <summary>
         /// Gets the name of a browser quirk, for browsers which cannot set the value of an <c>&lt;input type="date"&gt;</c> using the
         /// "Send Keys" technique.
@@ -80,7 +82,7 @@ namespace CSF.Screenplay.Selenium
         public static readonly string NeedsJavaScriptToGetShadowRoot = "NeedsJavaScriptToGetShadowRoot";
 
         /// <summary>
-        /// Gets the name of a browser quirk, for browser which cannot get a Shadow Root node at all.
+        /// Gets the name of a browser quirk, for browsers which cannot get a Shadow Root node at all.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -89,6 +91,39 @@ namespace CSF.Screenplay.Selenium
         /// </para>
         /// </remarks>
         public static readonly string CannotGetShadowRoot = "CannotGetShadowRoot";
+
+        /// <summary>
+        /// Gets the name of a browser quirk, for browsers which have native support for reading the console logs.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Browsers with this quirk can read the console logs via a technique such as:
+        /// </para>
+        /// <code>
+        /// var logs = driver.Manage().Logs.GetLog(LogType.Browser);
+        /// </code>
+        /// <para>
+        /// The log levels recorded depend upon the manner in which the WebDriver is configured.
+        /// If using the <see cref="Extensions.WebDriver.WebDriverFactory"/>, this may be controlled by
+        /// the <see cref="Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel"/> property of the configuration.
+        /// Otherwise, use <see cref="OpenQA.Selenium.DriverOptions.SetLoggingPreference(string, OpenQA.Selenium.LogLevel)"/> to configure
+        /// logging.
+        /// </para>
+        /// </remarks>
+        public static readonly string HasNativeLogsSupport = "HasNativeLogsSupport";
+
+        /// <summary>
+        /// Gets the name of a browser quirk, for browsers which can read browser logs using a Javascript-based workaround.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Browsers with this quirk should prefer using the techniques provided by <see cref="HasNativeLogsSupport"/> if they also support them.
+        /// The use of a Javascript workaround is imperfect and can miss log messages, as described in the documentation for <see cref="GetLogsWithJavaScript"/>.
+        /// </para>
+        /// </remarks>
+        /// <seealso cref="Scripts.CaptureLogs"/>
+        /// <seealso cref="Scripts.GetLogs"/>
+        public static readonly string CanGetLogsWithJavascriptWorkaround = "CanGetLogsWithJavascriptWorkaround";
 
         /// <summary>
         /// Gets hard-coded information about known browser quirks.
@@ -113,8 +148,8 @@ namespace CSF.Screenplay.Selenium
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
-                                new BrowserInfo { Name = "firefox" },
-                                new BrowserInfo { Name = "safari" },
+                                new BrowserInfo { Name = firefox },
+                                new BrowserInfo { Name = safari },
                             }
                         }
                     },
@@ -124,7 +159,7 @@ namespace CSF.Screenplay.Selenium
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
-                                new BrowserInfo { Name = "safari" },
+                                new BrowserInfo { Name = safari },
                             }
                         }
                     },
@@ -134,10 +169,9 @@ namespace CSF.Screenplay.Selenium
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
-                                new BrowserInfo { Name = "safari" },
-                                // There is no Chrome 95.1.0.0 but this covers any 95.0.x
-                                // The additional trailing zeroes are to work around https://github.com/csf-dev/CSF.Extensions.WebDriver/issues/56
-                                new BrowserInfo { Name = "chrome", MaxVersion = "95.1.0.0" },
+                                new BrowserInfo { Name = safari },
+                                // There is no Chrome 95.1 but this covers any 95.0.x
+                                new BrowserInfo { Name = chrome, MaxVersion = "95.1" },
                             }
                         }
                     },
@@ -148,7 +182,30 @@ namespace CSF.Screenplay.Selenium
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 // There is no Firefox 112.1 but this covers any 112.0.x
-                                new BrowserInfo { Name = "firefox", MaxVersion = "112.1" }
+                                new BrowserInfo { Name = firefox, MaxVersion = "112.1" },
+                            }
+                        }
+                    },
+                    {
+                        HasNativeLogsSupport,
+                        new BrowserInfoCollection
+                        {
+                            AffectedBrowsers = new HashSet<BrowserInfo>
+                            {
+                                new BrowserInfo { Name = chrome },
+                                new BrowserInfo { Name = edge },
+                            }
+                        }
+                    },
+                    {
+                        CanGetLogsWithJavascriptWorkaround,
+                        new BrowserInfoCollection
+                        {
+                            AffectedBrowsers = new HashSet<BrowserInfo>
+                            {
+                                new BrowserInfo { Name = firefox },
+                                new BrowserInfo { Name = chrome },
+                                new BrowserInfo { Name = edge },
                             }
                         }
                     }

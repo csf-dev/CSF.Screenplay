@@ -80,6 +80,13 @@ namespace CSF.Screenplay.Selenium.Tasks
         public async ValueTask PerformAsAsync(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken = default)
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
+            await WaitForPageLoad(actor, webDriver, element, cancellationToken);
+            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && webDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
+                await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
+        }
+
+        async ValueTask WaitForPageLoad(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken)
+        {
             if(!webDriver.HasQuirk(BrowserQuirks.NeedsToWaitAfterPageLoad)) return;
 
             var timeout = GetTimeout(actor);

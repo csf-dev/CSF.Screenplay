@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CSF.Screenplay.Selenium
 {
     /// <summary>
@@ -47,5 +49,17 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         public static NamedScriptWithResult<OpenQA.Selenium.IWebElement, OpenQA.Selenium.ISearchContext> GetShadowRoot
             => new NamedScriptWithResult<OpenQA.Selenium.IWebElement, OpenQA.Selenium.ISearchContext>(Resources.ScriptResources.GetShadowRoot, "get a shadow root");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScript"/> which begins capturing logs from the web browser console.
+        /// </summary>
+        public static NamedScript CaptureLogs
+            => new NamedScript(Resources.ScriptResources.CaptureLogs, "begin capturing logs");
+
+        /// <summary>
+        /// Gets a <see cref="NamedScriptWithResult{TResult}"/> which reads log entries which have previously been captured with <see cref="CaptureLogs"/>.
+        /// </summary>
+        public static NamedScriptWithResult<IReadOnlyList<object>> GetLogs
+            => new NamedScriptWithResult<IReadOnlyList<object>>(Resources.ScriptResources.GetLogs, "read the captured logs");
     }
 }

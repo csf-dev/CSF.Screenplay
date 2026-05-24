@@ -1,0 +1,27 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Logging Tests</h1>
+        <p>
+            Click the buttons below to trigger an event which will write some content to the console log, at the stated level.
+            The expected behaviour of this test (alongside the default log level chosen in the <code>appsettings.json</code>)
+            means that the debug messages should be filtered out from the log content.
+        </p>
+        <button id="debugMessage">Log a debug message</button>
+        <button id="infoMessage">Log an info message</button>
+        <script>
+            window.onload = function() {
+                let debugClickCount = 0, infoClickCount = 0;
+
+                document.getElementById("debugMessage").addEventListener("click", function() {
+                    console.debug('The debug button has been clicked ', ++debugClickCount, ' time(s)');
+                });
+
+                document.getElementById("infoMessage").addEventListener("click", function() {
+                    console.info('The info button has been clicked ', ++infoClickCount, ' time(s)');
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -84,12 +84,25 @@ namespace CSF.Screenplay.Selenium
     public class BrowseTheWeb : ICanReport, IDisposable
     {
         readonly Lazy<WebDriverAndOptions> webDriverAndOptions;
+        readonly bool collectLogs;
         bool disposedValue;
 
         /// <summary>
         /// Gets the Selenium WebDriver associated with the current ability instance.
         /// </summary>
         public IWebDriver WebDriver => webDriverAndOptions.Value.WebDriver;
+
+        /// <summary>
+        /// Gets a value indicating whether the current WebDriver should go to lengths to collect console log information.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// When this value is set to <see langword="true"/>, this will trigger usage of <see cref="Actions.BeginCollectingLogsWithJavaScript"/>
+        /// at points where it is required.  This is applicable only when the current <see cref="WebDriver"/> implementation has the
+        /// quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/>.
+        /// </para>
+        /// </remarks>
+        public bool ShouldCollectLogs => collectLogs;
 
         /// <summary>
         /// Gets the WebDriver options which were used to create <see cref="WebDriver"/>.
@@ -116,9 +129,12 @@ namespace CSF.Screenplay.Selenium
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} is able to browse the web using {BrowserName}",
-                                actor.Name,
-                                WebDriver.GetBrowserId()?.ToString() ?? "a Selenium WebDriver");
+        {
+            var logsSuffix = ShouldCollectLogs ? ", and do their best to collect console logs" : string.Empty;
+            return formatter.Format("{Actor} is able to browse the web using {BrowserName}" + logsSuffix,
+                                    actor.Name,
+                                    WebDriver.GetBrowserId()?.ToString() ?? "a Selenium WebDriver");
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BrowseTheWeb"/> class.
@@ -140,9 +156,12 @@ namespace CSF.Screenplay.Selenium
         /// </remarks>
         /// <param name="webDriverFactory">A <see cref="IGetsWebDriver">universal WebDriver factory</see> instance</param>
         /// <param name="webDriverName">An optional name, specifying the WebDriver configuration (within those available in the factory) to use.</param>
-        public BrowseTheWeb(IGetsWebDriver webDriverFactory, string webDriverName = null)
+        /// <param name="collectLogs">An optional value indicating whether the Screenplay Selenium extension
+        /// should go to lengths to ensure that web browser console logs are available.  See <see cref="ShouldCollectLogs"/> for more information.</param>
+        public BrowseTheWeb(IGetsWebDriver webDriverFactory, string webDriverName = null, bool collectLogs = false)
         {
             webDriverAndOptions = GetLazyWebDriverAndOptions(webDriverFactory, webDriverName);
+            this.collectLogs = collectLogs;
         }
 
         /// <summary>
