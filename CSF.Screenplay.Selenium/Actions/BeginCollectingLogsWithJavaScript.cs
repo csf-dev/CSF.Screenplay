@@ -22,7 +22,7 @@ namespace CSF.Screenplay.Selenium.Actions
     /// performance (wasted network roundtrips).
     /// </para>
     /// <para>
-    /// This action is for use only with web browsers which have the <see cref="BrowserQuirks.RequiresJavascriptToGetLogs"/> quirk.
+    /// This action is for use only with web browsers which have the <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> quirk.
     /// </para>
     /// </remarks>
     public class BeginCollectingLogsWithJavaScript : IPerformable, ICanReport
@@ -35,7 +35,7 @@ namespace CSF.Screenplay.Selenium.Actions
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var driver = actor.GetAbility<BrowseTheWeb>();
-            if(!driver.WebDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+            if(!driver.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 throw new NotSupportedException("The WebDriver must have support for retrieving logs using a Javascript workaround.");
 
             await actor.PerformAsync(PerformableBuilder.ExecuteAScript(Scripts.CaptureLogs), cancellationToken);

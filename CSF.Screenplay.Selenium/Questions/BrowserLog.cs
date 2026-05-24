@@ -36,5 +36,8 @@ namespace CSF.Screenplay.Selenium.Questions
         /// Gets the timestamp at which the log message was recorded.
         /// </summary>
         public DateTime Timestamp { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString() => $"{Timestamp:s} [{Level}]: {Message}";
     }
 }

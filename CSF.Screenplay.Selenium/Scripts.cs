@@ -59,7 +59,7 @@ namespace CSF.Screenplay.Selenium
         /// <summary>
         /// Gets a <see cref="NamedScriptWithResult{TResult}"/> which reads log entries which have previously been captured with <see cref="CaptureLogs"/>.
         /// </summary>
-        public static NamedScriptWithResult<IReadOnlyList<IDictionary<string,object>>> GetLogs
-            => new NamedScriptWithResult<IReadOnlyList<IDictionary<string, object>>>(Resources.ScriptResources.GetLogs, "read the captured logs");
+        public static NamedScriptWithResult<IReadOnlyList<object>> GetLogs
+            => new NamedScriptWithResult<IReadOnlyList<object>>(Resources.ScriptResources.GetLogs, "read the captured logs");
     }
 }

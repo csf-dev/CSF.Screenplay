@@ -4,5 +4,9 @@ return function() {
     const logs = globalThis['__csfScreenplayLogs'].messages.filter(x => !x.Consumed);
     for(const log of logs)
         log.Consumed = true;
-    return logs;
+    return logs.map(x => ({
+        Level: x.Level,
+        Message: x.Message.toString(),
+        Timestamp: x.Timestamp.toISOString()
+    }));
 }();

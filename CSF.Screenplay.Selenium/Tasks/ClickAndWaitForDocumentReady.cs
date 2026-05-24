@@ -81,7 +81,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
             await WaitForPageLoad(actor, webDriver, element, cancellationToken);
-            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && webDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && webDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
         }
 

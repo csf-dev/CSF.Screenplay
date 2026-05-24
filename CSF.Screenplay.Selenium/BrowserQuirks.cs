@@ -113,17 +113,17 @@ namespace CSF.Screenplay.Selenium
         public static readonly string HasNativeLogsSupport = "HasNativeLogsSupport";
 
         /// <summary>
-        /// Gets the name of a browser quirk, for browsers which can read browser logs, but which require a Javascript-based workaround.
+        /// Gets the name of a browser quirk, for browsers which can read browser logs using a Javascript-based workaround.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Browsers with this quirk cannot read logs in the way that those which <see cref="HasNativeLogsSupport"/> can, however JavaScript
-        /// may be used to intercept logs as they are sent to the console. These may then be stored and retrieved with a different script.
+        /// Browsers with this quirk should prefer using the techniques provided by <see cref="HasNativeLogsSupport"/> if they also support them.
+        /// The use of a Javascript workaround is imperfect and can miss log messages, as described in the documentation for <see cref="GetLogsWithJavaScript"/>.
         /// </para>
         /// </remarks>
         /// <seealso cref="Scripts.CaptureLogs"/>
         /// <seealso cref="Scripts.GetLogs"/>
-        public static readonly string RequiresJavascriptToGetLogs = "RequiresJavascriptToGetLogs";
+        public static readonly string CanGetLogsWithJavascriptWorkaround = "CanGetLogsWithJavascriptWorkaround";
 
         /// <summary>
         /// Gets hard-coded information about known browser quirks.
@@ -198,12 +198,14 @@ namespace CSF.Screenplay.Selenium
                         }
                     },
                     {
-                        RequiresJavascriptToGetLogs,
+                        CanGetLogsWithJavascriptWorkaround,
                         new BrowserInfoCollection
                         {
                             AffectedBrowsers = new HashSet<BrowserInfo>
                             {
                                 new BrowserInfo { Name = firefox },
+                                new BrowserInfo { Name = chrome },
+                                new BrowserInfo { Name = edge },
                             }
                         }
                     }

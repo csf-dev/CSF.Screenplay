@@ -216,7 +216,7 @@ namespace CSF.Screenplay.Selenium
         /// <para>
         /// It is usually not required to use this action directly.
         /// The recommended way to consume this action is to set <see cref="BrowseTheWeb.ShouldCollectLogs"/> to <see langword="true"/>
-        /// via the ability's constructor. If the WebDriver has the quirk <see cref="BrowserQuirks.RequiresJavascriptToGetLogs"/> then
+        /// via the ability's constructor. If the WebDriver has the quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> then
         /// this action will be executed automatically at appropriate times, such as immediately after <see cref="ClickAndWaitForDocumentReady"/>
         /// or <see cref="OpenUrl"/> is executed.
         /// </para>

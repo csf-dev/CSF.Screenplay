@@ -56,7 +56,7 @@ namespace CSF.Screenplay.Selenium.Actions
                 throw new InvalidOperationException($"The URL to open must be absolute; have you forgotten to grant {actor} the {nameof(UseABaseUri)} ability?");
             ability.WebDriver.Url = uri.Uri.ToString();
 
-            if(ability.ShouldCollectLogs && ability.WebDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+            if(ability.ShouldCollectLogs && ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
         }
         

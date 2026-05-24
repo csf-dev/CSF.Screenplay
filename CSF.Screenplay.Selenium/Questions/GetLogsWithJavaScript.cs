@@ -26,7 +26,13 @@ namespace CSF.Screenplay.Selenium.Questions
     /// not missing any messages.
     /// </para>
     /// <para>
-    /// This action is for use only with web browsers which have the <see cref="BrowserQuirks.RequiresJavascriptToGetLogs"/> quirk.
+    /// This action is for use only with web browsers which have the <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> quirk.
+    /// </para>
+    /// <para>
+    /// Note that this question will not (and cannot) respect the WebDriver's logging preference, such as set at
+    /// <see cref="Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel"/> or
+    /// <see cref="DriverOptions.SetLoggingPreference(string, LogLevel)"/>.
+    /// Consumers will need to manually filter for messages which they care about, based upon the log level.
     /// </para>
     /// </remarks>
     public class GetLogsWithJavaScript : IPerformableWithResult<IReadOnlyList<BrowserLog>>, ICanReport
@@ -39,12 +45,13 @@ namespace CSF.Screenplay.Selenium.Questions
         public async ValueTask<IReadOnlyList<BrowserLog>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var driver = actor.GetAbility<BrowseTheWeb>();
-            if(!driver.WebDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+            if(!driver.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 throw new NotSupportedException("The WebDriver must have support for retrieving logs using a Javascript workaround.");
 
             var result = await actor.PerformAsync(PerformableBuilder.ExecuteAScript(Scripts.GetLogs), cancellationToken);
             return result
-                .Select(x => new BrowserLog { Level = x["Level"].ToString(), Message = x["Message"].ToString(), Timestamp = (DateTime) x["Timestamp"] })
+                .Cast<IDictionary<string,object>>()
+                .Select(x => new BrowserLog { Level = x["Level"].ToString(), Message = x["Message"].ToString(), Timestamp = DateTime.Parse((string) x["Timestamp"]) })
                 .ToArray();
         }
     }

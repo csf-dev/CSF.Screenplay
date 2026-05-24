@@ -99,7 +99,7 @@ namespace CSF.Screenplay.Selenium
         /// <para>
         /// When this value is set to <see langword="true"/>, this will trigger usage of <see cref="Actions.BeginCollectingLogsWithJavaScript"/>
         /// at points where it is required.  This is applicable only when the current <see cref="WebDriver"/> implementation has the
-        /// quirk <see cref="BrowserQuirks.RequiresJavascriptToGetLogs"/>.
+        /// quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/>.
         /// </para>
         /// </remarks>
         public bool ShouldCollectLogs => collectLogs;

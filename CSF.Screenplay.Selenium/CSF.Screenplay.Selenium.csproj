@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="**\*.restext" />
+    <EmbeddedResource Include="Resources\**\*.js" />
   </ItemGroup>
 
 </Project>

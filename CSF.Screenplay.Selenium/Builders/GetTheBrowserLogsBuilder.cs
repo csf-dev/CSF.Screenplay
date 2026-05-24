@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using CSF.Screenplay.Performables;
+using CSF.Screenplay.Selenium.Questions;
 using CSF.Screenplay.Selenium.Tasks;
 
 namespace CSF.Screenplay.Selenium.Builders
@@ -11,7 +14,7 @@ namespace CSF.Screenplay.Selenium.Builders
     /// collection, should retrieving logs be unsupported by the current WebDriver.
     /// </para>
     /// </remarks>
-    public class GetTheBrowserLogsBuilder
+    public class GetTheBrowserLogsBuilder : IGetsPerformableWithResult<IReadOnlyList<BrowserLog>>
     {
         /// <summary>
         /// Gets a <see cref="GetTheBrowserLogs"/> task.
@@ -22,11 +25,7 @@ namespace CSF.Screenplay.Selenium.Builders
         public GetTheBrowserLogs ButReturnEmptyLogsIfUnsupported()
             => new GetTheBrowserLogs(false);
 
-        /// <summary>
-        /// Implicitly converts the builder to an instance of <see cref="GetTheBrowserLogs"/>.
-        /// The task will throw if no viable technique for getting logs is available.
-        /// </summary>
-        public static implicit operator GetTheBrowserLogs(GetTheBrowserLogsBuilder _)
+        IPerformableWithResult<IReadOnlyList<BrowserLog>> IGetsPerformableWithResult<IReadOnlyList<BrowserLog>>.GetPerformable()
             => new GetTheBrowserLogs();
     }
 }

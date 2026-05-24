@@ -18,7 +18,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// <list type="number">
     /// <item><description>If the WebDriver has the quirk/capability <see cref="BrowserQuirks.HasNativeLogsSupport"/> then
     /// <see cref="GetNativeBrowserLogs"/> is used.</description></item>
-    /// <item><description>If the WebDriver has the quirk/capability <see cref="BrowserQuirks.RequiresJavascriptToGetLogs"/> then
+    /// <item><description>If the WebDriver has the quirk/capability <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> then
     /// <see cref="GetBrowserLogsWithJavascript"/> is used.</description></item>
     /// <item><description>If the current instance has been constructed in such a manner as to throw if getting logs is unsupported
     /// then this task will throw <see cref="NotSupportedException"/>.</description></item>
@@ -32,9 +32,7 @@ namespace CSF.Screenplay.Selenium.Tasks
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-        {
-            throw new System.NotImplementedException();
-        }
+            => formatter.Format("{Actor} gets the web browser console logs using the best available technique", actor);
 
         /// <inheritdoc/>
         public ValueTask<IReadOnlyList<BrowserLog>> PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
@@ -43,7 +41,7 @@ namespace CSF.Screenplay.Selenium.Tasks
             if(ability.WebDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport))
                 return actor.PerformAsync(GetNativeBrowserLogs(), cancellationToken);
 
-            if(ability.WebDriver.HasQuirk(BrowserQuirks.RequiresJavascriptToGetLogs))
+            if(ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
                 return actor.PerformAsync(GetBrowserLogsWithJavascript(), cancellationToken);
 
             if(throwIfUnsupported)
