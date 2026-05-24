@@ -30,7 +30,6 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
     public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
     {
         var driverOptions = GetDriverOptions();
-        driverOptions.SetLoggingPreference(LogType.Browser, LogLevel.Info);
         driverOptions.AddAdditionalOption(BrowserStackOptionsCapability, GetBrowserStackOptions());
         var driver = new RemoteWebDriver(new Uri(GridUrl), driverOptions);
         return new (driver, driverOptions);
@@ -47,14 +46,6 @@ public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
             "Safari" => new SafariOptions(),
             _ => throw new InvalidOperationException($"The {BrowserName} environment variable: '{GetBrowserName()}' must indicate a supported browser"),
         };
-
-        if (options is ChromeOptions chromeOptions)
-        {
-            // Must be set as an additional option, not via SetLoggingPreference,
-            // to survive the W3C capability negotiation with BrowserStack's remote node.
-            chromeOptions.AddAdditionalOption("goog:loggingPrefs",
-                new Dictionary<string, string> { { LogType.Browser, LogLevel.Info.ToString().ToUpperInvariant() } });
-        }
 
         return options;
     }
