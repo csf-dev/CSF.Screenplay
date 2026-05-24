@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +52,7 @@ namespace CSF.Screenplay.Selenium.Questions
             var result = await actor.PerformAsync(PerformableBuilder.ExecuteAScript(Scripts.GetLogs), cancellationToken);
             return result
                 .Cast<IDictionary<string,object>>()
-                .Select(x => new BrowserLog { Level = x["Level"].ToString(), Message = x["Message"].ToString(), Timestamp = DateTime.Parse((string) x["Timestamp"]) })
+                .Select(x => new BrowserLog { Level = x["Level"].ToString(), Message = x["Message"].ToString(), Timestamp = DateTime.Parse((string) x["Timestamp"], CultureInfo.InvariantCulture) })
                 .ToArray();
         }
     }

@@ -22,14 +22,15 @@ namespace CSF.Screenplay.Selenium.BrowserStack;
 /// </remarks>
 public class BrowserStackDriverFactory : ICreatesWebDriverFromOptions
 {
-    const string AdditionalOptionsCapabilityName = "bstack:options";
+    const string BrowserStackOptionsCapability = "bstack:options", BrowserStackConsoleLoggingCapability = "browserstack.console";
 
     const string GridUrl = "https://hub-cloud.browserstack.com/wd/hub/";
 
     public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
     {
         var driverOptions = GetDriverOptions();
-        driverOptions.AddAdditionalOption(AdditionalOptionsCapabilityName, GetBrowserStackOptions());
+        driverOptions.AddAdditionalOption(BrowserStackOptionsCapability, GetBrowserStackOptions());
+        driverOptions.AddAdditionalOption(BrowserStackConsoleLoggingCapability, "info");
         var driver = new RemoteWebDriver(new Uri(GridUrl), driverOptions);
         return new (driver, driverOptions);
     }
