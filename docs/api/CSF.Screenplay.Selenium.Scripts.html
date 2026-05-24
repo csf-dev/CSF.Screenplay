@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Scripts" data-uid="CSF.Screenplay.Selenium.Scripts" class="text-break">
-Class Scripts  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class Scripts  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -162,11 +162,43 @@ scripts with human-readable names and type safety.
 </h2>
 
 
+  <a id="CSF_Screenplay_Selenium_Scripts_CaptureLogs_" data-uid="CSF.Screenplay.Selenium.Scripts.CaptureLogs*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Scripts_CaptureLogs" data-uid="CSF.Screenplay.Selenium.Scripts.CaptureLogs">
+  CaptureLogs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a> which begins capturing logs from the web browser console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NamedScript CaptureLogs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_Selenium_Scripts_ClearLocalStorage_" data-uid="CSF.Screenplay.Selenium.Scripts.ClearLocalStorage*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_ClearLocalStorage" data-uid="CSF.Screenplay.Selenium.Scripts.ClearLocalStorage">
   ClearLocalStorage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript.html">NamedScript</a> which clears the Local Storage of the browser, for the current domain.</p>
@@ -194,11 +226,43 @@ scripts with human-readable names and type safety.
 
 
 
+  <a id="CSF_Screenplay_Selenium_Scripts_GetLogs_" data-uid="CSF.Screenplay.Selenium.Scripts.GetLogs*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_Scripts_GetLogs" data-uid="CSF.Screenplay.Selenium.Scripts.GetLogs">
+  GetLogs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a> which reads log entries which have previously been captured with <a class="xref" href="CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_CaptureLogs">CaptureLogs</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NamedScriptWithResult&lt;IReadOnlyList&lt;object&gt;&gt; GetLogs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="CSF_Screenplay_Selenium_Scripts_GetShadowRoot_" data-uid="CSF.Screenplay.Selenium.Scripts.GetShadowRoot*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_GetShadowRoot" data-uid="CSF.Screenplay.Selenium.Scripts.GetShadowRoot">
   GetShadowRoot
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-2.html">NamedScriptWithResult&lt;T1, TResult&gt;</a> which gets the shadow root contained within the specified shadow host.</p>
@@ -230,7 +294,7 @@ scripts with human-readable names and type safety.
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_GetTheDocumentReadyState" data-uid="CSF.Screenplay.Selenium.Scripts.GetTheDocumentReadyState">
   GetTheDocumentReadyState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScriptWithResult-1.html">NamedScriptWithResult&lt;TResult&gt;</a> which gets the value of <code>document.readyState</code> for the
@@ -266,7 +330,7 @@ current page.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_SetElementValue" data-uid="CSF.Screenplay.Selenium.Scripts.SetElementValue">
   SetElementValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript&lt;T1, T2&gt;</a> which sets the <code>value</code> of a specified HTML element.</p>
@@ -298,7 +362,7 @@ current page.</p>
 
   <h3 id="CSF_Screenplay_Selenium_Scripts_SetElementValueSimulatedInteractively" data-uid="CSF.Screenplay.Selenium.Scripts.SetElementValueSimulatedInteractively">
   SetElementValueSimulatedInteractively
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="CSF.Screenplay.Selenium.NamedScript-2.html">NamedScript&lt;T1, T2&gt;</a> which sets the <code>value</code> of a specified HTML element, simulating setting it interactively.</p>
@@ -330,7 +394,7 @@ current page.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Scripts.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 

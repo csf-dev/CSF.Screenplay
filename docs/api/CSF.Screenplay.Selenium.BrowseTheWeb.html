@@ -232,9 +232,9 @@ constructor-injected into the persona class.
 
   <a id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String)">
-  BrowseTheWeb(IGetsWebDriver, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_System_Boolean_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String,System.Boolean)">
+  BrowseTheWeb(IGetsWebDriver, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> class.</p>
@@ -242,7 +242,7 @@ constructor-injected into the persona class.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BrowseTheWeb(IGetsWebDriver webDriverFactory, string webDriverName = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public BrowseTheWeb(IGetsWebDriver webDriverFactory, string webDriverName = null, bool collectLogs = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -253,6 +253,10 @@ constructor-injected into the persona class.
     <dt><code>webDriverName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>An optional name, specifying the WebDriver configuration (within those available in the factory) to use.</p>
 </dd>
+    <dt><code>collectLogs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>An optional value indicating whether the Screenplay Selenium extension
+should go to lengths to ensure that web browser console logs are available.  See <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs">ShouldCollectLogs</a> for more information.</p>
+</dd>
   </dl>
 
 
@@ -262,7 +266,7 @@ constructor-injected into the persona class.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_System_Boolean__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 It is quite normal to omit the <code class="paramref">webDriverName</code> parameter, leaving it with its default <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value.
 If the WebDriver name is omitted or null then the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">GetDefaultWebDriver(Action&lt;DriverOptions&gt;)</a> method will
@@ -289,7 +293,7 @@ Screenplay makes the factory available in that manner.
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_DriverOptions" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.DriverOptions">
   DriverOptions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the WebDriver options which were used to create <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver">WebDriver</a>.</p>
@@ -323,11 +327,50 @@ The purpose of this property is to allow developers to inspect the options which
 
 
 
+  <a id="CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs">
+  ShouldCollectLogs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current WebDriver should go to lengths to collect console log information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ShouldCollectLogs { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+When this value is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this will trigger usage of <a class="xref" href="CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html">BeginCollectingLogsWithJavaScript</a>
+at points where it is required.  This is applicable only when the current <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver">WebDriver</a> implementation has the
+quirk <a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CanGetLogsWithJavascriptWorkaround">CanGetLogsWithJavascriptWorkaround</a>.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.WebDriver*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.WebDriver">
   WebDriver
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the Selenium WebDriver associated with the current ability instance.</p>
@@ -363,7 +406,7 @@ The purpose of this property is to allow developers to inspect the options which
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_Dispose" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L185"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -389,7 +432,7 @@ The purpose of this property is to allow developers to inspect the options which
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_Dispose_System_Boolean_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Disposes the resources used by the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> class.</p>
@@ -422,7 +465,7 @@ The purpose of this property is to allow developers to inspect the options which
 
   <h3 id="CSF_Screenplay_Selenium_BrowseTheWeb_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/BrowseTheWeb.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining

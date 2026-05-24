@@ -158,6 +158,48 @@ Consume this class from your own Screenplay logic with <code>using static CSF.Sc
 </h2>
 
 
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScript" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript">
+  BeginCollectingLogsWithJavaScript()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable action which begins collecting log information with a Javascript workaround.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BeginCollectingLogsWithJavaScript BeginCollectingLogsWithJavaScript()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html">BeginCollectingLogsWithJavaScript</a></dt>
+    <dd><p>A performable action</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScript_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+It is usually not required to use this action directly.
+The recommended way to consume this action is to set <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs">ShouldCollectLogs</a> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>
+via the ability's constructor. If the WebDriver has the quirk <a class="xref" href="CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CanGetLogsWithJavascriptWorkaround">CanGetLogsWithJavascriptWorkaround</a> then
+this action will be executed automatically at appropriate times, such as immediately after <a class="xref" href="CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html">ClickAndWaitForDocumentReady</a>
+or <a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a> is executed.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies*"></a>
 
   <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies">
@@ -2204,6 +2246,129 @@ instead.
   <div class="markdown level1 remarks"><p>
 If you only want to find elements within the <code>&lt;body&gt;</code> element of the page, consider using <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_FindElementsOnThePage">FindElementsOnThePage()</a>
 instead.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_GetBrowserLogsWithJavascript_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetBrowserLogsWithJavascript" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript">
+  GetBrowserLogsWithJavascript()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which retrieves the web browser console logs using a Javascript workaround.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GetLogsWithJavaScript GetBrowserLogsWithJavascript()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html">GetLogsWithJavaScript</a></dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_GetBrowserLogsWithJavascript_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+It is recommended not to invoke this question directly, rather to use <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs">GetTheBrowserLogs()</a>.
+The general-purpose GetTheBrowserLogs task will retrieve the logs, selecting an appropriate technique for the current WebDriver implementation.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_GetNativeBrowserLogs_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetNativeBrowserLogs" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs">
+  GetNativeBrowserLogs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable question which retrieves the native web browser console logs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GetLogsNatively GetNativeBrowserLogs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Questions.GetLogsNatively.html">GetLogsNatively</a></dt>
+    <dd><p>A performable question</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_GetNativeBrowserLogs_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+It is recommended not to invoke this question directly, rather to use <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs">GetTheBrowserLogs()</a>.
+The general-purpose GetTheBrowserLogs task will retrieve the logs, selecting an appropriate technique for the current WebDriver implementation.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs_" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs*"></a>
+
+  <h3 id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs" data-uid="CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs">
+  GetTheBrowserLogs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/PerformableBuilder.general.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a performable task which retrieves the web browser console logs using an appropriate technique.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GetTheBrowserLogsBuilder GetTheBrowserLogs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html">GetTheBrowserLogsBuilder</a></dt>
+    <dd><p>A builder for a performable task</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The task returned by this builder method is the recommended way in which to get the browser console logs.
+It will pick between the available techniques, based upon the current WebDriver's support.
+</p>
+<p>
+Use the builder object returned by this method to select what should happen in case that the current WebDriver
+offers no viable technique in which to retrieve the console logs.  The default behaviour is to throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>,
+but <a class="xref" href="CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html#CSF_Screenplay_Selenium_Builders_GetTheBrowserLogsBuilder_ButReturnEmptyLogsIfUnsupported">ButReturnEmptyLogsIfUnsupported()</a> may be used to alter this. If that method is used,
+then an empty collection of logs will be returned in that scenario, instead of throwing.
 </p>
 </div>
 

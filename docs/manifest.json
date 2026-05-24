@@ -1926,6 +1926,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.yml\" sourcestartlinenumber=\"1\">Executes a custom Javascript which begins collection/interception of web browser console log messages.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Actions.ClearCookies.yml",
       "output": {
         ".html": {
@@ -2427,6 +2441,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.yml\" sourcestartlinenumber=\"1\">A builder class for creating performable actions which act upon a specified target element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.yml\" sourcestartlinenumber=\"1\">Builder class for creating an instance of <xref href=\"CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3354,6 +3382,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.BrowserLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.BrowserLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.BrowserLog",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.BrowserLog.yml\" sourcestartlinenumber=\"1\">Model which represents a single web browser log entry.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter-1.yml",
       "output": {
         ".html": {
@@ -3477,6 +3519,34 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Questions.FindElements",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.FindElements.yml\" sourcestartlinenumber=\"1\">A question which searches for HTML elements that matche some criteria, optionally within a specified target,\nreturning the results as a <xref href=\"CSF.Screenplay.Selenium.Elements.SeleniumElementCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.GetLogsNatively",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.yml\" sourcestartlinenumber=\"1\">A performable which retrieves web browser logs using a native technique.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.yml\" sourcestartlinenumber=\"1\">A Screenplay Question which retrieves the logs which have been intercepted using a Javascript workaround, via\n<xref href=\"CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3799,6 +3869,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Selenium.Tasks.GetShadowRoot",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.GetShadowRoot.yml\" sourcestartlinenumber=\"1\">A Screenplay Task which gets the Shadow Root element from the specified Selenium Element, using the best available technique for the current web browser.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.yml\" sourcestartlinenumber=\"1\">A screenplay task which attempts to get the web browser console logs using the best technique available.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4238,11 +4322,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -4331,11 +4415,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4604,11 +4688,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/selenium/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/selenium/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/selenium/toc.html"
         }
       },
       "version": ""
@@ -4667,11 +4751,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/webApis/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4760,11 +4844,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -5023,11 +5107,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -5106,11 +5190,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

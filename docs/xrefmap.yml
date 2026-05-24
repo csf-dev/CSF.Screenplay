@@ -6366,6 +6366,38 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Actions
   fullName: CSF.Screenplay.Selenium.Actions
   nameWithType: CSF.Screenplay.Selenium.Actions
+- uid: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript
+  name: BeginCollectingLogsWithJavaScript
+  href: api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html
+  commentId: T:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript
+  fullName: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript
+  nameWithType: BeginCollectingLogsWithJavaScript
+- uid: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html#CSF_Screenplay_Selenium_Actions_BeginCollectingLogsWithJavaScript_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: BeginCollectingLogsWithJavaScript.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html#CSF_Screenplay_Selenium_Actions_BeginCollectingLogsWithJavaScript_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.GetReportFragment
+  nameWithType: BeginCollectingLogsWithJavaScript.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html#CSF_Screenplay_Selenium_Actions_BeginCollectingLogsWithJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: BeginCollectingLogsWithJavaScript.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html#CSF_Screenplay_Selenium_Actions_BeginCollectingLogsWithJavaScript_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.PerformAsAsync
+  nameWithType: BeginCollectingLogsWithJavaScript.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Actions.ClearCookies
   name: ClearCookies
   href: api/CSF.Screenplay.Selenium.Actions.ClearCookies.html
@@ -7476,15 +7508,15 @@ references:
   commentId: T:CSF.Screenplay.Selenium.BrowseTheWeb
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb
   nameWithType: BrowseTheWeb
-- uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String)
-  name: BrowseTheWeb(IGetsWebDriver, string)
-  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_
-  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String)
-  name.vb: New(IGetsWebDriver, String)
-  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.BrowseTheWeb(CSF.Extensions.WebDriver.IGetsWebDriver, string)
-  fullName.vb: CSF.Screenplay.Selenium.BrowseTheWeb.New(CSF.Extensions.WebDriver.IGetsWebDriver, String)
-  nameWithType: BrowseTheWeb.BrowseTheWeb(IGetsWebDriver, string)
-  nameWithType.vb: BrowseTheWeb.New(IGetsWebDriver, String)
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String,System.Boolean)
+  name: BrowseTheWeb(IGetsWebDriver, string, bool)
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_CSF_Extensions_WebDriver_IGetsWebDriver_System_String_System_Boolean_
+  commentId: M:CSF.Screenplay.Selenium.BrowseTheWeb.#ctor(CSF.Extensions.WebDriver.IGetsWebDriver,System.String,System.Boolean)
+  name.vb: New(IGetsWebDriver, String, Boolean)
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.BrowseTheWeb(CSF.Extensions.WebDriver.IGetsWebDriver, string, bool)
+  fullName.vb: CSF.Screenplay.Selenium.BrowseTheWeb.New(CSF.Extensions.WebDriver.IGetsWebDriver, String, Boolean)
+  nameWithType: BrowseTheWeb.BrowseTheWeb(IGetsWebDriver, string, bool)
+  nameWithType.vb: BrowseTheWeb.New(IGetsWebDriver, String, Boolean)
 - uid: CSF.Screenplay.Selenium.BrowseTheWeb.#ctor*
   name: BrowseTheWeb
   href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb__ctor_
@@ -7543,6 +7575,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowseTheWeb.GetReportFragment
   nameWithType: BrowseTheWeb.GetReportFragment
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
+  name: ShouldCollectLogs
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs
+  commentId: P:CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
+  nameWithType: BrowseTheWeb.ShouldCollectLogs
+- uid: CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs*
+  name: ShouldCollectLogs
+  href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_ShouldCollectLogs_
+  commentId: Overload:CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
+  nameWithType: BrowseTheWeb.ShouldCollectLogs
 - uid: CSF.Screenplay.Selenium.BrowseTheWeb.WebDriver
   name: WebDriver
   href: api/CSF.Screenplay.Selenium.BrowseTheWeb.html#CSF_Screenplay_Selenium_BrowseTheWeb_WebDriver
@@ -7581,6 +7626,12 @@ references:
   commentId: T:CSF.Screenplay.Selenium.BrowserQuirks
   fullName: CSF.Screenplay.Selenium.BrowserQuirks
   nameWithType: BrowserQuirks
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.CanGetLogsWithJavascriptWorkaround
+  name: CanGetLogsWithJavascriptWorkaround
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CanGetLogsWithJavascriptWorkaround
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.CanGetLogsWithJavascriptWorkaround
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.CanGetLogsWithJavascriptWorkaround
+  nameWithType: BrowserQuirks.CanGetLogsWithJavascriptWorkaround
 - uid: CSF.Screenplay.Selenium.BrowserQuirks.CannotGetShadowRoot
   name: CannotGetShadowRoot
   href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_CannotGetShadowRoot
@@ -7606,6 +7657,12 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.BrowserQuirks.GetQuirksData
   nameWithType: BrowserQuirks.GetQuirksData
+- uid: CSF.Screenplay.Selenium.BrowserQuirks.HasNativeLogsSupport
+  name: HasNativeLogsSupport
+  href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_HasNativeLogsSupport
+  commentId: F:CSF.Screenplay.Selenium.BrowserQuirks.HasNativeLogsSupport
+  fullName: CSF.Screenplay.Selenium.BrowserQuirks.HasNativeLogsSupport
+  nameWithType: BrowserQuirks.HasNativeLogsSupport
 - uid: CSF.Screenplay.Selenium.BrowserQuirks.NeedsJavaScriptToGetShadowRoot
   name: NeedsJavaScriptToGetShadowRoot
   href: api/CSF.Screenplay.Selenium.BrowserQuirks.html#CSF_Screenplay_Selenium_BrowserQuirks_NeedsJavaScriptToGetShadowRoot
@@ -8154,6 +8211,25 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Builders.FromTargetActionBuilder.From
   nameWithType: FromTargetActionBuilder.From
+- uid: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder
+  name: GetTheBrowserLogsBuilder
+  href: api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html
+  commentId: T:CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder
+  fullName: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder
+  nameWithType: GetTheBrowserLogsBuilder
+- uid: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported
+  name: ButReturnEmptyLogsIfUnsupported()
+  href: api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html#CSF_Screenplay_Selenium_Builders_GetTheBrowserLogsBuilder_ButReturnEmptyLogsIfUnsupported
+  commentId: M:CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported
+  fullName: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported()
+  nameWithType: GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported()
+- uid: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported*
+  name: ButReturnEmptyLogsIfUnsupported
+  href: api/CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.html#CSF_Screenplay_Selenium_Builders_GetTheBrowserLogsBuilder_ButReturnEmptyLogsIfUnsupported_
+  commentId: Overload:CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Builders.GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported
+  nameWithType: GetTheBrowserLogsBuilder.ButReturnEmptyLogsIfUnsupported
 - uid: CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates
   name: IBuildsElementPredicates
   href: api/CSF.Screenplay.Selenium.Builders.IBuildsElementPredicates.html
@@ -13568,6 +13644,19 @@ references:
   commentId: T:CSF.Screenplay.Selenium.PerformableBuilder
   fullName: CSF.Screenplay.Selenium.PerformableBuilder
   nameWithType: PerformableBuilder
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript
+  name: BeginCollectingLogsWithJavaScript()
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScript
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript()
+  nameWithType: PerformableBuilder.BeginCollectingLogsWithJavaScript()
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript*
+  name: BeginCollectingLogsWithJavaScript
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScript_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript
+  nameWithType: PerformableBuilder.BeginCollectingLogsWithJavaScript
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies
   name: ClearAllDomainCookies()
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies
@@ -13979,6 +14068,45 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.FindElementsWithin
   nameWithType: PerformableBuilder.FindElementsWithin
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript
+  name: GetBrowserLogsWithJavascript()
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetBrowserLogsWithJavascript
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript()
+  nameWithType: PerformableBuilder.GetBrowserLogsWithJavascript()
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript*
+  name: GetBrowserLogsWithJavascript
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetBrowserLogsWithJavascript_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetBrowserLogsWithJavascript
+  nameWithType: PerformableBuilder.GetBrowserLogsWithJavascript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs
+  name: GetNativeBrowserLogs()
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetNativeBrowserLogs
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs()
+  nameWithType: PerformableBuilder.GetNativeBrowserLogs()
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs*
+  name: GetNativeBrowserLogs
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetNativeBrowserLogs_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetNativeBrowserLogs
+  nameWithType: PerformableBuilder.GetNativeBrowserLogs
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs
+  name: GetTheBrowserLogs()
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs()
+  nameWithType: PerformableBuilder.GetTheBrowserLogs()
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs*
+  name: GetTheBrowserLogs
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheBrowserLogs_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheBrowserLogs
+  nameWithType: PerformableBuilder.GetTheBrowserLogs
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootFrom(CSF.Screenplay.Selenium.Elements.ITarget)
   name: GetTheShadowRootFrom(ITarget)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_GetTheShadowRootFrom_CSF_Screenplay_Selenium_Elements_ITarget_
@@ -14725,6 +14853,64 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Questions
   fullName: CSF.Screenplay.Selenium.Questions
   nameWithType: CSF.Screenplay.Selenium.Questions
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog
+  name: BrowserLog
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.BrowserLog
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog
+  nameWithType: BrowserLog
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Level
+  name: Level
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Level
+  commentId: P:CSF.Screenplay.Selenium.Questions.BrowserLog.Level
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Level
+  nameWithType: BrowserLog.Level
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Level*
+  name: Level
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Level_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.BrowserLog.Level
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Level
+  nameWithType: BrowserLog.Level
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Message
+  name: Message
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Message
+  commentId: P:CSF.Screenplay.Selenium.Questions.BrowserLog.Message
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Message
+  nameWithType: BrowserLog.Message
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Message*
+  name: Message
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Message_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.BrowserLog.Message
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Message
+  nameWithType: BrowserLog.Message
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp
+  name: Timestamp
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Timestamp
+  commentId: P:CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp
+  nameWithType: BrowserLog.Timestamp
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp*
+  name: Timestamp
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_Timestamp_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.Timestamp
+  nameWithType: BrowserLog.Timestamp
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.ToString
+  name: ToString()
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_ToString
+  commentId: M:CSF.Screenplay.Selenium.Questions.BrowserLog.ToString
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.ToString()
+  nameWithType: BrowserLog.ToString()
+- uid: CSF.Screenplay.Selenium.Questions.BrowserLog.ToString*
+  name: ToString
+  href: api/CSF.Screenplay.Selenium.Questions.BrowserLog.html#CSF_Screenplay_Selenium_Questions_BrowserLog_ToString_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.BrowserLog.ToString
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.BrowserLog.ToString
+  nameWithType: BrowserLog.ToString
 - uid: CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter
   name: ElementCollectionPerformableWithResultAdapter
   href: api/CSF.Screenplay.Selenium.Questions.ElementCollectionPerformableWithResultAdapter.html
@@ -15233,6 +15419,70 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Questions.FindElements.PerformAsAsync
   nameWithType: FindElements.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsNatively
+  name: GetLogsNatively
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.GetLogsNatively
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsNatively
+  nameWithType: GetLogsNatively
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html#CSF_Screenplay_Selenium_Questions_GetLogsNatively_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetLogsNatively.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html#CSF_Screenplay_Selenium_Questions_GetLogsNatively_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsNatively.GetReportFragment
+  nameWithType: GetLogsNatively.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html#CSF_Screenplay_Selenium_Questions_GetLogsNatively_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: GetLogsNatively.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html#CSF_Screenplay_Selenium_Questions_GetLogsNatively_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsNatively.PerformAsAsync
+  nameWithType: GetLogsNatively.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript
+  name: GetLogsWithJavaScript
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html
+  commentId: T:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript
+  nameWithType: GetLogsWithJavaScript
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetLogsWithJavaScript.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment
+  nameWithType: GetLogsWithJavaScript.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: GetLogsWithJavaScript.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html#CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync
+  nameWithType: GetLogsWithJavaScript.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
   name: GetShadowRootNatively
   href: api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html
@@ -15808,6 +16058,19 @@ references:
   commentId: T:CSF.Screenplay.Selenium.Scripts
   fullName: CSF.Screenplay.Selenium.Scripts
   nameWithType: Scripts
+- uid: CSF.Screenplay.Selenium.Scripts.CaptureLogs
+  name: CaptureLogs
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_CaptureLogs
+  commentId: P:CSF.Screenplay.Selenium.Scripts.CaptureLogs
+  fullName: CSF.Screenplay.Selenium.Scripts.CaptureLogs
+  nameWithType: Scripts.CaptureLogs
+- uid: CSF.Screenplay.Selenium.Scripts.CaptureLogs*
+  name: CaptureLogs
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_CaptureLogs_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.CaptureLogs
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.CaptureLogs
+  nameWithType: Scripts.CaptureLogs
 - uid: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
   name: ClearLocalStorage
   href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_ClearLocalStorage
@@ -15821,6 +16084,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Scripts.ClearLocalStorage
   nameWithType: Scripts.ClearLocalStorage
+- uid: CSF.Screenplay.Selenium.Scripts.GetLogs
+  name: GetLogs
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetLogs
+  commentId: P:CSF.Screenplay.Selenium.Scripts.GetLogs
+  fullName: CSF.Screenplay.Selenium.Scripts.GetLogs
+  nameWithType: Scripts.GetLogs
+- uid: CSF.Screenplay.Selenium.Scripts.GetLogs*
+  name: GetLogs
+  href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetLogs_
+  commentId: Overload:CSF.Screenplay.Selenium.Scripts.GetLogs
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Scripts.GetLogs
+  nameWithType: Scripts.GetLogs
 - uid: CSF.Screenplay.Selenium.Scripts.GetShadowRoot
   name: GetShadowRoot
   href: api/CSF.Screenplay.Selenium.Scripts.html#CSF_Screenplay_Selenium_Scripts_GetShadowRoot
@@ -16133,6 +16409,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Tasks.GetShadowRoot.PerformAsAsync
   nameWithType: GetShadowRoot.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs
+  name: GetTheBrowserLogs
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs
+  nameWithType: GetTheBrowserLogs
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.#ctor(System.Boolean)
+  name: GetTheBrowserLogs(bool)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs__ctor_System_Boolean_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.#ctor(System.Boolean)
+  name.vb: New(Boolean)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetTheBrowserLogs(bool)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.New(Boolean)
+  nameWithType: GetTheBrowserLogs.GetTheBrowserLogs(bool)
+  nameWithType.vb: GetTheBrowserLogs.New(Boolean)
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.#ctor*
+  name: GetTheBrowserLogs
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetTheBrowserLogs
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.New
+  nameWithType: GetTheBrowserLogs.GetTheBrowserLogs
+  nameWithType.vb: GetTheBrowserLogs.New
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: GetTheBrowserLogs.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.GetReportFragment
+  nameWithType: GetTheBrowserLogs.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: GetTheBrowserLogs.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.html#CSF_Screenplay_Selenium_Tasks_GetTheBrowserLogs_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync
+  nameWithType: GetTheBrowserLogs.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
   name: OpenUrlRespectingBase
   href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html
