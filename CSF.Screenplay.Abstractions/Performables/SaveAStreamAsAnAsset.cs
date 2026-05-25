@@ -26,7 +26,7 @@ namespace CSF.Screenplay.Performables
 
             using (var fileStream = File.Create(path))
             {
-                await stream.CopyToAsync(fileStream);
+                await stream.CopyToAsync(fileStream, 81920, cancellationToken);
             }
             actor.RecordAsset(this, path, assetName);
         }
