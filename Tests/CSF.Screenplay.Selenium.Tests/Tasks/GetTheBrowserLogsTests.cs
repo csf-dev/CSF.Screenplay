@@ -1,7 +1,12 @@
+using System;
+using CSF.Extensions.WebDriver;
 using CSF.Screenplay.Performables;
 using CSF.Screenplay.Selenium.Elements;
 using CSF.Screenplay.Selenium.Questions;
+using Moq;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -129,5 +134,50 @@ public class GetTheBrowserLogsTests
         var logs = await Then(webster).Should(GetTheBrowserLogs().ButReturnEmptyLogsIfUnsupported());
 
         Assert.That(logs, Is.Empty);
+    }
+
+    [Test, AutoMoqData]
+    public void GettingLogsShouldThrowIfConfiguredToDoSoWhenUsedWithARemoteWebDriver(Actor actor, IGetsWebDriver driverFactory, [StubRemote] RemoteWebDriver driver)
+    {
+        var sut = new GetTheBrowserLogs(true);
+        Mock.Get(driverFactory).Setup(x => x.GetDefaultWebDriver(null)).Returns(new Extensions.WebDriver.Factories.WebDriverAndOptions(driver, new ChromeOptions()));
+        var browseTheWeb = new BrowseTheWeb(driverFactory);
+        actor.IsAbleTo(browseTheWeb);
+
+        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.InstanceOf<NotSupportedException>().And.Message.Contains("not supported for Remote Web Drivers"));
+    }
+
+    [Test, AutoMoqData]
+    public void GettingLogsShouldReturnEmptyIfConfiguredToDoSoWhenUsedWithARemoteWebDriver(Actor actor, IGetsWebDriver driverFactory, [StubRemote] RemoteWebDriver driver)
+    {
+        var sut = new GetTheBrowserLogs(false);
+        Mock.Get(driverFactory).Setup(x => x.GetDefaultWebDriver(null)).Returns(new Extensions.WebDriver.Factories.WebDriverAndOptions(driver, new ChromeOptions()));
+        var browseTheWeb = new BrowseTheWeb(driverFactory);
+        actor.IsAbleTo(browseTheWeb);
+
+        Assert.That(async () => await sut.PerformAsAsync(actor), Is.Empty);
+    }
+
+
+    [Test, AutoMoqData]
+    public void GettingLogsShouldThrowIfConfiguredToDoSoWhenUsedWithADriverThatCannotGetLogs(Actor actor, IGetsWebDriver driverFactory, IWebDriver driver)
+    {
+        var sut = new GetTheBrowserLogs(true);
+        Mock.Get(driverFactory).Setup(x => x.GetDefaultWebDriver(null)).Returns(new Extensions.WebDriver.Factories.WebDriverAndOptions(driver, new ChromeOptions()));
+        var browseTheWeb = new BrowseTheWeb(driverFactory);
+        actor.IsAbleTo(browseTheWeb);
+
+        Assert.That(async () => await sut.PerformAsAsync(actor), Throws.InstanceOf<NotSupportedException>().And.Message.Contains("does not support retrieving console logs"));
+    }
+
+    [Test, AutoMoqData]
+    public void GettingLogsShouldReturnEmptyIfConfiguredToDoSoWhenUsedWithADriverThatCannotGetLogs(Actor actor, IGetsWebDriver driverFactory, IWebDriver driver)
+    {
+        var sut = new GetTheBrowserLogs(false);
+        Mock.Get(driverFactory).Setup(x => x.GetDefaultWebDriver(null)).Returns(new Extensions.WebDriver.Factories.WebDriverAndOptions(driver, new ChromeOptions()));
+        var browseTheWeb = new BrowseTheWeb(driverFactory);
+        actor.IsAbleTo(browseTheWeb);
+
+        Assert.That(async () => await sut.PerformAsAsync(actor), Is.Empty);
     }
 }
