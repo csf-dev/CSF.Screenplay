@@ -3,59 +3,74 @@ using System.Text;
 namespace CSF.Screenplay.Performables
 {
     /// <summary>
-    /// Builder which gets performable actions related to saving text as assets.
+    /// A builder for customising the <see cref="SaveAStreamAsAnAsset"/> action, specifying the asset filename.
+    /// </summary>
+    public class SaveTheTextAsAnAssetFilenameBuilder
+    {
+        readonly string text;
+
+        /// <summary>
+        /// Gets a builder which may be used as a performable, or which may further customise the Action,
+        /// having specified the filename for the asset.
+        /// </summary>
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        /// <returns>A builder.</returns>
+        public SaveTheTextAsAnAssetBuilder AsAnAssetWithTheFilename(string filename)
+            => new SaveTheTextAsAnAssetBuilder(text, filename);
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SaveTheTextAsAnAssetFilenameBuilder"/> class.
+        /// </summary>
+        /// <param name="text">The text which is to be saved.</param>
+        public SaveTheTextAsAnAssetFilenameBuilder(string text)
+        {
+            this.text = text ?? throw new System.ArgumentNullException(nameof(text));
+        }
+    }
+
+    /// <summary>
+    /// A builder for customising the <see cref="SaveAStreamAsAnAsset"/> action.
     /// </summary>
     public class SaveTheTextAsAnAssetBuilder : IGetsPerformable
     {
         readonly string text;
-        string name;
+        readonly string filename;
+        string summary;
+        Encoding encoding;
 
         /// <summary>
-        /// Picks the name of the asset by which to save the text.  Use of this method is mandatory.
+        /// Specifies a human-readable summary for the asset.
         /// </summary>
-        /// <remarks>
-        /// <para>
-        /// If <see cref="UsingTheEncoding"/> is not used, then the created action will default to using UTF8 encoding.
-        /// </para>
-        /// </remarks>
-        /// <param name="name">The name of the asset.</param>
-        /// <returns>A builder which implements <see cref="IGetsPerformable"/>.</returns>
-        public SaveTheTextAsAnAssetBuilder AsAnAssetNamed(string name)
+        /// <param name="summary">A brief human-readable summary of the asset, which will not be used as a filename.</param>
+        /// <returns>A performable action</returns>
+        public SaveTheTextAsAnAssetBuilder WithTheSummary(string summary)
         {
-            this.name = name;
+            this.summary = summary;
             return this;
         }
 
         /// <summary>
-        /// Gets a performable Action which saves the text using a specified encoding.
+        /// Picks the text encoding with which to save the text.
         /// </summary>
         /// <param name="encoding">The encoding to use</param>
         /// <returns>A performable Action.</returns>
-        public SaveTextAsAnAsset UsingTheEncoding(Encoding encoding) => new SaveTextAsAnAsset(text, name, encoding);
+        public SaveTheTextAsAnAssetBuilder UsingTheEncoding(Encoding encoding)
+        {
+            this.encoding = encoding;
+            return this;
+        }
+
+        IPerformable IGetsPerformable.GetPerformable() => new SaveTextAsAnAsset(text, filename, summary, encoding);
 
         /// <summary>
-        /// Gets a builder for an Action which saves a stream of data into the assets for the current performance.
+        /// Initializes a new instance of the <see cref="CopyFileAsAnAssetBuilder"/> class.
         /// </summary>
-        /// <remarks>
-        /// <para>
-        /// At the minimum, the consumer must then use <see cref="AsAnAssetNamed(string)"/>, in order to get a usable performable.
-        /// Use of <see cref="UsingTheEncoding(Encoding)"/> is optional, as the created Action will default to UTF8 if no encoding
-        /// is specified.
-        /// </para>
-        /// </remarks>
-        /// <param name="text">The text which should be saved as an asset.</param>
-        /// <returns>A builder to specify the name of the asset.</returns>
-        public static SaveTheTextAsAnAssetBuilder SaveTheText(string text) => new SaveTheTextAsAnAssetBuilder(text);
-
-        IPerformable IGetsPerformable.GetPerformable() => new SaveTextAsAnAsset(text, name);
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SaveTheTextAsAnAssetBuilder"/> class.
-        /// </summary>
-        /// <param name="text">The text which should be saved as an asset.</param>
-        public SaveTheTextAsAnAssetBuilder(string text)
+        /// <param name="text">The text which is to be saved.</param>
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        public SaveTheTextAsAnAssetBuilder(string text, string filename)
         {
             this.text = text ?? throw new System.ArgumentNullException(nameof(text));
+            this.filename = filename ?? throw new System.ArgumentNullException(nameof(filename));
         }
     }
 }

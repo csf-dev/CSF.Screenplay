@@ -11,7 +11,7 @@ namespace CSF.Screenplay.Performables
     /// <remarks>
     /// <para>
     /// This performable requires the actor has the ability <see cref="UseAStopwatch"/>.
-    /// Use this performable via the builder method <see cref="StopwatchBuilder.ResetTheStopwatch"/>.
+    /// Use this performable via the builder method <see cref="PerforamableBuilder.ResetTheStopwatch"/>.
     /// </para>
     /// </remarks>
     public class ResetTheStopwatch : IPerformable, ICanReport

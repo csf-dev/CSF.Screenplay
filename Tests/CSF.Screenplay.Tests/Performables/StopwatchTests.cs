@@ -1,5 +1,5 @@
 using CSF.Screenplay.Abilities;
-using static CSF.Screenplay.Performables.StopwatchBuilder;
+using static CSF.Screenplay.PerforamableBuilder;
 using static CSF.Screenplay.PerformanceStarter;
 
 namespace CSF.Screenplay.Performables;

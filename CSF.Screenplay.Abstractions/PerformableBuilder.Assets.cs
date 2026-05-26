@@ -30,5 +30,13 @@ namespace CSF.Screenplay
         /// <returns>A builder to specify the name of the asset.</returns>
         public static SaveStreamAsAnAssetFilenameBuilder SaveTheStream(Stream stream)
             => new SaveStreamAsAnAssetFilenameBuilder(stream);
+
+        /// <summary>
+        /// Gets a builder for an Action which saves some text into an asset file for the current performance.
+        /// </summary>
+        /// <param name="text">The text which should be saved as an asset.</param>
+        /// <returns>A builder to specify the name of the asset.</returns>
+        public static SaveTheTextAsAnAssetFilenameBuilder SaveTheText(string text)
+            => new SaveTheTextAsAnAssetFilenameBuilder(text);
     }
 }
