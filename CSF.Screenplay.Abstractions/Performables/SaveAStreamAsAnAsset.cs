@@ -12,7 +12,7 @@ namespace CSF.Screenplay.Performables
     public class SaveAStreamAsAnAsset : IPerformable, ICanReport
     {
         readonly Stream stream;
-        readonly string assetName;
+        readonly string assetName, assetSummary;
 
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
@@ -28,7 +28,7 @@ namespace CSF.Screenplay.Performables
             {
                 await stream.CopyToAsync(fileStream, 81920, cancellationToken);
             }
-            actor.RecordAsset(this, path, assetName);
+            actor.RecordAsset(this, path, assetSummary);
         }
 
         /// <summary>
@@ -36,13 +36,15 @@ namespace CSF.Screenplay.Performables
         /// </summary>
         /// <param name="stream">The stream to save.</param>
         /// <param name="assetName">The name of the asset file.</param>
-        public SaveAStreamAsAnAsset(Stream stream, string assetName)
+        /// <param name="assetSummary">An optional human-readable summary of the asset</param>
+        public SaveAStreamAsAnAsset(Stream stream, string assetName, string assetSummary = null)
         {
             if (string.IsNullOrWhiteSpace(assetName))
                 throw new ArgumentException($"'{nameof(assetName)}' cannot be null or whitespace.", nameof(assetName));
             
             this.stream = stream ?? throw new ArgumentNullException(nameof(stream));
             this.assetName = assetName;
+            this.assetSummary = assetSummary;
         }
     }
 }

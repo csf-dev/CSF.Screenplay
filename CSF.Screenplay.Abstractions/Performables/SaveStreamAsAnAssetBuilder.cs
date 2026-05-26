@@ -3,33 +3,59 @@ using System.IO;
 namespace CSF.Screenplay.Performables
 {
     /// <summary>
-    /// Builder which gets performable actions related to saving streams as assets.
+    /// A builder for customising the <see cref="SaveAStreamAsAnAsset"/> action, specifying the asset filename.
     /// </summary>
-    public class SaveStreamAsAnAssetBuilder
+    public class SaveStreamAsAnAssetFilenameBuilder
     {
         readonly Stream stream;
 
         /// <summary>
-        /// Gets an Action which saves the contents of the stream into an asset of the specified name.
+        /// Gets a builder which may be used as a performable, or which may further customise the Action,
+        /// having specified the filename for the asset.
         /// </summary>
-        /// <param name="name">The name of the asset.</param>
-        /// <returns>A performable Action.</returns>
-        public SaveAStreamAsAnAsset AsAnAssetNamed(string name) => new SaveAStreamAsAnAsset(stream, name);
-
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        /// <returns>A builder.</returns>
+        public SaveStreamAsAnAssetBuilder AsAnAssetWithTheFilename(string filename)
+            => new SaveStreamAsAnAssetBuilder(stream, filename);
+        
         /// <summary>
-        /// Gets a builder for an Action which saves a stream of data into the assets for the current performance.
+        /// Initializes a new instance of the <see cref="SaveStreamAsAnAssetFilenameBuilder"/> class.
         /// </summary>
-        /// <param name="stream">The stream which should be saved as an asset.</param>
-        /// <returns>A builder to specify the name of the asset.</returns>
-        public static SaveStreamAsAnAssetBuilder SaveTheStream(Stream stream) => new SaveStreamAsAnAssetBuilder(stream);
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SaveStreamAsAnAssetBuilder"/> class.
-        /// </summary>
-        /// <param name="stream">The stream which should be saved as an asset.</param>
-        public SaveStreamAsAnAssetBuilder(Stream stream)
+        /// <param name="stream">The stream which is to be saved.</param>
+        public SaveStreamAsAnAssetFilenameBuilder(Stream stream)
         {
             this.stream = stream ?? throw new System.ArgumentNullException(nameof(stream));
+        }
+    }
+
+    /// <summary>
+    /// A builder for customising the <see cref="SaveAStreamAsAnAsset"/> action.
+    /// </summary>
+    public class SaveStreamAsAnAssetBuilder : IGetsPerformable
+    {
+        readonly Stream stream;
+        readonly string filename;
+
+        /// <summary>
+        /// Gets a performable action, specifying a short human-readable summary of the asset.
+        /// </summary>
+        /// <param name="summary">A brief human-readable summary of the asset, which will not be used as a filename.</param>
+        /// <returns>A performable action</returns>
+        public SaveAStreamAsAnAsset WithTheSummary(string summary)
+            => new SaveAStreamAsAnAsset(stream, filename, summary);
+
+        IPerformable IGetsPerformable.GetPerformable()
+            => new SaveAStreamAsAnAsset(stream, filename);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CopyFileAsAnAssetBuilder"/> class.
+        /// </summary>
+        /// <param name="stream">The stream which is to be saved.</param>
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        public SaveStreamAsAnAssetBuilder(Stream stream, string filename)
+        {
+            this.stream = stream ?? throw new System.ArgumentNullException(nameof(stream));
+            this.filename = filename ?? throw new System.ArgumentNullException(nameof(filename));
         }
     }
 }

@@ -1,33 +1,58 @@
 namespace CSF.Screenplay.Performables
 {
     /// <summary>
-    /// Builder which gets performable actions related to assets.
+    /// A builder for customising the <see cref="CopyFileAsAnAsset"/> action, specifying the asset filename.
     /// </summary>
-    public class CopyFileAsAnAssetBuilder
+    public class CopyFileAsAnAssetFilenameBuilder
     {
-        readonly string path;
+        readonly string sourcePath;
 
         /// <summary>
-        /// Gets an Action which copies the source file into an asset of the specified name.
+        /// Gets a builder which may be used as a performable, or which may further customise the Action,
+        /// having specified the filename for the asset.
         /// </summary>
-        /// <param name="name">The name of the asset.</param>
-        /// <returns>A performable Action.</returns>
-        public CopyFileAsAnAsset AsAnAssetNamed(string name) => new CopyFileAsAnAsset(path, name);
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        /// <returns>A builder.</returns>
+        public CopyFileAsAnAssetBuilder AsAnAssetWithTheFilename(string filename)
+            => new CopyFileAsAnAssetBuilder(sourcePath, filename);
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CopyFileAsAnAssetFilenameBuilder"/> class.
+        /// </summary>
+        /// <param name="sourcePath">The path to the source file which should be copied.</param>
+        public CopyFileAsAnAssetFilenameBuilder(string sourcePath)
+        {
+            this.sourcePath = sourcePath ?? throw new System.ArgumentNullException(nameof(sourcePath));
+        }
+    }
+
+    /// <summary>
+    /// A builder for customising the <see cref="CopyFileAsAnAsset"/> action.
+    /// </summary>
+    public class CopyFileAsAnAssetBuilder : IGetsPerformable
+    {
+        readonly string sourcePath, filename;
 
         /// <summary>
-        /// Gets a builder for an Action which copies a file at the specified source path into the assets for the current performance.
+        /// Gets a performable action, specifying a short human-readable summary of the asset.
         /// </summary>
-        /// <param name="path">The path to the source file which should be copied</param>
-        /// <returns>A builder to specify the name of the asset.</returns>
-        public static CopyFileAsAnAssetBuilder CopyTheFile(string path) => new CopyFileAsAnAssetBuilder(path);
+        /// <param name="summary">A brief human-readable summary of the asset, which will not be used as a filename.</param>
+        /// <returns>A performable action</returns>
+        public CopyFileAsAnAsset WithTheSummary(string summary)
+            => new CopyFileAsAnAsset(sourcePath, filename, summary);
+
+        IPerformable IGetsPerformable.GetPerformable()
+            => new CopyFileAsAnAsset(sourcePath, filename);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CopyFileAsAnAssetBuilder"/> class.
         /// </summary>
-        /// <param name="path">The path to the source file which should be copied.</param>
-        public CopyFileAsAnAssetBuilder(string path)
+        /// <param name="sourcePath">The path to the source file which should be copied.</param>
+        /// <param name="filename">The filename of the asset to create, including its extension, but without any path/dirctory information.</param>
+        public CopyFileAsAnAssetBuilder(string sourcePath, string filename)
         {
-            this.path = path ?? throw new System.ArgumentNullException(nameof(path));
+            this.sourcePath = sourcePath ?? throw new System.ArgumentNullException(nameof(sourcePath));
+            this.filename = filename ?? throw new System.ArgumentNullException(nameof(filename));
         }
     }
 }
