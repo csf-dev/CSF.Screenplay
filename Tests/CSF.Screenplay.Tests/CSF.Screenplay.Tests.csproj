@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="SampleAsset*.*">
+    <Content Include="**\SampleAsset*.*" Exclude="**\bin\**;**\obj\**">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SampleReport.json">
