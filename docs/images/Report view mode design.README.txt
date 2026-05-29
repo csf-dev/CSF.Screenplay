@@ -1,0 +1,4 @@
+This .epgz file is a Pencil document.
+Download the open source editor at https://pencil.evolus.vn/
+
+It is a design mockup for an improved report format.
