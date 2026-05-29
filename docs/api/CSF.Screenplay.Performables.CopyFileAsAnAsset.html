@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class StartTheStopwatch | Screenplay </title>
+      <title>Class CopyFileAsAnAsset | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class StartTheStopwatch | Screenplay ">
+      <meta name="title" content="Class CopyFileAsAnAsset | Screenplay ">
       
-      <meta name="description" content="An action which starts the stopwatch.">
+      <meta name="description" content="A performable Action which copies an existing file as an asset file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Performables_StartTheStopwatch.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Performables.StartTheStopwatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Performables_CopyFileAsAnAsset.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Performables.CopyFileAsAnAsset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Performables.StartTheStopwatch">
+        <article data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset">
 
 
 
-  <h1 id="CSF_Screenplay_Performables_StartTheStopwatch" data-uid="CSF.Screenplay.Performables.StartTheStopwatch" class="text-break">
-Class StartTheStopwatch  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/StartTheStopwatch.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Performables_CopyFileAsAnAsset" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset" class="text-break">
+Class CopyFileAsAnAsset  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/CopyFileAsAnAsset.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Class StartTheStopwatch  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An action which starts the stopwatch.</p>
+  <div class="markdown summary"><p>A performable Action which copies an existing file as an asset file.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StartTheStopwatch : IPerformable, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class CopyFileAsAnAsset : IPerformable, ICanReport</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Class StartTheStopwatch  <a class="header-action link-secondary" title="View sou
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">StartTheStopwatch</span></div>
+      <div><span class="xref">CopyFileAsAnAsset</span></div>
     </dd>
   </dl>
 
@@ -154,23 +154,60 @@ Class StartTheStopwatch  <a class="header-action link-secondary" title="View sou
 
 
 
-  <h2 id="CSF_Screenplay_Performables_StartTheStopwatch_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>
-This performable requires the actor has the ability <a class="xref" href="CSF.Screenplay.Abilities.UseAStopwatch.html">UseAStopwatch</a>.
-Use this performable via the builder method <a class="xref" href="CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_StartTheStopwatch">StartTheStopwatch()</a>.
-</p>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Screenplay_Performables_CopyFileAsAnAsset__ctor_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor*"></a>
+
+  <h3 id="CSF_Screenplay_Performables_CopyFileAsAnAsset__ctor_System_String_System_String_System_String_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor(System.String,System.String,System.String)">
+  CopyFileAsAnAsset(string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/CopyFileAsAnAsset.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.Performables.CopyFileAsAnAsset.html">CopyFileAsAnAsset</a>.</p>
 </div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CopyFileAsAnAsset(string sourceFilePath, string assetName, string assetSummary = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceFilePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file system path to the file which should be copied into the assets.</p>
+</dd>
+    <dt><code>assetName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the asset file.</p>
+</dd>
+    <dt><code>assetSummary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An optional human-readable summary of the asset</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_" data-uid="CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Performables.StartTheStopwatch.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
+  <h3 id="CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/StartTheStopwatch.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/CopyFileAsAnAsset.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -204,7 +241,7 @@ Use this performable via the builder method <a class="xref" href="CSF.Screenplay
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -222,7 +259,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_Performables_StartTheStopwatch_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -249,11 +286,11 @@ are seldom presented as paragraphs of prose.
 
 
 
-  <a id="CSF_Screenplay_Performables_StartTheStopwatch_PerformAsAsync_" data-uid="CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_Performables_CopyFileAsAnAsset_PerformAsAsync_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_Performables_StartTheStopwatch_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Performables.StartTheStopwatch.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_Performables_CopyFileAsAnAsset_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/StartTheStopwatch.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/CopyFileAsAnAsset.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -295,7 +332,7 @@ are seldom presented as paragraphs of prose.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/StartTheStopwatch.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Abstractions/Performables/CopyFileAsAnAsset.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -2202,12 +2202,248 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider
   nameWithType: ObjectContainerExtensions.ToServiceProvider
+- uid: CSF.Screenplay.PerforamableBuilder
+  name: PerforamableBuilder
+  href: api/CSF.Screenplay.PerforamableBuilder.html
+  commentId: T:CSF.Screenplay.PerforamableBuilder
+  fullName: CSF.Screenplay.PerforamableBuilder
+  nameWithType: PerforamableBuilder
+- uid: CSF.Screenplay.PerforamableBuilder.CopyTheFile(System.String)
+  name: CopyTheFile(string)
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_CopyTheFile_System_String_
+  commentId: M:CSF.Screenplay.PerforamableBuilder.CopyTheFile(System.String)
+  name.vb: CopyTheFile(String)
+  fullName: CSF.Screenplay.PerforamableBuilder.CopyTheFile(string)
+  fullName.vb: CSF.Screenplay.PerforamableBuilder.CopyTheFile(String)
+  nameWithType: PerforamableBuilder.CopyTheFile(string)
+  nameWithType.vb: PerforamableBuilder.CopyTheFile(String)
+- uid: CSF.Screenplay.PerforamableBuilder.CopyTheFile*
+  name: CopyTheFile
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_CopyTheFile_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.CopyTheFile
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.CopyTheFile
+  nameWithType: PerforamableBuilder.CopyTheFile
+- uid: CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch
+  name: ReadTheStopwatch()
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_ReadTheStopwatch
+  commentId: M:CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch
+  fullName: CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch()
+  nameWithType: PerforamableBuilder.ReadTheStopwatch()
+- uid: CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch*
+  name: ReadTheStopwatch
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_ReadTheStopwatch_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.ReadTheStopwatch
+  nameWithType: PerforamableBuilder.ReadTheStopwatch
+- uid: CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch
+  name: ResetTheStopwatch()
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_ResetTheStopwatch
+  commentId: M:CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch
+  fullName: CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch()
+  nameWithType: PerforamableBuilder.ResetTheStopwatch()
+- uid: CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch*
+  name: ResetTheStopwatch
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_ResetTheStopwatch_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.ResetTheStopwatch
+  nameWithType: PerforamableBuilder.ResetTheStopwatch
+- uid: CSF.Screenplay.PerforamableBuilder.SaveTheStream(System.IO.Stream)
+  name: SaveTheStream(Stream)
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_SaveTheStream_System_IO_Stream_
+  commentId: M:CSF.Screenplay.PerforamableBuilder.SaveTheStream(System.IO.Stream)
+  fullName: CSF.Screenplay.PerforamableBuilder.SaveTheStream(System.IO.Stream)
+  nameWithType: PerforamableBuilder.SaveTheStream(Stream)
+- uid: CSF.Screenplay.PerforamableBuilder.SaveTheStream*
+  name: SaveTheStream
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_SaveTheStream_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.SaveTheStream
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.SaveTheStream
+  nameWithType: PerforamableBuilder.SaveTheStream
+- uid: CSF.Screenplay.PerforamableBuilder.SaveTheText(System.String)
+  name: SaveTheText(string)
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_SaveTheText_System_String_
+  commentId: M:CSF.Screenplay.PerforamableBuilder.SaveTheText(System.String)
+  name.vb: SaveTheText(String)
+  fullName: CSF.Screenplay.PerforamableBuilder.SaveTheText(string)
+  fullName.vb: CSF.Screenplay.PerforamableBuilder.SaveTheText(String)
+  nameWithType: PerforamableBuilder.SaveTheText(string)
+  nameWithType.vb: PerforamableBuilder.SaveTheText(String)
+- uid: CSF.Screenplay.PerforamableBuilder.SaveTheText*
+  name: SaveTheText
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_SaveTheText_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.SaveTheText
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.SaveTheText
+  nameWithType: PerforamableBuilder.SaveTheText
+- uid: CSF.Screenplay.PerforamableBuilder.StartTheStopwatch
+  name: StartTheStopwatch()
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_StartTheStopwatch
+  commentId: M:CSF.Screenplay.PerforamableBuilder.StartTheStopwatch
+  fullName: CSF.Screenplay.PerforamableBuilder.StartTheStopwatch()
+  nameWithType: PerforamableBuilder.StartTheStopwatch()
+- uid: CSF.Screenplay.PerforamableBuilder.StartTheStopwatch*
+  name: StartTheStopwatch
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_StartTheStopwatch_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.StartTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.StartTheStopwatch
+  nameWithType: PerforamableBuilder.StartTheStopwatch
+- uid: CSF.Screenplay.PerforamableBuilder.StopTheStopwatch
+  name: StopTheStopwatch()
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_StopTheStopwatch
+  commentId: M:CSF.Screenplay.PerforamableBuilder.StopTheStopwatch
+  fullName: CSF.Screenplay.PerforamableBuilder.StopTheStopwatch()
+  nameWithType: PerforamableBuilder.StopTheStopwatch()
+- uid: CSF.Screenplay.PerforamableBuilder.StopTheStopwatch*
+  name: StopTheStopwatch
+  href: api/CSF.Screenplay.PerforamableBuilder.html#CSF_Screenplay_PerforamableBuilder_StopTheStopwatch_
+  commentId: Overload:CSF.Screenplay.PerforamableBuilder.StopTheStopwatch
+  isSpec: "True"
+  fullName: CSF.Screenplay.PerforamableBuilder.StopTheStopwatch
+  nameWithType: PerforamableBuilder.StopTheStopwatch
 - uid: CSF.Screenplay.Performables
   name: CSF.Screenplay.Performables
   href: api/CSF.Screenplay.Performables.html
   commentId: N:CSF.Screenplay.Performables
   fullName: CSF.Screenplay.Performables
   nameWithType: CSF.Screenplay.Performables
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset
+  name: CopyFileAsAnAsset
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html
+  commentId: T:CSF.Screenplay.Performables.CopyFileAsAnAsset
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset
+  nameWithType: CopyFileAsAnAsset
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor(System.String,System.String,System.String)
+  name: CopyFileAsAnAsset(string, string, string)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset__ctor_System_String_System_String_System_String_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor(System.String,System.String,System.String)
+  name.vb: New(String, String, String)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.CopyFileAsAnAsset(string, string, string)
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAsset.New(String, String, String)
+  nameWithType: CopyFileAsAnAsset.CopyFileAsAnAsset(string, string, string)
+  nameWithType.vb: CopyFileAsAnAsset.New(String, String, String)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor*
+  name: CopyFileAsAnAsset
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAsset.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.CopyFileAsAnAsset
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAsset.New
+  nameWithType: CopyFileAsAnAsset.CopyFileAsAnAsset
+  nameWithType.vb: CopyFileAsAnAsset.New
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: CopyFileAsAnAsset.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.GetReportFragment
+  nameWithType: CopyFileAsAnAsset.GetReportFragment
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: CopyFileAsAnAsset.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html#CSF_Screenplay_Performables_CopyFileAsAnAsset_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAsset.PerformAsAsync
+  nameWithType: CopyFileAsAnAsset.PerformAsAsync
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder
+  name: CopyFileAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html
+  commentId: T:CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder
+  nameWithType: CopyFileAsAnAssetBuilder
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.#ctor(System.String,System.String)
+  name: CopyFileAsAnAssetBuilder(string, string)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetBuilder__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.CopyFileAsAnAssetBuilder(string, string)
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.New(String, String)
+  nameWithType: CopyFileAsAnAssetBuilder.CopyFileAsAnAssetBuilder(string, string)
+  nameWithType.vb: CopyFileAsAnAssetBuilder.New(String, String)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.#ctor*
+  name: CopyFileAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.CopyFileAsAnAssetBuilder
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.New
+  nameWithType: CopyFileAsAnAssetBuilder.CopyFileAsAnAssetBuilder
+  nameWithType.vb: CopyFileAsAnAssetBuilder.New
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary(System.String)
+  name: WithTheSummary(string)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetBuilder_WithTheSummary_System_String_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary(System.String)
+  name.vb: WithTheSummary(String)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary(string)
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary(String)
+  nameWithType: CopyFileAsAnAssetBuilder.WithTheSummary(string)
+  nameWithType.vb: CopyFileAsAnAssetBuilder.WithTheSummary(String)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary*
+  name: WithTheSummary
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetBuilder_WithTheSummary_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.WithTheSummary
+  nameWithType: CopyFileAsAnAssetBuilder.WithTheSummary
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder
+  name: CopyFileAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html
+  commentId: T:CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder
+  nameWithType: CopyFileAsAnAssetFilenameBuilder
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.#ctor(System.String)
+  name: CopyFileAsAnAssetFilenameBuilder(string)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetFilenameBuilder__ctor_System_String_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.CopyFileAsAnAssetFilenameBuilder(string)
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.New(String)
+  nameWithType: CopyFileAsAnAssetFilenameBuilder.CopyFileAsAnAssetFilenameBuilder(string)
+  nameWithType.vb: CopyFileAsAnAssetFilenameBuilder.New(String)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.#ctor*
+  name: CopyFileAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetFilenameBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.CopyFileAsAnAssetFilenameBuilder
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.New
+  nameWithType: CopyFileAsAnAssetFilenameBuilder.CopyFileAsAnAssetFilenameBuilder
+  nameWithType.vb: CopyFileAsAnAssetFilenameBuilder.New
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name: AsAnAssetWithTheFilename(string)
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_System_String_
+  commentId: M:CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name.vb: AsAnAssetWithTheFilename(String)
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  fullName.vb: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+  nameWithType: CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  nameWithType.vb: CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+- uid: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename*
+  name: AsAnAssetWithTheFilename
+  href: api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_CopyFileAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_
+  commentId: Overload:CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  nameWithType: CopyFileAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
 - uid: CSF.Screenplay.Performables.IGetsPerformable
   name: IGetsPerformable
   href: api/CSF.Screenplay.Performables.IGetsPerformable.html
@@ -2392,6 +2628,285 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performables.ResetTheStopwatch.PerformAsAsync
   nameWithType: ResetTheStopwatch.PerformAsAsync
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset
+  name: SaveAStreamAsAnAsset
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html
+  commentId: T:CSF.Screenplay.Performables.SaveAStreamAsAnAsset
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset
+  nameWithType: SaveAStreamAsAnAsset
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.#ctor(System.IO.Stream,System.String,System.String)
+  name: SaveAStreamAsAnAsset(Stream, string, string)
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset__ctor_System_IO_Stream_System_String_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.#ctor(System.IO.Stream,System.String,System.String)
+  name.vb: New(Stream, String, String)
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.SaveAStreamAsAnAsset(System.IO.Stream, string, string)
+  fullName.vb: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.New(System.IO.Stream, String, String)
+  nameWithType: SaveAStreamAsAnAsset.SaveAStreamAsAnAsset(Stream, string, string)
+  nameWithType.vb: SaveAStreamAsAnAsset.New(Stream, String, String)
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.#ctor*
+  name: SaveAStreamAsAnAsset
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.SaveAStreamAsAnAsset
+  fullName.vb: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.New
+  nameWithType: SaveAStreamAsAnAsset.SaveAStreamAsAnAsset
+  nameWithType.vb: SaveAStreamAsAnAsset.New
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SaveAStreamAsAnAsset.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.GetReportFragment
+  nameWithType: SaveAStreamAsAnAsset.GetReportFragment
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: SaveAStreamAsAnAsset.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html#CSF_Screenplay_Performables_SaveAStreamAsAnAsset_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveAStreamAsAnAsset.PerformAsAsync
+  nameWithType: SaveAStreamAsAnAsset.PerformAsAsync
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder
+  name: SaveStreamAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html
+  commentId: T:CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder
+  nameWithType: SaveStreamAsAnAssetBuilder
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.#ctor(System.IO.Stream,System.String)
+  name: SaveStreamAsAnAssetBuilder(Stream, string)
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetBuilder__ctor_System_IO_Stream_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.#ctor(System.IO.Stream,System.String)
+  name.vb: New(Stream, String)
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.SaveStreamAsAnAssetBuilder(System.IO.Stream, string)
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.New(System.IO.Stream, String)
+  nameWithType: SaveStreamAsAnAssetBuilder.SaveStreamAsAnAssetBuilder(Stream, string)
+  nameWithType.vb: SaveStreamAsAnAssetBuilder.New(Stream, String)
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.#ctor*
+  name: SaveStreamAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.SaveStreamAsAnAssetBuilder
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.New
+  nameWithType: SaveStreamAsAnAssetBuilder.SaveStreamAsAnAssetBuilder
+  nameWithType.vb: SaveStreamAsAnAssetBuilder.New
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary(System.String)
+  name: WithTheSummary(string)
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetBuilder_WithTheSummary_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary(System.String)
+  name.vb: WithTheSummary(String)
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary(string)
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary(String)
+  nameWithType: SaveStreamAsAnAssetBuilder.WithTheSummary(string)
+  nameWithType.vb: SaveStreamAsAnAssetBuilder.WithTheSummary(String)
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary*
+  name: WithTheSummary
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetBuilder_WithTheSummary_
+  commentId: Overload:CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.WithTheSummary
+  nameWithType: SaveStreamAsAnAssetBuilder.WithTheSummary
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder
+  name: SaveStreamAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html
+  commentId: T:CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder
+  nameWithType: SaveStreamAsAnAssetFilenameBuilder
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.#ctor(System.IO.Stream)
+  name: SaveStreamAsAnAssetFilenameBuilder(Stream)
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetFilenameBuilder__ctor_System_IO_Stream_
+  commentId: M:CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.#ctor(System.IO.Stream)
+  name.vb: New(Stream)
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.SaveStreamAsAnAssetFilenameBuilder(System.IO.Stream)
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.New(System.IO.Stream)
+  nameWithType: SaveStreamAsAnAssetFilenameBuilder.SaveStreamAsAnAssetFilenameBuilder(Stream)
+  nameWithType.vb: SaveStreamAsAnAssetFilenameBuilder.New(Stream)
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.#ctor*
+  name: SaveStreamAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetFilenameBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.SaveStreamAsAnAssetFilenameBuilder
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.New
+  nameWithType: SaveStreamAsAnAssetFilenameBuilder.SaveStreamAsAnAssetFilenameBuilder
+  nameWithType.vb: SaveStreamAsAnAssetFilenameBuilder.New
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name: AsAnAssetWithTheFilename(string)
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name.vb: AsAnAssetWithTheFilename(String)
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  fullName.vb: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+  nameWithType: SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  nameWithType.vb: SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+- uid: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename*
+  name: AsAnAssetWithTheFilename
+  href: api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveStreamAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_
+  commentId: Overload:CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  nameWithType: SaveStreamAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset
+  name: SaveTextAsAnAsset
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html
+  commentId: T:CSF.Screenplay.Performables.SaveTextAsAnAsset
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset
+  nameWithType: SaveTextAsAnAsset
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.#ctor(System.String,System.String,System.String,System.Text.Encoding)
+  name: SaveTextAsAnAsset(string, string, string, Encoding)
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset__ctor_System_String_System_String_System_String_System_Text_Encoding_
+  commentId: M:CSF.Screenplay.Performables.SaveTextAsAnAsset.#ctor(System.String,System.String,System.String,System.Text.Encoding)
+  name.vb: New(String, String, String, Encoding)
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.SaveTextAsAnAsset(string, string, string, System.Text.Encoding)
+  fullName.vb: CSF.Screenplay.Performables.SaveTextAsAnAsset.New(String, String, String, System.Text.Encoding)
+  nameWithType: SaveTextAsAnAsset.SaveTextAsAnAsset(string, string, string, Encoding)
+  nameWithType.vb: SaveTextAsAnAsset.New(String, String, String, Encoding)
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.#ctor*
+  name: SaveTextAsAnAsset
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTextAsAnAsset.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.SaveTextAsAnAsset
+  fullName.vb: CSF.Screenplay.Performables.SaveTextAsAnAsset.New
+  nameWithType: SaveTextAsAnAsset.SaveTextAsAnAsset
+  nameWithType.vb: SaveTextAsAnAsset.New
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: SaveTextAsAnAsset.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.GetReportFragment
+  nameWithType: SaveTextAsAnAsset.GetReportFragment
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: SaveTextAsAnAsset.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html#CSF_Screenplay_Performables_SaveTextAsAnAsset_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveTextAsAnAsset.PerformAsAsync
+  nameWithType: SaveTextAsAnAsset.PerformAsAsync
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder
+  name: SaveTheTextAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html
+  commentId: T:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder
+  nameWithType: SaveTheTextAsAnAssetBuilder
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.#ctor(System.String,System.String)
+  name: SaveTheTextAsAnAssetBuilder(string, string)
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder__ctor_System_String_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.SaveTheTextAsAnAssetBuilder(string, string)
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.New(String, String)
+  nameWithType: SaveTheTextAsAnAssetBuilder.SaveTheTextAsAnAssetBuilder(string, string)
+  nameWithType.vb: SaveTheTextAsAnAssetBuilder.New(String, String)
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.#ctor*
+  name: SaveTheTextAsAnAssetBuilder
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.SaveTheTextAsAnAssetBuilder
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.New
+  nameWithType: SaveTheTextAsAnAssetBuilder.SaveTheTextAsAnAssetBuilder
+  nameWithType.vb: SaveTheTextAsAnAssetBuilder.New
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding(System.Text.Encoding)
+  name: UsingTheEncoding(Encoding)
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder_UsingTheEncoding_System_Text_Encoding_
+  commentId: M:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding(System.Text.Encoding)
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding(System.Text.Encoding)
+  nameWithType: SaveTheTextAsAnAssetBuilder.UsingTheEncoding(Encoding)
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding*
+  name: UsingTheEncoding
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder_UsingTheEncoding_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.UsingTheEncoding
+  nameWithType: SaveTheTextAsAnAssetBuilder.UsingTheEncoding
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary(System.String)
+  name: WithTheSummary(string)
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder_WithTheSummary_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary(System.String)
+  name.vb: WithTheSummary(String)
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary(string)
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary(String)
+  nameWithType: SaveTheTextAsAnAssetBuilder.WithTheSummary(string)
+  nameWithType.vb: SaveTheTextAsAnAssetBuilder.WithTheSummary(String)
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary*
+  name: WithTheSummary
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetBuilder_WithTheSummary_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.WithTheSummary
+  nameWithType: SaveTheTextAsAnAssetBuilder.WithTheSummary
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder
+  name: SaveTheTextAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html
+  commentId: T:CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder
+  nameWithType: SaveTheTextAsAnAssetFilenameBuilder
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.#ctor(System.String)
+  name: SaveTheTextAsAnAssetFilenameBuilder(string)
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetFilenameBuilder__ctor_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.#ctor(System.String)
+  name.vb: New(String)
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.SaveTheTextAsAnAssetFilenameBuilder(string)
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.New(String)
+  nameWithType: SaveTheTextAsAnAssetFilenameBuilder.SaveTheTextAsAnAssetFilenameBuilder(string)
+  nameWithType.vb: SaveTheTextAsAnAssetFilenameBuilder.New(String)
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.#ctor*
+  name: SaveTheTextAsAnAssetFilenameBuilder
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetFilenameBuilder__ctor_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.SaveTheTextAsAnAssetFilenameBuilder
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.New
+  nameWithType: SaveTheTextAsAnAssetFilenameBuilder.SaveTheTextAsAnAssetFilenameBuilder
+  nameWithType.vb: SaveTheTextAsAnAssetFilenameBuilder.New
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name: AsAnAssetWithTheFilename(string)
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_System_String_
+  commentId: M:CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(System.String)
+  name.vb: AsAnAssetWithTheFilename(String)
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  fullName.vb: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+  nameWithType: SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(string)
+  nameWithType.vb: SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename(String)
+- uid: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename*
+  name: AsAnAssetWithTheFilename
+  href: api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html#CSF_Screenplay_Performables_SaveTheTextAsAnAssetFilenameBuilder_AsAnAssetWithTheFilename_
+  commentId: Overload:CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  isSpec: "True"
+  fullName: CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
+  nameWithType: SaveTheTextAsAnAssetFilenameBuilder.AsAnAssetWithTheFilename
 - uid: CSF.Screenplay.Performables.StartTheStopwatch
   name: StartTheStopwatch
   href: api/CSF.Screenplay.Performables.StartTheStopwatch.html
@@ -2456,64 +2971,6 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Performables.StopTheStopwatch.PerformAsAsync
   nameWithType: StopTheStopwatch.PerformAsAsync
-- uid: CSF.Screenplay.Performables.StopwatchBuilder
-  name: StopwatchBuilder
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html
-  commentId: T:CSF.Screenplay.Performables.StopwatchBuilder
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder
-  nameWithType: StopwatchBuilder
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
-  name: ReadTheStopwatch()
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ReadTheStopwatch
-  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch()
-  nameWithType: StopwatchBuilder.ReadTheStopwatch()
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch*
-  name: ReadTheStopwatch
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ReadTheStopwatch_
-  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ReadTheStopwatch
-  nameWithType: StopwatchBuilder.ReadTheStopwatch
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
-  name: ResetTheStopwatch()
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ResetTheStopwatch
-  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch()
-  nameWithType: StopwatchBuilder.ResetTheStopwatch()
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch*
-  name: ResetTheStopwatch
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_ResetTheStopwatch_
-  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.ResetTheStopwatch
-  nameWithType: StopwatchBuilder.ResetTheStopwatch
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
-  name: StartTheStopwatch()
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StartTheStopwatch
-  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch()
-  nameWithType: StopwatchBuilder.StartTheStopwatch()
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch*
-  name: StartTheStopwatch
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StartTheStopwatch_
-  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StartTheStopwatch
-  nameWithType: StopwatchBuilder.StartTheStopwatch
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
-  name: StopTheStopwatch()
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StopTheStopwatch
-  commentId: M:CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch()
-  nameWithType: StopwatchBuilder.StopTheStopwatch()
-- uid: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch*
-  name: StopTheStopwatch
-  href: api/CSF.Screenplay.Performables.StopwatchBuilder.html#CSF_Screenplay_Performables_StopwatchBuilder_StopTheStopwatch_
-  commentId: Overload:CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
-  isSpec: "True"
-  fullName: CSF.Screenplay.Performables.StopwatchBuilder.StopTheStopwatch
-  nameWithType: StopwatchBuilder.StopTheStopwatch
 - uid: CSF.Screenplay.Performance
   name: Performance
   href: api/CSF.Screenplay.Performance.html

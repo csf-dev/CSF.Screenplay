@@ -736,6 +736,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.PerforamableBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.PerforamableBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.PerforamableBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.PerforamableBuilder.yml\" sourcestartlinenumber=\"1\">Static helper class used to create/build instances of the performables which are bundled with Screenplay.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAsset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAsset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.CopyFileAsAnAsset",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.CopyFileAsAnAsset.yml\" sourcestartlinenumber=\"1\">A performable Action which copies an existing file as an asset file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.CopyFileAsAnAssetBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.CopyFileAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.CopyFileAsAnAssetFilenameBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.CopyFileAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action, specifying the asset filename.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.IGetsPerformable.yml",
       "output": {
         ".html": {
@@ -820,6 +876,90 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveAStreamAsAnAsset",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveAStreamAsAnAsset.yml\" sourcestartlinenumber=\"1\">A performable Action which saves a stream to an asset file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveStreamAsAnAssetBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.SaveAStreamAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveStreamAsAnAssetFilenameBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.SaveAStreamAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action, specifying the asset filename.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveTextAsAnAsset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveTextAsAnAsset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveTextAsAnAsset",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveTextAsAnAsset.yml\" sourcestartlinenumber=\"1\">A performable Action which saves some text an asset file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.SaveAStreamAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.SaveTheTextAsAnAssetFilenameBuilder.yml\" sourcestartlinenumber=\"1\">A builder for customising the <xref href=\"CSF.Screenplay.Performables.SaveAStreamAsAnAsset\" data-throw-if-not-resolved=\"false\"></xref> action, specifying the asset filename.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Performables.StartTheStopwatch.yml",
       "output": {
         ".html": {
@@ -845,20 +985,6 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.Performables.StopTheStopwatch",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.StopTheStopwatch.yml\" sourcestartlinenumber=\"1\">An action which stops the stopwatch.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Performables.StopwatchBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Screenplay.Performables.StopwatchBuilder.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "CSF.Screenplay.Performables.StopwatchBuilder",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Performables.StopwatchBuilder.yml\" sourcestartlinenumber=\"1\">A builder for actions relating to the <xref href=\"CSF.Screenplay.Abilities.UseAStopwatch\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4322,11 +4448,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -4415,11 +4541,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/builderPattern/toc.json"
-        },
         ".html": {
           "relative_path": "docs/builderPattern/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/builderPattern/toc.json"
         }
       },
       "version": ""
@@ -4688,11 +4814,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/selenium/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/selenium/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/selenium/toc.json"
         }
       },
       "version": ""
@@ -4751,11 +4877,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/extensions/webApis/toc.json"
-        },
         ".html": {
           "relative_path": "docs/extensions/webApis/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/extensions/webApis/toc.json"
         }
       },
       "version": ""
@@ -4844,11 +4970,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -5107,11 +5233,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "glossary/toc.json"
-        },
         ".html": {
           "relative_path": "glossary/toc.html"
+        },
+        ".json": {
+          "relative_path": "glossary/toc.json"
         }
       },
       "version": ""
@@ -5190,11 +5316,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
