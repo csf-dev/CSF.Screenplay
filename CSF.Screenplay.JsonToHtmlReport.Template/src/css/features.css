@@ -52,6 +52,12 @@
     .scenarioList {
         clear: both;
     }
+    #featureList > li > h3,
+    .scenarioList > li > h4 {
+        overflow-x: auto;
+        width: 100%;
+        text-wrap: nowrap;
+    }
     .scenarioList > li > h4 {
         cursor: pointer;
     }
@@ -201,9 +207,9 @@
         top: 2em;
         right: 0;
         padding: 0.2em;
-        background: #FFFFFF88;
+        background: #FFFFFFCC;
         backdrop-filter: blur(3px);
-        border: 1px solid #00000022;
+        border: 1px solid #00000033;
         font-size: 0.8em;
     }
     .reportableList .performableType i::before {
@@ -271,16 +277,29 @@
     }
 
     @media screen and (max-width: 900px) {
+        #featureList {
+            line-height: 1.25em;
+        }
         #featureList > li {
             border: 0 solid #00000044;
             border-bottom-width: 1px;
             padding: 1em 0;
             list-style: none;
         }
-        #featureList > li > h3,
-        .scenarioList > li > h4 {
-            overflow-x: auto;
-            width: 100%;
+        #featureList > li > h3::before,
+        .scenarioList > li > h4::before {
+            margin: 0 2px;
+        }
+        #featureList .featureIdentifier,
+        #featureList .scenarioIdentifier {
+            display: none;
+        }
+        .reportableList .type,
+        .reportableList .phase {
+            display: none;
+        }
+        .reportableList .type+.report {
+            margin-left: 0;
         }
     }
 }
