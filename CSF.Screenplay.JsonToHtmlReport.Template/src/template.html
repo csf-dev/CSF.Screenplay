@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Screenplay report template</title>
+<title>Screenplay report</title>
 </head>
 <body>
     <div id="loadingMask">
@@ -21,53 +21,42 @@
     </div>
     <header>
         <h1>Screenplay report</h1>
-    </header>
-    <main>
-        <section id="summary"></section>
-        <section id="features" class="hidden">
-            <h2>Features &amp; scenarios</h2>
-            <ul id="featureList"></ul>
-        </section>
-    </main>
-    <footer>
         <p>
             Generated on
             <span id="reportGeneratedOn">Report generated timestamp</span>,
             using <a href="https://csf-dev.github.io/CSF.Screenplay/">CSF.Screenplay</a>
         </p>
-    </footer>
+    </header>
+    <nav>
+        <h2>View mode</h2>
+        <ul class="viewModeSelector">
+            <li id="viewMode_features" class="active" title="Default view which lists the Features and the Scenarios they contain. Each Scenario includes a breakdown of its associated Performance.">Features & scenarios</li><li id="viewMode_errors" title="Lists unique errors across the whole Screenplay; useful to diagnose cross-Scenario errors">Errors</li><li id="viewMode_assets" title="Lists assets in the Screenplay, for quick access">Assets</li><li id="viewMode_performables" title="Lists the distinct Performables used across the Screenplay, for inspection">Performables</li>
+        </ul>
+    </nav>
+    <main>
+        <section id="featuresSection" class="hidden">
+            <h2>Features &amp; scenarios</h2>
+            <aside class="filter">
+                <label for="scenarioFilter">Show</label>
+                <select id="scenarioFilter">
+                    <option value="all">All scenarios (XXX)</option>
+                    <option value="failed">Failed scenarios (XXX)</option>
+                    <option value="successful">Successful scenarios (XXX)</option>
+                </select>
+            </aside>
+            <ul id="featureList"></ul>
+        </section>
+        <section id="errorsSection" class="hidden">
+            TODO
+        </section>
+        <section id="assetsSection" class="hidden">
+            TODO
+        </section>
+        <section id="performablesSection" class="hidden">
+            TODO
+        </section>
+    </main>
     <script type="application/json" id="reportSrc"><!-- REPORT_PLACEHOLDER --></script>
-    <template id="summaryTableTemplate">
-        <h2>Summary</h2>
-        <table id="summaryTable">
-            <colgroup>
-                <col class="type">
-                <col span="3" class="count">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th class="type" scope="col"><span>Type</span></th>
-                    <th scope="col">Success</th>
-                    <th scope="col">Failure</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="type" scope="row">Features</th>
-                    <td id="featureSuccess">0</td>
-                    <td id="featureFailure">0</td>
-                    <td id="featureTotal">0</td>
-                </tr>
-                <tr>
-                    <th class="type" scope="row">Scenarios</th>
-                    <td id="scenarioSuccess">0</td>
-                    <td id="scenarioFailure">0</td>
-                    <td id="scenarioTotal">0</td>
-                </tr>
-            </tbody>
-        </table>
-    </template>
     <template id="featureTemplate">
         <li class="collapsed">
             <span class="featureIdentifier" title="Feature identifier">Feature Identifier</span>

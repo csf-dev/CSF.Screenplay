@@ -1,0 +1,28 @@
+@layer content {
+    header h1 {
+        margin: 0.2em 0 0.1em 1em;
+        padding-right: 2em;
+        display: inline-block;
+    }
+    header p {
+        display: inline-block;
+        font-size: 0.9em;
+        color: #666;
+    }
+    header a {
+        color: #88A;
+    }
+    header a:hover {
+        color: #66D
+    }
+    @media screen and (max-width: 900px) {
+        header h1 {
+            font-size: 1.4em;
+            display: block;
+        }
+        header p {
+            display: block;
+            margin-left: 1.556em;
+        }
+    }
+}

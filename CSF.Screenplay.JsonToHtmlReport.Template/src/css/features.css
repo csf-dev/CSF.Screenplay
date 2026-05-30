@@ -1,9 +1,27 @@
 @layer content {
+    #featuresSection aside.filter {
+        padding-bottom: 0.5em;
+    }
+    #featuresSection aside.filter label {
+        font-size: 0.9em;
+        font-weight: normal;
+        color: #555;
+        text-transform: lowercase;
+        padding: 0 1em 0 2em;
+    }
+    #featuresSection aside.filter select {
+        padding: 0.2em;
+        border: 1px solid #DDD;
+        border-radius: 3px;
+    }
+    #featuresSection aside.filter select:focus-visible {
+        border-color: transparent;
+        outline: 2px solid #66D;
+    }
     #featureList {
         margin-bottom: 1em;
     }
     #featureList > li {
-        background: #FFFFFFEE;
         border: 1px solid #00000044;
         border-top-width: 0;
         padding: 1em;
@@ -250,5 +268,19 @@
     }
     .collapsed > .collapsible {
         display: none;
+    }
+
+    @media screen and (max-width: 900px) {
+        #featureList > li {
+            border: 0 solid #00000044;
+            border-bottom-width: 1px;
+            padding: 1em 0;
+            list-style: none;
+        }
+        #featureList > li > h3,
+        .scenarioList > li > h4 {
+            overflow-x: auto;
+            width: 100%;
+        }
     }
 }

@@ -1,11 +1,4 @@
-import "./css/layers.css";
-import "./css/reset.css";
-import "./css/spinner.css"
-import "./css/layout.css";
-import "./css/content.css";
-import "./css/summaryTable.css";
-import "./css/scenarioList.css";
-import "./css/litebox.css";
+import "./css/index";
 import { getReportLoader } from "./js/ReportLoader";
 import { activatePage } from "./js/activatePage";
 import { updateReportTime } from "./js/updateReportTime";
@@ -26,11 +19,11 @@ document.onreadystatechange = () => {
     const aggregator = getScenarioAggregator(report.Performances);
     const scenariosByFeature = aggregator.getScenariosByFeature();
     console.debug('Raw scenario data', scenariosByFeature);
-    const summaryGenerator = getSummaryGenerator(scenariosByFeature);
-    const summary = summaryGenerator.generateSummary();
+    // const summaryGenerator = getSummaryGenerator(scenariosByFeature);
+    // const summary = summaryGenerator.generateSummary();
     const reportWriter = getReportWriter();
     const featureReport = reportWriter.getReport(scenariosByFeature, litebox);
 
-    activatePage(summary, featureReport);
+    activatePage(featureReport);
 }
 

@@ -2,9 +2,9 @@ import { getElementById } from "./getElementById";
 
 const summaryElementId = 'summary', featuresElementId = 'featureList';
 
-export const activatePage = (summaryTable, featureList) => {
-    const summaryElement = getElementById(summaryElementId);
-    summaryElement.appendChild(summaryTable);
+export const activatePage = (featureList) => {
+    // const summaryElement = getElementById(summaryElementId);
+    // summaryElement.appendChild(summaryTable);
     
     const featuresElement = getElementById(featuresElementId);
     featuresElement.appendChild(featureList);
@@ -14,4 +14,4 @@ export const activatePage = (summaryTable, featureList) => {
 };
 
 const hideSpinner = () => getElementById("loadingMask").classList.add("hidden");
-const showFeatures = () => getElementById("features").classList.remove("hidden");
+const showFeatures = () => getElementById("featuresSection").classList.remove("hidden");

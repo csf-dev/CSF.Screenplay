@@ -1,0 +1,73 @@
+@layer content {
+    body > nav > h2 {
+        font-size: 0.9em;
+        font-weight: normal;
+        color: #555;
+        text-transform: lowercase;
+        display: inline-block;
+        padding-right: 1em;
+        cursor: default;
+    }
+    @media screen and (min-width: 901px) {
+        body > nav .viewModeSelector, 
+        body > nav .viewModeSelector li {
+            display: inline-block;
+            position: relative;
+            z-index: 10;
+        }
+        body > nav .viewModeSelector li {
+            width: 10em;
+            background: #DDD;
+            color: #555;
+            text-align: center;
+            padding: 0.4em 0.6em calc(0.4em + 1px) 0.6em;
+            margin-bottom: -1px;
+            border: 1px solid #AAA;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            box-shadow: 0px -2px 4px 0px rgba(0,0,0,0.2) inset;
+        }
+        body > nav .viewModeSelector li:hover {
+            background: #EEE;
+            color: #222;
+        }
+        body > nav .viewModeSelector li.active,
+        body > nav .viewModeSelector li.active:hover {
+            background: #FFF;
+            color: #000;
+            border-color: #DDD;
+            border-bottom-color: #FFF;
+            cursor: default;
+            box-shadow: none;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        body > nav > h2 {
+            margin: 0;
+            flex: 0 0 auto;
+            line-height: 2.389em;
+        }
+        body > nav > h2::after {
+            content: ":";
+        }
+        body > nav {
+            display: flex;
+        }
+        body > nav .viewModeSelector {
+            flex: 1 1 auto;
+        }
+        body > nav .viewModeSelector li {
+            display: none;
+        }
+        body > nav .viewModeSelector li.active {
+            display: block;
+            cursor: pointer;
+            background: #FFF;
+            padding: 0.4em 1em;
+            font-weight: bold;
+            border: 1px solid #DDD;
+            border-width: 0 1px 0 1px;
+            text-align: center;
+        }
+    }
+}
