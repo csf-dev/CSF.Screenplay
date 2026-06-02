@@ -1,6 +1,7 @@
 import { getReportableElementCreator } from './ReportableElementCreator';
 import { setContentOrRemove } from './setContentOrRemove';
 import { getElementById } from '../getElementById';
+import { getNameHtml } from './getNameHtml';
 
 export class ScenarioElementCreator {
     constructor(scenarioTemplate, reportableElementCreator) {
@@ -14,10 +15,10 @@ export class ScenarioElementCreator {
         if(scenario.performance.Outcome == 'Failed')
             scenarioElement.firstElementChild.classList.add('Failed');
 
-        scenarioElement.querySelector('.scenarioName').textContent = scenario.scenario.Name;
+        scenarioElement.querySelector('.scenarioName').replaceChildren(getNameHtml(scenario.scenario));
         scenarioElement.querySelector('.scenarioName').addEventListener('click', ev => ev.currentTarget.parentElement.classList.toggle('collapsed'));
 
-        setContentOrRemove(scenarioElement, scenario.scenario, '.scenarioIdentifier', s => !s.IsGeneratedId, s => s.Id);
+        setContentOrRemove(scenarioElement, scenario.scenario, '.scenarioIdentifier', s => !s.IsGeneratedId && s.Name != s.Id, s => s.Id);
 
         const reportablesElement = scenarioElement.querySelector('.reportableList');
         for (const reportable of scenario.performance.Reportables) {

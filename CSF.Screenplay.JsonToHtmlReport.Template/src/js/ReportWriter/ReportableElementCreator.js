@@ -10,9 +10,13 @@ export class ReportableElementCreator {
     createReportableElement(reportable, litebox) {
         const reportableElement = this.templateElement.content.cloneNode(true);
 
-        this.#setupReportableType(reportableElement, reportable);
-        setContentOrRemove(reportableElement, reportable, '.phase', r => r.Phase, r => r.Phase);
+        this.#setupReportableKind(reportableElement, reportable);
+        reportableElement.querySelector('.phase').textContent = reportable.Phase;
         setContentOrRemove(reportableElement, reportable, '.report', r => r.Report, r => r.Report);
+        if(reportable.Phase && reportable.Report) {
+            reportableElement.querySelector('.report').classList.add('hasPhase');
+            reportableElement.querySelector('.report').classList.add(`phase_${reportable.Phase}`);
+        }
         setContentOrRemove(reportableElement, reportable, '.exception', r => r.Exception && !r.ExceptionIsBubbling, r => r.Exception);
         this.#setupResult(reportableElement, reportable);
         this.#setupPerformableType(reportableElement, reportable);
@@ -22,28 +26,27 @@ export class ReportableElementCreator {
         return reportableElement;
     }
 
-    #setupReportableType(reportableElement, reportable) {
-        const typeElement = reportableElement.querySelector('.type');
-        typeElement.classList.add(reportable.Kind);
-        switch (reportable.Kind) {
-        case 'ActorCreatedReport':
-            typeElement.setAttribute('title', 'Actor created');
-            break;
-        case 'ActorGainedAbilityReport':
-            typeElement.setAttribute('title', 'Actor gained ability');
-            break;
-        case 'ActorSpotlitReport':
-            typeElement.setAttribute('title', 'Actor put into the spotlight');
-            break;
-        case 'SpotlightTurnedOffReport':
-            typeElement.setAttribute('title', 'Spotlight turned off');
-            break;
-        case 'PerformableReport':
-            typeElement.setAttribute('title', 'Actor executed a performable');
-            break;
-        }
+    #setupReportableKind(reportableElement, reportable) {
+        const infoElement = reportableElement.querySelector('.reportableInfo');
+        infoElement.classList.add(reportable.Kind);
+        reportableElement.querySelector('.kind').textContent = this.#getHumanReadableKind(reportable.Kind);
+    }
 
-        reportableElement.querySelector('.type i').textContent = reportable.Kind;
+    #getHumanReadableKind(kind) {
+        switch (kind) {
+        case 'ActorCreatedReport':
+            return 'Actor created';
+        case 'ActorGainedAbilityReport':
+            return 'Actor gained ability';
+        case 'ActorSpotlitReport':
+            return 'Actor put into the spotlight';
+        case 'SpotlightTurnedOffReport':
+            return 'Spotlight turned off';
+        case 'PerformableReport':
+            return 'Actor executed a performable';
+        default:
+            return kind;
+        }
     }
 
     #setupResult(reportableElement, reportable) {
@@ -55,9 +58,12 @@ export class ReportableElementCreator {
     }
 
     #setupPerformableType(reportableElement, reportable) {
-        const performableTypeElement = reportableElement.querySelector('.performableType');
-        if (reportable.Type) performableTypeElement.querySelector('i').textContent = reportable.Type;
-        else performableTypeElement.remove()
+        const performableTypeElement = reportableElement.querySelector('.dotnetType');
+        if (reportable.Type) performableTypeElement.textContent = reportable.Type;
+        else {
+            performableTypeElement.textContent = 'Not applicable';
+            performableTypeElement.classList.add('notApplicable');
+        }
     }
 
     #setupAssets(reportableElement, reportable, litebox) {

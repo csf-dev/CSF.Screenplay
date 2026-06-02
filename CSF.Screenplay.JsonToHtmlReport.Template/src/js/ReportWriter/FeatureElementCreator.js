@@ -1,5 +1,6 @@
 import { getScenarioElementCreator } from './ScenarioElementCreator';
 import { getElementById } from '../getElementById';
+import { getNameHtml } from './getNameHtml';
 
 export class FeatureElementCreator {
     constructor(featureTemplate, scenarioElementCreator) {
@@ -13,13 +14,11 @@ export class FeatureElementCreator {
 
         if(hasFailures) featureElement.firstElementChild.classList.add('Failures');
 
-        featureElement.querySelector('.featureName').textContent = feature.feature
-            ? feature.feature.Name
-            : 'No Feature name';
+        featureElement.querySelector('.featureName').replaceChildren(getNameHtml(feature.feature));
         featureElement.querySelector('.featureName').addEventListener('click', ev => ev.currentTarget.parentElement.classList.toggle('collapsed'));
 
         const featureIdentifierElement = featureElement.querySelector('.featureIdentifier');
-        if (feature.feature && !feature.feature.IsGeneratedId)
+        if (feature.feature && !feature.feature.IsGeneratedId && feature.feature.Name != feature.feature.Id)
             featureIdentifierElement.textContent = feature.feature.Id;
         else
             featureIdentifierElement.remove();
@@ -31,6 +30,7 @@ export class FeatureElementCreator {
         }
         return featureElement;
     }
+
 }
 
 export function getFeatureElementCreator() {

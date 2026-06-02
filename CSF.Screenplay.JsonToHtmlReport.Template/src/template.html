@@ -73,11 +73,34 @@
     </template>
     <template id="reportableTemplate">
         <li class="collapsed">
-            <span class="type"><i>Reportable type name</i></span><span class="phase">Given</span><span class="report">Report text</span>
+            <div class="report">Report text</div>
             <div class="result">Result</div>
             <code class="exception">Exception</code>
             <aside>
-                <span class="performableType"><i>Performable .NET type name</i></span>
+                <div class="reportableInfo">
+                    <div>
+                        <table>
+                            <colgroup>
+                                <col class="property">
+                                <col class="value">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>Kind</th>
+                                    <td class="kind">ActorCreatedReport</td>
+                                </tr>
+                                <tr>
+                                    <th>Phase</th>
+                                    <td class="phase">Given</td>
+                                </tr>
+                                <tr>
+                                    <th>.NET type</th>
+                                    <td class="dotnetType">Not applicable</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <div class="assets" title="Assets produced from this performable"><ul></ul></div>
             </aside>
             <ol class="reportableList collapsible"></ol>
