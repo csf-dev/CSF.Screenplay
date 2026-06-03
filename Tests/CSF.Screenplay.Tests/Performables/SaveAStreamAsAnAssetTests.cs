@@ -31,7 +31,7 @@ public class SaveAStreamAsAnAssetTests
     }
 
     [Test, AutoMoqData]
-    public async Task GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
+    public void GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
     {
         using var stream = GetStream();
         var sut = SaveTheStream(stream)
