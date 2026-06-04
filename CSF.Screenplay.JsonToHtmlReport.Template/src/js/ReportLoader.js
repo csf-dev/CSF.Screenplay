@@ -16,22 +16,10 @@ export class ReportLoader {
         }
 
         try {
-            const jsonData = JSON.parse(scriptElement.textContent);
-            return jsonData;
+            return JSON.parse(scriptElement.textContent);
         } catch (error) {
-            console.error('Failed to parse JSON content whilst loading a Screenplay report', error);
-            return this.#getEmptyReport();
+            throw new Error('Failed to parse JSON content whilst loading a Screenplay report', {cause: error});
         }
-    }
-
-    #getEmptyReport() {
-        return {
-            Metadata: {
-                Timestamp: new Date(),
-                ReportVersion: "0.0.0",
-            },
-            Performances: [],
-        };
     }
 }
 

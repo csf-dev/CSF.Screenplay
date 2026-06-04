@@ -3,13 +3,12 @@ import { getElementById } from './getElementById';
 
 jest.mock('./getElementById');
 
-test('activatePage should append the summary table and feature list to the specified elements', () => {
-    const summaryTable = document.createElement("table");
+test('activatePage should append the feature list to its container', () => {
     const featureList = document.createElement("ul");
-    const summaryElement = document.createElement("div");
     const featuresElement = document.createElement("div");
     const pageMask = document.createElement("div");
     const features = document.createElement("div");
+    features.classList.add('hidden');
 
     getElementById.mockImplementation((id) => {
         switch (id) {
@@ -19,14 +18,13 @@ test('activatePage should append the summary table and feature list to the speci
                 return featuresElement;
             case "loadingMask":
                 return pageMask;
-            case "features":
+            case "featuresSection":
                 return features;
         }
     });
 
-    activatePage(summaryTable, featureList);
+    activatePage(featureList);
 
-    expect(summaryElement.children).toContain(summaryTable);
     expect(featuresElement.children).toContain(featureList);
     expect(pageMask.classList).toContain("hidden");
     expect(features.classList).not.toContain("hidden");

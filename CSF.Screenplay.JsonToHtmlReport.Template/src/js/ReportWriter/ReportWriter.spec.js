@@ -1,5 +1,6 @@
 import { getReportWriter } from './ReportWriter';
 import { ScenarioAggregator } from '../ScenarioAggregator';
+import templateHtml from '../../template.html';
 
 /**
  * This is a very loose integration test which really only tests the happy path and verifies that the logic
@@ -306,36 +307,6 @@ const testData = {
 function getTestData() {
     return testData;
 }
-
-const templateHtml = `<template id="featureTemplate">
-<li class="collapsed">
-    <span class="featureIdentifier" title="Feature identifier">Feature Identifier</span>
-    <h3 class="featureName" title="Feature name; click to expand/collapse">Feature name</h3>
-    <ul class="scenarioList collapsible"></ul>
-</li>
-</template>
-<template id="scenarioTemplate">
-<li class="collapsed">
-    <span class="scenarioIdentifier" title="Scenario identifier">Scenario Identifier</span>
-    <h4 class="scenarioName" title="Scenario name; click to expand/collapse">Scenario name</h4>
-    <ol class="reportableList collapsible"></ol>
-</li>
-</template>
-<template id="reportableTemplate">
-<li class="collapsed">
-    <span class="type"><i>Reportable type name</i></span><span class="phase">Given</span><span class="report">Report text</span>
-    <div class="result">Result</div>
-    <code class="exception">Exception</code>
-    <aside>
-        <span class="performableType"><i>Performable .NET type name</i></span>
-        <div class="assets" title="Assets produced from this performable"><ul></ul></div>
-    </aside>
-    <ol class="reportableList collapsible"></ol>
-</li>
-</template>
-<template id="assetTemplate">
-<li><a href="Asset path" class="image" title="Download/view this asset">Asset summary</a></li>
-</template>`;
 
 function getTemplateHtml() {
     return templateHtml;

@@ -1,5 +1,6 @@
-/** @type {import('jest').Config} */
-const config = {
+const {defineConfig} = require('jest');
+
+module.exports = defineConfig({
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: "TestResults",
@@ -7,6 +8,8 @@ const config = {
   testEnvironmentOptions: {
     url: 'http://localhost/',
   },
-};
-
-module.exports = config;
+  transform: {
+    '\\.html$': 'jest-html-loader',
+    '\\.js$': 'babel-jest'
+  }
+});

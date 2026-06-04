@@ -1,11 +1,8 @@
 import { getElementById } from "./getElementById";
 
-const summaryElementId = 'summary', featuresElementId = 'featureList';
+const featuresElementId = 'featureList';
 
 export const activatePage = (featureList) => {
-    // const summaryElement = getElementById(summaryElementId);
-    // summaryElement.appendChild(summaryTable);
-    
     const featuresElement = getElementById(featuresElementId);
     featuresElement.appendChild(featureList);
 
