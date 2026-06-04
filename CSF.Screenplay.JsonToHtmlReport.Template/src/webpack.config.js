@@ -21,6 +21,14 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     "css-loader"
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: { configFile: path.resolve('./babel.config.js') }
+                }
             }
         ]
     },

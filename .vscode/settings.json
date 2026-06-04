@@ -4,4 +4,5 @@
         "Tests/CSF.Screenplay.Reqnroll.Tests/StepDefinitions/**/*.cs"
     ],
     "cucumberautocomplete.strictGherkinCompletion": true,
+    "js/ts.validate.enabled": false,
 }
