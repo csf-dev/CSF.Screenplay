@@ -1,12 +1,12 @@
 import { expect, test, vi } from 'vitest';
 import { ReportLoader } from "./ReportLoader";
-import { getElementById } from './getElementById';
+import { getElementByIdNotNull } from './Utils';
 
-vi.mock('./getElementById');
+vi.mock(import('./Utils'));
 
 test('ReportLoader should load JSON content from the specified script element', () => {
     const scriptElement = { textContent: '{"foo": "bar"}' };
-    getElementById.mockReturnValue(scriptElement);
+    vi.mocked(getElementByIdNotNull).mockReturnValue(scriptElement as unknown as HTMLElement);
 
     const reportLoader = new ReportLoader('scriptId');
     const jsonData = reportLoader.loadJson();
@@ -14,16 +14,9 @@ test('ReportLoader should load JSON content from the specified script element', 
     expect(jsonData).toEqual({foo: 'bar'});
 });
 
-test('ReportLoader should throw an error if the specified script element is not found', () => {
-    getElementById.mockReturnValue(null);
-
-    const reportLoader = new ReportLoader('scriptId');
-    expect(() => reportLoader.loadJson()).toThrow('Element with id scriptId not found');
-});
-
 test('ReportLoader should throw an error if the specified script element does not contain valid JSON', () => {
     const scriptElement = { textContent: 'invalid json' };
-    getElementById.mockReturnValue(scriptElement);
+    vi.mocked(getElementByIdNotNull).mockReturnValue(scriptElement as unknown as HTMLElement);
 
     const reportLoader = new ReportLoader('scriptId');
     expect(() => reportLoader.loadJson()).toThrow('Failed to parse JSON content whilst loading a Screenplay report');

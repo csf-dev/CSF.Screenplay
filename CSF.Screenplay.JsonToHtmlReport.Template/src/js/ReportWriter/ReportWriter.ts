@@ -1,11 +1,11 @@
-import { getFeatureElementCreator } from './FeatureElementCreator';
+import { DisplaysImage } from '../Litebox';
+import { ScenariosByFeature } from '../Models';
+import { FeatureElementCreator, getFeatureElementCreator } from './FeatureElementCreator';
 
 export class ReportWriter {
-    constructor(featureElementCreator) {
-        this.featureElementCreator = featureElementCreator;
-    }
+    constructor(readonly featureElementCreator : FeatureElementCreator) {}
 
-    getReport(scenariosByFeature, litebox) {
+    getReport(scenariosByFeature : ScenariosByFeature, litebox : DisplaysImage) {
         const report = document.createDocumentFragment();
         for (const feature in scenariosByFeature.features) {
             const featureElement = this.featureElementCreator.createFeatureElement(scenariosByFeature.features[feature], litebox);

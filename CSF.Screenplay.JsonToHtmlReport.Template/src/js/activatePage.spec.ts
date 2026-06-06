@@ -1,8 +1,8 @@
 import { expect, test, vi } from 'vitest';
 import { activatePage } from "./activatePage";
-import { getElementById } from './getElementById';
+import { getElementByIdNotNull } from './Utils';
 
-vi.mock('./getElementById');
+vi.mock(import('./Utils'));
 
 test('activatePage should append the feature list to its container', () => {
     const featureList = document.createElement("ul");
@@ -11,16 +11,16 @@ test('activatePage should append the feature list to its container', () => {
     const features = document.createElement("div");
     features.classList.add('hidden');
 
-    getElementById.mockImplementation((id) => {
+    vi.mocked(getElementByIdNotNull).mockImplementation((id) => {
         switch (id) {
-            case "summary":
-                return summaryElement;
             case "featureList":
                 return featuresElement;
             case "loadingMask":
                 return pageMask;
             case "featuresSection":
                 return features;
+            default:
+                throw new Error('Unexpected id');
         }
     });
 

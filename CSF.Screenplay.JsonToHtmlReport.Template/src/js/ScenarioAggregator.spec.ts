@@ -1,10 +1,11 @@
 import { expect, test } from 'vitest';
 import { ScenarioAggregator } from './ScenarioAggregator';
+import { PerformanceReport } from './Models';
 
 test('getScenariosByFeature should return an object which aggregates two scenarios into a single feature', () => {
-    const performances = [
-        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }] },
-        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-2", Name: "Scenario 2", IsGeneratedId: false }] }
+    const performances : PerformanceReport[] = [
+        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }], Outcome: 'Success', Reportables: [], Started: '' },
+        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-2", Name: "Scenario 2", IsGeneratedId: false }], Outcome: 'Success', Reportables: [], Started: '' }
     ];
     const sut = new ScenarioAggregator(performances);
     const result = sut.getScenariosByFeature();
@@ -41,9 +42,9 @@ test('getScenariosByFeature should return an object which aggregates two scenari
 });
 
 test('getScenariosByFeature should return an object which correctly aggregates scenarios which belong to different features', () => {
-    const performances = [
-        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }] },
-        { NamingHierarchy: [{ Id: "feature-2", Name: "Feature 2", IsGeneratedId: false }, { Id: "scenario-2", Name: "Scenario 2", IsGeneratedId: false }] }
+    const performances : PerformanceReport[] = [
+        { NamingHierarchy: [{ Id: "feature-1", Name: "Feature 1", IsGeneratedId: false }, { Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }], Outcome: 'Success', Reportables: [], Started: '' },
+        { NamingHierarchy: [{ Id: "feature-2", Name: "Feature 2", IsGeneratedId: false }, { Id: "scenario-2", Name: "Scenario 2", IsGeneratedId: false }], Outcome: 'Success', Reportables: [], Started: ''  }
     ];
     const sut = new ScenarioAggregator(performances);
     const result = sut.getScenariosByFeature();
@@ -89,8 +90,8 @@ test('getScenariosByFeature should return an object which correctly aggregates s
 });
 
 test('getScenariosByFeature should place a no-feature scenario into the no-feature container', () => {
-    const performances = [
-        { NamingHierarchy: [{ Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }] }
+    const performances : PerformanceReport[] = [
+        { NamingHierarchy: [{ Id: "scenario-1", Name: "Scenario 1", IsGeneratedId: false }], Outcome: 'Success', Reportables: [], Started: '' },
     ];
     const sut = new ScenarioAggregator(performances);
     const result = sut.getScenariosByFeature();
@@ -112,8 +113,8 @@ test('getScenariosByFeature should place a no-feature scenario into the no-featu
 });
 
 test('getScenariosByFeature should invent a name and Id for a scenario with no name', () => {
-    const performances = [
-        { NamingHierarchy: [] }
+    const performances : PerformanceReport[] = [
+        { NamingHierarchy: [], Outcome: 'Success', Reportables: [], Started: '' },
     ];
     const sut = new ScenarioAggregator(performances);
     const result = sut.getScenariosByFeature();
@@ -136,13 +137,16 @@ test('getScenariosByFeature should invent a name and Id for a scenario with no n
 
 test('getScenariosByFeature should choose the correct feature and scenario from the naming hierarchy when using NUnit', () => {
     // The naming hierarchy below was taken from an actual test run using NUnit3 and Screenplay
-    const performances = [
+    const performances : PerformanceReport[] = [
         {
             NamingHierarchy: [
                 { Id: "CSF.Screenplay.Selenium.TestWebappSetupAndTeardown", Name: null, IsGeneratedId: false },
                 { Id: "CSF.Screenplay.Selenium.Actions.ClearCookiesTests", Name: null, IsGeneratedId: false },
                 { Id: "CSF.Screenplay.Selenium.Actions.ClearCookiesTests.ClearCookiesShouldClearCookies", Name: null, IsGeneratedId: false }
-            ]
+            ],
+            Outcome: 'Success',
+            Reportables: [],
+            Started: '',
         }
     ];
     const sut = new ScenarioAggregator(performances);

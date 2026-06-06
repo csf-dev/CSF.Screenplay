@@ -1,5 +1,5 @@
-import type { ScreenplayReport } from "./ScreenplayReport";
-import { getElementById } from './getElementById';
+import type { ScreenplayReport } from "./Models";
+import { getElementByIdNotNull } from './Utils';
 
 const reportContentId = 'reportSrc';
 
@@ -15,14 +15,11 @@ export class ReportLoader implements LoadsReport {
     }
 
     loadJson() : ScreenplayReport {
-        const scriptElement : HTMLElement | null = getElementById(this.scriptId);
-        if (!scriptElement) {
-            throw new Error(`Element with id ${this.scriptId} not found`);
-        }
+        const scriptElement = getElementByIdNotNull(this.scriptId);
 
         try {
             return JSON.parse(scriptElement.textContent);
-        } catch (error : mixed) {
+        } catch (error : unknown) {
             throw new Error('Failed to parse JSON content whilst loading a Screenplay report', {cause: error});
         }
     }

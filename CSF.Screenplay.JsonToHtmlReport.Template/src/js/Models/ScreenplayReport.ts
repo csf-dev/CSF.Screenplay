@@ -12,16 +12,32 @@ export interface ReportMetadata {
     ReportVersion : string,
 }
 
+export const
+    notStartedOutcome = 'NotStarted',
+    inProgressOutcome = 'InProgress',
+    successOutcome = 'Success',
+    failedOutcome = 'Failed',
+    completedOutcome = 'Completed';
+
+/**
+ * Corresponds to the C# enum of the same name.
+ */
+export type PerformanceState = typeof notStartedOutcome
+                             | typeof inProgressOutcome
+                             | typeof successOutcome
+                             | typeof failedOutcome
+                             | typeof completedOutcome;
+
 export interface PerformanceReport {
     NamingHierarchy : IdentifierAndNameModel[],
-    Outcome : string,
-    Reportables : ReportableModelBase[],
+    Outcome : PerformanceState,
+    Reportables : ReportableModel[],
     Started : string
 }
 
 export interface IdentifierAndNameModel {
     Id : string | null,
-    Name : string,
+    Name : string | null,
     IsGeneratedId : boolean
 }
 

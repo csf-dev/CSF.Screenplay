@@ -4,12 +4,12 @@ import { activatePage } from "./js/activatePage";
 import { updateReportTime } from "./js/updateReportTime";
 import { getScenarioAggregator } from "./js/ScenarioAggregator";
 import { getReportWriter } from "./js/ReportWriter";
-import { Litebox } from "./js/Litebox";
+import { getLitebox } from "./js/Litebox";
 
 document.onreadystatechange = () => {
     if (document.readyState !== "complete") return;
 
-    const litebox = new Litebox();
+    const litebox = getLitebox();
     const loader = getReportLoader();
     const report = loader.loadJson();
 

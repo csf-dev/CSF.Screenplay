@@ -1,9 +1,9 @@
-import { IdentifierAndNameModel } from "../ScreenplayReport";
+import { IdentifierAndNameModel } from "../Models";
 
 const dotnetNamespaceQualifiedNameMatcher = /^\w+(?:\.\w+)+$/i;
 const noName = 'No name';
 
-export const getNameHtml : (f : IdentifierAndNameModel) => Text = (featureOrScenario) => {
+export const getNameHtml : (f : Partial<IdentifierAndNameModel> | null) => Text = (featureOrScenario) => {
     const name = featureOrScenario ? (featureOrScenario.Name || noName) : noName;
     if(!looksLikeDotnetNamespaceQualifiedName(name))
         return document.createTextNode(name);

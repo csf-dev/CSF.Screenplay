@@ -1,4 +1,4 @@
-import { getElementById } from './getElementById';
+import { getElementByIdNotNull, querySelectorNotNull } from './Utils';
 
 const
     maskId = 'liteboxMask',
@@ -7,18 +7,23 @@ const
     contentSelector = '#litebox .content',
     summarySelector = '#litebox .summary';
 
-export class Litebox {
-    #main;
-    #download;
-    #close;
-    #content;
-    #summary;
-    #imageUrl;
-    #isBlobUrl;
-    #fileName;
-    #downloadHandler;
+export interface DisplaysImage {
+    open(imageUrl : string, filename : string, summary : string, isBlobUrl : boolean) : void,
+    close() : void,
+}
 
-    open(imageUrl, filename, summary, isBlobUrl) {
+export class Litebox implements DisplaysImage {
+    #main : HTMLElement;
+    #download : HTMLElement;
+    #close : HTMLElement;
+    #content : HTMLImageElement;
+    #summary : HTMLElement;
+    #imageUrl : string = '';
+    #isBlobUrl : boolean = false;
+    #fileName : string = '';
+    #downloadHandler : () => void = () => {};
+
+    open(imageUrl : string, filename : string, summary : string, isBlobUrl : boolean) {
         this.#imageUrl = imageUrl;
         this.#isBlobUrl = isBlobUrl;
         this.#main.classList.add('open');
@@ -47,11 +52,15 @@ export class Litebox {
     }
 
     constructor() {
-        this.#main = getElementById(maskId);
-        this.#download = document.querySelector(downloadSelector);
-        this.#close = document.querySelector(closeSelector);
+        this.#main = getElementByIdNotNull(maskId);
+        this.#download = querySelectorNotNull(downloadSelector);
+        this.#close = querySelectorNotNull(closeSelector);
         this.#close.addEventListener('click', () => this.close());
-        this.#content = document.querySelector(contentSelector);
-        this.#summary = document.querySelector(summarySelector);
+        this.#content = querySelectorNotNull(contentSelector);
+        this.#summary = querySelectorNotNull(summarySelector);
     }
+}
+
+export function getLitebox() : DisplaysImage {
+    return new Litebox();
 }

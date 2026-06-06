@@ -1,4 +1,4 @@
-import { getElementById } from './getElementById';
+import { getElementById } from './Utils';
 
 export const updateReportTime = (timestampString : string) => {
     const date = new Date(Date.parse(timestampString));

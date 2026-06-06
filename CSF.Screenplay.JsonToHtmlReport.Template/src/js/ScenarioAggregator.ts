@@ -1,22 +1,4 @@
-import { PerformanceReport, IdentifierAndNameModel } from "./ScreenplayReport";
-
-export interface HasScenarios {
-    scenarios: ScenarioContainer[]
-}
-
-export interface FeatureContainer extends HasScenarios {
-    feature: IdentifierAndNameModel,
-}
-
-export interface ScenarioContainer {
-    scenario: IdentifierAndNameModel,
-    performance: PerformanceReport
-}
-
-export interface ScenariosByFeature {
-    features: {[key: string]: FeatureContainer},
-    noFeatureScenarios: HasScenarios
-}
+import { FeatureContainer, HasScenarios, ScenariosByFeature, PerformanceReport, IdentifierAndNameModel } from "./Models";
 
 export interface GetsScenariosByFeature {
     getScenariosByFeature() : ScenariosByFeature,

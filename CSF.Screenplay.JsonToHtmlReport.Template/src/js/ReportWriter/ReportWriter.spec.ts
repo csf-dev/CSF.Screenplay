@@ -1,7 +1,8 @@
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { getReportWriter } from './ReportWriter';
 import { ScenarioAggregator } from '../ScenarioAggregator';
 import templateHtml from '../../template.html';
+import { PerformanceReport, ScreenplayReport } from '../Models';
 
 /**
  * This is a very loose integration test which really only tests the happy path and verifies that the logic
@@ -14,7 +15,11 @@ test('getReport should return a document fragment', () => {
     const scenariosByFeature = scenarioAggregator.getScenariosByFeature();
     const reportWriter = getReportWriter();
     
-    const result = reportWriter.getReport(scenariosByFeature);
+    const litebox = {
+        open(imageUrl : string, filename : string, summary : string, isBlobUrl : boolean) {},
+        close() {},
+    };
+    const result = reportWriter.getReport(scenariosByFeature, litebox);
     expect(result).not.toBeNull();
 });
 
@@ -22,7 +27,7 @@ test('getReport should return a document fragment', () => {
 const testData = {
     "Metadata": {
         "Timestamp": "2024-10-29T21:46:29.4707208Z",
-        "ReportFormatVersion": "2.0.0"
+        "ReportVersion": "2.0.0"
     },
     "Performances": [
         {
@@ -306,7 +311,7 @@ const testData = {
 };
 
 function getTestData() {
-    return testData;
+    return testData as unknown as ScreenplayReport;
 }
 
 function getTemplateHtml() {

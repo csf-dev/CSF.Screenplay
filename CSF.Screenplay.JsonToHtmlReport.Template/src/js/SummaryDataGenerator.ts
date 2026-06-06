@@ -1,8 +1,14 @@
+import { FeatureList, HasScenarios, ScenariosByFeature, SummaryData } from "./Models";
+
 const successOutcome = 'Success';
 const failOutcome = 'Failed';
 
-export class SummaryDataGenerator {
-    getSummaryData(scenariosByFeature) {
+export interface GetsSummaryData {
+    getSummaryData(s : ScenariosByFeature) : SummaryData,
+}
+
+export class SummaryDataGenerator implements GetsSummaryData {
+    getSummaryData(scenariosByFeature : ScenariosByFeature) {
         const features = scenariosByFeature.features;
         const noFeatureScenarios = scenariosByFeature.noFeatureScenarios;
 
@@ -12,7 +18,7 @@ export class SummaryDataGenerator {
         return { features: featureSummary, scenarios: scenarioSummary };
     }
 
-    #getScenarioSummary(features, noFeatureScenarios) {
+    #getScenarioSummary(features : FeatureList, noFeatureScenarios : HasScenarios) {
         const featureScenarios = Object.values(features).map(x => x.scenarios).flat();
         const allScenarios = [...featureScenarios, ...noFeatureScenarios.scenarios];
 
@@ -29,7 +35,7 @@ export class SummaryDataGenerator {
         }, { successCount: 0, failCount: 0, totalCount: 0 });
     }
 
-    #getFeatureSummary(features) {
+    #getFeatureSummary(features : FeatureList) {
         return Object.entries(features).reduce((accumulator, [_, feature]) => {
             if (!feature.scenarios.length) return accumulator;
             
@@ -46,6 +52,6 @@ export class SummaryDataGenerator {
     }
 }
 
-export function getSummaryDataGenerator() {
+export function getSummaryDataGenerator() : GetsSummaryData {
     return new SummaryDataGenerator();
 }
