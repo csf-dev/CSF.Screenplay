@@ -100,7 +100,6 @@ jobs:
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm ci
-          npm run flow-typed install
           cd ../..
 
       # Build and test the solution

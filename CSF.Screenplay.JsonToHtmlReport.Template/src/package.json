@@ -4,7 +4,7 @@
   "description": "Interactive viewer for Screenplay reports",
   "scripts": {
     "build": "vite build",
-    "test": "vitest",
+    "test": "vitest run --coverage",
     "dev": "vite dev"
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://csf-dev.github.io/CSF.Screenplay/",
   "devDependencies": {
     "@types/node": "^20.18.0",
+    "@vitest/coverage-v8": "^4.1.8",
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",

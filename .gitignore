@@ -7,7 +7,6 @@ node_modules/
 *.orig
 /CSF.Screenplay.JsonToHtmlReport/template/
 /CSF.Screenplay.JsonToHtmlReport.Template/src/output/
-/CSF.Screenplay.JsonToHtmlReport.Template/src/flow-typed/
 **/ScreenplayReport_*/**/*
 **/ScreenplayReport.html
 **/TestResult.xml

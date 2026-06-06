@@ -89,7 +89,6 @@ jobs:
         run: |
           cd CSF.Screenplay.JsonToHtmlReport.Template/src
           npm ci
-          npm run flow-typed install
           cd ../..
 
       # Build and test the solution
@@ -161,7 +160,7 @@ jobs:
       - name: Upload JS test results artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Jest test results
+          name: Client script test results
           path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
       - name: Upload Screenplay JSON report artifact
         uses: actions/upload-artifact@v4
