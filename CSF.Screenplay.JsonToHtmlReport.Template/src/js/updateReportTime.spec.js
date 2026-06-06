@@ -1,7 +1,8 @@
+import { expect, test, vi } from 'vitest';
 import { updateReportTime } from './updateReportTime';
 import { getElementById } from './getElementById';
 
-jest.mock('./getElementById');
+vi.mock('./getElementById');
 
 test('updateReportTime should set the element content to the specified timestamp', () => {
     const timestampString = "2020-01-01T00:00:00Z";

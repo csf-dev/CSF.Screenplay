@@ -1,5 +1,3 @@
-// @flow
-
 import { getElementById } from './getElementById';
 
 export const updateReportTime = (timestampString : string) => {

@@ -1,23 +1,20 @@
-// @flow
+import { PerformanceReport, IdentifierAndNameModel } from "./ScreenplayReport";
 
-import type { PerformanceReport, IdentifierAndNameModel } from "./ScreenplayReport";
-
-export type HasScenarios = {
+export interface HasScenarios {
     scenarios: ScenarioContainer[]
 }
 
-export type FeatureContainer = {
-    ...HasScenarios,
+export interface FeatureContainer extends HasScenarios {
     feature: IdentifierAndNameModel,
 }
 
-export type ScenarioContainer = {
+export interface ScenarioContainer {
     scenario: IdentifierAndNameModel,
     performance: PerformanceReport
 }
 
-export type ScenariosByFeature = {
-    features: {[string]: FeatureContainer},
+export interface ScenariosByFeature {
+    features: {[key: string]: FeatureContainer},
     noFeatureScenarios: HasScenarios
 }
 

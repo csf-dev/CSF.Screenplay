@@ -1,7 +1,4 @@
-/**
- * @jest-environment node
-*/
-
+import { expect, test } from 'vitest';
 import { ScenarioAggregator } from './ScenarioAggregator';
 
 test('getScenariosByFeature should return an object which aggregates two scenarios into a single feature', () => {

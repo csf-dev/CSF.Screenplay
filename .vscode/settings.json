@@ -3,6 +3,5 @@
         "Tests/CSF.Screenplay.SpecFlow.Tests/StepDefinitions/**/*.cs",
         "Tests/CSF.Screenplay.Reqnroll.Tests/StepDefinitions/**/*.cs"
     ],
-    "cucumberautocomplete.strictGherkinCompletion": true,
-    "js/ts.validate.enabled": false,
+    "cucumberautocomplete.strictGherkinCompletion": true
 }

@@ -1,5 +1,3 @@
-// @flow
-
 import type { ScreenplayReport } from "./ScreenplayReport";
 import { getElementById } from './getElementById';
 

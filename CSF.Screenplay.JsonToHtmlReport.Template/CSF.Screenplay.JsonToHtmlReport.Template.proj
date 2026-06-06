@@ -4,7 +4,7 @@
     <TemplateSourceDir>$(MSBuildProjectDirectory)\src</TemplateSourceDir>
     <OutputPath>$(MSBuildProjectDirectory)\..\CSF.Screenplay.JsonToHtmlReport\template</OutputPath>
     <TemplateOutputFile>$(OutputPath)\template.html</TemplateOutputFile>
-        <IsPackable>false</IsPackable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <!-- We're not explicitly using anything in this targets file but without it there's an unwanted build warning for the 'Restore' target -->
@@ -24,16 +24,11 @@
           DependsOnTargets="EnsureTemplateDirectories"
           Inputs="$(TemplateSourceDir)\**\*"
           Outputs="$(OutputPath)">
-    <PropertyGroup>
-      <WebpackTask Condition="'$(Configuration)' == 'Debug'">buildDev</WebpackTask>
-      <WebpackTask Condition="'$(Configuration)' != 'Debug'">buildProd</WebpackTask>
-      <NodeCommand>npm</NodeCommand>
-    </PropertyGroup>
     
     <Error Text="Template source directory not found at $(TemplateSourceDir)" 
            Condition="!Exists('$(TemplateSourceDir)')" />
            
-    <Exec Command="$(NodeCommand) run $(WebpackTask) -- --output-path $(OutputPath)"
+    <Exec Command="npm run build -- --emptyOutDir --outDir $(OutputPath)"
           WorkingDirectory="$(TemplateSourceDir)"
           ContinueOnError="false" />
           

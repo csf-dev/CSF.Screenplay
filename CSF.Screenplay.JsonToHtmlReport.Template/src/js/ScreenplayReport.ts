@@ -1,27 +1,25 @@
-// @flow
-
 /**
  * This type and those which are used in its object graph should be kept in-sync with the C# types of the same names.
  * Those are found in the `CSF.Screenplay` project, in the directory `ReportModel`.
  */
-export type ScreenplayReport = {
+export interface ScreenplayReport {
     Metadata : ReportMetadata,
     Performances : PerformanceReport[]
 }
 
-export type ReportMetadata = {
+export interface ReportMetadata {
     Timestamp : string,
     ReportVersion : string,
 }
 
-export type PerformanceReport = {
+export interface PerformanceReport {
     NamingHierarchy : IdentifierAndNameModel[],
     Outcome : string,
     Reportables : ReportableModelBase[],
     Started : string
 }
 
-export type IdentifierAndNameModel = {
+export interface IdentifierAndNameModel {
     Id : string | null,
     Name : string,
     IsGeneratedId : boolean
@@ -34,34 +32,29 @@ export const
     spotlightTurnedOffReportKind = 'SpotlightTurnedOffReport',
     performableReportKind = 'PerformableReport';
 
-type ReportableModelBase = {
+interface ReportableModelBase {
     Report : string,
     Actor : string,
     Started : string,
 }
 
-export type ActorCreatedReport = {
-    ...ReportableModelBase,
+export interface ActorCreatedReport extends ReportableModelBase {
     Kind : typeof actorCreatedReportKind
 }
 
-export type ActorGainedAbilityReport = {
-    ...ReportableModelBase,
+export interface ActorGainedAbilityReport extends ReportableModelBase {
     Kind : typeof actorGainedAbilityReportKind
 }
 
-export type ActorSpotlitReport = {
-    ...ReportableModelBase,
+export interface ActorSpotlitReport extends ReportableModelBase {
     Kind : typeof actorSpotlitReportKind
 }
 
-export type SpotlightTurnedOffReport = {
-    ...ReportableModelBase,
+export interface SpotlightTurnedOffReport extends ReportableModelBase {
     Kind : typeof spotlightTurnedOffReportKind
 }
 
-export type PerformableReport = {
-    ...ReportableModelBase,
+export interface PerformableReport extends ReportableModelBase {
     Kind : typeof performableReportKind,
     Type : string,
     Phase : string,
@@ -74,7 +67,7 @@ export type PerformableReport = {
     Reportables: ReportableModel[]
 }
 
-export type PerformableAsset = {
+export interface PerformableAsset {
     ContentType : string,
     Path : string,
     Data : string,

@@ -1,9 +1,10 @@
+import { expect, test, vi } from 'vitest';
 import { SummaryDataGenerator } from './SummaryDataGenerator';
 import { getElementById } from './getElementById';
 import { SummaryGenerator } from './SummaryGenerator';
 
-jest.mock('./getElementById');
-jest.mock('./SummaryDataGenerator');
+vi.mock('./getElementById');
+vi.mock('./SummaryDataGenerator');
 
 test('SummaryGenerator should generate a summary table', () => {
     const summaryDataGenerator = new SummaryDataGenerator();
@@ -21,7 +22,7 @@ test('SummaryGenerator should generate a summary table', () => {
     };
     const htmlNodes = {};
     const templateContent = {
-        querySelector: jest.fn(id => {
+        querySelector: vi.fn(id => {
             if(htmlNodes[id] === undefined) {
                 htmlNodes[id] = { textContent: "" };
             }
@@ -29,7 +30,7 @@ test('SummaryGenerator should generate a summary table', () => {
         })
     };
     const template = {
-        content: { cloneNode: jest.fn(() => templateContent) }
+        content: { cloneNode: vi.fn(() => templateContent) }
     };
     getElementById.mockReturnValue(template);
     summaryDataGenerator.getSummaryData.mockReturnValue(summary);

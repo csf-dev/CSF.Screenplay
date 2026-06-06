@@ -1,11 +1,8 @@
-// @flow
-
 import "./css/index";
 import { getReportLoader } from "./js/ReportLoader";
 import { activatePage } from "./js/activatePage";
 import { updateReportTime } from "./js/updateReportTime";
 import { getScenarioAggregator } from "./js/ScenarioAggregator";
-import { getSummaryGenerator } from "./js/SummaryGenerator";
 import { getReportWriter } from "./js/ReportWriter";
 import { Litebox } from "./js/Litebox";
 
@@ -21,8 +18,6 @@ document.onreadystatechange = () => {
     const aggregator = getScenarioAggregator(report.Performances);
     const scenariosByFeature = aggregator.getScenariosByFeature();
     console.debug('Raw scenario data', scenariosByFeature);
-    // const summaryGenerator = getSummaryGenerator(scenariosByFeature);
-    // const summary = summaryGenerator.generateSummary();
     const reportWriter = getReportWriter();
     const featureReport = reportWriter.getReport(scenariosByFeature, litebox);
 

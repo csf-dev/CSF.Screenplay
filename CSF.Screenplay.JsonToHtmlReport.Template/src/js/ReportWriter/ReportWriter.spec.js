@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { getReportWriter } from './ReportWriter';
 import { ScenarioAggregator } from '../ScenarioAggregator';
 import templateHtml from '../../template.html';

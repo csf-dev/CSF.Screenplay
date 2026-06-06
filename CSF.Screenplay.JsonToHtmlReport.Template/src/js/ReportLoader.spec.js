@@ -1,7 +1,8 @@
+import { expect, test, vi } from 'vitest';
 import { ReportLoader } from "./ReportLoader";
 import { getElementById } from './getElementById';
 
-jest.mock('./getElementById');
+vi.mock('./getElementById');
 
 test('ReportLoader should load JSON content from the specified script element', () => {
     const scriptElement = { textContent: '{"foo": "bar"}' };

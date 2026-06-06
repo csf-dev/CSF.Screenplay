@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { getNameHtml } from "./getNameHtml";
 
 test('getNameHtml should return a node containing No name if the feature or scenario is null', () => {

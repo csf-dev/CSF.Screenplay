@@ -1,7 +1,8 @@
+import { expect, test, vi } from 'vitest';
 import { activatePage } from "./activatePage";
 import { getElementById } from './getElementById';
 
-jest.mock('./getElementById');
+vi.mock('./getElementById');
 
 test('activatePage should append the feature list to its container', () => {
     const featureList = document.createElement("ul");

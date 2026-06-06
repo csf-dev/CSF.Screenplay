@@ -1,7 +1,4 @@
-/**
- * @jest-environment jsdom
-*/
-
+import { expect, test } from 'vitest';
 import { Litebox } from "./Litebox";
 
 test('open should show the mask', () => {

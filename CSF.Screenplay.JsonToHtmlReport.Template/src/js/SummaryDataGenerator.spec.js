@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { SummaryDataGenerator } from './SummaryDataGenerator';
 
 test('getSummaryData should return the correct feature summary data', () => {
