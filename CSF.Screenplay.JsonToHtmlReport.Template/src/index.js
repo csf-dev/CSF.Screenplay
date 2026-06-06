@@ -1,3 +1,5 @@
+// @flow
+
 import "./css/index";
 import { getReportLoader } from "./js/ReportLoader";
 import { activatePage } from "./js/activatePage";

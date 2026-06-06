@@ -1,7 +1,9 @@
+// @flow
+
 import { getElementById } from './getElementById';
 
-export const updateReportTime = (timestampString) => {
+export const updateReportTime = (timestampString : string) => {
     const date = new Date(Date.parse(timestampString));
     const element = getElementById("reportGeneratedOn");
-    element.innerText = date.toLocaleString();
+    if(element) element.innerText = date.toLocaleString();
 }

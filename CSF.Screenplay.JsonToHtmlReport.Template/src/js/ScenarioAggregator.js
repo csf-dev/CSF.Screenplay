@@ -1,10 +1,39 @@
-export class ScenarioAggregator {
-    constructor(performances) {
+// @flow
+
+import type { PerformanceReport, IdentifierAndNameModel } from "./ScreenplayReport";
+
+export type HasScenarios = {
+    scenarios: ScenarioContainer[]
+}
+
+export type FeatureContainer = {
+    ...HasScenarios,
+    feature: IdentifierAndNameModel,
+}
+
+export type ScenarioContainer = {
+    scenario: IdentifierAndNameModel,
+    performance: PerformanceReport
+}
+
+export type ScenariosByFeature = {
+    features: {[string]: FeatureContainer},
+    noFeatureScenarios: HasScenarios
+}
+
+export interface GetsScenariosByFeature {
+    getScenariosByFeature() : ScenariosByFeature,
+}
+
+export class ScenarioAggregator implements GetsScenariosByFeature {
+    performances : PerformanceReport[]
+
+    constructor(performances : PerformanceReport[]) {
         this.performances = performances;
     }
 
-    getScenariosByFeature() {
-        return this.performances.reduce((accumulator, performance) => {
+    getScenariosByFeature() : ScenariosByFeature {
+        return this.performances.reduce((accumulator : ScenariosByFeature, performance) => {
             const names = performance.NamingHierarchy;
             const feature = this.#getFeature(names);
             const scenario = this.#getScenario(names);
@@ -16,29 +45,30 @@ export class ScenarioAggregator {
         }, { features: {}, noFeatureScenarios: { scenarios: [] } });
     }
 
-    #getFeature(names) {
+    #getFeature(names : IdentifierAndNameModel[]) : IdentifierAndNameModel {
         return names.length > 1
             ? names[names.length - 2]
             : { Id: null, Name: "No Feature", IsGeneratedId: true };
     }
 
-    #getScenario(names) {
+    #getScenario(names : IdentifierAndNameModel[]) : IdentifierAndNameModel {
         if (names.length > 0) return names[names.length - 1];
         return { Id: crypto.randomUUID(), Name: "No Scenario", IsGeneratedId: true };
     }
 
-    #getFeatureContainer(accumulator, feature) {
+    #getFeatureContainer(accumulator : ScenariosByFeature, feature : IdentifierAndNameModel) : HasScenarios | FeatureContainer {
         if (feature.Id === null) return accumulator.noFeatureScenarios;
-        if (Object.hasOwn(accumulator.features, feature.Id)) return accumulator.features[feature.Id];
-        accumulator.features[feature.Id] = this.#createFeatureContainer(feature);
-        return accumulator.features[feature.Id];
+        const featureId = feature.Id;
+        if (Object.hasOwn(accumulator.features, featureId)) return accumulator.features[featureId];
+        accumulator.features[featureId] = this.#createFeatureContainer(feature);
+        return accumulator.features[featureId];
     }
 
-    #createFeatureContainer(feature) {
+    #createFeatureContainer(feature : IdentifierAndNameModel) : FeatureContainer {
         return { feature: { Id: feature.Id, Name: feature.Name, IsGeneratedId: feature.IsGeneratedId }, scenarios: [] };
     }
 }
 
-export function getScenarioAggregator(performances) {
+export function getScenarioAggregator(performances : PerformanceReport[]) : GetsScenariosByFeature {
     return new ScenarioAggregator(performances);
 }
