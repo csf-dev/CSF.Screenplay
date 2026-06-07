@@ -123,7 +123,7 @@ jobs:
               echo "failures=true" >> "$GITHUB_OUTPUT"
             fi
           done
-      - name: Run JavaScript tests with coverage
+      - name: Run Client script tests with coverage
         id: js_tests
         shell: bash {0}
         run: |
