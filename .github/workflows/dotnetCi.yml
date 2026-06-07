@@ -45,7 +45,7 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           lfs: true
@@ -55,7 +55,7 @@ jobs:
       - name: Add .NET global tools location to PATH
         run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
       - name: Install .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ env.DotnetVersion }}
       - name: Install SonarScanner
@@ -146,24 +146,24 @@ jobs:
         run: killall Xvfb
         continue-on-error: true
       - name: Upload .NET test results artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
       # This step won't produce any artifacts if the verbose factory isn't
       # selected via appsettings.json in CSF.Screenplay.Selenium.Tests, but that's OK
       - name: Upload verbose webdriver log artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Verbose webdriver logs
           path: '**/chrome-verbose-log.txt'
       - name: Upload JS test results artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Client script test results
           path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
       - name: Upload Screenplay JSON report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Screenplay JSON reports
           path: Tests/**/ScreenplayReport.json
@@ -177,7 +177,7 @@ jobs:
             dotnet run --no-build --framework $Tfm -c ${{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
           done
       - name: Upload Screenplay HTML report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Screenplay HTML reports
           path: Tests/**/ScreenplayReport.html
@@ -194,14 +194,14 @@ jobs:
       - name: Build, in release configuration
         run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
       - name: Upload build result artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Build results (NuGet)
           path: packages/*.nupkg
       - name: Build docs website
         run: dotnet build -c Docs
       - name: Upload docs website artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Docs website
           path: docs/**/*
