@@ -18,7 +18,7 @@ public class ClearCookiesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClearAllDomainCookies());
         await Then(webster).Should(ClickOn(listCookiesButton));
         var cookies = await Then(webster).Should(ReadFromTheElement(cookieList).TheText());

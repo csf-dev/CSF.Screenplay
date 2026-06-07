@@ -81,8 +81,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
             await WaitForPageLoad(actor, webDriver, element, cancellationToken);
-            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && NeedsJavaScriptWorkaroundForLogs(webDriver))
-                await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
+            await actor.PerformAsync(BeginCollectingLogsWithJavaScriptIfApplicable(), cancellationToken);
         }
 
         async ValueTask WaitForPageLoad(ICanPerform actor, IWebDriver webDriver, Lazy<SeleniumElement> element, CancellationToken cancellationToken)

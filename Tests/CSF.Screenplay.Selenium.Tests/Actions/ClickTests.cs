@@ -21,7 +21,7 @@ public class ClickTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
@@ -33,7 +33,7 @@ public class ClickTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         Assert.That(async () => await When(webster).AttemptsTo(ClickOn(nonExistent)),
                     Throws.InstanceOf<PerformableException>().And.InnerException.InstanceOf<TargetNotFoundException>());
     }
@@ -43,7 +43,7 @@ public class ClickTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         try
         {
             await When(webster).AttemptsTo(ClickOn(nonExistent));

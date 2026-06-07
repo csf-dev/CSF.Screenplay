@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Selenium
     /// <para>
     /// This model allows for the association of human-readable names with URIs.  This is most useful when making use
     /// of Screenplay reports, where the human-readable name can be used to describe the URI in a more user-friendly way.
-    /// Named Uris are used with the <see cref="Actions.OpenUrl"/> and <see cref="Tasks.OpenUrlRespectingBase"/> performables
+    /// Named Uris are used with the <see cref="Actions.OpenUrl"/> and <see cref="Tasks.NavigateToUrl"/> performables
     /// to facilitate direct web browser navigation.
     /// </para>
     /// <para>
@@ -30,7 +30,7 @@ namespace CSF.Screenplay.Selenium
     /// </list>
     /// </remarks>
     /// <seealso cref="Actions.OpenUrl"/>
-    /// <seealso cref="Tasks.OpenUrlRespectingBase"/>
+    /// <seealso cref="Tasks.NavigateToUrl"/>
     /// <seealso cref="UseABaseUri"/>
     public sealed class NamedUri : IHasName
     {

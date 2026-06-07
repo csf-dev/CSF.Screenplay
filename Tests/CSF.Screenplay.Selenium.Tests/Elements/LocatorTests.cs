@@ -19,7 +19,7 @@ public class LocatorTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(theParagraph).TheText());
 
         Assert.That(result, Is.EqualTo("This is a paragraph of test which is selectable by the element id theParagraph."));
@@ -30,7 +30,7 @@ public class LocatorTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(theDiv).TheText());
 
         Assert.That(result, Is.EqualTo("This is a div which is selectable by the class attribute theDiv."));
@@ -41,7 +41,7 @@ public class LocatorTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheCollectionOfElements(allInputs).Value());
 
         Assert.That(result, Is.EqualTo(new [] {"First input", "Second input", "Third input"}));
@@ -52,7 +52,7 @@ public class LocatorTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheCollectionOfElements(specialInputs).Value());
 
         Assert.That(result, Is.EqualTo(new [] {"Second input", "Third input"}));
@@ -63,7 +63,7 @@ public class LocatorTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheCollectionOfElements(spansInList).Text());
 
         Assert.That(result, Is.EqualTo(new [] {"First text inside a span", "Second text inside a span"}));

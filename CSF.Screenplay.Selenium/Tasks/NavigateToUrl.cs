@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSF.Screenplay.Selenium.Actions;
+using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Tasks
 {
@@ -11,7 +12,7 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use this task via the builder method <see cref="PerformableBuilder.OpenTheUrl(NamedUri)"/>, which automatically makes
+    /// Use this task via the builder method <see cref="PerformableBuilder.NavigateTo(NamedUri)"/>, which automatically makes
     /// use of this task. This task behaves very similarly to the action <see cref="OpenUrl"/>, except for base-URI-replacement.
     /// </para>
     /// <para>
@@ -56,21 +57,26 @@ namespace CSF.Screenplay.Selenium.Tasks
     /// </code>
     /// </example>
     /// <seealso cref="UseABaseUri"/>
-    /// <seealso cref="PerformableBuilder.OpenTheUrl(NamedUri)"/>
+    /// <seealso cref="PerformableBuilder.NavigateTo(NamedUri)"/>
     /// <seealso cref="OpenUrl"/>
-    public class OpenUrlRespectingBase : IPerformable, ICanReport
+    public class NavigateToUrl : IPerformable, ICanReport
     {
         readonly NamedUri uri;
 
         /// <inheritdoc/>
-        public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
-            if(uri.Uri.IsAbsoluteUri)
-                return actor.PerformAsync(new OpenUrl(uri), cancellationToken);
+            var absoluteUri = GetAbsoluteUri(actor);
 
+            await actor.PerformAsync(OpenTheUrl(absoluteUri), cancellationToken);
+            await actor.PerformAsync(BeginCollectingLogsWithJavaScriptIfApplicable(), cancellationToken);
+        }
+
+        NamedUri GetAbsoluteUri(ICanPerform actor)
+        {
+            if(uri.Uri.IsAbsoluteUri) return uri;
             var ability = actor.GetAbility<UseABaseUri>();
-            var rebased = uri.RebaseTo(ability.BaseUri);
-            return actor.PerformAsync(new OpenUrl(rebased), cancellationToken);
+            return uri.RebaseTo(ability.BaseUri);
         }
         
         /// <inheritdoc/>
@@ -78,10 +84,10 @@ namespace CSF.Screenplay.Selenium.Tasks
             => formatter.Format("{Actor} opens their browser at {Uri}, respecting a base URL if applicable", actor.Name, uri.Name);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpenUrlRespectingBase"/> class with the specified URL.
+        /// Initializes a new instance of the <see cref="NavigateToUrl"/> class with the specified URL.
         /// </summary>
         /// <param name="uri">The URL to open.</param>
-        public OpenUrlRespectingBase(NamedUri uri)
+        public NavigateToUrl(NamedUri uri)
         {
             this.uri = uri ?? throw new ArgumentNullException(nameof(uri));
         }

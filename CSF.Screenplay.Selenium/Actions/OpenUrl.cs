@@ -1,8 +1,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
-using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Selenium.Actions
 {
@@ -11,10 +9,10 @@ namespace CSF.Screenplay.Selenium.Actions
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use this action via the builder method <see cref="PerformableBuilder.OpenTheUrl"/>.
+    /// Use this action via the builder method <see cref="PerformableBuilder.NavigateTo"/>.
     /// The <c>OpenTheUrl</c> builder method does not have a one-to-one relationship with this action, though.
     /// The builder method actually returns a <xref href="TaskGlossaryItem?text=Screenplay+task"/> named
-    /// <see cref="Tasks.OpenUrlRespectingBase"/>.  The purpose of that task is to prepend a base URL to
+    /// <see cref="Tasks.NavigateToUrl"/>.  The purpose of that task is to prepend a base URL to
     /// URLs which are relative.  This action is capable only of navigating to absolute URLs, and it will
     /// raise an exception if the URL is not absolute.
     /// </para>
@@ -42,22 +40,20 @@ namespace CSF.Screenplay.Selenium.Actions
     /// }
     /// </code>
     /// </example>
-    /// <seealso cref="Tasks.OpenUrlRespectingBase"/>
-    /// <seealso cref="PerformableBuilder.OpenTheUrl(NamedUri)"/>
+    /// <seealso cref="Tasks.NavigateToUrl"/>
+    /// <seealso cref="PerformableBuilder.NavigateTo(NamedUri)"/>
     public class OpenUrl : IPerformable, ICanReport
     {
         readonly NamedUri uri;
 
         /// <inheritdoc/>
-        public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
+        public ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
             var ability = actor.GetAbility<BrowseTheWeb>();
             if(!uri.Uri.IsAbsoluteUri)
                 throw new InvalidOperationException($"The URL to open must be absolute; have you forgotten to grant {actor} the {nameof(UseABaseUri)} ability?");
             ability.WebDriver.Url = uri.Uri.ToString();
-
-            if(ability.ShouldCollectLogs && ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
-                await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
+            return default;
         }
         
         /// <inheritdoc/>

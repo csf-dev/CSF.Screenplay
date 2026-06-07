@@ -16,6 +16,7 @@ public class ScreenplayFactory : IGetsScreenplay
             services.AddSelenium();
             services.AddTransient<Webster>();
             services.AddTransient<Pattie>();
+            services.AddTransient<Fox>();
         });
 
         return screenplay;

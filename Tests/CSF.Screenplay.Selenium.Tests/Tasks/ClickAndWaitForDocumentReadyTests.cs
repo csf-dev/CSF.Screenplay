@@ -21,7 +21,7 @@ public class ClickAndWaitForDocumentReadyTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(startPage));
+        await Given(webster).WasAbleTo(NavigateTo(startPage));
         await When(webster).AttemptsTo(ClickOn(link).AndWaitForANewPageToLoad());
         var result = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
@@ -37,7 +37,7 @@ public class ClickAndWaitForDocumentReadyTests
         if(!ability.WebDriver.HasQuirk(BrowserQuirks.NeedsToWaitAfterPageLoad))
             Assert.Pass("This test cannot meaningfully be run on a Chrome or Edge browser, because they always wait for the page load. Treating this test as an implicit pass.");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(startPage));
+        await Given(webster).WasAbleTo(NavigateTo(startPage));
         
         Assert.That(async () => await When(webster).AttemptsTo(ClickOn(link).AndWaitForANewPageToLoad(TimeSpan.FromMilliseconds(100))),
                     Throws.InstanceOf<PerformableException>().And.InnerException.InstanceOf<WebDriverException>());

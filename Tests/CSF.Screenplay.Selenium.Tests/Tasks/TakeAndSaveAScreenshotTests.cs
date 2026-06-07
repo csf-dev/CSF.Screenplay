@@ -20,7 +20,7 @@ public class TakeAndSaveAScreenshotTests
         {
             webster.RecordsAsset += OnRecordsAsset;
 
-            await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+            await Given(webster).WasAbleTo(NavigateTo(testPage));
             await When(webster).AttemptsTo(TakeAndSaveAScreenshot().WithTheName("test screenshot"));
         }
         finally

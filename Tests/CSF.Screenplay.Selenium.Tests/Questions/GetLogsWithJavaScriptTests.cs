@@ -1,5 +1,7 @@
+using System;
 using CSF.Screenplay.Selenium.Elements;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using static CSF.Screenplay.PerformanceStarter;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -14,16 +16,16 @@ public class GetLogsWithJavaScriptTests
     [Test, Screenplay]
     public async Task ClickingTheInfoMessageShouldRecordAMessageWhichMayBeRetrieved(IStage stage)
     {
-        var webster = stage.Spotlight<Webster>();
-        var ability = webster.GetAbility<BrowseTheWeb>();
-        if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
-        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
-            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
+        var actor = PickBestActor(stage);
+        if(!actor.GetAbility<BrowseTheWeb>().WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
+            Assert.Pass("This test cannot be performed with the current WebDriver");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await When(webster).AttemptsTo(ClickOn(theInfoButton));
+        await Given(actor).WasAbleTo(NavigateTo(testPage));
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
+        await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
-        var logs = await Then(webster).Should(GetBrowserLogsWithJavascript());
+        var logs = await Then(actor).Should(GetBrowserLogsWithJavascript());
 
         Assert.That(logs, Has.One.Matches<BrowserLog>(x => x.Message.Contains("The info button has been clicked")));
     }
@@ -31,17 +33,17 @@ public class GetLogsWithJavaScriptTests
     [Test, Screenplay]
     public async Task ClickingTheInfoMessageTwiceShouldRecordTwoMessagesWhichMayBeRetrieved(IStage stage)
     {
-        var webster = stage.Spotlight<Webster>();
-        var ability = webster.GetAbility<BrowseTheWeb>();
-        if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
-        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
-            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
+        var actor = PickBestActor(stage);
+        if(!actor.GetAbility<BrowseTheWeb>().WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
+            Assert.Pass("This test cannot be performed with the current WebDriver");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await When(webster).AttemptsTo(ClickOn(theInfoButton));
-        await When(webster).AttemptsTo(ClickOn(theInfoButton));
+        await Given(actor).WasAbleTo(NavigateTo(testPage));
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
+        await When(actor).AttemptsTo(ClickOn(theInfoButton));
+        await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
-        var logs = await Then(webster).Should(GetBrowserLogsWithJavascript());
+        var logs = await Then(actor).Should(GetBrowserLogsWithJavascript());
 
         using var multiple = Assert.EnterMultipleScope();
 
@@ -51,22 +53,42 @@ public class GetLogsWithJavaScriptTests
     [Test, Screenplay]
     public async Task GettingLogsTwiceDoesNotReturnDuplicateMessages(IStage stage)
     {
-        var webster = stage.Spotlight<Webster>();
-        var ability = webster.GetAbility<BrowseTheWeb>();
-        if(!ability.WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround)) Assert.Pass("This test can't be run on the current WebDriver");
-        if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
-            Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
+        var actor = PickBestActor(stage);
+        if(!actor.GetAbility<BrowseTheWeb>().WebDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
+            Assert.Pass("This test cannot be performed with the current WebDriver");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
-        await When(webster).AttemptsTo(ClickOn(theInfoButton));
-        await When(webster).AttemptsTo(ClickOn(theInfoButton));
+        await Given(actor).WasAbleTo(NavigateTo(testPage));
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
+        await When(actor).AttemptsTo(ClickOn(theInfoButton));
+        await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
-        var firstLogs = await Then(webster).Should(GetBrowserLogsWithJavascript());
-        var secondLogs = await Then(webster).Should(GetBrowserLogsWithJavascript());
+        var firstLogs = await Then(actor).Should(GetBrowserLogsWithJavascript());
+        var secondLogs = await Then(actor).Should(GetBrowserLogsWithJavascript());
 
         using var multiple = Assert.EnterMultipleScope();
 
         Assert.That(firstLogs, Has.Count.AtLeast(2), "First set of logs has messages");
         Assert.That(secondLogs, Is.Empty, "Second set of logs is empty");
+    }
+
+    /// <summary>
+    /// Picks the best actor to participate in this test.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Webster is the best actor when we are using Remote Web Drivers, but Fox is the best for local drivers.
+    /// Remote/Local is controlled outside of this test, by configuration for the web driver factory.
+    /// </para>
+    /// </remarks>
+    /// <param name="stage">The stage</param>
+    /// <returns>The best actor for the test.</returns>
+    static Actor PickBestActor(IStage stage)
+    {
+        var webster = stage.Cast.GetActor<Webster>();
+        var browseTheWeb = webster.GetAbility<BrowseTheWeb>();
+        if(browseTheWeb.WebDriver.Unproxy() is RemoteWebDriver) return webster;
+
+        return stage.Cast.GetActor<Fox>();
     }
 }

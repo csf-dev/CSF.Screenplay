@@ -22,7 +22,7 @@ public class GetLogsNativelyTests
         if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
             Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
 
         var logs = await Then(webster).Should(GetNativeBrowserLogs());
@@ -39,7 +39,7 @@ public class GetLogsNativelyTests
         if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
             Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
 
@@ -59,7 +59,7 @@ public class GetLogsNativelyTests
         if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
             Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
         await When(webster).AttemptsTo(ClickOn(theInfoButton));
 
@@ -84,7 +84,7 @@ public class GetLogsNativelyTests
         if(ability.WebDriver.Unproxy() is OpenQA.Selenium.Remote.RemoteWebDriver)
             Assert.Pass("This test can't be run on the remote WebDrivers, due to limitations which mean that native logs are not returned");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClickOn(theDebugButton));
 
         var logs = await Then(webster).Should(GetNativeBrowserLogs());

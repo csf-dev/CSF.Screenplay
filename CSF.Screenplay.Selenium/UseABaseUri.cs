@@ -45,12 +45,12 @@ namespace CSF.Screenplay.Selenium
     /// <para>
     /// The Uri to use as the base Uri does not need to be hard-coded, it could come from configuration or an environment variable etc.
     /// When the actor makes use of the <see cref="BrowseTheWeb"/> ability and opens a Url using the performable returned from
-    /// <see cref="PerformableBuilder.OpenTheUrl(NamedUri)"/>, the specified named Uri <see cref="NamedUri.RebaseTo(Uri)">will be rebased</see>
+    /// <see cref="PerformableBuilder.NavigateTo(NamedUri)"/>, the specified named Uri <see cref="NamedUri.RebaseTo(Uri)">will be rebased</see>
     /// to the base Uri specified by this ability.
     /// </para>
     /// </remarks>
     /// <seealso cref="Actions.OpenUrl"/>
-    /// <seealso cref="Tasks.OpenUrlRespectingBase"/>
+    /// <seealso cref="Tasks.NavigateToUrl"/>
     /// <seealso cref="NamedUri"/>
     public class UseABaseUri : ICanReport
     {

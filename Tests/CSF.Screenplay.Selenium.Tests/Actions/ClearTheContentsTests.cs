@@ -19,7 +19,7 @@ public class ClearTheContentsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClearTheContentsOf(aTextArea));
         var contents = await Then(webster).Should(ReadFromTheElement(aTextArea).TheValue());
 
@@ -31,7 +31,7 @@ public class ClearTheContentsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClearTheContentsOf(anInput));
         var contents = await Then(webster).Should(ReadFromTheElement(anInput).TheValue());
 

@@ -19,17 +19,42 @@ namespace CSF.Screenplay.Selenium
     public static partial class PerformableBuilder
     {
         /// <summary>
-        /// Gets a performable action which opens a URL.
+        /// Gets a performable task which navigates to a URL.
         /// </summary>
         /// <remarks>
+        /// <para>
+        /// Consumers should prefer this task over the action exposed by <see cref="OpenTheUrl(NamedUri)"/>.  This task takes care of some
+        /// boilerplate concerns such as rebasing relative URLs onto a base URL, indicated by <see cref="UseABaseUri"/>.
+        /// It also begins collecting logs using a JavaScript workaround if appropriate. Use this task to take care of those things
+        /// automatically.
+        /// </para>
         /// <para>
         /// If the specified Uri is a relative Uri, then this task will use the actor's <see cref="UseABaseUri"/> ability (if present)
         /// to transform the relative Uri into an absolute one.  The specified Uri will be used directly if it is already absolute.
         /// </para>
+        /// <para>
+        /// Additionally, if it is appropriate to do so, after the web browser arrives at the new page, JavaScript will be used to
+        /// begin collecting browser console logs from the page.  See <see cref="BeginCollectingLogsWithJavaScriptIfApplicable"/> for
+        /// more information.
+        /// </para>
         /// </remarks>
         /// <param name="uri">The uri at which to open the web browser.</param>
         /// <returns>A performable</returns>
-        public static IPerformable OpenTheUrl(NamedUri uri) => new OpenUrlRespectingBase(uri);
+        public static IPerformable NavigateTo(NamedUri uri) => new NavigateToUrl(uri);
+
+        /// <summary>
+        /// Gets a performable action which directly opens a URL (and does nothing more).
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Consumers are generally recommended to prefer <see cref="NavigateTo(NamedUri)"/> over this action.
+        /// This action only opens the web browser at the specified Url and does nothing more.
+        /// It will throw an exception if the Url is not absolute.
+        /// </para>
+        /// </remarks>
+        /// <param name="uri">The uri at which to open the web browser.</param>
+        /// <returns>A performable</returns>
+        public static IPerformable OpenTheUrl(NamedUri uri) => new OpenUrl(uri);
 
         /// <summary>
         /// Gets a performable question which takes a screenshot of the current web page and returns it.
@@ -210,15 +235,33 @@ namespace CSF.Screenplay.Selenium
         public static GetWindowTitle ReadTheWindowTitle() => new GetWindowTitle();
 
         /// <summary>
+        /// Gets a performable task which begins collecting log information with a Javascript workaround, if the current WebDriver configuration
+        /// supports it and requires it.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// It is usually not required to use this task directly.
+        /// The recommended way to consume this action is to set <see cref="BrowseTheWeb.ShouldCollectLogs"/> to <see langword="true"/>
+        /// via the ability's constructor. If the WebDriver has the quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/>
+        /// and does not have the quirk <see cref="BrowserQuirks.HasNativeLogsSupport"/> AND the browser is not a
+        /// <see cref="OpenQA.Selenium.Remote.RemoteWebDriver"/> then
+        /// this task will be executed automatically at appropriate times, such as immediately after <see cref="ClickAndWaitForDocumentReady"/>
+        /// or <see cref="OpenUrl"/> is executed.
+        /// </para>
+        /// </remarks>
+        /// <returns>A performable task</returns>
+        public static BeginCollectingLogsWithJavaScriptIfApplicable BeginCollectingLogsWithJavaScriptIfApplicable()
+            => new BeginCollectingLogsWithJavaScriptIfApplicable();
+
+        /// <summary>
         /// Gets a performable action which begins collecting log information with a Javascript workaround.
         /// </summary>
         /// <remarks>
         /// <para>
         /// It is usually not required to use this action directly.
         /// The recommended way to consume this action is to set <see cref="BrowseTheWeb.ShouldCollectLogs"/> to <see langword="true"/>
-        /// via the ability's constructor. If the WebDriver has the quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> then
-        /// this action will be executed automatically at appropriate times, such as immediately after <see cref="ClickAndWaitForDocumentReady"/>
-        /// or <see cref="OpenUrl"/> is executed.
+        /// via the ability's constructor. When the Web Driver navigates to a new page, <see cref="BeginCollectingLogsWithJavaScriptIfApplicable"/>
+        /// will be used, which will conditionally trigger this action if applicable.
         /// </para>
         /// </remarks>
         /// <returns>A performable action</returns>
