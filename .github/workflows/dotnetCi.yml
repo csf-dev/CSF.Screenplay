@@ -150,9 +150,11 @@ jobs:
         with:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
-      # This step won't produce any artifacts if the verbose factory isn't
-      # selected via appsettings.json in CSF.Screenplay.Selenium.Tests, but that's OK
       - name: Upload verbose webdriver log artifacts
+        # This step is only relevant if the ChromeDriver with verbose logging is selected, such as via
+        # appsettings.json in CSF.Screenplay.Selenium.Tests.
+        # If verbose logs aren't created then this step is skipped to avoid a build warning about missing artifacts.
+        if: ${{ hashFiles('**/chrome-verbose-log.txt') != '' }}
         uses: actions/upload-artifact@v7
         with:
           name: Verbose webdriver logs
