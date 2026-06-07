@@ -31,7 +31,7 @@ public class SaveTextAsAnAssetTests
     }
 
     [Test, AutoMoqData]
-    public async Task GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
+    public void GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
     {
         var builder = SaveTheText("Foo bar baz")
             .AsAnAssetWithTheFilename("SaveTextAsAnAssetTests-asset.txt")

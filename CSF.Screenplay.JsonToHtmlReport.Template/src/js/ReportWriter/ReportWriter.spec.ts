@@ -1,0 +1,319 @@
+import { expect, test, vi } from 'vitest';
+import { getReportWriter } from './ReportWriter';
+import { ScenarioAggregator } from '../ScenarioAggregator';
+import templateHtml from '../../template.html';
+import { PerformanceReport, ScreenplayReport } from '../Models';
+
+/**
+ * This is a very loose integration test which really only tests the happy path and verifies that the logic
+ * runs to completion. It doesn't perform any deep assertions on the output.
+ */
+test('getReport should return a document fragment', () => {
+    document.body.innerHTML = getTemplateHtml();
+
+    const scenarioAggregator = new ScenarioAggregator(getTestData().Performances);
+    const scenariosByFeature = scenarioAggregator.getScenariosByFeature();
+    const reportWriter = getReportWriter();
+    
+    const litebox = {
+        open(imageUrl : string, filename : string, summary : string, isBlobUrl : boolean) {},
+        close() {},
+    };
+    const result = reportWriter.getReport(scenariosByFeature, litebox);
+    expect(result).not.toBeNull();
+});
+
+
+const testData = {
+    "Metadata": {
+        "Timestamp": "2024-10-29T21:46:29.4707208Z",
+        "ReportVersion": "2.0.0"
+    },
+    "Performances": [
+        {
+            "NamingHierarchy": [
+                {
+                    "Identifier": "6077245f-9245-4021-adab-cedf66d414fb",
+                    "Name": "Adding up numbers",
+                    "IsGeneratedId": true
+                },
+                {
+                    "Identifier": "0b2bd6e4-4b73-4d92-a451-7b8dbcabb9e7",
+                    "Name": "Mathias should be able to add three numbers in a single step",
+                    "IsGeneratedId": true
+                }
+            ],
+            "Outcome": "Success",
+            "Reportables": [
+                {
+                    "Kind": "ActorCreatedReport",
+                    "Report": "Mathias joined the performance",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorGainedAbilityReport",
+                    "Report": "Mathias is able to add numbers to a running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorSpotlitReport",
+                    "Report": "Mathias was put into the spotlight",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.SetTheNumber",
+                    "Phase": "Given",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [
+                        {
+                            "Path": "abc.txt",
+                            "Summary": "A text file",
+                            "ContentType": "text/plain"
+                        },
+                        {
+                            "Path": "one.png",
+                            "Summary": "A picture",
+                            "ContentType": "image/png"
+                        }
+                    ],
+                    "Reportables": [],
+                    "Report": "Mathias sets the running total to 50",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.AddThreeNumbers",
+                    "Phase": "When",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [
+                        {
+                            "Kind": "PerformableReport",
+                            "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                            "Phase": "",
+                            "Result": null,
+                            "HasResult": false,
+                            "Exception": null,
+                            "ExceptionIsBubbling": false,
+                            "Assets": [],
+                            "Reportables": [],
+                            "Report": "Mathias adds 40 to the running total",
+                            "Actor": "Mathias"
+                        },
+                        {
+                            "Kind": "PerformableReport",
+                            "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                            "Phase": "",
+                            "Result": null,
+                            "HasResult": false,
+                            "Exception": null,
+                            "ExceptionIsBubbling": false,
+                            "Assets": [],
+                            "Reportables": [],
+                            "Report": "Mathias adds 30 to the running total",
+                            "Actor": "Mathias"
+                        },
+                        {
+                            "Kind": "PerformableReport",
+                            "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                            "Phase": "",
+                            "Result": null,
+                            "HasResult": false,
+                            "Exception": null,
+                            "ExceptionIsBubbling": false,
+                            "Assets": [],
+                            "Reportables": [],
+                            "Report": "Mathias adds 20 to the running total",
+                            "Actor": "Mathias"
+                        }
+                    ],
+                    "Report": "Mathias adds three numbers to the running total: 40, 30 \u0026 20",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.GetTheNumber",
+                    "Phase": "Then",
+                    "Result": "140",
+                    "HasResult": true,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias gets the running total",
+                    "Actor": "Mathias"
+                }
+            ]
+        },
+        {
+            "NamingHierarchy": [
+                {
+                    "Identifier": "6077245f-9245-4021-adab-cedf66d414fb",
+                    "Name": "Adding up numbers",
+                    "IsGeneratedId": true
+                },
+                {
+                    "Identifier": "8c3e2e1a-f141-4484-a7a9-ac84772eefa5",
+                    "Name": "Mathias should be able to add three numbers together and get the correct result",
+                    "IsGeneratedId": true
+                }
+            ],
+            "Outcome": "Success",
+            "Reportables": [
+                {
+                    "Kind": "ActorCreatedReport",
+                    "Report": "Mathias joined the performance",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorGainedAbilityReport",
+                    "Report": "Mathias is able to add numbers to a running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorSpotlitReport",
+                    "Report": "Mathias was put into the spotlight",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.SetTheNumber",
+                    "Phase": "Given",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias sets the running total to 50",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                    "Phase": "When",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias adds 70 to the running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                    "Phase": "When",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias adds 20 to the running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.GetTheNumber",
+                    "Phase": "Then",
+                    "Result": "140",
+                    "HasResult": true,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias gets the running total",
+                    "Actor": "Mathias"
+                }
+            ]
+        },
+        {
+            "NamingHierarchy": [
+                {
+                    "Identifier": "6077245f-9245-4021-adab-cedf66d414fb",
+                    "Name": "Adding up numbers",
+                    "IsGeneratedId": true
+                },
+                {
+                    "Identifier": "b6410a9a-b524-40a6-9332-19e3c69d0357",
+                    "Name": "Mathias should be able to add two numbers together and get the correct result",
+                    "IsGeneratedId": true
+                }
+            ],
+            "Outcome": "Success",
+            "Reportables": [
+                {
+                    "Kind": "ActorCreatedReport",
+                    "Report": "Mathias joined the performance",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorGainedAbilityReport",
+                    "Report": "Mathias is able to add numbers to a running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "ActorSpotlitReport",
+                    "Report": "Mathias was put into the spotlight",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.SetTheNumber",
+                    "Phase": "Given",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias sets the running total to 50",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.AddTheNumber",
+                    "Phase": "When",
+                    "Result": null,
+                    "HasResult": false,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias adds 70 to the running total",
+                    "Actor": "Mathias"
+                },
+                {
+                    "Kind": "PerformableReport",
+                    "Type": "CSF.Screenplay.AddingUp.GetTheNumber",
+                    "Phase": "Then",
+                    "Result": "120",
+                    "HasResult": true,
+                    "Exception": null,
+                    "ExceptionIsBubbling": false,
+                    "Assets": [],
+                    "Reportables": [],
+                    "Report": "Mathias gets the running total",
+                    "Actor": "Mathias"
+                }
+            ]
+        }
+    ]
+};
+
+function getTestData() {
+    return testData as unknown as ScreenplayReport;
+}
+
+function getTemplateHtml() {
+    return templateHtml;
+}

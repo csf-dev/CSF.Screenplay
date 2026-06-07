@@ -29,7 +29,7 @@ namespace CSF.Screenplay.Selenium.Actions
     {
         /// <inheritdoc/>
         public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
-            => formatter.Format("{Actor} begins collecting browser logs from the current page, using a JavaScript technique");
+            => formatter.Format("{Actor} begins collecting browser logs from the current page, using a JavaScript technique", actor);
 
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)

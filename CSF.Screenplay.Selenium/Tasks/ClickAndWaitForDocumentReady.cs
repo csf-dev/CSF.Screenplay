@@ -81,7 +81,7 @@ namespace CSF.Screenplay.Selenium.Tasks
         {
             await actor.PerformAsync(ClickOn(element.Value), cancellationToken);
             await WaitForPageLoad(actor, webDriver, element, cancellationToken);
-            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && webDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround))
+            if(actor.GetAbility<BrowseTheWeb>().ShouldCollectLogs && NeedsJavaScriptWorkaroundForLogs(webDriver))
                 await actor.PerformAsync(BeginCollectingLogsWithJavaScript(), cancellationToken);
         }
 
@@ -97,6 +97,9 @@ namespace CSF.Screenplay.Selenium.Tasks
             await actor.PerformAsync(WaitUntil(PageIsReady).ForAtMost(timeout).Named("the next page is ready"),
                                      cancellationToken);
         }
+
+        static bool NeedsJavaScriptWorkaroundForLogs(IWebDriver webDriver)
+            => webDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround) && !webDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport);
 
         /// <summary>
         /// Gets a function which accesses <see cref="IWebElement.Enabled"/>, which forces communication with the WebDriver and verifies the

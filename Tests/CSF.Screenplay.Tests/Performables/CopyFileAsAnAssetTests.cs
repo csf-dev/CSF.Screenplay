@@ -30,7 +30,7 @@ public class CopyFileAsAnAssetTests
     }
 
     [Test, AutoMoqData]
-    public async Task GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
+    public void GetReportFragmentShouldGetAReportFragment(Actor actor, IGetsAssetFilePath pathProvider, IFormatsReportFragment formatter)
     {
         var sut = CopyTheFile(Path.Combine(TestContext.CurrentContext.TestDirectory, "Performables", "SampleAsset.CopyFileAsAnAsset.txt"))
             .AsAnAssetWithTheFilename("CopyFileAsAnAssetTests-asset.txt")
