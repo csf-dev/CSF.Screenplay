@@ -5244,6 +5244,26 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/Report view mode design.README.txt",
+      "output": {
+        "resource": {
+          "relative_path": "images/Report view mode design.README.txt"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Report view mode design.epgz",
+      "output": {
+        "resource": {
+          "relative_path": "images/Report view mode design.epgz"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/automation-process-icon.svg",
       "output": {
         "resource": {
