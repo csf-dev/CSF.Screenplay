@@ -13,11 +13,12 @@ export interface DisplaysImage {
 }
 
 export class Litebox implements DisplaysImage {
-    #main : HTMLElement;
-    #download : HTMLElement;
-    #close : HTMLElement;
-    #content : HTMLImageElement;
-    #summary : HTMLElement;
+    readonly #main : HTMLElement;
+    readonly #download : HTMLElement;
+    readonly #close : HTMLElement;
+    readonly #content : HTMLImageElement;
+    readonly #summary : HTMLElement;
+    
     #imageUrl : string = '';
     #isBlobUrl : boolean = false;
     #fileName : string = '';

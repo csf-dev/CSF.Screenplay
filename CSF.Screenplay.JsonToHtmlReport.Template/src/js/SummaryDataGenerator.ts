@@ -19,7 +19,7 @@ export class SummaryDataGenerator implements GetsSummaryData {
     }
 
     #getScenarioSummary(features : FeatureList, noFeatureScenarios : HasScenarios) {
-        const featureScenarios = Object.values(features).map(x => x.scenarios).flat();
+        const featureScenarios = Object.values(features).flatMap(x => x.scenarios);
         const allScenarios = [...featureScenarios, ...noFeatureScenarios.scenarios];
 
         return allScenarios.reduce((accumulator, scenarioContainer) => {

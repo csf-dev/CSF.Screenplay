@@ -4,7 +4,7 @@ import { querySelectorNotNull } from "../Utils";
 import { imageTypes } from "./ImageTypes";
 
 export class AssetBehaviour {
-    #linkElement : HTMLAnchorElement;
+    readonly #linkElement : HTMLAnchorElement;
 
     initialise() {
         this.#linkElement.textContent = this.assetModel.Summary;

@@ -56,9 +56,7 @@ export class ReportableElementCreator {
 
     #setupResult(reportableElement : HTMLElement, reportable : PerformableReport) {
         const resultElement = querySelectorNotNull('.result', reportableElement);
-        if (reportable.HasResult) resultElement.textContent = reportable.Result !== null
-            ? reportable.Result
-            : '<null>';
+        if (reportable.HasResult) resultElement.textContent = reportable.Result ?? '<null>';
         else resultElement.remove();
     }
 

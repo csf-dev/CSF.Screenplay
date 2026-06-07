@@ -26,12 +26,12 @@ export class ScenarioAggregator implements GetsScenariosByFeature {
 
     #getFeature(names : IdentifierAndNameModel[]) : IdentifierAndNameModel {
         return names.length > 1
-            ? names[names.length - 2]
+            ? names.at(names.length - 2)!
             : { Id: null, Name: "No Feature", IsGeneratedId: true };
     }
 
     #getScenario(names : IdentifierAndNameModel[]) : IdentifierAndNameModel {
-        if (names.length > 0) return names[names.length - 1];
+        if (names.length > 0) return names.at(names.length - 1)!;
         return { Id: crypto.randomUUID(), Name: "No Scenario", IsGeneratedId: true };
     }
 
