@@ -21,8 +21,6 @@ public class GetLogsWithJavaScriptTests
             Assert.Pass("This test cannot be performed with the current WebDriver");
 
         await Given(actor).WasAbleTo(NavigateTo(testPage));
-        await Task.Delay(TimeSpan.FromSeconds(2));
-        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
         await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
         var logs = await Then(actor).Should(GetBrowserLogsWithJavascript());
@@ -38,8 +36,6 @@ public class GetLogsWithJavaScriptTests
             Assert.Pass("This test cannot be performed with the current WebDriver");
 
         await Given(actor).WasAbleTo(NavigateTo(testPage));
-        await Task.Delay(TimeSpan.FromSeconds(2));
-        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
         await When(actor).AttemptsTo(ClickOn(theInfoButton));
         await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
@@ -58,8 +54,6 @@ public class GetLogsWithJavaScriptTests
             Assert.Pass("This test cannot be performed with the current WebDriver");
 
         await Given(actor).WasAbleTo(NavigateTo(testPage));
-        await Task.Delay(TimeSpan.FromSeconds(2));
-        await Given(actor).WasAbleTo(BeginCollectingLogsWithJavaScript());
         await When(actor).AttemptsTo(ClickOn(theInfoButton));
         await When(actor).AttemptsTo(ClickOn(theInfoButton));
 
