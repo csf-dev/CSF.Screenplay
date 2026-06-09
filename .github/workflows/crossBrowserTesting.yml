@@ -81,12 +81,12 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Install build dependencies
 
       - name: Install .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ env.DotnetVersion }}
       - name: Install Node.js for building JSON-to-HTML report converter
@@ -113,7 +113,7 @@ jobs:
 
       # Post-test tasks (artifacts, overall status)
       - name: Upload Screenplay JSON report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Screenplay JSON reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
           path: Tests/CSF.Screenplay.Selenium.Tests/**/ScreenplayReport.json
@@ -127,7 +127,7 @@ jobs:
             dotnet run --no-build --framework $Tfm -c ${{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
           done
       - name: Upload Screenplay HTML report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Screenplay HTML reports ${{ matrix.browserName }}_${{ matrix.browserVersion }}_${{ matrix.os }}_${{ matrix.osVersion }}
           path: Tests/**/ScreenplayReport.html
