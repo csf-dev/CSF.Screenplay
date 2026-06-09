@@ -97,9 +97,6 @@ namespace CSF.Screenplay.Selenium.Tasks
                                      cancellationToken);
         }
 
-        static bool NeedsJavaScriptWorkaroundForLogs(IWebDriver webDriver)
-            => webDriver.HasQuirk(BrowserQuirks.CanGetLogsWithJavascriptWorkaround) && !webDriver.HasQuirk(BrowserQuirks.HasNativeLogsSupport);
-
         /// <summary>
         /// Gets a function which accesses <see cref="IWebElement.Enabled"/>, which forces communication with the WebDriver and verifies the
         /// existence of the <paramref name="element"/>.
