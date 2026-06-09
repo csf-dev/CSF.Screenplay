@@ -3956,6 +3956,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.yml\" sourcestartlinenumber=\"1\">Determines whether the current actor needs to use a JS technique to collect web browser console logs.\nIf they do, executes the action which begins collecting them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.yml",
       "output": {
         ".html": {
@@ -4012,17 +4026,17 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.yml",
+      "source_relative_path": "api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html"
+          "relative_path": "api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.yml\" sourcestartlinenumber=\"1\">A Screenplay task which navigates directly to a specified URL using the actor's WebDriver.\nIf the specified Uri is relative then it is made absolute by basing it upon the Uri indicated by the <xref href=\"CSF.Screenplay.Selenium.UseABaseUri\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
+      "Title": "CSF.Screenplay.Selenium.Tasks.NavigateToUrl",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.yml\" sourcestartlinenumber=\"1\">A Screenplay task which navigates directly to a specified URL using the actor's WebDriver.\nIf the specified Uri is relative then it is made absolute by basing it upon the Uri indicated by the <xref href=\"CSF.Screenplay.Selenium.UseABaseUri\" data-throw-if-not-resolved=\"false\"></xref> ability.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4448,11 +4462,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -4541,11 +4555,11 @@
       "type": "Toc",
       "source_relative_path": "docs/builderPattern/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/builderPattern/toc.html"
-        },
         ".json": {
           "relative_path": "docs/builderPattern/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/builderPattern/toc.html"
         }
       },
       "version": ""
@@ -4814,11 +4828,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/selenium/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/selenium/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/selenium/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/selenium/toc.html"
         }
       },
       "version": ""
@@ -4877,11 +4891,11 @@
       "type": "Toc",
       "source_relative_path": "docs/extensions/webApis/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/extensions/webApis/toc.html"
-        },
         ".json": {
           "relative_path": "docs/extensions/webApis/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/extensions/webApis/toc.html"
         }
       },
       "version": ""
@@ -4970,11 +4984,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -5233,11 +5247,11 @@
       "type": "Toc",
       "source_relative_path": "glossary/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "glossary/toc.html"
-        },
         ".json": {
           "relative_path": "glossary/toc.json"
+        },
+        ".html": {
+          "relative_path": "glossary/toc.html"
         }
       },
       "version": ""
@@ -5336,11 +5350,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

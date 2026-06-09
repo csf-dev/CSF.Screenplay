@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript" data-uid="CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript" class="text-break">
-Class GetLogsWithJavaScript  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L46"><i class="bi bi-code-slash"></i></a>
+Class GetLogsWithJavaScript  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -178,13 +178,6 @@ Note that this question will not (and cannot) respect the WebDriver's logging pr
 <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">SetLoggingPreference(string, LogLevel)</a>.
 Consumers will need to manually filter for messages which they care about, based upon the log level.
 </p>
-<p>
-Also note that this technique is not viable with Remote WebDrivers.  It has been tested and found to be unreliable.
-This Question will throw an exception if the underlying WebDriver is an instance of
-<a class="xref" href="https://www.selenium.dev/selenium/docs/api/dotnet/webdriver/OpenQA.Selenium.Remote.RemoteWebDriver.html">RemoteWebDriver</a>.  Instead of using this technique, use the remote web driver's
-own built-in technique to access console logs.  For example, some providers offer a separate non-WebDriver-based API
-to read the logs.  Accessing these is outside the scope of this class.
-</p>
 </div>
 
 
@@ -196,7 +189,7 @@ to read the logs.  Accessing these is outside the scope of this class.
 
   <h3 id="CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -279,7 +272,7 @@ are seldom presented as paragraphs of prose.
 
   <h3 id="CSF_Screenplay_Selenium_Questions_GetLogsWithJavaScript_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance and returns a strongly-typed value.</p>
@@ -321,7 +314,7 @@ are seldom presented as paragraphs of prose.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L46" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Questions/GetLogsWithJavaScript.cs/#L39" class="edit-link">Edit this page</a>
         </div>
 
 

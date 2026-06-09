@@ -14114,6 +14114,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScript
   nameWithType: PerformableBuilder.BeginCollectingLogsWithJavaScript
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable
+  name: BeginCollectingLogsWithJavaScriptIfApplicable()
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScriptIfApplicable
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable()
+  nameWithType: PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable()
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable*
+  name: BeginCollectingLogsWithJavaScriptIfApplicable
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_BeginCollectingLogsWithJavaScriptIfApplicable_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable
+  nameWithType: PerformableBuilder.BeginCollectingLogsWithJavaScriptIfApplicable
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.ClearAllDomainCookies
   name: ClearAllDomainCookies()
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_ClearAllDomainCookies
@@ -14603,6 +14616,19 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.PerformableBuilder.GetTheShadowRootWithJavaScriptFrom
   nameWithType: PerformableBuilder.GetTheShadowRootWithJavaScriptFrom
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo(CSF.Screenplay.Selenium.NamedUri)
+  name: NavigateTo(NamedUri)
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_NavigateTo_CSF_Screenplay_Selenium_NamedUri_
+  commentId: M:CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo(CSF.Screenplay.Selenium.NamedUri)
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo(CSF.Screenplay.Selenium.NamedUri)
+  nameWithType: PerformableBuilder.NavigateTo(NamedUri)
+- uid: CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo*
+  name: NavigateTo
+  href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_NavigateTo_
+  commentId: Overload:CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.PerformableBuilder.NavigateTo
+  nameWithType: PerformableBuilder.NavigateTo
 - uid: CSF.Screenplay.Selenium.PerformableBuilder.OpenTheUrl(CSF.Screenplay.Selenium.NamedUri)
   name: OpenTheUrl(NamedUri)
   href: api/CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_
@@ -16707,6 +16733,57 @@ references:
   commentId: N:CSF.Screenplay.Selenium.Tasks
   fullName: CSF.Screenplay.Selenium.Tasks
   nameWithType: CSF.Screenplay.Selenium.Tasks
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable
+  name: BeginCollectingLogsWithJavaScriptIfApplicable
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  name: GetReportFragment(Actor, IFormatsReportFragment)
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment*
+  name: GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  name: PerformAsAsync(ICanPerform, CancellationToken)
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync*
+  name: PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.PerformAsAsync
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.ICanPerform)
+  name: ShouldCollectLogsWithJavaScript(ICanPerform)
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_ShouldCollectLogsWithJavaScript_CSF_Screenplay_ICanPerform_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.ICanPerform)
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.ICanPerform)
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(ICanPerform)
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.Selenium.BrowseTheWeb)
+  name: ShouldCollectLogsWithJavaScript(BrowseTheWeb)
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_ShouldCollectLogsWithJavaScript_CSF_Screenplay_Selenium_BrowseTheWeb_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.Selenium.BrowseTheWeb)
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(CSF.Screenplay.Selenium.BrowseTheWeb)
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript(BrowseTheWeb)
+- uid: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript*
+  name: ShouldCollectLogsWithJavaScript
+  href: api/CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.html#CSF_Screenplay_Selenium_Tasks_BeginCollectingLogsWithJavaScriptIfApplicable_ShouldCollectLogsWithJavaScript_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript
+  isSpec: "True"
+  fullName: CSF.Screenplay.Selenium.Tasks.BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript
+  nameWithType: BeginCollectingLogsWithJavaScriptIfApplicable.ShouldCollectLogsWithJavaScript
 - uid: CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady
   name: ClickAndWaitForDocumentReady
   href: api/CSF.Screenplay.Selenium.Tasks.ClickAndWaitForDocumentReady.html
@@ -16917,57 +16994,57 @@ references:
   isSpec: "True"
   fullName: CSF.Screenplay.Selenium.Tasks.GetTheBrowserLogs.PerformAsAsync
   nameWithType: GetTheBrowserLogs.PerformAsAsync
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
-  name: OpenUrlRespectingBase
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html
-  commentId: T:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase
-  nameWithType: OpenUrlRespectingBase
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor(CSF.Screenplay.Selenium.NamedUri)
-  name: OpenUrlRespectingBase(NamedUri)
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase__ctor_CSF_Screenplay_Selenium_NamedUri_
-  commentId: M:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor(CSF.Screenplay.Selenium.NamedUri)
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl
+  name: NavigateToUrl
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html
+  commentId: T:CSF.Screenplay.Selenium.Tasks.NavigateToUrl
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl
+  nameWithType: NavigateToUrl
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor(CSF.Screenplay.Selenium.NamedUri)
+  name: NavigateToUrl(NamedUri)
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl__ctor_CSF_Screenplay_Selenium_NamedUri_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor(CSF.Screenplay.Selenium.NamedUri)
   name.vb: New(NamedUri)
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.OpenUrlRespectingBase(CSF.Screenplay.Selenium.NamedUri)
-  fullName.vb: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.New(CSF.Screenplay.Selenium.NamedUri)
-  nameWithType: OpenUrlRespectingBase.OpenUrlRespectingBase(NamedUri)
-  nameWithType.vb: OpenUrlRespectingBase.New(NamedUri)
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor*
-  name: OpenUrlRespectingBase
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase__ctor_
-  commentId: Overload:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.NavigateToUrl(CSF.Screenplay.Selenium.NamedUri)
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.New(CSF.Screenplay.Selenium.NamedUri)
+  nameWithType: NavigateToUrl.NavigateToUrl(NamedUri)
+  nameWithType.vb: NavigateToUrl.New(NamedUri)
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor*
+  name: NavigateToUrl
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl__ctor_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.OpenUrlRespectingBase
-  fullName.vb: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.New
-  nameWithType: OpenUrlRespectingBase.OpenUrlRespectingBase
-  nameWithType.vb: OpenUrlRespectingBase.New
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.NavigateToUrl
+  fullName.vb: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.New
+  nameWithType: NavigateToUrl.NavigateToUrl
+  nameWithType.vb: NavigateToUrl.New
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
   name: GetReportFragment(Actor, IFormatsReportFragment)
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
-  commentId: M:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
-  nameWithType: OpenUrlRespectingBase.GetReportFragment(Actor, IFormatsReportFragment)
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment*
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment(CSF.Screenplay.Actor, CSF.Screenplay.IFormatsReportFragment)
+  nameWithType: NavigateToUrl.GetReportFragment(Actor, IFormatsReportFragment)
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment*
   name: GetReportFragment
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_
-  commentId: Overload:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment
-  nameWithType: OpenUrlRespectingBase.GetReportFragment
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment
+  nameWithType: NavigateToUrl.GetReportFragment
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
   name: PerformAsAsync(ICanPerform, CancellationToken)
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
-  commentId: M:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
-  nameWithType: OpenUrlRespectingBase.PerformAsAsync(ICanPerform, CancellationToken)
-- uid: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync*
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_
+  commentId: M:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync(CSF.Screenplay.ICanPerform, System.Threading.CancellationToken)
+  nameWithType: NavigateToUrl.PerformAsAsync(ICanPerform, CancellationToken)
+- uid: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync*
   name: PerformAsAsync
-  href: api/CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html#CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_PerformAsAsync_
-  commentId: Overload:CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync
+  href: api/CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html#CSF_Screenplay_Selenium_Tasks_NavigateToUrl_PerformAsAsync_
+  commentId: Overload:CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync
   isSpec: "True"
-  fullName: CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync
-  nameWithType: OpenUrlRespectingBase.PerformAsAsync
+  fullName: CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync
+  nameWithType: NavigateToUrl.PerformAsAsync
 - uid: CSF.Screenplay.Selenium.Tasks.SetTheElementValue
   name: SetTheElementValue
   href: api/CSF.Screenplay.Selenium.Tasks.SetTheElementValue.html

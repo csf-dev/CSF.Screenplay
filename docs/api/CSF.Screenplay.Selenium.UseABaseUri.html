@@ -183,7 +183,7 @@ await myActor.PerformAsync(OpenTheUrl(shoppingCart));</p>
 <p>
 The Uri to use as the base Uri does not need to be hard-coded, it could come from configuration or an environment variable etc.
 When the actor makes use of the <a class="xref" href="CSF.Screenplay.Selenium.BrowseTheWeb.html">BrowseTheWeb</a> ability and opens a Url using the performable returned from
-<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl(NamedUri)</a>, the specified named Uri <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri_">will be rebased</a>
+<a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_NavigateTo_CSF_Screenplay_Selenium_NamedUri_">NavigateTo(NamedUri)</a>, the specified named Uri <a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html#CSF_Screenplay_Selenium_NamedUri_RebaseTo_System_Uri_">will be rebased</a>
 to the base Uri specified by this ability.
 </p>
 </div>
@@ -367,7 +367,7 @@ are seldom presented as paragraphs of prose.
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a></div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html">NavigateToUrl</a></div>
       <div><a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a></div>
   </div>
 

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class OpenUrlRespectingBase | Screenplay </title>
+      <title>Class NavigateToUrl | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class OpenUrlRespectingBase | Screenplay ">
+      <meta name="title" content="Class NavigateToUrl | Screenplay ">
       
       <meta name="description" content="A Screenplay task which navigates directly to a specified URL using the actor&#39;s WebDriver. If the specified Uri is relative then it is made absolute by basing it upon the Uri indicated by the  ability.">
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/new/master/apiSpec/new?filename=CSF_Screenplay_Selenium_Tasks_NavigateToUrl.md&amp;value=---%0Auid%3A%20CSF.Screenplay.Selenium.Tasks.NavigateToUrl%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase">
+        <article data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl">
 
 
 
-  <h1 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase" class="text-break">
-Class OpenUrlRespectingBase  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/OpenUrlRespectingBase.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <h1 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl" class="text-break">
+Class NavigateToUrl  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/NavigateToUrl.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -103,7 +103,7 @@ If the specified Uri is relative then it is made absolute by basing it upon the 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OpenUrlRespectingBase : IPerformable, ICanReport</code></pre>
+    <pre><code class="lang-csharp hljs">public class NavigateToUrl : IPerformable, ICanReport</code></pre>
   </div>
 
 
@@ -113,7 +113,7 @@ If the specified Uri is relative then it is made absolute by basing it upon the 
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">OpenUrlRespectingBase</span></div>
+      <div><span class="xref">NavigateToUrl</span></div>
     </dd>
   </dl>
 
@@ -154,7 +154,7 @@ If the specified Uri is relative then it is made absolute by basing it upon the 
 
 
 
-  <h2 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_examples">Examples</h2>
+  <h2 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_examples">Examples</h2>
   <p>
 This task is used in exactly the same way as <a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a>.  The example below shows the opening of the URL
 <code>https://example.com/user/shoppingCart</code>.  Note that in a real performance, the actor would be granted the
@@ -171,9 +171,9 @@ await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
 }</p></code></pre>
 
 
-  <h2 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_remarks">Remarks</h2>
+  <h2 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
-Use this task via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl(NamedUri)</a>, which automatically makes
+Use this task via the builder method <a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_NavigateTo_CSF_Screenplay_Selenium_NamedUri_">NavigateTo(NamedUri)</a>, which automatically makes
 use of this task. This task behaves very similarly to the action <a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a>, except for base-URI-replacement.
 </p>
 <p>
@@ -203,19 +203,19 @@ architecture possible.
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase__ctor_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl__ctor_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase__ctor_CSF_Screenplay_Selenium_NamedUri_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.#ctor(CSF.Screenplay.Selenium.NamedUri)">
-  OpenUrlRespectingBase(NamedUri)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/OpenUrlRespectingBase.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl__ctor_CSF_Screenplay_Selenium_NamedUri_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.#ctor(CSF.Screenplay.Selenium.NamedUri)">
+  NavigateToUrl(NamedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/NavigateToUrl.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.html">OpenUrlRespectingBase</a> class with the specified URL.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.html">NavigateToUrl</a> class with the specified URL.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OpenUrlRespectingBase(NamedUri uri)</code></pre>
+    <pre><code class="lang-csharp hljs">public NavigateToUrl(NamedUri uri)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -240,11 +240,11 @@ architecture possible.
 </h2>
 
 
-  <a id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.GetReportFragment(CSF.Screenplay.Actor,CSF.Screenplay.IFormatsReportFragment)">
   GetReportFragment(Actor, IFormatsReportFragment)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/OpenUrlRespectingBase.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/NavigateToUrl.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a fragment of a Screenplay report, specific to the execution (performables) or gaining
@@ -278,7 +278,7 @@ architecture possible.
 
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__examples">Examples</h4>
   <p>
 For a performable which clicks a button (where the button itself has been constructor-injected into
 the performable instance), then a suitable return value might be a formatted string such as
@@ -296,7 +296,7 @@ format <code>{Actor name} is able to wash the dishes</code>.
 </p>
 
 
-  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
+  <h4 class="section" id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_GetReportFragment_CSF_Screenplay_Actor_CSF_Screenplay_IFormatsReportFragment__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 Implementers should return a string which indicates that the named actor is performing (present tense)
 the performable, for types which also implement a performable interface. For types which represent
@@ -323,11 +323,11 @@ are seldom presented as paragraphs of prose.
 
 
 
-  <a id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync*"></a>
+  <a id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_PerformAsAsync_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync*"></a>
 
-  <h3 id="CSF_Screenplay_Selenium_Tasks_OpenUrlRespectingBase_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Tasks.OpenUrlRespectingBase.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
+  <h3 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_PerformAsAsync_CSF_Screenplay_ICanPerform_System_Threading_CancellationToken_" data-uid="CSF.Screenplay.Selenium.Tasks.NavigateToUrl.PerformAsAsync(CSF.Screenplay.ICanPerform,System.Threading.CancellationToken)">
   PerformAsAsync(ICanPerform, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/OpenUrlRespectingBase.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/NavigateToUrl.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs the action(s) are represented by the current instance.</p>
@@ -368,14 +368,14 @@ are seldom presented as paragraphs of prose.
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="CSF.Screenplay.Selenium.UseABaseUri.html">UseABaseUri</a></div>
-      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_OpenTheUrl_CSF_Screenplay_Selenium_NamedUri_">OpenTheUrl</a>(<a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>)</div>
+      <div><a class="xref" href="CSF.Screenplay.Selenium.PerformableBuilder.html#CSF_Screenplay_Selenium_PerformableBuilder_NavigateTo_CSF_Screenplay_Selenium_NamedUri_">NavigateTo</a>(<a class="xref" href="CSF.Screenplay.Selenium.NamedUri.html">NamedUri</a>)</div>
       <div><a class="xref" href="CSF.Screenplay.Selenium.Actions.OpenUrl.html">OpenUrl</a></div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/OpenUrlRespectingBase.cs/#L61" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Selenium/Tasks/NavigateToUrl.cs/#L62" class="edit-link">Edit this page</a>
         </div>
 
 
