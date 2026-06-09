@@ -15,7 +15,7 @@ public class FilterElementsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var elements = await Given(webster).WasAbleTo(FindElementsOnThePage().WhichMatch(allInputs));
         var filteredElements = await When(webster).AttemptsTo(Filter(elements).ForThoseWhich(have => have.Class("specialInput")).AndNameThem("the special input elements"));
         var values = await Then(webster).Should(ReadFromTheCollectionOfElements(filteredElements).Value());

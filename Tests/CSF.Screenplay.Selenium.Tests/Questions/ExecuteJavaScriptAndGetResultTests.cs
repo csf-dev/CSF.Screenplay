@@ -24,7 +24,7 @@ public class ExecuteJavaScriptAndGetResultTests
     public async Task ExecuteJavaScriptAndGetResultShouldBeAbleToExecuteAScriptWithParameters(IStage stage)
     {
         var webster = stage.Spotlight<Webster>();
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var element = await Given(webster).WasAbleTo(FindAnElementOnThePage().WhichMatches(textContent));
         await When(webster).AttemptsTo(ExecuteCustomScript(scriptBody1).WithTheName("a script that changes the BG colour of an element").WithTheArguments(element.WebElement, "#CCF"));
         var backgroundColor = await Then(webster).Should(ExecuteCustomScriptWithResult<string>(scriptBody2).WithTheName("a script that gets the BG colour").WithTheArguments(element.WebElement));

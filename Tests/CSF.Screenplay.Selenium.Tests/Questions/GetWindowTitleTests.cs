@@ -13,7 +13,7 @@ public class GetWindowTitleTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var title = await When(webster).AttemptsTo(ReadTheWindowTitle());
 
         Assert.That(title, Is.EqualTo("Open a URL test page"));

@@ -33,7 +33,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitUntil(displayText.Has().Text($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed"))
@@ -49,7 +49,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
@@ -66,7 +66,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
@@ -83,7 +83,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         Assert.That(async () => await Then(webster).Should(WaitUntil(displayTextSpan.Has().Text(GetDelayMilliseconds(webster).ToString()))
@@ -97,7 +97,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
 
@@ -112,7 +112,7 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
         webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster))));
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitUntil(displayText.Has().Text($"Clicked, and {GetDelayMilliseconds(webster)}ms has elapsed")));
@@ -127,7 +127,7 @@ public class WaitTests
         var webster = stage.Spotlight<Webster>();
         webster.IsAbleTo(new UseADefaultWaitTime(TimeSpan.FromMilliseconds(GetInsufficientWaitMilliseconds(webster))));
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
 
@@ -140,7 +140,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(GetSufficientWaitMilliseconds(webster))));
@@ -154,7 +154,7 @@ public class WaitTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await Given(webster).WasAbleTo(EnterTheText(GetDelayMilliseconds(webster).ToString()).Into(delayTimer));
         await When(webster).AttemptsTo(ClickOn(clickableButton));
         await Then(webster).Should(WaitFor(TimeSpan.FromMilliseconds(GetInsufficientWaitMilliseconds(webster))));

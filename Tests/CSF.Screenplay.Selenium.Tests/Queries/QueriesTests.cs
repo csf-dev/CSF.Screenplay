@@ -24,7 +24,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var value = await When(webster).AttemptsTo(ReadFromTheElement(passwordInput).TheAttribute("type"));
 
         Assert.That(value, Is.EqualTo("password"));
@@ -35,7 +35,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var values = await When(webster).AttemptsTo(ReadFromTheCollectionOfElements(maybeClickableButtons).Clickability());
 
         Assert.That(values, Is.EqualTo(new bool[] { true, false }));
@@ -46,7 +46,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(backgroundDiv).TheCssProperty("background-color"));
 
         Assert.That(result, Is.EqualTo(Selenium.Color.Parse("rgba(170, 170, 255, 1)")));
@@ -57,7 +57,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(positionedDiv).TheLocation());
 
         Assert.That(result, Is.EqualTo(new Point(700, 120)));
@@ -68,7 +68,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(sizedDiv).TheSize());
 
         Assert.That(result, Is.EqualTo(new Size(400, 150)));
@@ -79,7 +79,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(sizedDiv).TheText());
 
         Assert.That(result, Is.EqualTo("This div has a size of 400px by 150px."));
@@ -90,7 +90,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(passwordInput).TheValue());
 
         Assert.That(result, Is.EqualTo("secret"));
@@ -101,7 +101,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(passwordInput).TheVisibility());
 
         Assert.That(result, Is.True);
@@ -112,7 +112,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(hiddenDiv).TheVisibility());
 
         Assert.That(result, Is.False);
@@ -123,7 +123,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(multiSelect).AllOptions());
 
         Assert.That(result.Select(x => x.Text), Is.EqualTo(new string[] { "Option 1", "Option 2", "Option 3", "Option 4" }));
@@ -134,7 +134,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(multiSelect).SelectedOptions());
 
         Assert.That(result.Select(x => x.Text), Is.EqualTo(new string[] { "Option 1", "Option 3" }));
@@ -145,7 +145,7 @@ public class QueriesTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var result = await When(webster).AttemptsTo(ReadFromTheElement(multiSelect).UnselectedOptions());
 
         Assert.That(result.Select(x => x.Text), Is.EqualTo(new string[] { "Option 2", "Option 4" }));

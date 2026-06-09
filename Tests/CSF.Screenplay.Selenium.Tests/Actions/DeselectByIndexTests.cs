@@ -19,7 +19,7 @@ public class DeselectByIndexTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(DeselectTheOption(0).From(selectElement));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 

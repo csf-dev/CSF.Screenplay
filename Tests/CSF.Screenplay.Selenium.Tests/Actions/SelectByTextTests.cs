@@ -19,7 +19,7 @@ public class SelectByTextTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(SelectTheOption("Second").From(selectElement));
         var contents = await Then(webster).Should(ReadTheListItemsIn(displayText));
 

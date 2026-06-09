@@ -19,7 +19,7 @@ public class DeselectAllTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(DeselectEverythingFrom(selectElement));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 

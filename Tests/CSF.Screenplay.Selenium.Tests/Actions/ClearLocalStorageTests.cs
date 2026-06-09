@@ -25,7 +25,7 @@ public class ClearLocalStorageTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(ClearLocalStorage());
         await Then(webster).Should(ClickOn(listItemsButton));
         var items = await Then(webster).Should(ReadFromTheElement(itemList).TheText());

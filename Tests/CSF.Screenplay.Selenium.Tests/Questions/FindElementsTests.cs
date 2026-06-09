@@ -21,7 +21,7 @@ public class FindElementsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var inputs = await When(webster).AttemptsTo(FindElementsWithin(container).WhichMatch(special).AndNameThem("the special inputs"));
 
         Assert.That(inputs.Select(i => i.WebElement.GetDomProperty("value")).ToList(), Is.EqualTo(new[] { "Second input", "Third input" }));
@@ -32,7 +32,7 @@ public class FindElementsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var span = await When(webster).AttemptsTo(FindAnElementWithin(theList).WhichMatches(secondSpan).AndNameIt("the second span in the list"));
 
         Assert.That(span.WebElement.Text, Is.EqualTo("Second text inside a span"));
@@ -43,7 +43,7 @@ public class FindElementsTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var span = await When(webster).AttemptsTo(FindAnElementOnThePage().WhichMatches(secondSpanDeepSelector));
 
         Assert.That(span.WebElement.Text, Is.EqualTo("Second text inside a span"));

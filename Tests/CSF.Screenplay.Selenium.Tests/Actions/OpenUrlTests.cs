@@ -20,7 +20,7 @@ public class OpenUrlTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var contents = await Then(webster).Should(ReadFromTheElement(textContent).TheText());
 
         Assert.That(contents, Is.EqualTo("This is the page content."));
@@ -31,7 +31,7 @@ public class OpenUrlTests
     {
         var pattie = stage.Spotlight<Pattie>();
 
-        await Given(pattie).WasAbleTo(OpenTheUrl(testPage));
+        await Given(pattie).WasAbleTo(NavigateTo(testPage));
         var contents = await Then(pattie).Should(ReadFromTheElement(textContent).TheText());
 
         Assert.That(contents, Is.EqualTo("This is content at the deeper path."));

@@ -24,7 +24,7 @@ public class GetShadowRootNativelyTests
          || browseTheWeb.WebDriver.HasQuirk(BrowserQuirks.NeedsJavaScriptToGetShadowRoot))
             Assert.Pass("This test cannot be run on the current web browser");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var shadowRoot = await When(webster).AttemptsTo(GetTheShadowRootNativelyFrom(host));
         var shadowContent = await Then(webster).Should(FindAnElementWithin(shadowRoot).WhichMatches(content));
         var text = await Then(webster).Should(ReadFromTheElement(shadowContent).TheText());

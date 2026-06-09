@@ -22,7 +22,7 @@ public class EnterTheDateTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(EnterTheDate(new DateTime(2025, 11, 12)).Into(inputArea));
         var result = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
@@ -34,7 +34,7 @@ public class EnterTheDateTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(EnterTheDate(null).Into(inputArea));
         var result = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 
@@ -54,7 +54,7 @@ public class EnterTheDateTests
        if(ability.WebDriver.HasQuirk(BrowserQuirks.CannotSetInputTypeDateWithSendKeys))
             Assert.Pass("This test cannot meaningfully be run on a browser which requires a JS workaround to set dates. Treating this test as an implicit pass.");
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(EnterTheDate(new DateTime(2025, 11, 12)).Into(inputArea).ForTheCultureNamed("ja-JP"));
         var result = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 

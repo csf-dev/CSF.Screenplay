@@ -1,12 +1,14 @@
 return function() {
-    if(!globalThis['__csfScreenplayLogs']) throw new Error('The CaptureLogs script must have been executed on the current page before GetLogs may be used');
+    const
+        storageKey = '__csfScreenplayLogs',
+        allLogsStr = globalThis.sessionStorage.getItem(storageKey);
 
-    const logs = globalThis['__csfScreenplayLogs'].messages.filter(x => !x.Consumed);
-    for(const log of logs)
-        log.Consumed = true;
-    return logs.map(x => ({
+    if(!allLogsStr) throw new Error('The CaptureLogs script must have been executed on the current page before GetLogs may be used');
+
+    globalThis.sessionStorage.setItem(storageKey, '[]');
+    return JSON.parse(allLogsStr).map(x => ({
         Level: x.Level,
-        Message: x.Message.toString(),
-        Timestamp: x.Timestamp.toISOString()
+        Message: JSON.stringify(x.Message),
+        Timestamp: x.Timestamp
     }));
 }();

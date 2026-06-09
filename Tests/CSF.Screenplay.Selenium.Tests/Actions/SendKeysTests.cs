@@ -18,7 +18,7 @@ public class SendKeysTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         await When(webster).AttemptsTo(EnterTheText("Hello World").Into(inputArea));
         var contents = await Then(webster).Should(ReadFromTheElement(displayText).TheText());
 

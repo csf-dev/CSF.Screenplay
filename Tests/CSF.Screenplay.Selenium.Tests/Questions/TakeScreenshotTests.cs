@@ -13,7 +13,7 @@ public class TakeScreenshotTests
     {
         var webster = stage.Spotlight<Webster>();
 
-        await Given(webster).WasAbleTo(OpenTheUrl(testPage));
+        await Given(webster).WasAbleTo(NavigateTo(testPage));
         var screenshot = await When(webster).AttemptsTo(TakeAScreenshot());
 
         Assert.That(screenshot, Is.Not.Null);
