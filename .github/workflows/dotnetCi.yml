@@ -45,6 +45,8 @@ jobs:
       - id: run-all-tests
         name: Run all tests, with coverage
         uses: ./.github/actions/run-all-tests-with-coverage
+        with:
+          tfm: ${{ env.Tfm }}
       - name: Stop SonarScanner
         run:
           dotnet sonarscanner end /d:sonar.token=${{ secrets.SONARCLOUDKEY }}

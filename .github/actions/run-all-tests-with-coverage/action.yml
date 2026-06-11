@@ -52,8 +52,11 @@ runs:
         fi
     - name: Emit output
       id: emit_output
+      env:
+        DotnetFailures: ${{ steps.dotnet_tests.outputs.failures }}
+        JsFailures: ${{ steps.js_tests.outputs.failures }}
       run: |
-        if [ ${{ steps.dotnet_tests.outputs.failures }} -eq 'true' -o ${{ steps.js_tests.outputs.failures }} -eq 'true' ]
+        if [ "$DotnetFailures" -eq 'true' -o "$JsFailures" -eq 'true' ]
         then
           echo "failures=true" >> "$GITHUB_OUTPUT"
         else
