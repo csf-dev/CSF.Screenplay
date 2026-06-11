@@ -44,6 +44,7 @@ runs:
           outputFile="$reportDir/ScreenplayReport.html"
           dotnet run --no-build --framework ${{ inputs.tfm }} -c ${{ inputs.configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
         done
+      shell: bash
     - name: Upload Screenplay HTML report artifact
       uses: actions/upload-artifact@v7
       with:

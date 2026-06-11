@@ -6,6 +6,8 @@ runs:
   steps:
     - name: Restore .NET packages
       run: dotnet restore
+      shell: bash
     - name: Restore Node modules
       working-directory: CSF.Screenplay.JsonToHtmlReport.Template/src
       run: npm ci
+      shell: bash

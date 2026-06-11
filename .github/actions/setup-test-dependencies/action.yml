@@ -20,8 +20,10 @@ runs:
     # Installation
     - name: Install SonarScanner
       run: dotnet tool install --global dotnet-sonarscanner
+      shell: bash
     - name: Install Coverlet console
       run: dotnet tool install --global coverlet.console
+      shell: bash
     - name: Install Java JDK for SonarScanner
       uses: actions/setup-java@v5.1.0
       with:
@@ -32,12 +34,15 @@ runs:
     # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
     - name: Disable AppArmor restrictions so Chrome may run
       run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+      shell: bash
     - name: Start an Xvfb display so Chrome may run
       run: Xvfb -ac ${{ inputs.x-display }} -screen 0 ${{ inputs.x-resolution }}x16 &
+      shell: bash
     
     # Prime Selenium manager with initial config
     - name: Setup Selenium Manager config
       run: |
         mkdir ~/.cache/selenium
         cp Tools/se-config.toml ~/.cache/selenium
+      shell: bash
 

@@ -32,7 +32,7 @@ runs:
         BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
         BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
         PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
-      
+      shell: bash
       run: >
         dotnet sonarscanner begin
         /k:${{ inputs.project }}
