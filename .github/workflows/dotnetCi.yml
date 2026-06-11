@@ -26,10 +26,14 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/setup-test-dependencies
-      - uses: ./.github/actions/restore-dependencies
-      - uses: ./.github/actions/start-sonarscanner
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Setup additional test dependencies
+        uses: ./.github/actions/setup-test-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
+      - name: Start SonarScanner
+        uses: ./.github/actions/start-sonarscanner
         with:
           project: csf-dev_CSF.Screenplay
           build-version: GitHub_build_${{ env.RunNumber }}
@@ -39,6 +43,7 @@ jobs:
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
       - id: run-all-tests
+        name: Run all tests, with coverage
         uses: ./.github/actions/run-all-tests-with-coverage
       - name: Stop SonarScanner
         run:
@@ -46,7 +51,8 @@ jobs:
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
-      - uses: ./.github/actions/upload-ci-artifacts
+      - name: Upload all CI artifacts
+        uses: ./.github/actions/upload-ci-artifacts
       - name: Fail the build if any test failures
         if: steps.run-all-tests.outputs.failures == 'true'
         run: |

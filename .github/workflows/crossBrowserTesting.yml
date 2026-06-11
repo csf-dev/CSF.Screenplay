@@ -8,7 +8,6 @@ on:
   workflow_run:
     workflows: [.NET CI]
     types: [completed]
-    branches: [master]
   schedule:
     - cron: "27 20 * * 0"
 
@@ -86,8 +85,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
 
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }}

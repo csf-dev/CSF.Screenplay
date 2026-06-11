@@ -25,8 +25,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
       - name: Build CI version
         if: ${{ github.event_name == 'workflow_run' }}
         run: dotnet pack -p:VersionSuffix=ci.${{ github.run_number }} -o packages
@@ -66,8 +68,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
       - name: Remove old docs
         run: dotnet clean CSF.Screenplay.Docs
       - name: Build docs website

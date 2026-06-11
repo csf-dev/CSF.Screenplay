@@ -30,7 +30,9 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
       - name: Test Reqnroll (only)
         run: dotnet test Tests/CSF.Screenplay.Reqnroll.Tests -p:ReqnrollVersion=${{ matrix.reqnroll_version }}

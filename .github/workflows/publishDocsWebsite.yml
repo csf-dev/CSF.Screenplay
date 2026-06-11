@@ -19,8 +19,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
       - name: Remove old docs
         run: dotnet clean CSF.Screenplay.Docs
       - name: Build new docs
