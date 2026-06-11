@@ -19,8 +19,8 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/restore-dependencies
+      - uses: ./.github/actions/setup-build-dependencies.yml
+      - uses: ./.github/actions/restore-dependencies.yml
       - name: Remove old docs
         run: dotnet clean CSF.Screenplay.Docs
       - name: Build new docs

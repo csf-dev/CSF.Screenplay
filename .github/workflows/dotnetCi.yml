@@ -26,10 +26,10 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies
-      - uses: ./.github/actions/setup-test-dependencies
-      - uses: ./.github/actions/restore-dependencies
-      - uses: ./.github/actions/start-sonarscanner
+      - uses: ./.github/actions/setup-build-dependencies.yml
+      - uses: ./.github/actions/setup-test-dependencies.yml
+      - uses: ./.github/actions/restore-dependencies.yml
+      - uses: ./.github/actions/start-sonarscanner.yml
         with:
           project: csf-dev_CSF.Screenplay
           build-version: GitHub_build_${{ env.RunNumber }}
@@ -39,14 +39,14 @@ jobs:
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
       - id: run-all-tests
-        uses: ./.github/actions/run-all-tests-with-coverage
+        uses: ./.github/actions/run-all-tests-with-coverage.yml
       - name: Stop SonarScanner
         run:
           dotnet sonarscanner end /d:sonar.token=${{ secrets.SONARCLOUDKEY }}
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
-      - uses: ./.github/actions/upload-ci-artifacts
+      - uses: ./.github/actions/upload-ci-artifacts.yml
       - name: Fail the build if any test failures
         if: steps.run-all-tests.outputs.failures == 'true'
         run: |
