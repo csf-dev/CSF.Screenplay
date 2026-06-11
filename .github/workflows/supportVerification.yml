@@ -25,7 +25,11 @@ jobs:
         reqnroll_version: ['2.0.0', '2.*', '3.0.0', '3.*', '*']
 
     steps:
-      - uses: ./.github/actions/standard-checkout
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          lfs: true
       - uses: ./.github/actions/setup-build-dependencies
       - uses: ./.github/actions/restore-dependencies
       - name: Test Reqnroll (only)

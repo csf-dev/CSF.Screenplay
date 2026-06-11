@@ -14,7 +14,11 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-      - uses: ./.github/actions/standard-checkout
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          lfs: true
       - uses: ./.github/actions/setup-build-dependencies
       - uses: ./.github/actions/restore-dependencies
       - name: Remove old docs
