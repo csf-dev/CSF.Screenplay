@@ -58,8 +58,10 @@ runs:
       run: |
         if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' ]
         then
+          echo "Emitting failure"
           echo "failures=true" >> "$GITHUB_OUTPUT"
         else
+          echo "Emitting success"
           echo "failures=false" >> "$GITHUB_OUTPUT"
         fi
       shell: bash

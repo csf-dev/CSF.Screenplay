@@ -55,6 +55,8 @@ jobs:
         continue-on-error: true
       - name: Upload all CI artifacts
         uses: ./.github/actions/upload-ci-artifacts
+        with:
+          tfm: ${{ env.Tfm }}
       - name: Fail the build if any test failures
         if: steps.run-all-tests.outputs.failures == 'true'
         run: |
