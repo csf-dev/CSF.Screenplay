@@ -8,212 +8,43 @@ on:
 
 jobs:
 
-  # Summary:
-  #
-  # * Installs and configures the environment
-  # * Builds the solution with SonarScanner analysis
-  #   * In Debug configuration
-  # * Runs all .NET and JS tests
-  #   * In Debug configuration (.NET tests)
-  #   * Producing code coverage reports, consumed by SonarScanner
-  #   * WebDriver-based tests use a locally-running Chrome browser ONLY
-  # * Packages test results as build artifacts
-  # * Builds & packs the solution in Release configuration
-  # * Uploads the Release config packages as build artifacts
-
-  build_test_and_pack:
-    name: Build, test & package
+  build_and_test:
+    name: Build & test
     runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     env:
       RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
-      VersionSuffix: ci.${{ github.run_number }}
-      SonarCloudProject: csf-dev_CSF.Screenplay
-      SonarCloudUsername: craigfowler-github
-      SonarCloudUrl: https://sonarcloud.io
       Configuration: Debug
       Tfm: net8.0
-      DotnetVersion: 8.0.x
-      SonarCloudSecretKey: ${{ secrets.SONARCLOUDKEY }}
-      BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
-      BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
-      PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
-      DISPLAY: :99
       # Change selected factory to VerboseChrome to debug Chrome-related issues
       WebDriverFactory__SelectedConfiguration: CiHeadlessChrome
-      GithubNugetUsername: craigfowler
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: ./.github/actions/standard-checkout
+      - uses: ./.github/actions/setup-build-dependencies
+      - uses: ./.github/actions/setup-test-dependencies
+      - uses: ./.github/actions/restore-dependencies
+      - uses: ./.github/actions/start-sonarscanner
         with:
-          fetch-depth: 0
-          lfs: true
-
-      # Install build dependencies
-
-      - name: Add .NET global tools location to PATH
-        run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
-      - name: Install .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: ${{ env.DotnetVersion }}
-      - name: Install SonarScanner
-        run: dotnet tool install --global dotnet-sonarscanner
-      - name: Install Coverlet console
-        run: dotnet tool install --global coverlet.console
-      - name: Install DocFX
-        run: dotnet tool install --global docfx
-      - name: Install Node.js for building JSON-to-HTML report converter
-        uses: actions/setup-node@v6.2.0
-      - name: Install Java JDK for SonarScanner
-        uses: actions/setup-java@v5.1.0
-        with:
-          java-version: 21
-          distribution: 'zulu'
-      # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
-      - name: Disable AppArmor restrictions so Chrome may run
-        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
-      - name: Start an Xvfb display so Chrome may run
-        run: Xvfb -ac $DISPLAY -screen 0 1280x1024x16 &        
-
-      # Environment setup pre-build
-
-      - name: Setup Selenium Manager config
-        run: |
-          mkdir ~/.cache/selenium
-          cp Tools/se-config.toml ~/.cache/selenium
-      - name: Restore .NET packages
-        run: dotnet restore
-      - name: Restore Node modules
-        run: |
-          cd CSF.Screenplay.JsonToHtmlReport.Template/src
-          npm ci
-          cd ../..
-
-      # Build and test the solution
-
-      - name: Start SonarScanner
-        run: >
-          dotnet sonarscanner begin
-          /k:${{ env.SonarCloudProject }}
-          /v:GitHub_build_${{ env.RunNumber }}
-          /o:${{ env.SonarCloudUsername }}
-          /d:sonar.host.url=${{ env.SonarCloudUrl }}
-          /d:sonar.token=${{ env.SonarCloudSecretKey }}
-          /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
-          /d:sonar.javascript.lcov.reportPaths=$PWD/CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
-          /s:$PWD/.sonarqube-analysisproperties.xml
+          project: csf-dev_CSF.Screenplay
+          build-version: GitHub_build_${{ env.RunNumber }}
+          username: craigfowler-github
+          secret-key: ${{ secrets.SONARCLOUDKEY }}
+          js-coverage-path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
-      - name: Run .NET tests with coverage
-        id: dotnet_tests
-        shell: bash {0}
-        run: |
-          for proj in Tests/*.Tests
-          do
-            projNameArray=(${proj//// })
-            projName=${projNameArray[1]}
-            assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
-            coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/$projName.opencover.xml"
-            exitCode=$?
-            if [ $exitCode -ne 0 ]
-            then
-              echo "One or more tests have failed; this build should eventually fail"
-              echo "failures=true" >> "$GITHUB_OUTPUT"
-            fi
-          done
-      - name: Run Client script tests with coverage
-        id: js_tests
-        shell: bash {0}
-        run: |
-          cd CSF.Screenplay.JsonToHtmlReport.Template/src
-          npm test
-          exitCode=$?
-          if [ $exitCode -ne 0 ]
-          then
-            echo "One or more tests have failed; this build should eventually fail"
-            echo "failures=true" >> "$GITHUB_OUTPUT"
-          fi
-          cd ../..
-
-      # Post-test tasks (artifacts, overall status)
-
+      - id: run-all-tests
+        uses: ./.github/actions/run-all-tests-with-coverage
       - name: Stop SonarScanner
         run:
-          dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
+          dotnet sonarscanner end /d:sonar.token=${{ secrets.SONARCLOUDKEY }}
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
-      - name: Upload .NET test results artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: NUnit test results
-          path: Tests/*.Tests/**/TestResults.xml
-      - name: Upload verbose webdriver log artifacts
-        # This step is only relevant if the ChromeDriver with verbose logging is selected, such as via
-        # appsettings.json in CSF.Screenplay.Selenium.Tests.
-        # If verbose logs aren't created then this step is skipped to avoid a build warning about missing artifacts.
-        if: ${{ hashFiles('**/chrome-verbose-log.txt') != '' }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: Verbose webdriver logs
-          path: '**/chrome-verbose-log.txt'
-      - name: Upload JS test results artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: Client script test results
-          path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
-      - name: Upload Screenplay JSON report artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: Screenplay JSON reports
-          path: Tests/**/ScreenplayReport.json
-      - name: Convert Screenplay reports to HTML
-        continue-on-error: true
-        run: |
-          for report in $(find Tests/ -type f -name "ScreenplayReport.json")
-          do
-            reportDir=$(dirname "$report")
-            outputFile="$reportDir/ScreenplayReport.html"
-            dotnet run --no-build --framework $Tfm -c ${{ env.Configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
-          done
-      - name: Upload Screenplay HTML report artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: Screenplay HTML reports
-          path: Tests/**/ScreenplayReport.html
+      - uses: ./.github/actions/upload-ci-artifacts
       - name: Fail the build if any test failures
-        if: steps.dotnet_tests.outputs.failures == 'true' || steps.js_tests.outputs.failures == 'true'
+        if: steps.run-all-tests.outputs.failures == 'true'
         run: |
           echo "Failing the build due to test failures"
           exit 1
-
-      # Build the apps in release mode and publish artifacts
-
-      - name: Clean the solution ahead of building in release config
-        run: dotnet clean
-      - name: Build, in release configuration
-        run: dotnet pack -p:VersionSuffix=$VersionSuffix -o packages
-      - name: Upload build result artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: Build results (NuGet)
-          path: packages/*.nupkg
-      - name: Build docs website
-        run: dotnet build -c Docs
-      - name: Upload docs website artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: Docs website
-          path: docs/**/*
-      - name: Publish packages to GitHub feed
-        if: ${{ github.event_name != 'pull_request' && github.ref_name == 'master' }}
-        run: |
-          dotnet nuget add source --username ${{ env.GithubNugetUsername }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/csf-dev/index.json"
-          for package in packages/*.nupkg
-          do
-            dotnet nuget push $package --source github
-          done
-

@@ -1,0 +1,89 @@
+name: Build for release
+
+on:
+  workflow_run:
+    workflows: [.NET CI]
+    types: [completed]
+  push:
+    tags:
+      - v*
+
+jobs:
+
+  build_and_pack:
+    name: Release build & package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    if: ${{ github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
+
+    env:
+      GithubNugetUsername: craigfowler
+
+    steps:
+      - uses: ./.github/actions/standard-checkout
+      - uses: ./.github/actions/setup-build-dependencies
+      - uses: ./.github/actions/restore-dependencies
+      - name: Build CI version
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: dotnet pack -p:VersionSuffix=ci.${{ github.run_number }} -o packages
+      - name: Get semantic tag version
+        if: ${{ github.event_name == 'push' }}
+        id: get_version
+        run: |
+          tagname="${{ github.ref_name }}"
+          echo "name=${tagname:1}" >> "$GITHUB_OUTPUT"
+        shell: bash
+      - name: Build tagged version
+        if: ${{ github.event_name == 'push' }}
+        run: dotnet pack -p:Version=${{ steps.get_version.outputs.name }} -o packages
+      - name: Upload build result artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: Build results (NuGet)
+          path: packages/*.nupkg
+      - name: Publish packages to GitHub feed
+        if: ${{ github.event_name != 'pull_request' && github.ref_name == 'master' }}
+        run: |
+          dotnet nuget add source --username ${{ env.GithubNugetUsername }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/csf-dev/index.json"
+          for package in packages/*.nupkg
+          do
+            dotnet nuget push $package --source github
+          done
+  
+  build_docs_site:
+    name: Build the documentation website
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: ./.github/actions/standard-checkout
+      - uses: ./.github/actions/setup-build-dependencies
+      - uses: ./.github/actions/restore-dependencies
+      - name: Remove old docs
+        run: dotnet clean CSF.Screenplay.Docs
+      - name: Build docs website
+        run: dotnet build -c Docs CSF.Screenplay.Docs
+      - name: Upload docs website artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: Docs website
+          path: docs/**/*
+  
+  publish_nuget:
+    name: Publish packages to NuGet
+    runs-on: ubuntu-slim
+    if: ${{ github.event_name == 'push' }}
+    needs: build_and_pack
+    permissions:
+      actions: read
+    steps:
+      - name: Get release artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: Build results (NuGet)
+          path: ./packages
+      - name: Publish to NuGet
+        run: dotnet nuget push ./packages/*.nupkg --source https://api.nuget.org/v3/index.json
+
+

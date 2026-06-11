@@ -1,0 +1,45 @@
+name: 'Start SonarScanner'
+description: 'Starts up SonarScanner, to analyse a build & test run'
+inputs:
+  project:
+    description: 'The SonarQube project name'
+    required: true
+  build-version:
+    description: 'The build version string to pass to SonarQube'
+    required: true
+  username:
+    description: 'The SonarQube login username'
+    required: true
+  secret-key:
+    description: 'The SonarQube secret key'
+    required: true
+  sonar-cloud-url:
+    description: 'The SonarCloud URL'
+    default: 'https://sonarcloud.io'
+  js-coverage-path:
+    description: 'The file system path at which to find the JS lcov report'
+    required: true
+  analysis-properties-path:
+    description: 'The file system path at which to find the SonarQube analysis properties file'
+    default: '.sonarqube-analysisproperties.xml'
+  
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Start SonarScanner
+      env:
+        BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+        BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
+        PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
+      
+      run: >
+        dotnet sonarscanner begin
+        /k:${{ inputs.project }}
+        /v:${{ inputs.build-version }}
+        /o:${{ inputs.username }}
+        /d:sonar.host.url=${{ inputs.sonar-cloud-url }}
+        /d:sonar.token=${{ inputs.secret-key }}
+        /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
+        /d:sonar.javascript.lcov.reportPaths=$PWD/${{ inputs.js-coverage-path }}
+        /s:$PWD/${{ inputs.analysis-properties-path }}

@@ -1,0 +1,11 @@
+name: 'Restore third-party dependencies'
+description: 'Restores dependencies from NuGet and npm'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Restore .NET packages
+      run: dotnet restore
+    - name: Restore Node modules
+      working-directory: CSF.Screenplay.JsonToHtmlReport.Template/src
+      run: npm ci
