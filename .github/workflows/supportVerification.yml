@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - uses: ./.github/actions/setup-build-dependencies.yml
-      - uses: ./.github/actions/restore-dependencies.yml
+      - uses: ./.github/actions/setup-build-dependencies
+      - uses: ./.github/actions/restore-dependencies
       - name: Test Reqnroll (only)
         run: dotnet test Tests/CSF.Screenplay.Reqnroll.Tests -p:ReqnrollVersion=${{ matrix.reqnroll_version }}
