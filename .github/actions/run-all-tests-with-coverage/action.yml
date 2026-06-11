@@ -56,7 +56,7 @@ runs:
         DotnetFailures: ${{ steps.dotnet_tests.outputs.failures }}
         JsFailures: ${{ steps.js_tests.outputs.failures }}
       run: |
-        if [ "$DotnetFailures" -eq 'true' -o "$JsFailures" -eq 'true' ]
+        if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' ]
         then
           echo "failures=true" >> "$GITHUB_OUTPUT"
         else
