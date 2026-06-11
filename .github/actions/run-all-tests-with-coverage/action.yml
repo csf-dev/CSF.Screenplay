@@ -1,0 +1,62 @@
+name: 'Run all tests, with coverage'
+description: 'Runs all tests for CSF.Screenplay (JS and .NET), with coverage; requires that all .NET projects are already built'
+inputs:
+  configuration:
+    description: 'The .NET configuration'
+    default: 'Debug'
+  tfm:
+    description: 'The .NET Target Framework Moniker'
+    required: true
+  test-results-path:
+    description: 'The path at which to save test results'
+    default: 'TestResults'
+outputs:
+  failures:
+    description: 'Gets a value: `true` or `false` indicating whether or not the tests failed'
+    value: ${{ steps.emit_output.failures }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run .NET tests with coverage
+      env:
+        Configuration: ${{ inputs.configuration }}
+        Tfm: ${{ inputs.tfm }}
+      id: dotnet_tests
+      shell: bash {0}
+      run: |
+        for proj in Tests/*.Tests
+        do
+          projNameArray=(${proj//// })
+          projName=${projNameArray[1]}
+          assemblyPath=$proj/bin/$Configuration/$Tfm/$projName.dll
+          coverlet "$assemblyPath" --target "dotnet" --targetargs "test $proj -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="${{ inputs.test-results-path }}/$projName.opencover.xml"
+          exitCode=$?
+          if [ $exitCode -ne 0 ]
+          then
+            echo "One or more tests have failed; this build should eventually fail"
+            echo "failures=true" >> "$GITHUB_OUTPUT"
+          fi
+        done
+    - name: Run Client script tests with coverage
+      id: js_tests
+      shell: bash {0}
+      working-directory:  CSF.Screenplay.JsonToHtmlReport.Template/src
+      run: |
+        npm test
+        exitCode=$?
+        if [ $exitCode -ne 0 ]
+        then
+          echo "One or more tests have failed; this build should eventually fail"
+          echo "failures=true" >> "$GITHUB_OUTPUT"
+        fi
+    - name: Emit output
+      id: emit_output
+      run: |
+        if [ ${{ steps.dotnet_tests.outputs.failures }} -eq 'true' -o ${{ steps.js_tests.outputs.failures }} -eq 'true' ]
+        then
+          echo "failures=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "failures=false" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash

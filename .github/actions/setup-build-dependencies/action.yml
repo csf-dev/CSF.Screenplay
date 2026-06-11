@@ -1,0 +1,22 @@
+name: 'Setup build dependencies'
+description: 'Installs and configures mandatory dependencies to build CSF.Screenplay'
+inputs:
+  dotnet-version:
+    description: 'The version of the .NET SDK to install'
+    default: '8.0.x'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Add .NET global tools location to PATH
+      run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+      shell: bash
+    - name: Install .NET
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+    - name: Install DocFX
+      run: dotnet tool install --global docfx
+      shell: bash
+    - name: Install Node.js for building JSON-to-HTML report converter
+      uses: actions/setup-node@v6.2.0

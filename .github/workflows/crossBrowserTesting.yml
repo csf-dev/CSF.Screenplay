@@ -5,10 +5,9 @@ concurrency:
   cancel-in-progress: false
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_run:
+    workflows: [.NET CI]
+    types: [completed]
   schedule:
     - cron: "27 20 * * 0"
 
@@ -61,6 +60,7 @@ jobs:
     name: Run tests
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    if: ${{ github.event_name == 'schedule' || github.event.workflow_run.conclusion == 'success' }}
 
     env:
       RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
@@ -82,27 +82,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
-      # Install build dependencies
-
-      - name: Install .NET
-        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: ${{ env.DotnetVersion }}
-      - name: Install Node.js for building JSON-to-HTML report converter
-        uses: actions/setup-node@v6.2.0
-
-      # Environment setup pre-build
-
-      - name: Restore .NET packages
-        run: dotnet restore
-      - name: Restore Node modules
-        run: |
-          cd CSF.Screenplay.JsonToHtmlReport.Template/src
-          npm ci
-          cd ../..
-
-      # Build and test the solution
+          fetch-depth: 0
+          lfs: true
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
 
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }}

@@ -1,0 +1,52 @@
+name: 'Upload CI artifacts'
+description: 'Uploads artifacts from a CI run (full build and test), following a full test run'
+inputs:
+  configuration:
+    description: 'The .NET configuration'
+    default: 'Debug'
+  tfm:
+    description: 'The .NET Target Framework Moniker'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Upload .NET test results artifacts
+      uses: actions/upload-artifact@v7
+      with:
+        name: NUnit test results
+        path: Tests/*.Tests/**/TestResults.xml
+    - name: Upload verbose webdriver log artifacts
+      # This step is only relevant if the ChromeDriver with verbose logging is selected, such as via
+      # appsettings.json in CSF.Screenplay.Selenium.Tests.
+      # If verbose logs aren't created then this step is skipped to avoid a build warning about missing artifacts.
+      if: ${{ hashFiles('**/chrome-verbose-log.txt') != '' }}
+      uses: actions/upload-artifact@v7
+      with:
+        name: Verbose webdriver logs
+        path: '**/chrome-verbose-log.txt'
+    - name: Upload JS test results artifacts
+      uses: actions/upload-artifact@v7
+      with:
+        name: Client script test results
+        path: CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/**/*
+    - name: Upload Screenplay JSON report artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: Screenplay JSON reports
+        path: Tests/**/ScreenplayReport.json
+    - name: Convert Screenplay reports to HTML
+      continue-on-error: true
+      run: |
+        for report in $(find Tests/ -type f -name "ScreenplayReport.json")
+        do
+          reportDir=$(dirname "$report")
+          outputFile="$reportDir/ScreenplayReport.html"
+          dotnet run --no-build --framework ${{ inputs.tfm }} -c ${{ inputs.configuration }} --project CSF.Screenplay.JsonToHtmlReport --ReportPath "$report" --OutputPath "$outputFile"
+        done
+      shell: bash
+    - name: Upload Screenplay HTML report artifact
+      uses: actions/upload-artifact@v7
+      with:
+        name: Screenplay HTML reports
+        path: Tests/**/ScreenplayReport.html

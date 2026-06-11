@@ -24,15 +24,15 @@ jobs:
       matrix:
         reqnroll_version: ['2.0.0', '2.*', '3.0.0', '3.*', '*']
 
-    env:
-      DotnetVersion: 8.0.x
-
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Install .NET
-        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: ${{ env.DotnetVersion }}
+          fetch-depth: 0
+          lfs: true
+      - name: Setup build dependencies
+        uses: ./.github/actions/setup-build-dependencies
+      - name: Restore third party libs
+        uses: ./.github/actions/restore-dependencies
       - name: Test Reqnroll (only)
         run: dotnet test Tests/CSF.Screenplay.Reqnroll.Tests -p:ReqnrollVersion=${{ matrix.reqnroll_version }}
