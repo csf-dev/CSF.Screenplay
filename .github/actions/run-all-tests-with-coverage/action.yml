@@ -13,7 +13,7 @@ inputs:
 outputs:
   failures:
     description: 'Gets a value: `true` or `false` indicating whether or not the tests failed'
-    value: ${{ steps.emit_output.failures }}
+    value: ${{ steps.emit_output.outputs.failures }}
 
 runs:
   using: 'composite'
