@@ -10,6 +10,9 @@ inputs:
   test-results-path:
     description: 'The path at which to save test results'
     default: 'TestResults'
+  x-display:
+    description: 'The XServer display to configure for web browsers'
+    default: ':99'
 outputs:
   failures:
     description: 'Gets a value: `true` or `false` indicating whether or not the tests failed'
@@ -22,6 +25,7 @@ runs:
       env:
         Configuration: ${{ inputs.configuration }}
         Tfm: ${{ inputs.tfm }}
+        DISPLAY: ${{ inputs.x-display }}
       id: dotnet_tests
       shell: bash {0}
       run: |
