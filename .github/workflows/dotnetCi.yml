@@ -58,7 +58,7 @@ jobs:
         with:
           tfm: ${{ env.Tfm }}
       - name: Fail the build if any test failures
-        if: steps.run-all-tests.outputs.failures == 'true'
+        if: ${{ steps.run-all-tests.outputs.failures == 'true' }}
         run: |
           echo "Failing the build due to test failures"
           exit 1
