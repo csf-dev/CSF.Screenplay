@@ -90,6 +90,7 @@ jobs:
     permissions:
       actions: read
       id-token: write
+      contents: write
     steps:
       - name: Add .NET global tools location to PATH
         run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
@@ -110,5 +111,39 @@ jobs:
           user: ${{ secrets.NUGET_USER }}
       - name: Publish to NuGet
         run: dotnet nuget push ./packages/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+      - name: Determine release properties
+        id: get-release-props
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          PRERELEASE="$([[ "$VERSION" =~ "-" ]] && echo "true" || echo "false")"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "prerelease=$PRERELEASE" >> "$GITHUB_OUTPUT"
+      - name: Generate release notes (first part)
+        run: |
+          PACKAGE_LIST=$(for package in packages/*.nupkg; do echo $(basename "$package" | sed -r 's/^([A-Za-z.]+)\.[0-9.A-Za-z-]*\.nupkg$/\1/'); done)
+          VERSION="${{ steps.get-release-props.outputs.version }}"
+          cat <<EOF > release_notes.md
+          # CSF.Screenplay version $VERSION
+
+          ## NuGet packages
+
+          These are the NuGet packages which are published for this release.
+
+          | Package | Version |
+          | ------- | ------- |
+          EOF
+
+          for package in $PACKAGE_LIST
+          do
+            echo "| [${package}](https://www.nuget.org/packages/${package}/${VERSION}) | $VERSION |" >> release_notes.md
+          done
+          echo "" >> release_notes.md
+      - name: Create release
+        uses: softprops/action-gh-release@v3
+        with:
+          draft: true
+          name: ${{ steps.get-release-props.outputs.version }}
+          prerelease: ${{ steps.get-release-props.outputs.prerelease }}
+          generate_release_notes: true
 
 
