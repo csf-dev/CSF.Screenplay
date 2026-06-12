@@ -137,13 +137,16 @@ jobs:
           do
             echo "| [${package}](https://www.nuget.org/packages/${package}/${VERSION}) | $VERSION |" >> release_notes.md
           done
-          echo "" >> release_notes.md
+          cat <<EOF >> release_notes.md
+
+          ## Changelog
+
+          EOF
       - name: Create release
         uses: softprops/action-gh-release@v3
         with:
           draft: true
           name: ${{ steps.get-release-props.outputs.version }}
           prerelease: ${{ steps.get-release-props.outputs.prerelease }}
+          body_path: release_notes.md
           generate_release_notes: true
-
-
