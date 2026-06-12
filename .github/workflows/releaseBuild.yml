@@ -90,6 +90,13 @@ jobs:
     permissions:
       actions: read
     steps:
+      - name: Add .NET global tools location to PATH
+        run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+        shell: bash
+      - name: Install .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
       - name: Get release artifacts
         uses: actions/download-artifact@v8
         with:
