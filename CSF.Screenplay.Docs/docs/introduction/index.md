@@ -5,6 +5,8 @@ It is particularly useful when many of those steps have a lot in common, making 
 This has seen Screenplay become popular for writing the logic of [Behavior-driven development tests](https://en.wikipedia.org/wiki/Behavior-driven_development).
 Despite this, _Screenplay is not limited to just testing logic_.
 
+In its early days _Screenplay was better-known as the "Journey" pattern_.
+
 ## How Screenplay fits into an architecture
 
 This diagram provides a very high-level look at where Screenplay lies within the architecture of your software.

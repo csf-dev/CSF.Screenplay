@@ -11,20 +11,32 @@ namespace CSF.Screenplay
     /// <para>
     /// This attribute is the core of the NUnit3 <xref href="IntegrationGlossaryItem?text=test+framework+integration"/> with Screenplay.
     /// In order to run tests with Screenplay, the assembly must be decorated with this attribute.
+    /// Its purpose is to signpost the Screenplay Factory (see below) to the NUnit/Screenplay integration.
     /// </para>
     /// <para>
-    /// This attribute has one mandatory parameter; that is the <see cref="Type"/> of a concrete implementation of
-    /// <see cref="IGetsScreenplay"/>.  That type will be instantiated by the NUnit3 integration and will be used to
+    /// This attribute has one mandatory parameter; that is the <see cref="Type"/> of the Screenplay Factory which should be used in this test project.
+    /// A Screenplay Factory is a class which provides a concrete implementation of <see cref="IGetsScreenplay"/>.
+    /// An instance of the factory will be instantiated by the NUnit3 integration and will be used to
     /// build and retrieve the <see cref="Screenplay"/> instance for running the Screenplay-based tests within the decorated
-    /// assembly. Each test method must additionally be decorated with the <see cref="ScreenplayAttribute"/> in order to make
-    /// it a Screenplay-based test.
+    /// assembly.
+    /// </para>
+    /// <para>
+    /// Each test method in the project must additionally be decorated with the
+    /// <see cref="ScreenplayAttribute"/> in order to activate the Screenplay architecture for that test.
+    /// It is possible to mix &amp; match Screenplay-based and non-Screenplay-based tests within a single test project.
+    /// </para>
+    /// <para>
+    /// All Screenplay-based tests within a test project/assembly will use the Screenplay Factory which is identified by this attribute.
     /// </para>
     /// </remarks>
     /// <example>
     /// <para>
-    /// Decorate your assembly with this attribute using the syntax <c>[assembly: CSF.Screenplay.ScreenplayAssembly]</c>.  You may place this
+    /// Decorate your assembly with this attribute using the syntax <c>[assembly: CSF.Screenplay.ScreenplayAssembly(typeof(MyScreenplayFactory))]</c>.  You may place this
     /// into any source file, outside of any type declaration.  By convention it would be put into a dedicated source file
     /// within the <c>Properties</c> project directory.
+    /// </para>
+    /// <para>
+    /// There is a further example available in the <xref href="NUnit3GettingStartedArticle?text=getting+started+guide+for+Screenplay+and+NUnit3"/>.
     /// </para>
     /// </example>
     /// <seealso cref="ScreenplayAttribute"/>
@@ -68,7 +80,7 @@ namespace CSF.Screenplay
         /// The <paramref name="factoryType"/> specified in this constructor must meet all of the following criteria:
         /// </para>
         /// <list type="bullet">
-        /// <item><description>It must be a non-<see langword="null" /> <see cref="Type"/> which derives from <see cref="IGetsScreenplay"/></description></item>
+        /// <item><description>It must be a non-<see langword="null" />, non-<see langword="abstract"/> <see cref="Type"/> which derives from <see cref="IGetsScreenplay"/></description></item>
         /// <item><description>It must have a public parameterless constructor</description></item>
         /// <item><description>It must return a non-<see langword="null" /> instance of <see cref="Screenplay"/> from its <see cref="IGetsScreenplay.GetScreenplay"/> method</description></item>
         /// </list>
