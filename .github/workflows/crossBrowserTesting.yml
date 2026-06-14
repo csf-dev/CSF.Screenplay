@@ -87,6 +87,8 @@ jobs:
           lfs: true
       - name: Setup build dependencies
         uses: ./.github/actions/setup-build-dependencies
+        with:
+          dotnet-version: ${{ vars.SDK_VERSION }}
       - name: Restore third party libs
         uses: ./.github/actions/restore-dependencies
 
