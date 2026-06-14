@@ -2,31 +2,57 @@
 
 > [!TIP]
 > Are you using the legacy **SpecFlow**?
-> **Reqnroll** is the maintained fork of SpecFlow, so it's recommended you upgrade your projects ASAP.
->
-> For now, CSF.Screenplay continues to support SpecFlow.
-> Use the [CSF.Screenplay.SpecFlow] package and SpecFlow v3.4.3 or higher instead.
-> The remainder of the instructions below work for either Reqnroll or SpecFlow.
+> [Reqnroll is the maintained fork of SpecFlow], so it's recommended you upgrade your projects ASAP.
+> See [the documentation on using CSF.Screenplay with SpecFlow] for more information.
 
 Begin writing Reqnroll tests using Screenplay by following these steps.
 Further detail is provided below.
 
 1. Ensure that your test project uses [Reqnroll version 2.0.0] or higher
 1. Install the NuGet package **[CSF.Screenplay.Reqnroll]** to the project which will contain your `.feature` files
-1. _Optional:_ Add services to dependency injection which will be required by the [Abilities] you intend to use.  If required, [use Reqnroll context injection & hooks] to add these to the DI container.
+1. Configure dependency injection with any services you intend to use in your tests
 1. Write step binding classes which dependency-inject and use Screenplay's architecture
 
+[Reqnroll is the maintained fork of SpecFlow]: https://reqnroll.net/news/2025/01/specflow-end-of-life-has-been-announced/
+[the documentation on using CSF.Screenplay with SpecFlow]: Specflow.md
 [Reqnroll version 2.0.0]: https://www.nuget.org/packages/Reqnroll/2.0.0
 [CSF.Screenplay.Reqnroll]: https://www.nuget.org/packages/CSF.Screenplay.Reqnroll
-[CSF.Screenplay.SpecFlow]: https://www.nuget.org/packages/CSF.Screenplay.SpecFlow
 [Abilities]: ../../../glossary/Ability.md
-[use Reqnroll context injection & hooks]:https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options
 
-## Writing step bindings
+## Step 3: Configuring dependency injection
+
+Reqnroll has a built-in mechanism which offers an opportunity to add services to its DI container; these are [the event hook attributes].
+This is a viable technique because [Reqnroll's internal DI container "BoDi"] is unusual in that it permits retrospective addition of services.
+
+Use this technique by writing a small binding class like the following, replacing the comment with your DI registrations.
+There's no need to use `.AddScreenplay()` here, _the integration does that already_.
+For example, to add [the Screenplay/Selenium extension], add a line like `.AddSelenium()`.
+
+```csharp
+[Binding]
+public class DependenciesSetup(IObjectContainer reqnrollContainer)
+{
+    // Or [BeforeTestRun] or [BeforeFeature]
+    [BeforeScenario]
+    public void AddExtraDependencies()
+    {
+        reqnrollContainer.ToServiceCollection()
+            // Add your own dependency injection service descriptors to the service collection here
+            // For example, services which will be used by Screenplay Abilities.
+            ;
+    }
+}
+```
 
 > [!IMPORTANT]
 > When using Reqnroll with Screenplay, every Screenplay-using test within a test assembly (thus, within a .NET project) must share the same instance of `Screenplay`.
 > This is not expected to be problematic, as all the [`Screenplay`] object does is set-up the Screenplay architecture and dependency injection for the tests.
+
+[the event hook attributes]: https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options
+[Reqnroll's internal DI container "BoDi"]: https://github.com/reqnroll/Reqnroll/tree/main/Reqnroll/BoDi
+[the Screenplay/Selenium extension]: ../../extensions/selenium/index.md
+
+## Step 4: Writing step bindings
 
 When using Screenplay with Reqnroll, `.feature` files are written as normal.
 The only difference in writing your tests is that **Step Binding** classes should inject Screenplay architecture and use it within the bindings. 

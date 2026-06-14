@@ -22,6 +22,12 @@ namespace CSF.Screenplay
     /// <para>
     /// Remember that for this attribute to be effective, the <see cref="Assembly"/> which contains the test method must be decorated with
     /// <see cref="ScreenplayAssemblyAttribute"/>.  If it is not, then the test will fail with an exception.
+    /// As noted on the documentation for the Screenplay Assembly attribute, all Screenplay-based tests in the test project/assembly must
+    /// use the same Screenplay Factory, identified by that attribute.
+    /// </para>
+    /// <para>
+    /// It is possible and supported to mix &amp; match Screenplay-based tests (with this attribute) and non-Screenplay-based tests (without it) in the
+    /// same test project/assembly.
     /// </para>
     /// </remarks>
     /// <seealso cref="ScreenplayAssemblyAttribute"/>
