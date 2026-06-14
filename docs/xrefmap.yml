@@ -18766,6 +18766,9 @@ references:
 - uid: IntegrationGlossaryItem
   name: Integration
   href: glossary/Integration.html
+- uid: NUnit3GettingStartedArticle
+  name: Screenplay & NUnit tutorial
+  href: docs/gettingStarted/nunit3/index.html
 - uid: NamedScriptsArticle
   name: Named JavaScripts
   href: docs/extensions/selenium/NamedScripts.html

@@ -90,25 +90,43 @@
 <div class="TIP">
 <h5>Tip</h5>
 <p>Are you using the legacy <strong>SpecFlow</strong>?
-<strong>Reqnroll</strong> is the maintained fork of SpecFlow, so it's recommended you upgrade your projects ASAP.</p>
-<p>For now, CSF.Screenplay continues to support SpecFlow.
-Use the <a href="https://www.nuget.org/packages/CSF.Screenplay.SpecFlow">CSF.Screenplay.SpecFlow</a> package and SpecFlow v3.4.3 or higher instead.
-The remainder of the instructions below work for either Reqnroll or SpecFlow.</p>
+<a href="https://reqnroll.net/news/2025/01/specflow-end-of-life-has-been-announced/">Reqnroll is the maintained fork of SpecFlow</a>, so it's recommended you upgrade your projects ASAP.
+See <a href="Specflow.html">the documentation on using CSF.Screenplay with SpecFlow</a> for more information.</p>
 </div>
 <p>Begin writing Reqnroll tests using Screenplay by following these steps.
 Further detail is provided below.</p>
 <ol>
 <li>Ensure that your test project uses <a href="https://www.nuget.org/packages/Reqnroll/2.0.0">Reqnroll version 2.0.0</a> or higher</li>
 <li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.Reqnroll">CSF.Screenplay.Reqnroll</a></strong> to the project which will contain your <code>.feature</code> files</li>
-<li><em>Optional:</em> Add services to dependency injection which will be required by the <a href="../../../glossary/Ability.html">Abilities</a> you intend to use.  If required, <a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">use Reqnroll context injection &amp; hooks</a> to add these to the DI container.</li>
+<li>Configure dependency injection with any services you intend to use in your tests</li>
 <li>Write step binding classes which dependency-inject and use Screenplay's architecture</li>
 </ol>
-<h2 id="writing-step-bindings">Writing step bindings</h2>
+<h2 id="step-3-configuring-dependency-injection">Step 3: Configuring dependency injection</h2>
+<p>Reqnroll has a built-in mechanism which offers an opportunity to add services to its DI container; these are <a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">the event hook attributes</a>.
+This is a viable technique because <a href="https://github.com/reqnroll/Reqnroll/tree/main/Reqnroll/BoDi">Reqnroll's internal DI container &quot;BoDi&quot;</a> is unusual in that it permits retrospective addition of services.</p>
+<p>Use this technique by writing a small binding class like the following, replacing the comment with your DI registrations.
+There's no need to use <code>.AddScreenplay()</code> here, <em>the integration does that already</em>.
+For example, to add <a href="../../extensions/selenium/index.html">the Screenplay/Selenium extension</a>, add a line like <code>.AddSelenium()</code>.</p>
+<pre><code class="lang-csharp">[Binding]
+public class DependenciesSetup(IObjectContainer reqnrollContainer)
+{
+    // Or [BeforeTestRun] or [BeforeFeature]
+    [BeforeScenario]
+    public void AddExtraDependencies()
+    {
+        reqnrollContainer.ToServiceCollection()
+            // Add your own dependency injection service descriptors to the service collection here
+            // For example, services which will be used by Screenplay Abilities.
+            ;
+    }
+}
+</code></pre>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>When using Reqnroll with Screenplay, every Screenplay-using test within a test assembly (thus, within a .NET project) must share the same instance of <code>Screenplay</code>.
 This is not expected to be problematic, as all the <a class="xref" href="../../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> object does is set-up the Screenplay architecture and dependency injection for the tests.</p>
 </div>
+<h2 id="step-4-writing-step-bindings">Step 4: Writing step bindings</h2>
 <p>When using Screenplay with Reqnroll, <code>.feature</code> files are written as normal.
 The only difference in writing your tests is that <strong>Step Binding</strong> classes should inject Screenplay architecture and use it within the bindings.</p>
 <p>The recommended services to inject into your step binding classes are either <a class="xref" href="../../../api/CSF.Screenplay.IStage.html"><code>IStage</code></a> or <a class="xref" href="../../../api/CSF.Screenplay.ICast.html"><code>ICast</code></a>.

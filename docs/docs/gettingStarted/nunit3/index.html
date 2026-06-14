@@ -84,7 +84,7 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
+        <article data-uid="NUnit3GettingStartedArticle">
 <h1 id="screenplay--nunit-tutorial">Screenplay &amp; NUnit tutorial</h1>
 
 <p>Begin writing NUnit tests using Screenplay by following these steps.
@@ -92,8 +92,8 @@ Further detail is provided below.</p>
 <ol>
 <li>Ensure that your test project uses <a href="https://www.nuget.org/packages/NUnit/3.6.0">NUnit version 3.6.0</a> or higher</li>
 <li>Install the NuGet package <strong><a href="https://www.nuget.org/packages/CSF.Screenplay.NUnit">CSF.Screenplay.NUnit</a></strong> to your test project</li>
-<li>Write a class which implements <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a></li>
-<li>Decorate your test assembly with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, referencing your implementation of <code>IGetsScreenplay</code></li>
+<li>Write a Screenplay Factory class, implementing <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a></li>
+<li>Decorate your test assembly with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>, referencing that Screenplay Factory</li>
 <li>Write your tests, decorating each test method with <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAttribute.html"><code>ScreenplayAttribute</code></a></li>
 <li>Add parameters to your test methods to access the Screenplay architecture</li>
 </ol>
@@ -101,16 +101,17 @@ Further detail is provided below.</p>
 <h5>Tip</h5>
 <p>Developers are encouraged to read <a href="../../bestPractice/WritingTests.html">these best practices for writing tests which use Screenplay</a>.</p>
 </div>
-<h2 id="decorating-your-test-assembly-with-screenplayassembly">Decorating your test assembly with <code>[ScreenplayAssembly]</code></h2>
-<p>So that your tests may make use of a <a class="xref" href="../../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a>, you must install the Screenplay extension to the NUnit testing framework.
-This is <strong>steps 3 &amp; 4</strong> in the list above.
-This is achieved using the <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a>.
-Place a line of code somewhere in your test project, outside of any type definition like this:</p>
-<pre><code class="lang-csharp">[assembly: CSF.Screenplay.ScreenplayAssembly(typeof(MyScreenplayFactory))]
-</code></pre>
-<p>There is one other thing you must do, and that is to write a screenplay factory class, which configures how the <code>Screenplay</code> should be created for your tests.
-A screenplay factory is a class which must implement <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a>.
-Consider the example below as a starting point for writing your own.</p>
+<h2 id="step-3-write-a-screenplay-factory">Step 3: Write a Screenplay factory</h2>
+<p>NUnit requires a factory class which implements <a class="xref" href="../../../api/CSF.Screenplay.IGetsScreenplay.html"><code>IGetsScreenplay</code></a>.
+This tells the underlying framework how to create and configure the <code>Screenplay</code> for your tests.
+This factory class is user-customisable, because it is where you would configure <strong><a href="../../dependencyInjection/index.html">dependency injection</a></strong> for your own Screenplay.</p>
+<p>The example below shows a minimal template for a factory; replace the commment with DI service registrations for anything that you would like to be available to Screenplay.
+There's no need to use <code>.AddScreenplay()</code> here, <em>the integration does that already</em>.
+For example, to add <a href="../../extensions/selenium/index.html">the Screenplay/Selenium extension</a>, add <code>services.AddSelenium()</code> here.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The Screenplay Factory class <em>must have a parameterless constructor</em>.</p>
+</div>
 <pre><code class="lang-csharp">using CSF.Screenplay;
 
 public class MyScreenplayFactory : IGetsScreenplay
@@ -123,6 +124,15 @@ public class MyScreenplayFactory : IGetsScreenplay
             });
     }
 }
+</code></pre>
+<h2 id="step-4-decorate-your-test-assembly-with-screenplayassembly">Step 4: Decorate your test assembly with <code>[ScreenplayAssembly]</code></h2>
+<p>One line of boilerplate code is required per test assembly (project).
+Its purpose is to signpost the Screenplay Factory which you wrote in step 3 (above) to the NUnit/Screenplay integration.</p>
+<p>Place a line of code like the following in your test project.
+This should be outside of any type; it may go into its own source file if you wish.
+Be sure to replace <code>MyScreenplayFactory</code> with the factory class your wrote in step 3.
+See the docs for <a class="xref" href="../../../api/CSF.Screenplay.ScreenplayAssemblyAttribute.html"><code>ScreenplayAssemblyAttribute</code></a> for more info.</p>
+<pre><code class="lang-csharp">[assembly: CSF.Screenplay.ScreenplayAssembly(typeof(MyScreenplayFactory))]
 </code></pre>
 <div class="IMPORTANT">
 <h5>Important</h5>

@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Dependency injection | Screenplay </title>
+      <title>Using CSF.Screenplay with legacy SpecFlow | Screenplay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Dependency injection | Screenplay ">
+      <meta name="title" content="Using CSF.Screenplay with legacy SpecFlow | Screenplay ">
       
       
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/reqnroll/Specflow.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="CSF.Screenplay">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
             CSF.Screenplay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,36 +84,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="DependencyInjectionMainArticle">
-<h1 id="dependency-injection">Dependency injection</h1>
+        <article data-uid="">
+<h1 id="using-csfscreenplay-with-legacy-specflow">Using CSF.Screenplay with legacy SpecFlow</h1>
 
-<p>The Screenplay design pattern is fundamentally compatible with and based upon <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>, aka DI.</p>
+<p>For now, <em>CSF.Screenplay supports SpecFlow</em>.
+It is strongly recommended to <a href="https://docs.reqnroll.net/latest/guides/migrating-from-specflow.html">upgrade to Reqnroll at your earliest opportunity</a>.
+No promises can be made about future support, particularly as Reqnroll diverges from SpecFlow's original architecture.</p>
+<h2 id="adapting-instructions-for-specflow">Adapting instructions for SpecFlow</h2>
+<p>Users of SpecFlow may use <a href="index.html">the Getting Started guide for Reqnroll</a>, with the following adaptations.</p>
 <ul>
-<li>You may add Screenplay to an existing <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">container</a> via the <a class="xref" href="../../api/CSF.Screenplay.ScreenplayServiceCollectionExtensions.html#CSF_Screenplay_ScreenplayServiceCollectionExtensions_AddScreenplay_Microsoft_Extensions_DependencyInjection_IServiceCollection_"><code>AddScreenplay</code></a> extension method</li>
-<li>You may create a self-contained instance of <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html"><code>Screenplay</code></a> via the static <a class="xref" href="../../api/CSF.Screenplay.Screenplay.html#CSF_Screenplay_Screenplay_Create_System_Action_Microsoft_Extensions_DependencyInjection_IServiceCollection__"><code>Screenplay.Create</code></a> helper method
-<ul>
-<li>Use this is you wish to integrate with an app or library which does not use DI itself</li>
+<li>At step 1, install SpecFlow version 3.4.3 or higher instead</li>
+<li>At step 2, install the package <a href="https://www.nuget.org/packages/CSF.Screenplay.SpecFlow">CSF.Screenplay.SpecFlow</a> instead</li>
+<li>When using the framework, replace any usage of the <code>Reqnroll</code> namespace with <code>TechTalk.SpecFlow</code></li>
 </ul>
-</li>
-<li><a href="../../glossary/Integration.html">Test integrations</a> have their own ways to integrate with DI
-<ul>
-<li><a href="../gettingStarted/nunit3/index.html#step-3-write-a-screenplay-factory">DI integration with NUnit 3+</a></li>
-<li><a href="../gettingStarted/reqnroll/index.html#step-3-configuring-dependency-injection">DI integration with Reqnroll/Specflow</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="learn-more-about-di-in-screenplay">Learn more about DI in Screenplay</h2>
-<ul>
-<li><a href="AddingServices.html">How to add services to the container</a></li>
-<li><a href="InjectableServices.html">Which services are injectable</a></li>
-<li><a href="InjectingServices.html">Getting/injecting services</a></li>
-<li><a href="DependencyInjectionScope.html">DI scopes</a></li>
-</ul>
+<p>The remainder of the guide holds true for both Reqnroll or SpecFlow.
+The same techniques &amp; syntax mentioned in the guide are supported in both frameworks, with only the namespace difference noted above.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/dependencyInjection/index.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/reqnroll/Specflow.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
