@@ -45,6 +45,7 @@ Below is a summary of each of these actions' usage, with a link to their detaile
 
 | Action                    | Usage                                                                             |
 | ------                    | -----                                                                             |
+| [`BeginCollectingLogsWithJavaScript`] | Runs a JavaScript workaround to collect browser logs, see [`ShouldCollectLogs`] for more info |
 | [`ClearCookies`]          | Clear the web browser cookies for the current site (domain)                       |
 | [`ClearLocalStorage`]     | Clear the web browser [local storage] for the current site (domain)               |
 | [`DeleteTheCookie`]       | Delete a single named cookie                                                      |
@@ -52,6 +53,8 @@ Below is a summary of each of these actions' usage, with a link to their detaile
 | [`OpenUrl`]               | Directs the browser to open a specified URL                                       |
 | [`SaveScreenshot`]        | Saves a screenshot to a file                                                      |
 
+[`BeginCollectingLogsWithJavaScript`]: xref:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript
+[`ShouldCollectLogs`]: xref:CSF.Screenplay.Selenium.BrowseTheWeb.ShouldCollectLogs
 [`OpenUrl`]: xref:CSF.Screenplay.Selenium.Actions.OpenUrl
 [`SaveScreenshot`]: xref:CSF.Screenplay.Selenium.Actions.SaveScreenshot
 [`ClearCookies`]: xref:CSF.Screenplay.Selenium.Actions.ClearCookies

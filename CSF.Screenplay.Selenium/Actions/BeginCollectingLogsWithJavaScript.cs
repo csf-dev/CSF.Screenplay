@@ -11,20 +11,22 @@ namespace CSF.Screenplay.Selenium.Actions
     /// <remarks>
     /// <para>
     /// When used, this action should be executed as soon as possible after the current page has completed loading.
-    /// Ideally, directly after <see cref="Tasks.ClickAndWaitForDocumentReady"/>.
-    /// Any log messages which have been sent to the native browser console before this action is executed will be missed
+    /// Ideally, directly after <see cref="Tasks.ClickAndWaitForDocumentReady"/> or <see cref="OpenUrl"/>.
+    /// Any log messages which have been sent to the native browser console <em>before this action is executed</em> will be missed
     /// and will not be available to the counterpart question which retrieves log messages: <see cref="Questions.GetLogsWithJavaScript"/>.
     /// </para>
     /// <para>
     /// Note that this action/the script needs to be re-run after each traditional web page navigation/reload.
     /// However, due to the nature of SPAs, it <em>does not need to be re-run</em> following an SPA-style navigation.
-    /// On supported browsers, there is no harm in re-running this script when it is not needed, except for the impact on
-    /// performance (wasted network roundtrips).
+    /// Please note that each time this script is run, it will have a consequence of clearing any logs which have already
+    /// been collected.  So, it is advised to execute it only after actions/tasks which would cause a full web browser page
+    /// reload (as noted above).
     /// </para>
     /// <para>
     /// This action is for use only with web browsers which have the <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> quirk.
     /// </para>
     /// </remarks>
+    /// <seealso cref="BrowseTheWeb.ShouldCollectLogs"/>
     public class BeginCollectingLogsWithJavaScript : IPerformable, ICanReport
     {
         /// <inheritdoc/>
