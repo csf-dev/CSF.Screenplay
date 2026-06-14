@@ -60,7 +60,7 @@ namespace CSF.Screenplay.Selenium
     /// Developers may use the configuration to store a library of available WebDriver configurations, and use a single
     /// environment variable to switch between them at execution time.
     /// </para>
-    /// <code>
+    /// <code language="csharp">
     /// using CSF.Extensions.WebDriver;
     /// using CSF.Screenplay.Selenium;
     /// 
@@ -97,9 +97,42 @@ namespace CSF.Screenplay.Selenium
         /// </summary>
         /// <remarks>
         /// <para>
-        /// When this value is set to <see langword="true"/>, this will trigger usage of <see cref="Actions.BeginCollectingLogsWithJavaScript"/>
-        /// at points where it is required.  This is applicable only when the current <see cref="WebDriver"/> implementation has the
-        /// quirk <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/>.
+        /// Different web driver implementations have varying levels of support for providing access to web browser's console logs.
+        /// As of June 2026, the only implementations which provide native access are local implementations of Chromium-based
+        /// web drivers, such as <see cref="OpenQA.Selenium.Chrome.ChromeDriver"/> and <see cref="OpenQA.Selenium.Edge.EdgeDriver"/>.
+        /// For other web browsers/drivers, as well as all remote web drivers, Selenium is unable to directly access their
+        /// logs using a native API.
+        /// </para>
+        /// <para>
+        /// When this property is set to <see langword="true"/>, it triggers behaviour which causes Screenplay to attempt to access
+        /// the browser's console logs more aggressively.  Screenplay activates a JavaScript-based workaround when native log-collection is not viable.
+        /// That JavaScript-based approach is coordinated from the Task <see cref="Tasks.BeginCollectingLogsWithJavaScriptIfApplicable"/>
+        /// and ultimately the Action <see cref="Actions.BeginCollectingLogsWithJavaScript"/>.
+        /// This functionality is consumed by the logic of two Tasks:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description><see cref="Tasks.NavigateToUrl"/></description></item>
+        /// <item><description><see cref="Tasks.ClickAndWaitForDocumentReady"/></description></item>
+        /// </list>
+        /// <para>
+        /// In both cases, these tasks will execute the logic of <see cref="Tasks.BeginCollectingLogsWithJavaScriptIfApplicable"/>.
+        /// In determining whether the JavaScript approach is applicable, the task verifies that this setting is <see langword="true"/>,
+        /// and whether the current web driver implementation requires the JavaScript workaround to get logs.
+        /// That is - the <see cref="WebDriver"/> is <b>not</b> remote, and it <b>does</b> have the quirk
+        /// <see cref="BrowserQuirks.CanGetLogsWithJavascriptWorkaround"/> and it <b>does not</b> have the quirk
+        /// <see cref="BrowserQuirks.HasNativeLogsSupport"/>.  If all these criteria are satisfied, then the action
+        /// <see cref="Actions.BeginCollectingLogsWithJavaScript"/> is executed, to begin collecting logs in JavaScript.
+        /// </para>
+        /// <para>
+        /// It's important to understand that the JavaScript workaround for getting console logs <em>is imperfect</em>.
+        /// Logs are only collected from the point at which the 'begin collection' script is sent to the web browser.
+        /// Any logs which were written before that script arrives will be missed and will be unavailable for reading.
+        /// This is why the collection begins immediately after two tasks which cause page reloads.
+        /// Even so, imagine the loading of a new web page, and immediately as the page loads, there is an important console message written.
+        /// It's quite possible that - in the brief (perhaps milliseconds) delay between the page load completing and the "Begin
+        /// collecting logs" script arriving, that the important message was already written to the logs.  In this circumstance
+        /// the important message will not be available to Screenplay.  Unfortunately there is no better solution or workaround to
+        /// this problem when using Selenium.
         /// </para>
         /// </remarks>
         public bool ShouldCollectLogs => collectLogs;

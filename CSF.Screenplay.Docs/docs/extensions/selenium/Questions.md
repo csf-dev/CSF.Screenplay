@@ -38,17 +38,23 @@ The possibilities are explained in detail on the questions' detailed documentati
 
 | Question                              | Usage                                                                     |
 | --------                              | -----                                                                     |
+| [`FilterElements`]                    | Filters [a collection of elements] for those which match a [query]        |
 | [`FindElement`]                       | Gets [an element] which matches a [`Locator`]                             |
 | [`FindElements`]                      | Gets [a collection of elements] which match a [`Locator`]                 |
-| [`FilterElements`]                    | Filters [a collection of elements] for those which match a [query]        |
+| [`GetShadowRootNatively`]             | Uses a native technique to get a [Shadow DOM] [root element]              |
+| [`GetShadowRootWithJavaScript`]       | Uses a JavaScript-based workaround to get a [Shadow DOM] [root element]   |
 
+[`FilterElements`]: xref:CSF.Screenplay.Selenium.Questions.FilterElements
 [`FindElement`]: xref:CSF.Screenplay.Selenium.Questions.FindElement
 [`FindElements`]: xref:CSF.Screenplay.Selenium.Questions.FindElements
-[`FilterElements`]: xref:CSF.Screenplay.Selenium.Questions.FilterElements
 [`Locator`]: xref:CSF.Screenplay.Selenium.Elements.Locator
 [query]: Queries.md
 [an element]: xref:CSF.Screenplay.Selenium.Elements.SeleniumElement
 [a collection of elements]: xref:CSF.Screenplay.Selenium.Elements.SeleniumElementCollection
+[`GetShadowRootNatively`]: xref:CSF.Screenplay.Selenium.Questions.GetShadowRootNatively
+[Shadow DOM]: https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM
+[root element]: https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot
+[`GetShadowRootWithJavaScript`]: xref:CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript
 
 ## Questions for the web browser
 
@@ -57,10 +63,14 @@ These questions don't neccesarily involve elements, instead they query the web b
 | Question                                      | Usage                                                                 |
 | --------                                      | -----                                                                 |
 | [`ExecuteJavaScriptAndGetResult<TResult>`]    | Executes a JavaScript directly in the browser and reads the result    |
+| [`GetLogsNatively`]                           | Reads the browser console logs _(note that web driver support is limited)_                            |
+| [`GetLogsWithJavaScript`]                     | Reads the browser console logs using a JavaScript workaround, activated by [`BeginCollectingLogsWithJavaScript`] |
 | [`GetWindowTitle`]                            | Reads the text of the Window/Tab title                                |
-| [`TakeScreenshot`]                            | Takes a Screenshot of the browser window                              |
+| [`TakeScreenshot`]                            | Takes a Screenshot of the browser window                               |
 
 [`ExecuteJavaScriptAndGetResult<TResult>`]: xref:CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult`1
+[`GetLogsNatively`]: xref:CSF.Screenplay.Selenium.Questions.GetLogsNatively
+[`GetLogsWithJavaScript`]: xref:CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript
+[`BeginCollectingLogsWithJavaScript`]: xref:CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript
 [`GetWindowTitle`]: xref:CSF.Screenplay.Selenium.Questions.GetWindowTitle
 [`TakeScreenshot`]: xref:CSF.Screenplay.Selenium.Questions.TakeScreenshot
-
