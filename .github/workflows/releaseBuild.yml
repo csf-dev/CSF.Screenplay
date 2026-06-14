@@ -151,7 +151,7 @@ jobs:
     name: Publish packages to GitHub
     runs-on: ubuntu-slim
     needs: build_and_pack
-    if: ${{ github.event_name != 'pull_request' && github.ref_name == 'master' }}
+    if: ${{ github.event_name == 'workflow_run' && github.ref_name == 'master' }}
 
     env:
       GithubNugetUsername: craigfowler
@@ -181,7 +181,9 @@ jobs:
     name: Update docs website
     runs-on: ubuntu-slim
     needs: build_docs_site
-    if: ${{ github.event_name != 'pull_request' && github.ref_name == 'master' }}
+    if: ${{ github.event_name == 'workflow_run' && github.ref_name == 'master' }}
+    outputs:
+      committed: ${{ steps.add-and-commit.outputs.committed }}
 
     steps:
       - name: Checkout
@@ -205,6 +207,7 @@ jobs:
           path: ./docs
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.1.4
+        id: add-and-commit
         with:
           add: -A docs/
           default_author: github_actor
@@ -213,3 +216,28 @@ jobs:
           fetch: true
           message: Publish updated documentation website
           push: origin master
+
+  publish_github_pages:
+    name: Publish updated Github pages site
+    runs-on: ubuntu-slim
+    needs: update_docs_website
+    if: needs.update_docs_website.outputs.committed == true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
