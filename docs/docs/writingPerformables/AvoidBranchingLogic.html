@@ -90,12 +90,16 @@
 <p><a class="xref" href="../../api/CSF.Screenplay.IPerformance.html">Performances</a> are written <em>a lot like scripts</em>.
 Where possible, <a href="../../glossary/Performable.html">Performables</a> should avoid branching or looping logic.
 <em>This is particularly true</em> when Screenplay is being used <a href="../bestPractice/SuitabilityAsATestingTool.html">as a tool for testing</a>.
-Good test logic has <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">a cyclomatic complexity</a> of precisely one.</p>
+Good test logic has <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">a cyclomatic complexity</a> as close to one as possible.</p>
 <p>Sometimes looping logic is unavoidable and desirable in a Screenplay, imagine a performable which has an <a class="xref" href="../../api/CSF.Screenplay.Actor.html">Actor</a> repeat a process <code>N</code> times.
-This is acceptable if used judiciously.</p>
-<p>Performables should always avoid branching logic like <code>if</code> or <code>switch</code> though, and <em>should never</em> contain such logic when being used for tests.
-If more than one mode of operation is required then write more than one performable.
-The path through a Performance should be completely deterministic, short of an unexpected error or failure.</p>
+Sometimes branching logic is required to deal with external systems which present differing behaviour.
+The <a href="../extensions/selenium/index.html">Selenium Extension</a> makes use of this technique to accomodate different web browsers and web driver implementations.
+Such logic is acceptable if used judiciously.</p>
+<p>Perhaps the best guideline is for the developer to ask themselves:</p>
+<blockquote>
+<p>Could I separate this into two or more tasks and decide which I need at the point of usage?</p>
+</blockquote>
+<p>If the answer is &quot;yes&quot;, then it's often better to do just that, rather than write a multi-function Task.</p>
 
 </article>
 

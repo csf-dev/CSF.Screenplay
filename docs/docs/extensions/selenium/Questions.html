@@ -132,6 +132,10 @@ The possibilities are explained in detail on the questions' detailed documentati
 </thead>
 <tbody>
 <tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FilterElements.html"><code>FilterElements</code></a></td>
+<td>Filters <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">a collection of elements</a> for those which match a <a href="Queries.html">query</a></td>
+</tr>
+<tr>
 <td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FindElement.html"><code>FindElement</code></a></td>
 <td>Gets <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElement.html">an element</a> which matches a <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.Locator.html"><code>Locator</code></a></td>
 </tr>
@@ -140,8 +144,12 @@ The possibilities are explained in detail on the questions' detailed documentati
 <td>Gets <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">a collection of elements</a> which match a <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.Locator.html"><code>Locator</code></a></td>
 </tr>
 <tr>
-<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.FilterElements.html"><code>FilterElements</code></a></td>
-<td>Filters <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Elements.SeleniumElementCollection.html">a collection of elements</a> for those which match a <a href="Queries.html">query</a></td>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetShadowRootNatively.html"><code>GetShadowRootNatively</code></a></td>
+<td>Uses a native technique to get a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow DOM</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot">root element</a></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetShadowRootWithJavaScript.html"><code>GetShadowRootWithJavaScript</code></a></td>
+<td>Uses a JavaScript-based workaround to get a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow DOM</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot">root element</a></td>
 </tr>
 </tbody>
 </table>
@@ -158,6 +166,14 @@ The possibilities are explained in detail on the questions' detailed documentati
 <tr>
 <td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.ExecuteJavaScriptAndGetResult-1.html"><code>ExecuteJavaScriptAndGetResult&lt;TResult&gt;</code></a></td>
 <td>Executes a JavaScript directly in the browser and reads the result</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetLogsNatively.html"><code>GetLogsNatively</code></a></td>
+<td>Reads the browser console logs <em>(note that web driver support is limited)</em></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetLogsWithJavaScript.html"><code>GetLogsWithJavaScript</code></a></td>
+<td>Reads the browser console logs using a JavaScript workaround, activated by <a class="xref" href="../../../api/CSF.Screenplay.Selenium.Actions.BeginCollectingLogsWithJavaScript.html"><code>BeginCollectingLogsWithJavaScript</code></a></td>
 </tr>
 <tr>
 <td><a class="xref" href="../../../api/CSF.Screenplay.Selenium.Questions.GetWindowTitle.html"><code>GetWindowTitle</code></a></td>
