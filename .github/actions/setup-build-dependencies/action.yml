@@ -3,7 +3,7 @@ description: 'Installs and configures mandatory dependencies to build CSF.Screen
 inputs:
   dotnet-version:
     description: 'The version of the .NET SDK to install'
-    default: '8.0.x'
+    default: ${{ vars.SDK_VERSION }}
 
 runs:
   using: 'composite'

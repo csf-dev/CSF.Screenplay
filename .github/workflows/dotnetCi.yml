@@ -16,7 +16,7 @@ jobs:
     env:
       RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
       Configuration: Debug
-      Tfm: net8.0
+      Tfm: ${{ vars.DEFAULT_TFM }}
       # Change selected factory to VerboseChrome to debug Chrome-related issues
       WebDriverFactory__SelectedConfiguration: CiHeadlessChrome
     

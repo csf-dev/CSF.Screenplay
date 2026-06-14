@@ -90,7 +90,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: ${{ vars.SDK_VERSION }}
       - name: Get release artifacts
         uses: actions/download-artifact@v8
         with:
@@ -159,7 +159,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: ${{ vars.SDK_VERSION }}
       - name: Get release artifacts
         uses: actions/download-artifact@v8
         with:
@@ -185,6 +185,13 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Add .NET global tools location to PATH
+        run: echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+        shell: bash
+      - name: Install .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ vars.SDK_VERSION }}
       - name: Remove old docs
         run: dotnet clean CSF.Screenplay.Docs
       - name: Get release artifacts
