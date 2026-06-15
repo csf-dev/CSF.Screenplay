@@ -1,0 +1,22 @@
+{
+  "name": "simpletodoapp",
+  "version": "1.0.0",
+  "description": "A simple To Do List application, which will have tests written in CSF.Screenplay & Reqnroll",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite dev",
+    "run": "vite build && vite preview --port 5173 --strictPort"
+  },
+  "homepage": "https://github.com/csf-dev/CSF.Screenplay#readme",
+  "bugs": {
+    "url": "https://github.com/csf-dev/CSF.Screenplay/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csf-dev/CSF.Screenplay.git"
+  },
+  "license": "MIT",
+  "author": "craigfowler",
+  "type": "module",
+  "main": "index.ts"
+}
