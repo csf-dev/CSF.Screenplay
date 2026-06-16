@@ -5,7 +5,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
-    "run": "vite build && vite preview --port 5173 --strictPort"
+    "serve": "vite build && vite preview --port 5173 --strictPort"
   },
   "homepage": "https://github.com/csf-dev/CSF.Screenplay#readme",
   "bugs": {
@@ -18,5 +18,15 @@
   "license": "MIT",
   "author": "craigfowler",
   "type": "module",
-  "main": "index.ts"
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/node": "^20.18.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "jsdom": "^29.1.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vite-plugin-string": "^1.2.3",
+    "vitest": "^4.1.8"
+  }
 }

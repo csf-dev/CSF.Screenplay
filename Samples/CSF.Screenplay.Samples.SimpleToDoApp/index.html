@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-do list</title>
+</head>
+<body>
+<h1>To-do list</h1>
+<section id="editor">
+    <h2>Editor</h2>
+</section>
+<section id="item_listing">
+    <h2>Things to do</h2>
+    <ol id="items_list"></ol>
+</section>
+<template id="item_template">
+<li>
+    <h3>Name</h3>
+    <div class="detail">Detail</div>
+    <label class="priority">Priority</label>
+    <aside class="controls">
+        
+    </aside>
+</li>
+</template>
+<script type="module" src="./index.ts"></script>
+</body>
+</html>

@@ -11,3 +11,7 @@ runs:
       working-directory: CSF.Screenplay.JsonToHtmlReport.Template/src
       run: npm ci
       shell: bash
+    - name: Restore Sample project Node modules
+      working-directory: Samples/CSF.Screenplay.Samples.SimpleToDoApp
+      run: npm ci
+      shell: bash
