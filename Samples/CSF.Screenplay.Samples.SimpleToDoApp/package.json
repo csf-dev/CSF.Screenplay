@@ -18,7 +18,10 @@
   "license": "MIT",
   "author": "craigfowler",
   "type": "module",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "dependencies": {
+    "rxjs": "7.8.2"
+  },
   "devDependencies": {
     "@types/node": "^20.18.0",
     "@vitest/coverage-v8": "^4.1.8",

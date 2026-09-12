@@ -9,6 +9,31 @@
 <h1>To-do list</h1>
 <section id="editor">
     <h2>Editor</h2>
+    <fieldset class="item_properties">
+        <div class="field">
+            <label for="ItemName">Summary</label>
+            <input type="text" id="ItemName">
+        </div>
+        <div class="field">
+            <label for="ItemDetail">Detail</label>
+            <textarea id="ItemDetail"></textarea>
+        </div>
+        <div class="field">
+            <label for="ItemPriority">Priority</label>
+            <select id="ItemPriority"></select>
+        </div>
+        <div class="field">
+            <label for="ItemCompleted">Completed date</label>
+            <input type="date" id="ItemCompleted">
+        </div>
+    </fieldset>
+    <fieldset class="controls">
+        <button id="DeleteItem">Delete</button>
+        <div class="button_group">
+            <button id="NewItem">New</button>
+            <button id="SaveItem">Save</button>
+        </div>
+    </fieldset>
 </section>
 <section id="item_listing">
     <h2>Things to do</h2>
@@ -19,11 +44,12 @@
     <h3>Name</h3>
     <div class="detail">Detail</div>
     <label class="priority">Priority</label>
+    <label class="completed">Completed</label>
     <aside class="controls">
         
     </aside>
 </li>
 </template>
-<script type="module" src="./index.ts"></script>
+<script type="module" src="./src/index.ts"></script>
 </body>
 </html>

@@ -1,0 +1,17 @@
+@use "reset" as r;
+@use "layout" as l;
+@use "controls" as c;
+
+@layer reset, layout, controls;
+
+@layer reset {
+    @include r.resetStyles
+}
+
+@layer layout {
+    @include l.layoutStyles
+}
+
+@layer controls {
+    @include c.controlStyles
+}
