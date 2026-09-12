@@ -1,0 +1,22 @@
+@use "controls" as c;
+
+@mixin layoutStyles {
+    * {
+        line-height: 130%;
+    }
+    body {
+        padding: 1rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    section#intro {
+        @include c.roundedBox;
+        background-color: #DDE;
+        border-color: #AAE;
+    }
+    section#editor, section#item_listing {
+        @include c.roundedBox;
+        display: inline-block;
+        min-width: 30rem;
+        vertical-align: top;
+    }
+}

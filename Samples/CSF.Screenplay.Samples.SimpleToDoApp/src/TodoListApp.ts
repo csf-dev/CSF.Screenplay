@@ -1,9 +1,15 @@
-import { TodoItem } from "./items";
+import { EditorComponent } from "./EditorComponent";
+import { ListComponent } from "./ListComponent";
+import { ItemList } from "./items";
+import type { ListOfItems } from "./items";
 
 export class TodoListApp {
-    items : TodoItem[] = [];
+    #items : ListOfItems = new ItemList();
+    #editor = new EditorComponent(this.#items);
+    #list = new ListComponent(this.#items);
 
     run() {
-        // TODO: Do we need anything here?
+        this.#editor.setupSubscriptions();
+        this.#list.setupSubscriptions();
     }
 }

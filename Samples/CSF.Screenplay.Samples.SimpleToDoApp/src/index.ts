@@ -1,3 +1,4 @@
+import "./scss/index.scss";
 import { TodoListApp } from "./TodoListApp";
 
 const readyEvent = "DOMContentLoaded";

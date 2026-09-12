@@ -1,0 +1,126 @@
+@mixin controlStyles {
+    body>h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 2rem;
+    }
+
+    section#editor h2, section#item_listing h2 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .item_properties .field {
+        display: flex;
+        margin-bottom: 0.4rem;
+
+        label {
+            flex-basis: 8rem;
+            padding: 0.4rem 0;
+            color: #555;
+        }
+        input, textarea {
+            flex-basis: 20rem;
+        }
+        input, textarea, select {
+            margin: 0;
+            padding: 0.4rem 0.2rem;
+            resize: none;
+        }
+    }
+
+    section#editor .controls {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        
+
+        button {
+            border: 1px solid #666;
+            background-color: #DDD;
+            border-radius: 3px;
+            padding: 0.4rem 0.7rem;
+            cursor: pointer;
+        }
+        button:disabled {
+            cursor: not-allowed;
+            color: #777;
+        }
+        button:focus {
+            border-color: #000;
+            z-index: 10;
+        }
+        #DeleteItem {
+            color: #FFF;
+            background: linear-gradient(180deg,#F77 0%,#F11 100%);
+        }
+        #DeleteItem:disabled {
+            color: #666;
+            background: linear-gradient(180deg,#DAA 0%,#D55 100%);
+        }
+        #NewItem {
+            background: linear-gradient(180deg,#AFA 0%,#3F3 100%);
+        }
+        #SaveItem {
+            background: linear-gradient(180deg,#DDD 0%,#BBB 100%);
+        }
+        #SaveItem:disabled {
+            background: linear-gradient(180deg,#CCC 0%,#AAA 100%);
+        }
+
+        .button_group {
+            display: flex;
+
+            button {
+                border-radius: 0;
+                margin-left: -1px;
+                position: relative;
+            }
+
+            button:first-of-type {
+                margin-left: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            button:last-of-type {
+                border-radius: 0 3px 3px 0;
+            }
+        }
+
+        button+.button_group {
+            margin-left: 1rem;
+        }
+    }
+
+    #items_list {
+        list-style: decimal;
+
+        li {
+            @include roundedBox();
+            border-color: #DD4;
+            background-color: #F0F0E0;
+            margin-left: 1.2rem;
+            list-style-position: outside;
+
+            >label {
+                display: block;
+            }
+        }
+
+        h3 {
+            font-size: 115%;
+        }
+        .detail {
+            white-space: pre;
+        }
+
+    }
+}
+
+@mixin roundedBox {
+    margin: 0.2rem 0;
+    padding: 0.8rem;
+    border: 1px solid #CCC;
+    background: #EEE;
+    border-radius: 3px;
+}
