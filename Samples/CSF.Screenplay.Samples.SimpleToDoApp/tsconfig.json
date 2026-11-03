@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "types": ["vite/client"]
-  }
-}
