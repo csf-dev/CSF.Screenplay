@@ -27,3 +27,18 @@ There is nothing hand-editable inside.
 
 [![.NET CI](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml/badge.svg)](https://github.com/csf-dev/CSF.Screenplay/actions/workflows/dotnetCi.yml)
 [![Test coverage](https://sonarcloud.io/api/project_badges/measure?project=csf-dev_CSF.Screenplay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=csf-dev_CSF.Screenplay)
+
+### This repository uses git submodules
+
+Note that - for the sample application - this repository makes use of [git submodules].
+When cloning this repository, you should either use the [`--recurse-submodules`] option, or after cloning use:
+
+```txt
+git submodule update --init --recursive
+```
+
+Failure to do so will leave you without [the sample web app] files.
+
+[git submodules]: https://git-scm.com/docs/gitsubmodules
+[`--recurse-submodules`]: https://git-scm.com/docs/git-clone#Documentation/git-clone.txt---recurse-submodulespathspec
+[the sample web app]: ./Samples/CSF.Screenplay.Samples.SimpleToDoApp/README.md

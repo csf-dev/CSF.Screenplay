@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "A simple To Do List application, which will have tests written in CSF.Screenplay & Reqnroll",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite dev",
-    "serve": "vite build && vite preview --port 5173 --strictPort"
+    "serve": "http-server ./todomvc/examples/javascript-es6/dist -p 5173 -c-1 --cors"
   },
   "homepage": "https://github.com/csf-dev/CSF.Screenplay#readme",
   "bugs": {
@@ -17,20 +15,7 @@
   },
   "license": "MIT",
   "author": "craigfowler",
-  "type": "module",
-  "main": "src/index.ts",
-  "dependencies": {
-    "rxjs": "^7.8.2"
-  },
   "devDependencies": {
-    "@types/node": "^20.18.0",
-    "@vitest/coverage-v8": "^4.1.8",
-    "jsdom": "^29.1.1",
-    "sass-embedded": "^1.104.1",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-singlefile": "^2.3.3",
-    "vite-plugin-string": "^1.2.3",
-    "vitest": "^4.1.8"
+    "http-server": "^14.1.1"
   }
 }
