@@ -1,4 +1,4 @@
-import { map } from "rxjs";
+import { firstValueFrom, map } from "rxjs";
 import type { ListOfItems } from "./items";
 import type { TodoItem } from "./items/TodoItem";
 
@@ -25,12 +25,25 @@ export class ListComponent {
         else {
             completed.textContent = '';
         }
+        const listElement = templateContent.firstElementChild! as HTMLLIElement;
+        listElement.dataset.id = item.Id.toString();
         
-        return templateContent.firstElementChild! as HTMLLIElement;
+        return listElement
     }
 
     setupSubscriptions() {
-        this.items.list.pipe(map(x => this.#getItemElements(x))).subscribe(items => this.#listElement.replaceChildren(...items));
+        const
+            itemList = this.items,
+            listElement = this.#listElement;
+        itemList.list.pipe(map(x => this.#getItemElements(x))).subscribe(items => listElement.replaceChildren(...items));
+        listElement.addEventListener('click', async ev => {
+            const evTarget = ev.target as HTMLElement;
+            const closestItem = evTarget.closest('#items_list>li') as HTMLElement | null;
+            if(!closestItem) return;
+            const id = parseInt(closestItem.dataset.id as string);
+            const newCurrentItem = await firstValueFrom(itemList.list.pipe(map(x => x.find(i => i.Id === id))));
+            itemList.selectItem(newCurrentItem || null);
+        });
     }
 
     constructor(private readonly items : ListOfItems) {}

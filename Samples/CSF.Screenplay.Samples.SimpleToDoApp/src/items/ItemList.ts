@@ -15,7 +15,18 @@ export interface ListOfItems {
 
     saveSelectedItem() : void;
 
+    /**
+     * Updates the values of the {@link selectedItem} using data within the {@param item}.
+     * 
+     * If the {@link selectedItem} is presently `null` then this method has no effect.
+     * Otherwise, each property within the specified item is mapped onto the selected item (a shallow copy).
+     * The net effect is that the selected item is updated/mutated, using properties of the specified item.
+     * 
+     * @param item The item containing data to map onto the selected item.
+     */
     updateSelectedItem(item : Partial<TodoItem>) : void;
+
+    selectItem(item : TodoItem | null) : void;
 }
 
 export class ItemList implements ListOfItems {
@@ -51,8 +62,7 @@ export class ItemList implements ListOfItems {
         items.push(item);
         this.#list.next(items);
 
-        const selectedItem = {...item};
-        this.#selectedItem.next(selectedItem);
+        this.selectItem(item);
     }
 
     saveSelectedItem() {
@@ -74,5 +84,10 @@ export class ItemList implements ListOfItems {
                 (selectedItem as any)[prop] = replacementVal;
             }
         }
+    }
+
+    selectItem(item : TodoItem | null) : void {
+        if(item) this.#selectedItem.next({...item});
+        else this.#selectedItem.next(null);
     }
 }

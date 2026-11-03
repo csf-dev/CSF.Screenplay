@@ -24,6 +24,12 @@ export class EditorComponent {
             this.#priorityElement.toggleAttribute(disabledAttrib, enabled);
             this.#completedElement.toggleAttribute(disabledAttrib, enabled);
         });
+        this.items.selectedItem.subscribe(val => {
+            this.#nameElement.value = val?.Name || '';
+            this.#detailElement.value = val?.Detail || '';
+            this.#priorityElement.value = val?.Priority || '';
+            this.#completedElement.value = this.#getDateValue(val?.Completed);
+        });
         this.#newButton.addEventListener(clickEvent, () => this.items.newItem());
         this.#saveButton.addEventListener(clickEvent, () => this.items.saveSelectedItem());
         this.#nameElement.addEventListener(changeEvent, ev => this.items.updateSelectedItem({Name: this.#nameElement.value}));
@@ -34,6 +40,11 @@ export class EditorComponent {
         for(const p of allPriorities) {
             this.#priorityElement.innerHTML += `<option>${p}</option>`;
         }
+    }
+
+    #getDateValue(date : Date | null | undefined) : string {
+        if(!date) return '';
+        return `${date.getFullYear().toString().padStart(4, '0')}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDay().toString().padStart(2, '0')}`;
     }
 
     constructor(private readonly items : ListOfItems) {}
