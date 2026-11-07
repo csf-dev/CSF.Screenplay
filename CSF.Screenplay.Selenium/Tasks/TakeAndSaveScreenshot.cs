@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CSF.Screenplay.Abilities;
 using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
@@ -51,6 +52,8 @@ namespace CSF.Screenplay.Selenium.Tasks
         /// <inheritdoc/>
         public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
         {
+            if(!actor.HasAbility<GetAssetFilePaths>() && !throwIfUnsupported) return;
+            
             var screenshot = await actor.PerformAsync(GetTakeAScreenshotPerformable(), cancellationToken);
             if(screenshot == null) return;
             await actor.PerformAsync(SaveTheScreenshot(screenshot).WithTheName(name).WithTheFormat(format), cancellationToken);
