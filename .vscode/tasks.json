@@ -121,52 +121,13 @@
 		},
 		{
 			"group": {
-				"kind": "build"
-			},
-			"type": "shell",
-			"command": "npm",
-			"args": ["i"],
-			"problemMatcher": [],
-			"label": "npm: install (SimpleToDoApp)",
-			"options": {
-				"cwd": "${workspaceFolder}/Samples/CSF.Screenplay.Samples.SimpleToDoApp"
-			}
-		},
-		{
-			"group": {
-				"kind": "build"
-			},
-			"type": "shell",
-			"command": "npm",
-			"args": ["run", "build"],
-			"problemMatcher": [],
-			"label": "npm: build (SimpleToDoApp)",
-			"options": {
-				"cwd": "${workspaceFolder}/Samples/CSF.Screenplay.Samples.SimpleToDoApp"
-			}
-		},
-		{
-			"group": {
-				"kind": "build"
-			},
-			"type": "shell",
-			"command": "npm",
-			"args": ["run", "dev"],
-			"problemMatcher": [],
-			"label": "npm: dev (SimpleToDoApp)",
-			"options": {
-				"cwd": "${workspaceFolder}/Samples/CSF.Screenplay.Samples.SimpleToDoApp"
-			}
-		},
-		{
-			"group": {
-				"kind": "build"
+				"kind": "none"
 			},
 			"type": "shell",
 			"command": "npm",
 			"args": ["run", "serve"],
 			"problemMatcher": [],
-			"label": "npm: serve (SimpleToDoApp)",
+			"label": "npm: serve (TodoMVC)",
 			"options": {
 				"cwd": "${workspaceFolder}/Samples/CSF.Screenplay.Samples.SimpleToDoApp"
 			}
