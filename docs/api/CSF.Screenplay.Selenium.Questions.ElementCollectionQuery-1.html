@@ -93,7 +93,7 @@ Class ElementCollectionQuery&lt;TResult&gt;  <a class="header-action link-second
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -166,15 +166,17 @@ This example gets the text of every list item which has the class <code>todo</co
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>readonly ITarget todoItems = new CssSelector(&quot;li.todo&quot;, &quot;the todo items&quot;);</p>
-<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;IReadOnlyList&lt;string&gt;&gt;
+
+readonly ITarget todoItems = new CssSelector("li.todo", "the todo items");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;IReadOnlyList&lt;string&gt;&gt;
 public async ValueTask&lt;IReadOnlyList&lt;string&gt;&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-// ... other performance logic
-var texts = await actor.PerformAsync(ReadFromTheCollectionOfElements(todoItems).Text(), cancellationToken);
-// ... other performance logic
-return texts;
-}</p></code></pre>
+    // ... other performance logic
+    var texts = await actor.PerformAsync(ReadFromTheCollectionOfElements(todoItems).Text(), cancellationToken);
+    // ... other performance logic
+    return texts;
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_ElementCollectionQuery_1_remarks">Remarks</h2>

@@ -93,7 +93,7 @@ Class BrowseTheWeb  <a class="header-action link-secondary" title="View source" 
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -187,18 +187,19 @@ environment variable to switch between them at execution time.
 </p>
 <pre><code class="lang-csharp">using CSF.Extensions.WebDriver;
 using CSF.Screenplay.Selenium;
-<p>public class Webster(IGetsWebDriver webDriverFactory) : IPersona
+
+public class Webster(IGetsWebDriver webDriverFactory) : IPersona
 {
-public string Name =&gt; &quot;Webster&quot;;</p>
-<pre><code>public Actor GetActor(Guid performanceIdentity)
-{
-    var webster = new Actor(Name, performanceIdentity);
-    var browseTheWeb = new BrowseTheWeb(webDriverFactory);
-    webster.IsAbleTo(browseTheWeb);
-    return webster;
-}
-</code></pre>
-<p>}</p></code></pre>
+    public string Name =&gt; "Webster";
+
+    public Actor GetActor(Guid performanceIdentity)
+    {
+        var webster = new Actor(Name, performanceIdentity);
+        var browseTheWeb = new BrowseTheWeb(webDriverFactory);
+        webster.IsAbleTo(browseTheWeb);
+        return webster;
+    }
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_BrowseTheWeb_remarks">Remarks</h2>

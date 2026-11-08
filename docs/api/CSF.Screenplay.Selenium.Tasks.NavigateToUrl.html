@@ -93,7 +93,7 @@ Class NavigateToUrl  <a class="header-action link-secondary" title="View source"
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Tasks.html">Tasks</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Tasks.html">Tasks</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -162,13 +162,15 @@ This task is used in exactly the same way as <a class="xref" href="CSF.Screenpla
 This example is 'compressed' for brevity.
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>var examplePage = new NamedUri(&quot;user/shoppingCart&quot;, &quot;the user's shopping cart&quot;);</p>
-<p>// Within the logic of a custom task, deriving from IPerformable
+
+var examplePage = new NamedUri("user/shoppingCart", "the user's shopping cart");
+
+// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-actor.IsAbleTo(new UseABaseUri(new Uri(&quot;https://example.com&quot;)));
-await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
-}</p></code></pre>
+    actor.IsAbleTo(new UseABaseUri(new Uri("https://example.com")));
+    await actor.PerformAsync(OpenTheUrl(examplePage), cancellationToken);
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Tasks_NavigateToUrl_remarks">Remarks</h2>

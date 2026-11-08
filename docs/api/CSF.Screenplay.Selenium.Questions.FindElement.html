@@ -93,7 +93,7 @@ Class FindElement  <a class="header-action link-secondary" title="View source" h
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -161,16 +161,18 @@ This example gets a <a class="xref" href="CSF.Screenplay.Selenium.Elements.Selen
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>readonly ITarget todoList = new CssSelector(&quot;ul#todo&quot;, &quot;the to-do list&quot;);
-readonly Locator urgent = new ClassName(&quot;urgent&quot;, &quot;the urgent item&quot;);</p>
-<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElement&gt;
+
+readonly ITarget todoList = new CssSelector("ul#todo", "the to-do list");
+readonly Locator urgent = new ClassName("urgent", "the urgent item");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;SeleniumElement&gt;
 public async ValueTask&lt;SeleniumElement&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-// ... other performance logic
-var element = await actor.PerformAsync(FindAnElementWithin(todoList).WhichMatches(urgent), cancellationToken);
-// ... other performance logic
-return element;
-}</p></code></pre>
+    // ... other performance logic
+    var element = await actor.PerformAsync(FindAnElementWithin(todoList).WhichMatches(urgent), cancellationToken);
+    // ... other performance logic
+    return element;
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_FindElement_remarks">Remarks</h2>

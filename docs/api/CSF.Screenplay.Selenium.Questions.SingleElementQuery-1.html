@@ -93,7 +93,7 @@ Class SingleElementQuery&lt;TResult&gt;  <a class="header-action link-secondary"
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Questions.html">Questions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -166,15 +166,17 @@ This example gets the background color of a list item which has the class <code>
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>readonly ITarget warningItem = new CssSelector(&quot;li.warning&quot;, &quot;the warning item&quot;);</p>
-<p>// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
+
+readonly ITarget warningItem = new CssSelector("li.warning", "the warning item");
+
+// Within the logic of a custom task, deriving from IPerformableWithResult&lt;string&gt;
 public async ValueTask&lt;string&gt; PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-// ... other performance logic
-var bgColor = await actor.PerformAsync(ReadFromTheElement(warningItem).TheCssProperty(&quot;background-color&quot;), cancellationToken);
-// ... other performance logic
-return bgColor;
-}</p></code></pre>
+    // ... other performance logic
+    var bgColor = await actor.PerformAsync(ReadFromTheElement(warningItem).TheCssProperty("background-color"), cancellationToken);
+    // ... other performance logic
+    return bgColor;
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Questions_SingleElementQuery_1_remarks">Remarks</h2>

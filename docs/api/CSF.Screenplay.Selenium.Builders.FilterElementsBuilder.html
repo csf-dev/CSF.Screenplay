@@ -93,7 +93,7 @@ Class FilterElementsBuilder  <a class="header-action link-secondary" title="View
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Builders.html">Builders</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Builders.html">Builders</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -151,7 +151,8 @@ Class FilterElementsBuilder  <a class="header-action link-secondary" title="View
 Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text(&quot;Buy now&quot;)), cancellationToken);</p></code></pre>
+
+var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
 <p>
 The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
 of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.
@@ -286,7 +287,8 @@ which is passed to this method.  Do this via the other overload to this method..
 Here is a sample usage which combines both the <a class="xref" href="CSF.Screenplay.Selenium.Builders.QueryPredicatePrototypeBuilder.html">QueryPredicatePrototypeBuilder</a> and <a class="xref" href="CSF.Screenplay.Selenium.Builders.FilterElementsBuilder.html">FilterElementsBuilder</a> classes:
 </p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text(&quot;Buy now&quot;)), cancellationToken);</p></code></pre>
+
+var buyNowButtons = await actor.PerformAsync(Filter(someElements).ForThoseWhich(have =&gt; have.Clickability(true).And(have.Text("Buy now")), cancellationToken);</code></pre>
 <p>
 The code sample above assumes that <code>actor</code> is an instance of <a class="xref" href="CSF.Screenplay.ICanPerform.html">ICanPerform</a>, that <code>someElements</code> is a collection
 of <a class="xref" href="CSF.Screenplay.Selenium.Elements.SeleniumElement.html">SeleniumElement</a> instances, and that <code>cancellationToken</code> is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> instance.

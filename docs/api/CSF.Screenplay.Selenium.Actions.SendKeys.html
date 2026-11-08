@@ -93,7 +93,7 @@ Class SendKeys  <a class="header-action link-secondary" title="View source" href
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Actions.html">Actions</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a>.<a class="xref" href="CSF.Screenplay.Selenium.html">Selenium</a>.<a class="xref" href="CSF.Screenplay.Selenium.Actions.html">Actions</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Selenium.dll</dd></dl>
   </div>
 
@@ -159,14 +159,16 @@ This example types "Jane Doe" into the element with ID <code>name</code>.
 </p>
 <pre><code class="lang-csharp">using CSF.Screenplay.Selenium.Elements;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
-<p>readonly ITarget name = new ElementId(&quot;name&quot;, &quot;the name field&quot;);</p>
-<p>// Within the logic of a custom task, deriving from IPerformable
+
+readonly ITarget name = new ElementId("name", "the name field");
+
+// Within the logic of a custom task, deriving from IPerformable
 public async ValueTask PerformAsAsync(ICanPerform actor, CancellationToken cancellationToken = default)
 {
-// ... other performance logic
-await actor.PerformAsync(EnterTheText(&quot;Jane Doe&quot;).Into(name), cancellationToken);
-// ... other performance logic
-}</p></code></pre>
+    // ... other performance logic
+    await actor.PerformAsync(EnterTheText("Jane Doe").Into(name), cancellationToken);
+    // ... other performance logic
+}</code></pre>
 
 
   <h2 id="CSF_Screenplay_Selenium_Actions_SendKeys_remarks">Remarks</h2>

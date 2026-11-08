@@ -93,7 +93,7 @@ Class PerformanceStarter  <a class="header-action link-secondary" title="View so
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<a class="xref" href="CSF.Screenplay.html">Screenplay</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Screenplay.Abstractions.dll</dd></dl>
   </div>
 
@@ -150,8 +150,9 @@ own logic, using a fluent interface</p>
   <h2 id="CSF_Screenplay_PerformanceStarter_examples">Examples</h2>
   <p>Here is an example of the recommended technique for consuming this class' functionality.</p>
 <pre><code class="lang-csharp">using static CSF.Screenplay.ScreenplayStarter;
-<p>// ... then in your top-level performance logic:
-await Given(joe).WasAbleTo(takeOutTheTrash);</p></code></pre>
+
+// ... then in your top-level performance logic:
+await Given(joe).WasAbleTo(takeOutTheTrash);</code></pre>
 
 
   <h2 id="CSF_Screenplay_PerformanceStarter_remarks">Remarks</h2>
