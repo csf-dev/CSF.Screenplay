@@ -20,7 +20,7 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         /// <remarks>
         /// <para>
-        /// The design of BoDi means that the <see cref="ObjectContainer.IsRegistered(Type, string)"/> method (and variants) are unsafe to use here.
+        /// The design of BoDi means that the <c>ObjectContainer.IsRegistered</c> method (and variants) are unsafe to use here.
         /// This means that we cannot reliably check whether a service type is already available in the container in a side-effect free manner.
         /// This is because when using <c>IsRegistered</c> or its other overloads, can return <see langword="false"/> for types which BoDi was capable
         /// of resolving, due to its <em>registration-free resolution</em> functionality.  That is - when resolving concrete types which are not registered, it
