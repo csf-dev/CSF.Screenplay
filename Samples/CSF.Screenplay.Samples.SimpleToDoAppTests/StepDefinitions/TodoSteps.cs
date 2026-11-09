@@ -1,6 +1,6 @@
 using System.Linq;
 using static CSF.Screenplay.PerformanceStarter;
-using static CSF.Screenplay.PerformableBuilder;
+using static CSF.Screenplay.TodoPerformableBuilder;
 using NUnit.Framework;
 
 namespace CSF.Screenplay.StepDefinitions;
@@ -24,6 +24,15 @@ public class TodoSteps(IStage stage)
             await When(actor).AttemptsTo(CreateATodoReading(item));
     }
 
+    [Given("he has created several todo items")]
+    public async Task GivenTheyCreatedSomeTodoItems(DataTable dataTable)
+    {
+        var items = dataTable.Rows.Select(x => x.Values.Single()).ToArray();
+        var actor = stage.GetSpotlitActor();
+        foreach(var item in items)
+            await Given(actor).WasAbleTo(CreateATodoReading(item));
+    }
+
     [Then("the count of displayed todos should be (\\d+)")]
     public async Task ThenAssertTheCountOfDisplayedTodos(int expected)
     {
@@ -38,5 +47,12 @@ public class TodoSteps(IStage stage)
         var actor = stage.GetSpotlitActor();
         var actual = await Then(actor).Should(GetTheTodoItemAtPosition(position));
         Assert.That(actual, Is.EqualTo(expected));
+    }
+
+    [When("(?:s?he|they) marks the item at position (\\d+) as completed")]
+    public async Task WhenTheyMarkAnItemAsCompleted(int position)
+    {
+        var actor = stage.GetSpotlitActor();
+        await When(actor).AttemptsTo(ToggleTheCompletedStateOfItem(position));
     }
 }

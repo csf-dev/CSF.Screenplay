@@ -9,7 +9,7 @@ namespace CSF.Screenplay.Abilities
     /// <remarks>
     /// <para>
     /// Use this ability with the actions which exposed by
-    /// <see cref="CSF.Screenplay.PerforamableBuilder"/>.
+    /// <see cref="CSF.Screenplay.PerformableBuilder"/>.
     /// This ability wraps a <see cref="System.Diagnostics.Stopwatch"/> instance, allowing the actor
     /// to control &amp; read it from the related actions.
     /// </para>
