@@ -25,3 +25,7 @@ If you'd like, you are also encouraged to [write your own extension], adding new
 [extensions]: ../glossary/Extension.md
 [a list of the extensions which are authored alongside Screenplay's core]: extensions/index.md
 [write your own extension]: extendingScreenplay/index.md
+## A sample Screenplay project 
+[The `Samples` directory within the git repository] contains a small UI-only web application and a Screenplay test project which tests it. The tests make use of the Reqnroll test framework and Selenium extension, to test the web application.
+
+[The `Samples` directory within the git repository]: https://github.com/csf-dev/CSF.Screenplay/tree/master/Samples
