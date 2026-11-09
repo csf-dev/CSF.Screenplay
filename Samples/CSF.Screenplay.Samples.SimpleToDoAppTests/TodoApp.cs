@@ -11,4 +11,12 @@ public static class TodoApp
     public static Locator DisplayedTodos = new CssSelector(".main .todo-list li", "The displayed todo items");
 
     public static Locator TodoAtPosition(int position) => new CssSelector($".main .todo-list li:nth-child({position}) .view label", $"The text of the displayed todo item at position {position}");
+
+    public static Locator CompletedToggle(int position) => new CssSelector($".main .todo-list li:nth-child({position}) .view input", $"The 'completed' toggle for the todo item at position {position}");
+
+    public static Locator ShowAllFilter => new CssSelector(".footer .filters [href=\"#/\"]", "The clear-filter (show all) button");
+
+    public static Locator ActiveOnlyFilter => new CssSelector(".footer .filters [href=\"#/active\"]", "The active-only filter button");
+
+    public static Locator CompletedOnlyFilter => new CssSelector(".footer .filters [href=\"#/completed\"]", "The completed-only filter button");
 }

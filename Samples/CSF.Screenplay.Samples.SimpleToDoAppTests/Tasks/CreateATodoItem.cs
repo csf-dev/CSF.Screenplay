@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using static CSF.Screenplay.Selenium.PerformableBuilder;
 
 namespace CSF.Screenplay.Tasks;
+
 public class CreateATodoItem(string text) : IPerformable, ICanReport
 {
     public ReportFragment GetReportFragment(Actor actor, IFormatsReportFragment formatter)
