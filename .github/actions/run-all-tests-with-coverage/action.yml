@@ -76,7 +76,7 @@ runs:
         JsFailures: ${{ steps.js_tests.outputs.failures }}
         SampleProjFailures: ${{ steps.sample_project_tests.outputs.failures }}
       run: |
-        if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' -o $SampleProjFailures = 'true' ]
+        if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' -o "$SampleProjFailures" = 'true' ]
         then
           echo "Emitting failure"
           echo "failures=true" >> "$GITHUB_OUTPUT"
