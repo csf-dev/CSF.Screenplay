@@ -3,6 +3,7 @@ obj/
 /CSF.Screenplay.Docs/api/
 TestResults/
 Tests/**/*.feature.cs
+Samples/**/*.feature.cs
 node_modules/
 *.orig
 /CSF.Screenplay.JsonToHtmlReport/template/
