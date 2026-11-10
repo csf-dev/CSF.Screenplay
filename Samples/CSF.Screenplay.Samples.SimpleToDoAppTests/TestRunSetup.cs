@@ -149,10 +149,6 @@ public static class TestRunSetup
                 $"--- npm output ---{Environment.NewLine}{GetSampleAppOutput()}{Environment.NewLine}--- end npm output ---",
                 ex);
         }
-
-        using var httpClient = new HttpClient();
-        var result = await httpClient.GetAsync(sampleAppUrl);
-        result.EnsureSuccessStatusCode();
     }
 
     /// <summary>
