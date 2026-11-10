@@ -317,6 +317,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.CiChromeOptionsCustomizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.CiChromeOptionsCustomizer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.CiChromeOptionsCustomizer",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.CiChromeOptionsCustomizer.yml\" sourcestartlinenumber=\"1\">A customization class which sets up Google Chrome browser with some headless options.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.EnumerableResolutionAdapter-1.yml",
       "output": {
         ".html": {
@@ -737,17 +751,17 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Screenplay.PerforamableBuilder.yml",
+      "source_relative_path": "api/CSF.Screenplay.PerformableBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Screenplay.PerforamableBuilder.html"
+          "relative_path": "api/CSF.Screenplay.PerformableBuilder.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "CSF.Screenplay.PerforamableBuilder",
-      "Summary": "<p sourcefile=\"api/CSF.Screenplay.PerforamableBuilder.yml\" sourcestartlinenumber=\"1\">Static helper class used to create/build instances of the performables which are bundled with Screenplay.</p>\n"
+      "Title": "CSF.Screenplay.PerformableBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.PerformableBuilder.yml\" sourcestartlinenumber=\"1\">Static helper class used to create/build instances of the performables which are bundled with Screenplay.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4195,6 +4209,146 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.StepDefinitions.AppSteps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.StepDefinitions.AppSteps.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.StepDefinitions.AppSteps",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.StepDefinitions.FilteringSteps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.StepDefinitions.FilteringSteps.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.StepDefinitions.FilteringSteps",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.StepDefinitions.TodoSteps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.StepDefinitions.TodoSteps.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.StepDefinitions.TodoSteps",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.StepDefinitions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.StepDefinitions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.StepDefinitions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.ActivateAFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.ActivateAFilter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks.ActivateAFilter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.CreateATodoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.CreateATodoItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks.CreateATodoItem",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.GetTheCountOfDisplayedItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.GetTheCountOfDisplayedItems.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks.GetTheCountOfDisplayedItems",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.GetTheItemDisplayedAtAPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.GetTheItemDisplayedAtAPosition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks.GetTheItemDisplayedAtAPosition",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.ToggleAnItemsCompletedState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.ToggleAnItemsCompletedState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks.ToggleAnItemsCompletedState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Tasks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Tasks.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Tasks",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Screenplay.TestMethodBuilder.yml",
       "output": {
         ".html": {
@@ -4206,6 +4360,34 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.TestMethodBuilder",
       "Summary": "<p sourcefile=\"api/CSF.Screenplay.TestMethodBuilder.yml\" sourcestartlinenumber=\"1\">Builder class which is used to create NUnit3 test method instances for a Screenplay-based test.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.TestRunSetup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.TestRunSetup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.TestRunSetup",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.TestRunSetup.yml\" sourcestartlinenumber=\"1\">Configures the Reqnroll test run appropriately to use Screenplay/Selenium, and to ensure that the TodoMVC sample app\nis started and running automatically when the test run is performed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.TodoPerformableBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.TodoPerformableBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.TodoPerformableBuilder",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.TodoPerformableBuilder.yml\" sourcestartlinenumber=\"1\">Builder class which runs tasks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4444,6 +4626,20 @@
       "IsMRef": true,
       "Title": "CSF.Screenplay.WebApis",
       "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Screenplay.Webster.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Screenplay.Webster.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Screenplay.Webster",
+      "Summary": "<p sourcefile=\"api/CSF.Screenplay.Webster.yml\" sourcestartlinenumber=\"1\">Webster is a Persona who can browse the web.</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ServiceProviderAdapter" data-uid="CSF.Screenplay.ServiceProviderAdapter" class="text-break">
-Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L14"><i class="bi bi-code-slash"></i></a>
+Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -163,7 +163,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)">
   ServiceProviderAdapter(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a>.</p>
@@ -206,7 +206,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type_" data-uid="CSF.Screenplay.ServiceProviderAdapter.GetService(System.Type)">
   GetService(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -234,6 +234,34 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
 
 
+  <h4 class="section" id="CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The design of BoDi means that the <code>ObjectContainer.IsRegistered</code> method (and variants) are unsafe to use here.
+This means that we cannot reliably check whether a service type is already available in the container in a side-effect free manner.
+This is because when using <code>IsRegistered</code> or its other overloads, can return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for types which BoDi was capable
+of resolving, due to its <em>registration-free resolution</em> functionality.  That is - when resolving concrete types which are not registered, it
+will do its best to create an instance regardless.
+Thus, whilst <code>IsRegistered</code> is correctly named, it is not what we want here.  What we wanted is "Can you resolve type X?"
+</p>
+<p>
+The alternative, used here, is to attempt to resolve the type, but contained within a <code>try/catch</code> which catched BoDi's
+<a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a>, which is thrown if BoDi cannot resolve the specified type. At that point, if it can't be resolved,
+then we use the <code>catch</code> to revert to the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> behaviour, which is to return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a service
+which cannot be resolved.
+</p>
+<p>
+<b>Beware when debugging</b> that this comes with an unfortunate trade-off!  If BoDi encounters an error whilst resolving something, then we can't tell at this
+point whether that was an expected or unexpected error.  An example of an expected error would be that we're trying to resolve an interface which
+is not registered.  An unexpected error might be an exception encountered within the constructor of something we are resolving.
+Because the contract of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> is to return null when attempting to resolve things which are not registered, then we must not
+throw for those expected errors. The dilemma this offers us (because we can't tell expected and unexpected apart) is that we either have to throw for
+every problem, or never throw.
+I have picked the "never throw" route, but the trade-off is that this logic masks unexpected errors.  That will make debugging more difficult, because unexpected
+exceptions from BoDi will be squashed and replaced with null returns. What I have done to make that less painful is to integrate with MS Logging Abstractions here.
+If you install and register a logging abstraction within DI, then an implementation of <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger&lt;TCategoryName&gt;</a> will be resolved and the original error
+recorded in the log.
+</p>
+</div>
 
 
 
@@ -242,7 +270,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L14" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 
