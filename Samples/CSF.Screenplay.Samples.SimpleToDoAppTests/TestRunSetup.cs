@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
+using System.Text;
 using CSF.Extensions.WebDriver.Factories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +27,7 @@ public static class TestRunSetup
     internal static readonly Uri SampleAppUri = new(sampleAppUrl);
 
     static Process? sampleAppProcess;
+    static readonly ConcurrentQueue<string> sampleAppOutput = new();
 
     [BeforeTestRun]
     public static async Task BeforeTestRunAsync(IObjectContainer container)
@@ -112,17 +115,132 @@ public static class TestRunSetup
     /// <para>
     /// The OS process handle is stored at <see cref="sampleAppProcess"/>, so that it may be stopped gracefully at a later stage.
     /// </para>
+    /// <para>
+    /// This includes logic which waits for the sample app to come up (via <c>npm run serve</c>) and which attempts to clean up a dangling
+    /// process should there be a failure of some kind.
+    /// Additionally, if we are unable to connect to the sample app, an <see cref="InvalidOperationException"/> is thrown, which includes
+    /// the output from NPM.  This should help diagnose the problem.
+    /// </para>
     /// </remarks>
     /// <returns>An awaitable task</returns>
     static async Task StartSampleAppAsync()
     {
-        var startInfo = new ProcessStartInfo("npm", ["run", "serve"]) { WorkingDirectory = GetSampleAppWorkingDirectory(), UseShellExecute = true, CreateNoWindow = true };
-        sampleAppProcess = Process.Start(startInfo);
-        await Task.Delay(100);
+        var startInfo = GetSampleAppStartInfo();
+        sampleAppProcess = new Process { StartInfo = startInfo };
+        sampleAppProcess.OutputDataReceived += (_, e) => { if (e.Data is not null) sampleAppOutput.Enqueue($"[stdout] {e.Data}"); };
+        sampleAppProcess.ErrorDataReceived += (_, e) => { if (e.Data is not null) sampleAppOutput.Enqueue($"[stderr] {e.Data}"); };
+
+        try
+        {
+            sampleAppProcess.Start();
+            sampleAppProcess.BeginOutputReadLine();
+            sampleAppProcess.BeginErrorReadLine();
+
+            await WaitForSampleAppAsync(sampleAppProcess);
+        }
+        catch (Exception ex)
+        {
+            try { if (!sampleAppProcess.HasExited) sampleAppProcess.Kill(true); } catch { /* intentional no-op */ }
+
+            throw new InvalidOperationException(
+                $"The sample app did not start correctly, or was unreachable.{Environment.NewLine}" +
+                $"Working directory: {startInfo.WorkingDirectory}{Environment.NewLine}" +
+                $"Command: {startInfo.FileName} {string.Join(' ', startInfo.ArgumentList)}{Environment.NewLine}" +
+                $"--- npm output ---{Environment.NewLine}{GetSampleAppOutput()}{Environment.NewLine}--- end npm output ---",
+                ex);
+        }
 
         using var httpClient = new HttpClient();
         var result = await httpClient.GetAsync(sampleAppUrl);
         result.EnsureSuccessStatusCode();
+    }
+
+    /// <summary>
+    /// Gets the start info for the sample app process.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Executing NPM via Windows requires cmd.exe, because NPM is a <c>npm.cmd</c> batch-file formatted file.
+    /// On Linux (CI environments) though, it is not.
+    /// </para>
+    /// </remarks>
+    /// <returns>Process start info</returns>
+    static ProcessStartInfo GetSampleAppStartInfo()
+    {
+        var startInfo = new ProcessStartInfo
+        {
+            WorkingDirectory = GetSampleAppWorkingDirectory(),
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+        };
+
+        if (OperatingSystem.IsWindows())
+        {
+            startInfo.FileName = "cmd.exe";
+            foreach (var arg in new[] { "/c", "npm", "run", "serve" }) startInfo.ArgumentList.Add(arg);
+        }
+        else
+        {
+            startInfo.FileName = "npm";
+            foreach (var arg in new[] { "run", "serve" }) startInfo.ArgumentList.Add(arg);
+        }
+
+        return startInfo;
+    }
+    static string GetSampleAppOutput()
+    {
+        var sb = new StringBuilder();
+        foreach (var line in sampleAppOutput) sb.AppendLine(line);
+        return sb.Length == 0 ? "(no output captured)" : sb.ToString();
+    }
+
+    /// <summary>
+    /// Makes up to 10 attempts to connect to the sample application, over a maximum of approx 28 seconds.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// If the NPM process has exited early then this algorithm fails fast with an <see cref="InvalidOperationException"/>.
+    /// This method uses a very simple exponential backoff algorithm for the retries, capped at a 5 second wait between retries.
+    /// Over the total of 10 attempts, this puts us at a maximum wait of approx 28 seconds.
+    /// </para>
+    /// </remarks>
+    /// <param name="process"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    /// <exception cref="TimeoutException"></exception>
+    static async Task WaitForSampleAppAsync(Process process)
+    {
+        const int maxConnectionAttempts = 10;
+
+        using var httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
+        Exception? lastError = null;
+
+        for (var attempt = 1; attempt <= maxConnectionAttempts; attempt++)
+        {
+            if (process.HasExited)
+            {
+                process.WaitForExit();
+                throw new InvalidOperationException($"The npm process exited prematurely with exit code {process.ExitCode}.");
+            }
+
+            try
+            {
+                using var response = await httpClient.GetAsync(sampleAppUrl);
+                response.EnsureSuccessStatusCode();
+                return;
+            }
+            catch (Exception ex) when (ex is HttpRequestException or TaskCanceledException)
+            {
+                lastError = ex;
+                if (attempt == maxConnectionAttempts) break;
+                var delay = TimeSpan.FromMilliseconds(Math.Min(250 * Math.Pow(2, attempt - 1), 5000));
+                await Task.Delay(delay);
+            }
+        }
+
+        throw new TimeoutException($"The sample app did not respond after {maxConnectionAttempts} attempts.", lastError);
     }
 
     /// <summary>
