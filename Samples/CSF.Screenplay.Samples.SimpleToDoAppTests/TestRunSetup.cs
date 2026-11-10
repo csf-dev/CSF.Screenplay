@@ -43,7 +43,12 @@ public static class TestRunSetup
     /// Gets the working directory to the sample application.
     /// </summary>
     /// <returns>A string directory path</returns>
-    static string GetSampleAppWorkingDirectory() => Path.Combine(GetTestProjectDirectory(), "..", sampleAppName);
+    static string GetSampleAppWorkingDirectory()
+    {
+        var path = Path.Combine(GetTestProjectDirectory(), "..", sampleAppName);
+        if(!Directory.Exists(path)) throw new DriveNotFoundException($"The sample application directory must exist: {path}");
+        return path;
+    }
 
     /// <summary>
     /// Gets the file system directory path to the location which contains this test project
