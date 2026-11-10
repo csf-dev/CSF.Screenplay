@@ -2,7 +2,7 @@ using System.IO;
 using CSF.Screenplay.Abilities;
 using CSF.Screenplay.Reporting;
 using NUnit.Framework.Legacy;
-using static CSF.Screenplay.PerforamableBuilder;
+using static CSF.Screenplay.PerformableBuilder;
 
 namespace CSF.Screenplay.Performables;
 

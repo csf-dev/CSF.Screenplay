@@ -3,7 +3,7 @@ using CSF.Screenplay.Performables;
 
 namespace CSF.Screenplay
 {
-    public static partial class PerforamableBuilder
+    public static partial class PerformableBuilder
     {
         /// <summary>
         /// Gets a performable which starts the stopwatch.

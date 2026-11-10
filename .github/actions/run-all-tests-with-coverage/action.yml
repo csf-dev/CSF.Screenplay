@@ -54,13 +54,29 @@ runs:
           echo "One or more tests have failed; this build should eventually fail"
           echo "failures=true" >> "$GITHUB_OUTPUT"
         fi
+    - name: Run sample project tests
+      env:
+        Configuration: ${{ inputs.configuration }}
+        Tfm: ${{ inputs.tfm }}
+        DISPLAY: ${{ inputs.x-display }}
+      id: sample_project_tests
+      shell: bash {0}
+      run: |
+        dotnet test Samples/CSF.Screenplay.Samples.SimpleToDoAppTests -c $Configuration --no-build --logger:nunit --test-adapter-path:.
+        exitCode=$?
+        if [ $exitCode -ne 0 ]
+        then
+          echo "One or more tests have failed; this build should eventually fail"
+          echo "failures=true" >> "$GITHUB_OUTPUT"
+        fi
     - name: Emit output
       id: emit_output
       env:
         DotnetFailures: ${{ steps.dotnet_tests.outputs.failures }}
         JsFailures: ${{ steps.js_tests.outputs.failures }}
+        SampleProjFailures: ${{ steps.sample_project_tests.outputs.failures }}
       run: |
-        if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' ]
+        if [ "$DotnetFailures" = 'true' -o "$JsFailures" = 'true' -o "$SampleProjFailures" = 'true' ]
         then
           echo "Emitting failure"
           echo "failures=true" >> "$GITHUB_OUTPUT"

@@ -1,0 +1,21 @@
+{
+  "name": "simpletodoapp",
+  "version": "1.0.0",
+  "description": "A simple To Do List application, which will have tests written in CSF.Screenplay & Reqnroll",
+  "scripts": {
+    "serve": "http-server ./todomvc/examples/javascript-es6/dist -p 5173 -c-1 --cors"
+  },
+  "homepage": "https://github.com/csf-dev/CSF.Screenplay#readme",
+  "bugs": {
+    "url": "https://github.com/csf-dev/CSF.Screenplay/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csf-dev/CSF.Screenplay.git"
+  },
+  "license": "MIT",
+  "author": "craigfowler",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

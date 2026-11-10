@@ -1,3 +1,7 @@
+---
+uid: PersonaGlossaryItem
+---
+
 # Persona
 
 A Persona is a class which serves as [a factory] for a specific **[Actor]**.

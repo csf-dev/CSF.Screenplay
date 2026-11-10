@@ -13,7 +13,7 @@ namespace CSF.Screenplay
     /// This will allow you use the method names in this class in a more human-readable fashion.
     /// </para>
     /// </remarks>
-    public static partial class PerforamableBuilder
+    public static partial class PerformableBuilder
     {
         /// <summary>
         /// Gets a builder for an Action which copies a file at the specified source path into the assets for the current performance.

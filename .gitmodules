@@ -1,0 +1,3 @@
+[submodule "Samples/CSF.Screenplay.Samples.SimpleToDoApp/todomvc"]
+	path = Samples/CSF.Screenplay.Samples.SimpleToDoApp/todomvc
+	url = https://github.com/tastejs/todomvc

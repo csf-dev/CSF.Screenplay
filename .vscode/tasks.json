@@ -56,7 +56,7 @@
 			"command": "npm",
 			"args": ["run", "test"],
 			"problemMatcher": [],
-			"label": "npm: test (Javascript)",
+			"label": "npm: test (JsonToHtmlReport)",
 			"options": {
 				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
 			}
@@ -88,7 +88,7 @@
 			"command": "npm",
 			"args": ["i"],
 			"problemMatcher": [],
-			"label": "npm: install (Javascript)",
+			"label": "npm: install (JsonToHtmlReport)",
 			"options": {
 				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
 			}
@@ -101,7 +101,7 @@
 			"command": "npm",
 			"args": ["run", "dev"],
 			"problemMatcher": [],
-			"label": "npm: dev (Javascript)",
+			"label": "npm: dev (JsonToHtmlReport)",
 			"options": {
 				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
 			}
@@ -114,9 +114,22 @@
 			"command": "npm",
 			"args": ["run", "build"],
 			"problemMatcher": [],
-			"label": "npm: build (Javascript)",
+			"label": "npm: build (JsonToHtmlReport)",
 			"options": {
 				"cwd": "${workspaceFolder}/CSF.Screenplay.JsonToHtmlReport.Template/src"
+			}
+		},
+		{
+			"group": {
+				"kind": "none"
+			},
+			"type": "shell",
+			"command": "npm",
+			"args": ["run", "serve"],
+			"problemMatcher": [],
+			"label": "npm: serve (TodoMVC)",
+			"options": {
+				"cwd": "${workspaceFolder}/Samples/CSF.Screenplay.Samples.SimpleToDoApp"
 			}
 		}
 	]
