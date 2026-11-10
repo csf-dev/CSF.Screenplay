@@ -47,4 +47,18 @@ _Ensure that the git submodule has loaded and that you have restored node module
 dotnet test Samples/CSF.Screenplay.Samples.SimpleToDoAppTests
 ```
 
-The sample tests project is written using Gherkin syntax (the `.feature` files).
+Feel free to look around and use this worked example to discover how Screenplay assists in writing tests.
+The code is annotated with documentation comments.
+
+* The sample tests project is written using Gherkin syntax (the `.feature` files)
+* The `TestRunSetup.cs` file contains DI setup as well as logic to start up the todo app via npm
+* `Webster.cs` is a [Persona]
+* `TodoApp.cs` provides [URLs and Targets] for interacting with the app
+* `PerformableBuilder.cs` is [a builder for performables]
+* The `Tasks` directory contains [performable tasks]
+* The `StepDefinitions` directory contains Reqnroll step definitions (which bind the Gherkin syntax to C# code)
+
+[Persona]: https://csf-dev.github.io/CSF.Screenplay/glossary/Persona.html
+[URLs and Targets]: https://csf-dev.github.io/CSF.Screenplay/docs/extensions/selenium/Targets.html
+[a builder for performables]: https://csf-dev.github.io/CSF.Screenplay/docs/builderPattern/index.html
+[performable tasks]: https://csf-dev.github.io/CSF.Screenplay/glossary/Task.html
