@@ -24,6 +24,9 @@ Further detail is provided below.
 Reqnroll has a built-in mechanism which offers an opportunity to add services to its DI container; these are [the event hook attributes].
 This is a viable technique because [Reqnroll's internal DI container "BoDi"] is unusual in that it permits retrospective addition of services.
 
+> [!IMPORTANT]
+> The Reqnroll BoDi DI container has a number of [quirks and limitations which require workarounds]. Read the linked documentation page for more info.
+
 Use this technique by writing a small binding class like the following, replacing the comment with your DI registrations.
 There's no need to use `.AddScreenplay()` here, _the integration does that already_.
 For example, to add [the Screenplay/Selenium extension], add a line like `.AddSelenium()`.
@@ -51,6 +54,7 @@ public class DependenciesSetup(IObjectContainer reqnrollContainer)
 [the event hook attributes]: https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options
 [Reqnroll's internal DI container "BoDi"]: https://github.com/reqnroll/Reqnroll/tree/main/Reqnroll/BoDi
 [the Screenplay/Selenium extension]: ../../extensions/selenium/index.md
+[quirks and limitations which require workarounds]: BoDiWorkarounds.md
 
 ## Step 4: Writing step bindings
 
