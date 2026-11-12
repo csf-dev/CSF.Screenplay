@@ -13,6 +13,19 @@ namespace CSF.Screenplay
     /// <summary>
     /// Adapter class which allows a Reqnroll/BoDi <c>IObjectContainer</c> to be used as an <see cref="IServiceProvider"/>.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This adapter class is limited and does not fully support the contract required by <see cref="IServiceProvider"/>, despite being a one-method interface.
+    /// See the remarks on the <see cref="GetService(Type)"/> method for more information about this limitation.
+    /// </para>
+    /// <para>
+    /// This is a <see href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</see> and it is recognised that this adapter
+    /// is of limited use. It is provided as a low-cost, low-effort workaround to making the BoDi DI container work alongside Microsoft Dependency Injection patterns.
+    /// If you find this insufficient then <i>consider replacing Reqnroll's DI container</i>.
+    /// <see href="https://docs.reqnroll.net/latest/integrations/autofac.html">An example of how to do this, using the Autofac container, is documented
+    /// on Reqnroll's website.</see>
+    /// </para>
+    /// </remarks>
     public class ServiceProviderAdapter : IServiceProvider
     {
         readonly IObjectContainer wrapped;
@@ -20,30 +33,45 @@ namespace CSF.Screenplay
         /// <inheritdoc/>
         /// <remarks>
         /// <para>
-        /// The design of BoDi means that the <c>ObjectContainer.IsRegistered</c> method (and variants) are unsafe to use here.
-        /// This means that we cannot reliably check whether a service type is already available in the container in a side-effect free manner.
-        /// This is because when using <c>IsRegistered</c> or its other overloads, can return <see langword="false"/> for types which BoDi was capable
-        /// of resolving, due to its <em>registration-free resolution</em> functionality.  That is - when resolving concrete types which are not registered, it
-        /// will do its best to create an instance regardless.
-        /// Thus, whilst <c>IsRegistered</c> is correctly named, it is not what we want here.  What we wanted is "Can you resolve type X?"
+        /// This method includes two major departures from the contract which is expected from <see cref="IServiceProvider"/>.
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>This method should return a non-null resolved instance of the type requested by <paramref name="serviceType"/>,
+        /// if the service was registered with (added to) the container. On the other hand, if the service was not registered with (added to) the container then this
+        /// method should return <see langword="null"/> without throwing an exception.</description></item>
+        /// <item><description>This method should throw an exception if the service requested was registered with (added to) the container, but an exception
+        /// was encountered whilst resolving it.</description></item>
+        /// </list>
+        /// <para>
+        /// Unfortunately, this implementation does not quite behave that way.  The BoDi container includes <b>auto resolution</b> of types which have not been registered
+        /// with (added to) the container.  That is - in fact - a desired &amp; intended feature for Reqnroll.  The most common expected kind of resolved object within
+        /// a Reqnroll test is a simple model object which holds state for the duration of a scenario/feature.  These are simply constructed and do not require prior
+        /// registration with the container.
+        /// A side-effect of that functionality is that attempting to resolve an object which is not registered - if that object is not <see langword="abstract"/>
+        /// (or an <see langword="interface"/>) - will result in an auto-resolution attempt.  Thus this method could return a non-null object regardless.
         /// </para>
         /// <para>
-        /// The alternative, used here, is to attempt to resolve the type, but contained within a <c>try/catch</c> which catched BoDi's
-        /// <see cref="ObjectContainerException"/>, which is thrown if BoDi cannot resolve the specified type. At that point, if it can't be resolved,
-        /// then we use the <c>catch</c> to revert to the <see cref="IServiceProvider"/> behaviour, which is to return <see langword="null"/> for a service
-        /// which cannot be resolved.
+        /// Note to developers:  It has been considered to use <c>ObjectContainer.IsRegistered</c> here but unfortunately that does not tell us what we need to know.
+        /// This tells us only if the type is registered within the current container instance, not whether it could be resolved successfully.
+        /// Thus a process along the lines of "Is it registered ? If it is then resolve it, if not return null" would introduce false failures to resolve anything which
+        /// is expected to be auto-resolved (the inverse problem).
+        /// This means that this method <see cref="GetService(Type)"/> always goes directly to <see cref="IObjectContainer.Resolve(Type, string)"/>. The consequence being
+        /// that it might cause an unwanted auto-resolution to occur where the developer would have wanted it to return null.
         /// </para>
         /// <para>
-        /// <b>Beware when debugging</b> that this comes with an unfortunate trade-off!  If BoDi encounters an error whilst resolving something, then we can't tell at this
-        /// point whether that was an expected or unexpected error.  An example of an expected error would be that we're trying to resolve an interface which
-        /// is not registered.  An unexpected error might be an exception encountered within the constructor of something we are resolving.
-        /// Because the contract of <see cref="IServiceProvider"/> is to return null when attempting to resolve things which are not registered, then we must not
-        /// throw for those expected errors. The dilemma this offers us (because we can't tell expected and unexpected apart) is that we either have to throw for
-        /// every problem, or never throw.
-        /// I have picked the "never throw" route, but the trade-off is that this logic masks unexpected errors.  That will make debugging more difficult, because unexpected
-        /// exceptions from BoDi will be squashed and replaced with null returns. What I have done to make that less painful is to integrate with MS Logging Abstractions here.
-        /// If you install and register a logging abstraction within DI, then an implementation of <see cref="ILogger{T}"/> will be resolved and the original error
-        /// recorded in the log.
+        /// The other limitation is the BoDi uses <b>the same exception type</b> for some very different scenarios.  <see cref="ObjectContainerException"/> is thrown if an attempt
+        /// is made to resolve an abstract/interface type which is not registered.  It is thrown for circular dependencies and it is thrown when auto resolution fails
+        /// because a class' constructors are incompatible with that technique.
+        /// Notice that first scenario in which an attempt is made to resolve a service which is not registered.  This is the prime scenario in which a service provider should
+        /// return null without throwing.  Thus, this method uses a <c>try/catch</c> to intercept <see cref="ObjectContainerException"/> and convert them to null returns.
+        /// Unfortunately this means that <i>other scenarios in which an object container exception is thrown</i> will result in silently swallowing the exception and returning
+        /// null.  This will make things like circular dependencies and auto-resolution failures difficult to diagnose, because they will not throw when the developer expects!
+        /// </para>
+        /// <para>
+        /// Developers should <i>beware of this when debugging</i>!
+        /// If you are able, add a logging package to DI which can provide an <see cref="ILogger{T}"/>.  If a logger is present in dependency injection and an
+        /// <see cref="ObjectContainerException"/> is caught then the full caught exception will be recorded to the log at the warning level.
+        /// This way, when attempting to diagnose unexpected behaviour, developers may at least read the log to find out what happened.
         /// </para>
         /// </remarks>
         public object GetService(Type serviceType)
@@ -55,7 +83,7 @@ namespace CSF.Screenplay
             catch(ObjectContainerException ex)
             {
                 if(TryGetLogger(out var logger))
-                    logger.LogError(ex, "An error occured within BoDi's DI resolution. As we cannot differentiate between expected and unexpected errors, the service provider adapter logs it and returns null.");
+                    logger.LogWarning(ex, "An error occured within BoDi's DI resolution. As we cannot differentiate between expected and unexpected errors, the service provider adapter logs it and returns null.");
                 return null;
             }
         }

@@ -30,7 +30,19 @@ namespace CSF.Screenplay
     /// The limitation of this type (as a workaround) is that this type must be added to the container manually for each <see cref="IEnumerable{T}"/>
     /// type which could be resolved from the container.
     /// </para>
+    /// <para>
+    /// A developer might ask: <i>Why not detect attempts to resolve <c>IEnumerable&lt;T&gt;</c> in <see cref="ServiceProviderAdapter"/></i>, why do
+    /// we need this class? That is because whilst BoDi provides a Resolve All method, it does not use it internally for resolving generic enumerables.
+    /// That is, the internal resolution pipeline does not detect attempts to resolve <see cref="IEnumerable{T}"/> and direct them to the resolve-all
+    /// functionality.  Instead they would fail with <see cref="ObjectContainerException"/> on the basis of "cannot resolve an interface without a
+    /// registration".
+    /// This would mean, if we attempted to isolate this functionality into the service provider adapter we would be able to resolve generic enumerables
+    /// of services OK, but we would not be able to resolve anything which depended upon generic enumerables of services.
+    /// Registering this adapter class (adding it to the container) for the appropriate enumerable type forces that 'redirect away to the resolve-all
+    /// functionality' behaviour into the resolution pipeline.
+    /// </para>
     /// </remarks>
+    /// <typeparam name="T">The type of enumerable service which this adapter covers</typeparam>
     public class EnumerableResolutionAdapter<T> : IEnumerable<T> where T : class
     {
         readonly IObjectContainer container;

@@ -20,10 +20,25 @@ namespace CSF.Screenplay
     /// many methods, and the indexer for <see cref="ServiceDescriptor"/>, it will raise <see cref="NotSupportedException"/>.
     /// The only functionality supported is <see cref="IsReadOnly"/> and <see cref="Add(ServiceDescriptor)"/>.
     /// </para>
+    /// <para>
+    /// Obviously, this is a serious <see href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</see>!
+    /// Some of these limitations <xref href="BoDiWorkaroundsArticle?text=may+be+worked-around+with+helper+functionality"/>, but some might have no workaround available.
+    /// This adapter class has been tested and found to be usable in simple testing scenarios though, which is why it is still provided.
+    /// It is a low-cost, low-effort workaround.  If you find this insufficient then <i>consider replacing Reqnroll's DI container</i>.
+    /// <see href="https://docs.reqnroll.net/latest/integrations/autofac.html">An example of how to do this, using the Autofac container, is documented
+    /// on Reqnroll's website.</see>
+    /// </para>
+    /// <para>
+    /// An additional limitation of this adapter is that adding multiple implementations of the same base type (for example, many classes implementing the same interface)
+    /// does not allow a consumer to resolve <see cref="IEnumerable{T}"/> of that base type from the resulting service provider.
+    /// Whilst the Microsoft service collection/provider automatically interpret an attempt to resolve <c>IEnumerable&lt;T&gt;</c> as <i>resolve every implementation of T</i>,
+    /// BoDi does not.  Use the extension method <see cref="ServiceCollectionExtensions.AddEnumerableAdapter{TService}(IServiceCollection)"/> to enable resolution of enumerable
+    /// collections of service types.
+    /// </para>
     /// </remarks>
     public class ServiceCollectionAdapter : IServiceCollection
     {
-        const string NotSupportedMessage = "This method is not supported for ServiceCollectionAdapter; a BoDi object container is not a true service collection.";
+        const string NotSupportedMessage = "This is not supported for ServiceCollectionAdapter; a BoDi object container is not a true service collection.";
 
 // Suppress SonarQube issue S3011, I'm using BindingFlags.NonPublic here but only from internally within the same class.
 // The technique calling for reflection is to make an open generic method runtime-generic instead of compile-time. It's
@@ -44,32 +59,33 @@ namespace CSF.Screenplay
         /// <exception cref="NotSupportedException">Always thrown</exception>
         public ServiceDescriptor this[int index]
         {
-            get => throw new NotSupportedException("This indexer is not supported for this adapter.");
-            set => throw new NotSupportedException("This indexer is not supported for this adapter.");
+            get => throw new NotSupportedException(NotSupportedMessage);
+            set => throw new NotSupportedException(NotSupportedMessage);
         }
 
         /// <summary>
-        /// Not supported, always returns zero.
+        /// Unsupported, this property always returns zero.
         /// </summary>
         public int Count => default;
 
         /// <summary>
-        /// Partially supported, always returns <see langword="false" />
+        /// Partially supported, always returns <see langword="false" />.
         /// </summary>
         public bool IsReadOnly => false;
 
         /// <summary>
-        /// Partially-supported, will add the specified service descriptor to the current object container.
+        /// Adds the specified service descriptor to the current object container.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This method supports only transient or singleton services. If the <see cref="ServiceDescriptor.Lifetime"/> present on the item specified
-        /// is <see cref="ServiceLifetime.Scoped"/> then the service descriptor will not be added and will be silently ignored.
+        /// <i>This method supports only transient or singleton services</i>. If the <see cref="ServiceDescriptor.Lifetime"/> present on the item specified
+        /// is <see cref="ServiceLifetime.Scoped"/> <i>then the service descriptor will not be added and will be silently ignored</i>.
         /// </para>
         /// <para>
-        /// In reality, the Reqnroll BoDi object container only really supports singleton services at this level. So, any services added as
-        /// <see cref="ServiceLifetime.Transient"/> will actually become singletons here. Whilst the BoDi container does support scoped services, they
-        /// must be added directly to the scope instance and cannot be added in advance.
+        /// In reality, the Reqnroll BoDi object container only really supports <b>singleton</b> services at this level. So, any services added as
+        /// <see cref="ServiceLifetime.Transient"/> will actually become singletons here. Whilst the BoDi container does support scoped services in a
+        /// manner of speaking, they must be added directly to the container from that scope.  Services which are scoped must be added (as singletons)
+        /// directly into the scope; they cannot be added in advance.
         /// </para>
         /// </remarks>
         /// <param name="item">The service descriptor</param>
@@ -110,7 +126,7 @@ namespace CSF.Screenplay
         /// Not supported; always throws <see cref="NotSupportedException"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">Always thrown</exception>
-        public void Clear() => throw new NotSupportedException();
+        public void Clear() => throw new NotSupportedException(NotSupportedMessage);
 
         /// <summary>
         /// Not supported; always throws <see cref="NotSupportedException"/>.

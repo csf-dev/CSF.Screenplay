@@ -19,14 +19,16 @@ namespace CSF.Screenplay
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Note that this is an imperfect solution.  The BoDi container shipped with Reqnroll/SpecFlow does not support all the functionality
-        /// which is expected from <see cref="IServiceCollection"/>. Many methods of the returned object will throw <see cref="NotSupportedException"/>
-        /// if attempts are made to use them (a known LSP violation).  Additionally, not all service collection DI behaviour will operate in the same
-        /// manner when using this adapter.  In short "your mileage may vary".
+        /// Note that this is an imperfect conversion and suffers from numerous
+        /// <see href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violations</see>.
+        /// In other words, the BoDi container used by Reqnroll/SpecFlow does not support the API defined for <see cref="IServiceCollection"/>.
+        /// Using a BoDi container as a Service Collection requires workarounds for common scenarios and and comes with several
+        /// limitations which have no workaround.
         /// </para>
         /// <para>
-        /// However, for the most simple of usages, this enables the use of "Add to DI" logic which has been crafted for service collection,
-        /// in such a way that services may be added to the BoDi container without additional logic.
+        /// For more information, including suggestions to mitigate or avoid this, see
+        /// <xref href="BoDiWorkaroundsArticle?text=the+BoDi+workarounds+article"/> and the documentation for the class
+        /// <see cref="ServiceCollectionAdapter"/>.
         /// </para>
         /// </remarks>
         /// <param name="bodiContainer">A Reqnroll/SpecFlow BoDi DI container.</param>
@@ -38,6 +40,20 @@ namespace CSF.Screenplay
         /// Gets an adapter object which permits the use of the BoDi <see cref="IObjectContainer"/> as if it were an
         /// <see cref="IServiceProvider"/>.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Note that this is an imperfect conversion and suffers from a
+        /// <see href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</see>.
+        /// In other words, the BoDi container used by Reqnroll/SpecFlow does not support the API defined for <see cref="IServiceProvider"/>.
+        /// Using a BoDi container as a Service Provider requires workarounds for common scenarios and and comes with some
+        /// limitations which have no workaround.
+        /// </para>
+        /// <para>
+        /// For more information, including suggestions to mitigate or avoid this, see
+        /// <xref href="BoDiWorkaroundsArticle?text=the+BoDi+workarounds+article"/> and the documentation for the class
+        /// <see cref="ServiceProviderAdapter"/>.
+        /// </para>
+        /// </remarks>
         /// <param name="bodiContainer">A Reqnroll/SpecFlow BoDi DI container.</param>
         /// <returns>An adapter object which implements the functionality of <see cref="IServiceProvider"/></returns>
         public static IServiceProvider ToServiceProvider(this IObjectContainer bodiContainer)
