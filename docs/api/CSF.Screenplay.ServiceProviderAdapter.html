@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ServiceProviderAdapter" data-uid="CSF.Screenplay.ServiceProviderAdapter" class="text-break">
-Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class ServiceProviderAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -153,6 +153,19 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
 
 
+  <h2 id="CSF_Screenplay_ServiceProviderAdapter_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This adapter class is limited and does not fully support the contract required by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, despite being a one-method interface.
+See the remarks on the <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html#CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type_">GetService(Type)</a> method for more information about this limitation.
+</p>
+<p>
+This is a <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</a> and it is recognised that this adapter
+is of limited use. It is provided as a low-cost, low-effort workaround to making the BoDi DI container work alongside Microsoft Dependency Injection patterns.
+If you find this insufficient then <i>consider replacing Reqnroll's DI container</i>.
+<a href="https://docs.reqnroll.net/latest/integrations/autofac.html">An example of how to do this, using the Autofac container, is documented
+on Reqnroll's website.</a>
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -163,7 +176,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceProviderAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)">
   ServiceProviderAdapter(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a>.</p>
@@ -206,7 +219,7 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h3 id="CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type_" data-uid="CSF.Screenplay.ServiceProviderAdapter.GetService(System.Type)">
   GetService(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -236,30 +249,42 @@ Class ServiceProviderAdapter  <a class="header-action link-secondary" title="Vie
 
   <h4 class="section" id="CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The design of BoDi means that the <code>ObjectContainer.IsRegistered</code> method (and variants) are unsafe to use here.
-This means that we cannot reliably check whether a service type is already available in the container in a side-effect free manner.
-This is because when using <code>IsRegistered</code> or its other overloads, can return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for types which BoDi was capable
-of resolving, due to its <em>registration-free resolution</em> functionality.  That is - when resolving concrete types which are not registered, it
-will do its best to create an instance regardless.
-Thus, whilst <code>IsRegistered</code> is correctly named, it is not what we want here.  What we wanted is "Can you resolve type X?"
+This method includes two major departures from the contract which is expected from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>.
+</p>
+<ul><li>This method should return a non-null resolved instance of the type requested by <code class="paramref">serviceType</code>,
+if the service was registered with (added to) the container. On the other hand, if the service was not registered with (added to) the container then this
+method should return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> without throwing an exception.</li><li>This method should throw an exception if the service requested was registered with (added to) the container, but an exception
+was encountered whilst resolving it.</li></ul>
+<p>
+Unfortunately, this implementation does not quite behave that way.  The BoDi container includes <b>auto resolution</b> of types which have not been registered
+with (added to) the container.  That is - in fact - a desired &amp; intended feature for Reqnroll.  The most common expected kind of resolved object within
+a Reqnroll test is a simple model object which holds state for the duration of a scenario/feature.  These are simply constructed and do not require prior
+registration with the container.
+A side-effect of that functionality is that attempting to resolve an object which is not registered - if that object is not <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/abstract">abstract</a>
+(or an <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/interface">interface</a>) - will result in an auto-resolution attempt.  Thus this method could return a non-null object regardless.
 </p>
 <p>
-The alternative, used here, is to attempt to resolve the type, but contained within a <code>try/catch</code> which catched BoDi's
-<a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a>, which is thrown if BoDi cannot resolve the specified type. At that point, if it can't be resolved,
-then we use the <code>catch</code> to revert to the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> behaviour, which is to return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for a service
-which cannot be resolved.
+Note to developers:  It has been considered to use <code>ObjectContainer.IsRegistered</code> here but unfortunately that does not tell us what we need to know.
+This tells us only if the type is registered within the current container instance, not whether it could be resolved successfully.
+Thus a process along the lines of "Is it registered ? If it is then resolve it, if not return null" would introduce false failures to resolve anything which
+is expected to be auto-resolved (the inverse problem).
+This means that this method <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html#CSF_Screenplay_ServiceProviderAdapter_GetService_System_Type_">GetService(Type)</a> always goes directly to <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">Resolve(Type, string)</a>. The consequence being
+that it might cause an unwanted auto-resolution to occur where the developer would have wanted it to return null.
 </p>
 <p>
-<b>Beware when debugging</b> that this comes with an unfortunate trade-off!  If BoDi encounters an error whilst resolving something, then we can't tell at this
-point whether that was an expected or unexpected error.  An example of an expected error would be that we're trying to resolve an interface which
-is not registered.  An unexpected error might be an exception encountered within the constructor of something we are resolving.
-Because the contract of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a> is to return null when attempting to resolve things which are not registered, then we must not
-throw for those expected errors. The dilemma this offers us (because we can't tell expected and unexpected apart) is that we either have to throw for
-every problem, or never throw.
-I have picked the "never throw" route, but the trade-off is that this logic masks unexpected errors.  That will make debugging more difficult, because unexpected
-exceptions from BoDi will be squashed and replaced with null returns. What I have done to make that less painful is to integrate with MS Logging Abstractions here.
-If you install and register a logging abstraction within DI, then an implementation of <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger&lt;TCategoryName&gt;</a> will be resolved and the original error
-recorded in the log.
+The other limitation is the BoDi uses <b>the same exception type</b> for some very different scenarios.  <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a> is thrown if an attempt
+is made to resolve an abstract/interface type which is not registered.  It is thrown for circular dependencies and it is thrown when auto resolution fails
+because a class' constructors are incompatible with that technique.
+Notice that first scenario in which an attempt is made to resolve a service which is not registered.  This is the prime scenario in which a service provider should
+return null without throwing.  Thus, this method uses a <code>try/catch</code> to intercept <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a> and convert them to null returns.
+Unfortunately this means that <i>other scenarios in which an object container exception is thrown</i> will result in silently swallowing the exception and returning
+null.  This will make things like circular dependencies and auto-resolution failures difficult to diagnose, because they will not throw when the developer expects!
+</p>
+<p>
+Developers should <i>beware of this when debugging</i>!
+If you are able, add a logging package to DI which can provide an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger&lt;TCategoryName&gt;</a>.  If a logger is present in dependency injection and an
+<a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a> is caught then the full caught exception will be recorded to the log at the warning level.
+This way, when attempting to diagnose unexpected behaviour, developers may at least read the log to find out what happened.
 </p>
 </div>
 
@@ -270,7 +295,7 @@ recorded in the log.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceProviderAdapter.cs/#L29" class="edit-link">Edit this page</a>
         </div>
 
 

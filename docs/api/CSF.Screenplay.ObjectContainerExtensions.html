@@ -157,7 +157,7 @@ Class ObjectContainerExtensions  <a class="header-action link-secondary" title="
 
   <h3 id="CSF_Screenplay_ObjectContainerExtensions_ToServiceCollection_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ObjectContainerExtensions.ToServiceCollection(Reqnroll.BoDi.IObjectContainer)">
   ToServiceCollection(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ObjectContainerExtensions.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ObjectContainerExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an adapter object which permits limited use of the BoDi <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">IObjectContainer</a> as if it were an
@@ -191,14 +191,16 @@ Class ObjectContainerExtensions  <a class="header-action link-secondary" title="
 
   <h4 class="section" id="CSF_Screenplay_ObjectContainerExtensions_ToServiceCollection_Reqnroll_BoDi_IObjectContainer__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Note that this is an imperfect solution.  The BoDi container shipped with Reqnroll/SpecFlow does not support all the functionality
-which is expected from <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>. Many methods of the returned object will throw <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>
-if attempts are made to use them (a known LSP violation).  Additionally, not all service collection DI behaviour will operate in the same
-manner when using this adapter.  In short "your mileage may vary".
+Note that this is an imperfect conversion and suffers from numerous
+<a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violations</a>.
+In other words, the BoDi container used by Reqnroll/SpecFlow does not support the API defined for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.
+Using a BoDi container as a Service Collection requires workarounds for common scenarios and and comes with several
+limitations which have no workaround.
 </p>
 <p>
-However, for the most simple of usages, this enables the use of "Add to DI" logic which has been crafted for service collection,
-in such a way that services may be added to the BoDi container without additional logic.
+For more information, including suggestions to mitigate or avoid this, see
+<a class="xref" href="../docs/gettingStarted/reqnroll/BoDiWorkarounds.html">the BoDi workarounds article</a> and the documentation for the class
+<a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html">ServiceCollectionAdapter</a>.
 </p>
 </div>
 
@@ -209,7 +211,7 @@ in such a way that services may be added to the BoDi container without additiona
 
   <h3 id="CSF_Screenplay_ObjectContainerExtensions_ToServiceProvider_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ObjectContainerExtensions.ToServiceProvider(Reqnroll.BoDi.IObjectContainer)">
   ToServiceProvider(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ObjectContainerExtensions.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ObjectContainerExtensions.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets an adapter object which permits the use of the BoDi <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/IObjectContainer.cs">IObjectContainer</a> as if it were an
@@ -241,6 +243,20 @@ in such a way that services may be added to the BoDi container without additiona
 
 
 
+  <h4 class="section" id="CSF_Screenplay_ObjectContainerExtensions_ToServiceProvider_Reqnroll_BoDi_IObjectContainer__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Note that this is an imperfect conversion and suffers from a
+<a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</a>.
+In other words, the BoDi container used by Reqnroll/SpecFlow does not support the API defined for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>.
+Using a BoDi container as a Service Provider requires workarounds for common scenarios and and comes with some
+limitations which have no workaround.
+</p>
+<p>
+For more information, including suggestions to mitigate or avoid this, see
+<a class="xref" href="../docs/gettingStarted/reqnroll/BoDiWorkarounds.html">the BoDi workarounds article</a> and the documentation for the class
+<a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a>.
+</p>
+</div>
 
 
 

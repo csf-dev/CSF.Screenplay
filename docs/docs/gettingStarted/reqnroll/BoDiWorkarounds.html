@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Workarounds for the BoDi DI container | Screenplay </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Workarounds for the BoDi DI container | Screenplay ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/reqnroll/BoDiWorkarounds.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="CSF.Screenplay">
+            CSF.Screenplay
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="BoDiWorkaroundsArticle">
+<h1 id="workarounds-for-the-bodi-di-container">Workarounds for the BoDi DI container</h1>
+
+<p>Reqnroll (and SpecFlow before it) use a custom dependency injection container named BoDi.
+It does not implement the complete set of functionality of <code>IServiceCollection</code> or <code>IServiceProvider</code> and what's it does implement differs from them in some important ways.
+However, the .NET Dependency Injection ecosystem fully expects the pair of <code>IServiceCollection</code> and <code>IServiceProvider</code>.
+Many libraries expose extension methods for <code>IServiceCollection</code> which use that API to add themselves to a container.</p>
+<p>In an attempt to close this gap, Screenplay offers two limited <strong>adapters</strong> which allow some usage of BoDi's <code>IObjectContainer</code> as a service collection and as a service provider.
+These are accessible via the extension methods <a class="xref" href="../../../api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceCollection_Reqnroll_BoDi_IObjectContainer_"><code>ToServiceCollection</code></a> and <a class="xref" href="../../../api/CSF.Screenplay.ObjectContainerExtensions.html#CSF_Screenplay_ObjectContainerExtensions_ToServiceProvider_Reqnroll_BoDi_IObjectContainer_"><code>ToServiceProvider</code></a>.
+<em>Be warned that these are known to be imperfect</em>; they suffer from multiple limitations and will not work in all use-cases.
+If you encounter showstopper problems using BoDi, <em>do not forget that Reqnroll provides support for swapping its DI container</em> with another.
+<a href="https://docs.reqnroll.net/latest/integrations/autofac.html">This article shows you how to replace the BoDi container with Autofac</a>, for example.</p>
+<p>The remainder of this page lists some of the particular difficulties and workarounds which have solutions and/or further documentation.</p>
+<h2 id="bodi-cannot-natively-resolve-ienumerablet-of-registered-services">BoDi cannot natively resolve <code>IEnumerable&lt;T&gt;</code> of registered services</h2>
+<p>Say you were to separately register (add) three different implementations of <code>IMyCustomService</code> to a normal <code>ServiceCollection</code> instance. If you subsequently resolve <code>IEnumerable&lt;IMyCustomService&gt;</code> from the resultant service provider then you would get a collection of custom service instances containing three items, one of each of the three implementations. This is built-in functionality for the standard Microsoft Service Collection.</p>
+<p><em>BoDi cannot do this without some help</em>. The Screenplay Reqnroll plugin includes that help in the form of an extension method for <code>IServiceCollection</code>: <a class="xref" href="../../../api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddEnumerableAdapter__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_"><code>AddEnumerableAdapter&lt;T&gt;()</code></a>. Use this method to enable enumerable resolution (as described above) for the specified generic type. You must use this method for each type T of <code>IEnumerable&lt;T&gt;</code> your tests need to be capable of resolving.
+There are further technical details about this limitation and the workaround available in the remarks for <a class="xref" href="../../../api/CSF.Screenplay.EnumerableResolutionAdapter-1.html"><code>EnumerableResolutionAdapter&lt;T&gt;</code></a>.</p>
+<h2 id="bodi-does-not-natively-support-the-microsoft-options-pattern">BoDi does not natively support the Microsoft Options Pattern</h2>
+<p>This is only relevant if you intend to make use of the <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/options">Microsoft Options Pattern</a> in your tests. The Selenium plugin does (via <a href="https://github.com/csf-dev/CSF.Extensions.WebDriver">CSF.WebDriver.Extensions</a>) and if using it, you must include <code>.AddOptionsAdapters&lt;WebDriverCreationOptionsCollection&gt;()</code> in your DI setup.</p>
+<p>This limitation is a specific case of BoDi's inability to resolve enumerables of registered services (above). There is an extension method specifically crafted for this: <a class="xref" href="../../../api/CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddOptionsAdapters__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_"><code>AddOptionsAdapters&lt;TOptions&gt;()</code></a>. This method must be used once for each type of TOptions you wish to use. It puts adapters/workarounds in place, to allow resolution of (for example) <code>IOptions&lt;TOptions&gt;</code> in your tests.</p>
+<h2 id="liskov-substitution-principle-violations">Liskov Substitution Principle violations</h2>
+<p>The adapters for using BoDi as an <code>IServiceCollection</code> and <code>IServiceProvider</code> are imperfect and limited.
+In addition, they do not provide the complete range of functionality which is expected by the contract of these two interfaces.
+This is <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">a violation of LSP</a>.</p>
+<p>There is extensive documentation about the differences in implementation details in the remarks for the classes <a class="xref" href="../../../api/CSF.Screenplay.ServiceCollectionAdapter.html"><code>ServiceCollectionAdapter</code></a> and <a class="xref" href="../../../api/CSF.Screenplay.ServiceProviderAdapter.html"><code>ServiceProviderAdapter</code></a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Docs/docs/gettingStarted/reqnroll/BoDiWorkarounds.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

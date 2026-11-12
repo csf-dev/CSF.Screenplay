@@ -10,6 +10,9 @@ references:
 - uid: AssetsArticle
   name: Report assets
   href: docs/Assets.html
+- uid: BoDiWorkaroundsArticle
+  name: Workarounds for the BoDi DI container
+  href: docs/gettingStarted/reqnroll/BoDiWorkarounds.html
 - uid: BuilderPatternMainArticle
   name: The builder pattern
   href: docs/builderPattern/index.html

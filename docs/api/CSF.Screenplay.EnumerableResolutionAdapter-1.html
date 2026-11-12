@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_EnumerableResolutionAdapter_1" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1" class="text-break">
-Class EnumerableResolutionAdapter&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L34"><i class="bi bi-code-slash"></i></a>
+Class EnumerableResolutionAdapter&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -111,7 +111,8 @@ service instances.</p>
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of enumerable service which this adapter covers</p>
+</dd>
   </dl>
 
   <dl class="typelist inheritance">
@@ -176,6 +177,17 @@ This class wraps an instance of <a class="xref" href="https://github.com/reqnrol
 The limitation of this type (as a workaround) is that this type must be added to the container manually for each <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
 type which could be resolved from the container.
 </p>
+<p>
+A developer might ask: <i>Why not detect attempts to resolve <code>IEnumerable&lt;T&gt;</code> in <a class="xref" href="CSF.Screenplay.ServiceProviderAdapter.html">ServiceProviderAdapter</a></i>, why do
+we need this class? That is because whilst BoDi provides a Resolve All method, it does not use it internally for resolving generic enumerables.
+That is, the internal resolution pipeline does not detect attempts to resolve <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> and direct them to the resolve-all
+functionality.  Instead they would fail with <a class="xref" href="https://github.com/reqnroll/Reqnroll/blob/master/Reqnroll/BoDi/ObjectContainerException.cs">ObjectContainerException</a> on the basis of "cannot resolve an interface without a
+registration".
+This would mean, if we attempted to isolate this functionality into the service provider adapter we would be able to resolve generic enumerables
+of services OK, but we would not be able to resolve anything which depended upon generic enumerables of services.
+Registering this adapter class (adding it to the container) for the appropriate enumerable type forces that 'redirect away to the resolve-all
+functionality' behaviour into the resolution pipeline.
+</p>
 </div>
 
 
@@ -187,7 +199,7 @@ type which could be resolved from the container.
 
   <h3 id="CSF_Screenplay_EnumerableResolutionAdapter_1__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.#ctor(Reqnroll.BoDi.IObjectContainer)">
   EnumerableResolutionAdapter(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="CSF.Screenplay.EnumerableResolutionAdapter-1.html">EnumerableResolutionAdapter&lt;T&gt;</a>.</p>
@@ -230,7 +242,7 @@ type which could be resolved from the container.
 
   <h3 id="CSF_Screenplay_EnumerableResolutionAdapter_1_GetEnumerator" data-uid="CSF.Screenplay.EnumerableResolutionAdapter`1.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -261,7 +273,7 @@ type which could be resolved from the container.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L34" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/EnumerableResolutionAdapter.cs/#L46" class="edit-link">Edit this page</a>
         </div>
 
 

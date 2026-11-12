@@ -104,6 +104,10 @@ Further detail is provided below.</p>
 <h2 id="step-3-configuring-dependency-injection">Step 3: Configuring dependency injection</h2>
 <p>Reqnroll has a built-in mechanism which offers an opportunity to add services to its DI container; these are <a href="https://docs.reqnroll.net/latest/automation/context-injection.html#advanced-options">the event hook attributes</a>.
 This is a viable technique because <a href="https://github.com/reqnroll/Reqnroll/tree/main/Reqnroll/BoDi">Reqnroll's internal DI container &quot;BoDi&quot;</a> is unusual in that it permits retrospective addition of services.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The Reqnroll BoDi DI container has a number of <a href="BoDiWorkarounds.html">quirks and limitations which require workarounds</a>. Read the linked documentation page for more info.</p>
+</div>
 <p>Use this technique by writing a small binding class like the following, replacing the comment with your DI registrations.
 There's no need to use <code>.AddScreenplay()</code> here, <em>the integration does that already</em>.
 For example, to add <a href="../../extensions/selenium/index.html">the Screenplay/Selenium extension</a>, add a line like <code>.AddSelenium()</code>.</p>

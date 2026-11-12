@@ -5119,6 +5119,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/gettingStarted/reqnroll/BoDiWorkarounds.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/gettingStarted/reqnroll/BoDiWorkarounds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/gettingStarted/reqnroll/Specflow.md",
       "output": {
         ".html": {

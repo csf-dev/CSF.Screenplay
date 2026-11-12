@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Screenplay_ServiceCollectionAdapter" data-uid="CSF.Screenplay.ServiceCollectionAdapter" class="text-break">
-Class ServiceCollectionAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Class ServiceCollectionAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -182,6 +182,21 @@ This adapter class is highly limited and supports only a tiny subset of <a class
 many methods, and the indexer for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor">ServiceDescriptor</a>, it will raise <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.
 The only functionality supported is <a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter_IsReadOnly">IsReadOnly</a> and <a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html#CSF_Screenplay_ServiceCollectionAdapter_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_">Add(ServiceDescriptor)</a>.
 </p>
+<p>
+Obviously, this is a serious <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle violation</a>!
+Some of these limitations <a class="xref" href="../docs/gettingStarted/reqnroll/BoDiWorkarounds.html">may be worked-around with helper functionality</a>, but some might have no workaround available.
+This adapter class has been tested and found to be usable in simple testing scenarios though, which is why it is still provided.
+It is a low-cost, low-effort workaround.  If you find this insufficient then <i>consider replacing Reqnroll's DI container</i>.
+<a href="https://docs.reqnroll.net/latest/integrations/autofac.html">An example of how to do this, using the Autofac container, is documented
+on Reqnroll's website.</a>
+</p>
+<p>
+An additional limitation of this adapter is that adding multiple implementations of the same base type (for example, many classes implementing the same interface)
+does not allow a consumer to resolve <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> of that base type from the resulting service provider.
+Whilst the Microsoft service collection/provider automatically interpret an attempt to resolve <code>IEnumerable&lt;T&gt;</code> as <i>resolve every implementation of T</i>,
+BoDi does not.  Use the extension method <a class="xref" href="CSF.Screenplay.ServiceCollectionExtensions.html#CSF_Screenplay_ServiceCollectionExtensions_AddEnumerableAdapter__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_">AddEnumerableAdapter&lt;TService&gt;(IServiceCollection)</a> to enable resolution of enumerable
+collections of service types.
+</p>
 </div>
 
 
@@ -193,7 +208,7 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter__ctor_Reqnroll_BoDi_IObjectContainer_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.#ctor(Reqnroll.BoDi.IObjectContainer)">
   ServiceCollectionAdapter(IObjectContainer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L192"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises an instance of <a class="xref" href="CSF.Screenplay.ServiceCollectionAdapter.html">ServiceCollectionAdapter</a>.</p>
@@ -236,10 +251,10 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Count" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Count">
   Count
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Not supported, always returns zero.</p>
+  <div class="markdown level1 summary"><p>Unsupported, this property always returns zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -268,10 +283,10 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_IsReadOnly" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IsReadOnly">
   IsReadOnly
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Partially supported, always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a></p>
+  <div class="markdown level1 summary"><p>Partially supported, always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -300,7 +315,7 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Item_System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Item(System.Int32)">
   this[int]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -347,10 +362,10 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Add(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
   Add(ServiceDescriptor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Partially-supported, will add the specified service descriptor to the current object container.</p>
+  <div class="markdown level1 summary"><p>Adds the specified service descriptor to the current object container.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -374,13 +389,14 @@ The only functionality supported is <a class="xref" href="CSF.Screenplay.Service
 
   <h4 class="section" id="CSF_Screenplay_ServiceCollectionAdapter_Add_Microsoft_Extensions_DependencyInjection_ServiceDescriptor__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-This method supports only transient or singleton services. If the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor.lifetime">Lifetime</a> present on the item specified
-is <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-scoped">Scoped</a> then the service descriptor will not be added and will be silently ignored.
+<i>This method supports only transient or singleton services</i>. If the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicedescriptor.lifetime">Lifetime</a> present on the item specified
+is <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-scoped">Scoped</a> <i>then the service descriptor will not be added and will be silently ignored</i>.
 </p>
 <p>
-In reality, the Reqnroll BoDi object container only really supports singleton services at this level. So, any services added as
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-transient">Transient</a> will actually become singletons here. Whilst the BoDi container does support scoped services, they
-must be added directly to the scope instance and cannot be added in advance.
+In reality, the Reqnroll BoDi object container only really supports <b>singleton</b> services at this level. So, any services added as
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.servicelifetime#microsoft-extensions-dependencyinjection-servicelifetime-transient">Transient</a> will actually become singletons here. Whilst the BoDi container does support scoped services in a
+manner of speaking, they must be added directly to the container from that scope.  Services which are scoped must be added (as singletons)
+directly into the scope; they cannot be added in advance.
 </p>
 </div>
 
@@ -400,7 +416,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Clear" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Clear">
   Clear()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -433,7 +449,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Contains_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Contains(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
   Contains(ServiceDescriptor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -476,7 +492,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_CopyTo_Microsoft_Extensions_DependencyInjection_ServiceDescriptor___System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.CopyTo(Microsoft.Extensions.DependencyInjection.ServiceDescriptor[],System.Int32)">
   CopyTo(ServiceDescriptor[], int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -516,7 +532,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_GetEnumerator" data-uid="CSF.Screenplay.ServiceCollectionAdapter.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -554,7 +570,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_IndexOf_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.IndexOf(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
   IndexOf(ServiceDescriptor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -597,7 +613,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Insert_System_Int32_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Insert(System.Int32,Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
   Insert(int, ServiceDescriptor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -637,7 +653,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_Remove_Microsoft_Extensions_DependencyInjection_ServiceDescriptor_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.Remove(Microsoft.Extensions.DependencyInjection.ServiceDescriptor)">
   Remove(ServiceDescriptor)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -680,7 +696,7 @@ must be added directly to the scope instance and cannot be added in advance.
 
   <h3 id="CSF_Screenplay_ServiceCollectionAdapter_RemoveAt_System_Int32_" data-uid="CSF.Screenplay.ServiceCollectionAdapter.RemoveAt(System.Int32)">
   RemoveAt(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L183"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not supported; always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a>.</p>
@@ -718,7 +734,7 @@ must be added directly to the scope instance and cannot be added in advance.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Screenplay/blob/master/CSF.Screenplay.Reqnroll/ServiceCollectionAdapter.cs/#L39" class="edit-link">Edit this page</a>
         </div>
 
 
